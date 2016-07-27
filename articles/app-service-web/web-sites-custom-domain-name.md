@@ -81,7 +81,7 @@ a CNAME record is still valid, whereas an A record must be updated.
 The tutorial shows you steps for using the A record and also for using the CNAME record.
 
 >[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
-[Why can't a CNAME record be used at the apex (aka root) of a domain?](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain))
+[Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
 To map a root domain to your Azure app, use an A record instead.
 
 <a name="vip"></a>
@@ -94,8 +94,6 @@ instead, skip this step and move onto the next section.
 2.	Click **App Services** on the left menu.
 
 4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
-
-5.	In **Domain Names**, type your custom domain name.
 
 6.  Take note of the IP address to use later.
 
@@ -136,22 +134,22 @@ Your A record should be configured as follows (@ typically represents the root d
   <tr>
     <td>contoso.com (root)</td>
     <td>@</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#dns">Step 1</a></td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>www</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#dns">Step 1</a></td>
   </tr>
   <tr>
     <td>*.contoso.com (wildcard)</td>
     <td>*</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#dns">Step 1</a></td>
   </tr>
 </table>
 
-Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to awverify.&lt;*subdomain*>.azurewebsites.net. 
-See examples below:
+Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to 
+awverify.&lt;*subdomain*>.azurewebsites.net. See examples below:
 
 <table cellspacing="0" border="1">
   <tr>
@@ -183,7 +181,7 @@ If you use a CNAME record to map to your Azure app's default domain name, you do
 like you do with an A record. 
 
 >[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
-[Why can't a CNAME record be used at the apex (aka root) of a domain?](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain))
+[Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
 To map a root domain to your Azure app, use an [A record](#a) instead.
 
 Your CNAME record should be configured as follows (@ typically represents the root domain):
@@ -212,7 +210,11 @@ Your CNAME record should be configured as follows (@ typically represents the ro
 Back in the **Bring Exteranl Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
-1.	Navigate back to the **Bring Exteranl Domains** blade in the Azure portal.
+1.	If you haven't done so, log in to the [Azure portal](https://portal.azure.com).
+
+2.	In the Azure portal, click **App Services** on the left menu.
+
+4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
 
 2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
 
