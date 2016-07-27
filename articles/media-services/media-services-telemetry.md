@@ -60,9 +60,7 @@ The following steps are needed to enable telemetry:
 
 Telemetry is written to an Azure Storage Table in the storage account specified when configuring telemetry for the Media Services account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
 
-You can query the tables for the following metrics information. 
-
-The example (shown later in this topic) shows how to use the Media Services .NET SDK to query metrics. 
+You can query telemetry tables for the following metrics information. The example, shown later in this topic, demonstrates how to use the Media Services .NET SDK to query metrics. 
 
 ### StreamingEndpoint log
 
@@ -104,8 +102,10 @@ Property|Description|Sample value
 **DiscontinuityCount**|Gets the discontinuity count.|0
 **LastTimestamp**|Gets the last time stamp.|1800488800
  
-## Use AMS .NET SDK to query metrics 
-		
+## Example  
+	
+The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
