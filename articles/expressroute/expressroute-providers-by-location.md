@@ -128,7 +128,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 - Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
 	- Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
-|**Locations**|**Exchange**|**Connectivity Provider**|
+|**Location**|**Exchange**|**Connectivity Providers**|
 |-------------|------------|-------------------------|
 | **Seattle** | Equinix | Alaska Communications |
 | **Silicon Valley** | Equinix | XO Communications |
@@ -138,7 +138,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
 
-|**Continent**|**System integrator**|
+|**Continent**|**System integrators**|
 |-------------|---------------------|
 | **Asia** | Avanade Inc., OneAs1a|
 | **Europe** | Avanade Inc., Dotnet Solutions|
