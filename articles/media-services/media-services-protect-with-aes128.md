@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/27/2016"
 	ms.author="juliako"/>
 
 #Using AES-128 Dynamic Encryption and Key Delivery Service
@@ -543,8 +543,7 @@ The following code shows how to send a request to the Media Services key deliver
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		            {
-		                        {AssetDeliveryPolicyConfigurationKey.EnvelopeKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
-		                        {AssetDeliveryPolicyConfigurationKey.EnvelopeEncryptionIVAsBase64, envelopeEncryptionIV}
+		                        {AssetDeliveryPolicyConfigurationKey.EnvelopeKeyAcquisitionUrl, keyAcquisitionUri.ToString()}
 		            };
 		
 		            IAssetDeliveryPolicy assetDeliveryPolicy =
