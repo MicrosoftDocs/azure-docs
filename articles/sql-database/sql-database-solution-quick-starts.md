@@ -20,10 +20,6 @@
 
 This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts demonstrate the use of SQL Database in complete solution based on real world scenarios. For simple step-by-step tutorials demonstrating the use of a particular Azure SQL Database feature, see [Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md).
 
-## WingTipTickets Demo and Hands-On Lab
-
-[Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands on lab These files comprise a hands-on-lab that demostrates an Azure SQL Database and Azure Search based sample application used to selling concert tickets.
-
 ## Collect and monitor resource usage data across multiple pools
 
 This Solution Quick Start provides a solution for collecting and monitoring Azure SQL Database resource usage accross multiple pools in a subscription. When you have a large number of databases in a subscription, it is cumbersome to monitor each elastic pool separately. To solve this, you can combine SQL database PowerShell cmdlets and T-SQL queries to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. 

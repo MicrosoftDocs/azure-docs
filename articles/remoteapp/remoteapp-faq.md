@@ -4,7 +4,7 @@
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
-	manager="mbaldwin" 
+	manager="swadhwa" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
 We've heard the following questions about Azure RemoteApp. Have others? Visit the [RemoteApp forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) and let us know what you need to know, or drop a comment down below.
+
+## Can't find what you're looking for? Have a question we didn't answer?
+If you can't find the information you need, or you have an additional question that we're not covering here, please go to the [Azure RemoteApp forum](http://aka.ms/araforum) and ask your question there. We can always add more answers here.
 
 ## What is Azure RemoteApp? ##
 
