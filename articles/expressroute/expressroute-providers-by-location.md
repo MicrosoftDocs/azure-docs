@@ -90,12 +90,10 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 #### US Government cloud
 
-| **Location**  | **Service Providers** | 
-|---------------|-----------------------|
-| **Chicago** | AT&T NetBond, Equinix, Level 3 Communications -IPVPN, Verizon |
-| **Dallas** |  Equinix+, Verizon+ |
-| **New York** | Equinix, Level 3 Communications+, Verizon |
-| **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
+| **Location**  |**Service Providers** |
+|---------------|--------------------|
+| **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
+
 
 #### China
 
