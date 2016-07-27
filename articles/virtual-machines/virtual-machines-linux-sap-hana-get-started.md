@@ -226,7 +226,7 @@ Especially for those who have Microsoft Windows background and would like to use
 within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC or HANA Studio and maybe connect to the VM 
 via RDP from a Microsoft Windows computer there is a simple way to achieve this. While this might not be 
 appropriate e.g. for a production database server it's ok for a pure prototype/demo environment. Here
-are the steps to install the Gnome desktop on an Azure SLES VM :
+are the steps to install the Gnome desktop on an Azure SLES 12 VM :
 
 install the gnome desktop by the following command ( e.g. in a putty window ) :
 
@@ -325,8 +325,8 @@ configured using Yast.
 ![](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
 
 On the app server VM the sapmnt directory should be shared via NFS by using the options "rw" as well as
-"no_root_squash". Default is "ro" and "root_squash" which leads to problems when installing the database
-instance.
+"no_root_squash". Default is "ro" and "root_squash" which could lead to problems when installing the 
+database instance.
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
@@ -350,7 +350,7 @@ instance number and the DB Sys Admin password.
  
 ![](./media/virtual-machines-linux-sap-hana-get-started/image021.jpg)
 
-Next step is to enter the password for the DBACOCKPIT schema password.
+Next step is to enter the password for the DBACOCKPIT schema.
 
 
 
@@ -422,8 +422,8 @@ Here are three sources of information about the HANA hdblcm tool :
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
 
-To avoid running into problems later on with a default group id setting for the \<HANA SID\>adm user created
-by the lcm tool one should define a new group called "sapsys" with group id 1001 before installing SAP HANA 
+To avoid running into problems later on with a default group id setting for the \<HANA SID\>adm user ( created
+by the hdblcm tool ) one should define a new group called "sapsys" with group id 1001 before installing SAP HANA 
 using hdblcm.
 
 
@@ -493,6 +493,28 @@ HANA Studio.
 
 And finally after installation of the SAP app server and SAP GUI one should be able to verify 
 the HANA DB instance with transaction "dbacockpit".
+
+
+# Checklist SAP HANA installation via SAP SWPM
+
+This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
+for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
+items are explained and shown in form of screenshots in more details throughout the article :
+
+* create an Azure virtual network which will include the two ARM test VMs later on
+* deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
+* attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
+* attach four disks to the HANA DB server VM - 2 standard storage like for the app server VM + 
+  2 premium storage disks ( e.g. 2x512GB depending on the requirements )
+* create XFS file systems on the attached disks
+* mount the new XFS file systems on OS level. Use one filesystem to keep all the SAP software and the
+  other one e.g. for the sapmnt directory and maybe backups. On the SAP HANA DB server mount the XFS 
+  file systems on the premium storage disks as /hana and /usr/sap
+
+
+
+
+# Checklist SAP HANA installation via hdblcm
 
 
 
