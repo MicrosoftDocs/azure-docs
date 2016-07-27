@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN - Real-Time-Stats"
-	description="Real-time stats in Microsoft Azure CDN. Real-Time Statistics provides real-time data about the performance of our CDN when delivering content to your clients."
+	pageTitle="Real-Time-Stats in Azure CDN | Microsoft Azure"
+	description="Real-Time Statistics provides real-time data about the performance of Azure CDN when delivering content to your clients."
 	services="cdn"
 	documentationCenter=".NET"
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Real-time stats in Microsoft Azure CDN

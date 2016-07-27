@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Advanced HTTP Reports"
+	pageTitle="Azure CDN Advanced HTTP Reports | Microsoft Azure"
 	description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Troubleshooting CDN endpoints returning 404 status"
-	description="Troubleshoot 404 response codes with CDN endpoints."
+	pageTitle="Troubleshooting Azure CDN endpoints returning 404 status | Microsoft Azure"
+	description="Troubleshoot 404 response codes with Azure CDN endpoints."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN endpoints returning 404 statuses

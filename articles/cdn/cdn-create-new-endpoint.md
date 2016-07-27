@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Using Azure CDN"
+	 pageTitle="Using Azure CDN | Microsoft Azure"
 	 description="This topic shows how to enable the Content Delivery Network (CDN) for Azure. The tutorial walks through the creation of a new CDN profile and endpoint."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Using Azure CDN  
