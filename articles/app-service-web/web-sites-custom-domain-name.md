@@ -239,7 +239,7 @@ After you finish the configuration steps, it can take some time for the changes 
 
 ## Next steps
 
-[Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md)
+[Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md)  
 [Create DNS records for a web app in a custom domain](../dns/dns-web-sites-custom-domain.md)  
 [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md)
 
