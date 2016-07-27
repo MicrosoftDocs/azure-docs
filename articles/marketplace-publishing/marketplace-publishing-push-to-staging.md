@@ -128,19 +128,85 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 | Data service | Yes | No | No |
 
 ### 2.1. Set your VM prices
-> [AZURE.NOTE] BYOL is supported only for virtual machines.
+Presently for virtual machines, we have the following **3 types of billing models:**
 
-1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
-2.	The provided link in the publishing portal will show pricing information to help you in determining the prices of your SKU(s).
-3.	If your SKU is BYOL, select the check box for externally licensed (BYOL) SKU availability.
-4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
+- **Hourly:** Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes (shared core VMS, 1 core VMS, 4 core VMS,8 core VMS,6 core VMS,32 core VMS,64 core VMS,128 core VMS). In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase (see the screenshot below). **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
 
-  > [AZURE.NOTE] If you have both BYOL and hourly SKUs, then make sure both the requisites are covered: BYOL check box and price values for hourly.
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
-5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
-6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
+- **Free Trial:** This is another flavor of the Hourly model. Here the customer doesn’t get charged for software cost for the first 30 days(Free) after deploying the VM. After 30days they get charged on a per-hour basis based on the rates set by the publishers in the hourly model.
+- **Bring-Your-Own-License (BYOL):** The publishers manage the licensing of the software running on the VM.
 
-  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers: **Pricing change**, **Billing model change**, and **Removal of billing regions**.
+**Important:** Once the offer/SKU is listed in the Azure Marketplace, you cannot change the fields given below.
+
+- **Pricing Change of listed SKU(s)**
+- **Billing Model Change of listed SKU(s)**
+- **Removal of billing regions of listed SKU(s)**
+- **Changing the data disk count of listed SKU(s)**
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> select your Offer -> VM Images -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace -> Namespace]
+- **Ports:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
+
+### “Sell-to” countries of the SKU
+You need to carefully consider where you make your SKUs available. Some countries are classified as “Microsoft remit” and others are classified as “ISV remit.”
+
+- In “Microsoft remit” countries, Microsoft collects taxes from customers and pays (remits) taxes to the government.
+- In “ISV remit” countries, partners are responsible for collecting taxes customers and paying taxes to the government. If you choose to sell in “ISV remit” countries, you must have the capability to calculate and pay taxes in the countries you select.
+
+>[AZURE.NOTE] Your SKU will not be available in the countries unless you set their pricing in the [Publishing portal](https://publish.windowsazure.com). Guidance to get set the pricing of Hourly and BYOL SKUs is given below.
+
+### 2.1.1 How to setup hourly pricing model for a SKU
+Please follow the steps given below to setup Hourly pricing model for a SKU:
+
+1.	Login to the [Publishing portal](https://publish.windowsazure.com).
+2.	Navigate to the **VIRTUAL MACHINES** tab and select your offer.
+3.	From the left hand side menu, click the **SKUS** tab.
+4.	Ensure that the SKU is marked as “Hourly Billing Model”. If not, then click on the **EDIT** button to revert the billing model. A window will open. Uncheck the checkbox ‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’ and save the changes.
+5.	If you want to enable Free trial for the first 30days of SKU deployment, then select the option “One Month” for the question “Is a free trial available?” Otherwise, select the option “No Trial”. Now follow the steps given below.
+6.	From the left hand side menu, click the **PRICING** tab.
+7.	Select your base region.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
+
+8. Set the prices for all cores. **You must provide price for all the cores of a SKU even if your SKU does not support it.**
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
+
+9.	Set the prices for the other regions manually or you can use the AUTOPRICE wizard to set the prices of other regions based on the base region. To use the AUTOPRICE wizard click on the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES.** **Note:** The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
+
+10.	The auto price wizard will open. The first page displays the selection for base market. Make your section and move to the next page by clicking on the “->” button.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
+
+11.	Option for selecting the cores and plans will be displayed on the page 2. Select the desired plans and click “->” button. Click the **Toggle All** button to select all the **Service plans** and **Meters** or you can manually check the checkboxes. **You must provide price for all the cores of a SKU even if your SKU does not support it.** Hence ensure that all the core sizes are selected.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
+
+12.	Page 3 displays the markets/regions. Click the **Toggle All** button to select all regions or manually check the boxes for region. Click on the “->” button to move to the next page. **Note:** Microsoft Tax Remitted Countries are denoted by a house like symbol. For more details please refer to the section “Sell-to” countries of the SKU of this page.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
+
+13.	Page 4 displays the exchange rates. Click on the finish button to complete the steps.
+
+### 2.1.2 How to setup BYOL pricing model for a SKU
+Please follow the steps given below to setup BYOL pricing model for a SKU:
+
+1.	Login to the [Publishing portal](https://publish.windowsazure.com).
+2.	Navigate to the **VIRTUAL MACHINES** tab and select your offer.
+3.	From the left hand side menu, click the **SKUS** tab.
+4.	Ensure that the SKU is marked as “Bring your own license SKU”. If not, then click on the EDIT button to revert the billing model. A window will open. Check the checkbox ‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’ and save the changes.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
+
+5.	From the left hand side menu, click the **PRICING** tab.
+6.	Select your base region and make the SKU available in the region by checking the checkbox against the SKU under the section EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY (see the screenshot below).
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
+
+7.	Make the SKU available in the other regions manually or you can use the AUTOPRICE wizard for this purpose. Refer to the points #9 to #13 (which explains the use of the AUTOPRICE wizard) in the section **“2.1.1 How to setup Hourly pricing model for a SKU”** of this page.
 
 ### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
