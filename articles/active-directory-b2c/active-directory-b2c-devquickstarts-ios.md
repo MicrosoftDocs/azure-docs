@@ -28,12 +28,9 @@ If you're new to OAuth2 or OpenID Connect much of this sample configuration may 
 
 > [AZURE.NOTE]
     Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
+   
+Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
-> [AZURE.NOTE] 
-    Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
-
-> [AZURE.NOTE]
-	To work fully, this Quickstart requires that you already have a web API protected by Azure AD B2C. We have built one for both .NET and Node.js that you can use. This walk-through assumes that the Node.js web API sample is configured. Refer to the [Azure Active Directory web API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md) for more.
 
 ## Get an Azure AD B2C directory
 
