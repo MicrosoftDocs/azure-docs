@@ -419,7 +419,9 @@ To implement the topology, create a new file named **WordCountTopology.java** in
 
         //new configuration
         Config conf = new Config();
-        conf.setDebug(true);
+        //Set to false to disable debug information
+        // when running in production mode.
+        conf.setDebug(false);
 
         //If there are arguments, we are running on a cluster
         if (args != null && args.length > 0) {
@@ -471,6 +473,8 @@ Storm uses Apache Log4j to log information. If you do not configure logging, the
 This configures a new logger for the __com.microsoft.example__ class, which includes the components in this example topology. The level is set to trace for this logger, which will capture any logging information emitted by components in this topology. If you look back through the code for this project, you'll notice that only the WordCount.java file implements logging; it will log the count of each word.
 
 The `<Root level="error">` secton configures the root level of logging (everything not in __com.microsoft.example__,) to only log error information.
+
+> [AZURE.IMPORTANT] While this greatly reduces the information logged when testing a topology in your development environment, it does not remove all the debug information produced when running on a cluster in production. To reduce that information, you must also set debugging to false in the configuration submitted to the cluster. See the WordCountTopology.java code in this document for an example. 
 
 For more information on configuring logging for Log4j, see [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
