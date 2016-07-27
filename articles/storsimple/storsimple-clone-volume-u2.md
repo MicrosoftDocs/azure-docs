@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/26/2016"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume (Update 2)
@@ -90,9 +90,9 @@ This clone is now a regular volume, and any operation that is possible on a volu
 
 ## Transient vs. permanent clones
 
-Transient and permanent clones are created only when you are cloning on to a different device. You can clone a specific volume from a backup set to a different device. A clone created in this way is a *transient* clone. The transient clone will have references to the original volume and will use that volume to read while writing locally. 
+Transient clones are created only when you are cloning to a different device. You can clone a specific volume from a backup set to a different device managed by the StorSimple Manager. The transient clone will have references to the data in the original volume and will use that data to read and write locally on the target device. 
 
-After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. During this process, a copy of the data is created and the time to copy is determined by the size of the data and the Azure latencies (this is an Azure-to-Azure copy). This process can take days to weeks. The permanent clone created this way is independent and doesn’t have any references to the original volume that it was cloned from. 
+After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. During this process, a copy of the data is created on the cloud and the time to copy this data is determined by the size of the data and the Azure latencies (this is an Azure-to-Azure copy). This process can take days to weeks. The transient clone becomes a permanent clone this way and doesn’t have any references to the original volume data that it was cloned from. 
 
 ## Scenarios for transient and permanent clones
 
