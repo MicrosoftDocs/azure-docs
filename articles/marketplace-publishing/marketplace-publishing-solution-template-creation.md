@@ -52,16 +52,13 @@ Upload a zip file that contains all required files to provision that particular 
   > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
 ## Next steps
-Now that you created your solution template and submitted the zip file with the required files for certification, you can can continue to and follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before preparing your offer for testing in staging. Or, to see the full set of marketplace publishing articles, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+Now that you created your solution template and uploaded the zip file, please follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before pushing the offer to staging. To see the full set of marketplace publishing articles, visit [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 You might also be interested in these related articles:
 
 - VM images: [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-
 - VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-
 - Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates.md) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
-
 - Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
