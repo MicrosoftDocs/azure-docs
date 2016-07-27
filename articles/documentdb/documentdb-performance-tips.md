@@ -68,14 +68,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
     By default, the first request will have a higher latency because it has to fetch the address routing table. In order to avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
 
         await client.OpenAsync();
-
-4. <a href="same-region"></a>**Collocate clients in same Azure region for performance**
+<a href="same-region"></a>
+4. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling DocumentDB in the same region as the DocumentDB database. For a ballpark comparison, calls to DocumentDB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency will be achieved by ensuring the calling application is located within the same Azure region as the provisioned DocumentDB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the DocumentDB connection policy](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
-
-5. <a href="increase-threads"></a>**Increase number of threads/tasks**
+<a href="increase-threads"></a>
+5. **Increase number of threads/tasks**
 
     Since calls to DocumentDB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), please create in the order of 100s of Tasks reading or writing to DocumentDB.
 
@@ -107,7 +107,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 7. **Cache document URIs for lower read latency**
 
     Cache document URIs whenever possible for the best read performance.
-
+<a href="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
 
     When performing a bulk read of documents using read feed functionality (i.e. ReadDocumentFeedAsync) or when issuing a DocumentDB SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first. 
@@ -141,8 +141,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
         collection = await client.CreateDocumentCollectionAsync(databaseLink, collection);
 
 ## Throughput
-
-1. <a href="measure-rus"></a>**Measure and tune for lower request units/second usage**
+<a href="measure-rus"></a>
+1. **Measure and tune for lower request units/second usage**
 
     DocumentDB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
