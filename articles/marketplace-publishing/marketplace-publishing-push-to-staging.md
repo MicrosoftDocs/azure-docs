@@ -34,8 +34,9 @@ In this step of the publishing process, you will need to provide certain marketi
 3.	Do not enter duplicate text under offer and plan description.
 4.	Do not enter duplicate text under plan’s title and offer long summary.
 5.	Do not enter duplicate text under plan title and offer summary.
-6.	Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
-7.	Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
+6.  Do not enter identical plan titles for an offer with multiple plans.
+7.	Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
+8.	Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
