@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="06/29/2016"
+  ms.date="07/27/2016"
   ms.author="hascipio; v-divte"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -47,6 +47,7 @@ In order to sell your services on the Azure Marketplace, you must make sure that
 
 ## Next steps
 Once the non-technical pre-requisites are fulfilled, next are the offer specific technical prerequisites. Click the link to the article for the respective offer type that you would like to create for the Azure Marketplace.
+
 - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
 - [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
