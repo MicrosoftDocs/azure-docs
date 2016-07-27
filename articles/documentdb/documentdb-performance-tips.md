@@ -69,9 +69,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         await client.OpenAsync();
 
-4. **Collocate clients in same Azure region for performance**
+4. <a href="same-region"></a>**Collocate clients in same Azure region for performance**
 
-    When possible, place any applications calling DocumentDB in the same region as the DocumentDB database. For a ballpark comparison, calls to DocumentDB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency will be achieved by ensuring the calling application is located within the same Azure region as the provisioned DocumentDB endpoint.
+    When possible, place any applications calling DocumentDB in the same region as the DocumentDB database. For a ballpark comparison, calls to DocumentDB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency will be achieved by ensuring the calling application is located within the same Azure region as the provisioned DocumentDB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the DocumentDB connection policy](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
 
