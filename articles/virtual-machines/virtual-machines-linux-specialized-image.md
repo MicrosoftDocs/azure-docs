@@ -13,29 +13,48 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/26/2016"
 	ms.author="cynthn"/>
 
 # Create a copy of a Linux virtual machine running on Azure
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new resource group, then set up the network resources and create the new virtual machine.
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
 
-If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image. For that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
-
+You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md).
 
 
 ## Before you begin
 
 Ensure that you meet the following prerequisites before you start the steps:
 
-- You have an Azure virtual machine running Linux, which you created by using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks, and made other customizations like installing required applications. You'll use this VM to create the copy. If you need help creating the source VM, see [Create a Linux VM in Azure](virtual-machines-linux-quick-create-cli.md).
+- You have the Azure CLI downloaded and installed on your machine. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
 
-- You have the Azure CLI downloaded and installed on your machine, and you have signed in to your Azure subscription. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
+- You have a working source Azure VM running Linux. 
 
-- You have storage account information for the source VM.
+- You also need some information about your existing VM:
 
-> [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.  
+| Source VM iformation | Where to get it ||
+|------------|-----------------||
+| VM name | 'azure vm list' || 
+| Resource Group name | 'azure vm list' ||
+| Location | 'azure vm list'
+| Storage Account name | 
+| Container name |
+| Source VM VHD file name |
+
+
+
+- You will need to make some choices about your new VM:
+	Container name
+	VM name
+	vNet name
+	SubNet name
+	IP Name
+	VM size 
+	
+
+
 
 ## Login and set your subscription
 
@@ -51,345 +70,63 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 		azure account set <SubscriptionId>
 
-## Create a storage account and a container for the new VM
 
-First, create a resource group:
-
-```bash
-azure group create TestRG --location "WestUS"
-```
-
-Create a storage account to hold your virtual disks:
-
-```bash
-azure storage account create testuploadedstorage --resource-group TestRG \
-	--location "WestUS" --kind Storage --sku-name LRS
-```
-
-List the storage keys for the storage account you just created and make a note of `key1`:
-
-```bash
-azure storage account keys list testuploadedstorage --resource-group TestRG
-```
-
-The output will be similar to:
-
-```
-info:    Executing command storage account keys list
-+ Getting storage account keys
-data:    Name  Key                                                                                       Permissions
-data:    ----  ----------------------------------------------------------------------------------------  -----------
-data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
-data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
-info:    storage account keys list command OK
-```
-
-Create a container within your storage account using the storage key you just obtained:
-
-```bash
-azure storage container create --account-name testuploadedstorage \
-	--account-key <key1> --container vm-images
-```
 
 ## Stop the VM 
 
-Stop and deallocate the source VM. To get the names and resource group of all of the VMs in your subscription, use 'azure vm list'.
+Stop and deallocate the source VM. You can use 'azure vm list' to get a list of all of the VMs in your subscription and their resource group names.
 	
 		azure vm stop <ResourceGroup> <VmName>
 		azure vm deallocate <ResourceGroup> <VmName>
 
 
-## Set the connection string for the source account 
 
-Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command. 
-
-You will need the storage account name and resource group of the source VM. To see a list of all of the storage accounts in a subscription and their resource groups, type `azure storage account list`. 
-
-1. Get the source connection string: 
-		azure storage account connectionstring show <sourceStorageAccount> -g <sourceResourceGroup>
+## Get the container and VHD names
 		
-				
-	The output should look something like this:
+1. Get the container name:
 	
-		C:\>azure storage account connectionstring show suseclassicst -g suseclassicrg
-		info:    Executing command storage account connectionstring show
-			+ Getting storage account keys
-		data:    connectionstring: DefaultEndpointsProtocol=https;AccountName=suseclassicst;AccountKey=Bnt4W6oMza4fj8EYs972MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+cUxyfm5+fw==
-		info:    storage account connectionstring show command OK
-
-
-2. Set the connection string. 
-
-		set AZURE_STORAGE_CONNECTION_STRING=<connectionString>
-
-
-Get the container name:
-	azure storage container list -a <sourcestorageaccountname> 
+		azure storage container list -a <sourcestorageaccountname> 
 
 	In most cases, the container name will be **vhds**
 
-Get the VHD name.
+2. Get the VHD name.
 
 		azure storage blob list --container <container_name>
 		
+## Copy the VHD
 
 
-		
-		
-		
-		
-		
-		
-		
-		
-Copy the VHD from the source storage to the destination by using the following command.
+You can copy the VHD from the source storage to the destination using the `azure storage blob copy start`. In this example, we are going to copy the VHD to the same storage account, but a different container.
 
 To copy the VHD to another container in the same storage account, type:
 
 		azure storage blob copy start https://<storageaccount>.blob.core.windows.net:8080/<sourceContainer>/<fileName.vhd> <newcontainerName>
 		
-To copy the VHD to another storage account and container, type:		
-
-
-		azure storage blob copy start https://<storageaccount>.blob.core.windows.net:8080/<sourceContainer>/<fileName.vhd> https://<storageaccount>.blob.core.windows.net:8080/<destinationContainer>/<fileName.vhd>
-		
-		azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net:8080/vhds/SUSEClassic-os-5299.vhd https://movedestination.blob.core.windows.net:8080/vhdscopy/SUSEClassic.vhd
-		
-		
-		
-		
-		azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net:8080/vhds/SUSEClassic-os-5299.vhd --dest-account-name movedestination --dest-container vhdscopy --dest-blob suseclassic.vhd 
-		
-		azure storage blob copy start --source-uri <sourceUri> --dest-container <destContainer>
-		
-		
-		
-		
-		azure storage blob copy start source destination
-		
-		
 
 
 
 
+## Set up the virtual network for your new VM
+
+Set up a virtual network and NIC for your new VM. 
+
+	$azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
+
+	$azure network vnet subnet create <ResourceGroupName> <VnetName> <SubnetName>
+
+	$azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
+
+	$azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
 
 
+## Create the new VM 
 
+You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your disk as follows:
 
-			azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
-			
-			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D copylinuxcontainer  << failed
-			
-			
-			I suspect I need to be in arm mode and have a destination container URL or something more specific. Need to figure out what parameters the storage blob copy supports.
-			
-			================================================================================================================
-			
-			Getting the connection thing as the "dest" portion of the copy blob command:
-			
-			>> azure storage account connectionstring show copylinuxstorage
-			
-			asks for RG name. RG is -g. Trying this:
-			
-			>> azure storage account connectionstring show copylinuxstorage -g LinuxCopyRG
-			
-			That worked. So, the command for getting the RM connection string is:
-			
-			azure storage account connectionstring show <destStorageAccount> -g <destResourceGroup>
-			
-			>> My connection string: connectionstring: DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
-			
-			
-			Soooo.... this should be the RM way to copy from asm to arm
-			
-			azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> --dest-connection-string <destConnectionString> 
-			
-			But it might need the container. Let's try first....
-			
-			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
-			
-			Yep, needs --dest-container <destContainer>
-			
-			>> azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 	
+```bash
+azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <yourNicName> -z "<vmSize>" -Q https://<storageAccountName>.blob.core.windows.net/<destinationContainerName/<fileName.vhd> -y Linux
+```
 
-
-azure storage blob copy start https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D --dest-container copylinuxcontainer --dest-connection-string DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg== 				
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-## Create a shared access signature for the source storage account
-
-Using a shared access signature (SAS) is a powerful way to grant limited access to objects in your storage account to other clients, without having to expose your account key. ******* Do we need this???? *******
-		
-		azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
-		
-		
-		
-			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
-			
-			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
-			
-			Output:
-			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-
-
-
-
-## Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md).
-
-Set up the connection string for the destination storage account. This connection string will contain the access key for destination storage account.
-
-			azure config mode arm
-			
-			azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
-			
-			>> azure storage account connectionstring show -g LinuxCopyRG copylinuxstorage
-			
-			set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-				
-			>>  set AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=copylinuxstorage;AccountKey=R4ApUh8uYpl17iFz1W6ONysYrpTPVkWw9Q/pl+JoyFRfDbd90NGkCN/ennERcAnnPzBBKLXGDVJg4bhhw5wgZg==
-			
-			
-## Create a shared access signature for the source storage account
-
-Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Make a note of the **Shared Access URL** output of the following command.
-
-switch to asm: azure config mode asm
-get the connection string: azure storage account connectionstring show <source_storage_account>
-set the connection string: set AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-container: azure storage container list
-blob\vhd file name: azure storage blob list --container <container_name>
-
-			azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
-			
-			>> azure storage blob sas create  --account-name suseclassicrg5769 --account-key Bnt4W6oMza4fE8EYs976MhbJtM2j0qI8hgpw8mKs3ejDMCNb/5efaC/uBF6n3qDimKRe66l3AWY+KUxyfm5+fw== --container vhds --blob SUSEClassic-os-5299.vhd  --permissions "r" --expiry 01/01/2020
-			
-			Output:
-			>> https://suseclassicrg5769.blob.core.windows.net/vhds/SUSEClassic-os-5299.vhd?se=2020-01-01T08%3A00%3A00Z&sp=r&sv=2015-04-05&sr=b&sig=YDtLBReoAuLpMrBOGhGWdcOAUISNyZ6UvBlbrVqHn8k%3D
-
-3. 
-			
-			
-			
-
-4. The VHD file is copied asynchronously. Check the progress by using the following command.
-
-			azure storage blob copy show <DestinationContainerName> <FileNameOfTheVHDtoCopy>
-
-</br>
-
->[AZURE.NOTE] You should copy the operating system and data disks separately, as described earlier.
-
-
-## Create a VM by using the copied VHD
-
-By using the VHD copied in the preceding steps, you can now use Azure CLI to create a Resource Manager-based Linux VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
-
-
-Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables as appropriate to your application.
-
-	$azure network vnet create <yourResourceGroup> <yourVnetName> -l <yourLocation>
-
-	$azure network vnet subnet create <yourResourceGroup> <yourVnetName> <yourSubnetName>
-
-	$azure network public-ip create <yourResourceGroup> <yourIpName> -l <yourLocation>
-
-	$azure network nic create <yourResourceGroup> <yourNicName> -k <yourSubnetName> -m <yourVnetName> -p <yourIpName> -l <yourLocation>
-
-
-Create the new virtual machine by using the copied VHDs by using the following command.
-</br>
-
-	$azure vm create -g <yourResourceGroup> -n <yourVmName> -f <yourNicName> -d <UriOfYourOsDisk> -x <UriOfYourDataDisk> -e <DataDiskSizeGB> -Y -l <yourLocation> -y Linux -z "Standard_A1" -o <DestinationStorageAccountName> -R <DestinationStorageAccountBlobContainer>
-
-
-The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
-
-
-If this command was successful, you'll see output similar to this:
-
-	$azure vm create -g "testcopyRG" -n "redhatcopy" -f "LinCopyNic" -d https://testcopystore.blob.core.windows.net/testcopyblob/RedHat201631816334.vhd -x https://testcopystore.blob.core.windows.net/testcopyblob/RedHat-data.vhd -e 10 -Y -l "West US" -y Linux -z "Standard_A1" -o "testcopystore" -R "testcopyblob"
-	info:    Executing command vm create
-	+ Looking up the VM "redhatcopy"
-	info:    Using the VM Size "Standard_A1"
-	+ Looking up the NIC "LinCopyNic"
-	info:    Found an existing NIC "LinCopyNic"
-	info:    Found an IP configuration with virtual network subnet id "/subscriptions/b8e6a92b-d6b7-4dbb-87a8-3c8dfe248156/resourceGroups/testcopyRG/providers/Microsoft.Network/virtualNetworks/LinCopyVnet/subnets/LinCopySub" in the NIC "LinCopyNic"
-	info:    This NIC IP configuration has a public ip already configured "/subscriptions/b8e6a92b-d6b7-4dbb-87a8-3c8dfe248156/resourcegroups/testcopyrg/providers/microsoft.network/publicipaddresses/lincopyip", any public ip parameters if provided, will be ignored.
-	+ Looking up the storage account testcopystore
-	info:    The storage URI 'https://testcopystore.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
-	+ Creating VM "redhatcopy"
-	info:    vm create command OK
-
-You should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**.
-
-Connect to your new virtual machine by using an SSH client of your choice, and use the account credentials of your original virtual machine (for example, `ssh OldAdminUser@<IPaddressOfYourNewVM>`). For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Next steps
