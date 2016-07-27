@@ -23,7 +23,7 @@ Learn a basic process to create a Java-based topology for Apache Storm on HDInsi
 
 After completing the steps in this document, you will have a basic topology that you can deploy to Apache Storm on HDInsight.
 
-> [AZURE.NOTE]: A completed version of this topology is available at [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> [AZURE.NOTE] A completed version of this topology is available at [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Prerequisites
 
