@@ -36,7 +36,7 @@ Here is how you can remove your Spending Limit:
 
 4. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click Remove spending limit in the SUBSCRIPTION STATUS area. 
 
-	If you are using a free trial subscription, removing the spending limit will convert your subscription to Pay-As-You-Go at the end of the free trial period.
+	Note: If you are using a free trial subscription, removing the spending limit will convert your subscription to Pay-As-You-Go at the end of the free trial period.
 
 5. Select one of the following options that is appropriate for you：
 
