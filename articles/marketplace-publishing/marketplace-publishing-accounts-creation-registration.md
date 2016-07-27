@@ -144,6 +144,22 @@ If you prefer to update your tax and bank information later, you can go to secti
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
 
+If you have issues with Developer Center registration, please log a support ticket as below
+
+1. Go to the support link [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+2. Under **Contact Us** section, click on the button **Submit an incident** (as shown in the screenshot below)
+
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
+
+3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email".
+
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
+
+4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account then create one using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+5. Fill in the details of the issue and subit the ticket by clicking on the **Submit** button.
+
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
+
 ## 3. Register your account in the publishing portal
 The Azure publishing portal is used to publish and manage your offer(s). You will find some useful information in the publishing portal that will guide you through your offer creation process.
 
