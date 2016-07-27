@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What do I do if my Azure subscription is cancelled? | Microsoft Azure"
+	pageTitle="What do I do if my Azure subscription is disabled? | Microsoft Azure"
 	description="Describes the reasons and resolution for Azure subscription becomes disabled"
 	services="billing"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.date="04/17/2016"
 	ms.author="genli"/>
 
-# What do I do if my Azure subscription is cancelled?
+# What do I do if my Azure subscription is disabled?
 
 If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons:
 
