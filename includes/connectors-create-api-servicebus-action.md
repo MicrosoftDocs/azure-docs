@@ -6,7 +6,7 @@ Follow these steps to create the send message action:
 - Select **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, Service Bus actions are of interest.    
 ![Service Bus action image 1](./media/connectors-create-api-servicebus/action-1.png)   
 - Enter *service bus* to search for actions related to Service Bus.  
-- Select **Service Bus - Send message** as the action to take. 
+- Select **Service Bus - Send message** as the action to take.  
 ![Service Bus action image 2](./media/connectors-create-api-servicebus/action-2.png)    
 - Enter the content for the message. This is required.  
 - Enter the queue or topic name to which the message will be sent. This is also required.   
