@@ -20,29 +20,29 @@
 This article walks you through the necessary account creation and registration process to become an approved Microsoft Developer for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
-> [AZURE.WARNING] To start the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
+To start the publishing process, you will need to create a Microsoft account. This account will be used to register in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
-The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@example.com). Payment, tax information, and reporting will be routed through this account.
+The address that forms the user name should be on your domain and controlled by your IT team. All the publishing related activities should be done through this account.
 
-  > [AZURE.WARNING] Words like "Azure" and "Microsoft" are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
+  >[AZURE.WARNING] Words like **"Azure"** and **"Microsoft"** are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
 
 ### Instructions
 
-1. Create a distribution list (DL) or security group (SG) within your company's domain.
-  - Add your onboarding team to the DL.
-  - The DL must be live to receive a confirmation email.
-  - Use marketplace@example.com as the email address for the DL.
-  - This needs to be completed in your internal systems.
-2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
-3. Register for a Microsoft account by using the DL email.
- - You can register for a Microsoft account at [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
- - Use marketplace@example.com as the email address.
- - Your Microsoft account ID is now marketplace@example.com.
-4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identity verification is required.
-5. Verify the email address sent to the DL.
-6. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
+1. Create a distribution list (DL) or security group (SG) within your company's domain. Using a DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
+Follow the instructions given below.
 
-> [AZURE.TIP] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
+  1. Add your onboarding team to the DL.
+  2. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
+  3. c.	We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
+
+2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
+3. 3.	Register the DL created in step 1 as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
+
+  1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
+  2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
+
+4. Verify the email address sent to the DL.
+5. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
 ## 2. Create your Microsoft Developer Center account
 The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
