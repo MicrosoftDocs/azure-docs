@@ -29,7 +29,7 @@ While you can install the gateway on the same on-premises machine or the Azure V
 
 Apart from the Data Management Gateway, you also need to install the ODBC driver for the data store on the gateway machine. 
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from ODBC data store to Azure Blob
 
