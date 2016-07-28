@@ -1,6 +1,6 @@
 <properties
-	pageTitle="CDN - Troubleshooting file compression"
-	description="Troubleshoot issues with CDN file compression."
+	pageTitle="Troubleshooting file compression in Azure CDN | Microsoft Azure"
+	description="Troubleshoot issues with Azure CDN file compression."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN file compression
