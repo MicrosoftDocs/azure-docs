@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="07/27/2016"
 	ms.author="cephalin"/>
 
 # Map a custom domain name to an Azure app
@@ -46,12 +46,12 @@ If you have already purchased a custom domain from [Azure DNS](https://azure.mic
 there are three main steps to map the custom domain to your app:
 
 1. [*(A record only)* Get app's IP address](#vip).
+2. [Create the DNS records that map your domain to your app](#createdns). 
+    - **Where**: your domain registrar's own management tool (e.g. Azure DNS, GoDaddy, etc.).
+    - **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 1. [Enable the custom domain name for your Azure app](#enable).
     - **Where**: the [Azure portal](https://portal.azure.com).
     - **Why**: so your app knows to respond to requests made to the custom domain name.
-2. [Create the DNS records that map your domain to your app](#dns). 
-    - **Where**: your domain registrar's own management tool (e.g. Azure DNS, www.godaddy.com, etc.).
-    - **Why**: so your domain registrar knows to resolves the desired custom domain to your Azure app.
 3. [Verify DNS propagation](#verify).
 
 ### Types of domains you can map
@@ -80,19 +80,28 @@ a CNAME record is still valid, whereas an A record must be updated.
 
 The tutorial shows you steps for using the A record and also for using the CNAME record.
 
+>[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
+[Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
+To map a root domain to your Azure app, use an A record instead.
+
 <a name="vip"></a>
 ## Step 1. *(A record only)* Get app's IP address
 To map a custom domain name using an A record, you need your Azure app's IP address. If you will map using a CNAME record
 instead, skip this step and move onto the next section.
 
 1.	Log in to the [Azure portal](https://portal.azure.com).
+
 2.	Click **App Services** on the left menu.
+
 4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
-5.	In **Domain Names**, type your custom domain name.
+
 6.  Take note of the IP address to use later.
+
+    ![Map custom domain name with A record: Get IP address for you Azure App Service app](./media/web-sites-custom-domain-name/virtual-ip-address.png)
+
 7.  Keep this portal blade open. You will come back to it once you create the DNS records.
 
-<a name="dns"></a>
+<a name="createdns"></a>
 ## Step 2. Create the DNS record(s)
 
 Log in to your domain registrar and use their tool to add an A record or CNAME record. Every registrar’s UI is slightly 
@@ -119,34 +128,34 @@ Your A record should be configured as follows (@ typically represents the root d
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
+    <th>A Host</th>
+    <th>A Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
     <td>@</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
     <td>www</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
     <td>*.contoso.com (wildcard)</td>
     <td>*</td>
-    <td>IP address from [Step 1]()</td>
+    <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
 </table>
 
-Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to awverify.&lt;*subdomain*>.azurewebsites.net. 
-See examples below:
+Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to 
+awverify.&lt;*subdomain*>.azurewebsites.net. See examples below:
 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
+    <th>CNAME Host</th>
+    <th>CNAME Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
@@ -171,18 +180,17 @@ See examples below:
 If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional CNAME record
 like you do with an A record. 
 
+>[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
+[Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
+To map a root domain to your Azure app, use an [A record](#a) instead.
+
 Your CNAME record should be configured as follows (@ typically represents the root domain):
 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>Host/Name/Hostname</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>contoso.com (root)</td>
-    <td>@</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    <th>CNAME Host</th>
+    <th>CNAME Value</th>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
@@ -196,21 +204,24 @@ Your CNAME record should be configured as follows (@ typically represents the ro
   </tr>
 </table>
 
-
->[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns/dns-web-sites-custom-domain.md).
-
 <a name="enable"></a>
 ## Step 3. Enable the custom domain name for your app
 
 Back in the **Bring Exteranl Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
-1.	Navigate back to the **Bring Exteranl Domains** blade in the Azure portal.
+1.	If you haven't done so, log in to the [Azure portal](https://portal.azure.com).
+
+2.	In the Azure portal, click **App Services** on the left menu.
+
+4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
 
 2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
 
+    ![Map a custom domain name to an Azure app: add to list of domain names](./media/web-sites-custom-domain-name/add-custom-domain.png)
+
     >[AZURE.NOTE] Azure will attempt to verify the domain name you use here, so be sure that it is the same domain name
-    for which you created a DNS record in [Step 2](#dns). If you are sure that 
+    for which you created a DNS record in [Step 2](#createdns). If you are sure that 
 
 6.  Click **Save**.
 
@@ -222,23 +233,18 @@ now see your app running and your custom
 
 After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
 
-![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
+![Map a custom domain name to an Azure app: verify DNS propagation](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
 > [AZURE.NOTE] The propagation of the DNS entries can take up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 
 ## Next steps
 
-For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md)
+[Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md)  
+[Create DNS records for a web app in a custom domain](../dns/dns-web-sites-custom-domain.md)  
+[Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md)
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-
-<!-- Anchors. -->
-[Overview]: #overview
-[DNS record types]: #dns-record-types
-[Find the virtual IP address]: #find-the-virtual-ip-address
-[Create the DNS records]: #create-the-dns-records
-[Enable the domain name on your web app]: #enable-the-domain-name-on-your-web-app
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png

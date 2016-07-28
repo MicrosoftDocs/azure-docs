@@ -16,7 +16,7 @@
 	ms.date="07/27/2016"
 	ms.author="banders"/>
 
-# Network Performance Monitor solution (preview) in Log Analytics
+# Network Performance Monitor (Preview) solution in Log Analytics
 
 >[AZURE.NOTE] This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 
@@ -28,7 +28,7 @@ The solution uses synthetic transactions as a primary mechanism to detect networ
 
 Typical network monitoring products focus on monitoring the network device (routers, switches etc.) health but do not provide insights into the actual quality of network connectivity between two points, which Network Performance Monitor does.
 
-## Using the solution standalone
+### Using the solution standalone
 
 If you want to monitor the quality of network connections between their critical workloads, networks, datacenters or office sites, then you can use the Network Performance Monitor solution by itself to monitor connectivity health between:
 
@@ -37,7 +37,7 @@ If you want to monitor the quality of network connections between their critical
 - public cloud services like Microsoft Azure or Amazon Web Services (AWS) and on-premises networks, if you have IaaS (VM) available and you have gateways configured to allow communication between on-premises networks and cloud networks
 - Azure and on-premises networks when you use Express Route
 
-## Using the solution with other networking tools
+### Using the solution with other networking tools
 
 If you want to monitor a line of business application, you can use the Network Performance Monitor solution as a companion solution to other network tools. A slow network can lead to slow applications and Network Performance Monitor can help you investigate application performance issues that are caused by underlying networking issues. Because the solution does not require any access to network devices, the application administrator doesn't need to rely on a networking team to provide information about how the network is affecting applications.
 
@@ -213,7 +213,7 @@ You can click **View topology** to view the hop-by-hop topology of the routes be
 
 #### Trend charts
 
-At each level that you the drill-down, you can see the trend of loss and latency for a network link. Trend charts are also available for Subnetwork and Node links. You can change the time interval for the graph to plot by using the time control at the top of the chart.
+At each level that you drill-down, you can see the trend of loss and latency for a network link. Trend charts are also available for Subnetwork and Node links. You can change the time interval for the graph to plot by using the time control at the top of the chart.
 
 Trend charts show you a historical perspective of the performance of a network link. Some network issues are transient in nature and would be hard to catch only by looking at the current state of the network. This is because issues can surface quickly and disappear before anyone notices, only to reappear at a later point in time. Such transient issues can also be difficult for application administrators because those issues often surface as unexplained increases in application response time, even when all application components appear to run smoothly.
 
