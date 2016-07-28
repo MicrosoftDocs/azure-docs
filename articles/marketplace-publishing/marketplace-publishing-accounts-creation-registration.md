@@ -31,15 +31,15 @@ The address that forms the user name should be on your domain and controlled by 
 1. Create a distribution list (DL) or security group (SG) within your company's domain. Using a DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 Follow the instructions given below.
 
-  1. Add your onboarding team to the DL.
-  2. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
-  3. c.	We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
+  a. Add your onboarding team to the DL.
+  b. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
+  c. We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
 
 2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
-3. 3.	Register the DL created in step 1 as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
+3. Register the DL created in step 1 as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
 
-  1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
-  2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
+  a. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
+  b. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
 
 4. Verify the email address sent to the DL.
 5. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
@@ -87,9 +87,9 @@ The Microsoft Developer Center is used to register the company information once.
 
 6. Enter the **Publisher display name**, typically the name of your company.
 
-    > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name. But this must be filled to complete the registration process.
+    > [AZURE.TIP] The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
 
-7. Enter the **Contact info** for the account.
+7. Enter the **Contact info** for the account verification.
 
     > [AZURE.IMPORTANT] You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
 
@@ -173,10 +173,10 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Steps to add a co admin in the publishing portal
+## Steps to add a co-admin in the Publishing portal
 **Assuming that you are the admin,** given below are the steps to add a co-admin.
 
->[AZURE.NOTE] Before you add a co-admin in the Publishing portal, ensure that you have created at least one application in the Publishing portal. This is required as the **PUBLISHERS** tab appear only after creating at least one application in the Publishing portal.
+>[AZURE.NOTE] **For the new users,** before you add a co-admin in the Publishing portal, ensure that you have created at least one application in the Publishing portal. This is required as the **PUBLISHERS** tab appear only after creating at least one application in the Publishing portal.
 
 1. Ensure that the co-admin email id is a Microsoft account(MSA). If not, register it as a MSA using this [link](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 2. Ensure that there is at least one application under the admin account before trying to add a co-admin.

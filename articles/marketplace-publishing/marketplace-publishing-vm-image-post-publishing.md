@@ -22,16 +22,16 @@ This article explains how you can update a live Virtual Machine offer in the Azu
 
 Once an offer/SKU is staged in the [Azure Portal](http://portal.azure.com), you cannot change the fields given below:
 
-- **Offer Identifier:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Offer Identifier]
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> VM Images tab -> Offer Identifier]
 - **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
 - **Publisher Namespace:** [Publishing portal -> Virtual  Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under “Step 2 Register Your Company”) -> Publisher Namespace -> Namespace]
 
 Once the offer/SKU is listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace), you cannot change the fields given below:
 
-- **Offer Identifier:** [Publishing portal -> Virtual Machines ->  select your Offer -> VM Images -> Offer Identifier]
+- **Offer Identifier:** [Publishing portal -> Virtual Machines ->  Select your Offer -> VM Images tab -> Offer Identifier]
 - **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
 - **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace -> Namespace]
-- **Ports** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
+- **Ports** [Publishing portal -> Virtual Machines -> Select your Offer -> VM Images tab -> Open Ports]
 - **Pricing Change of listed SKU(s)**
 - **Billing Model Change of listed SKU(s)**
 - **Removal of billing regions of listed SKU(s)**
