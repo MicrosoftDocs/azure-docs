@@ -138,15 +138,11 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ## Solution components
 
-<!-- The following text is boilerplate, and should be used in all RA docs -->
-
 A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
 When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
-
-<!-- End of boilerplate -->
 
 The script references the following parameter files to build the VM and the surrounding infrastructure:
 
@@ -330,10 +326,12 @@ To run the script that deploys the solution:
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 "Your Subscription Name" <location> Windows
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
 	```
 
-	The location should be a valid Azure region, such as `eastus` or `westus`.
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
 8. When the script has completed, use the Azure portal to verify that the network, NSG, and VM have been created successfully.
 
@@ -384,9 +382,9 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json 
-[nsg-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json 
-[vm-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"

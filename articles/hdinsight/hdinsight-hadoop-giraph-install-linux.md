@@ -131,7 +131,7 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 
 	For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](http://giraph.apache.org/quick_start.html).
 
-5. Once the job has finished, the results will be stored in the __wasb:///example/out/shotestpaths__ directory. The files created will begin with __part-m-__ and end with a number indicating the first, second, etc. file. Use the following to view the output:
+5. Once the job has finished, the results will be stored in the __wasbs:///example/out/shotestpaths__ directory. The files created will begin with __part-m-__ and end with a number indicating the first, second, etc. file. Use the following to view the output:
 
 		hadoop fs -text /example/output/shortestpaths/*
 

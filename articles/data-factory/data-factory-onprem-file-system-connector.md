@@ -25,7 +25,7 @@ Data factory supports connecting to and from on-premises File System via the Dat
 > [AZURE.NOTE] 
 > Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System.
 > 
-> See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Linux file share 
 

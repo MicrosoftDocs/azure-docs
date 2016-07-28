@@ -27,8 +27,7 @@ For more info about backup, see [Backup Stretch-enabled databases](sql-server-st
 ## Restore your SQL Server data
 To recover from hardware failure or corruption, restore the Stretch\-enabled SQL Server database from a backup. You can continue to use the SQL Server restore methods that you currently use. For more info, see [Restore and Recovery Overview](https://msdn.microsoft.com/library/ms191253.aspx).
 
-After you restore the SQL Server database, you have to run the stored procedure **sys.sp_rda_reauthorize_db** to re-establish the connection between the Stretch\-enabled SQL Server database and the remote Azure database. For more info, see [Restore the connection between the SQL Server database and the remote Azure database](#Restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database). 
-<!-- Fix Comment: The structure and the reference seeem to be incorrect. Could you check if they are okay? -->
+After you restore the SQL Server database, you have to run the stored procedure **sys.sp_rda_reauthorize_db** to re-establish the connection between the Stretch\-enabled SQL Server database and the remote Azure database. For more info, see [Restore the connection between the SQL Server database and the remote Azure database](#restore-the-connection-between-the-SQL-Server-database-and-the-remote-Azure-database).
 
 ## Restore your remote Azure data
 

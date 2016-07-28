@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -24,8 +24,10 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage. 
 
-> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
+## Queries in Analytics
  
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 
 

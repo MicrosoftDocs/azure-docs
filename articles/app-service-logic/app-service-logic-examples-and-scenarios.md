@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic Apps Examples and Scenarios | Microsoft Azure"
    description="See common Logic apps examples and learn how to implement common scenarios"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
