@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Logic App limits and configuration | Microsoft Azure"
 	description="Overview of the service limits and configuration values available for Logic Apps."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"

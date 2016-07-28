@@ -1,7 +1,7 @@
 <properties
    pageTitle="Logic Apps on-premises data gateway connection | Microsoft Azure"
    description="Information on how to create a connection to the on-premises data gateway from a logic app."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"

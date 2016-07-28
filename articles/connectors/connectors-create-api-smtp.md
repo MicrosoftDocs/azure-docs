@@ -1,7 +1,7 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
 description="Create logic apps with Azure App service. Connect to SMTP to send email."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
