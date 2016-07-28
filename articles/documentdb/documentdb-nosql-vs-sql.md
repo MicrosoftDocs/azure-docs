@@ -108,7 +108,7 @@ Microsoft has five SQL offerings:
 - [Azure SQL Data Warehouse (Preview)](https://azure.microsoft.com/services/sql-data-warehouse/)
 - [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
-If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md) to learn more about the differences between the two.
+If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) to learn more about the differences between the two.
 
 If SQL sounds like the best option, then go to [SQL Server](https://www.microsoft.com/server-cloud/products/) to learn more about what our Microsoft SQL products and services have to offer.
 

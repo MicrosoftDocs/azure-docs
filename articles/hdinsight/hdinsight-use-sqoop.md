@@ -142,6 +142,12 @@ HDInsight can run Sqoop jobs by using a variety of methods. Use the following ta
 | [.NET SDK for Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |           &nbsp;            |            ✔            | Linux or Windows                          | Windows (for now)                        |
 | [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md)  |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
 
+##Limitations
+
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
+
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
+
 ##Next steps
 
 Now you have learned how to use Sqoop. To learn more, see:

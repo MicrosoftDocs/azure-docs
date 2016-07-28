@@ -175,7 +175,8 @@ See [RelationalSource type properties](#relationalsource-type-properties) for th
 		}
 	}
 
-> [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+> [AZURE.IMPORTANT]  
+> The "__c" part of the API Name is needed for any custom object.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -216,8 +217,13 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 | query | Use the custom query to read data. | SQL-92 query or [Salesforce Object Query Language (SOQL) ](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if **tableName** of **dataset** is specified) |
 
 > [AZURE.IMPORTANT]  The "__c" part of the API Name is needed for any custom object.
+<br><br>
+When specify a query including where clause on datetime column, use  SOQL query e.g. $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd).
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Retrieving data from Salesforce Report
+You can retrieve data from Salesforce reports by specifying query as {call "<report name>"}, e.g. "query": "{call \"TestReport\"}".
 
 ## Salesforce request limits
 Salesforce has limits for both total API requests and concurrent API requests. See **API Request Limits** section in the [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details. 

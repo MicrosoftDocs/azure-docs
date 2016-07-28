@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Security in Azure Data Lake Store
@@ -43,7 +43,10 @@ Today every Azure subscription can be associated with an Azure Active Directory.
 
 ## Authorization and access control
 
-Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. account management from data managemn [role-based access control](../active-directory/role-based access control-what-is.md) (RBAC) provided by Azure for account management, and supports POSIX ACL for accessing data in the store.
+Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. 
+
+* [Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management
+* POSIX ACL for accessing data in the store.
 
 ### Using RBAC for account management
 
@@ -105,6 +108,8 @@ You can enable the data access audit trails from the Azure portal (**Diagnostic 
 ![Diagnostic logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
+
+For more information on working with diagnostic logs with Azure Data Lake Store, see [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md).
 
 ## Summary
 

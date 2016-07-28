@@ -24,7 +24,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 ## Prerequisites
 
-- Visual Studio 2012 or 2013
+- Visual Studio 2012 or 2013 or 2015
 - Download and install [Azure .NET SDK][azure-developer-center]
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
@@ -43,7 +43,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
 
 	Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs. You can get these values by running **Get-AzureAccount** from Azure PowerShell (you may need to login first by using Add-AzureAccount).
@@ -381,8 +381,22 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 
 
-> [AZURE.NOTE] The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
+The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
+Here is some sample code: 
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], clientSecret);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+		{
+            return result.AccessToken;
+		}
+        throw new InvalidOperationException("Failed to acquire token");
+    }
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

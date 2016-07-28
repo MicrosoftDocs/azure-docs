@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/21/2016"
 	ms.author="femila"/>
 
 # Settings and data roaming FAQ
@@ -85,6 +85,7 @@ Admin can configure UEV to just roam Windows desktop app data by disabling roami
 
 - Disable “Roam Windows settings” group policy
 - Enable “Do not synchronize Windows Apps” group policy
+- Disable “IE” roaming in the applications section
 
 In the future, Microsoft may investigate ways to make UE-V deeply integrated into Windows and extend UE-V to roam settings through the Azure AD cloud. 
 
@@ -121,11 +122,12 @@ If your organization is already using roaming in Windows 10 with the Azure RMS l
 ## Known Issues
 
 - Smart card or virtual smart card login to Windows causes settings sync to stop working. If you attempt to log into your device using a smart card or Virtual smart card, sync will stop working. Future updates to Windows 10 may resolve this issue.
-- IE favorites sync does not work for older versions Windows 10 build. You will need the May Cumulative Update for Windows 10 (build 10.0.10586.318 or higher) for IE favorites syncing to work.
+- IE favorites sync does not work for older versions Windows 10 build. You will need the July Cumulative Update for Windows 10 (build 10586.494) or higher) for IE favorites syncing to work.
 - Under certain conditions, Enterprise State Roaming can fail to sync data if multi-factor authentication (MFA) is configured. 
     - If the user is configured to require [Azure MFA](multi-factor-authentication.md) on the Azure AD portal, the user may fail to sync settings while logging into a Windows 10 device using a password.  This type of MFA configuration is intended to protect an Azure administrator account. Admin users may still be able sync by logging into their Windows 10 devices using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or alternatively, completing multi-factor authentication while accessing other Azure services like Office 365. 
     - Sync can fail, if the admin configures AD FS MFA conditional access policy and the access token on the device expires.  Ensure that you log off and log in using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or complete multi-factor authentication while accessing other Azure services like Office 365.
-
+   
+- If a machine is domain-joined with automatic registration to Azure AD devices, it may experience sync fail if the machine is off-site for extended periods of time, and domain-authentication is unable to complete. To resolve this issue, connect the machine to a corporate network, so that sync can resume. 
 
 
 ## Related topics

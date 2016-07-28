@@ -1,14 +1,14 @@
 <properties
    pageTitle="Using the POP3 connector in Logic apps | Microsoft Azure App Service"
    description="How to create and configure the POP3 connector or API app and use it in a Logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

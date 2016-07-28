@@ -122,7 +122,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -130,7 +130,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -138,7 +138,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -274,7 +274,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -282,7 +282,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -290,7 +290,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -496,7 +496,7 @@ Set the **allowPolyBase** property to **true** as shown in the following example
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}

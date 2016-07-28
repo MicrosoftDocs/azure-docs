@@ -3,6 +3,7 @@
 * [Configuring a Web Application Firewall with an App Service Environment](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
 
+* [Creating an ILB Enabled App Service Environment using Resource Manager Templates](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Using Auto-Scale with an App Service Environment](../articles/app-service/app-service-environment-auto-scale.md)
 * [Securing Inbound Traffic](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Connecting to Backend Resources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)

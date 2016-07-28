@@ -18,7 +18,7 @@
 
 #Best practices for software updates on Microsoft Azure IaaS
 
-Before diving into any kind of discussion on best practices for an Azure IaaS environment, it is important to understand what the scenarios are that will have you managing software updates. The diagram below should help with this:
+Before diving into any kind of discussion on best practices for an Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) environment, it is important to understand what the scenarios are that will have you managing software updates. The diagram below should help with this:
 
 ![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
