@@ -34,12 +34,12 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 | Source VM information | Where to get it |
 |------------|-----------------|
-| VM name | 'azure vm list' |
-| Resource Group name | 'azure vm list' |
-| Location | 'azure vm list' |
-| Storage Account name | azure storage account list -g <resourceGroup> |
-| Container name | azure storage container list -a <sourcestorageaccountname> ||
-| Source VM VHD file name | azure storage blob list --container <containerName> |
+| VM name | `azure vm list` |
+| Resource Group name | `azure vm list` |
+| Location | `azure vm list` |
+| Storage Account name | `azure storage account list -g <resourceGroup>` |
+| Container name | `azure storage container list -a <sourcestorageaccountname>` |
+| Source VM VHD file name | `azure storage blob list --container <containerName>` |
 
 
 
