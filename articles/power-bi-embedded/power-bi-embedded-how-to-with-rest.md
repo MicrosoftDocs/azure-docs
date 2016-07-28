@@ -246,8 +246,8 @@ Or, we can use Row Level Security in Power BI Embedded and we can separate the d
 
 **Note:** If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasources through Power BI gateway isn't yet supported in Power BI Embedded. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
 
-## Hosting (embedding) reports in our web page
-### Authentication
+## Authentication and hosting (embedding) reports in our web page
+
 In the previous REST API, we can use the access key **AppKey** itself as the authorization header. Because these calls can be handled on the backend server side, it's safe.
 
 But, when we embed the report in our web page, this kind of security information would be handled using JavaScript \(frontend). Then the authorization header value must be secured. If our access key is discovered by a malicious user or malicious code, they can call any operations using this key.
@@ -368,7 +368,7 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 We can embed the report in our web app using the previous app token.
 If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
 
-**Note:** You'll need to change the **id** value for your own id.
+**Note:** You'll need to change the report id value with your own.
 
 **Note:** Due to a bug in GIT, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
 
