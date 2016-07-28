@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Troubleshooting file compression"
-	description="Troubleshoot issues with CDN file compression."
+	pageTitle="Troubleshooting file compression in Azure CDN | Microsoft Azure"
+	description="Troubleshoot issues with Azure CDN file compression."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN file compression
@@ -91,3 +91,11 @@ In order to be eligible for compression, a file must meet the following size req
 
 - Larger than 128 bytes.
 - Smaller than 1 MB.
+
+### Check the request at the origin server for a **Via** header
+
+The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:
+
+- **IIS 6**: [Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 and up**: [Set both both **noCompressionForHttp10** and **noCompressionForProxies** to False in the server configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
+

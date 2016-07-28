@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources

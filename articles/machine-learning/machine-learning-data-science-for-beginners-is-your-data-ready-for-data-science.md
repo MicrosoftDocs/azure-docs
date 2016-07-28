@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Is your data ready for data science? (data evaluation) - Data Science for Beginners | Microsoft Azure"
+   pageTitle="Is your data ready for data science? Data evaluation | Microsoft Azure"
    description="Learn the 4 criteria for data to be ready for data science. Data Science for Beginners video 2 has concrete examples to help with basic data evaluation."
    keywords="data evaluation,relevant data,evaluate data,prepare data,data criteria,data ready"
    services="machine-learning"
@@ -14,21 +14,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Data Science for Beginners video 2: Is your data ready for data science?
+# Is your data ready for data science?
 
-Learn about evaluating your data to make sure it meets the basic criteria for data science.
+## Video 2: Data Science for Beginners series
+
+Learn about evaluating your data to make sure it meets basic criteria to be ready for data science.
 
 To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
+## Other videos in this series
+
+*Data Science for Beginners* is a quick introduction to data science in five short videos.
+
+  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sec)*
+  * Video 2: Is your data ready for data science?
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+
 ## Transcript: Is your data ready for data science?
 
-Welcome to "Is your data is ready for data science?" the second video in the series *Data Science for Beginners*.  
+Welcome to "Is your data ready for data science?" the second video in the series *Data Science for Beginners*.  
 
 Before data science can give you the answers you want, you have to give it some high quality raw materials to work with. Just like making a pizza, the better the ingredients you start with, the better the final product.
 
@@ -59,7 +71,7 @@ Now look at the table on the right. This time we measured each person’s body m
 
 The next ingredient is connected data.
 
-![Connected data vs. disconnected data - data criteria](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Connected data vs. disconnected data - data criteria, data ready](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
 
 Here is some relevant data on the quality of hamburgers: grill temperature, patty weight and rating in the local food magazine. But notice the gaps in the table on the left.
 
@@ -100,15 +112,6 @@ With data that's relevant, connected, accurate, and enough, we have all the ingr
 Be sure to check out the other 4 videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
 
 
-## Other videos in this series
-
-*Data Science for Beginners* is a quick introduction to data science in five short videos.
-
-  * Video 1: [The 5 questions data science answers](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Video 2: Is your data ready for data science? 
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## Next steps

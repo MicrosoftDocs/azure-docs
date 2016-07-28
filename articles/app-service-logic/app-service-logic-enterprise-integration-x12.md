@@ -18,6 +18,8 @@
 
 # Enterprise integration with X12 
 
+>[AZURE.NOTE]This page covers the X12 features of Logic Apps. For information on EDIFACT click [here](app-service-logic-enterprise-integration-edifact.md).
+
 ## Create an X12 agreement 
 Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps will walk you through the process of creating an X12 agreement.
 

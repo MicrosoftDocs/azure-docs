@@ -201,10 +201,10 @@ In this section, you'll create a Node.js console app that simulates a device tha
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothubname}** with your IoT hub name and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -278,11 +278,15 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you configured a new IoT hub in the portal and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub and created an app that displays the messages received by the hub. You can continue to explore IoT hub features and other IoT scenarios in the following tutorials:
+In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
 
-- [Send Cloud-to-Device messages with IoT Hub][lnk-c2d-tutorial] shows how to send messages to devices, and process the delivery feedback produced by IoT Hub.
-- [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+To continue getting started with IoT Hub and to explore other IoT scenarios see:
+
+- [Connecting your device][lnk-connect-device]
+- [Getting started with device management][lnk-device-management]
+- [Getting started with the Gateway SDK][lnk-gateway-SDK]
+
+To learn how to extend your your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -298,10 +302,12 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
+
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/

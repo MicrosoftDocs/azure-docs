@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Introduction to Service Fabric health monitoring
@@ -336,6 +336,8 @@ The health model is used heavily for monitoring and diagnosis, for evaluating cl
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 
 [Use system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+
+[How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Add custom Service Fabric health reports](service-fabric-report-health.md)
 

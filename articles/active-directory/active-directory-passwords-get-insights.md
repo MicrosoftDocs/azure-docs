@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure" 
-	description="This article describes how to use reports to get insight into Password Management operations in your organization." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure"
+	description="This article describes how to use reports to get insight into Password Management operations in your organization."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # How to get operational insights with Password Management reports
+
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
 This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
 
 - [**Password Management reports overview**](#overview-of-password-management-reports)
@@ -154,9 +157,9 @@ Password reset has been disabled entirely for this tenant. See [here](http://aka
 User successfully reset password|Succeeded
 
 ## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages: 
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

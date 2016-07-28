@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/19/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -34,15 +34,15 @@ Before locking down inbound network traffic with a network security group, it is
 
 The following is a list of ports used by an App Service Environment:
 
-- 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments.  Do not block traffic to this port.
-- 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments.  Do not block traffic to this port.
-- 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment
-- 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment
-- 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.
-- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   
-- 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.
-- 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.
-- 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.
+- 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+- 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+- 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+- 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+- 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.  On an ILB-enabled ASE, this port can be bound to the ILB address for an ASE.
+- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used.  On an ILB-enabled ASE, this port can be bound to the ASE's ILB address.
+- 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+- 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+- 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 
 ## Outbound Connectivity and DNS Requirements ##
 For an App Service Environment to function properly, it requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
@@ -108,7 +108,7 @@ For completeness the following example shows how to remove and thus dis-associat
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Special Considerations for Explicit IP-SSL ##
-If an app is configured with an explicit IP-SSL address, instead of using the default IP address of the App Service Environment, both HTTP and HTTPS traffic flows into the subnet over a different set of ports other than ports 80 and 443.
+If an app is configured with an explicit IP-SSL address (applicable to ASEs that only have a public VIP), instead of using the default IP address of the App Service Environment, both HTTP and HTTPS traffic flows into the subnet over a different set of ports other than ports 80 and 443.
 
 The individual pair of ports used by each IP-SSL address can be found in the portal user interface from the App Service Environment's details UX blade.  Select "All settings" --> "IP addresses".  The "IP addresses" blade shows a table of all explicitly configured IP-SSL addresses for the App Service Environment, along with the special port pair that is used to route HTTP and HTTPS traffic associated with each IP-SSL address.  It is this port pair that needs to be used for the DestinationPortRange parameters when configuring rules in a network security group.
 

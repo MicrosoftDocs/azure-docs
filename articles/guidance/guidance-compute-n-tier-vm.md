@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="07/12/2016"
    ms.author="mikewasson"/>
 
 # Adding reliability to an N-tier architecture on Azure 
@@ -28,6 +28,7 @@
 This article outlines a set of proven practices for running a reliable N-tier architecture on Windows virtual machines (VMs) in Microsoft Azure. This article builds on [Running VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 
 - A network virtual appliance for greater network security.
+
 - SQL Server AlwaysOn Availability Groups for high availability in the data tier.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
@@ -40,7 +41,19 @@ This article is focused on VM and network infrastructure, not application design
 
 This diagram builds on the architecture shown in [Running Windows VMs for an N-tier architecture on Azure][blueprints-3-tier], adding the following components:
 
-- **Network virtual appliance**. Provides firewall and other network functionality.
+- **Network virtual appliance (NVA)**. A VM running software that performs network security functionality. Typical features provided by an NVA include:
+
+	- Firewall.
+
+	- Traffic optimization, such as WAN optimization.
+
+	- Packet inspection.
+
+	- SSL offloading.
+
+	- Layer 7 load balancing.
+
+	- Logging and reporting.
 
 - **SQL Server AlwaysOn Availability Group**. Provides high availability at the data tier, by enabling replication and failover.
 
@@ -49,28 +62,24 @@ The application consists of two services, labeled A and B. For example, they mig
 These general characteristics imply some high-level requirements for the system:
 
 - Intelligent load balancing, to route requests based on URLs or message content. (Layer-7 load balancing.)
+
 - Logging and monitoring of network traffic.
+
 - Network packet inspection.
+
 - Multiple storage technologies might be used.
 
-## Network virtual appliance
+## Recommendations
 
-A network virtual appliance (NVA) is a VM running software that performs network functionality. Typical features of an NVA include:
+### Network virtual appliance
 
-- Firewall.
-- Traffic optimization, such as WAN optimization.
-- Packet inspection.
-- SSL offloading.
-- Layer 7 load balancing.
-- Logging and reporting
+- For high availability, place two or more NVAs in an availability set. Use an external load balancer to distribute incoming Internet requests across the instances.
 
-For high availability, place two or more NVAs in an availability set. Use an external load balancer to distribute incoming Internet requests across the instances.
+- For security, the NVA should have two separate NICs, placed in different subnets. One NIC is for Internet traffic, and the other is for network traffic to the other subnets within the VNet. Configure IP forwarding on the appliance to forward Internet traffic from the front-end NIC to the back-end NIC. Note that some NVA do not support multiple NICs.
 
-For security, the NVA should have two separate NICs, placed in different subnets. One NIC is for Internet traffic, and the other is for network traffic to the other subnets within the VNet. Configure IP forwarding on the appliance to forward Internet traffic from the front-end NIC to the back-end NIC. Note that some NVA do not support multiple NICs.
+	> [AZURE.NOTE] This article doesn't cover how to configure the NVA, which depends on the particular appliance.
 
-> [AZURE.NOTE] This article doesn't cover how to configure the NVA, which depends on the particular appliance.
-
-## Network recommendations
+### VNet / Subnets
 
 - Generally, put each service or app tier into its own subnet, and set NSGs on each subnet. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
@@ -78,14 +87,13 @@ For security, the NVA should have two separate NICs, placed in different subnets
 
 - Use [network security groups][nsg] (NSGs) to isolate subnets. For example, in the previous diagram, the NSG for service A allows network traffic only from the NVA and the management subnet. Of course, the details will depend on your application.
 
-## SQL Server AlwaysOn Availability Groups
+### SQL Server AlwaysOn Availability Groups
 
 We recommend [AlwaysOn Availability Groups][sql-alwayson-ag] for SQL Server high availability. AlwaysOn Availability Groups require a domain controller. All nodes in the Availability Group must be in the same AD domain.
 
 Other tiers connect to the database through an [availability group listener][sql-alwayson-ag-listeners]. The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
 
-
-Configuration:
+Configure SQL Server AlwaysOn as follows:
 
 - Create a Windows Server Failover Clustering (WSFC) cluster and a SQL Server AlwaysOn availability group. For more information, see [Getting Started with AlwaysOn Availability Groups][sql-alwayson-getting-started].
 
@@ -106,8 +114,13 @@ If your app makes significantly more reads than writes, you can offload some of 
 
 Test your deployment by [forcing a manual failover][sql-always-on-force-failover].
 
+## Availability considerations
 
-## Example deployment script
+If you need higher availability than the [Azure SLAs for VMs][VM-SLAs] provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].   
+
+## Solution Deployment
+
+<!--JS - MAY NEED TO REVISIT THIS SECTION ONCE THE NEW ARM TEMPLATES FOR THIS BLUEPRINT ARE AVAILABLE-->
 
 The following Windows batch script creates the N-tier deployment shown in the previous diagram. The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
 
@@ -610,9 +623,9 @@ GOTO :eof
 
 ## Next steps
 
-- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].    
-
 - To learn more about setting up a DMZ with a virtual appliance, see [Virtual appliance scenario][virtual-appliance-scenario].
+
+- For more information about using Traffic Manager to handle failover, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].
 
 <!-- links -->
 
@@ -631,3 +644,4 @@ GOTO :eof
 [sql-alwayson-arm-template]: https://azure.microsoft.com/en-us/documentation/templates/sql-server-2014-alwayson-dsc/
 [udr]: ../virtual-network/virtual-networks-udr-overview.md
 [virtual-appliance-scenario]: ../virtual-network/virtual-network-scenario-udr-gw-nva.md
+[VM-SLAs]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_1/

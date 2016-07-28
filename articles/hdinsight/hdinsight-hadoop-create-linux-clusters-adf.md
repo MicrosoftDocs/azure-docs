@@ -293,8 +293,8 @@ The *hdinsight-hive-on-demand* resource contains 4 resources:
                     "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                     "scriptLinkedService": "[variables('storageLinkedServiceName')]",
                     "defines": {
-                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                        "inputtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
                     }
                 },
                 "inputs": [

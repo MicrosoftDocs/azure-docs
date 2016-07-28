@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2015" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Get started with authentication in Mobile Services

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
    
 # Configuring resilience and recovery on Elasticsearch on Azure

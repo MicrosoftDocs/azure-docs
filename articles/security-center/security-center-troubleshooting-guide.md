@@ -13,19 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Azure Security Center Troubleshooting Guide
-This guide is for information technology (IT) professionals, IT architects, information security analysts and cloud administrators whose organizations are using Azure Security Center.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## What is Azure Security Center?
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+This guide is for information technology (IT) professionals, information security analysts and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 ## Troubleshooting guide
-This guide explains how to troubleshoot Azure Security Center related issues. Most of the troubleshooting done in Azure Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
 
 - Which operations were taken place
 - Who initiated the operation
@@ -51,7 +46,7 @@ If the installation is successfully performed you should see an entry similar to
 
 You can also obtain more information about the installation process by reading the agent logs, located at *%systemdrive%\windowsazure\logs* (example: C:\WindowsAzure\Logs).
 
-[AZURE.NOTE] If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
+> [AZURE.NOTE] If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
 
 ## Troubleshooting monitoring agent installation in Linux
 When troubleshooting VM Agent installation in a Linux system you should ensure that the extension was downloaded to /var/lib/waagent/. You can run the command below to verify if it was installed:
@@ -74,7 +69,7 @@ Some issues can be identified using the guidelines provided in this article, oth
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## Next steps
+## See also
 
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 

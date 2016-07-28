@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/23/2016"
 	ms.author="tamram"/>
 
 
 # Get started with Azure Table storage using .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
 
@@ -41,6 +43,11 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 - An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### More samples
+
+For additional examples using Table storage, see [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub. 
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -493,6 +500,7 @@ If you are reading a large number of entities, and you want to process/display e
 Now that you've learned the basics of Table storage, follow these links
 to learn about more complex storage tasks:
 
+- See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 - View the Table service reference documentation for complete details about available APIs:
     - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
