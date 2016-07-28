@@ -20,11 +20,9 @@
 # Data movement and the Copy Activity: migrating data to the cloud and between cloud stores
 
 ## Overview
-Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). 
+Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). This article provide details on data movement in Data Factory and Copy Activity. First, let's see how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store
 
-> [AZURE.NOTE] To learn about defining activities in general, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
-
-Here’s how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store
+> [AZURE.NOTE] To learn about activities in general, see [Understanding Pipelines & Activities](data-factory-create-pipelines.md) article.
 
 ### Copy data between two cloud data stores
 When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The service that powers the Copy Activity performs the following: 
@@ -139,7 +137,7 @@ Here is a sample JSON definition:
 	  }
 	} 
 
-Copy Activity copies data from one input dataset (**source**) to one output dataset (**sink**). The schedule defined in the output dataset (for example - **frequency** set to **day** and **interval** set to **1**). You can specify more than one input dataset to the copy activity and they are used to verify the dependencies before the activity is run but only the data from the first dataset is copied to the destination dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) for more details. 
+The schedule defined in the output dataset determines when the activity runs (for example **daily**: frequency: day and interval: 1). The activity copies data from one input dataset (**source**) to one output dataset (**sink**). You can specify more than one input dataset to the copy activity and they are used to verify the dependencies before the activity is run but only the data from the first dataset is copied to the destination dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) for more details.  
 
 ## Performance & Tuning 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
