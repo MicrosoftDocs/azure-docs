@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using the Office 365 Connector in Logic Apps | Microsoft Azure App Service"
    description="How to create and configure the Office 365 Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"

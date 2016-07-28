@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Creating B2B solutions with Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn about receiving data using the B2B features of the Enterprise Integration Pack" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
