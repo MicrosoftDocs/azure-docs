@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
-This is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks. You can perform many of the same tasks with Batch cmdlets that you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This article is based on cmdlets in Azure PowerShell version 1.3.2 or later.
+With the Azure Batch PowerShell cmdlets, you can perform and script many of the same tasks you carry out with the Batch APIs, the Azure portal, and the Azure Command-Line Interface (CLI). This is a quick introduction to the cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks. This article is based on cmdlets in Azure PowerShell version 1.6.0.
 
 For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
@@ -45,7 +45,7 @@ For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Then, create a new Batch account account in the resource group, also specifying an account name for <*account_name*> and a location where the Batch service is available. Creating the account can take several minutes to complete. For example:
+Then, create a new Batch account account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -92,16 +92,21 @@ You pass the BatchAccountContext object into cmdlets that use the **BatchContext
 
 
 ## Create and modify Batch resources
-Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-AzureBatchTask** to create  resources under a Batch account. There are corresponding **Get-** and **Set-** cmdlets to update the properties of existing resources, and  **Remove-** cmdlets to remove resources under a Batch account. 
+Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-AzureBatchTask** to create resources under a Batch account. There are corresponding **Get-** and **Set-** cmdlets to update the properties of existing resources, and  **Remove-** cmdlets to remove resources under a Batch account. 
 
 ### Create a Batch pool
 
-For example, the following cmdlet creates a new Batch pool, configured to use size Small virtual machines imaged with the latest operating system version of family 3 (Windows Server 2012), with the target number of compute nodes determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=3**, indicating the number of compute nodes in the pool is 3 at most. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+When creating or updating a Batch pool, you have the option to select a cloud service configuration or a virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). Your choice determines whether your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) or with one of the supported Linux or Windows VM images in the Azure Marketplace. 
+
+When you run **New-AzureBatchPool**, you pass the operating system settings in a **PSCloudServiceConfiguration** or **PSVirtualMachineConfiguration** object.
+
+For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). The target number of compute nodes in the pool is determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=4**, indicating the number of compute nodes in the pool is 4 at most. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Currently the Batch PowerShell cmdlets support only the cloud services configuration for compute nodes. This allows you to choose one of the Azure Guest OS releases of the Windows Server operating system to run on the compute nodes. For other compute node configuration options for Batch pools, use the Batch SDKs or the Azure CLI.
 
 ## Query for pool, jobs, tasks, and other details
 
@@ -159,4 +164,4 @@ Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.
 ## Next steps
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about the reducing the number of items and the type of information that is returned for queries to Batch. 
+* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch. 
