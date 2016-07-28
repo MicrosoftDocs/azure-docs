@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2016"
+   ms.date="07/28/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -66,6 +66,8 @@ The following diagram highlights the important components in this architecture (
 >- A user connecting to your VNet by using an authorized device and running a web application hosted inside you Azure VNet.
 >
 >Not all of these use cases could be relevant in your own scenario.
+>
+>Additionally, this architecture focusses on passive federation, where the federation servers make the decisions concerning how and when to authenticate; the user is expected to provide logon information when an application starts running. This is the mechanism most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user can provide their credentials. AD FS also supports active federation whereby an application takes on responsibility for supplying credentials without further user interaction.
 
 - **AD DS Servers.** These are domain controllers running as VMs in the cloud. These servers can provide authentication of local identities within the domain.
 
