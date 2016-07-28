@@ -39,7 +39,6 @@ Follow the steps in this article to learn how to set up Always Encrypted for an 
 - Create a database table and encrypt columns.
 - Create an application that inserts, selects, and displays data from the encrypted columns.
 
-
 ## Prerequisites
 
 For this tutorial you'll need:
