@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="App Service API app triggers | Microsoft Azure" 
 	description="How to implement triggers in an API App in Azure App Service" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
