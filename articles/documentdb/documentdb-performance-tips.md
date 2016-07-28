@@ -3,7 +3,7 @@
 	description="Learn client configuration options to improve Azure DocumentDB database performance"
 	keywords="how to improve database performance"
 	services="documentdb" 
-	authors="arramac" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/27/2016" 
-	ms.author="arramac"/>
+	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
 
@@ -88,9 +88,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
 2. **Use a singleton DocumentDB client for the lifetime of your application**
   
     Note that each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
+<a href="max-connections"></a>
 3. **Increase System.Net MaxConnections per host**
 
-    DocumentDB requests are made over HTTPS/REST by default and subject to the default connection limits per hostname or IP address. You may need to set this to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to DocumentDB. In the .NET SDK, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50. 
+    DocumentDB requests are made over HTTPS/REST by default and subject to the default connection limits per hostname or IP address. You may need to set this to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to DocumentDB. In the .NET SDK 1.8.0 and above, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50 and to change the value, you can set the [Documents.Client.ConnectionPolicy.MaxConnectionLimit]( https://msdn.microsoft.com /library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.MaxConnectionLimit) to a higher value.  
 
 4. **Turn server-side GC on**
     
@@ -179,7 +180,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-    If you have more than one client cumulatively operating consistently above the request rate, the default retry currently set to 9 by the client may not suffice; in this case, the client will throw a DocumentClientException with status code 429 to the application. Note that with the current release of the .NET SDK, there is no way to turn off the default retry count.
+    If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 by the client may not suffice; in this case, the client will throw a DocumentClientException with status code 429 to the application. The default retry count can be increased by changing the RetryOptions/RetryPolicy settings. By default, the DocumentClientException is returned after 30 seconds if the request does not complete. This occurs even when the current retry count, be it the default of 9 or a user defined value, is less than the max retry count.
 
     While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency.  The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](documentdb-request-units.md).
    
