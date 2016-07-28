@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="07/24/2016"
+	ms.date="08/02/2016"
 	ms.author="marsma" />
 
 # Persist Azure Batch job and task output
 
-Your Batch tasks typically produce some form of output that must be stored when the tasks complete and then later retrieved--by other tasks in the job, the client application that executed the job, or both. This output might be files created by a task processing input data, or log files associated with task execution. This article details a conventions-based method and .NET class library that you can use to persist such task output to Azure Blob storage for later retrieval, even after you delete your pools, jobs, and compute nodes.
+The tasks you run in Batch typically produce output that must be stored and then later retrieved by other tasks in the job, the client application that executed the job, or both. This output might be files created by processing input data or log files associated with task execution. This article introduces a .NET class library that uses a conventions-based technique to persist such task output to Azure Blob storage, making it available even after you delete your pools, jobs, and compute nodes.
 
-Following the conventions in this article will also allow you to see your task output in "Saved output files" and "Saved logs" in the [Azure portal][portal].
+By using the technique in this article, you will also be able to view your task output in **Saved output files** and **Saved logs** in the [Azure portal][portal].
 
 ![Saved output files and Saved logs selectors in portal][1]
 
@@ -32,7 +32,7 @@ Storing and retrieving task output presents several challenges:
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **Storing output**: To persist task output data to durable storage, you would typically use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) directly in your task application, with each task uploading its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job or your client application can determine the path of, and then download, this output. For example, you might have several tasks that each render a single frame of a movie, and a final task that merges all of the rendered frames into a complete movie. This final merge task would need to know the full path to the output of each frame rendering task.
+* **Storing output**: To persist task output data to durable storage, you would typically use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) directly in your task application, with each task uploading its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job or your client application can determine the path of, and then download, this output. For example, you might have several tasks that each render a single frame of a movie, and a final task that merges all of the rendered frames into a complete movie. This final merge task would need to know the full path to the output of each frame-rendering task.
 
 * **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
 
