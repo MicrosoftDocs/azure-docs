@@ -126,22 +126,26 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 1. **Use lazy indexing for faster peak time ingestion rates**
 
-     DocumentDB allows you to specify – at the collection level – an indexing policy, which enables you to choose if you want the documents in a collection to be automatically indexed or not.  In addition, you may also choose between synchronous (Consistent) and asynchronous (Lazy) index updates. By default, the index is updated synchronously on each insert, replace or delete of a document to the collection. This enables the queries to honor the same [consistency level](documentdb-consistency-levels.md) as that of the document reads without any delay for the index to “catch up".
-
+    DocumentDB allows you to specify – at the collection level – an indexing policy, which enables you to choose if you want the documents in a collection to be automatically indexed or not.  In addition, you may also choose between synchronous (Consistent) and asynchronous (Lazy) index updates. By default, the index is updated synchronously on each insert, replace or delete of a document to the collection. This enables the queries to honor the same [consistency level](documentdb-consistency-levels.md) as that of the document reads without any delay for the index to “catch up".
+    
     Lazy indexing may be considered for scenarios in which data is written in bursts, and you want to amortize the work required to index content over a longer period of time. This allows you to use your provisioned throughput effectively and serve write requests at peak times with minimal latency. It is important to note, however, that when lazy indexing is enabled, query results will be eventually consistent regardless of the consistency level configured for the DocumentDB account.
 
     Hence, Consistent indexing mode (IndexingPolicy.IndexingMode is set to Consistent) incurs the highest request unit charge per write, while Lazy indexing mode (IndexingPolicy.IndexingMode is set to Lazy) and no indexing (IndexingPolicy.Automatic is set to False) have zero indexing cost at the time of write.
 
 2. **Exclude unused paths from indexing for faster writes**
 
-    DocumentDB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example:
+    DocumentDB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a sub-tree) from indexing using the "*" wildcard.
 
-        //exclude index paths
-        collection.IndexingPolicy.ExcludedPaths.Add("/\"metaData\"/*"); collection.IndexingPolicy.ExcludedPaths.Add("/\"subDoc\"/\"subSubDoc\"/\"someProperty\"/*");
-        collection = await client.CreateDocumentCollectionAsync(databaseLink, collection);
+        var collection = new DocumentCollection { Id = "excludedPathCollection" };
+        collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+        collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+        collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+
+    For more information, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
 ## Throughput
 <a href="measure-rus"></a>
+
 1. **Measure and tune for lower request units/second usage**
 
     DocumentDB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
@@ -162,8 +166,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
                   FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
                   Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
              }
-
-
+        
     The request charge returned in this header is a fraction of your provisioned throughput (i.e. 2000 RUs / second).   For example, if the query above returns 1000 1KB documents, the cost of the operation will be 1000. As such, within one second, the server will honor only two such requests before throttling subsequent requests. For more information, see [Request units](documentdb-request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 
 2. **Handle rate limiting/request rate too large**
