@@ -18,7 +18,11 @@
 
 # Task dependencies in Azure Batch
 
-If you want to process a MapReduce-style computational workload in the cloud, you have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG). If you have any other job in which downstream tasks depend on the output of upstream tasks, the task dependencies feature of Azure Batch can be your solution.
+The task dependencies feature of Azure Batch can be your solution if any of the following conditions apply:
+
+- You want to process a MapReduce-style computational workload in the cloud.
+- You have a data processing job whose tasks can be expressed as a directed acyclic graph (DAG).
+- You have any other job in which downstream tasks depend on the output of upstream tasks.
 
 With this feature, you can create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all of the frames have been successfully rendered.
 
@@ -55,9 +59,9 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have finished successfully.
+This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have completed successfully.
 
- > [AZURE.NOTE] A task is considered to be finished when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+ > [AZURE.NOTE] A task is considered to be completed when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
 
 ## Dependency scenarios
 
@@ -65,9 +69,9 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 
  Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Example | |
  :-------------------: | ------------------- | -------------------
- [One-to-one](#one-to-one) | *taskB* depends on *taskA* <p/> *taskB* will not be scheduled for execution until *taskA* has finished successfully | ![Diagram: one-to-one task dependency][1]
- [One-to-many](#one-to-many) | *taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have finished successfully | ![Diagram: one-to-many task dependency][2]
- [Task ID range](#task-id-range) | *taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have finished successfully | ![Diagram: Task id range dependency][3]
+ [One-to-one](#one-to-one) | *taskB* depends on *taskA* <p/> *taskB* will not be scheduled for execution until *taskA* has completed successfully | ![Diagram: one-to-one task dependency][1]
+ [One-to-many](#one-to-many) | *taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have completed successfully | ![Diagram: one-to-many task dependency][2]
+ [Task ID range](#task-id-range) | *taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully | ![Diagram: Task id range dependency][3]
 
 >[AZURE.TIP] You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.
 
@@ -107,7 +111,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 To create a task that has a dependency on the successful completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
->[AZURE.IMPORTANT] When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must finish successfully for the dependent task to be scheduled for execution.
+>[AZURE.IMPORTANT] When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
