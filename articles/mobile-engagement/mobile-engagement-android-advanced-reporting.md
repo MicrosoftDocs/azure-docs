@@ -19,6 +19,9 @@
 # Reporting Options with Engagement on Android
 
 > [AZURE.SELECTOR]
+- [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-advanced-reporting.md)
 
 This topic describes additional reporting scenarios in your Android application. These are options that you can choose to apply to the app created in the [Getting Started](mobile-engagement-android-get-started.md) tutorial.

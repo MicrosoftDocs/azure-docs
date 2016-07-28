@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/12/2016"
+	ms.date="07/27/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -69,7 +69,7 @@ Android Studio now creates the demo app into which we will integrate Mobile Enga
 
 ### Include the SDK library in your project
 
-1. Download the [Mobile Engagement Android SDK].
+1. Download the [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 2. Extract the archive file to a folder in your computer.
 3. Identify the .jar library for the current version of this SDK and copy it to the Clipboard.
 

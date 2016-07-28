@@ -19,6 +19,9 @@
 # Advanced configuration for Azure Mobile Engagement Android SDK
 
 > [AZURE.SELECTOR]
+- [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
 - [Android](mobile-engagement-android-logging.md)
 
 This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
