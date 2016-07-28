@@ -86,9 +86,9 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3179904 | Software update &#42;  |  Regular     | ~ 45 mins |
-| 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
-| 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
+| 1.      | KB3179904 | Software update &#42;  |  Regular <br></br>Non-disruptive     | ~ 45 mins |
+| 2.      | KB3146621 | iSCSI package | Regular <br></br>Non-disruptive  | ~ 20 mins |
+| 3.      | KB3103616 | WMI package |  Regular <br></br>Non-disruptive      | ~ 12 mins |
 
 
  &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
@@ -99,7 +99,7 @@ The hotfix method involves the following three steps:
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4.      | KB3121900 | LSI driver and firmware             |  Regular     | ~ 20 mins |
+| 4.      | KB3121900 | LSI driver and firmware             |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
 <br></br>
@@ -107,8 +107,8 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
-| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
+| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
 
@@ -118,7 +118,7 @@ You may also need to install disk firmware updates. You can verify whether you n
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7.      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
+| 7.      | KB3121899 | Disk firmware              |  Maintenance <br></br>Disruptive      | ~ 30 mins |
  
 <br></br>
 
