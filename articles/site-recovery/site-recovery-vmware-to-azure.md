@@ -222,7 +222,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Registration](./media/site-recovery-vmware-to-azure/combined-wiz3.png)
 
-4. In **Internet Settings** specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
+5. In **Internet Settings** specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
 
 	- If you want to connect with the proxy that's currently set up on the machine select **Connect with existing proxy settings**.
 	- If you want the Provider to connect directly select **Connect directly without a proxy**.
@@ -232,23 +232,23 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Firewall](./media/site-recovery-vmware-to-azure/combined-wiz4.png)
 
-5. In **Prerequisites Check** setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+6. In **Prerequisites Check** setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
 
 	![Prerequisites](./media/site-recovery-vmware-to-azure/combined-wiz5.png)
 
-6. In **MySQL Configuration** create credentials for logging onto the MySQL server instance that will be installed.
+7. In **MySQL Configuration** create credentials for logging onto the MySQL server instance that will be installed.
 
 	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz6.png)
 
-7. In **Environment Details** select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
+8. In **Environment Details** select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
 
 	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
 
-8. In **Install Location** select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
+9. In **Install Location** select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
 
 	![Install location](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
 
-9. In **Network Selection** specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be used by a web server which orchestrates replication operations. 443 shouldn't be used for receiving replication traffic.
+10. In **Network Selection** specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be used by a web server which orchestrates replication operations. 443 shouldn't be used for receiving replication traffic.
 
 
 	![Network selection](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
