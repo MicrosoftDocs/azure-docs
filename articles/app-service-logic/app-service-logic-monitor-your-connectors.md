@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure"
-	description="View performance of your Connectors and API Apps in Azure App Service; microservices architecture"
+	description="View performance of your Connectors and API Apps in Logic Apps; microservices architecture"
 	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
@@ -117,7 +117,7 @@ You can easily add users and assign them specific roles to your API App. The por
 > These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. 
 
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app in App Service. No credit cards required and no commitments.
+>[AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
 
 ## Read More
 
