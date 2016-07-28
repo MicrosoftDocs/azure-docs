@@ -29,7 +29,7 @@ Data factory currently supports only moving data from DB2 to other data stores, 
 
 For Data Management Gateway to connect to the DB2 Database, starting from gateway version 2.1, Azure Data Factory provide built-in driver with DB2 support (SQLAM 9 / 10 / 11) including DB2 for LUW (Linux, Unix, Windows), DB2 for z/OS and DB2 for i (aka AS/400), therefore you no longer need to manually install the drivers when copying data from DB2.
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 
 ## Sample: Copy data from DB2 to Azure Blob
