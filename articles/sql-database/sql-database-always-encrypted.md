@@ -29,7 +29,6 @@ This article shows you how to secure sensitive data in a SQL database with datab
 
 Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
-
 After configuring the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
 Follow the steps in this article to learn how to set up Always Encrypted for an Azure SQL database. In this article you will learn how to perform the following tasks:
