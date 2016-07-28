@@ -7,7 +7,6 @@
 	manager="erikre"
 	editor="cgronlun"/>
 
-<<<<<<< HEAD
 <tags 
 	ms.service="logic-apps" 
 	ms.workload="integration" 
