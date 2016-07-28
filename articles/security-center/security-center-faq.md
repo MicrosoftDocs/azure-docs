@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -112,7 +112,7 @@ To edit a security policy, you must be an Owner or Contributor of the subscripti
 ## Virtual Machines
 
 ### What types of virtual machines will be supported?
-Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md), including VMs that are part of Azure Service Fabric clusters.
+Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md).
 
 Supported Windows VMs:
 

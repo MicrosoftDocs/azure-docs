@@ -42,7 +42,7 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 6. Your tenant is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the tenant. You can add other Global Administrators as required.
 
     > [AZURE.IMPORTANT]
-	If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-support-matrix.md).
+	If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md).
 
 ## Step 3: Navigate to the B2C features blade on the Azure portal
 

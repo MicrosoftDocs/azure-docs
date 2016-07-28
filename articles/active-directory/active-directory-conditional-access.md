@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Securing access to Office 365 and other apps connected to Azure Active Directory | Microsoft Azure"  
+	pageTitle="Azure Active Directory Conditional Access | Microsoft Azure"  
     description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."  
     services="active-directory" 
 	keywords="conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies" 
@@ -18,7 +18,7 @@
 	ms.author="markvi"/>
 
 
-# Using Conditional Access with Office 365 and other Azure Active Directory connected apps   
+# Azure Active Directory Conditional Access   
   
 Securing access to company resources is important to every organization. With the advent of cloud services and mobile devices, the way in which users access company resources has significantly changed. This requires a new approach to security.  
   

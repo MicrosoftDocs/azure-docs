@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Call a web API from an Android application | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Call a web API from an Android application | Microsoft Azure"
 	description="This article will show you how to create an Android 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the Android app and the web API use Azure Active Directory B2C to manage user identities and authenticate users."
 	services="active-directory-b2c"
 	documentationCenter="android"
@@ -16,7 +16,11 @@
 	ms.date="07/22/2016"
 	ms.author="brandwe"/>
 
-# Azure AD B2C preview: Call a web API from an Android application
+# Azure AD B2C: Call a web API from an Android application
+
+> [AZURE.WARNING] This tutorial requires some important updates, specifically to remove the use of ADAL Android for B2C.  We are going to publish fresh instructions for using Azure AD B2C in Android apps in the next week, and we recommend holding off until that time.  But if you just want to try things out, feel free to continue with the article below.
+
+
 
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your Android apps and web APIs in a few short steps. This article will show you how to create an Android "to-do list" app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the Android app and the web API use Azure AD B2C to manage user identities and authenticate users.
 
