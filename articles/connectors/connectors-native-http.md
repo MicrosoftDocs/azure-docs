@@ -19,12 +19,14 @@
 
 # Get started with the HTTP action
 
-With the HTTP action, you can extend workflows for your organization and communicate to any endpoint over HTTP. You can:
+With the HTTP action, you can extend workflows for your organization and communicate to any endpoint over HTTP.
+
+You can:
 
 - Create logic app workflows that activate (trigger) when a website that you manage goes down.
 - Communicate to any endpoint over HTTP to extend your workflows into other services.
 
-To get started using the HTTP action in a logic app, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the HTTP action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Use the HTTP trigger
 
@@ -41,7 +43,7 @@ Here’s an example sequence of how to set up the HTTP trigger in the Logic App 
 
 ### How the HTTP trigger works
 
-The HTTP trigger makes a call to an HTTP endpoint on a recurring interval. By default, any HTTP response code < 300 results in a logic app run. You can add a condition in code-view that will evaluate after the HTTP call to determine if the logic app should fire. Here's an example of an HTTP trigger that fires whenever the status code returned is greater than or equal to `400`.
+The HTTP trigger makes a call to an HTTP endpoint on a recurring interval. By default, any HTTP response code less than 300 results in a logic app run. You can add a condition in code view that will evaluate after the HTTP call to determine if the logic app should fire. Here's an example of an HTTP trigger that fires whenever the status code returned is greater than or equal to `400`.
 
 ```javascript
 "Http":
@@ -82,7 +84,7 @@ An action is an operation that is carried out by the workflow that is defined in
 
 	![Complete the HTTP action](./media/connectors-native-http/using-action-2.png)
 
-5. Click save at the top left corner of the toolbar, and your logic app will both save and publish (activate).
+5. Click the top left corner of the toolbar to save. Your logic app will both save and publish (activate).
 
 ## HTTP trigger
 
@@ -106,21 +108,21 @@ The following tables describe the required and optional input fields for the act
 
 
 #### HTTP request
-The action makes an HTTP outbound request.
+The following are input fields for the action, which makes an HTTP outbound request.
 A * means that it is a required field.
 
-|Display Name|Property Name|Description|
+|Display name|Property name|Description|
 |---|---|---|
 |Method*|method|The HTTP verb to use|
-|URI*|uri|URI for the HTTP request|
+|URI*|uri|The URI for the HTTP request|
 |Headers|headers|A JSON object of HTTP headers to include|
 |Body|body|The HTTP request body|
-|Authentication|authentication|Details in the [Authentication section](#authentication)|
+|Authentication|authentication|Details in the [Authentication](#authentication) section|
 <br>
 
 #### Output details
 
-Here is the HTTP response.
+The following are output details for the HTTP response.
 
 |Property name|Data type|Description|
 |---|---|---|
@@ -144,7 +146,7 @@ A * means that it is a required field.
 |Property name|Data type|Description|
 |---|---|---|
 |Type*|type|Type of authentication (must be `Basic` for basic authentication)|
-|Username*|username|Username to authenticate|
+|Username*|username|User name to authenticate|
 |Password*|password|Password to authenticate|
 
 >[AZURE.TIP] If you want to use a password that cannot be retrieved from the definition, use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs).
@@ -163,11 +165,11 @@ So you would create an object like this in the authentication field:
 
 The following authentication object is needed for client certificate authentication. A * means that it is a required field.
 
-|Property Name|Data Type|Description|
+|Property name|Data type|Description|
 |---|---|---|
-|Type*|type|Type of authentication (must be `ClientCertificate` for SSL client certificates)|
-|PFX*|pfx|Base64-encoded contents of the PFX file|
-|Password*|password|Password to access the PFX file|
+|Type*|type|The type of authentication (must be `ClientCertificate` for SSL client certificates)|
+|PFX*|pfx|The Base64-encoded contents of the Personal Information Exchange (PFX) file|
+|Password*|password|The password to access the PFX file|
 
 >[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
 
@@ -209,4 +211,4 @@ For example:
 
 ## Next steps
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
