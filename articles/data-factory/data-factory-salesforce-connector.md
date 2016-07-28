@@ -177,8 +177,6 @@ See [RelationalSource type properties](#relationalsource-type-properties) for th
 
 > [AZURE.IMPORTANT]  
 > The "__c" part of the API Name is needed for any custom object.
-> 
-> To invoke a Salesforce report, specify query as: **{call reportname}**.    
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
