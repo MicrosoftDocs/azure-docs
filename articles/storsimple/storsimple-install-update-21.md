@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/18/2016"
+   ms.date="07/21/2016"
    ms.author="alkohli" />
 
 # Install Update 2.2 on your StorSimple device
@@ -80,13 +80,13 @@ The hotfix method involves the following three steps:
 **If your device is running Update 2.1**, you must download only the device software update KB3179904. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with `all-cismdsagentupdatebundle`. Failure to do so will result in an error. 
 
 
-#### Download updates for a device running Update 2 or 2.1 software
+#### Download updates for a device running Update 2 software
 
 **If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3179954 | Software update &#42;  |  Regular     | ~ 45 mins |
+| 1.      | KB3179904 | Software update &#42;  |  Regular     | ~ 45 mins |
 | 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
 | 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 

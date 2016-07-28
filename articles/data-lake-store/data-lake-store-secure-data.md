@@ -183,3 +183,4 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)

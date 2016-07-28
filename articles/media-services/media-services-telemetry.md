@@ -12,20 +12,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2016"   
+	ms.date="07/27/2016"   
 	ms.author="juliako"/>
 
 # Azure Media Services Telemetry with .NET
  
 ## Overview
 
-Media Services telemetry/monitoring allows Media Services customers to access metrics data for its services. Current version supports telemetry data for "Channel" and "StreamingEndpoint" entities. You can configure telemetry on component level granularity. There are two detail levels "Normal" and "Verbose". The current version only supports "Normal".
+Media Services telemetry/monitoring allows Media Services customers to access metrics data for its services. The current version supports telemetry data for "Channel" and "StreamingEndpoint" entities. You can configure telemetry on a component level granularity. There are two detail levels "Normal" and "Verbose". The current version only supports "Normal".
 
-Telemetry is written to an Azure Storage Account provided by the customer (a storage account must be attached to the Media Services account). Telemetry is written to an Azure Storage Table in the specified storage account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
+Telemetry is written to a storage table in an Azure Storage account provided by the customer (the storage account must be attached to the Media Services account). Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be a separate table.
 
-Telemetry system doesn’t provide data retention nor auto delete of old records. For that reason, you need to manage and delete old records. Having separate tables for each day makes it easy to delete old records. You can just delete old tables.  
+Note that the telemetry system does not manage data retention. You can remove the old telemetry data by deleting the storage tables.
 
-This topic shows how to enable telemetry for the specified AMS services and how to query the metrics using .NET.  
+You can consume telemetry data in one of the following ways:
+
+- Read data directly from Azure Table Storage (e.g. using the Storage SDK)
+
+Or
+
+- Use the support in the Media Services .NET SDK for reading storage data.
+
+This topic shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
 
 ## Configuring telemetry for a Media Services account
 
@@ -48,10 +56,13 @@ The following steps are needed to enable telemetry:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Consuming telemetry information
 
-## StreamingEndpoint log
+Telemetry is written to an Azure Storage Table in the storage account specified when configuring telemetry for the Media Services account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
 
-###Available metrics
+You can query telemetry tables for the following metrics information. The example, shown later in this topic, demonstrates how to use the Media Services .NET SDK to query metrics. 
+
+### StreamingEndpoint log
 
 You can query for the following StreamingEndPoint metrics. 
 
@@ -71,9 +82,7 @@ Property|Description|Sample value
 **EndToEndLatency**|Gets the end to end request time.|250
 
 
-## Live channel heartbeat
-
-###Available metrics
+### Live channel heartbeat
 
 You can query for the following live channel metrics. 
 
@@ -93,8 +102,10 @@ Property|Description|Sample value
 **DiscontinuityCount**|Gets the discontinuity count.|0
 **LastTimestamp**|Gets the last time stamp.|1800488800
  
-## StreamingEndpoint metrics example
-		
+## Example  
+	
+The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  	
+
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;

@@ -1,5 +1,5 @@
 <properties
- pageTitle="Compute benchark scores for Linux VMs | Microsoft Azure"
+ pageTitle="Compute benchmark scores for Linux VMs | Microsoft Azure"
  description="Compare CoreMark compute benchmark scores for Azure VMs running Linux"
  services="virtual-machines-linux"
  documentationCenter=""
