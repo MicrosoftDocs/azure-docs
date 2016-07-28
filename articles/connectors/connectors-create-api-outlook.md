@@ -1,7 +1,7 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
 description="Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	

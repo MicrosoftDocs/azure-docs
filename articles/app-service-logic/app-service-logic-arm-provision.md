@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
 	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
