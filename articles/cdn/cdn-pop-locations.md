@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure CDN POP Locations"
+	pageTitle="Azure CDN POP Locations | Microsoft Azure"
 	description="This topic lists Azure CDN POP Locations."
 	services="cdn"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 

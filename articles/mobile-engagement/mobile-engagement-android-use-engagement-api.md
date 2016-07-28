@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="07/25/2016"
 	ms.author="piyushjo;ricksal" />
 
 #How to Use the Engagement API on Android

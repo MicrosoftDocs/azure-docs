@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
@@ -136,9 +136,9 @@ The Application Insights appenders can be referenced by any configured logger, a
 
 ## Explore your traces in the Application Insights portal
 
-Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
 
-![In the Application Insights portal, open Diagnostic Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Next steps
 

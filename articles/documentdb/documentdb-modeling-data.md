@@ -18,7 +18,7 @@
 	ms.author="stbaro"/>
 
 #Modeling data in DocumentDB#
-While schema-free databases, like DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
+While schema-free databases, like Azure DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy? 
 

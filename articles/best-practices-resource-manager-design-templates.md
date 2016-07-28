@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Best practices Azure Resource Manager templates | Microsoft Azure"
+	pageTitle="Patterns for Resource Manager templates | Microsoft Azure"
 	description="Show design patterns for Azure Resource Manager templates"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
-# Best practices for designing Azure Resource Manager templates
+# Patterns for designing Azure Resource Manager templates
 
 In our work with enterprises, system integrator (SIs), cloud service vendor (CSVs), and open source software (OSS) project teams, it's often necessary to quickly 
 deploy environments, workloads, or scale units. These deployments need to be supported, follow proven practices, and adhere to identified policies. Using a flexible 

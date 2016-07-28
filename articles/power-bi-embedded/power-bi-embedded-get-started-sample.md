@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/14/2016"
    ms.author="owend"/>
 
 # Get started with Power BI Embedded sample
@@ -100,7 +100,7 @@ The **Microsoft Power BI Embedded** sample is an example dashboard web app that 
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. We will expand the description of the sample as we move towards General Availability (GA). To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -120,6 +120,15 @@ The sample has a **ReportsViewModel** and **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Connection string
+The connection string must be in the following format:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### View
 The **View** manages the display of Power BI **Reports** and a Power BI **Report**.
@@ -158,14 +167,13 @@ Report.cshtml: Set the **Model.AccessToken**, and the Lambda expression for **Po
 
 ### Controller
 
-**DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. For more about **app tokens**, see [How does app token flow work?](#key-flow). Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
+**DashboardController.cs**: Creates a PowerBIClient passing an **app token**. A JSON Web Token (JWT) is generated from the **Signing Key** to get the **Credentials**. The **Credentials** are used to create an instance of **PowerBIClient**. Once you have an instance of **PowerBIClient**, you can call GetReports() and GetReportsAsync().
 
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
+    private IPowerBIClient CreatePowerBIClient()
     {
-        var jwt = token.Generate(accessKey);
-        var credentials = new TokenCredentials(jwt, "AppToken");
+        var credentials = new TokenCredentials(accessKey, "AppKey");
         var client = new PowerBIClient(credentials)
         {
             BaseUri = new Uri(apiUrl)
@@ -178,8 +186,7 @@ ActionResult Reports()
 
     public ActionResult Reports()
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
 
@@ -197,12 +204,11 @@ Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
             var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, Guid.Parse(report.Id));
+            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
             var viewModel = new ReportViewModel
             {
@@ -237,4 +243,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ## See also
 
 - [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
-- [About app token flow in Power BI Embedded](power-bi-embedded-app-token-flow.md)
+- [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)

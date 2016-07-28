@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/25/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
@@ -34,7 +34,7 @@ The data sources that are currently available in Log Analytics are listed in the
 | [Windows Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Windows computers. |
 | [Linux Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Linux computers. |
 | [IIS logs](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Internet Information Services logs in W3C format. |
-| Syslog | Syslog | Syslog events on Windows or Linux computers. |
+| [Syslog](log-analytics-data-sources-syslog.md) | Syslog | Syslog events on Windows or Linux computers. |
 
 ## Configuring data sources
 
@@ -62,4 +62,4 @@ All data collected by Log Analytics is stored in the OMS repository as records. 
 
 - Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the OMS repository.
 - Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
-- Configure alerts to proactively notify you of critical data collected from data sources and solutions.
+- Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.

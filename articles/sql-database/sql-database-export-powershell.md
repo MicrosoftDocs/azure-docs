@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -64,8 +64,8 @@ Replace the following with your specific values:
 In the [Azure portal](https://portal.azure.com), browse to your storage account to get these values. You can find the primary access key by clicking **All settings** and then **Keys** from your storage account's blade.
 
     $StorageName = "storageaccountname"
-    $StorageKeyType = "storageKeyType"
-    $StorageUri = "http://storageaccountname.blob.core.windows.net/containerName/filename.bacpac"
+    $StorageKeyType = "StorageAccessKey"
+    $StorageUri = "http://$StorageName.blob.core.windows.net/containerName/filename.bacpac"
     $StorageKey = "primaryaccesskey"
 
 
@@ -80,7 +80,7 @@ This command submits an export database request to the service. Depending on the
 > [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy-powershell.md), and then export the database copy.
 
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorPassword $credential.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password
 
 
 ## Monitor the progress of the export operation
@@ -90,7 +90,7 @@ After running **New-AzureRmSqlDatabaseExport**, you can check the status of the 
 Running this command will prompt you for a password. Enter the admin password for your SQL server.
 
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
 
 
@@ -105,17 +105,11 @@ Running this command will prompt you for a password. Enter the admin password fo
 
     $credential = Get-Credential
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey  StorageUri $StorageUri –AdministratorLogin $credential.UserName  –AdministratorPassword $credential.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName  $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName  –AdministratorLoginPassword $credential.Password
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+
 
 ## Next steps
 
-- Similarly, you may want to create an Azure SQL database by [importing a BACPAC file with PowerShell](sql-database-import-powershell.md).
-
-
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](sql-database-import-powershell.md).

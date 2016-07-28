@@ -75,7 +75,7 @@ The WordPress site that you'll deploy in this tutorial uses MySQL for the databa
 
 1. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources][ResourceGroups].
+	For more information about resource groups, see [Azure Resource Manager overview][ResourceGroups].
 
 	![Configure the resource group for the web app][ConfigResourceGroup]
 
@@ -153,7 +153,7 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../azure-portal/resource-group-portal.md
+[ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/

@@ -3,7 +3,7 @@
 	description="Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage."
 	services="storage"
 	documentationCenter=""
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
-	ms.author="prkhad"/>
+	ms.date="07/24/2016"
+	ms.author="aungoo-msft"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
@@ -365,6 +365,9 @@ For detailed information on pricing for Premium Storage,  DS-series VMs, DSv2-se
 - [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 - [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
+## Backup
+Virtual machines using premium storage can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+
 ## Quick Start
 
 ## Create and use a Premium Storage account for a virtual machine data disk
@@ -399,7 +402,7 @@ This section shows how to create a Premium Storage account using the Azure porta
 
 7. Select the subscription in which you want to create the new storage account.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 9. Select the geographic location for your storage account. You can confirm whether Premium Storage is available in the selected Location by referring to [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 
