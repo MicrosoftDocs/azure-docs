@@ -19,7 +19,7 @@
 
 # Overview of business continuity with Azure SQL Database
 
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery, along with their use cases and related tutorials. You can use these key business continuity features to keep your business running when a disruption to your business occurs or to prevent a disruption during planning maintenance events. For example, a disruption could occur due to a user or application error affecting data integrity or in the event of an Azure regional outage. 
+This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
 
 ## SQL Database features that you can use to provide business continuity
 

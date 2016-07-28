@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conditional access FAQs | Microsoft Azure"
+	pageTitle="Azure Active Directory Conditional Access FAQ | Microsoft Azure"
 	description="Frequently asked questions about conditional access "
 	services="active-directory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="07/26/2016"
 	ms.author="markvi"/>
 
-# Conditional access FAQs
+# Azure Active Directory Conditional Access FAQ
 
 ## Which applications work with conditional access policies?
 
