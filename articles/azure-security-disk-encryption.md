@@ -591,13 +591,13 @@ You can disable encryption on a running Windows IaaS VM via the Azure disk encr
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using ARM template
 
-Disk encryption can be disabled on running Windows IaaS VM using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
+Disk encryption can be disabled on running Windows IaaS VM using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 ARM template parameters details for disabling encryption on running Windows IaaS VM:
 
 | ​vmName         | ​Name of the VM on which encryption operation is to be performed                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. |
+| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All".<br>**Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. |
 | sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk decryption operation is performed on the same VM                                                                                          |
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using PS cmdlet
