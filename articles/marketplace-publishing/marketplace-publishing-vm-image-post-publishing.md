@@ -189,7 +189,7 @@ You can update the categories section for your offer and re-publish your offer b
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7.png)
 
-## 3. How to add a new SKU under a live offer
+## 3. How to add a new SKU under a listed offer
 
 You can add a new SKU under your live offer by following the steps given below:
 
@@ -210,7 +210,7 @@ You can add a new SKU under your live offer by following the steps given below:
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03.1-2.png)
 
-## 4. How to change the data disk count for a listed SKU?
+## 4. How to change the data disk count for a listed SKU
 
 You cannot increment/decrement the data disk count of a listed SKU. You need a create a new SKU in this case. Please refer to the section [3. How to add a new SKU under a live offer](#3-how-to-add-a-new-sku-under-a-live-offer) for detailed guidance.
 
@@ -226,7 +226,7 @@ The support team will guide you through the offer/SKU deletion process.
 
 >[AZURE.NOTE] You can always delete the offer while it is in a Draft status (i.e., not in STAGING or PRODUCTION) by clicking on the **DISCARD DRAFT** button under the **HISTORY** tab.
 
-## 6. How to delete a listed SKU from the Azure Marketplace?
+## 6. How to delete a listed SKU from the Azure Marketplace
 
 You can delete a listed SKU from the Azure Marketplace by following the steps given below:
 
@@ -237,7 +237,7 @@ You can delete a listed SKU from the Azure Marketplace by following the steps gi
 5. Once done, navigate to the PUBLISH tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish the offer in the Azure Marketplace.
 6. Once the offer gets re-published in the Azure Marketplace, the SKU will be deleted from the Azure Marketplace and the Azure Portal.
 
-## 7. How to delete the current version of a listed SKU from the Azure Marketplace?
+## 7. How to delete the current version of a listed SKU from the Azure Marketplace
 
 You can delete the current version of a listed SKU from the Azure Marketplace by following the steps given below. Once the process is complete, the SKU will be rolled back to its previous version.
 
@@ -248,7 +248,7 @@ You can delete the current version of a listed SKU from the Azure Marketplace by
 5.	Once done, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish the offer in the Azure Marketplace.
 6.	Once the offer gets re-published in the Azure Marketplace, the current version of the listed SKU will be deleted from the Azure Marketplace and the Azure Portal. The SKU will be rolled back to its previous version.
 
-## 8. How to revert listing price to production values?
+## 8. How to revert listing price to production values
 I have changed the pricing of a listed SKU (or I have removed the billing regions of a listed SKU). Since it is not supported in the Azure Marketplace, I want to revert my changes to the production values. How do I achieve that?
 
 Please follow the steps given below:
@@ -264,7 +264,9 @@ Please follow the steps given below:
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
 
-6. Now click the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES**. **Note:** The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
+6. Now click the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES**.
+
+    >[AZURE.NOTE] The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
 
