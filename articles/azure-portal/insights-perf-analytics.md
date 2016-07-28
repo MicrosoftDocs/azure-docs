@@ -88,7 +88,12 @@ Or if you're using a virtual machine:
 For more powerful searches over your telemetry, use the [Analytics query language](../application-insights/app-insights-analytics-tour.md).
 
 
+## Q & A
 
+How do I change to send data to a different Application Insights resource?
+
+* *If you added Application Insights to your code in Visual Studio:* Right-click the project, choose **Application Insights > Configure** and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
+* *Otherwise:* In Azure, open the web app control blade, and open **Tools > Extensions**. Delete the Application Insights extension. Then open **Tools > Performance**, 'click here', choose Application Insights, and then the resource that you want. (If you want to create a new Application Insights resource, do that first.)
 
 
 ## Next steps
