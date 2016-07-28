@@ -214,9 +214,9 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
-3. In **Third-Party Software License** click **I Accept** to download and install MySQL.
+3. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
 
-	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz2.png)
+	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.png)
 
 4. In **Registration** browse and select the registration key you downloaded from the vault.
 
