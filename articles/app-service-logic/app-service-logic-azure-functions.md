@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using Azure Functions with Logic Apps | Microsoft Azure"
    description="See how to use Azure Functions with Logic Apps"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"

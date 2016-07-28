@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 

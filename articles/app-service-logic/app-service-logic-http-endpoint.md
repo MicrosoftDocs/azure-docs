@@ -1,7 +1,7 @@
 <properties
    pageTitle="Logic apps as callable endpoints"
    description="How to create and configure trigger endpoints and use them in a Logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
