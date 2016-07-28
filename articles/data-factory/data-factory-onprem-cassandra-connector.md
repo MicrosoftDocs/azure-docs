@@ -28,7 +28,7 @@ For the Azure Data Factory service to be able to connect to your on-premises Cas
   
 	When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. 
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from a Cassandra database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
