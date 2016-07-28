@@ -24,7 +24,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 ## Prerequisites
 
-- Visual Studio 2012 or 2013
+- Visual Studio 2012 or 2013 or 2015
 - Download and install [Azure .NET SDK][azure-developer-center]
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
