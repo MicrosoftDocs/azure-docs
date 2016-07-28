@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/11/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 
 # List of Connectors and API Apps to use in your Logic Apps
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [New Connectors List](../connectors/apis-list.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the Logic Apps General Availability (GA) version, see [New Connectors List](../connectors/apis-list.md).
 
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## Core Connectors
 The following table lists all the available connectors and API Apps created by Microsoft that are available as Core Connectors:
