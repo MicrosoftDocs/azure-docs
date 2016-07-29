@@ -189,7 +189,7 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 | --: | :-- | :-- |
 | 90 | [SQL Database automated backups](sql-database-automated-backups.md) | Learn about SQL Database builit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days). |
 | 91 | [Business continuity with Azure SQL Database](sql-database-business-continuity.md) | Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running. |
-| 92 | [Upgrade an application without downtime](sql-database-business-continuity-application-upgrade.md) | This section provides guidance for preventing downtime during an application upgrade. |
+| 92 | [Upgrade an application without downtime](sql-database-manage-application-rolling-upgrade.md) | This section provides guidance for preventing downtime during an application upgrade. |
 | 93 | [Business continuity scenarios for Azure SQL Database](sql-database-business-continuity-scenarios.md) | Azure SQL Database business continuity scenarios |
 | 94 | [How to restore a single table from an Azure SQL Database backup](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Learn how to restore a single table from Azure SQL Database backup. |
 | 95 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database. |
