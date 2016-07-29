@@ -26,21 +26,23 @@ By using the technique in this article, you will also be able to view your task 
 
 >[AZURE.NOTE] The file storage and retrieval method discussed here provides similar functionality to the way **Batch Apps** (now deprecated) managed its task outputs.
 
-## Task output challenges
+## Task output considerations
 
-Storing and retrieving task output presents several challenges:
+When you design your Batch solution, you must consider several factors related job and task outputs.
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **Storing output**: To persist task output data to durable storage, you would typically use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) directly in your task application, with each task uploading its output data to a Blob storage container. In most situations, you must design and implement a strict naming convention so that other tasks in the job or your client application can determine the path of, and then download, this output. For example, you might have several tasks that each render a single frame of a movie, and a final task that merges all of the rendered frames into a complete movie. This final merge task would need to know the full path to the output of each frame-rendering task.
+* **Output storage**: To persist task output data to durable storage, you can use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) in your task code to upload the task output to a Blob storage container. If you implement a container and file naming convention, your client application or other tasks in the job can then locate and download this output based on that convention.
 
-* **Retrieving output**: If you wish to retrieve a task's output directly from a compute node, you must know the file name and its output location on the node. If, however, your task stores its output to Azure Storage, you must write the code to first determine the full path to the file in Azure Storage, then to download the file using the Azure Storage SDK. There is currently no built-in feature of the Batch SDK to determine which output files are associated with a certain task--you must determine or track this manually.
+* **Output retrieval**: You can retrieve task output directly from the compute nodes in your pool, or from Azure Storage if your tasks persist their output. To retrieve a task's output directly from a compute node, you need the file name and its output location on the node. If you persist output to Azure Storage, downstream tasks or your client application must have the full path to the file in Azure Storage in order to download it by using the Azure Storage SDK.
 
-* **Viewing output**: Previously, if you wanted to view an individual task's outputs in the Azure portal, you had to navigate to the task and then view the *Files on node*. This presents *all* of the files associated with the task--not just the output file(s) you're interested in--and these files are as transient as the compute nodes on which they reside. For output that your tasks "manually" persisted to Azure Storage, you needed to know where in Storage it was uploaded to, then navigate to the files within your Azure Storage account in the portal. The Azure portal now supports viewing persisted Batch task output, and in the remainder of this article, you'll learn how to enable this for your tasks.
+* **Viewing output**: When you navigate to a Batch task in the Azure portal and select **Files on node**, you are presented with all of the files associated with the task, not just the output file(s) you're interested in. Again, files on compute nodes are available only while the node exists and only within the file retention time you've set for the task. To view task output that you've persisted to Azure Storage in the portal or an application like the [Azure Storage Explorer][storage_explorer], you must know its location and navigate to the file directly.
 
-To address these challenges, the Batch team has defined and implemented a set of naming conventions for persisting Batch job and task data to Azure Storage. We've implemented these conventions in a .NET class library which can greatly simplify persistence to durable storage. The Azure portal is aware of these conventions so that you can view the job and task output you've stored this way.
+## Help for persisted output
 
-## Use the file conventions library
+To simplify job and task output persistence to Azure Storage, as well as assist in the retrieval of this output, the Batch team has defined and implemented a set of naming conventions in a .NET class library that you can use in your Batch solution. In addition, Azure portal is aware of these conventions so that you can easily view the job and task output you've stored this way.
+
+## Using the file conventions library
 
 [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code to persist files, and in client code to list and retrieve them. Your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
@@ -232,6 +234,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Azure.Batch/
 [portal]: https://portal.azure.com
+[storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-task-output/task-output-01.png "Saved output files and Saved logs selectors in portal"
 [2]: ./media/batch-task-output/task-output-02.png "Task outputs blade in the Azure portal"
