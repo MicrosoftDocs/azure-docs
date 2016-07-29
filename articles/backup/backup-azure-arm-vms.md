@@ -18,7 +18,7 @@
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Back up Azure Resource Manager (ARM) virtual machines
+# Back up Azure VMs to a Recovery Services vault
 
 > [AZURE.SELECTOR]
 - [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
