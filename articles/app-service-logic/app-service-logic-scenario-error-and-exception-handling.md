@@ -12,7 +12,7 @@
     ms.service="logic-apps" 
     ms.workload="na" 
     ms.tgt_pltfrm="na" 
-    ms.devlang="" 
+    ms.devlang="na" 
     ms.topic="article" 
     ms.date="07/29/2016" 
     ms.author="b-hoedid"/>
@@ -39,9 +39,9 @@ The following story is the use case for this article.
 
 >[AZURE.TIP] You can view a high-level video at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group")
 
-We decided to use **[Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/ "Azure DocumentDB")** as a repository for the log and error records. (DocumentDB refers to records as documents).  Since Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API App to Insert and Query for both Error and Log records. We could also define a schema for each within the API App.  
+We decided to use **[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB")** as a repository for the log and error records. (DocumentDB refers to records as documents).  Since Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API App to Insert and Query for both Error and Log records. We could also define a schema for each within the API App.  
 
-We had another requirements to purge records after a certain date.  DocumentDB has a property [Time-To-Live](https://azure.microsoft.com/en-us/blog/documentdb-now-supports-time-to-live-ttl/ "Time-To-Live") (ttl), which allowed us to set a **Time-to-Live** value for each record or on a entire collection. This eliminates the need to manually delete records in DocumentDB.
+We had another requirements to purge records after a certain date.  DocumentDB has a property [Time-To-Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time-To-Live") (ttl), which allowed us to set a **Time-to-Live** value for each record or on a entire collection. This eliminates the need to manually delete records in DocumentDB.
 
 ## Lets take a look at how we did this
 
@@ -393,7 +393,7 @@ Once you have the response, you can pass it back to the parent logic app.
   
 ## DocumentDB repository and portal
 
-Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/en-us/services/documentdb)
+Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb)
 
 ### Error management portal
 
