@@ -48,7 +48,7 @@ See [Updating Azure ML models using the Update Resource Activity](#updating-azur
 
 You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
 
-1. Create an Azure Machne Learning linked service. You will require the following:
+1. Create an Azure Machine Learning linked service. You will require the following:
 	1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
 	1. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking on the web service that you have published. 
  2. Use the **AzureMLBatchExecution** activity.

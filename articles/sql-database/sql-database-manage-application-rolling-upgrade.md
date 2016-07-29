@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="06/16/2016"
+   ms.workload="NA"
+   ms.date="07/16/2016"
    ms.author="sashan"/>
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
@@ -122,6 +122,15 @@ The two upgrade methods described in the article differ in complexity and the do
 
 
 ## Next steps
+
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+
+## Additionale Resources
+
 The following pages will help you learn about the specific operations required to implement the upgrade workflow:
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
@@ -132,13 +141,3 @@ The following pages will help you learn about the specific operations required t
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Set database to read-only or read-write mode](https://msdn.microsoft.com/library/bb522682.aspx)
 
-## Additional resources
-
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)

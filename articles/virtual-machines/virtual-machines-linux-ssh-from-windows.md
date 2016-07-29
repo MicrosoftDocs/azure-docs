@@ -58,10 +58,10 @@ openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
 [This section](#What-SSH-and-key-creation-programs-do-you-need) above listed several utilities that include an `ssh-keygen` and `openssl` for Windows. A couple of examples are listed below:
 
-###Use GitHub for Windows###
+###Use Git for Windows###
 
-1.	Download and install GitHub for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Run Git Bash from the Start Menu > All Apps > GitHub
+1.	Download and install Git for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.	Run Git Bash from the Start Menu > All Apps > Git Shell
 
 > [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: FAQs | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: FAQs | Microsoft Azure"
 	description="Frequently asked questions about Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: FAQs
+# Azure Active Directory B2C: FAQs
 
-This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C preview. Keep checking back for updates.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
@@ -56,7 +54,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 
 ### I have multiple Azure AD B2C Tenants. How can I manage them on the Azure Portal?
 
-Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C preview: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
+Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C: Register your application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal will not keep your B2C features blade open on most browsers.
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 
@@ -68,7 +66,7 @@ You can use the Azure AD Graph API to write your migration tool. See the [Graph 
 
 ### What password policy is used for local accounts in Azure AD B2C?
 
-The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
+The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
@@ -102,15 +100,17 @@ Not currently. This feature is on our roadmap. Also note that verifying your dom
 
 Follow these steps to delete your Azure AD B2C tenant:
 
-- Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (This is the same work or school account or the same Microsoft account that you used to sign up for Azure.)
+- Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+- Navigate to the **Applications**, **Identity providers** and **All policies** blades and delete all the entries in each of them.
+- Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (This is the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 - Navigate to the Active Directory extension on the left and click your B2C tenant.
+- Click the **Users** tab.
+- Select each user in turn (exclude the user you are currently signed in as, i.e., the Subscription Administrator). Click **Delete** at the bottom of the page and click **YES** when prompted.
 - Click the **Applications** tab.
 - Select **Applications my company owns** in the **Show** drop-down field and click on the check mark.
 - You'll see an application called **b2c-extensions-app** listed below. Click **Delete** at the bottom of the page and click **YES** when prompted.
 - Navigate to the Active Directory extension again and select your B2C tenant.
 - Click **Delete** at the bottom of the page. Follow the instructions on the screen to complete the process.
-
-If you have already create **Users**, **Applications** or other objects in your B2C tenant, you'll need to delete them before doing the above steps.
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 
@@ -120,10 +120,6 @@ No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise 
 
 See [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
-### When will Azure AD B2C be generally available?
-
-We can't provide any information on the generally available date at this time.
-
 ## More information
 
-You also might want to review current [preview limitations, restrictions, and constraints](active-directory-b2c-limitations.md).
+You also might want to review current [service limitations, restrictions, and constraints](active-directory-b2c-limitations.md).

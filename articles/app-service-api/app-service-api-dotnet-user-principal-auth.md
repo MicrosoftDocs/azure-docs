@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="tdykstra"/>
+	ms.date="06/30/2016"
+	ms.author="rachelap"/>
 
 # User authentication for API Apps in Azure App Service
 

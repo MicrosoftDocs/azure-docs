@@ -3,7 +3,7 @@
    description="Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -16,20 +16,20 @@
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
-# Recover an Azure SQL Database from a user error
+# Recover an Azure SQL Database from an error
 
 Azure SQL Database offers two core capabilities for recovering from user error or unintended data modification.
 
-- [Point-in-time restore](sql-database-point-in-time-restore.md) 
-- [Restore deleted database](sql-database-restore-deleted-database.md)
+- [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)  
+- [Restore deleted database](sql-database-recovery-using-backups.md#deleted-database-restore)
 
-Azure SQL Database always restores to a new database. These restore capabilities are offered to all Basic, Standard, and Premium databases.
+Azure SQL Database always restores to a new database when performing point-in-time restore, but can restore to the same database name when restoring from a deleted database. These restore capabilities are offered to all Basic, Standard, and Premium databases.
 
 ##Point-in-time restore
 
 In the event of a user error or unintended data modification, point-in-time restore can be used to restore your database to any point in time within your databases retention period. 
 
-Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention. To learn more about database backup retention, please see [automated backups](sql-database-automated-backups.md).
+Basic databases have 7 days of retention, Standard databases have 35 days of retention, and Premium databases have 35 days of retention. To learn more about database backup retention, please see [automated backups](sql-database-automated-backups.md).
 
 To perform a point-in-time restore see:
 
@@ -53,16 +53,8 @@ To restore a deleted database:
 
 ## Next steps
 
-- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-geo-restore.md)
-
-## Additional Resources
-
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
+- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about using Active Geo-Replication, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)

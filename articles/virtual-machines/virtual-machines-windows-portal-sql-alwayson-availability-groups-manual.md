@@ -218,7 +218,7 @@ The following table shows the settings for these two machines.
 | **Field** | Value 
 | ----- | ---- 
 | **User name**  | DomainAdmin
-| **Password** | Contoso!000 |
+| **Password** | Contoso!0000 |
 | **Subscription** | *your subscription* |
 | **Resource group** | SQL-HA-RG |
 | **Location** | *your location* 
@@ -247,7 +247,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 	![Connect to Vritual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
 
-1. Log in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!000**).
+1. Log in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
 
 1. By default, the **Server Manager** dashboard should be displayed.
 
@@ -282,7 +282,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 | **Page** |Setting|
 |---|---|
 |**Deployment Configuration** |**Add a new forest** = Selected<br/>**Root domain name** = corp.contoso.com|
-|**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
+|**Domain Controller Options**|**DSRM Password** = Contoso!0000<br/>**Confirm Password** = Contoso!0000|
 
 1. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review any applicable warning messages, but it is possible to continue with the install.
 
@@ -298,7 +298,7 @@ After the primary domain controller reboots, you can configure the second domain
 
 1. Change the preferred DNS server address to the address for the domain controller. 
 
-1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!000**).
+1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
 
 1. From the primary domain controller, launch a remote desktop to **ad-secondary-dc** using the IP address. Use the same account and password.
 
@@ -330,7 +330,7 @@ After the primary domain controller reboots, you can configure the second domain
 |Page|Setting|
 |---|---|
 |**Deployment Configuration**|**Add a domain controller to an existing domain** = Selected<br/>**Root** = corp.contoso.com|
-|**Domain Controller Options**|**DSRM Password** = Contoso!000<br/>**Confirm Password** = Contoso!000|
+|**Domain Controller Options**|**DSRM Password** = Contoso!0000<br/>**Confirm Password** = Contoso!0000|
 
 
 ### Configure Domain Accounts
@@ -351,8 +351,8 @@ The next steps configure the Active Directory (AD) accounts for later use.
 |---|---|
 |**First Name**|Install|
 |**User SamAccountName**|Install|
-|**Password**|Contoso!000|
-|**Confirm password**|Contoso!000|
+|**Password**|Contoso!0000|
+|**Confirm password**|Contoso!0000|
 |**Other password options**|Selected|
 |**Password never expires**|Checked|
 
@@ -382,12 +382,12 @@ Now that you have finished configuring Active Directory and the user objects, yo
 
 ###Create and configure the SQL Server VMs
 
-Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. To create each of the VMs, go back to **HA-AG-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Then use the templates in the following table to help you create the VMs.
+Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. To create each of the VMs, go back to **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, **Virtual Machine**, and then **From Gallery**. Then use the templates in the following table to help you create the VMs.
 
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Select the appropriate gallery item|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**|**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**|
-| Virtual machine configuraiton **Basics**  | **Name** = cluster-fsw<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location | **Name** = sqlserver-0<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location  | **Name** = sqlserver-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |
+| Virtual machine configuraiton **Basics**  | **Name** = cluster-fsw<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location | **Name** = sqlserver-0<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location  | **Name** = sqlserver-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |
 |Virtual machine configuration **Size** |DS1 (1 core, 3.5 GB memory)|**SIZE** = DS 2 (2 cores, 7 GB memory)|**SIZE** = DS 2 (2 cores, 7 GB memory)|
 |Virtual machine configuration **Settings**|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>
 |Virtual machine configuration **SQL Server settings**|Not applicable|**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled|**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled|
@@ -416,7 +416,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 1. First, change the preferred DNS server address for each member server. 
 
-1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!000**).
+1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
 
 1. From the primary domain controller, launch a remote desktop to **sqlserver-0** using the IP address. Use the same account and password.
 
@@ -449,7 +449,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 1. Select the **Domain** check box and type **corp.contoso.com** in the text box. Click **OK**.
 
-1. In the **Windows Security** popup dialog, specify the credentials for the default domain administrator account (**CORP\DomainAdmin**) and the password (**Contoso!000**).
+1. In the **Windows Security** popup dialog, specify the credentials for the default domain administrator account (**CORP\DomainAdmin**) and the password (**Contoso!0000**).
 
 1. When you see the "Welcome to the corp.contoso.com domain" message, click **OK**.
 
@@ -471,7 +471,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 1. In the **Administrators Properties** dialog, click the **Add** button.
 
-1. Enter the user **CORP\Install**, and then click **OK**. When prompted for credentials, use the **DomainAdmin** account with the **Contoso!000** password.
+1. Enter the user **CORP\Install**, and then click **OK**. When prompted for credentials, use the **DomainAdmin** account with the **Contoso!0000** password.
 
 1. Click **OK** to close the **Administrator Properties** dialog.
 

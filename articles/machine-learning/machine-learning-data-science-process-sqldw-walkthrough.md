@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The Cortana Analytics Process in action: using SQL Data Warehouse | Microsoft Azure"
+	pageTitle="The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Azure"
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
-# The Cortana Analytics Process in action: using SQL Data Warehouse
+# The Team Data Science Process in action: using SQL Data Warehouse
 
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
 
-The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
+The procedure follows the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
@@ -315,13 +315,18 @@ This **PowerShell script** file completes the following tasks:
 			)
 			;
 
->[AZURE.NOTE] Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or  even longer,and the process of loading data from your storage account to your Azure SQL DW could take 20 minutes or longer.  
+The geographic location of your storage accounts affects load times.
+
+>[AZURE.NOTE] Depending on the geographical location of your private blob storage account, the process of copying data from a public blob to your private storage account can take about 15 minutes, or even longer,and the process of loading data from your storage account to your Azure SQL DW could take 20 minutes or longer.  
+
+You will have to decide what do if you have duplicate source and destination files.
 
 >[AZURE.NOTE] If the .csv files to be copied from the public blob storage to your private blob storage account already exist in your private blob storage account, AzCopy will ask you whether you want to overwrite them. If you do not want to overwrite them, input **n** when prompted. If you want to overwrite **all** of them, input **a** when prompted. You can also input **y** to overwrite .csv files individually.
 
 ![Plot #21][21]
 
->[AZURE.TIP] **Use your own data:** If your data is in your on-premise machine in your real life application, you can still use AzCopy to upload on-premise data to your private Azure blob storage. You only need to change the **Source** location, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in the AzCopy command of the PowerShell script file to the local directory that contains your data.
+You can use your own data. If your data is in your on-premise machine in your real life application, you can still use AzCopy to upload on-premise data to your private Azure blob storage. You only need to change the **Source** location, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in the AzCopy command of the PowerShell script file to the local directory that contains your data.
+
 
 >[AZURE.TIP] If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure SQL DW. This will require additional edits of the script to tailor it to the format of your data.
 
@@ -925,7 +930,7 @@ A sample scoring experiment is provided in the figure below. When ready to deplo
 
 
 ## Summary
-To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Cortana Analytics Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
+To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Team Data Science Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
 
 ### License information
 

@@ -22,11 +22,11 @@ At Microsoft, we work hard to make sure that our services are always available t
 
 Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
-Azure already has many built-in platform features that support highly available applications. For more about these services, read [Disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide).
+Azure already has many built-in platform features that support highly available applications. For more about these services, read [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
 
->[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](https://aka.ms/drtechguide#DSDR).
+>[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery).
 
 To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines in the case of a service disruption of the entire region where your Azure virtual machine application is deployed.
 
@@ -52,9 +52,9 @@ If you have configured Azure Site Recovery to work with your impacted Azure virt
 >[AZURE.NOTE]Although Azure virtual machine operating system and data disks will be replicated to a secondary VHD, if they are in a geo-redundant storage or read-access geo-redundant storage account, each VHD is replicated independently. This level of replication doesn’t guarantee consistency across the replicated VHDs. If your application and/or databases that use these data disks have dependencies on each other, it is not guaranteed that all VHDs are replicated as one snapshot. It is also not guaranteed that the VHD replica from geo-redundant storage or read-access geo-redundant storage will result in an application consistent snapshot to boot the VM.
 
 ##Next steps
-To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
+To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure Business Continuity Technical Guidance](http://aka.ms/bctechguide).
+To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
 
 To learn how to back up VMs, see [Back up Azure virtual machines](../backup/backup-azure-vms.md).
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C Preview | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
 	description="How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C preview: Build a Windows desktop app
+# Azure AD B2C: Build a Windows desktop app
 
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Get an Azure AD B2C directory
 
@@ -60,38 +58,19 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
 
-After you download the sample code, open the Visual Studio .sln file to get started. There are two projects in the solution: a `TaskClient` project and a `TaskService` project.  `TaskClient` is the WPF desktop application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list.  In this case, both `TaskClient` and `TaskService` are represented by a single Application ID, because they comprise one logical application.
-
-## Configure the task service
-
-When `TaskService` receives a request from `TaskClient`, it checks for a valid access token to authenticate the request. To validate the access token, you need to provide `TaskService` with information about your app. In the `TaskService` project, open the `web.config` file in the root of the project and replace the values in the `<appSettings>` section:
-
-```
-<appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/{1}/{2}?p={3}" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
-    <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
-  </appSettings>
-```
-
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list.  You do not need to build the web API, we already have it running for you.
 
 To learn how a web API securely authenticates requests by using Azure AD B2C, check out the
 [web API getting started article](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## Execute policies
-When `TaskService` is ready to authenticate requests, you can implement `TaskClient`. Your app communicates with Azure AD B2C by sending HTTP authentication requests. These specify the policy they want to execute as part of the request. For .NET desktop applications, you can use the Active Directory Authentication Library (ADAL) to send OAuth 2.0 authentication messages, execute policies, and get tokens that call web APIs.
+Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET desktop applications, you can use the preview Microsoft Authentication Library (MSAL) to send OAuth 2.0 authentication messages, execute policies, and get tokens that call web APIs.
 
-### Install ADAL
-Add ADAL to the `TaskClient` project by using the Visual Studio Package Manager Console.
+### Install MSAL
+Add MSAL to the `TaskClient` project by using the Visual Studio Package Manager Console.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease
+PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### Enter your B2C details
@@ -100,98 +79,93 @@ Open the file `Globals.cs` and replace each of the property values with your own
 ```C#
 public static class Globals
 {
-	public static string tenant = "{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}";
-	public static string clientId = "{Enter the Application ID assigned to your app by the Azure Portal}";
-	public static string signInPolicy = "{Enter the name of your sign in policy, e.g. b2c_1_sign_in}";
-	public static string signUpPolicy = "{Enter the name of your sign up policy, e.g. b2c_1_sign_up}";
-	public static string editProfilePolicy = "{Enter the name of your edit profile policy, e.g. b2c_1_edit_profile}";
+    ...
 
-	public static string taskServiceUrl = "https://localhost:44332";
-	public static string aadInstance = "https://login.microsoftonline.com/";
-	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
+    // TODO: Replace these five default with your own configuration values
+    public static string tenant = "fabrikamb2c.onmicrosoft.com";
+    public static string clientId = "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6";
+    public static string signInPolicy = "b2c_1_sign_in";
+    public static string signUpPolicy = "b2c_1_sign_up";
+    public static string editProfilePolicy = "b2c_1_edit_profile";
 
+    ...
 }
 ```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-### Create AuthenticationContext
-The primary class of ADAL is `AuthenticationContext`. This represents your app's connection to your B2C directory. When the app starts, create an instance of `AuthenticationContext` in `MainWindow.xaml.cs`. This can be used throughout the window.
+### Create the PublicClientApplication
+The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
 
 ```C#
-public partial class MainWindow : Window
+protected async override void OnInitialized(EventArgs e)
 {
-	private HttpClient httpClient = new HttpClient();
-	private AuthenticationContext authContext = null;
+    base.OnInitialized(e);
 
-	protected async override void OnInitialized(EventArgs e)
-	{
-		base.OnInitialized(e);
-
-		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default. Because we want tokens to persist when the user closes the app,
-		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
-		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
-		...
-	...
+    pca = new PublicClientApplication(Globals.clientId)
+    {
+        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+        // we've extended the MSAL TokenCache and created a simple FileCache in this app.
+        UserTokenCache = new FileCache(),
+    };
+    
+    ...
 ```
 
 ### Initiate a sign-up flow
-When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using ADAL, you just call `authContext.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
+When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using MSAL, you just call `pca.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		// Use the app's clientId here as the scope parameter, indicating that you want a token to our own back-end API.
-		// Use the PromptBehavior. Always flag to indicate to ADAL that it should show a sign-up UI, no matter what.
-		// Pass in the name of your sign-up policy to execute the sign-up experience.
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-			null, Globals.clientId, new Uri(Globals.redirectUri),
-			new PlatformParameters(PromptBehavior.Always, null), Globals.signUpPolicy);
+    AuthenticationResult result = null;
+    try
+    {
+        // Use the app's clientId here as the scope parameter, indicating that
+        // you want a token to the your app's backend web API (represented by
+        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
+        // indicate to MSAL that it should show a sign-up UI no matter what.
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+                string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
+                Globals.signUpPolicy);
 
-		// Indicate in the app that the user is signed in.
-		SignInButton.Visibility = Visibility.Collapsed;
-		SignUpButton.Visibility = Visibility.Collapsed;
-		EditProfileButton.Visibility = Visibility.Visible;
-		SignOutButton.Visibility = Visibility.Visible;
+        // Upon success, indicate in the app that the user is signed in.
+        SignInButton.Visibility = Visibility.Collapsed;
+        SignUpButton.Visibility = Visibility.Collapsed;
+        EditProfileButton.Visibility = Visibility.Visible;
+        SignOutButton.Visibility = Visibility.Visible;
 
-		// When the request completes successfully, you can get user information from AuthenticationResult
-		UsernameLabel.Content = result.UserInfo.Name;
+        // When the request completes successfully, you can get user 
+        // information from the AuthenticationResult
+        UsernameLabel.Content = result.User.Name;
 
-		// After the sign-up successfully completes, display the user's to-do list
-		GetTodoList();
-	}
+        // After the sign up successfully completes, display the user's To-Do List
+        GetTodoList();
+    }
 
-	// Handle any exemptions that occurred during execution of the policy.
-	catch (AdalException ex)
-	{
-		if (ex.ErrorCode == "authentication_canceled")
-		{
-			MessageBox.Show("Sign up was canceled by the user");
-		}
-		else
-		{
-			// An unexpected error occurred.
-			string message = ex.Message;
-			if (ex.InnerException != null)
-			{
-				message += "Inner Exception : " + ex.InnerException.Message;
-			}
+    // Handle any exeptions that occurred during execution of the policy.
+    catch (MsalException ex)
+    {
+        if (ex.ErrorCode != "authentication_canceled")
+        {
+            // An unexpected error occurred.
+            string message = ex.Message;
+            if (ex.InnerException != null)
+            {
+                message += "Inner Exception : " + ex.InnerException.Message;
+            }
 
-			MessageBox.Show(message);
-		}
+            MessageBox.Show(message);
+        }
 
-		return;
-	}
+        return;
+    }
 }
 ```
 
 ### Initiate a sign-in flow
-You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to ADAL, this time by using your sign-in policy:
+You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to MSAL, this time by using your sign-in policy:
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -199,9 +173,9 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 	AuthenticationResult result = null;
 	try
 	{
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-                    null, Globals.clientId, new Uri(Globals.redirectUri),
-                    new PlatformParameters(PromptBehavior.Always, null), Globals.signInPolicy);
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+                    string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
+                    Globals.signInPolicy);
 		...
 ```
 
@@ -214,103 +188,136 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 	AuthenticationResult result = null;
 	try
 	{
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-                    null, Globals.clientId, new Uri(Globals.redirectUri),
-                    new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+                    string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
+                    Globals.editProfilePolicy);
 ```
 
-In all of these cases, ADAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from ADAL, you can use the `AuthenticationResult.UserInfo` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
+In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
 
-## Call APIs
-You have now used ADAL to execute policies and get tokens. In many cases, however, you want to check for an existing cached token without executing a policy. One such case is when the app tries to fetch a user's to-do list from `TaskService`. You can use the same `authContext.AcquireTokenAsync(...)` method to do this, again by using `clientId` as the scope parameter, but this time by also using `PromptBehavior.Never`:
+
+### Check for tokens on app start
+You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+
+```C#
+AuthenticationResult result = null;
+try
+{
+    // If the user has has a token cached with any policy, we'll display them as signed-in.
+    TokenCacheItem tci = pca.UserTokenCache.ReadItems(Globals.clientId).Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
+    string existingPolicy = tci == null ? null : tci.Policy;
+    result = await pca.AcquireTokenSilentAsync(new string[] { Globals.clientId }, string.Empty, Globals.authority, existingPolicy, false);
+
+    SignInButton.Visibility = Visibility.Collapsed;
+    SignUpButton.Visibility = Visibility.Collapsed;
+    EditProfileButton.Visibility = Visibility.Visible;
+    SignOutButton.Visibility = Visibility.Visible;
+    UsernameLabel.Content = result.User.Name;
+    GetTodoList();
+}
+catch (MsalException ex)
+{
+    if (ex.ErrorCode == "failed_to_acquire_token_silently")
+    {
+        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+    }
+    else
+    {
+        // An unexpected error occurred.
+        string message = ex.Message;
+        if (ex.InnerException != null)
+        {
+            message += "Inner Exception : " + ex.InnerException.Message;
+        }
+        MessageBox.Show(message);
+    }
+    return;
+}
+```
+
+## Call the task API
+You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
 ```C#
 private async void GetTodoList()
 {
-	AuthenticationResult result = null;
-	try
-	{
-		// Here we want to check for a cached token, independent of whatever policy was used to acquire it.
-		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
-		string existingPolicy = tci == null ? null : tci.Policy;
+    AuthenticationResult result = null;
+    try
+    {
+        // Here we want to check for a cached token, independent of whatever policy was used to acquire it.
+        TokenCacheItem tci = pca.UserTokenCache.ReadItems(Globals.clientId).Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
+        string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
-		// could not be acquired from the cache, rather than automatically prompt the user to sign in.
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-			null, Globals.clientId, new Uri(Globals.redirectUri),
-			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
+        // Use AcquireTokenSilent to indicate that MSAL should throw an exception if a token cannot be acquired
+        result = await pca.AcquireTokenSilentAsync(new string[] { Globals.clientId }, string.Empty, Globals.authority, existingPolicy, false);
 
-	}
+    }
+    // If a token could not be acquired silently, we'll catch the exception and show the user a message.
+    catch (MsalException ex)
+    {
+        // There is no access token in the cache, so prompt the user to sign-in.
+        if (ex.ErrorCode == "failed_to_acquire_token_silently")
+        {
+            MessageBox.Show("Please sign up or sign in first");
+            SignInButton.Visibility = Visibility.Visible;
+            SignUpButton.Visibility = Visibility.Visible;
+            EditProfileButton.Visibility = Visibility.Collapsed;
+            SignOutButton.Visibility = Visibility.Collapsed;
+            UsernameLabel.Content = string.Empty;
+        }
+        else
+        {
+            // An unexpected error occurred.
+            string message = ex.Message;
+            if (ex.InnerException != null)
+            {
+                message += "Inner Exception : " + ex.InnerException.Message;
+            }
+            MessageBox.Show(message);
+        }
 
-	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
-	catch (AdalException ex)
-	{
-		// There is no access token in the cache, so prompt the user to sign in.
-		if (ex.ErrorCode == "user_interaction_required")
-		{
-			MessageBox.Show("Please sign up or sign in first");
-			SignInButton.Visibility = Visibility.Visible;
-			SignUpButton.Visibility = Visibility.Visible;
-			EditProfileButton.Visibility = Visibility.Collapsed;
-			SignOutButton.Visibility = Visibility.Collapsed;
-			UsernameLabel.Content = string.Empty;
-
-		}
-		else
-		{
-			// An unexpected error occurred.
-			string message = ex.Message;
-			if (ex.InnerException != null)
-			{
-				message += "Inner Exception : " + ex.InnerException.Message;
-			}
-			MessageBox.Show(message);
-		}
-
-		return;
-	}
+        return;
+    }
 	...
 ```
 
-When the call to `AcquireTokenAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. This way, `TaskService` can authenticate the request to read the user's to-do list:
+When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
 
 ```C#
 	...
-	// After the token has been returned by ADAL, add it to the HTTP authorization header before the call is made to TaskService.
-	httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
-	// Call the to-do-list service.
-	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
+    // Call the To Do list service.
+    HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
 	...
 ```
 
-You can use this pattern any time you want to check the token cache for tokens without prompting a user to sign in. For instance, when the app starts up, you may want to check `FileCache` for any existing tokens. This way, the user's sign-in session is maintained each time the app runs. You can see the same code in the `OnInitialized` event of `MainWindow`. `OnInitialized` handles this first-run case.
-
-## Sign out the user
-You can use ADAL to end a user's session with the app when the user selects **Sign out**.  By using ADAL, this is accomplished by clearing all of the tokens from the token cache:
+## Sign the user out
+Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
 {
-	// Clear any remnants of the user's session.
-	authContext.TokenCache.Clear();
+    // Clear any remnants of the user's session.
+    pca.UserTokenCache.Clear(Globals.clientId);
 
-	// This is a helper method that clears browser cookies in the browser control that ADAL uses. It is not part of ADAL.
-	ClearCookies();
+    // This is a helper method that clears browser cookies in the browser control that MSAL uses, it is not part of MSAL.
+    ClearCookies();
 
-	// Update the UI to show the user as signed out.
-	TaskList.ItemsSource = string.Empty;
-	SignInButton.Visibility = Visibility.Visible;
-	SignUpButton.Visibility = Visibility.Visible;
-	EditProfileButton.Visibility = Visibility.Collapsed;
-	SignOutButton.Visibility = Visibility.Collapsed;
-	return;
+    // Update the UI to show the user as signed out.
+    TaskList.ItemsSource = string.Empty;
+    SignInButton.Visibility = Visibility.Visible;
+    SignUpButton.Visibility = Visibility.Visible;
+    EditProfileButton.Visibility = Visibility.Collapsed;
+    SignOutButton.Visibility = Visibility.Collapsed;
+    return;
 }
 ```
 
 ## Run the sample app
 
-Finally, build and run both `TaskClient` and `TaskService`.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
+Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
 
 ## Add social IDPs
 
@@ -325,20 +332,8 @@ To add social IDPs to your app, begin by following the detailed instructions in 
 
 After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
 
-You can experiment with your policies and observe the effects on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and ADAL tie together.
+You can experiment with your policies and observe the effects on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and MSAL tie together.
 
 For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
-
-<!--
-
-## Next steps
-
-You can now move on to more advanced B2C topics. You may try:
-
-[Call a web API from a web app]()
-
-[Customize the UX of your B2C app]()
-
--->

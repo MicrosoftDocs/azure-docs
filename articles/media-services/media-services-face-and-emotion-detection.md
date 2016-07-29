@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Detect Face and Emotion with Azure Media Analytics

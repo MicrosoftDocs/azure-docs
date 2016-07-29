@@ -12,45 +12,47 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="07/28/2016"
 	ms.author="awills"/>
 
 
-# Install Application Insights Status Monitor to monitor website performance
+# Instrument web apps at runtime with Application Insights
 
 *Application Insights is in preview.*
 
-The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in ASP.NET applications. 
+You can instrument a live web app with Visual Studio Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] There are separate articles about  instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).
+You have a choice of three ways to apply Application Insights to your .NET web applications:
+
+* **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. 
+* **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
+* **Both:** Build the SDK into your web app code, and also apply the run-time extensions. Get the best of both options. 
+
+Here's a summary of what you get in each way:
+
+||Build time|Run time|
+|---|---|---|
+|Requests & exceptions|Yes|Yes|
+|[More detailed exceptions](app-insights-asp-net-exceptions.md)||Yes|
+|[Dependency diagnostics](app-insights-asp-net-dependencies.md)|On .NET 4.6+|Yes|
+|[System performance counters](app-insights-web-monitor-performance.md#system-performance-counters)||IIS or Azure cloud service, not Azure web app|
+|[API for custom telemetry][api]|Yes||
+|[Trace log integration](app-insights-asp-net-trace-logs.md)|Yes||
+|[Page view & user data](app-insights-javascript.md)|Yes||
+|No need to rebuild code|No||
 
 
-You have a choice of three ways to apply Application Insights to your IIS web applications:
-
-* **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
- * A range of standard diagnostic and usage telemetry.
- * The [Application Insights API][api] lets you write your own telemetry to track detailed usage or diagnose problems.
-* **Run time:** Use Status Monitor to instrument your web app on the server.
- * Monitor web apps that are already running: no need to rebuild or republish them.
- * A range of standard diagnostic and usage telemetry.
- * Dependency diagnostics&#151;locate faults or poor performance where your app uses other components such as databases, REST APIs, or other services.
- * Troubleshoot any issues with telemetry.
-* **Both:** Compile the SDK into your web app code, and run Status Monitor on your web server.  The best of both worlds:
- * Standard diagnostic and usage telemetry.
- * Dependency diagnostics.
- * The API lets you write custom telemetry.
- * Troubleshoot any issues with the SDK and telemetry.
 
 
-## Install Application Insights Status Monitor
+## Instrument your web app at run time
 
 You need a [Microsoft Azure](http://azure.com) subscription.
 
-### If your app runs on your IIS server
+### If your app is hosted on your IIS server
 
-1. On your IIS web server, login with administrator credentials.
+1. On your IIS web server, sign in with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 4. In the installation wizard, sign in to Microsoft Azure.
 
@@ -87,9 +89,15 @@ After you complete the wizard, you can re-configure the agent whenever you want.
 
 ### If your app runs as an Azure Web App
 
-In the control panel of your Azure Web App, add the Application Insights extension.
+1. In the [Azure portal](https://portal.azure.com), create an Application Insights resource with type ASP.NET. This will be where your application telemetry will be stored, analyzed and displayed.
 
-![In your web app, Settings, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Add, Application Insights. Select ASP.NET type.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Now open the control blade of your Azure Web App, open **Tools > Performance Monitoring** add the Application Insights extension.
+
+    ![In your web app, Tools, Extensions, Add, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Select the Application Insights resource you just created.
 
 
 ### If it's an Azure cloud services project
@@ -107,26 +115,28 @@ Open the Performance blade to see request, response time, dependency and other d
 
 ![Performance](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Click to adjust the details of what it displays, or add a new chart.
+Click any chart to open a more detailed view.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+You can [edit, rearrange, save](app-insights-metrics-explorer.md), and pin charts or the whole blade to a [dashboard](app-insights-dashboards.md).
 
 ## Dependencies
 
 The Dependency Duration chart shows the time taken by calls from your app to external components such as databases, REST APIs, or Azure blob storage.
 
-To segment the chart by calls to different dependencies, select the chart, turn on Grouping, and then choose Dependency, Dependency Type or Dependency Performance.
+To segment the chart by calls to different dependencies: Edit the chart, turn on Grouping, and then group by Dependency, Dependency Type or Dependency Performance.
 
-You can also filter the chart to look at a specific dependency, type, or performance bucket. Click Filters.
+![Dependency](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Performance counters
+## Performance counters 
 
 (Not for Azure web apps.) Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
 
-Add a new chart, or click any chart to change what it shows. 
+If you have several server instances, you might want to edit the charts to group by Role instance.
+
+![Servers](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 You can also [change the set of performance counters that are reported by the SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
+
 
 ## Exceptions
 
@@ -143,24 +153,7 @@ If your application sends a lot of data and you are using the Application Insigh
 
 ### Connection errors
 
-You need to open some outgoing ports in your server's firewall to allow Status Monitor to work:
-
-+ Telemetry - these are needed all the time:
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ Configuration - needed only when making changes:
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Installation:
- +	`packages.nuget.org:443`
-
-This list may change from time to time.
+You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 ### No telemetry?
 
@@ -197,6 +190,12 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 ## Automation with PowerShell
 
 You can start and stop monitoring by using PowerShell.
+
+First import the Application Insights module:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Find out which apps are being monitored:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 

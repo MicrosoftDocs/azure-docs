@@ -21,7 +21,6 @@ The updates in the pull request must comply with the following criteria to be me
 |Content| Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability.|
 |Content| Unusual or novel graphics, information architecture or structures, or obviously non-standard designs need to be vetted with the lead PR reviewer. Teams that are experimenting with new things need to have a problem/solution canvas or plan in place for evaluating experiments.|
 |Site/design functionality|	Switchers are used only for switching across multiple versions of the same article.|
-|Site design/functionality| Includes are used only at a block level (complete sentences, paragraphs, complete lists, etc.). See the [include guidance](custom-markdown-extensions.md#includes) for more details about appropriate usage.|
 |Site/design functionality|	The titles of switchered articles contain information that differentiates each article from the other articles in the switchered set.|
 |Site/design functionality|	Manually authored TOCs are not permitted. The article must rely on H2s for its on-page TOC.|
 |Site/design functionality|	If H2 headings are present, the article contains at least two H2 headings. Using one H2 heading creates a single-item article TOC. H2 headings must be used before H3 headings to ensure a TOC is created.|
@@ -47,3 +46,9 @@ For these items, pull request reviewers provide feedback and instructions for th
 |Style conventions|All titles and headings are sentence case, per Azure style.|
 |Process|If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically).|
 |Process|When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: <https://github.com/Azure/azure-content/blob/master/contributor-guide/retire-or-rename-an-article.md> .*|
+
+## Related
+
+- [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)

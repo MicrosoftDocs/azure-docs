@@ -2,7 +2,7 @@
 
 There are different options to distribute network traffic using Microsoft Azure.  These options work differently from each other, having a different feature set and supports different scenarios.  They can each be used in isolation, or combining them.
 
-- Azure Load Balancer works at the network layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- Azure Load Balancer works at the transport layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
 
 - Application Gateway works at the application layer (level 7 in the OSI network reference stack).  It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
 
@@ -11,7 +11,7 @@ The following table summarizes the features offered by each service:
 
 | Service | Azure Load Balancer | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) | DNS level |
+|Technology| Transport level (level 4) | Application level (level 7) | DNS level |
 | Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
 | Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
 | Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |

@@ -4,7 +4,7 @@
 	keywords="database monitoring, cloud database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/15/2016"
+	ms.date="07/06/2016"
 	ms.author="carlrab"/>
 
 # Monitoring database performance in Azure SQL Database
@@ -24,10 +24,10 @@ Monitoring the performance of a SQL database in Azure starts with monitoring the
 
 In the [Azure portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
-- CPU Percentage
-- DTU Percentage
-- Data IO Percentage
-- Storage Percentage
+- CPU percentage
+- DTU percentage
+- Data IO percentage
+- Database size percentage
 
 Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
 

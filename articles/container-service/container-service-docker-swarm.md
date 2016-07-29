@@ -30,7 +30,7 @@ Prerequisites to the exercises in this document:
 
 ## Deploy a new container
 
-To create a new container in the Docker Swarm, use the `docker run` command. This example creates a container from the `yeasy/simple-web` image:
+To create a new container in the Docker Swarm, use the `docker run` command (ensuring that you have opened an SSH tunnel to the masters as per the prerequisites above). This example creates a container from the `yeasy/simple-web` image:
 
 
 ```bash
@@ -54,9 +54,11 @@ You can now access the application that is running in this container through the
 
 ![Real visit results](media/real-visit.jpg)  
 
+By default the Load Balancer has ports 80, 8080 and 443 open. If you want to connect on another port you will need to open that port on the Azure Load Balancer for the Agent Pool.
+
 ## Deploy multiple containers
 
-As multiple containers are started on the Docker Swarm cluster, you can use the `docker ps` command to see which hosts the containers are running on. In this example, three containers are spread evenly across the three Swarm agents:  
+As multiple containers are started, by executing 'docker run' multiple times, you can use the `docker ps` command to see which hosts the containers are running on. In the example below, three containers are spread evenly across the three Swarm agents:  
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Deploy containers by using Docker Compose
 
-You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set.
+You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set (see the pre-requisites above).
 
 Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -114,6 +116,8 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago       Up About a minute   10.0.0.4:80->80/tcp       swarm-agent-3B7093B8-0/compose_web_1
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
+
+Naturally, you can use `docker-compose ps` to examine only the containers defined in your `compose.yml` file.
 
 ## Next steps
 

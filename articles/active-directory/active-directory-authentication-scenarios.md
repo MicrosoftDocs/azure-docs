@@ -63,7 +63,7 @@ With the diagram above in mind, here’s what you need to know about its various
 • Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) documentation.
 
 
-> [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
+> [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
 
 
 • The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory Authentication Protocols](active-directory-authentication-protocols.md) topic and in the sections below.
@@ -464,6 +464,6 @@ When the first application uses its authorization code to get a JWT access token
 
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 
-[Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)

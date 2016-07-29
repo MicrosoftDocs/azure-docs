@@ -3,7 +3,7 @@
    description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Azure Resource health overview
 
@@ -60,22 +60,28 @@ Clicking the tile opens the Resource health subscription blade which will list a
 ![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
 ### Resource health API
-Along with the Azure portal experience, there is also an API that can be used to query Resource health. The API supports calls to obtain the health of all resources in a subscription, all resources in a resource group or the health of a specific resource. 
+Along with the Azure portal experience, there is a set of APIs that can be used to query Resource health. The available APIs allow users to request the current health of all resources in a subscription, all resources in a resource group or the health of a single resource. 
 
-Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL: 
+Another API allows users to request the historical health of a single resource. The response is a collection of Resource health states for the last 14 days. If the resource may have been impacted by a declared outage, the health state will include an annotation called serviceImpactingEvents, with more details on the outage. 
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Before using the API to query Resource health, the subscription needs to be registered with the service by submitting a POST request to the following URL:  volume 
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 Below are examples on how to call the Resource health API
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## What does my Resource health status mean?
@@ -113,7 +119,7 @@ It is important to note that this is not a definitive indication that there is s
 ![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
 ## Service Impacting Events
-If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, where more information about the outage can be obtained.
+If the resource may be impacted by an ongoing Service Impacting Event, a banner will be displayed at the top of the Resource health blade. Clicking on the banner will open the Audit Events blade, which will display additional information about the outage.
 
 ![Resource health may be impacted by a SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 

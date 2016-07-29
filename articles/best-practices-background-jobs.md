@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Background jobs guidance
@@ -112,8 +112,8 @@ Azure WebJobs have the following characteristics:
   - For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
 - **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
-  - For triggered execution: Vfs/data/jobs/continuous/jobName
-  - For continuous execution: Vfs/data/jobs/triggered/jobName
+  - For triggered execution: Vfs/data/jobs/triggered/jobName
+  - For continuous execution: Vfs/data/jobs/continuous/jobName
 - **Configuration**: You can configure WebJobs by using the portal, the REST API, and PowerShell. You can use a configuration file named settings.job in the same root directory as the job script to provide configuration information for a job. For example:
   - { "stopping_wait_time": 60 }
   - { "is_singleton": true }

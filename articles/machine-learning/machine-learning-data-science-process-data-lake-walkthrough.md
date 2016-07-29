@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -735,10 +735,10 @@ By completing this walkthrough you have created a data science environment for b
 ## What's next?
 
 The learning path for the
-[Cortana Analytics Process (CAP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs linked off of the **Full Data Science Process in Action** node that showcase how to use resources and services in the Cortana suite various predictive analytics scenarios:
+[Team Data Science Process (TDSP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs itemized on the [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) page that showcase how to use resources and services in various predictive analytics scenarios:
 
-- [The Cortana Analytics Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-- [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
+- [The Team Data Science Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
+- [The Team Data Science Process: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Overview of the Data Science Process using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
 

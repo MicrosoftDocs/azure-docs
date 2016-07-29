@@ -37,7 +37,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[What routing method does API Management use when deployed to multiple geographic locations?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Can I create an API Management service instance using an ARM template?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Can I use a self-signed SSL certificate for a backend?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
-
+-	[Why am I getting authentication failure when I try to clone the GIT repository?] (#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 
 
 ### How can I ask a question to the API Management team?
@@ -140,10 +140,14 @@ API Management uses the [Performance traffic routing method](../traffic-manager/
 
 Yes, see the [Azure API Management Service](http://aka.ms/apimtemplate) quickstart templates.
 
-### Can I use a self-signed SSL certificate for a backend
+### Can I use a self-signed SSL certificate for a backend?
 
 Yes. Please follow below steps:
 
 1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity using the Management API
 2. Set the skipCertificateChainValidation property to true
 3. Once you no longer want to allow self-signed certificate, you can delete the Backend entity or set the skipCertificateChainValidation property to false
+
+### Why am I getting authentication failure when I try to clone the GIT repository? 
+
+If you are using GIT Credential Manager or trying to clone the repository through Visual Studio, you might be running into a known issue with Windows credential dialog which limits password length to only 127 characters and therefore truncates the password we generate. We are working on shortening the password. For now please use GIT Bash to clone. 

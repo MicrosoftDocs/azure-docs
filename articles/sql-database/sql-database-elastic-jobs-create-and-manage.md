@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and manage scaled out SQL Azure databases | Micosoft Azure"
+	pageTitle="Create and manage scaled out Azure SQL Databases | Micosoft Azure"
 	description="Walk through creation and management of an elastic database job."
 	services="sql-database"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="05/27/2016"
 	ms.author="ddove"/>
 
-# Create and manage scaled out SQL Azure databases (preview)
+# Create and manage scaled out Azure SQL Databases (preview)
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-jobs-create-and-manage.md)

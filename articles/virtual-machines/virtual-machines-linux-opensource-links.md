@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,7 +23,7 @@
 
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Get Started
 - [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
@@ -57,7 +57,6 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 ### Docker
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
-- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -188,7 +187,5 @@ As the world of devops, management, and optimization is quite expansive and chan
 
 - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
-
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 
 - [Packer plugin for Azure](https://github.com/msopentech/packer-azure)

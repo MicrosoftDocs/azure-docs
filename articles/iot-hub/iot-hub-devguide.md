@@ -55,15 +55,15 @@ The following is a description of the endpoints:
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
     - *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
 
-The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to access these endpoints.
+The [IoT Hub APIs and SDKs][lnk-sdks] article describes the various ways to access these endpoints.
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
 ### How to read from Event Hubs-compatible endpoints <a id="eventhubcompatible"></a>
 
-When you use the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use **messages/events** as the Event Hub name.
+When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions, and then use **messages/events** as the Event Hub name.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][]:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
 
 1. In the IoT hub blade, click **Settings** > **Messaging**.
 2. In the **Device-to-cloud settings** section, you'll find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
@@ -92,7 +92,7 @@ Each IoT hub has a device identity registry. You can use this registry to create
 
 At a high level, the device identity registry is a REST-capable collection of device identity resources. The following sections detail the device identity resource properties, and the operations the registry enables on the identities.
 
-> [AZURE.NOTE] For more details about the HTTP protocol and the SDKs that you can use to interact with the device identity registry, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
+> [AZURE.NOTE] For more details about the HTTP protocol and the SDKs that you can use to interact with the device identity registry, see [IoT Hub APIs and SDKs][lnk-sdks].
 
 ### Device identity properties <a id="deviceproperties"></a>
 
@@ -228,7 +228,7 @@ Username (DeviceId is case sensitive):
 
 Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
-> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
+> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
 #### Special considerations for SASL PLAIN
 
@@ -263,7 +263,7 @@ IoT Hub messages comprise:
 * A set of *application properties*. This is a dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-For more information about how the message is encoded in different protocols, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
+For more information about how the message is encoded in different protocols, see [IoT Hub APIs and SDKs][lnk-sdks].
 
 This is the set of system properties in IoT Hub messages.
 
@@ -328,7 +328,7 @@ There are, however, a few important distinctions between IoT Hub device-to-cloud
 
 Note that this does not mean that you can substitute IoT Hub for Event Hubs in all scenarios. For example, in some event processing computations, it might be necessary to re-partition events with respect to a different property or field before analyzing the data streams. In this scenario, you could use an Event Hub to decouple two portions of the stream processing pipeline. For more information, see *Partitions* in [Azure Event Hubs Overview][lnk-eventhub-partitions].
 
-For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
+For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-sdks].
 
 > [AZURE.NOTE] When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -398,7 +398,7 @@ A thread could fail to process a message without notifying IoT Hub. In this case
 
 A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live](#ttl)).
 
-For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
+For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-sdks].
 
 > [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the application back end with one or more device-to-cloud message at various stages of progress of the task.
 
@@ -472,7 +472,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.ttlAsIso8601 | Retention for service-bound feedback messages. | ISO_8601 interval up to 2D (minimum 1 minute). Default: 1 hour. |
 | feedback.maxDeliveryCount | Maximum delivery count for feedback queue. | 1 to 100. Default: 100. |
 
-For more information, see [Manage IoT hubs][lnk-manage].
+For more information, see [Manage IoT hubs][lnk-portal].
 
 ### File uploads <a id="fileupload"></a>
 
@@ -484,7 +484,7 @@ Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a 
 
 To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can do this either through the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis]. Once you have associated a storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
 
-> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
+> [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
 
 #### Initialize a file upload
 
@@ -533,7 +533,7 @@ Each IoT hub exposes the following configuration options for file upload notific
 | **fileNotifications.lockDuration** | Lock duration for the file upload notifications queue. | 5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** | Maximum delivery count for the file upload notification queue. | 1 to 100. Default: 100. |
 
-For further information, see [Manage IoT hubs][lnk-manage].
+For further information, see [Manage IoT hubs][lnk-portal].
 
 ## Quotas and throttling <a id="throttling"></a>
 
@@ -551,12 +551,12 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 | Throttle | Per-hub value |
 | -------- | ------------- |
-| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit, up to 5000/min. |
-| Device connections | 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
-| Cloud-to-device sends | 100/min/unit. |
-| Cloud-to-device receives | 1000/min/unit. |
-| File upload operations | 100 file upload notifications/min/unit <br/> 10000 SAS URIs can be out for a storage account at one time <br/> 10 SAS URIs/device can be out at one time | 
+| Identity registry operations (create, retrieve, list, update, delete) | 5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
+| Device connections | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
+| Device-to-cloud sends | 6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. |
+| Cloud-to-device sends | 5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
+| Cloud-to-device receives | 50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
+| File upload operations | 5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for a storage account at one time.<br/> 10 SAS URIs/device can be out at one time. | 
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle is dependent on the number of units that are provisioned for the hub.
 
@@ -572,21 +572,27 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 
 Now that you've seen an overview of developing for IoT Hub, see the following to learn more:
 
-- [Get started with IoT Hubs (tutorial)][lnk-get-started]
-- [OS Platforms and hardware compatibility][lnk-compatibility]
-- [Azure IoT Developer Center][lnk-iotdev]
-- [Design your solution][lnk-guidance]
+- [File upload from devices (tutorial)][lnk-file upload]
+- [Create an IoT hub programatically][lnk-create-hub]
+- [Introduction to C SDK][lnk-c-sdk]
+- [IoT Hub SDKs][lnk-sdks]
 
-[Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+To further explore the capabilities of IoT Hub, see:
 
-[Azure portal]: https://portal.azure.com
+- [Designing your solution][lnk-design]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Secure your IoT solution from the ground up][lnk-securing]
+
+
+
+[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: iot-hub-tested-configurations.md
-[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -598,8 +604,6 @@ Now that you've seen an overview of developing for IoT Hub, see the following to
 [lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-guidance]: iot-hub-guidance.md
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
@@ -608,7 +612,6 @@ Now that you've seen an overview of developing for IoT Hub, see the following to
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-createuse-sas]: ../storage-dotnet-shared-access-signature-part-2/
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
@@ -618,10 +621,19 @@ Now that you've seen an overview of developing for IoT Hub, see the following to
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-manage]: iot-hub-manage-through-portal.md
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
+[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md

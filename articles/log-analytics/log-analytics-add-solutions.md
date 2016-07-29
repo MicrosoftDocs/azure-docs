@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/22/2016"
 	ms.author="banders"/>
 
 # Add Log Analytics solutions from the Solutions Gallery
@@ -77,7 +77,15 @@ Refer to [Connecting Operations Manager to Log Analytics](log-analytics-om-agent
 
 ## Data collection details for OMS features and solutions
 
-The following table shows data collection methods and other details about how data is collected for OMS features and solutions.
+The following table shows data collection methods and other details about how data is collected for OMS features and solutions. Direct agents and SCOM agents are essentially the same, however the direct agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a SCOM agent, it must be targeted as an OMS agent to communicate with OMS. SCOM agents in this table are OMS agents that are connected to SCOM. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing SCOM environment to OMS.
+
+>[AZURE.NOTE] The type of agent that you use determines how data is sent to OMS, with the following conditions:
+
+- You either use the direct agent or a SCOM-attached OMS agent.
+- When SCOM is required, SCOM agent data for the solution is always sent to OMS using the SCOM management group. Additionally, when SCOM is required, only the SCOM agent is used by the solution.
+- When SCOM is not required and the table shows that SCOM agent data is sent to OMS using the management group, then SCOM agent data is always sent to OMS using management groups. Direct agents bypass the management group and send their data directly to OMS.
+- When SCOM agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
+
 
 |data type| platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|---|
@@ -93,6 +101,8 @@ The following table shows data collection methods and other details about how da
 |Configuration Assessment (legacy Advisor)|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)| twice per day|
 |ETW|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutes|
 |IIS Logs|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutes|
+|Key Vaults|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
+|Network Application Gateways|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
 |Network Security Groups|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutes|
 |Office 365|Windows|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|on notification|
 |Performance Counters|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|as scheduled, minimum of 10 seconds|
@@ -111,9 +121,9 @@ The following table shows data collection methods and other details about how da
 
 By running a service and following devops practices we are able to partner with customers to develop features and solutions.
 
-During private preview we give a small group of customers access to an early implementation of the feature or solution to gain feedback and make improvements. This early implementation has minimal features and operational capabilities. 
+During private preview we give a small group of customers access to an early implementation of the feature or solution to gain feedback and make improvements. This early implementation has minimal features and operational capabilities.
 
-Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the private preview customers informs us that we’re ready for a public preview. 
+Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the private preview customers informs us that we’re ready for a public preview.
 
 During the public preview, we make the feature or solution available for all users to get more feedback and validate our scaling and efficiency. During this phase:
 
@@ -124,15 +134,15 @@ During the public preview, we make the feature or solution available for all use
 
 We’re excited about new features and solutions and we love working with you to develop them.
 
-Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development. 
+Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development.
 
-When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview. 
+When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview.
 
 #### For both *private* and *public* preview
 
 The following applies to both public and private previews:
 
-- Things may not always work correctly. 
+- Things may not always work correctly.
   - Issues range from being a minor annoyance through to something not working at all
 - There is potential for the preview to have a negative impact on your systems / environment
   - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur
@@ -167,12 +177,12 @@ In addition to the items above, the following is specific to private previews:
 
 ### How do I get access to private preview features and solutions?
 
-We invite customers to private previews through several different ways depending on the preview. 
+We invite customers to private previews through several different ways depending on the preview.
 
 - Answering the monthly customer survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
 - Your Microsoft account team can nominate you.
-- You can sign up based on details posted on twitter [msopsmgmt](https://twitter.com/msopsmgmt) 
-- You can sign up based on details shared community events – look for us at meet ups, conferences and in online communities. 
+- You can sign up based on details posted on twitter [msopsmgmt](https://twitter.com/msopsmgmt)
+- You can sign up based on details shared community events – look for us at meet ups, conferences and in online communities.
 
 
 ## Next steps

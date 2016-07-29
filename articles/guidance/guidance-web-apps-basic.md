@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/21/2016"
    ms.author="mikewasson"/>
 
 # Azure reference architecture: Basic web application
@@ -28,7 +28,7 @@ The architecture implements a web front end using [Azure App Service][app-servic
 
 ## Architecture diagram
 
-![Reference architecture: Basic web application](media/blueprints/paas-basic-web-app.png)
+![[0]][0]
 
 The architecture has the following components:
 
@@ -52,12 +52,21 @@ The architecture has the following components:
 
 ## Recommendations
 
-**App Service plan**. App Service plans have [five pricing tiers][app-service-plans-tiers]. We recommend the Standard or Premium tiers, because they support scale out, autoscale, and SSL, among other features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan.  
+### App Service plan
 
-**SQL Database**. We recommend the [V12 version][sql-db-v12] of SQL Database. 
- SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier, measured in [Database Transaction Units (DTUs)][sql-dtu]. Do capacity planning and choose a tier and performance level that meets your requirements.
+Use the Standard or Premium tiers, because they support scale out, autoscale, and SSL, among other features. Each tier supports several *instance sizes*, which differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about app service plans, see [App Service Pricing][app-service-plans-tiers].
 
-**Location.** Provision the App Service plan and the SQL Database in the same location, to minimize network latency. Generally, choose a location closest to your users. The resource group also has a location, which specifies where deployment metadata is stored. Put the resource group and its resources in the same location. This can improve availability during deployment, if there is problem in some Azure datacenters.  
+You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments).
+
+### SQL Database
+
+Use the [V12 version][sql-db-v12] of SQL Database. SQL Database supports Basic, Standard, and Premium [service tiers][sql-db-service-tiers], with multiple performance levels within each tier, measured in [Database Transaction Units (DTUs)][sql-dtu]. Do capacity planning and choose a tier and performance level that meets your requirements.
+
+### Region
+
+Provision the App Service plan and the SQL Database in the same region, to minimize network latency. Generally, choose a region closest to your users. 
+
+The resource group also has a region, which specifies where deployment metadata is stored. Put the resource group and its resources in the same region. This can improve availability during deployment, if there is problem in some Azure datacenters.  
 
 
 ## Scalability considerations
@@ -128,7 +137,7 @@ Deployment involves two steps:
 
 - Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
 
-- Deploying the application (code, binaries, and content files). Here you have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
+- Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
  
 An App Service app always has one deployment slot named `production`, which represents the live production site. We recommend creating a staging slot for deploying updates. The benefits of using a staging slot include:
 
@@ -138,7 +147,7 @@ An App Service app always has one deployment slot named `production`, which repr
 
 We also recommend creating a third slot to hold the last-known-good deployment. After you swap staging and production, move the previous production deployment (which is now in staging) into the last-known-good slot. That way, if you discover a problem later, you can quickly revert to the last-known-good version. 
 
-![Swapping deployment slots](media/blueprints/paas-basic-web-app-staging-slots.png)
+![[1]][1]
 
 If you revert to a previous version, make sure any database schema changes are backward compatible.
 
@@ -268,8 +277,8 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-db-service-tiers]: ../sql-database/sql-database-service-tiers.md
 [sql-db-v12]: ../sql-database/sql-database-v12-whats-new.md
 [sql-dtu]: ../sql-database/sql-database-service-tiers.md#understanding-dtus
-[sql-human-error]: ../sql-database/sql-database-user-error-recovery.md
-[sql-outage-recovery]: ../sql-database/sql-database-disaster-recovery.md
+[sql-human-error]: ../sql-database/sql-database-business-continuity.md#recover-a-database-after-a-user-or-application-error
+[sql-outage-recovery]: ../sql-database/sql-database-business-continuity.md#recover-a-database-to-another-region-from-an-azure-regional-data-center-outage
 [ssl-redirect]: ../app-service-web/web-sites-configure-ssl-certificate.md#4-enforce-https-on-your-app
 [sql-resource-limits]: ../sql-database/sql-database-resource-limits.md
 [ssl-cert]: ../app-service-web/web-sites-purchase-ssl-web-site.md
@@ -279,3 +288,5 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [web-app-autoscale]: ../app-service-web/web-sites-scale.md#scaling-to-standard-or-premium-mode
 [web-app-backup]: ../app-service-web/web-sites-backup.md
 [web-app-log-stream]: ../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs
+[0]: ./media/blueprints/paas-basic-web-app.png "Architecture of a basic Azure web application"
+[1]: ./media/blueprints/paas-basic-web-app-staging-slots.png "Swapping slots for production and staging deployments"

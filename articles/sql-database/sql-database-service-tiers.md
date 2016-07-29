@@ -4,7 +4,7 @@
 	keywords="database options,database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/13/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) has multiple service tiers to handle different workloads. You can change service tiers at any time with zero downtime to your application. You can also [create a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-create-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for single databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for single databases and elastic databases.
+[Azure SQL Database](sql-database-technical-overview.md) has multiple service tiers to handle different workloads. You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under 4 seconds). You can also [create a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-create-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for single databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for single databases and elastic databases.
 
 ## Service tiers and database options
 Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. The following table provides examples of the tiers best suited for different application workloads.
@@ -33,7 +33,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 >[AZURE.NOTE] Web and Business editions are retired. Please read the [Sunset FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business editions.
 
 ## Single database service tiers and performance levels
-For single databases there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database, **with zero downtime for your application.** See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
+For single databases there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
 Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple databases, your database still gets a guaranteed set of resources, and the expected performance characteristics of your database are not affected.
 

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # How to use the audit log in Azure AD Privileged Identity Management
@@ -21,7 +21,7 @@
 You can use the Privileged Identity Management (PIM) audit log to see all of the user assignments and activations within a given time period.
 
 ## Navigate to the audit log
-From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Priviliged Identity Management** app. From there, access the audit log by clicking **Audit history** in the PIM dashboard.
+From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Priviliged Identity Management** app. From there, access the audit log by clicking **Manage privileged roles** > **Audit history** in the PIM dashboard.
 
 ## The audit log graph
 You can use the audit log to view the total activations, max activations per day, and average activations per day in a line graph.  You can also filter the data by role if there is more than one role in the audit history.

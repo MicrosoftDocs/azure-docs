@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/27/2016"
 	ms.author="douglasl"/>
 
 # Enable Stretch Database for a table
@@ -22,7 +22,7 @@ To configure a table for Stretch Database, select **Stretch | Enable** for a tab
 
 -   If you store cold data in a separate table, you can migrate the entire table.
 
--   If your table contains both hot and cold data, you can specify a filter predicate to select the rows to migrate.
+-   If your table contains both hot and cold data, you can specify a filter function to select the rows to migrate.
 
 **Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
@@ -43,11 +43,11 @@ Review the purpose of the wizard and the prerequisites.
 
 Confirm that the table you want to enable is displayed and selected.
 
-You can migrate an entire table or you can specify a simple filter predicate in the wizard. If you want to use a different type of filter predicate to select rows to migrate, do one of the following things.
+You can migrate an entire table or you can specify a simple filter function in the wizard. If you want to use a different type of filter function to select rows to migrate, do one of the following things.
 
--   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function.
 
--   Run the ALTER TABLE statement to specify a predicate after you exit the wizard. For the required steps, see [Add a filter predicate after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
+-   Run the ALTER TABLE statement to specify a filter function after you exit the wizard. For the required steps, see [Add a filter function after running the Wizard](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
 The ALTER TABLE syntax is described later in this topic.
 
@@ -65,9 +65,9 @@ You can enable Stretch Database for an existing table or create a new table with
 ### Options
 Use the following options when you run CREATE TABLE or ALTER TABLE to enable Stretch Database on a table.
 
--   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify a predicate to select rows to migrate if the table contains both hot and cold data. The predicate must call an inline table\-valued function. For more info, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
+-   Optionally, use the `FILTER_PREDICATE = <function>` clause to specify a function to select rows to migrate if the table contains both hot and cold data. The predicate must call an inline table\-valued function. For more info, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md). If you don't specify a filter function, the entire table is migrated.
 
-    >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    >   [AZURE.NOTE] If you provide a filter function that performs poorly, data migration also performs poorly. Stretch Database applies the filter function to the table by using the CROSS APPLY operator.
 
 -   Specify `MIGRATION_STATE = OUTBOUND` to start data migration immediately or  `MIGRATION_STATE = PAUSED` to postpone the start of data migration.
 
@@ -83,7 +83,7 @@ ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
 GO
 ```
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;
@@ -111,7 +111,7 @@ CREATE TABLE <table name>
 GO
 ```
 
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Select rows to migrate by using a filter predicate](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter function, see [Select rows to migrate by using a filter function](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 USE <Stretch-enabled database name>;

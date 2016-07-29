@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Set up a SharePoint intranet farm in a hybrid cloud for testing
 
-This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint farm hosted in Microsoft Azure. Here is the resulting configuration.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
+This topic steps you through creating a hybrid cloud environment for testing an intranet SharePoint 2013 or 2016 farm hosted in Microsoft Azure. Here is the resulting configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
@@ -39,7 +41,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 
 1.	Set up the hybrid cloud environment for testing.
 2.	Configure the SQL server computer (SQL1).
-3.	Configure the SharePoint server (SP1).
+3.	Configure the SharePoint server (SP1), running either SharePoint 2013 or SharePoint 2016.
 
 This workload requires an Azure subscription. If you have an MSDN or Visual Studio subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -75,7 +77,7 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at the Azure 
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_A4
+	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_D4
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SQL1-SQLDataDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name "Data" -DiskSizeInGB 100 -VhdUri $vhdURI  -CreateOption empty
@@ -152,7 +154,9 @@ This is your current configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph2.png)
 
-## Phase 3: Configure the SharePoint server (SP1)
+Proceed to the appropriate phase 3 for configuring a SharePoint 2013 or SharePoint 2016 server.
+
+## Phase 3: Configure the SharePoint 2013 server (SP1)
 
 First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
 
@@ -164,7 +168,7 @@ First, create an Azure Virtual Machine for SP1 with these commands at the Azure 
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_A3
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2013 server." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
@@ -192,7 +196,7 @@ Use the CORP\User1 account when prompted to supply domain account credentials fo
 
 After restarting, use the Azure portal to connect to SP1 with the CORP\User1 account and password.
 
-Next, configure SP1 for a new SharePoint farm and a default team site.
+Next, configure SP1 for a new SharePoint 2013 farm and a default team site.
 
 1.	From the Start screen, type **SharePoint 2013 Products**, and then click **SharePoint 2013 Products Configuration Wizard**. When asked to allow the program to make changes to the computer, click **Yes**.
 2.	On the Welcome to SharePoint Products page, click **Next**. 
@@ -216,10 +220,82 @@ This is your current configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
-Your SharePoint intranet farm in a hybrid cloud environment is now ready for testing.
+Your SharePoint 2013 intranet farm in a hybrid cloud environment is now ready for testing.
 
-## Next step
 
-- [Configure](https://technet.microsoft.com/library/ee836142.aspx) your SharePoint farm.
+## Phase 3: Configure the SharePoint 2016 server (SP1)
 
+First, create an Azure Virtual Machine for SP1 with these commands at the Azure PowerShell command prompt on your local computer.
+
+	$rgName="<your resource group name>"
+	$locName="<the Azure location of your resource group>"
+	$saName="<your storage account name>"
+	
+	$vnet=Get-AzureRMVirtualNetwork -Name "TestVNET" -ResourceGroupName $rgName
+	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
+	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2016 server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2016 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SP1-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+Next, use the Azure portal to connect to the SP1 virtual machine with the credentials of the local administrator account.
+
+Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From a Windows PowerShell command prompt on SP1, run these commands.
+
+	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
+	ping dc2.corp.contoso.com
+
+The ping command should result in four successful replies from IP address 192.168.0.4.
+
+Next, join SP1 to the CORP Active Directory domain with these commands at the Windows PowerShell prompt.
+
+	Add-Computer -DomainName corp.contoso.com
+	Restart-Computer
+
+Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer** command.
+
+After restarting, use the Azure portal to connect to SP1 with the CORP\User1 account and password.
+
+Next, configure SP1 for a new SharePoint 2016 single-server farm and a default team site.
+
+1. From the Start screen, type **SharePoint**, and then click **SharePoint 2016 Products Configuration Wizard**.
+2. On the Welcome to SharePoint Products page, click **Next**.
+3. A **SharePoint Products Configuration Wizard** dialog appears, warning that services (such as IIS) will be restarted or reset. Click **Yes**.
+4. On the Connect to a server farm page, select **Create a new server farm**, and then click **Next**.
+5. On the Specify Configuration Database Settings page: 
+	- In **Database server**, type **SQL1**.
+	- In **Username**, type **CORP\SPFarmAdmin**.
+	- In **Password**, type the SPFarmAdmin account password.
+6. Click **Next**.
+7. On the Specify Farm Security Settings page, type **P@ssphrase** twice, and then click **Next**.
+8. 	On the Specify Server Role page, in **Single-Server Farm**, click **Single-Server Farm**, and then click **Next**.
+9. On the Configure SharePoint Central Administration Web Application page, click **Next**.
+10. The Completing the SharePoint Products Configuration Wizard page appears. Click **Next**.
+11. The Configuring SharePoint Products page appears. Wait until the configuration process completes.
+12. On the Configuration Successful page, click **Finish.** The new administration website starts.
+13. On the Help Make SharePoint Better page, click your choice to participate in the Customer Experience Improvement Program, and then click **OK**.
+14. On the Welcome page, click **Start the Wizard**.
+15. On the Service Applications and Services page, in **Service Account**, click **Use existing managed account**, and then click **Next**. It can take a few minutes to display the next page.
+16. On the Create Site Collection page, type **Contoso** in **Title**, and then click **OK**.
+17. On the This completes the Farm Configuration Wizard page, click **Finish**. The SharePoint Central Administration web page displays.
+18. Log on to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
+19.	In the Address bar, type **http://sp1/** and then press ENTER. You should see the SharePoint team site for the Contoso Corporation. The site might take a while to render.
+
+This is your current configuration.
+
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
+ 
+Your single-server SharePoint 2016 intranet farm in a hybrid cloud environment is now ready for testing.
+
+
+## Next steps
+
+- [Configure](https://technet.microsoft.com/library/ee836142.aspx) your SharePoint 2013 farm.
 
