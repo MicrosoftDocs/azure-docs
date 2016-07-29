@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure" 
+	pageTitle="Business-to-Business Connectors and API Apps in Logic Apps | Microsoft Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="erikre" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/> 
 
-# Business-to-Business Connectors and API Apps in Microsoft Azure App Service
+# Business-to-Business Connectors and API Apps
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
-Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
+Logic Apps includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Logic Apps. 
 
 One category of these API Apps are the Business-to-Business (B2B) API Apps. Using these B2B API Apps, you can easily add partners, create agreements, and do everything as you would on-premises using EDI, AS2, and EDIFACT.  
 
@@ -194,7 +194,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 4. Select **OK** to save your changes. 
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] To get started with Azure Logic Apps before signing up for an Azure account, [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app. No credit cards required; no commitments.
 
 ## More B2B resources
 

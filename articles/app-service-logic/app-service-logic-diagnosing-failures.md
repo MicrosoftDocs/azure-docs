@@ -1,7 +1,7 @@
 <properties
    pageTitle="Diagnosing logic apps failures | Microsoft Azure"
    description="Common approaches to understanding where logic apps are failing"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
