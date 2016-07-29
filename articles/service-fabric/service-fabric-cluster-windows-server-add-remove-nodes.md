@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Add or remove nodes to your standalone Service Fabric cluster | Microsoft Azure"
+   pageTitle="Add or remove nodes to a standalone Service Fabric cluster | Microsoft Azure"
    description="Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud."
    services="service-fabric"
    documentationCenter=".net"

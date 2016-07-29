@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a standalone Service Fabric cluster with Azure VMs | Microsoft Azure"
-   description="Learn how to create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud."
+   description="Learn how to create and manage an Azure Service Fabric cluster on Azure IaaS virtual machines running Windows Server."
    services="service-fabric"
    documentationCenter=".net"
    authors="dsk-2015"
@@ -25,7 +25,7 @@ This article describe how to create a cluster on Azure IaaS VMs using the standa
 
 ## Steps to create a standalone Servce Fabric cluster on Azure VMs
 
-1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the article [Create a Windows VM in the Azure portal](virtual-machines-windows-hero-tutorial.md) for more details.
+1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the article [Create a Windows VM in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for more details.
 2. Add a couple more Windows Server 2012 R2 Datacenter VMs to the same resource group. Ensure that each of the VMs has the same admin user name and password when created. Once created you should see all three VMs in the same virtual network.
 3. Connect to each of the VMs and turn-off the Windows Firewall using the [Server Manager, Local Server dashboard](https://technet.microsoft.com/library/jj134147.aspx). This ensures that network traffic can communicate between the machines. While connected to each machine, get the IP address by opening a command prompt and typing *ipconfig*. Alternatively you can see the IP address of each machine by selecting the virtual network resource for the resource group in the Azure portal.
 4. Connect to one of the VMs and test that you can ping the other two VMs successfully.
