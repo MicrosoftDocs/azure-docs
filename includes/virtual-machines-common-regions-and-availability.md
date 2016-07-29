@@ -10,7 +10,7 @@ There are some special Azure regions for compliance or legal purposes which you 
 Existing special regions include:
 
 - **US Gov Virginia** and **US Gov Iowa**
-    - A physical and logical network-isolated instance of Azure for US government and agencies, operated by approved US citizens. Includes additional compliance certifications such as [FedRAMP](https://www.fedramp.gov/marketplace/compliant-systems/) and [DISA](http://www.disa.mil/). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
+    - A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
 - **Australia East** and **Australia Southeast**
     - These regions are available to customers with a business presence in Australia or New Zealand.
 - **Central India**, **South India**, and **West India**
