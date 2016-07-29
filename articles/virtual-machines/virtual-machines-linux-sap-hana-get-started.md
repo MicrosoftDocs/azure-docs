@@ -499,17 +499,33 @@ the HANA DB instance with transaction "dbacockpit".
 
 This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
-items are explained and shown in form of screenshots in more details throughout the article :
+items are explained and partly shown in form of screenshots in more detail throughout the article :
 
 * create an Azure virtual network which will include the two ARM test VMs later on
 * deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
 * attach four disks to the HANA DB server VM - 2 standard storage like for the app server VM + 
-  2 premium storage disks ( e.g. 2x512GB depending on the requirements )
-* create XFS file systems on the attached disks
+  2 premium storage disks ( e.g. 2x512GB )
+* depending on size and/or throughput requirements attach multiple disks and create striped
+  volumes either using lvm or mdadm
+* create XFS file systems on the attached disks 
 * mount the new XFS file systems on OS level. Use one filesystem to keep all the SAP software and the
   other one e.g. for the sapmnt directory and maybe backups. On the SAP HANA DB server mount the XFS 
   file systems on the premium storage disks as /hana and /usr/sap
+  This is all necessary to avoid that the root filesystem which isn't too big on Linux Azure VMs fills up
+* enter the local ip addresses of the test VMs in /etc/hosts
+* enter the nofail parameter in /etc/fstab
+* set kernel parameters according to the HANA-SLES-12 SAP note
+* add swap space
+* if wanted - install a graphical desktop on the test VMs. Otherwise use a remote sapinst install
+* download the SAP software from the SAP service marketplace
+* install the SAP ASCS instance on the app server VM
+* share the sapmnt directory via NFS among the test VMs ( app server VM is the NFS server )
+* install the database instance including HANA via SWPM on the DB server VM
+* install the PAS on the app server VM
+* start SAP MC and connect e.g. via SAP GUI / HANA Studio 
+
+
 
 
 
