@@ -4,7 +4,7 @@
 	services="sql-database, virtual-machines"
 	keywords="SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="cjgronlund"/>
 

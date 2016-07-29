@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, database migration, import database, transactional replication"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
