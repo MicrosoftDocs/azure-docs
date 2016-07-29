@@ -109,7 +109,7 @@ When you run **New-AzureBatchPool**, pass the operating system settings in a PSC
 
 The target number of compute nodes in the new pool is determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=4**, indicating the number of compute nodes in the pool is 4 at most. 
 
-## Query for pool, jobs, tasks, and other details
+## Query for pools, jobs, tasks, and other details
 
 Use cmdlets such as **Get-AzureBatchPool**, **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
 
