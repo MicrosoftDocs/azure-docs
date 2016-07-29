@@ -19,17 +19,6 @@
 
 # Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
 
-> [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md) 
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Node](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
-
 This article introduces common ways to create and manage Azure resources by using the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode.
 
 >[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure subscription ([free Azure account here](https://azure.microsoft.com/free/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and [log in to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.

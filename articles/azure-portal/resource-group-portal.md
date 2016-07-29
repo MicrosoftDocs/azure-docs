@@ -16,18 +16,7 @@
 	ms.date="06/10/2016" 
 	ms.author="tomfitz"/>
 
-
 # Manage Azure resources through portal
-
-> [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md) 
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Node](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 
