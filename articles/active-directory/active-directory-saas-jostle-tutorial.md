@@ -131,7 +131,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_08.png)
 
-6. To get SSO configured for your application, contact your Jostle Account Manager or Jostle support. They will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file to support@jostle.me.
+6. To get SSO configured for your application, contact your Jostle Account Manager or Jostle support. They will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file to <support@jostle.me>.
 
 7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
@@ -202,7 +202,7 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating a Jostle test user
 
-In this section, you create a user called Britta Simon in Jostle. If you don't know how to add Britta Simon in Jostle, please work with Jostle support team to add the test user and enable SSO.
+In this section, you create a user called Britta Simon in Jostle. If you don't know how to add Britta Simon in Jostle, please work with Jostle support team to add the test user and enable SSO. Contact them at <support@jostle.me>.
 
 ### Assigning the Azure AD test user
 
