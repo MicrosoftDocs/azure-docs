@@ -74,7 +74,7 @@ This connection type provides access to all Microsoft cloud services over a dedi
 
 ![ER](./media/guidance-connecting-your-on-premises-network-to-azure/er.png "ExpressRoute connection")
 
-The connection requires use of the ExpressRoute service and outbound data ([pricing](https://azure.microsoft.com/pricing/details/expressroute/)), [connectivity provider](../expressroute/expressroute-locations.md#connectivity-provider-locations) costs, as well as a VPN Gateway ([pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)) if you connect the circuit to Microsoft VNets. The table below lists pros and cons of this connection type.
+The connection requires use of the ExpressRoute service with its associated [pricing](https://azure.microsoft.com/pricing/details/expressroute/), [connectivity provider](../expressroute/expressroute-locations.md#connectivity-provider-locations) costs, as well as a VPN Gateway and it's associated [pricing](https://azure.microsoft.com/pricing/details/vpn-gateway), if you connect the circuit to Microsoft VNets. The table below lists pros and cons of this connection type.
 
 | **Pros**| **Cons**|
 |---------|---------|
