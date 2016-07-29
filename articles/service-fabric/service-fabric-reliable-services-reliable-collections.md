@@ -112,9 +112,7 @@ Note that the above deadlock scenario is a great example of how an Update lock c
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
 This is a model where each state change is logged on disk and applied only in memory.
 The complete state itself is persisted only occasionally (a.k.a. Checkpoint).
-The benefit that it provides is:
-
-- Deltas are turned into sequential append-only writes on disk for improved performance.
+The benefit is that deltas are turned into sequential append-only writes on disk for improved performance.
 
 To better understand the Log and Checkpoint model, let’s first look at the infinite disk scenario.
 The Reliable State Manager logs every operation before it is replicated.
@@ -123,12 +121,15 @@ Since logs are persisted, even when the replica fails and needs to be restarted,
 As the disk is infinite, log records never need to be removed and the Reliable Collection needs to manage only the in-memory state.
 
 Now let’s look at the finite disk scenario.
-At one point, the Reliable State Manager will run out of disk space.
+As log records accumulate, the Reliable State Manager will run out of disk space.
 Before that happens, the Reliable State Manager needs to truncate its log to make room for the newer records.
 It will request the Reliable Collections to checkpoint their in-memory state to disk.
-It is the Reliable Collection's responsibility to persist its state up to that point.
+It is the Reliable Collections' responsibility to persist its state up to that point.
 Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
 This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred since the checkpoint.
+
+>[AZURE.NOTE] Another value add of checkpointing is that it improves recovery performance in common cases.
+This is because checkpoints contain only the latest versions.
 
 ## Recommendations
 
@@ -136,12 +137,12 @@ This way, when the replica needs to be restarted, Reliable Collections will reco
 - Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
 - Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 - Do not use a transaction after it has been committed, aborted, or disposed.
-- Enumerators constructed inside a transaction scope should not be used outside the transaction scope.
+- Do not use an enumeration outside of the transaction scope it was created in.
 - Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 - Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
-- Do use Update lock when reading an item with an intention to update it.
+- Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
 - Consider using backup and restore functionality to have disaster recovery.
-- Consider not mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction.
+- Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
 
 Here are some things to keep in mind:
 
