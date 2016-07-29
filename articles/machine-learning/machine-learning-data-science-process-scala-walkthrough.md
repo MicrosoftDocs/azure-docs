@@ -470,7 +470,6 @@ This section contains code that shows how to index categorical text data as a la
 
 In this code, we specify the target (dependant) variable and features to be used training and create indexed or one-hot encoded training and testing input labeled point RDDs or Data-Frames. 
 
-In [12]:
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
@@ -566,6 +565,7 @@ Here we create a Logistic regression model using SparkML's `LogisticRession()` f
 4. **Score the model** against test data
 5. **Plot results** - the ROC curves
 
+Here is the code for these procedures.
 
 	# CREATE LOGISTIC REGRESSION MODEL 
 	val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
@@ -757,6 +757,7 @@ In this section we create two types of regression models to predict the tip amou
 
 - a **regularized linear regression model** using the Spark ML `LinearRegression()` function, save model and evaluate model on test-data.
 - a **gradient boosting tree regression model** using Spark ML `GBTRegressor() `function
+
 
 ### Create a regularized linear regression model
 
