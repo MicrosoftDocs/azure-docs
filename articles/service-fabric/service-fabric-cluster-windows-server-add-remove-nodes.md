@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Add or remove nodes to your on-premises or any-cloud Azure Service Fabric cluster | Microsoft Azure"
+   pageTitle="Add or remove nodes to your standalone Service Fabric cluster | Microsoft Azure"
    description="Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,7 +17,7 @@
    ms.author="dkshir;chackdan"/>
 
 
-# Add or remove nodes to a cluster running on Windows Server
+# Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
 
 After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your business needs may change so that you might need to add or remove multiple nodes to your cluster. This article provides detailed steps to achieve this goal. 
 
@@ -29,7 +29,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster.
 4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to this VM/machine and unzip the package.
 5. Open up a Powershell admin prompt, and navigate to the location of the unzipped package.
-6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. You can choose *any* node's IP address in the cluster, for this endpoint.
+6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
 .\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
@@ -40,7 +40,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
 2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.
 3. Open up a Powershell admin prompt and navigate to the location of the unzipped package.
-4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. You can choose *any* node's IP address in the cluster, for this endpoint.
+4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
 .\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000

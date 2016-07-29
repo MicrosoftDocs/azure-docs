@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Manage an on-premises or any-cloud Azure Service Fabric cluster | Microsoft Azure"
+   pageTitle="Create a standalone Service Fabric cluster with Azure VMs | Microsoft Azure"
    description="Learn how to create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud."
    services="service-fabric"
    documentationCenter=".net"
-   authors="ChackDan"
+   authors="dsk-2015"
    manager="timlt"
    editor=""/>
 
@@ -14,18 +14,18 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="07/29/2016"
-   ms.author="chackdan;chackdan"/>
+   ms.author="dkshir;chackdan"/>
 
 
 
 # Create a three node standalone Service Fabric cluster with Azure IaaS VMs
 
-This article describe how to create a cluster on Azure IaaS VMs using the standalone Windows Server installer. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure virtual machines running Windows Server](virtual-machines-windows-hero-tutorial.md), however you are not creating an Azure cloud based Service Fabric cluster, either via the [portal](service-fabric-cluster-creation-via-portal.md), or the [ARM template](service-fabric-cluster-creation-via-arm.md), or the [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
+This article describe how to create a cluster on Azure IaaS VMs using the standalone Windows Server installer. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure virtual machines running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), however you are not creating an Azure cloud based Service Fabric cluster, either via the [portal](service-fabric-cluster-creation-via-portal.md), the [ARM template](service-fabric-cluster-creation-via-arm.md), or the [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
 
 
 ## Steps to create a standalone Servce Fabric cluster on Azure VMs
 
-1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the [Create a Windows VM in the Azure portal](virtual-machines-windows-hero-tutorial.md) for more details.
+1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the article [Create a Windows VM in the Azure portal](virtual-machines-windows-hero-tutorial.md) for more details.
 2. Add a couple more Windows Server 2012 R2 Datacenter VMs to the same resource group. Ensure that each of the VMs has the same admin user name and password when created. Once created you should see all three VMs in the same virtual network.
 3. Connect to each of the VMs and turn-off the Windows Firewall using the [Server Manager, Local Server dashboard](https://technet.microsoft.com/library/jj134147.aspx). This ensures that network traffic can communicate between the machines. While connected to each machine, get the IP address by opening a command prompt and typing *ipconfig*. Alternatively you can see the IP address of each machine by selecting the virtual network resource for the resource group in the Azure portal.
 4. Connect to one of the VMs and test that you can ping the other two VMs successfully.
@@ -65,7 +65,7 @@ This article describe how to create a cluster on Azure IaaS VMs using the standa
     ],
     ```
 
-7. Open a [Powershell ISE window](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) and navigate to the folder where you downloaded and unzipped the standalone installer package, and saved the manifest file above. Run the following Powershell command.
+7. Open a [Powershell ISE window](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) and navigate to the folder where you downloaded and unzipped the standalone installer package, and saved the manifest file mentioned above. Run the following Powershell command.
 
     ```
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
