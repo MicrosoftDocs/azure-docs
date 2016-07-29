@@ -81,8 +81,8 @@ that belongs to the same transaction.
 In Reliable Collections, all transactions are two-phased: a transaction does not release
 the locks it has acquired until the transaction terminates with either an abort or a commit.
 
-Reliable Dictionary use row level locking for all single entity operations.
-Reliable Queue on the other hand trades off concurrency for strict transactional FIFO property.
+Reliable Dictionary uses row level locking for all single entity operations.
+Reliable Queue trades off concurrency for strict transactional FIFO property.
 Reliable Queue uses operation level locks allowing one transaction with `TryPeekAsync` and/or `TryDequeueAsync` and one transaction with `EnqueueAsync` at a time.
 Note that to preserve FIFO, if a `TryPeekAsync` or `TryDequeueAsync` ever observes that the Reliable Queue is empty, they will also lock `EnqueueAsync`.
 
