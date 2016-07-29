@@ -67,6 +67,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Real-time alerts](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
