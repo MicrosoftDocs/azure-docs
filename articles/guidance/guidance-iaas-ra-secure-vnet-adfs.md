@@ -141,7 +141,7 @@ This section summarizes recommendations for implementing AD FS running in Azure,
 
 - AD FS installation recommendations.
 
-- Application publishing recommendations.
+- Trust recommendations.
 
 >[AZURE.NOTE] For detailed information about installing WAP servers, see [Install and Configure the Web Application Proxy Server][install_and_configure_the_web_application_proxy_server]
 
@@ -195,7 +195,7 @@ Perform the following tasks before configuring the first AD FS server in the far
 
 Install *Active Directory Federation Services* by using the *Add Roles and Features* wizard in Server Manager. The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS.
 
-### Application publishing recommendations
+### Trust recommendations
 
 Add a relying party trust for each partner web application that users inside your organization need to access. Additionally, the resource partner hosting the web application must configure claims-provider trust for your organization, to enable it to trust the claims that your AD FS servers provide. For more information see [Establishing Federation Trust][establishing-federation-trust].
 
