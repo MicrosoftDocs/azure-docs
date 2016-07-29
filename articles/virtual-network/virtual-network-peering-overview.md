@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Virtual Network Peering"
+   pageTitle="Azure Virtual Network Peering | Microsoft Azure"
    description="Learn about VNet Peering in Azure."
    services="virtual-network"
    documentationCenter="na"
@@ -21,14 +21,14 @@ VNet Peering is a mechanism to connect two Virtual Networks in the same region t
 
 - Low latency, high bandwidth connection between resources in different VNets.
 - Ability to use resources such as Network Virtual appliances, and VPN gateways in peered VNet (Transit).
-- Connect V2 (ARM) VNet to a V1 (ASM) VNet and enable full connectivity between resources in these VNets
+- Connect Resource Manager VNet to a classic VNet and enable full connectivity between resources in these VNets
 
 Requirements and key aspects with VNet peering:
 - The two Virtual Networks that are peered should be in the same Azure region
 - The VNets that are peered should have non overlapping IP Address space
 - VNet Peering is between two virtual networks and there is no derived transitive relationship, i.e. if VNet A is peered with VNet B and if VNet B is peered with VNet C, it does not translate to VNet A being peered with VNet C
 - Peering can be established between Virtual networks in two different subscriptions as long a privileged user of the respective subscriptions authorizes the peering
-- An ARM VNet can be peered with another ARM VNet or ASM VNet, but two ASM VNets cannot be peered to each other
+- A Resource Manager VNet can be peered with another Resource Manager VNet or classic VNet, but two classic VNets cannot be peered to each other
 - Though the communication between Virtual machines in peered Vnets has no aditional bandwidth restrictions, bandwidth cap based on VM size will still apply. 
 
 
@@ -47,7 +47,7 @@ Users can configure user defined route tables pointing to Virtual machines in pe
 ## Gateways and On-premises connectivity
 Each Virtual Network regardless of if they are peered with another Vnet or not, can still have its own gateway and use it to connect to on-premises. Users can also configure VNet-to-VNet connection (provide link) using gateways even though the VNets are peered. When both options for VNet inter connectivity are configured, the traffic between the VNets will flow through the peering configuration (i.e. through the Azure backbone). 
 
-When VNets are peered, users can also configure to use the gateway in the peered Vnet as a transit point to on-premises. In this case, the VNet that is using a remote gateway cannot have a gateway on its own, to simplify one VNet can have only one gateway, it could either be a local gateway or a remote gateway (in the peered Vnet) as illustrated in the picture below. Gateway Transit is not suported between an ARM and ASM Vnet, both Vnets in the peering relationship should be ARM Vnets for gateway transit to work.
+When VNets are peered, users can also configure to use the gateway in the peered Vnet as a transit point to on-premises. In this case, the VNet that is using a remote gateway cannot have a gateway on its own, to simplify one VNet can have only one gateway, it could either be a local gateway or a remote gateway (in the peered Vnet) as illustrated in the picture below. Gateway Transit is not suported between an Resource Manager and classic Vnet, both Vnets in the peering relationship should be Resource Manager Vnets for gateway transit to work.
 When the VNets that are sharing a single ER circuit are peered, the traffic between them will go through the peering relationship (i.e. through the Azure backbone network). Users can still use local gateways in each Vnet to connect to the on-premises circuit or use a shared gateway and configure transit for on-premises connectivity.
 
 ![VNet Peering Transit](./media/virtual-networks-peering-overview/figure02.png)
