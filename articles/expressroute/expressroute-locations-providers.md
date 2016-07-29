@@ -55,7 +55,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 > [AZURE.SELECTOR]
 [Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
-[Providers By Location](expressroute-providers-by-location.md#connectivity-provider-locations)
+[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
 
 ### Production Azure
 | **Location**  | **Service Providers** |
