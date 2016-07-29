@@ -134,7 +134,7 @@ Verify that **Windows certificate store** is selected and click **Next**.
 
 ### Validation###
 
-You can encrypt the columns now or save a PowerShell script to run later. For this tutorial select **Proceed to finish now** and click **Next**.
+You can encrypt the columns now or save a PowerShell script to run later. For this tutorial, select **Proceed to finish now** and click **Next**.
 
 ### Summary###
 
