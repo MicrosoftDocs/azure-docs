@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Creating a B2B process in Azure App Service | Microsoft Azure" 
    description="Overview of how to create a Business-to-Business Process" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 

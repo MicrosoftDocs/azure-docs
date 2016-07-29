@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to migrate logic apps to schema version 2015-08-01-preview | Microsoft Azure App Service"
 	description="You can easily migrate your logic apps to the latest schema version. Just follow these steps."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
