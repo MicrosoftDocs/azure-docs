@@ -24,7 +24,7 @@ This article goes into detail on how you can extend a logic app to better suppor
 >[AZURE.NOTE] The current version of Logic Apps provides an standard template for action responses. 
 >This includes both internal validation and error responses returned from an API App.
 
-## You start off with a use cases
+## Overview of the use case and scenario
 
 The following story is the use case for this article.
 
