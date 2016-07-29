@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -180,7 +180,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-    If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 by the client may not suffice; in this case, the client will throw a DocumentClientException with status code 429 to the application. The default retry count can be increased by changing the RetryOptions/RetryPolicy settings. By default, the DocumentClientException is returned after 30 seconds if the request does not complete. This occurs even when the current retry count, be it the default of 9 or a user defined value, is less than the max retry count.
+    If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client will throw a DocumentClientException with status code 429 to the application. The default retry count can be changed by setting the RetryOptions on the ConnectionPolicy instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user defined value.
 
     While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency.  The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](documentdb-request-units.md).
    
