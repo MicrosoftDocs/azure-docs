@@ -197,7 +197,7 @@ Install *Active Directory Federation Services* by using the *Add Roles and Featu
 
 ### Trust recommendations
 
-Establish federation trust between your AD FS installation and web applications, and the federation servers and web applications of any partners:
+Establish federation trust between your AD FS installation, and the federation servers of any partners. Configure any claims filtering and mapping required:
 
 - On each account federation server, add a relying party trust for each partner federation server hosting web applications that users in the account federation server domain need to access.
 
