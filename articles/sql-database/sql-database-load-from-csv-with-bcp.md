@@ -3,7 +3,7 @@
    description="For a small data size, uses bcp to import data into Azure SQL Database."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
