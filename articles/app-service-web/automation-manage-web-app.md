@@ -31,7 +31,7 @@ Reduce operational overhead and free up IT and DevOps staff to focus on work tha
 
 ## How can Azure Automation help manage Azure Web App?
 
-Web App can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell modules](../powershell-install-configure/). You can [install these Web App PowerShell cmdlets in Azure Automation](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), so that you can perform all of your Web App management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services to automate complex tasks across Azure services and 3rd party systems.
+Web App can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell modules](../powershell-install-configure.md). You can [install these Web App PowerShell cmdlets in Azure Automation](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), so that you can perform all of your Web App management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services to automate complex tasks across Azure services and 3rd party systems.
 
 Here are some examples of managing App Services with Automation:
 
