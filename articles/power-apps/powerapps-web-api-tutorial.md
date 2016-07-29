@@ -14,12 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 # Tutorial: Create a custom AAD protected web API for PowerApps and Logic Flows
 
 This tutorial shows you how to create a ASP.Net web API, host it on Azure Webapps, enable AAD authentication (via easy auth), and then register the web API in PowerApps and Logic flows. 
+
+>[AZURE.IMPORTANT] This topic has moved to powerapps.microsoft.com at [Tutorial: Create a custom AAD protected Web API for PowerApps and Flow](https://powerapps.microsoft.com/tutorials/customapi-web-api-tutorial/). Please go to PowerApps for the latest version. This Azure link is being archived.
 
 ## What you need to get started
 

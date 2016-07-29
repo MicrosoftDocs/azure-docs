@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Troubleshoot Azure Sign-up Issues | Microsoft Azure"
+	pageTitle="Troubleshoot Azure sign-up issues | Microsoft Azure"
 	description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
 	services="billing"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="cjiang"/>
 
-# Troubleshoot Azure Sign-up Issues
+# Troubleshoot Azure sign-up issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident on the [Azure Support site](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## I am getting an error when entering my information to sign up.
 Is the account profile information correct?

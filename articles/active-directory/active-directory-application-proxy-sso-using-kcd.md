@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
 # Single sign-on with Application Proxy
 
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-
 Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
-1. A user signs in to the cloud
-2. All security validations happen in the cloud (preauthentication)
+
+1. A user signs in to the cloud  
+2. All security validations happen in the cloud (preauthentication)  
 3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
-Azure AD Application Proxy enables you to provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
+Azure AD Application Proxy helps you provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
 
 
 ## SSO for on-prem IWA apps using KCD with Application Proxy
@@ -52,10 +51,15 @@ This diagram explains the flow when a user attempts to access an on-prem applica
 
 ### Prerequisites
 
-- Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-- Create Service Principal Names for your applications.
-- Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+Before you get started with SSO for Application Proxy, make sure your environment is ready with the following settings and configurations:
 
+- Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+
+- All your apps have Service Principal Names.
+
+- The server running the Connector and the server running the app are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+
+- The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This is a default setting that might have been impacted by security hardening the environment. Get more help with this in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
 
 ### Active Directory configuration
 
@@ -94,7 +98,7 @@ The Active Directory configuration varies, depending on whether your Application
   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
 
->[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure AD is synchronized with your on-premises AD.
+>[AZURE.IMPORTANT] If your on-premises UPN and the UPN in Azure Active Directory are not identical, you will need to configure the [delegated login identity](#delegated-login-identity) in order for preauthentication to work. .
 
 |  |  |
 | --- | --- |
@@ -107,14 +111,17 @@ The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD 
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### Partial Delegated Identity
-Non-Windows applications typically get user identity in the form of a username or SAM account name, not an email address (username@domain) . This is different than most Windows based systems that prefer a UPN, which is more conclusive and ensures no duplication cross domains.  
+### Delegated login identity
+Delegated login identity helps you handle two different login scenarios:
 
-For this reason, Application Proxy enables you to select which identity appears in the Kerberos ticket, per application. Some of these options are suitable for systems that do not accept email address format.
+- Non-Windows applications that typically get user identity in the form of a username or SAM account name, not an email address (username@domain).
+- Alternative login configurations where the UPN in Azure AD and the UPN in your on-premises Active Directory are different.
+
+With Application Proxy, you can select which identity to use to obtain the Kerberos ticket. This setting is per application. Some of these options are suitable for systems that do not accept email address format, others are designed for alternative login.
 
 ![Delegated login identity parameter screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-If partial identity is used, and this identity might not be unique for all the domains or forests in your organization, you might want to publish these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
+If delegated login identity is used, the value might not be unique for all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
 
 
 ## Working with SSO when on-premises and cloud identities are not identical

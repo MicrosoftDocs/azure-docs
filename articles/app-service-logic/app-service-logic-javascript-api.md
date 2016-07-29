@@ -1,14 +1,14 @@
 <properties
    pageTitle="Using the JavaScript API app in a Logic app | Microsoft Azure"
    description="JavaScript API app or connector"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

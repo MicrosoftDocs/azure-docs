@@ -13,24 +13,21 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/15/2016"
  ms.author="danlep"/>
 
 # Set up a Windows RDMA cluster with HPC Pack and A8 and A9 instances to run MPI applications
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
 
 Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## HPC Pack cluster deployment options
 Microsoft HPC Pack is a tool provided at no additional cost to create Windows Server–based HPC clusters in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MS-MPI). When used with A8 and A9 instances, HPC Pack provides an efficient way to run Windows-based MPI applications that access the RDMA network in Azure. 
 
-This article introduces two scenarios to deploy clustered A8 and A9
+This article introduces two scenarios and links to detailed guidance to deploy clustered A8 and A9
 instances with Microsoft HPC Pack.
 
 * Scenario 1. Deploy compute intensive worker role instances (PaaS)
@@ -62,10 +59,6 @@ in an Azure VM.
 
 ![Burst to Azure][burst]
 
-### Considerations for using A8 and A9 instances
-
-* **Proxy nodes** - In each burst to Azure deployment with the compute-intensive instances, HPC Pack automatically deploys a minimum of 2 size A8 instances as proxy nodes, in addition to the Azure worker role instances you specify. The proxy nodes use cores that are allocated to the subscription and incur charges along with the Azure worker role instances.
-
 ### Steps
 
 4. **Deploy and configure an HPC Pack 2012 R2 head node**
@@ -91,6 +84,8 @@ in an Azure VM.
     Use the Add Node Wizard in HPC Cluster Manager. For more information, see [Add Azure Nodes to the Windows HPC Cluster](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
 
     When specifying the size of the nodes, select A8 or A9.
+    
+    >[AZURE.NOTE]In each burst to Azure deployment with the compute-intensive instances, HPC Pack automatically deploys a minimum of 2 size A8 instances as proxy nodes, in addition to the Azure worker role instances you specify. The proxy nodes use cores that are allocated to the subscription and incur charges along with the Azure worker role instances.
 
 9. **Start (provision) the nodes and bring them online to run jobs**
 
@@ -125,7 +120,9 @@ automate most of this process.
 
     Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
 
-    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, note the following additional considerations:
+    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). 
+    
+    To deploy size A8 and A9 compute nodes, note the following additional considerations:
     
     * **Virtual network** - Specify a new virtual network in a region in which the A8 and A9 instances are available.
 
@@ -187,7 +184,7 @@ To run mpipingpong on the cluster:
     If you deployed the HPC Pack cluster deployed on Azure VMs, specify a node group that contains compute node VMs deployed in a single cloud service, and modify the **mpiexec** command as follows:
 
     ```
-    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
+    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
 
 3. When the job completes, to view the output (in this case, the output of task 1 of the job), type the following

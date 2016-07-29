@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -35,11 +35,11 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 ### How do I get started with Azure Data Factory?
 
 - For an overview of Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md).
-- For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-get-started.md).
+- For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - For a tutorial on how to **transform data** using HDInsight Hive Activity. See [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md) 
   
 ### What is the Data Factory’s region availability?
-Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
+Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions). 
  
 ### What are the limits on number of data factories/pipelines/activities/datasets?
  
@@ -86,7 +86,12 @@ The **availability** configuration setting in the output data table determines w
 
 ## Copy Activity - FAQ
 ### Is it better to have a pipeline with multiple activities or a separate pipeline for each activity? 
-Pipelines are supposed to bundle related activities.  Logically, you can keep the activities in one pipeline if the tables that connect them are not consumed by any other activity outside the pipeline. This way, you would not need to chain pipeline active periods so that they align with each other. Also, the data integrity in the tables internal to the pipeline will be better preserved when updating the pipeline. Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again. From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline. 
+Pipelines are supposed to bundle related activities.  Logically, you can keep the activities in one pipeline if the tables that connect them are not consumed by any other activity outside the pipeline. This way, you would not need to chain pipeline active periods so that they align with each other. Also, the data integrity in the tables internal to the pipeline will be better preserved when updating the pipeline. Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again. From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline.
+
+### Where is the copy operation performed? 
+
+See [Globally available data movement](data-factory-data-movement-activities.md#global) section for details. In short, when an on-premises data store is involved, the copy operation is perfomed by the Data Management Gateway in your on-premises environment. And, when the data movement is between two cloud stores, the copy operation is performed in the region closest to the sink location in the same geography. 
+
 
 ## HDInsight Activity - FAQ
 
@@ -125,7 +130,7 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 
 ## Slices - FAQ
 
-### Why are my input slices are not in Ready state? 
+### Why are my input slices are not in Ready state?  
 A common mistake is not setting **external** property to **true** on the input dataset when the input data is external to the data factory (not produced by the data factory). 
 
 In the following example, you only need to set **external** to true on **dataset1**.  

@@ -69,7 +69,7 @@ You can find more information about the *functions* we support here: <http://www
 
 You can also find documentation about the job options here: <http://www.blitline.com/docs/api>
 
-Once you have your JSON all you need to do is **POST** it to `http://api.blitline.com/jobs`
+Once you have your JSON all you need to do is **POST** it to `http://api.blitline.com/job`
 
 You will get JSON back that looks something like this:
 

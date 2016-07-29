@@ -1,14 +1,14 @@
 <properties
    pageTitle="Using the BizTalk JSON Encoder connector in Logic Apps | Microsoft Azure App Service "
    description="How to create and configure the BizTalk JSON Encoder Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

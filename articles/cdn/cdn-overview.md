@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN Overview"
+	pageTitle="Azure CDN Overview | Microsoft Azure"
 	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
@@ -77,5 +77,7 @@ To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
 
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
 
 For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).

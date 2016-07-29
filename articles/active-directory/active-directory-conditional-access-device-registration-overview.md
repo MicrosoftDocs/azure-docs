@@ -5,7 +5,7 @@
 	keywords="device registration, enable device registration, device registration and MDM"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/29/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Get started with Azure Active Directory Device Registration

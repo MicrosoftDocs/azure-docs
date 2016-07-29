@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Administer an Azure Active Directory Domain Services managed domain

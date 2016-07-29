@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Technical reference: conditional access to Azure AD apps | Microsoft Azure"
+	pageTitle="Azure Active Directory Conditional Access technical reference | Microsoft Azure"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,10 +14,10 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
-# Technical reference: conditional access to Azure AD apps
+# Azure Active Directory Conditional Access technical reference
 
 ## Services enabled with conditional access
 Conditional Access rules are supported across various Azure AD application types. This list includes:
@@ -31,7 +31,7 @@ Conditional Access rules are supported across various Azure AD application types
 - 	Dynamics CRM
 - Microsoft Office 365 Yammer
 - Microsoft Office 365 Exchange Online
-- Microsoft Office 365 SharePoint Online (Includes OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
 
 
 ## Enable access rules
@@ -61,7 +61,8 @@ Options for specifiying “at work” networks
 
 
 
-## Per-application rules
+## Rules based on application sensitivity
+
 Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 
 
 Rules currently offered:

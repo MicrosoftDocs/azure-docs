@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/17/2016"
+ms.date="07/12/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -32,7 +32,7 @@ An indexer is a resource that connects data sources with target search indexes.
 To set up blob indexing, do the following:
 
 1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account.
-	- Pass in your storage account connection string as the `credentials.connectionString` parameter.
+	- Pass in a storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from Azure Portal: navigate to the desired storage account blade / Keys and use the "Primary Connection String" or "Secondary Connection String" value. 
 	- Specify a container name. You can also optionally include a folder using the `query` parameter.
 2. Create a search index with a searchable `content` field. 
 3. Create the indexer by connecting your data source to the target index.
@@ -62,7 +62,7 @@ For more on the Create Datasource API, see [Create Datasource](search-api-indexe
   		"name" : "my-target-index",
   		"fields": [
     		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
   		]
 	}
 
@@ -82,6 +82,8 @@ Finally, create an indexer that references the data source and a target index. F
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
+
+This indexer will run every two hours (schedule interval is set to "PT2H"). To run an  indexer every 30 minutes, set the interval to "PT30M". Shortest supported interval is 5 minutes. Schedule is optional - if omitted, an indexer runs only once when created. However, you can run an indexer on-demand at any time.   
 
 For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
 

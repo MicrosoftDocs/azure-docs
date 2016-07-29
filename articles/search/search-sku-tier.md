@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Choose a SKU or tier for Azure Search | Microsoft Azure"
+	pageTitle="Choose a SKU or pricing tier for Azure Search | Microsoft Azure"
 	description="Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels."
 	services="search"
 	documentationCenter=""
@@ -14,51 +14,68 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/05/2016"
+	ms.date="07/25/2016"
 	ms.author="heidist"/>
 
-# Choose a SKU or tier for Azure Search
+# Choose a SKU or pricing tier for Azure Search
 
-Before you can [create a search service](search-create-service-portal.md) in Azure Search, you will need to know which tier or SKU to provision the service at. SKUs include: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities. 
+During [service provisioning](search-create-service-portal.md), you'll need to specify a SKU or pricing tier. Choices include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities.
 
-Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you will need at least rough estimates on the number and size of indexes you plan to create, and some idea of query volume. With estimates in hand, the following steps should simplify the process:
+We recommend that you always provision a **Free** service (one per subscription, with no expiration) so that its readily available for light-weight projects. Use the **Free** service for testing and evaluation; create a second billable service at the **Basic** or **Standard** tier for production or larger test workloads.
 
-- **Step 1** Review the SKU descriptions below to learn what your option are.
-- **Step 2** Answer a series of questions to narrow down your choice.
-- **Step 3** Validate your decision by reviewing hard limits on storage and pricing. 
+In Azure Search, the SKU determines capacity, not feature availability. All features are available at every pricing tier, including preview features.
+
+## How to approach a pricing tier decision
+
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance, but for any of it to be useful, you will need at least rough estimates on the following:
+
+- Number and size of indexes you plan to create
+- Number and size of documents to upload
+- Some idea of query volume, in terms of Queries Per Second (QPS)
+
+Number and size are important because maximum limits are reached through a hard limit on the count of indexes or documents in a service, or on resources (storage or replicas) used by the service. The actual limit for your service will be whichever is used up first: resources or objects.
+
+With estimates in hand, the following steps should simplify the process:
+
+- **Step 1** Review the SKU descriptions below to learn about available options.
+- **Step 2** Review the questions to narrow down your choice.
+- **Step 3** Validate your decision by reviewing hard limits on storage and pricing.
+
+> [AZURE.NOTE] If you underestimate capacity, you will need to provision a new service at the higher tier, and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another.
 
 ## SKU descriptions
 
-The following table is a description and simple comparison of each SKU in terms of partitions and replicas, as well as Queries Per Second (QPS), when applicable. For an introduction to replicas and partitions, see [Service Limits in Azure Search](search-limits-quotas-capacity.md).
+The following table provides descriptions of each tier. 
 
-Tier|Capacity|Designed for
-----|-----------|-----------
-Free|50 MB or 3 indexes and 10,000 documents|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers,  query throughput and indexing will vary based on who else is using the service.
-Basic|3 replicas and 1 partition|Small production workloads on dedicated hardware. Highly available.
-Standard 1 (S1)|Partitions are 25 GB each. <br/><br/>QPS on replicas is approximately 15 queries per second.|Supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units.
-Standard 2 (S2)|Partitions are 100 GB each. <br/><br/>QPS on replicas is about 60 queries per second.|Runs larger production workloads using the same configurations as S1 but with larger partitions and replicas.
-Standard 3 (S3) Preview|Partitions are 200 GB each. <br/><br/>QPS on replicas is more than 60 queries per second.|Runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas. 
-Standard 3 High Density (S3 HD) Preview|A single partition at 200 GB. <br/><br/>QPS on replicas is more than 60 queries per second.|Intended for customers who have a large number of smaller indexes.
+Tier|Primary scenarios
+----|-----------------
+**Free**|A shared service, at no charge, used for evaluation, investigation, or small workloads. Because it's shared with other subscribers, query throughput and indexing will vary based on who else is using the service. Capacity is small (50 MB or 3 indexes with up 10,000 documents each).
+**Basic**|Small production workloads on dedicated hardware. Highly available. Capacity is up to 3 replicas and 1 partition (2 GB).
+Standard 1 (**S1**)|Supports flexible combinations of partitions (12) and replicas (12), used for medium production workloads on dedicated hardware. You can allocate partitions and replicas in combinations supported by a maximum number of 36 billable search units. At this level, partitions are 25 GB each and QPS is approximately 15 queries per second.
+Standard 2 (**S2**)|Runs larger production workloads using the same 36 search units as S1 but with larger sized partitions and replicas. At this level, partitions are 100 GB each and QPS is about 60 queries per second.
+Standard 3 (**S3**) Preview|Runs proportionally larger production workloads on higher end systems, in configurations of up to 12 partitions or 12 replicas under 36 search units. At this level, partitions are 200 GB each and QPS is more than 60 queries per second. S3 is in preview and available at an introductory rate.
+Standard 3 High Density (**S3 HD**) Preview|A large number of smaller indexes. There is one partition only, at 200 GB. QPS is more than 60 queries per second. S3 is in preview and available at  an introductory rate.
 
-## Decision path for choosing a SKU
+> [AZURE.NOTE] Replica and partition maximums are billed out as search units (36 unit maximum per service), which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
-The following chart is a subset of the limits from [Service Limits in Azure Search](search-limits-quotas-capacity.md). It lists the factors most likely to impact a SKU decision, including SKU capacity limits from the previous table, with additional limits related to content types (namely indexes and documents). You can refer to this chart 
+## Review limits per tier
+
+The following chart is a subset of the limits from [Service Limits in Azure Search](search-limits-quotas-capacity.md). It lists the factors most likely to impact a SKU decision. You can refer to this chart when reviewing the questions below.
 
 Resource|Free|Basic|S1|S2|S3 <br/>(Preview) |S3 HD <br/>(Preview) 
 ---|---|---|---|----|---|----
 Service Level Agreement (SLA)|No <sup>1</sup> |Yes |Yes  |Yes |No <sup>1</sup> |No <sup>1</sup> 
-Maximum partitions|N/A |1 |12  |12 |12|1
 Indexes allowed per SKU|3|5|50|200|200|1000
 Documents limits|10,000 total|1 million per service|15 million per partition |60 million per partition|120 million per partition |1 million per index
+Maximum partitions|N/A |1 |12  |12 |12|1
 Partition size|50 MB total|2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)|200 GB per partition (up to a maximum of 2.4 TB per service)|200 GB (for the 1 partition)
 Maximum replicas|N/A |3 |12 |12 |12|12
 Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 
 <sup>1</sup> Free and Preview SKUs do not come with SLAs. SLAs are enforced once a SKU becomes generally available.
 
-> [AZURE.NOTE] Replica and partition maximums are subject a combined maximum billing configuration of 36 units, which imposes a lower effective limit than what the maximum implies at face value. For example, to use the maximum of 12 replicas, you could have at most 3 partitions (12 * 3 = 36 units). Similarly, to use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
-### Common questions when choosing a SKU
+## Eliminate SKUs that don't meet requirements 
 
 The following questions can help you arrive at the right SKU decision for your workload.
 
@@ -75,11 +92,12 @@ As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/d
 
 If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). On more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
 
-> [AZURE.NOTE] Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents consist only of searchable data or metadata. Binary data that can bloat a document should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). See [Service limits in Azure Search](search-limits-quotas-capacity.md) for more information.
+> [AZURE.NOTE] Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents contain only searchable data or metadata. Binary data is non-searchable and should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). See [Service limits in Azure Search](search-limits-quotas-capacity.md) for more information.
 
 ## Next step
 
 Once you know which SKU is the right fit, continue on with these steps:
+
 - [Create a search service in the portal](search-create-service-portal.md)
 - [Change the allocation of partitions and replicas to scale your service](search-capacity-planning.md)
 

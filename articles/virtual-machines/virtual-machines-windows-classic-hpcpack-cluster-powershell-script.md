@@ -1,6 +1,6 @@
 <properties
    pageTitle="PowerShell script to deploy Windows HPC cluster | Microsoft Azure"
-   description="Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure infrastructure services"
+   description="Run a PowerShell script to deploy a Windows HPC Pack cluster in Azure virtual machines"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
@@ -13,22 +13,64 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # Create a Windows high performance computing (HPC) cluster with the HPC Pack IaaS deployment script
 
-Run the HPC Pack IaaS deployment PowerShell script on a client
-computer to deploy a complete HPC cluster for Windows workloads in Azure infrastructure
-services (IaaS). If you want to deploy an HPC Pack cluster in Azure for Linux workloads, see [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md).
+Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC cluster for Windows workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and additional Windows compute resources you specify. If you want to deploy an HPC Pack cluster in Azure for Linux workloads, see [Create a Linux HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For examples, see [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) and [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## Example configuration files
 
+In the following examples, substitute your own values for your subscription Id or name and the account and service names.
+
 ### Example 1
+
+The following configuration file deploys an HPC Pack cluster
+which has a head node with local databases and 5 compute nodes running
+the Windows Server 2012 R2 operating system. All the cloud services are
+created directly in the West US location. The head node acts as domain
+controller of the domain forest.
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
+    <StorageAccount>mystorageaccount</StorageAccount>
+  </Subscription>
+  <Location>West US</Location>  
+  <VNet>
+    <VNetName>MyVNet</VNetName>
+    <SubnetName>Subnet-1</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpc.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>MyHeadNode</VMName>
+    <ServiceName>MyHPCService</ServiceName>
+    <VMSize>ExtraLarge</VMSize>
+  </HeadNode>
+  <ComputeNodes>
+    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
+    <ServiceName>MyHPCCNService</ServiceName>
+    <VMSize>Medium</VMSize>
+    <NodeCount>5</NodeCount>
+    <OSVersion>WindowsServer2012R2</OSVersion>
+  </ComputeNodes>
+</IaaSClusterConfig>
+```
+
+### Example 2
 
 The following configuration file deploys an HPC Pack cluster in an existing domain forest. The cluster has 1 head node with local databases and 12 compute nodes with the BGInfo VM extension applied.
 Automatic installation of Windows updates is disabled for all the VMs in
@@ -101,7 +143,7 @@ and shrink service is enabled with default grow and shrink intervals.
 
 ```
 
-### Example 2
+### Example 3
 
 The following configuration file deploys an HPC Pack cluster
 in an existing domain forest. The cluster contains 1 head node, 1
@@ -162,47 +204,7 @@ Scheduler REST API and HPC web portal are enabled on the head node.
 </IaaSClusterConfig>
 ```
 
-### Example 3
 
-The following configuration file deploys an HPC Pack cluster
-which has a head node with local databases and 5 compute nodes running
-the Windows Server 2008 R2 operating system. All the cloud services are
-created directly in the East Asia location. The head node acts as domain
-controller of the domain forest.
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<IaaSClusterConfig>
-  <Subscription>
-    <SubscriptionId>08701940-C02E-452F-B0B1-39D50119F267</SubscriptionId>
-    <StorageAccount>mystorageaccount</StorageAccount>
-  </Subscription>
-  <Location>East Asia</Location>  
-  <VNet>
-    <VNetName>MyVNet</VNetName>
-    <SubnetName>Subnet-1</SubnetName>
-  </VNet>
-  <Domain>
-    <DCOption>HeadNodeAsDC</DCOption>
-    <DomainFQDN>hpc.local</DomainFQDN>
-  </Domain>
-  <Database>
-    <DBOption>LocalDB</DBOption>
-  </Database>
-  <HeadNode>
-    <VMName>MyHeadNode</VMName>
-    <ServiceName>MyHPCService</ServiceName>
-    <VMSize>ExtraLarge</VMSize>
-  </HeadNode>
-  <ComputeNodes>
-    <VMNamePattern>MyHPCCN-%1000%</VMNamePattern>
-    <ServiceName>MyHPCCNService</ServiceName>
-    <VMSize>Medium</VMSize>
-    <NodeCount>5</NodeCount>
-    <OSVersion>WindowsServer2008R2</OSVersion>
-  </ComputeNodes>
-</IaaSClusterConfig>
-```
 
 ### Example 4
 
@@ -312,8 +314,8 @@ extension might be stuck in the installing state.
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
-* For a tutorials that uses the script to create a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md).
+* For a tutorial that uses the script to create a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md).
 
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
 
-* You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For examples, see [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) and [Create an HPC cluster with a custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+* To get set up to submit jobs to the cluster from a local computer, see [Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).

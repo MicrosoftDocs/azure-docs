@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/02/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # App Service API Apps metadata for API discovery and code generation 
 

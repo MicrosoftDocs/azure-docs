@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="04/07/2016"
+  ms.date="06/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -46,11 +46,9 @@ This is the subscription that you will use to create your VM images and hand ove
 In order to sell your services on the Azure Marketplace, you must make sure that your registered entity is from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Next steps
-Next are the technical prerequisites for each offer type. Click the link to the article for the respective offer type that you would like to create for the Azure Marketplace.
-
-| Virtual machine image | Developer service | Data service | Solution template |
-|-----|-----|-----|-----|
-| [VM technical prerequisites](marketplace-publishing-vm-image-creation-prerequisites.md) | Private Preview | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+Once the non-technical pre-requisites are fulfilled, next are the offer specific technical prerequisites. Click the link to the article for the respective offer type that you would like to create for the Azure Marketplace.
+- [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

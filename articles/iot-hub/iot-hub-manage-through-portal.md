@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="06/06/2016"
+	 ms.date="06/28/2016"
 	 ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
@@ -44,11 +44,13 @@ In order to create an IoT hub, you must name the hub. Note that this name must b
 
 ### Choose the pricing tier
 
-You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
+You can choose from 4 tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
 
-**S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows up to 400,000 messages per day across all connected devices.
+**Standard S1**: IoT Hubs S1 edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 edition allows up to 400,000 messages per day across all connected devices.
 
-**S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows up to 6 million messages per day between all connected devices.  
+**Standard S2**: IoT Hub S2 edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 edition allows up to 6 million messages per day between all connected devices.
+
+**Standard S3**: IoT Hub S3 edition is designed for IoT solutions that generate large amounts of data. Each unit of the S3 edition allows up to 300 million messages per day between all connected devices.
 
 ![][4]
 
@@ -72,7 +74,7 @@ Azure IoT Hub automatically shows the list of subscriptions to which the user ac
 
 ### Choose the location
 
-The location option provides a list of the regions in which IoT Hub is offered. IoT Hub is available to deploy in the following locations: US East, US West, Europe North, Europe West, East Asia, and South-East Asia.
+The location option provides a list of the regions in which IoT Hub is offered. IoT Hub is available to deploy in the following locations: Australia East, Australia Southeast, Asia East, Asia Southeast, Europe North, Europe West, Japan East, Japan West, US East, US West.
 
 ### Create the IoT hub
 
@@ -92,9 +94,9 @@ You can change the settings of an existing IoT hub after it is created. Click th
 
 - Click **Add** to open a blade in which you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure.
 
-	There are several permissions that can be associated with these shared policies. The first two policies, **Registry Read** and **Registry Write**, grant read and write access rights to the device identity store or the identity registry. Please note that choosing the write option automatically chooses the read option as well.
+	There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Please note that choosing the write option automatically chooses the read option as well.
 
- 	The service connect policy grants permission to the consumer group for services connecting to the IoT hub, while the device connect grants permissions for device side of the IoT hub.
+ 	The **Service connect** policy grants permission to access the cloud-side endpoints such as the consumer group for services connecting to the IoT hub, while the **Device connect** policy grants permissions for sending and receiving messages  on the device-side enpoints of the IoT hub.
 
 - Click **Create** to add this newly created policy to the existing list.
 
@@ -122,9 +124,9 @@ Click the **Messaging** policies to display a list of messaging properties for t
 
 ## File upload
 
-In order to use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+To use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
 
-**Storage account**: Use the portal to select a storage account in your current subscription to associate with your IoT Hub. IoT Hub will generage SAS URIs from this storage account for devices to use when uploading files.
+**Storage container**: Use the portal to select a blob container in a storage account in your current subscription to associate with your IoT Hub. If necessary, you can create a new storage account on the **Storage accounts** blade and new blob container on the **Containers** blade. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
 
 ![][14]
 
@@ -147,7 +149,7 @@ The pricing of an existing IoT hub can be changed through the **Pricing** settin
 
 ![][12]
 
-Moving from a high tier (S2) to low tier (S1) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub cannot be changed from S2 to S1.
+Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed, but if you change to the S1 tier then the hub will be throttled for that day.
 
 ## Delete the IoT hub
 
@@ -155,10 +157,20 @@ You can browse to the IoT hub you want to delete by clicking **Browse**, and the
 
 ## Next steps
 
-Follow these links to learn more about Azure IoT Hub:
+Follow these links to learn more about managing Azure IoT Hub:
 
-- [Get started with IoT Hub (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][]
+- [Bulk manage IoT devices][lnk-bulk]
+- [Usage metrics][lnk-metrics]
+- [Operations monitoring][lnk-monitor]
+- [Manage access to IoT Hub][lnk-itpro]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Secure your IoT solution from the ground up][lnk-securing]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -172,3 +184,14 @@ Follow these links to learn more about Azure IoT Hub:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: iot-hub-security-ground-up.md

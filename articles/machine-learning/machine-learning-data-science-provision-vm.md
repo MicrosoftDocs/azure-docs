@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/24/2016" 
 	ms.author="bradsev" />
 
 
@@ -51,9 +51,9 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
 
 1.	Navigate to the virtual machine listing on [Azure Portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+3.	 The wizard used to create the Microsoft Data Science Virtual Machine requires **inputs** for each of the **5 steps** enumerated on the right of this figure. Here are the inputs needed to configure each of these steps:
 
-  **a. Basics**: 
+     **a. Basics**: 
 
    - **Name**: Name of your data science server you are creating.
    - **User Name**: Admin account login id
@@ -62,21 +62,21 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
    - **Resource Group**: You can create a new one or use an existing group
    - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
 
-  **b. Size**: 
+     **b. Size**: 
 
    - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
 
-  **c. Settings**
+     **c. Settings**
 
    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
 
-  **d. Summary**: 
+     **d. Summary**: 
 
    - Verify that all information you entered is correct.
 
-  **e. Buy**: 
+     **e. Buy**: 
 
    - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
@@ -144,6 +144,6 @@ Here are some next steps to continue your learning and exploration.
 * Explore the various data science tools on the data science VM by clicking on the start menu and checking out the tools listed on the menu
 * Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [Ten things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
-* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)
 * Visit the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples using the Cortana Intelligence Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 

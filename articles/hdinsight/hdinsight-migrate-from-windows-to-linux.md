@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -22,7 +22,7 @@ While Windows-based HDInsight provides an easy way to use Hadoop in the cloud, y
 
 This document provides details on the differences between HDInsight on Windows and Linux, and guidance on how to migrate existing workloads to a Linux-based cluster.
 
-> [AZURE.NOTE] Ubuntu 12.04.05 LTS is the Linux distribution used for Linux-based HDInsight clusters.
+> [AZURE.NOTE] HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. HDInsight 3.3 and 3.4 clusters use Ubuntu 14.0.4 LTS; earlier versions of HDInsight used Ubuntu 12.04.05 LTS.
 
 ## Migration tasks
 
@@ -81,7 +81,7 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
 6. From the SSH session, use the following command to copy files from the linked storage account to the new default storage account. Replace CONTAINER and ACCOUNT with the container and account information returned by the PowerShell script in step 1. Replace the path to data with the path to a data file.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
 
@@ -243,9 +243,9 @@ If you know that the scripts do not contain strings with embedded CR characters,
 
 -   **If you have scripts that are already in the storage used by the cluster**, you can use the following command from an SSH session to the Linux-based cluster to modify the script.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##Next Steps
 

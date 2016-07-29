@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/22/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Live streaming with on-premise encoders that create multi-bitrate streams

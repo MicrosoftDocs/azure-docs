@@ -3,7 +3,7 @@
    description="Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
+   authors="suchiagicha"
    manager="timlt"
    editor="vturecek"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/22/2016"
-   ms.author="punewa"/>
+   ms.date="07/06/2016"
+   ms.author="suchiagicha"/>
 
 # Help secure communication for services in Azure Service Fabric
 

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
 
 # Troubleshoot Application Proxy
-
-
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
@@ -31,6 +28,13 @@ If errors occur in accessing a published application or in publishing applicatio
 - Open Event Viewer and look for events related to the Application Proxy connector located under **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 - If needed, more detailed logs are available by turning on analytics and debugging logs, and turning on the Application Proxy connector session log.
 
+## The page is not rendered correctly
+
+If you're not getting a specific error message, you may still have issues with your application rendering or functioning incorrectly. This can occur if you published the article path, but the application requires content that exists outside that path.
+
+For example, if you publish the path https://yourapp/app but the application calls images in https://yourapp/media, they won't be rendered. Make sure that you publish the application using the highest level path you need to include all relevant content. In this example, it would be http://yourapp/.
+
+If change your path to include referenced content, but still need users to land on a deeper link in the path, see the blog post [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 
 ## General errors
 
@@ -41,7 +45,7 @@ This corporate app can’t be accessed. You are not authorized to access this ap
 
 
 ## Connector troubleshooting
-If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under **Windows Logs** > **Application**, or by running the following Windows PowerShell command.
+If registration fails during the Connector wizard installation, you can view the reason for the failure either by looking in the event log under Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin, or by running the following Windows PowerShell command.
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 

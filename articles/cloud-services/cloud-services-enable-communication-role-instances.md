@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="03/25/2016" 
+ms.date="06/22/2016" 
 ms.author="adegeo"/>
 
 # Enable communication for role instances in azure

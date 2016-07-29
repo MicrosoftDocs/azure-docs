@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="07/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -139,6 +139,7 @@ if your ADFS server has not been configured to automatically update certificates
 
 Topic |  
 --------- | ---------
+All AD FS articles | [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)
 Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)
 Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)
 Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)

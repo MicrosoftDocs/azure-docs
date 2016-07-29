@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/15/2016"
+   ms.date="07/13/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
 
 > [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 
@@ -28,6 +28,8 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **July 13 2016**
+July Guest OS rollout is starting July 13 2016, and projected to be released on August 12 2016. 
 
 ###### **June 15 2016**
 June Guest OS rollout is starting June 15 2016, and projected to be released on July 14 2016. 
@@ -61,9 +63,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date    | Disable date  | Expired date |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.33_201606-01     | July 14 2016*   | Post 4.35     | TBD |
+| WA-GUEST-OS-4.34_201607-01     | Aug 12 2016*    | Post 4.36     | TBD |
+| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Post 4.35     | TBD |
 | WA-GUEST-OS-4.32_201605-01     | June 10 2016    | Post 4.34     | TBD |
-| WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Post 4.33     | TBD |
+| WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Aug 13 2016   | TBD |
 | WA-GUEST-OS-4.30_201603-01     | April 7 2016    | July 10 2016  | TBD |
 | WA-GUEST-OS-4.29_201602-02     | March 12 2016   | June 2 2016   | TBD |
 | WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016    | TBD | 
@@ -88,9 +91,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date   | Disable date  | Expired date |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.40_201606-01     | July 14 2016*  | Post 3.42     | TBD |
+| WA-GUEST-OS-3.41_201607-01     | Aug 12 2016*   | Post 3.43     | TBD |
+| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Post 3.42     | TBD |
 | WA-GUEST-OS-3.39_201605-01     | June 10 2016   | Post 3.41     | TBD |
-| WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Post 3.40     | TBD |
+| WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Aug 13 2016   | TBD |
 | WA-GUEST-OS-3.37_201603-01     | April 7 2016   | July 10 2016  | TBD |
 | WA-GUEST-OS-3.36_201602-02     | March 12 2016  | June 2 2016   | TBD |
 | WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016    | TBD |
@@ -116,9 +120,10 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date  | Disable date  | Expired date |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.52_201606-01     | July 14 2016* | Post 2.54     | TBD |
+| WA-GUEST-OS-2.53_201607-01     | Aug 12 2016*  | Post 2.55     | TBD |
+| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Post 2.54     | TBD |
 | WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Post 2.53     | TBD |
-| WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Post 2.52     | TBD |
+| WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Aug 13 2016   | TBD |
 | WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
 | WA-GUEST-OS-2.48_201602-02     | March 12 2016 | June 2 2016   | TBD |
 | WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016    | TBD |

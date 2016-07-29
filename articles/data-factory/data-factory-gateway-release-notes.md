@@ -20,13 +20,34 @@
 
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
-Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
+Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) and [Data Management Gateway](data-factory-data-management-gateway.md) articles for more information.
 
-## CURRENT VERSION (1.12.5953.1)
-- Bug fixes
+## CURRENT VERSION (2.1.6040.1)
 
+- DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
+- DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
+- Supports using DocumentDB as a source or destination for on-premises data stores
+- Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
+- Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 
 ## Earlier versions
+
+## 2.0.6013.1
+
+- You can select the language/culture to be used by a gateway during manual installation.
+- When gateway does not work as expected, you can choose to send gateway logs of last 7 days to Microsoft to facilitate troubleshooting of the issue. If gateway is not connected to the cloud service, you can choose to save and archive gateway logs.  
+- User interface improvements for gateway configuration manager:
+	- Make gateway status more visible on the Home tab.
+	- Reorganized and simplified controls.
+- You can copy data from a storage other than Azure Blob into Azure SQL Data Warehouse via Polybase & staging blob using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+- You can leverage Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
+- Performance improvements
+	- Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
+
+
+
+## 1.12.5953.1
+- Bug fixes
 
 ## 1.11.5918.1
 

@@ -18,15 +18,15 @@
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In this tutorial, you will use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure Portal and then use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database.
 
-> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-get-started.md) article and complete the prerequisite steps before performing this tutorial.
+> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the prerequisite steps before performing this tutorial.
 
 ## Create data factory
 In this step, you use the Azure Portal to create an Azure data factory named **ADFTutorialDataFactory**.

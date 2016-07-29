@@ -13,7 +13,7 @@ ms.workload="identity"
 ms.tgt_pltfrm="na"
 ms.devlang="dotnet"
 ms.topic="article"
-ms.date="06/23/2016"
+ms.date="07/30/2016"
 ms.author="dastrock; vittorib"/>
 
 # Add sign-in to a Windows Desktop app
@@ -45,18 +45,22 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 ## Install & Configure MSAL
 Now that you have an app registered with Microsoft, you can install MSAL and write your identity-related code.  In order for MSAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
 
-- Begin by adding MSAL to the TodoListClient project using the Package Manager Console:
+-	Begin by adding MSAL to the TodoListClient project using the Package Manager Console.
 
-    `PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -IncludePrerelease`
-- In the TodoListClient project, open `app.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the app registration portal.  Your code will reference these values whenever it uses MSAL:
-    - The `ida:ClientId` is the **Application Id** of your app you copied from the portal.
-- In the TodoList-Service project, open `web.config` in the root of the project:
+```
+PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -IncludePrerelease
+```
+
+-	In the TodoListClient project, open `app.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the app registration portal.  Your code will reference these values whenever it uses MSAL.
+    -	The `ida:ClientId` is the **Application Id** of your app you copied from the portal.
+
+- In the TodoList-Service project, open `web.config` in the root of the project.  
     - Replace the `ida:Audience` value with the same **Application Id** from the portal.
 
-## Use MSAL to get tokens  
+## Use MSAL to get tokens
 The basic principle behind MSAL is that whenever your app needs an access token, you simply call `app.AcquireToken(...)`, and MSAL does the rest.  
 
-- In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `PublicClientApplication` - MSAL's primary class representing native applications.  This is where you pass MSAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
+-	In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `PublicClientApplication` - MSAL's primary class representing native applications.  This is where you pass MSAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
@@ -246,8 +250,8 @@ You can now move onto more advanced topics.  You may want to try:
 
 For additional resources, check out:  
 
-- [The v2.0 developer guide](active-directory-appmodel-v2-overview.md)  
-- [StackOverflow "msal" tag](http://stackoverflow.com/questions/tagged/msal)
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "msal" tag >>](http://stackoverflow.com/questions/tagged/msal)
 
 ## Get security updates for our products
 

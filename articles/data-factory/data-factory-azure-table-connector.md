@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Table using Azure Data Factory
@@ -102,7 +102,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -110,7 +110,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -118,7 +118,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -236,7 +236,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -244,7 +244,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -252,7 +252,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -360,7 +360,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes
+| tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination. |
 
 ### Schema by Data Factory
 For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
@@ -380,7 +380,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples below. | No. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination.  
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples
@@ -403,8 +403,8 @@ azureTableDefaultPartitionKeyValue | Default partition key value that can be use
 azureTablePartitionKeyName | User specified column name, whose column values are used as partition key. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
 azureTableRowKeyName | User specified column name, whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No  
 azureTableInsertType | The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys will have their values replaced or merged. <br/><br/>See [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) topics to learn about how these settings (merge and replace) work. <br/><br> Please note that this setting applies at the row level, not the table level, and neither option will delete rows in the output table that do not exist in the input. | merge (default)<br/>replace | No 
-writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer from 1 to 100 (unit = Row Count) | No (Default = 100) 
-writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | (Unit = timespan)Sample: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
+writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer (number of rows)| No (default: 10000) 
+writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | timespan<br/><br/>Example: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
 
 ### azureTablePartitionKeyName
 You will need to map a source column to a destination column using the translator JSON property before you can use the destination column as the azureTablePartitionKeyName.

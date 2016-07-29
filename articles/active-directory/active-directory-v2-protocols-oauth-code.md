@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OAuth 2.0 Authorization Code Flow
 
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0 's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -96,6 +96,20 @@ error=access_denied
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+
+#### Error codes for authorization endpoint errors
+
+The following table describes the various error codes that can be returned in the `error` parameter of the error response.
+
+| Error Code | Description | Client Action |
+|------------|-------------|---------------|
+| invalid_request | Protocol error, such as a missing required parameter. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+| unauthorized_client | The client application is not permitted to request an authorization code. | This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| access_denied | Resource owner denied consent | The client application can notify the user that it cannot proceed unless the user consents. |
+| unsupported_response_type | The authorization server does not support the response type in the request. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+|server_error | The server encountered an unexpected error. | Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due a temporary error. |
+| temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
+| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured.| This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Request an access token
 Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/token` endpoint:
@@ -174,6 +188,19 @@ Error responses will look like:
 | timestamp | The time at which the error occurred. |
 | trace_id | A unique identifier for the request that can help in diagnostics.  |
 | correlation_id | A unique identifier for the request that can help in diagnostics across components. |
+
+#### Error codes for token endpoint errors
+
+| Error Code | Description | Client Action |
+|------------|-------------|---------------|
+| invalid_request | Protocol error, such as a missing required parameter. | Fix and resubmit the request |
+| invalid_grant | The authorization code is invalid or has expired. | Try a new request to the `/authorize` endpoint |
+| unauthorized_client | The authenticated client is not authorized to use this authorization grant type. | This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| invalid_client | Client authentication failed. | The client credentials are not valid. To fix, the application administrator updates the credentials. |
+| unsupported_grant_type | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
+| invalid_resource | The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| interaction_required | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource. |
+| temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition.|
 
 ## Use the access token
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
@@ -262,3 +289,5 @@ A successful token response will look like:
 | timestamp | The time at which the error occurred. |
 | trace_id | A unique identifier for the request that can help in diagnostics.  |
 | correlation_id | A unique identifier for the request that can help in diagnostics across components. |
+
+For a description of the error codes and the recommended client action, please see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).

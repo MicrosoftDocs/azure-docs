@@ -25,7 +25,7 @@
 - Invitations to consumer email addresses (such as hotmail.com, Gmail.com, or comcast.net) are currently not supported.
 - External user access to on-premises applications not tested.
 - External users are not automatically cleaned up when the actual user is deleted from their directory.
-- Invitations to DLs are not supported.
+- Invitations to distribution lists are not supported.
 - Maximum of 2,000 records can be uploaded via CSV.
 
 ## Related articles

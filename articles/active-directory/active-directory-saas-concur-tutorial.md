@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Concur  
@@ -40,7 +40,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Concur, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
 
@@ -127,7 +127,7 @@ For the following reasons, this action should not be done with the profile they 
 
     ![Confirm Action](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirm Action")
 
-6.  In the Azure Management Portal, select **Concur** from the applications list to open the **Concur** dialog page.
+6.  In the Azure classic portal, select **Concur** from the applications list to open the **Concur** dialog page.
 
 7.  To open the **Configure User Provisioning** dialog page, click **Configure user provisioning**.
 
@@ -142,7 +142,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Concur, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Concur **application integration page, click **Assign users**.
 

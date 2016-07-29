@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="06/29/2016" 
 	ms.author="sdanie"/>
 
 # Introduction to the Azure Redis Cache Premium tier
@@ -41,6 +41,7 @@ If you want to create caches larger than 53 GB or want to shard data across mult
 To get started with clustering, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 ##Enhanced security and isolation
+
 Caches created in the Basic or Standard tier are accessible on the public internet. Access to the Cache is restricted based on the access key. With the Premium tier you can further ensure that only clients within a specified network can access the Cache. You can deploy Redis Cache in an [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/). You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis.
 
 For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
@@ -55,6 +56,29 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 
 For more information, see [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md).
 
+## Reboot
+
+The premium tier allows you to reboot one or more nodes of your cache on-demand. This allows you to test your application for resiliency in the event of a failure. You can reboot the following nodes.
+
+-	Master node of your cache
+-	Slave node of your cache
+-	Both master and slave nodes of your cache
+-	When using a premium cache with clustering, you can reboot the master, slave, or both nodes for individual shards in the cache
+
+For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
+
+## Schedule updates
+
+The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. Note that the maintenance window time is in UTC. 
+
+For more information, see [Schedule updates](cache-administration.md#schedule-updates) and [Schedule updates FAQ](cache-administration.md#schedule-updates-faq).
+
+>[AZURE.NOTE] Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
+
+## To scale to the premium tier
+
+To scale to the premium tier, simply choose one of the premium tiers in the **Change pricing tier** blade. You can also scale your cache to the premium tier using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+
 ## Next steps
 
 Create a cache and explore the new premium tier features.
@@ -63,5 +87,6 @@ Create a cache and explore the new premium tier features.
 -	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
 -	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 -	[How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)
+-	[How to administer Azure Redis Cache](cache-administration.md)
   
 

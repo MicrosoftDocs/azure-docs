@@ -56,7 +56,7 @@ No. In fact, we encourage data enthusiasts, those curious about data science, an
 
 * Data Stewards: those who have the knowledge about the data, what it means, and how it is intended to be used and for which purpose.
 
-* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massively Open Online Courses (MOOCs)
+* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massive Open Online Courses (MOOCs)
 
 
 **Can I enter with my colleagues as a team?**
