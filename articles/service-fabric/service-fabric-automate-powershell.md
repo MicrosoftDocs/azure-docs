@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/15/2016"
 	ms.author="ryanwi"/>
 
 # Automate the application lifecycle using PowerShell

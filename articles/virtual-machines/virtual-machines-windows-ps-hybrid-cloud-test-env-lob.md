@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
@@ -216,4 +216,4 @@ This environment is now ready for you to deploy your web-based application on LO
 
 ## Next step
 
-- Deploy the [production environment](virtual-machines-windows-lob-overview.md).
+- Deploy other [workloads](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) in this environment.

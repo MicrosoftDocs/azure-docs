@@ -2,7 +2,7 @@
 	pageTitle="Get started with the Azure CDN SDK for Node.js | Microsoft Azure"
 	description="Learn how to write Node.js applications to manage Azure CDN."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Get started with Azure CDN development
@@ -49,7 +49,7 @@ Our project is now initialized with a *packages.json* file.  Our project is goin
 
 After the packages are done installing, the *package.json* file should look similar to this (version numbers may differ):
 
-```
+``` json
 {
   "name": "cdn_node",
   "version": "1.0.0",
@@ -75,14 +75,14 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 1. Add the "requires" for our NPM packages at the top with the following:
 
-	```
+	``` javascript
 	var msRestAzure = require('ms-rest-azure');
 	var cdnManagementClient = require('azure-arm-cdn');
 	```
 
 2. We need to define some constants our methods will use.  Add the following.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
 
-	```
+	``` javascript
 	//Tenant app constants
 	const clientId = "<YOUR CLIENT ID>";
 	const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -96,7 +96,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 3. Next, we'll instantiate the CDN management client and give it our credentials.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
@@ -105,7 +105,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be very careful to guard your individual user credentials and keep them secret.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
 		tenantId, '<username>', '<password>', '<redirect URI>');
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
@@ -116,7 +116,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 4.  Our Node.js console application is going to take some command line parameters.  Let's validate that at least one parameter was passed.
 
-	```
+	```javascript
 	//Collect command line parameters
 	var parms = process.argv.slice(2);
 
@@ -131,7 +131,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 5. That brings us to the main part of our program, where we'll branch off to other functions based on what parameters were passed.
 
-	```
+	```javascript
 	switch(parms[0].toLowerCase())
 	{
 		case "list":
@@ -158,7 +158,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 6.  At several places in our program, we'll need to make sure the right number of parameters were passed in and display some help if they don't look correct.  Let's create functions to do that.
 
-	```
+	```javascript
 	function requireParms(parmCount) {
 		if(parms.length < parmCount) {
 			usageHelp(parms[0].toLowerCase());
@@ -197,7 +197,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 
 7. Finally, the functions we'll be using on the CDN management client are asynchronous, so they need a method to call back when they're done.  Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.
 
-	```
+	```javascript
 	function callback(err, result, request, response) {
 		if (err) {
 			console.log(err);
@@ -215,7 +215,7 @@ Now that the basic structure of our program is written, we should create the fun
 
 Let's start with code to list our existing profiles and endpoints.  I'll provide code comments with the expected syntax so we know which parameter goes where.
 
-```
+```javascript
 // list profiles
 // list endpoints <profile name>
 function cdnList(){
@@ -244,7 +244,7 @@ function cdnList(){
 
 Next, we'll write the functions to create profiles and endpoints.
 
-```
+```javascript
 function cdnCreate() {
     requireParms(2);
     switch(parms[1].toLowerCase())
@@ -297,7 +297,7 @@ function cdnCreateEndpoint() {
 
 Assuming the endpoint has been created, one common task that we might want to perform in our program is purging content in our endpoint.
 
-```
+```javascript
 // purge <profile name> <endpoint name> <path>
 function cdnPurge() {
     requireParms(4);
@@ -311,7 +311,7 @@ function cdnPurge() {
 
 The last function we will include deletes endpoints and profiles.
 
-```
+```javascript
 function cdnDelete() {
     requireParms(2);
     switch(parms[1].toLowerCase())

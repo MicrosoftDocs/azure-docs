@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
 	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="07/25/2016" 
 	ms.author="deonhe"/>
 
 # Create a Logic App using a template
@@ -49,30 +49,6 @@ To run the deployment automatically, select the following button:
     
 ## Resources to deploy
 
-### App service plan
-
-Creates an app service plan. 
-
-It uses the same location as the resource group to which it is being deployed.
-
-    {
-      "apiVersion": "2015-08-01",
-      "name": "[parameters('hostingPlanName')]",
-      "type": "Microsoft.Web/serverfarms",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "HostingPlan"
-      },
-      "sku": {
-        "name": "[parameters('hostingSkuName')]",
-        "capacity": "[parameters('hostingSkuCapacity')]"
-      },
-      "properties": {
-        "name": "[parameters('hostingPlanName')]"
-      }
-    },
-
-
 ### Logic app
 
 Creates the logic app.
@@ -83,21 +59,15 @@ This particular definition runs once an hour, and pings the location specified i
 
     {
       "type": "Microsoft.Logic/workflows",
-      "apiVersion": "2015-08-01-preview",
+      "apiVersion": "2016-06-01",
       "name": "[parameters('logicAppName')]",
       "location": "[resourceGroup().location]",
       "tags": {
         "displayName": "LogicApp"
       },
       "properties": {
-        "sku": {
-          "name": "[parameters('flowSkuName')]",
-          "plan": {
-            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('hostingPlanName'))]"
-          }
-        },
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -120,7 +90,8 @@ This particular definition runs once an hour, and pings the location specified i
               "inputs": {
                 "method": "GET",
                 "uri": "@parameters('testUri')"
-              }
+              },
+              "runAfter": {}
             }
           },
           "outputs": {}

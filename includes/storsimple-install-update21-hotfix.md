@@ -9,9 +9,9 @@ Perform the following steps to download the software update from the Microsoft U
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3162954**, and then click **Search**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3179904**, and then click **Search**.
 
-    The hotfix listing appears, for example, **Cumulative Software Bundle Update 2.1 for StorSimple 8000 Series**.
+    The hotfix listing appears, for example, **Cumulative Software Bundle Update 2.2 for StorSimple 8000 Series**.
 
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
@@ -61,6 +61,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 6. Type **Y** when prompted to confirm the hotfix installation.
 
+> [AZURE.IMPORTANT] If installing Update 2.2, only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with all-cismdsagentupdatebundle. Failure to do so will result in an error. 
+
 7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
 
     The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
@@ -96,7 +98,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
     You should see the following versions:
 
-    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `HcsSoftwareVersion: 6.3.9600.17708`
     - `CisAgentVersion: 1.0.9299.0`
     - `MdsAgentVersion: 30.0.4698.16` 
 

@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
@@ -21,6 +21,8 @@
 ## Overview 
 
 Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OSX, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
+
+![][15]
 
 ## Prerequisites
 
@@ -175,7 +177,7 @@ allow UserB to access a storage account for a limited time with certain permissi
 
 ## Attach service using SAS
 
-The section [Attach account using SAS](#attach-account-using-sas) illustrates how 
+The section [Attach storage account using SAS](#attach-storage-account-using-sas) illustrates how 
 an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
 ### Generate a SAS for the service you want to share
@@ -231,6 +233,7 @@ To clear the search, select the **x** button in the search box.
 [12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
 [13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-context-menu.png
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-dlg1.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/mase.png
 [17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-finished.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
 [21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/local-storage-drop-down.png

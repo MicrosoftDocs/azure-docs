@@ -55,7 +55,7 @@ processes you can leverage, the actual DevOps functionality at your disposal dep
 specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation 
 from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
 
->[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](../azure-portal/resource-group-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
+>[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](../resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
 your code to it end-to-end. You can also find additional options for provisioning Azure resources in the 
 [Automate deployment by using command-line tools](#automate) section.
      

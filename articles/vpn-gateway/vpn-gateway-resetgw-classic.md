@@ -50,7 +50,7 @@ The following example will reset the Azure VPN gateway for the virtual network c
 		StatusCode     : OK
 
 
-If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are being rebooted. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
+If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer period where both VM instances (active and standby) are being rebooted. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
 
 After two reboots, if you are still experiencing cross-premises connectivity problems, please open a support ticket from the Azure Classic Portal to contact Microsoft Azure Support.
 

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Purge an Azure CDN endpoint"
+	pageTitle="Purge an Azure CDN endpoint | Microsoft Azure"
 	description="Learn how to purge all cached content from a CDN endpoint."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Purge an Azure CDN endpoint
