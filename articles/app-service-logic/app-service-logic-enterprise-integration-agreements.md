@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Overview of partners and Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 

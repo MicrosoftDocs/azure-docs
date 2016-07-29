@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using the DB2 connector in Microsoft Azure App Service | Microsoft Azure"
    description="How to use the DB2 connector with Logic app triggers and actions"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"

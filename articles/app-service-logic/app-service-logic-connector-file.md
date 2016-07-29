@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags

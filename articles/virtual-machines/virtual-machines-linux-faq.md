@@ -49,7 +49,7 @@ You shouldn’t use the temporary disk (/dev/sdb1) to store data. It is only the
 
 ## Can I copy or clone an existing Azure VM?
 
-Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-specialized-image.md).
+Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-copy-vm.md).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Add the OneDrive connector in your Logic Apps | Microsoft Azure"
 	description="Overview of the OneDrive connector with REST API parameters"
-	services="app-servicelogic"    
+	services="logic-apps"    
 	documentationCenter=""     
 	authors="MandiOhlinger"    
 	manager="erikre"    
