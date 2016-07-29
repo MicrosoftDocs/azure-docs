@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="07/28/2016"
 	ms.author="jeedes"/>
 
 
@@ -131,7 +131,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_08.png)
 
-6. To get SSO configured for your application, contact your Jostle Account Manager and he will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file.
+6. To get SSO configured for your application, contact your Jostle Account Manager or Jostle support. They will assist with the proper channel to configure SSO. Please note that you have to send email and attach downloaded metadata file to support@jostle.me.
 
 7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
