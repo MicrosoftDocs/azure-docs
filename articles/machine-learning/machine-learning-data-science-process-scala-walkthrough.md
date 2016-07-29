@@ -251,7 +251,7 @@ Query the table for fare, passenger and tip data, filter out corrupt and outlyin
 |       13.5|            1.0|       2.9|   1.0|
 |       16.0|            2.0|       3.4|   1.0|
 |       10.5|            2.0|       1.0|   1.0|
-
+.
 
 ## Data exploration and visualization 
 
