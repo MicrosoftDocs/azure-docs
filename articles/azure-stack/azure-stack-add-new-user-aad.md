@@ -24,7 +24,7 @@ After [deploying the Azure Stack POC](azure-stack-run-powershell-script.md), you
 
 You must have an Azure subscription to use the Azure portal.
 
-1. Log in to [Azure](https://portal.azure.com).
+1. Log in to [Azure](http://manage.windowsazure.com).
 
 2.  In Microsoft Azure left navigation bar, click **Active Directory**.
 
