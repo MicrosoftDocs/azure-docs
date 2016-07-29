@@ -40,13 +40,15 @@ When you design your Batch solution, you must consider several factors related j
 
 ## Help for persisted output
 
-To simplify job and task output persistence to Azure Storage, as well as assist in the retrieval of this output, the Batch team has defined and implemented a set of naming conventions in a .NET class library that you can use in your Batch solution. In addition, Azure portal is aware of these conventions so that you can easily view the job and task output you've stored this way.
+The Batch team has defined and implemented a set of naming conventions as well as .NET class library that you can use in your Batch applications to easily store and retrieve job and task output. In addition, the Azure portal is aware of these naming conventions so that you can easily find the files you've stored using the library.
 
 ## Using the file conventions library
 
-[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code to persist files, and in client code to list and retrieve them. Your tasks can also implement the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
+[Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code for persisting files, and in client code to list and retrieve them. Your tasks can also use the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
-The conventions library takes care of ensuring that everything is named correctly and is uploaded to the right place when persisting output. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose. For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
+The conventions library takes care of ensuring that storage containers and task output files are named according to the convention, and are uploaded to the right place when persisted to Azure Storage. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose, instead of having to know filenames or where it exists in Storage.
+
+For example, you can use the library to "list all intermediate files for task 7," or "get me the thumbnail preview for job *mymovie*," without needing to know the file names or location within your Storage account.
 
 ### Get the library
 
