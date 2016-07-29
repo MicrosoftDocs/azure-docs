@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="04/06/2016"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Load test your application by using Visual Studio Team Services
