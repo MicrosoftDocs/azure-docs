@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/19/2016"
+   ms.date="07/28/2016"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
@@ -52,11 +52,7 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 - [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
 
 ## Isolation levels
-Isolation level is a measure of the degree to which isolation is achieved.
-Isolation means that a transaction behaves as it would in a system that allows only one transaction to be in-flight at any given time.
-
-Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica.
-
+Isolation level defines the degree to which the transaction must be isolated from modifications made by other transactions.
 There are two isolation levels that are supported in Reliable Collections:
 
 - **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
@@ -67,21 +63,50 @@ The effect is as if the statements in a transaction get a snapshot of the commit
 Snapshots are consistent across Reliable Collections.
 For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
+Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
+Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
+
+| Operation \ Role      | Primary          | Secondary        |
+| --------------------- | :--------------- | :--------------- |
+| Single Entity Read    | Repeatable Read  | Snapshot         |
+| Enumeration \ Count   | Snapshot         | Snapshot         |
+
+>[AZURE.NOTE] Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
+
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
 that belongs to the same transaction.
 
-### Reliable Dictionary
-| Operation \ Role      | Primary          | Secondary        |
-| --------------------- | :--------------- | :--------------- |
-| Single entity read    | Repeatable Read  | Snapshot         |
-| Enumeration \ Count   | Snapshot         | Snapshot         |
+## Locking
+In Reliable Collections, all transactions are two-phased: a transaction does not release
+the locks it has acquired until the transaction terminates with either an abort or a commit.
 
-### Reliable Queue
-| Operation \ Role      | Primary          | Secondary        |
-| --------------------- | :--------------- | :--------------- |
-| Single entity read    | Snapshot         | Snapshot         |
-| Enumeration \ Count   | Snapshot         | Snapshot         |
+Reliable Dictionary use row level locking for all single entity operations.
+Reliable Queue on the other hand trades off concurrency for strict transactional FIFO property.
+Reliable Queue uses operation level locks allowing one transaction with `TryPeekAsync` and/or `TryDequeueAsync` and one transaction with `EnqueueAsync` at a time.
+Note that to preserve FIFO, if a `TryPeekAsync` or `TryDequeueAsync` ever observes that the Reliable Queue is empty, they will also lock `EnqueueAsync`.
+
+Write operations always take Exclusive locks.
+For read operations, the locking depends on a couple of factors.
+Any read operation done using Snapshot isolation is lock free.
+Any Repeatable Read operation by default takes Shared locks.
+However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
+An Update lock is an asymmetric lock used to prevent a common form of deadlock that occurs when multiple transactions lock resources for potential updates at a later time.
+
+The lock compatibility matrix can be found below:
+
+| Request \ Granted | None         | Shared       | Update      | Exclusive    |
+| ----------------- | :----------- | :----------- | :---------- | :----------- |
+| Shared            | No conflict  | No conflict  | Conflict    | Conflict     |
+| Update            | No conflict  | No conflict  | Conflict    | Conflict     |
+| Exclusive         | No conflict  | Conflict     | Conflict    | Conflict     |
+
+Note that a time-out argument in the Reliable Collections APIs is used for deadlock detection.
+For example, two transactions (T1 and T2) are trying to read and update K1.
+It is possible for them to deadlock, because they both end up having the Shared lock.
+In this case, one or both of the operations will time out.
+
+Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
 
 ## Persistence model
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
@@ -105,32 +130,6 @@ It is the Reliable Collection's responsibility to persist its state up to that p
 Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
 This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred since the checkpoint.
 
-## Locking
-In Reliable Collections, all transactions are two-phased: a transaction does not release
-the locks it has acquired until the transaction terminates with either an abort or a commit.
-
-Reliable Collections always take Exclusive locks.
-For reads, the locking is dependent on a couple of factors.
-Any read operation done using Snapshot isolation is lock free.
-Any Repeatable Read operation by default takes Shared locks.
-However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
-An Update lock is an asymmetric lock used to prevent a common form of deadlock that occurs when multiple transactions lock resources for potential updates at a later time.
-
-The lock compatibility matrix can be found below:
-
-| Request \ Granted | None         | Shared       | Update      | Exclusive    |
-| ----------------- | :----------- | :----------- | :---------- | :----------- |
-| Shared            | No conflict  | No conflict  | Conflict    | Conflict     |
-| Update            | No conflict  | No conflict  | Conflict    | Conflict     |
-| Exclusive         | No conflict  | Conflict     | Conflict    | Conflict     |
-
-Note that a time-out argument in the Reliable Collections APIs is used for deadlock detection.
-For example, two transactions (T1 and T2) are trying to read and update K1.
-It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out.
-
-Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
-
 ## Recommendations
 
 - Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
@@ -140,7 +139,9 @@ Note that the above deadlock scenario is a great example of how an Update lock c
 - Enumerators constructed inside a transaction scope should not be used outside the transaction scope.
 - Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 - Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
+- Do use Update lock when reading an item with an intention to update it.
 - Consider using backup and restore functionality to have disaster recovery.
+- Consider not mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction.
 
 Here are some things to keep in mind:
 
@@ -155,6 +156,7 @@ Of course, reads from Primary are always stable: can never be false progressed.
 ## Next steps
 
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+- [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
 - [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 - [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
