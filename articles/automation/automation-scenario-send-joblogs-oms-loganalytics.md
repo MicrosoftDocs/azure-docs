@@ -12,12 +12,12 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="07/26/2016"
+    ms.date="07/29/2016"
     ms.author="magoedte" />
 
 # Azure Automation scenario - Forward job status and job streams from Automation to Log Analytics (OMS)
 
-Automation is now able to support sending runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  While you can view this information in the Azure portal or with PowerShell by individual job status or all jobs for a particular Automation account, anything advanced to support your operational requirements requires you to create custom PowerShell scripts.  Now with Log Anaytics you can:
+Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  While you can view this information in the Azure portal or with PowerShell by individual job status or all jobs for a particular Automation account, anything advanced to support your operational requirements requires you to create custom PowerShell scripts.  Now with Log Anaytics you can:
 
 - Get insight on your Automation jobs 
 - Trigger an email or alert based on your runbook job status (e.g. failed or suspended) 
@@ -29,8 +29,7 @@ Automation is now able to support sending runbook job status and job streams to 
 
 To start sending your Automation logs to Log Analytics, you must have the following:
 
-1. A paid Microsoft Azure subscription to fully use Log Analytics. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service. Or, you can create a free OMS account at the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**.
-2. An OMS workspace which is used to store the logs being sent to Log Analytics. 
+1. An OMS subscription. For additional information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
 3. An [Azure Storage account](../storage/storage-create-storage-account.md).  Please note this Storage account must be in the same region as the Automation account.  
 4. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 5. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
@@ -53,8 +52,8 @@ To find the value for *StorageAccountName* and *StorageResourceGroup*, in the Az
 
 ## Setup integration with Log Analytics
 
-1. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
-2. From the elevated PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *–AutomationResourceGroup*, *-AutomationAccountName*, *-LogAnalyticsWorkspaceName*,and *-StorageAccountName*, -*StorageResourceGroup*.
+1. On your computer, start **Windows PowerShell** from the **Start** screen.  
+2. From the PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *–AutomationResourceGroup*, *-AutomationAccountName*, *-LogAnalyticsWorkspaceName*,and *-StorageAccountName*, -*StorageResourceGroup*.
 
     >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You **must** log in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.   
     
@@ -64,7 +63,8 @@ To find the value for *StorageAccountName* and *StorageResourceGroup*, in the Az
         -StorageAccountName <NameofStorageAccount> ` 
         -StorageResourceGroup <ResourceGroupName>
 
-3. Once it completes successfully, you will need to 
+3. Once it completes successfully, your logs will start flowing to the Storage account you have specified.   
+ 
 
 ## Viewing Automation Logs in Log Analytics 
 
