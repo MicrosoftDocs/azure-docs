@@ -1,7 +1,7 @@
 <properties
 pageTitle="Learn how to use the SFTP connector in your logic apps | Microsoft Azure"
 description="Create logic apps with Azure App service. Connect to SFTP API to send and receive files. You can perform various operations such as create, update, get or delete files."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
