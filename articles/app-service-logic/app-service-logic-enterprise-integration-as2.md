@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Learn to create an AS2 agreement for the Enterprise Integration Pack" 
 	description="Learn to create an AS2 agreement for the Enterprise Integration Pack| Microsoft Azure App Service" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 

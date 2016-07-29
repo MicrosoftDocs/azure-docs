@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Using the Wait Connector in Logic Apps | Microsoft Azure App Service" 
    description="How to create and configure the Wait Connector or API app and use it in a logic app in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
