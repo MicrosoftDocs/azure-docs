@@ -1,7 +1,7 @@
 <properties
 	pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
 	description="Read about the Connectors and API Apps in Azure App Service"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="erikre"

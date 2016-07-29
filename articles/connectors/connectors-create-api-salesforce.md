@@ -1,7 +1,7 @@
 <properties
 pageTitle="Learn to use the Salesforce Connector in your logic apps| Microsoft Azure"
 description="Create logic apps with Azure App service. The Salesforce Connector provides an API to work with Salesforce objects."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	

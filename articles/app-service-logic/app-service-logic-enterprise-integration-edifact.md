@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enterprise integration with EDIFACT | Microsoft Azure" 
 	description="Learn how to use EDIFACT agreements to create Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan" 
 	manager="erikre" 
