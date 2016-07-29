@@ -34,17 +34,17 @@ Requirements and key aspects with VNet peering:
 
 ![VNet Peering Basic](./media/virtual-networks-peering-overview/figure01.png)
 
-# Connectivity 
+## Connectivity 
 Once two VNets are peered, a virtual machine (web/worker role) in the Vnet can directly connect with other virtual machines in the peered VNet. They will have full IP level connectivity. The network latency for round trip between two Virtual machines in peered Vnets will be the same as within the local VNet. The network throughput will be based on the bandwidth allowed for the Virtual machine proportional to its size, there won’t be any additional restriction on allowed bandwidth. The traffic between the Virtual machines in peered Vnets are routed directly, through Azure’s backend infrastructure and not through a gateway.
 
 Virtual machines in a VNet will be able to access the Internal load balanced endpoints (ILB) in the peered VNet. Network Security Groups can be applied in either Vnet to block access to other Vnet or subnet if desired. When user configures peering they will have choice to either open or close the Network Security Group rules between the VNets. If the user chooses to open full connectivity between peered VNets (default option), they can then use NSGs on specific subnets or Virtual machines to block or deny speicifc access.
 
 Azure provided internal DNS name resolution for Virtual machines will not work across peered VNets. Virtual machines will have internal DNS names that is resolvable only within the local Virtual Network. However, users can configure Virtual machines running in peered Vnets as DNS servers for a Virtual network. 
 
-# Service Chaining
+## Service Chaining
 Users can configure user defined route tables pointing to Virtual machines in peered Vets as next hop (as shown in the diagram below). This enables users to achieve service chaining by which they can direct traffic from one VNet to a Virtual appliance running in a peered VNet through user defined route tables. Users can also effectively build Hub and spoke type environments where the Hub can host infrastructural component such as Network Virtual appliance and all the spoke VNets can peer with it and direct a subset of traffic to appliances running in the hub VNet. In short, VNet peering allows the next hop IP Address on the ‘User defined route table’ to be that of a virtual machine in the peered VNet.
 
-# Gateways and On-premises connectivity
+## Gateways and On-premises connectivity
 Each Virtual Network regardless of if they are peered with another Vnet or not, can still have its own gateway and use it to connect to on-premises. Users can also configure VNet-to-VNet connection (provide link) using gateways even though the VNets are peered. When both options for VNet inter connectivity are configured, the traffic between the VNets will flow through the peering configuration (i.e. through the Azure backbone). 
 
 When VNets are peered, users can also configure to use the gateway in the peered Vnet as a transit point to on-premises. In this case, the VNet that is using a remote gateway cannot have a gateway on its own, to simplify one VNet can have only one gateway, it could either be a local gateway or a remote gateway (in the peered Vnet) as illustrated in the picture below. Gateway Transit is not suported between an ARM and ASM Vnet, both Vnets in the peering relationship should be ARM Vnets for gateway transit to work.
@@ -52,16 +52,16 @@ When the VNets that are sharing a single ER circuit are peered, the traffic betw
 
 ![VNet Peering Transit](./media/virtual-networks-peering-overview/figure02.png)
 
-# Provisioning
+## Provisioning
 VNet Peering is a privileged operation. It’s a separate function under the Virtual Network namespace. A user can be given specific rights to authorize peering. A user who has read-write access on the VNet will inherit this automatically. A user who is either an admin or a privileged user of the peering ability can initiate a peering operation to another VNet. If there is a matching request for peering on the other side and if other requirements are met, the peering will be established. 
 
 Please refer to the How-To articles to learn more about how to establish VNet peering between two Virtual Networks.
 
-# Limits
+## Limits
 There are limits on the number of peerings allowed for a single Virtual network, please refer to [Azure Networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
 
-# Pricing
-VNet Peering will not be charged for during the review period. Once it is released for General Availability there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information please refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-network/) 
+## Pricing
+VNet Peering will not be charged for during the review period. Once it is released for General Availability there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information please refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network) 
 
 
 ## Next steps
