@@ -1,6 +1,6 @@
 ﻿<properties 
     pageTitle="Logging and Error Handling in Logic Apps | Microsoft Azure" 
-    description="." 
+    description="View a real-life use case of advanced error handling and logging with Logic Apps" 
     keywords=""
     services="logic-apps" 
     authors="hedidin" 
@@ -28,14 +28,11 @@ This article goes into detail on how you can extend a logic app to better suppor
 
 The following story is the use case for this article.
 
-> A well-known Healthcare organization engaged us to create an Azure solution to create a patient portal using Dynamics CRM Online (CRMOL). 
+> A well-known Healthcare organization engaged us to create an Azure solution to create a patient portal using Dynamics CRM Online (CRMOL). They were currently using Salesforce and we needed to send Appointment records between the CRMOL Patient Portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all Patient records.
 
-> They were currently using Salesforce and we needed to send Appointment records between the CRMOL Patient Portal and Salesforce. 
->   We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all Patient records.
-
->Two major requirements that we needed to include were:
->-  Logging of records sent from CRMOL Portal
->-  They needed a way to view any errors that occur within the workflow.
+> Two major requirements that we needed to include were:
+> -  Logging of records sent from CRMOL Portal
+> -  They needed a way to view any errors that occur within the workflow.
 
 
 ## This is how we solved the problem
