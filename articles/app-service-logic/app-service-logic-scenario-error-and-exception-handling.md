@@ -30,12 +30,12 @@ The following story is the use case for this article.
 
 > A well-known Healthcare organization engaged us to create an Azure solution to create a patient portal using Dynamics CRM Online (CRMOL). They were currently using Salesforce and we needed to send Appointment records between the CRMOL Patient Portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all Patient records.
 
-> Two major requirements that we needed to include were:
-> -  Logging of records sent from CRMOL Portal
+> Two major requirements that we needed to include were:   
+> -  Logging of records sent from CRMOL Portal   
 > -  They needed a way to view any errors that occur within the workflow.
 
 
-## This is how we solved the problem
+## How we solved the problem
 
 >[AZURE.TIP] You can view a high-level video at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group")
 
@@ -43,7 +43,7 @@ We decided to use **[Azure DocumentDB](https://azure.microsoft.com/services/docu
 
 We had another requirements to purge records after a certain date.  DocumentDB has a property [Time-To-Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time-To-Live") (ttl), which allowed us to set a **Time-to-Live** value for each record or on a entire collection. This eliminates the need to manually delete records in DocumentDB.
 
-## Lets take a look at how we did this
+### Our approach
 
 The first step is too create our Logic App and load it in the designer.  In this example we are using Parent--Child Logic Apps.  Let's assume that we have already created the parent. We are going to create one child logic app.
 
@@ -110,7 +110,7 @@ Let's start off with logging. We need to log the source (Request) of the Patient
 
 #### Condition - Check for Create Record failure 
 
-![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png))
+![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
 
 ## Logic App Source Code 
@@ -120,7 +120,7 @@ Let's start off with logging. We need to log the source (Request) of the Patient
 ### Logging
 The following logic app code sample show how to handle logging
 
-#### Insert log engry
+#### Insert log entry
 This is the logic app source code for inserting a log entry 
 
 ``` json
