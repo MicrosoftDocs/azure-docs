@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/29/2016"
 	ms.author="erikje"/>
 
 # Add a new Azure Stack tenant account in Azure Active Directory
