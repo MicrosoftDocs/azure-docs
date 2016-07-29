@@ -160,11 +160,11 @@ More information regarding the two main tools to configure striping can be found
 
 Blog which describes how to configure Linux software raid using mdadm :
 
-[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/)
+[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/](virtual-machines-linux-configure-raid/)
 
 Blog which describes hwo to configure Logical Volume Manager on a Linux VM in Azure :
 
-[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-lvm/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-lvm/)
+[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-lvm/](virtual-machines-linux-configure-lvm/)
 
 
 
@@ -263,7 +263,7 @@ described in this document via dd, mkswap and swapon :
 
 Another option is to configure swap space via the Linux VM agent. More information can be found here :
 
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/)
+[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/](virtual-machines-linux-agent-user-guide/)
 
 
 ## /etc/hosts
@@ -566,22 +566,22 @@ the HANA DB instance with transaction "dbacockpit".
 # General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 
 general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/)
+[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/](virtual-machines-windows-classic-sap-get-started/)
 
 general SAP Azure docu about running SAP on Azure with Linux OS in classic mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-sap-get-started/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-sap-get-started/)
+[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-sap-get-started/](virtual-machines-linux-classic-sap-get-started/)
 
 information about existing SAP templates for usage by customers :
 [https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 
 general SAP Azure docu about running SAP on Azure with Linux OS in ARM mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sap-get-started/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sap-get-started/)
+[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sap-get-started/](virtual-machines-linux-sap-get-started/)
 
 certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
 [https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
 
 information about virtual machine sizes especially for Linux workloads :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sizes/](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sizes/)
+[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sizes/](virtual-machines-linux-sizes/)
 
 SAP Note which lists all supported SAP products on Azure and supported Azure VM types for SAP :
 [https://launchpad.support.sap.com/#/notes/1928533/E](https://launchpad.support.sap.com/#/notes/1928533/E)
@@ -601,10 +601,10 @@ Key Monitoring Metrics for SAP on Microsoft Azure :
 [https://launchpad.support.sap.com/#/notes/2178632/E](https://launchpad.support.sap.com/#/notes/2178632/E)
 
 Information about Azure Resource Manager - ARM :
-[https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
+[https://azure.microsoft.com/documentation/articles/resource-group-overview/](resource-group-overview/)
 
 Comparison of deployment models between ARM and classic :
-[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](resource-manager-deployment-model/)
 
 Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
