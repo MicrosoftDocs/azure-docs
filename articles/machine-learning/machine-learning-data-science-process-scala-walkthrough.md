@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Exploration and ML Models with Sampled NYC Taxi Trip and Fare Dataset using Scala | Microsoft Azure"
-	description="TBD."  
+	pageTitle="Data Science using Scala with Spark on Azure | Microsoft Azure"
+	description="How to use Scala for supervised machine learning tasks with the Spark scalable machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster."  
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath"
@@ -49,7 +49,7 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-For a description of the NYC Taxi Trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections of [Overview of Data Science using Spark on Azure HDInsight](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-spark-overview/).  
+For a description of the NYC Taxi Trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections of [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
 The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
