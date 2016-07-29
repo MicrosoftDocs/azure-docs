@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/25/2016"
+   ms.date="07/29/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
