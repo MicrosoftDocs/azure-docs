@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/27/2016"
+    ms.date="07/29/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -33,7 +33,7 @@ Using a Run As and Classic Run As account, you can:
 - Automate the use of global runbooks configured in Azure Alerts
 
 
->[AZURE.NOTE] The Azure [Alert integration feature](../azure-portal/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a service principal and Classic Run As account. You can either select an Automation account that already has a service principal user and Classic Run As account defined or choose to create a new one.
+>[AZURE.NOTE] The Azure [Alert integration feature](../azure-portal/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As and Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
 
 We will show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, and demonstrate how to authenticate in your runbooks.
 
@@ -51,7 +51,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 
 >[AZURE.NOTE] The user performing these steps *must* be a member of the Subscription Admins role and co-administrator of the subscription which is granting access to the subscription for the user.  The user must also be added as a User to that subscriptions default Active Directory; the account does not need to be assigned to a privileged role. 
 
-1. Log in to the Azure portal as an account member of the Subscription Admins role and co-administrator of the subscription.
+1. Log in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. Select **Automation Accounts**.
 3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/create-automation-account-properties.png)
 
@@ -115,7 +115,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
 6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
 7. To see the detailed results of the runbook, click on the **Output** tile.
-8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
+8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all classic VM’s in the subscription. 
 9. Close the **Output** blade to return to the **Job Summary** blade.
 13. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
 
@@ -124,7 +124,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 Here we provide you with the option to use PowerShell to update your existing Automation account if:
 
 1. You created an Automation account, but declined to create the Run As account 
-2. You already have an Automation account to manage Resource Manager resources and you want to update it to include the service principal for runbook authentication 
+2. You already have an Automation account to manage Resource Manager resources and you want to update it to include the Run As account for runbook authentication 
 2. You already have an Automation account to manage classic resources and you want to update it to use the Classic Run As instead of creating a new account and migrating your runbooks and assets to it   
 
 Before proceeding, please verify the following:
@@ -237,7 +237,7 @@ The steps below will walk you through the process of executing the script.
         -CertPlainPassword "<StrongPassword>"  
 <br>
 
-After the script completes successfully, refer to the [sample code](#-sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration. 
+After the script completes successfully, refer to the [sample code](#sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration. 
 
 ### Create Classic Run As account PowerShell script
 
