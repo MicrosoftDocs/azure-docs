@@ -3,7 +3,7 @@
    description="Learn about VNet Peering in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayan"
+   authors="narayanannamalai"
    manager="jefco"
    editor="tysonn" />
 <tags
@@ -24,6 +24,7 @@ VNet Peering is a mechanism to connect two Virtual Networks in the same region t
 - Connect Resource Manager VNet to a classic VNet and enable full connectivity between resources in these VNets
 
 Requirements and key aspects with VNet peering:
+
 - The two Virtual Networks that are peered should be in the same Azure region
 - The VNets that are peered should have non overlapping IP Address space
 - VNet Peering is between two virtual networks and there is no derived transitive relationship, i.e. if VNet A is peered with VNet B and if VNet B is peered with VNet C, it does not translate to VNet A being peered with VNet C
