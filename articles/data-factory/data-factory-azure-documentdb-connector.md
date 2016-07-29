@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -22,7 +22,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 The following sample(s) show how to copy data to and from Azure DocumentDB and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
 
-[AZURE.NOTE] Copying data to/from Azure DocumentDB from/to on-premises/Azure IaaS data stores are currently not supported. The full matrix for Azure DocumentDB would be enabled shortly.
+> [AZURE.NOTE] Copying data from on-premises/Azure IaaS data stores to Azure DocumentDB and vice versa are supported with Data Management Gateway version 2.1 and above.
 
 ## Sample: Copy data from DocumentDB to Azure Blob
 

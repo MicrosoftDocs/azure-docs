@@ -109,6 +109,8 @@ You can enable the data access audit trails from the Azure portal (**Diagnostic 
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
+For more information on working with diagnostic logs with Azure Data Lake Store, see [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md).
+
 ## Summary
 
 Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Azure Data Lake Store has been designed to address these requirements with identity management and authentication via Azure Active Direction integration, ALCs based authorization, network isolation, data encryption in transit and at rest (coming in the future), and auditing. 

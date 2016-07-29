@@ -196,7 +196,7 @@ Once connected, you will arrive at a prompt similar to the following.
     
     You can also use the WASB style addressing.
     
-        rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasbs:///")
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 

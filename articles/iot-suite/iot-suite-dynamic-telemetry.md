@@ -236,10 +236,9 @@ For a data stream to display on the chart, its **Type** in the **Device-Info** m
 
 ## Next steps
 
-Now that you’ve built a working preconfigured solution, you can move on to the following walkthroughs:
+Now that you've seen how to make use of dynamic telemetry, you can learn more about how the preconfigured solutions make use of device information: [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
 
--   [Guidance on customizing preconfigured solutions][lnk-customize]
--   [Predictive maintenance preconfigured solution overview][lnk-predictive]
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
@@ -248,8 +247,6 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
