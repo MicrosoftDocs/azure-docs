@@ -3,7 +3,7 @@
    description="Understand how to setup and access diagnostic logs for Azure Data Lake analytics " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="larryfr" 
+   authors="Blackmist" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/19/2016"
-   ms.author="nitinme"/>
+   ms.date="07/29/2016"
+   ms.author="larryfr"/>
 
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
