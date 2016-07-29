@@ -39,9 +39,9 @@ When Resource Manager was added, all resources were retroactively added to defau
 
 ## Understanding support for the models 
 
-When considering how the two deployment models affect your resources, there are three scenarios to be aware of:
+When deciding which deployment model to use for your resources, there are three scenarios to be aware of:
 
-1. The service supports Resource Manager and provides only a single type (for Resource Manager).
+1. The service supports Resource Manager and provides only a single type.
 2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
@@ -49,9 +49,9 @@ To discover whether or not a service supports Resource Manager, see [Resource Ma
 
 If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
 
-If the service supports Resource Manager and is not a virtual machine, storage account or virtual network, you can use Resource Manager without any complications.
+If the service supports Resource Manager and **is not** a virtual machine, storage account or virtual network, you can use Resource Manager without any complications.
 
-For virtual machines, storage accounts, and virtual networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. If the resource was created through Resource Manager deployment, you must continue using Resource Manager operations. This distinction can get particularly confusing when your subscription contains a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
+For virtual machines, storage accounts, and virtual networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. If the virtual machine, storage account, or virtual network was created through Resource Manager deployment, you must continue using Resource Manager operations. This distinction can get particularly confusing when your subscription contains a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
 
 In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
 
