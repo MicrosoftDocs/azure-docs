@@ -22,10 +22,10 @@ This article contains definitions for a list of core Azure Active Directory (AD)
 ## access token 
 A type of [security token](#security-token) issued by an [authorization server](#authorization-server), and used by a [client application](#client-application) in order to access a [protected resource server](#resource-server). Typically in the form of a [JSON Web Token (JWT)][JWT], the token embodies the authorization granted to the client by the [resource owner](#resource-owner) for a requested level of access. The token contains all applicable [claims](#claim) about the subject, enabling the client application to use it as a form of credential when accessing a given resource, in lieu of the resource owner needing to expose its credentials to the client. 
 
-Access tokens are sometimes referred to as "App+User" or "App-Only", depending on the credentials being represented. For example, when a client application uses the:
+Access tokens are sometimes referred to as "User+App" or "App-Only", depending on the credentials being represented. For example, when a client application uses the:
 
-- ["Authorization code" authorization grant](#authorization-grant), the end-user authenticates first as the resource owner, then the client authenticates when obtaining the access token, so the token can sometimes be referred to more specifically as an "App+User" token. 
-- ["Client credentials" authorization grant](#authorization-grant), the client is also functioning as the resource-owner, providing the sole authentication, so the token can sometimes be referred to as an "App-Only" token.
+- ["Authorization code" authorization grant](#authorization-grant), the end-user authenticates first as the resource owner, delegating authorization to the client to access the resource. The client authenticates afterward when obtaining the access token. The token can sometimes be referred to more specifically as an "User+App" token, as it represents both the user that authorized the client application, and the  application. 
+- ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
@@ -47,7 +47,7 @@ In order to allow an application to integrate with and delegate Identity and Acc
 See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
 ## authentication
-The act of challenging a party for legitimate credentials, providing the identity to be used as a security principal during an application session. Typically the party authenticating is filling the role of either [resource owner](#resource-owner) or [client application](#client-application), or both, depending on the [OAuth2 authorization grant](#authorization-grant) used.
+The act of challenging a party for legitimate credentials, providing the basis for creation of a security principal to be used for identity and access control. During an OAuth2 [OAuth2 authorization grant](#authorization-grant) for example, the party authenticating is filling the role of either [resource owner](#resource-owner) or [client application](#client-application), depending on the grant used.
 
 ## authorization
 The act of granting an authenticated security principal permission to do something. There are two primary use cases in the Azure AD programming model:
@@ -77,25 +77,25 @@ A [security token](#security-token) contain claims, which provide assertions abo
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ## client application  
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner) and with its authorization. The term "client" does not imply any particular hardware implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).  
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner). The term "client" does not imply any particular hardware implementation characteristics (e.g., whether the application executes on a server, a desktop, or other devices).  
 
-A client application requests [authorization](#authorization) from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, in order to access APIs/data on the resource owner's behalf. The OAuth2 Authorization Framework [defines two types of clients][OAuth2-Client-Types], "confidential" and "public", based on the client's ability to maintain the confidentiality of its credentials. Examples include a [Web client (confidential)](#web-client) application accessed from a browser, and a [native client (public)](#native-client) application installed on a device, both of which can obtain an authorization grant to access the resource owner's data.
+A client application requests [authorization](#authorization) from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, and may access APIs/data on the resource owner's behalf. The OAuth2 Authorization Framework [defines two types of clients][OAuth2-Client-Types], "confidential" and "public", based on the client's ability to maintain the confidentiality of its credentials. Applications can implement a [web client (confidential)](#web-client) which runs on a web server, a [native client (public)](#native-client) application installed on a device, and a [user-agent-based client (public)](#user-agent-based) which runs in a device's browser.
 
 ## consent
 The process of a [resource owner](#resource-owner) granting authorization to a [client application](#client-application), specific [permissions](#permissions) to access protected resources, on behalf of the resource owner. Depending on the permissions requested by the client, an administrator or user will be asked to consent to allow access to their organization/individual data respectively. Note, in a [multi-tenant](#multi-tenant-application) scenario, the application's [service principal](#service-principal-object) is also recorded in the tenant of the consenting user.
 
 ## ID token
-An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end-user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a [JSON Web Token (JWT)][JWT]. 
+An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end-user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a digitally signed [JSON Web Token (JWT)][JWT]. Unlike an access token though, an ID token's claims are not used for purposes related to resource access and specifically access control.
 
 See [Supported Tokens and Claims][AAD-Tokens-Claims] for more details.
 
 ## multi-tenant application
-A class of [client application](#client-application) registered in Azure AD, designed to permit sign in and [consent](#consent) from user accounts that are provisioned in any Azure AD [tenant](#tenant), including tenants other than the one in which the client was originally registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. [Native client](#native-client) applications are multi-tenant by default, whereas [Web client](#web-client) applications have the ability to select between single and multi-tenant.
+A class of [client application](#client-application) registered in Azure AD, designed to permit sign in and [consent](#consent) from user accounts that are provisioned in any Azure AD [tenant](#tenant), including tenants other than the one in which the client was originally registered. By contrast, an application registered as single-tenant, would only allow sign-ins from user accounts provisioned in the same tenant as the one where the application is registered. [Native client](#native-client) applications are multi-tenant by default, whereas [web client](#web-client) applications have the ability to select between single and multi-tenant.
 
 See [How to sign in any Azure AD user using the multi-tenant application pattern][AAD-Multi-Tenant-Overview] for more details.
 
 ## native client
-A type of [client application](#client-application) that is installed natively on a device. This type of client executes all code on the client, and is therefore considered a "public" client due to its lack of ability to store credentials privately/confidentially. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
+A type of [client application](#client-application) that is installed natively on a device. Since all code is executed on a device, it is considered a "public" client due to its inability to store credentials privately/confidentially. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
 ## permissions
 A [client application](#client-application) gains access to a [resource server](#resource-server) by declaring permission requests. Two types are available: 
@@ -140,26 +140,31 @@ When you register/update an application in the [Azure classic portal][AZURE-clas
 See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
 ## sign-in
-The process of a [client application](#client-application) initiating end-user authentication and capturing related state following authentication, for the purpose of acquiring an [access token](#access-token) and scoping the application session to that state. State can include artifacts such as user tenant and profile information, and the permissions granted to the client by the end-user. 
+The process of a [client application](#client-application) initiating end-user authentication and capturing related state following authentication, for the purpose of acquiring a [security token](#security-token) and scoping the application session to that state. State can include artifacts such as user profile information, and information derived from token claims. 
 
-The sign-in function of an application is typically used to implement single-sign-on (SSO), and augmented by a prerequisite "sign-up" function which is the entry point for an end-user to gain access to an application (upon first sign-in). The sign-up function is used to gather and store additional state specific to the user, such as credential and profile info, and is used to drive the [application consent experience](#consent) after sign-up.
+The sign-in function of an application is typically used to implement single-sign-on (SSO), and may be preceded by a "sign-up" function which is the entry point for an end-user to gain access to an application (upon first sign-in). The sign-up function is used to gather and store additional state specific to the user.
 
 ## sign-out
 The process of un-authenticating an end-user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
 
 ## tenant
-An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the REST endpoints required to support various protocols including OAuth2 and SAML. Endpoints include the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application)
+An instance of an Azure AD directory is referred to as an Azure AD tenant. It provides a variety of features, including a registry service for integrated applications, authentication of user accounts and registered applications, and the REST endpoints required to support various protocols including OAuth2 and SAML. Endpoints include the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
+
+See [How to get an Azure Active Directory tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/) for details on the various ways you can get access to a tenant.
 
 ## token endpoint
 One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). 
 
 In the case of the [authorization code grant](#authorization-grant), it's used to provide an [access token](#access-token) (and potentially a "refresh" token) in exchange for an [authorization code](#authorization-code). The [client application](#client-application) obtains the authorization code earlier in the flow, from the [authorization endpoint](#authorization-endpoint). It can also provide an [ID token](#ID-token) when the authorization code grant is used in conjunction with the [OpenID Connect][OpenIDConnect] protocol.
 
+## User-agent-based client
+A type of [client application](#client-application) that downloads code from a web server and executes within a user-agent (e.g., web browser) such as a Single Page Application (SPA). Since all code is executed on a device, it is considered a "public" client due to its inability to store credentials privately/confidentially. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
+
 ## user principal
 Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Azure AD Graph [User entity][AAD-Graph-User-Entity] defines the schema for a user principal object. The User entity consists of user-related properties such as first and last name, user principal name, membership in directory roles, etc. providing the necessary user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user when recording [consent](#consent) actions, making access control decisions, etc.
 
 ## Web client
-A type of [client application](#client-application) that runs as a Web application on a Web server. This type of client executes all code on the server, projecting its user interface through a client-installed browser, and is therefore considered a "confidential" client due to its ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
+A type of [client application](#client-application) that executes all code on a web server, and is therefore considered a "confidential" client due to its ability to store credentials privately/confidentially on the server. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
 ## Next steps
 The [Azure AD Developer's Guide][AAD-Dev-Guide] is the portal to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios]. 
