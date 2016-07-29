@@ -518,6 +518,7 @@ Properly categorize target and features for use in tree-based modeling functions
 1. Creates a binary target for classification by assigning a value of 0 or 1 to each data point between 0 and 1 using a threshold value of 0.5.
 2. Automatically categorizes features. If the number of distinct numerical values for any of the features is < 32, that feature is that features is categorized.
 
+Here is the code for these two tasks.
 
 	# CATEGORIZE FEATURES AND BINARIZE TARGET FOR BINARY CLASSIFICATION PROBLEM
 
