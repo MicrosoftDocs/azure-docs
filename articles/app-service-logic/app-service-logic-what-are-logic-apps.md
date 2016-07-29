@@ -4,11 +4,11 @@
 	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -17,13 +17,6 @@
 	ms.author="klam"/>
 
 #What are Logic Apps?
-
-| Quick Reference |
-| --------------- |
-| [Examples and Scenarios](app-service-logic-examples-and-scenarios.md) |
-| [Logic Apps Definition Language](http://aka.ms/logicappsdocs) |
-| [Logic Apps Connector Documentation](../connectors/apis-list.md) |
-| [Logic Apps Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) |
 
 Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow.  There are [many connectors](../connectors/apis-list.md) across the cloud and on-premises to quickly integrate across services and protocols.  A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
 
@@ -76,11 +69,10 @@ The following are some of the key pieces that comprise the Logic Apps experience
 
 ## Getting Started  
 
- - To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
- - [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
- - [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
- - [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-- For more information on Azure App Service platform, see [Azure App Service][appservice].
+- To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
+- [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+- [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
+- [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md

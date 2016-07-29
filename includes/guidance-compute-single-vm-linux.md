@@ -329,10 +329,12 @@ To run the script that deploys the solution:
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 "Your Subscription Name" <location> Linux
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Linux
 	```
 
-	The location should be a valid Azure region, such as `eastus` or `westus`.
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
 8. When the script has completed, use the Azure portal to verify that the network, NSG, and VM have been created successfully.
 
@@ -381,10 +383,12 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[arm-templates]: ../articles/resource-group-authoring-templates.md
-[solution-script]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/virtualNetwork.parameters.json 
-[nsg-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/networkSecurityGroup.parameters.json 
-[vm-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/linux/virtualMachine.parameters.json
-[azure-powershell-download]: ../articles/powershell-install-configure.md
+[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualNetwork.parameters.json 
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualMachine.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
+
+
