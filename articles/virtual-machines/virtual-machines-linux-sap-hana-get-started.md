@@ -69,7 +69,7 @@ Before starting an installation the next section about setting up the Azure test
 to avoid several basic mistakes which will happen when using only a default Azure VM configuration.
 
 
-# Checklist SAP HANA installation via SAP SWPM
+## Checklist SAP HANA installation via SAP SWPM
 
 This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
@@ -101,7 +101,7 @@ items are explained and partly shown in form of screenshots in more detail throu
 
 
 
-# Checklist SAP HANA installation via hdblcm
+## Checklist SAP HANA installation via hdblcm
 
 This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
@@ -136,10 +136,10 @@ items are explained and partly shown in form of screenshots in more detail throu
 
 
 
-# Prepare Azure VMs for installation of SAP HANA and NetWeaver 7.5
+## Prepare Azure VMs for installation of SAP HANA and NetWeaver 7.5
 
 
-## Disk Setup
+### Disk Setup
 
 The root filesystem in a Linux VM on Azure is of limited size. Therefore it's necessary to attach
 additional disk space to a VM for running SAP. In the case of a SAP app server VM used in a pure
@@ -184,7 +184,7 @@ having enough space e.g. for backup. The additional two disks were Azure Premium
 SAP HANA data and log files as well as the /usr/sap directory.
 
 
-## Kernel parameters
+### Kernel parameters
 
 
 SAP HANA requires specific Linux kernel settings which are not part of the standard Azure gallery images
@@ -228,7 +228,7 @@ grub2-mkconfig
 Another option would be to change the settings via Yast and the Boot Loader kernel parameter settings.
 
 
-## Filesystems 
+### Filesystems 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
 
@@ -266,7 +266,7 @@ Another option is to configure swap space via the Linux VM agent. More informati
 [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/](virtual-machines-linux-agent-user-guide.md)
 
 
-## /etc/hosts
+### /etc/hosts
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
@@ -274,7 +274,7 @@ Another important aspect before starting to install SAP is to include host names
 SAP VMs in the /etc/hosts file. One should deploy all the SAP VMs within one Azure virtual network and then
 use the internal IP addresses.
 
-## /etc/fstab
+### /etc/fstab
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
@@ -363,9 +363,9 @@ Here is an article which talks about this specific issue :
 
 
 
-# Manual SAP HANA installation on Azure VMs
+## Manual SAP HANA installation on Azure VMs
 
-## SAP HANA installation via SWPM as part of a NetWeaver 7.5 installation
+### SAP HANA installation via SWPM as part of a NetWeaver 7.5 installation
 
 
 The following list of screenshots shows the key steps of installing SAP NetWeaver 7.5 and SAP HANA SP12
@@ -469,7 +469,7 @@ instance running on the DB server VM.
 
 
 
-## Manual HANA installation via HANA Life Cycle Manager tool hdblcm
+### Manual HANA installation via HANA Life Cycle Manager tool hdblcm
 
 
 Besides installing SAP HANA as part of a distributed installation via SWPM it's also possibe to first 
@@ -563,7 +563,7 @@ the HANA DB instance with transaction "dbacockpit".
 
 
 
-# General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
+## General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 
 general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
 [https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/](virtual-machines-windows-classic-sap-get-started.md)
@@ -601,10 +601,10 @@ Key Monitoring Metrics for SAP on Microsoft Azure :
 [https://launchpad.support.sap.com/#/notes/2178632/E](https://launchpad.support.sap.com/#/notes/2178632/E)
 
 Information about Azure Resource Manager - ARM :
-[https://azure.microsoft.com/documentation/articles/resource-group-overview/](resource-group-overview.md)
+[https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
 Comparison of deployment models between ARM and classic :
-[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](resource-manager-deployment-model.md)
+[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 
 Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
