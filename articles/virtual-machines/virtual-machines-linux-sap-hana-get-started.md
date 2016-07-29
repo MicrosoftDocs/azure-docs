@@ -601,10 +601,10 @@ Key Monitoring Metrics for SAP on Microsoft Azure :
 [https://launchpad.support.sap.com/#/notes/2178632/E](https://launchpad.support.sap.com/#/notes/2178632/E)
 
 Information about Azure Resource Manager - ARM :
-[https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
+[https://azure.microsoft.com/documentation/articles/resource-group-overview/](../resource-group-overview.md)
 
 Comparison of deployment models between ARM and classic :
-[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](../resource-manager-deployment-model.md)
 
 Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
