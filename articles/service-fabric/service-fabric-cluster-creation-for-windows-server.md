@@ -151,6 +151,7 @@ This script can be run on any machine that has admin access to all the machines 
 
 ## Next steps
 - [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
-- [How To: Create a three node cluster with Azure IaaS VMs](service-fabric-three-node-cluster-creation-howto-for-windows-server.md)
+- [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+- [Create a standalone Service Fabric cluster with Azure IaaS VMs](service-fabric-cluster-creation-howto-for-windwos-server-iaas-vms.md)
 - [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 - [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
