@@ -179,7 +179,7 @@ Configure the load balancers for the AD FS VMs and WAP VMs as follows:
 
 Perform the following tasks before configuring the first AD FS server in the farm:
 
-1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security purposes). You should use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. 
+1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security reasons). You should use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. 
 
 	The *subject alternative name* is used by the DRS to enable access from external devices. This should be of the form enterpriseregistration.contoso.com.
 
@@ -197,9 +197,15 @@ Install *Active Directory Federation Services* by using the *Add Roles and Featu
 
 ### Trust recommendations
 
-Add a relying party trust for each partner web application that users inside your organization need to access. Additionally, the resource partner hosting the web application must configure claims-provider trust for your organization, to enable it to trust the claims that your AD FS servers provide. For more information see [Establishing Federation Trust][establishing-federation-trust].
+Establish federation trust between your AD FS and the federation servers of any partners:
 
-Publish your own web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
+- On the account federation server (your AD FS), add a relying party trust for each partner federation server hosting web applications that users inside your organization need to access.
+
+- On each resource partner federation server hosting the web applications, configure claims-provider trust for your organization. This enables the resource partner federation servers to trust the claims that your account federation server provides.
+
+	For more information see [Establishing Federation Trust][establishing-federation-trust].
+
+Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
 ## Availability considerations
 
