@@ -171,7 +171,7 @@ The following authentication object is needed for client certificate authenticat
 |PFX*|pfx|The Base64-encoded contents of the Personal Information Exchange (PFX) file|
 |Password*|password|The password to access the PFX file|
 
->[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
+>[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving the logic app.
 
 For example:
 
