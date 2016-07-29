@@ -26,14 +26,14 @@ After you've configured Configuration Manager, you'll install the Microsoft Moni
 
 ## Add an OMS connection to Configuration Manager
 
-In order to add an OMS connection, your Configuration Manager environment must have a [service connection point](https://technet.microsoft.com/en-us/library/mt627781.aspx) configured for online mode.
+In order to add an OMS connection, your Configuration Manager environment must have a [service connection point](https://technet.microsoft.com/library/mt627781.aspx) configured for online mode.
 
 1. In the **Administration** workspace, select **OMS Connector**. This opens the **Add OMS Connection Wizard**. Select **Next**.
 
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
-  1. Registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications).
+  1. Registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/active-directory-integrating-applications.md).
   2. Created an app secret key for the registered app in Azure Active Directory.
-  3. [Specified Application Permission in Azure Active Directory](https://msdn.microsoft.com/en-us/office/office365/howto/add-common-consent-manually) to give Configuration Manager access to OMS..  
+  3. [Specified Application Permission in Azure Active Directory](https://msdn.microsoft.com/office/office365/howto/add-common-consent-manually) to give Configuration Manager access to OMS..  
   ![Connection to OMS Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)
 
 3. On the **Azure Active Directory** screen, configure your connection settings to OMS by providing your **Tenant** , **Client ID** , and **Client Secret Key** , then select **Next**.  
