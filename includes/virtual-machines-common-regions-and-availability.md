@@ -76,7 +76,7 @@ Prices vary depending on the storage type and availability that you select.
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
 
-## Azure Images
+## Azure images
 In Azure, VMs are created from an image. Typically this will be an image created from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners can provide pre-configured complete OS or application images.
 
 When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/resource-group-overview.md), including how to [build your own templates](../articles/resource-group-authoring-templates.md).
@@ -98,5 +98,5 @@ A fault domain is a logical group of underlying hardware that share a common pow
 An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains to ensure that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. Note that the order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain will be reboot at a time.
 
 
-### Next steps
+## Next steps
 You can read more specific details about [Azure availability best practices](../articles/best-practices-availability-checklist.md).
