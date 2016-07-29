@@ -88,7 +88,7 @@ The connection requires use of the ExpressRoute service and outbound data ([pric
 
 ## Additional considerations
 
-Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommend that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits.md) to understand if any of them impact the connectivity type(s) you choose to use. You can connect a gateway from a site-to-site VPN connection to the same VNet as an ExpressRoute gateway, but if you plan to do this you should familiarize yourself with important [constraints](../expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations.md) first.
+Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommend that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits) to understand if any of them impact the connectivity type(s) you choose to use. You can connect a gateway from a site-to-site VPN connection to the same VNet as an ExpressRoute gateway, but if you plan to do this you should familiarize yourself with important [constraints](../expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations) first.
 
 ## Next steps
 
