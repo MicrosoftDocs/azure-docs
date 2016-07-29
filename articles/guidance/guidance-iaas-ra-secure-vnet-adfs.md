@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2016"
+   ms.date="07/29/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -133,55 +133,47 @@ The following diagram highlights the important components in this architecture (
 
 This section summarizes recommendations for implementing AD FS running in Azure, covering:
 
-- Creating the VMs for hosting AD FS.
+- VM recommendations.
 
-- Configuring the network settings for the AD FS VMs.
+- Networking recommendations.
 
-- Configuring the load balancer for the AD FS VMs.
+- Load balancer recommendations.
 
-- Installing and configuring AD FS.
+- AD FS installation recommendations.
 
-- Configuring the network settings for the AD FS proxy VMs.
+- Application publishing recommendations.
 
-- Configuring the load balancer for the WAP VMs.
+>[AZURE.NOTE] For detailed information about installing WAP servers, see [Install and Configure the Web Application Proxy Server][install_and_configure_the_web_application_proxy_server]
 
-- Installing and configuring WAP servers.
-
-- Configuring trust for relying parties.
-
-- Modifying the network security settings for the web tier subnet.
-
-### VM recommendations for hosting AD DS and AD FS
+### VM recommendations
 
 Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the machines hosting AD FS on premises as a starting point. Monitor the resource utilization; you can resize the VMs and scale down if they are too large.
 
-### Network recommendations for AD FS VMs
+### Networking recommendations
 
-Using the Azure portal, configure the network interface for each of the VMs hosting AD FS with static private IP addresses.
+Using the Azure portal, configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
 
 [AZURE.NOTE] Do not give the AD FS VMs public IP addresses. See [Security considerations][security-considerations] for more details.
 
-Also, use the Azure portal to set the IP address of the preferred and secondary DNS servers for the network interfaces for each AD FS VM to reference the AD DS VMs (which should be running DNS). This step is necessary to enable each AD FS VM to join the domain.
+Also, use the Azure portal to set the IP address of the preferred and secondary DNS servers for the network interfaces for each AD FS and WAP VM to reference the AD DS VMs (which should be running DNS). This step is necessary to enable each VM to join the domain.
 
-### Load balancer recommendations for the AD FS VMs
+### Load balancer recommendations
 
-The internal load balancer in the AD FS subnet provides access to the AD FS servers. Configure the load balancer as follows:
+Configure the load balancers for the AD FS VMs and WAP VMs as follows:
 
-- Only pass traffic appearing on port 443 (HTTPS) to the AD FS servers.
+- Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
 
-- Give the load balancer a static IP address:
-
-	[![19]][19]
+- Give the load balancer a static IP address.
 
 - Create a health probe using the TCP protocol rather than HTTPS. You can ping port 443 to verify that an AD FS server is functioning.
 
 	>[AZURE.NOTE] AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer will fail.
 
-Using the *DNS Manager* console on the instance of AD DS running DNS, add an *A* record for the load balancer to the domain. Specify the IP address of the load balancer, and give it a name in the domain (adfs.contoso.com in the image shown below). This is the name by which clients and the WAP servers will access the AD FS server farm.
+- Using the *DNS Manager* console on a VM running the DNS for the domain, add an *A* record for the AD FS load balancer. 
 
-[![20]][20]
+	Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name by which clients and the WAP servers will access the AD FS server farm.
 
-### AD FS recommendations
+### AD FS installation recommendations
 
 >[AZURE.NOTE] The PDC for the domain must be running and accessible from the AD FS VMs to install AD FS.
 
@@ -199,240 +191,15 @@ Perform the following tasks before configuring the first AD FS server in the far
 	Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 	```
 
-On each AD FS server VM, perform the following tasks:
+3. Add each AD FS server VM to the domain.
 
-1. Using the Azure portal, set the *Primary DNS Server* address for the network interface for the VM to the IP address of a DNS server in the domain.
+Install *Active Directory Federation Services* by using the *Add Roles and Features* wizard in Server Manager. The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS.
 
-2. Restart the VM.
+### Application publishing recommendations
 
-3. Connect to the VM and join it to the domain in the cloud. Allow the VM to restart again.
+Add a relying party trust for each partner web application that users inside your organization need to access. Additionally, the resource partner hosting the web application must configure claims-provider trust for your organization, to enable it to trust the claims that your AD FS servers provide. For more information see [Establishing Federation Trust][establishing-federation-trust].
 
-4. Install *Active Directory Federation Services* by using the *Add Roles and Features* wizard in Server Manager:
-
-	[![23]][23]
-
-5. After installation, click the *Notifications* flag in Server Manager and then click *Configure the federation service on this server* to start the *Active Directory Federation Services Configuration Wizard*:
-
-	[![29]][29]
-
-6. If this the first AD FS server VM in the AD FS server farm, perform the following steps:
-
-	- On the *Welcome* page, select *Create the first federation server in a federation farm*:
-
-		[![24]][24]
-
-	- On the *Connect to Active Directory Domain Services*, specify an account with domain administrator privileges:
-
-		[![25]][25]
-
-	- On the *Specify Service Properties* page, import the certificate to use for authenticating the server, and enter the full name of the AD FS service (the DNS name of the load balancer) and a display name for the federation service:
-
-		[![26]][26]
-
-	- On the *Specify Service Account* page, select *Create a Group Managed Service Account*, and provide a name for the new service account (such as `adfsservice`):
-	
-		[![27]][27]
-
-	- On the *Specify Configuration Database* page, select *Create a database on this server using Windows Internal Database*:
-
-		[![28]][28]
-
-	- Proceed through the remaining pages, allow the installation to finish, and then restart the VM.
-
-7. If this is not the first AD FS server VM in the AD FS server farm, perform the following steps:
-
-	- On the *Welcome* page, select *Add federation server to a federation farm*:
-
-		[![30]][30]
-
-	- On the *Connect to Active Directory Domain Services*, specify an account with domain administrator privileges.
-
-	- On the *Specify Farm* page, select *Specify the primary federation server in an existing farm using Windows Internal Database*, and enter the name of the first federation server in the farm (created earlier). Be sure to provide the name of the VM (*myapp-adfs-vm1.contoso.com* in the example below), and not the name of the farm (*adfs.contoso.com*):
-
-		[![31]][31]
-
-	- On the *Specify Certificate* page, import the certificate to use for authenticating the server. Note that all AD FS servers in the farm should use the same certificate.
-
-	- On the *Specify Service Account* page, provide the account name of the service account and password, created when you set up the first server in the farm (*adfsservice* in the earlier example).
-
-	- When the installation has finished, restart the VM.
-
-8. Verify that the AD FS server farm has been correctly installed as follows:
-
-	- Using Internet Explorer on any VM in the domain, browse to `https://<FQDN>/adfs/ls/IdpInitiatedSignon.htm`, where `<FQDN>` is the DNS name assigned to the load balancer (adfs.contoso.com in the previous examples). The *Sign In* page should appear:
-
-		[![32]][32]
-
-	- Browse to browse to `https://<FQDN>/federationmetadata/2007-06/federationmetadata.xml`. Internet Explorer should display the federation metadata for the service:
-
-		[![33]][33]
-
-### Network recommendations for WAP VMs
-
-The network configuration for the WAP VMs closely matches that of the AD FS VMs. Use the Azure portal to configure the network interface for each WAP VM as follows:
-
-- Give each network interface a static private IP address.
-
-	>[AZURE.NOTE] Do not give the WAP VMs public IP addresses. See [Security considerations][security-considerations] for more details.
-
--	Set the IP address of the preferred and secondary DNS servers for the network interfaces to reference the AD DS VMs.
-
-### Load balancer recommendations for the WAP VMs
-
-Configure the load balancer for the WAP VMs follows:
-
-- Only pass traffic appearing on port 443 (HTTPS) to the AD FS servers.
-
-- Give the load balancer with a static IP address.
-
-- As with the AD FS servers, create a health probe that pings port 443 using the TCP protocol rather than HTTPS.
-
-### WAP server recommendations
-
->[AZURE.NOTE] **Do not join the WAP servers to the domain in the cloud.**
-
-Perform the following tasks on each WAP server VM:
-
-1. Import a certificate to use for authenticating the server. Store this certificate in the *Personal* store of the *Local Machine* account:
-
-	[![34]][34]
-
-	Note that all AD FS proxies should use the  same certificate as that installed on the AD FS computers.
-
-2. Install the *Remote Access* role by using the *Add Roles and Features* wizard in Server Manager: 
-
-	[![35]][35]
-
-	Select the *Web Application Proxy* role service when prompted:
-
-	[![36]][36]
-
-3. When the installation has finished, click the *Notifications* flag in Server Manager and then click *Open the Web Application Proxy Wizard*:
-
-	[![37]][37]
-
-4. On the *Federation Server* page of the wizard, enter the DNS name of the load balancer in front of the AD FS servers (adfs.contoso.com in this example), and provide the credentials of a domain administrator account for the domain in which the AD FS servers are running:
-
-	[![38]][38]
-
-	>[AZURE.NOTE] These credentials are used to create the trust relationship between the WAP and the AD FS servers while the wizard is running. They are not stored or used again after the wizard has finished.
-
-5. On the *AD FS Proxy Certificate* page, select the certificate that you imported in step 1 above:
-
-	[![39]][39]
-
-6. Proceed through the remaining pages, and allow the wizard to finish. When you close the wizard, the *Remote Access Management Console* should appear:
-
-	[![40]][40]
-
-7. If this is the first WAP server, then perform the following steps to configure the connection to the AD FS server farm:
-
-	- In the *Tasks* pane, click *Publish*. The *Publish New Application Wizard* should start:
-
-		[![41]][41]
-
-	- On the *Preauthentication* page, select *Pass-through*:
-
-		[![42]][42]
-
-	- On the *Publishing Settings* page, provide a name for the connection (such as `AD FS`), specify the URL of the AD FS server farm for the *External URL* field (the same value is copied to the *Backend server URL* field; don't change it), and select the same certificate that you used when configuring the WAP server in step 5 above:
-
-		[![43]][43]
-
-		>[AZURE.NOTE] Do not select the ADFS ProxyTrust certificate.
-
-	- On the *Confirmation* page, click *Publish*, wait for the application to be published, and then close the wizard. The connection to AD FS should be listed as a published web application in the *Remote Access management Console*:
-
-		[![44]][44]
-
-8. If this is not the first WAP server, then verify that that WAP server is listed as a member of the WAP cluster, and the AD FS web application appears in the list of published applications:
-
-	[![45]][45]
-
-9. *TBD - Check connectivity via LB*
-
-### Recommendations for configuring trust for relying parties
-
-An external relying party hosting a web application accessed from within the Azure VNet must trust the federation server (AD FS) in the VNet. In this case, AD FS in Azure is acting as an *account partner*.
-
-Similarly, if a web application inside the Azure VNet is a relying party accessed by an external partner, the AD FS servers in Azure must trust the federation server of the external partner. In this situation, AD FS in Azure is performing the role of the *resource partner*.
-
->[AZURE.NOTE] A federation server can be both an account partner for some scenarios, and a resource partner for others. You may need to follow both sets of steps below to configure AD FS in this situation:
-
-Perform the following steps if AD FS in Azure is acting as the account partner:
-
-**THIS PROCEDURE TO BE VERIFIED AND TIDIED UP**
-1. On the DNS server of the environment of the ADFS account federation server add a A host entry pointing to the Load balancer or the WEB application public IP address of the resource server. This because ADFS is isolated and needs to resolve the name of the WAP application proxy of partner to an IP address. Once it resolves that IP address and it sees it is an external address it will forward the request to its own WAP.
-2. On the account federation server open ADFS management and right click on Add Relying Party Trusts and click start. Enter the federation metadata of resource adfs and click next for example https://pnpadfs.patternspractices.net/FederationMetadata/2007-06/FederationMetadata.xml
-3. Enter display name of the account adfs
-4. Select next all the way to the next steps
-5. At the end you will have two options: one to edit authorization rules to accept or reject requests with claims containing values. For example only accept claims with sufix contoso.com or any other rules, to issue transformation rules
-
-
-Perform the following steps if AD FS in Azure is acting as the resource partner:
-
-**THIS PROCEDURE TO BE VERIFIED AND TIDIED UP**
-1. On the DNS server of the environment of the ADFS resource federation server add a A host entry pointing to the Load balancer or the WEB application public IP address of the account federation server. This because ADFS is isolated and needs to resolve the name of the WAP application proxy of partner to an IP address. Once it resolves that IP address and it sees it is an external address it will forward the request to its own WAP.
-2. On the resource federation server open ADFS management and right click on Add Claims Provider Trusts and click start. Enter the federation metadata of account adfs and click next for example https://pnpadfs.patternspractices.com/FederationMetadata/2007-06/FederationMetadata.xml
-3. Enter display name of the account adfs
-4. Select next all the way to the next steps
-5. At the end you will have two options: one to edit authorization rules to accept or reject requests with claims containing values. For example only accept claims with sufix contoso.com or any other rules, to issue transformation rules
-
-For more information see [Establishing Federation Trust][establishing-federation-trust].
-
-### Network security recommendations for the web tier subnet
-
-AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
-
-## Solution components
-
-
-## Deploying the sample solution
-
-*This section TBC*
-
-The solution assumes the following prerequisites:
-
-- You have an existing on-premises infrastructure, including a VPN server that can support IPSec connections.
-
-- You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
-
-- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [GitHub Desktop][github-desktop].
-
-To run the script that deploys the solution:
-
-1. Download the [azuredeploy.sh][azuredeploy-script] script to your local computer.
-
-2. ...
-
-9. Open a bash shell and move to the folder containing the azuredeploy.sh script.
-
-10. Log in to your Azure account. In the bash shell enter the following command:
-
-	```cli
-    azure login
-	```
-
-	Follow the instructions to connect to Azure.
-
-11. Run the following command to set your current subscription to the value specified in step 4 above. Replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with the subscription ID:
-
-	```cli
-	azure account set nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn
-	```
-
-12. Run the command `./azuredeploy.sh`.
-
-13. Verify that the script completes successfully. You can simply re-run the script if an error occurs.
-
-14. Browse to the Azure portal and verify that the following resource groups have been created:
-
-	- **... .**
-
-### Customizing the solution
-
-*TBD*
-
+Publish your own web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
 ## Availability considerations
 
@@ -446,9 +213,13 @@ Create different availability sets for the AD FS and WAP servers. Ensure that th
 
 ## Security considerations
 
+AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
+
 Prevent direct exposure of the AD FS servers to the Internet. AD FS are domain-joined computers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use WAP servers to handle these requests. Do not domain-join these WAP servers. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
 
 Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
+
+Do not join the WAP servers to the domain in the cloud.
 
 ## Scalability considerations
 
@@ -466,12 +237,70 @@ Note that if you are using the Windows Internal Database to store AD FS configur
 
 ## Management considerations
 
-
 *TBC*
 
 ## Monitoring considerations
 
 *TBC*
+
+## Solution components
+
+<!-- The following text is boilerplate, and should be used in all RA docs -->
+
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager (ARM)][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+
+The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
+
+When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
+
+<!-- End of boilerplate -->
+
+*Specifics for template to be added here when BBs are available*
+
+## Deployment
+
+*THIS SECTION TO BE UPDATED WHEN BBs ARE AVAILABLE*
+
+The solution assumes the following prerequisites:
+
+- You have an existing on-premises infrastructure already configured with a VPN appliance.
+
+- You have an existing Azure subscription in which you can create resource groups.
+
+- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+
+To run the script that deploys the solution:
+
+1. Move to a convenient folder on your local computer and create the following two subfolders:
+
+	- Scripts
+
+	- Templates
+
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
+
+3. Download the [vpn-gateway-vpn-connection-settings.parameters.json][gateway-parameters] file to Templates folder:
+
+4. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the resources created by the script:
+
+	```powershell
+	$resourceGroupName = "hybrid-dev-rg"
+	```
+5. Edit the vpn-gateway-vpn-connection-settings.parameters.json file in the Templates folder to set the parameters for the VNet, virtual network gateway, and connection, as described in the Solution Components section above.
+
+6. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+7. When the script has completed, *Add Verification Steps*
+
+## Next steps
 
 <!-- links -->
 
@@ -495,38 +324,8 @@ Note that if you are using the Windows Internal Database to store AD FS configur
 [claims-aware applications]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb736227(v=vs.85).aspx
 [active-directory-federation-services-overview]: https://technet.microsoft.com/en-us/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
-
-
-
-[cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
-[github-desktop]: https://desktop.github.com/
-
-
+[Deploying_a_federation_server_farm]: https://technet.microsoft.com/library/dn486775.aspx
+[install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
+[publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
-[19]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure20.png "Setting the IP address for the AD FS load balancer"
-[20]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure21.png "Creating a DNS record and domain name for the AD FS load balancer"
-[21]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure22.png "Creating the AD FS service account"
-[22]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure23.png "Installing the Web Server role"
-[23]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure24.png "Installing the Active Directory Federation Services role"
-[24]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure25.png "Creating the first federation server in the AD FS farm"
-[25]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure26.png "Specifying a domain administrator account for configuring AD FS"
-[26]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure27.png "Specifying the SSL certificate and federation service display name"
-[27]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure28.png "Specifying the dedicated account for the federation service"
-[28]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure29.png "Specifying the configuration database for the federation service"
-[29]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure30.png "Configuring the federation service"
-[30]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure31.png "Adding the server to an existing federation server farm"
-[31]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure32.png "Specifying the primary server in the federation server farm"
-[32]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure33.png "The sign-in page generated by AD FS"
-[33]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure34.png "The federation metadata generated by AD FS"
-[34]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure35.png "Importing the authentication certificate into the Personal store in the Local machine account"
-[35]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure36.png "Installing the Remote Access role"
-[36]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure37.png "Selecting the Web Application Proxy role service"
-[37]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure38.png "Starting the Web Application Proxy Wizard"
-[38]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure39.png "Specifying the details for connecting to the the AD FS farm"
-[39]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure40.png "Selecting the AD FS server authentication certificate"
-[40]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure41.png "The Remote Access Management Console"
-[41]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure42.png "The Publish New Application Wizard"
-[42]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure43.png "Selecting the Pass-through preauthentication option"
-[43]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure44.png "Specifying the publish settings"
-[44]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure45.png "The Remote Access Management Console showing the AD FS web application"
-[45]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure46.png "The Remote Access Management Console showing the cluster and the AD FS web application"
