@@ -197,13 +197,19 @@ Install *Active Directory Federation Services* by using the *Add Roles and Featu
 
 ### Trust recommendations
 
-Establish federation trust between your AD FS and the federation servers of any partners:
+Establish federation trust between your AD FS installation and web applications, and the federation servers and web applications of any partners:
 
-- On the account federation server (your AD FS), add a relying party trust for each partner federation server hosting web applications that users inside your organization need to access.
+- On each account federation server, add a relying party trust for each partner federation server hosting web applications that users in the account federation server domain need to access.
 
 - On each resource partner federation server hosting the web applications, configure claims-provider trust for your organization. This enables the resource partner federation servers to trust the claims that your account federation server provides.
 
+- On each resource partner federation server, configure the federation server to pass claims on to the web application.
+
 	For more information see [Establishing Federation Trust][establishing-federation-trust].
+
+	>[AZURE.NOTE] If you are configuring your AD FS server in Azure to federate with a partner hosting a web application (partner A in the architecture diagram shown earlier), then your AD FS server is the account server, and the partner federation server is the resource server.
+	>
+	>If you wish to enable users in a partner organization (partner B) to access your to web applications, then the partner federation server is the account server and your AD FS server is the resource server.
 
 Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
