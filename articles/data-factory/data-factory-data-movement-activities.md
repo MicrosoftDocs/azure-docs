@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Data movement activities | Microsoft Azure" 
+	pageTitle="Move data using Copy Activity | Microsoft Azure" 
 	description="Learn about data movement in Data Factory pipelines: data migration between cloud stores, between on-premises and cloud. Use the Copy Activity." 
-	keywords="data movement, data migration, copy data, transfer data"
+	keywords="move data, data movement, data migration, copy data, transfer data"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,7 +17,7 @@
 	ms.date="07/11/2016" 
 	ms.author="spelluru"/>
 
-# Data movement and the Copy Activity: migrating data to the cloud and between cloud stores
+# Move data using Copy Activity
 
 ## Overview
 Data movement from a source to a sink (destination) is performed by the [Copy Activity](#copyactivity) in Azure Data Factory. The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). This article provide details on data movement in Data Factory and Copy Activity. First, let's see how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store
@@ -50,35 +50,55 @@ Copy Activity copies data from a **source** data store to a **sink** data store.
 
 Category | Data store | Supported as source | Supported as sink
 :------- | :--------- | :------------------ | :-----------------
-Azure | Azure Blob <br/> Azure Data Lake Store <br/> Azure SQL Database <br/> Azure SQL Data Warehouse <br/> Azure Table <br/> Azure DocumentDB <br/> | X <br/> X <br/> X <br/> X <br/> X <br/> X | X <br/> X <br/> X <br/> X <br/> X <br/> X 
-Databases | SQL Server\* <br/> Oracle\* <br/> MySQL\* <br/> DB2\* <br/> Teradata\* <br/> PostgreSQL\* <br/> Sybase\* <br/> | X <br/> X <br/> X <br/> X <br/> X <br/> X<br/> X | X <br/> X <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp; 
-File | File System\* <br/> Hadoop Distributed File System (HDFS)\* | X <br/> X <br/> | X <br/> &nbsp; 
-Others | Salesforce<br/> Cassandra\* <br/> Generic ODBC\* <br/> Generic OData <br/> Web Table (table from HTML) <br/> GE Historian* | X <br/> X <br/> X <br/> X <br/> X <br/> X | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
+Azure | [Azure Blob](data-factory-azure-blob-connector.md) <br/> [Azure Data Lake Store](data-factory-azure-datalake-connector.md) <br/> [Azure SQL Database](data-factory-azure-sql-connector.md) <br/> [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) <br/> [Azure Table](data-factory-azure-table-connector.md) <br/> [Azure DocumentDB](data-factory-azure-documentdb-connector.md) <br/> | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ 
+Databases | [SQL Server](data-factory-sqlserver-connector.md)\* <br/> [Oracle](data-factory-onprem-oracle-connector.md)\* <br/> [MySQL](data-factory-onprem-mysql-connector.md)\* <br/> [DB2](data-factory-onprem-db2-connector.md)\* <br/> [Teradata](data-factory-onprem-teradata-connector.md)\* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)\* <br/> [Sybase](data-factory-onprem-sybase-connector.md)\* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)\* <br/>  | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓| ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp; 
+File | [File System](data-factory-onprem-file-system-connector.md)\* <br/> [Hadoop Distributed File System (HDFS)](data-factory-hdfs-connector.md)\* | ✓ <br/> ✓ <br/> | ✓ <br/> &nbsp; 
+Others | [Salesforce](data-factory-salesforce-connector.md)<br/> [Generic ODBC](data-factory-odbc-connector.md)\* <br/> [Generic OData](data-factory-odata-connector.md) <br/> [Web Table (table from HTML)](data-factory-web-table-connector.md) <br/> [GE Historian](data-factory-odbc-connector.md#ge-historian-store)* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓  | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
 
 > [AZURE.NOTE] Data stores with * can be on-premises or on Azure IaaS and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine. 
 
 If you need to move data to/from a data store that is not supported by the **Copy Activity**, you may use the **custom activity** in Data Factory with your own logic for copying/moving the data. See [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md) article for details on creating and using a custom activity.
 
 ### Supported file formats
-Copy Activity supports a variety of file formats including binary (images, documents, music, etc...), text, Avro, ORC, and JSON formats for file based stores. However, it can only read internal contents of structured files in Text, Avro, ORC, JSON files. You can use the Copy Activity to convert data from one format to another. Example: text (CSV) to Avro.  If the data is unstructured, you can omit the **Structure** property in the JSON definition of the [dataset](data-factory-create-datasets.md). 
+Copy Activity can copy files as-is between two file-based data stores such as Azure Blob, File System, and Hadoop Distributed File System (HDFS).  To do so, you can skip the [format section](data-factory-create-datasets.md) in both input and output dataset definitions, and the data is copied efficiently without any serialization/deserialization.
+
+Copy Activity also reads from and write to files in specified formats: text, Avro, ORC, and JSON.  Here are some examples of copy activities you can achieve:
+
+-	Copy data in text (CSV) format from Azure Blob and write to Azure SQL
+-	Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format
+-	Copy data in Azure SQL Database and write to HDFS on-premises in ORC format
+
 
 
 ## <a name="global"></a>Globally available data movement
-The service powering the Copy Activity is available globally in the following regions and geographies even though the Azure Data Factory itself is available only in the West US, East US, and North Europe regions. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
+The service powering the Copy Activity is available globally in the following regions and geographies even though the Azure Data Factory itself is available only in the West US, East US, and North Europe regions. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases. See [Services by Region](https://azure.microsoft.com/regions/#services) for availability of Data Factory service and the Data Movement in a region. 
 
-The [Data Management Gateway](data-factory-data-management-gateway.md) or the **Azure Data Factory** performs data movement based on the location of source and destination data stores in a copy operation. See the following table for details:  
+### Copy data between cloud data stores
+When both the source and sink data stores reside in the cloud, Azure Data Factory uses a service deployment in the region that is closest to the sink location in the same geography to perform the data movement. Refer to the following table for mapping:
 
-Source data store location | Destination data store location | Data movement is performed by  
--------------------------- | ------------------------------- | ----------------------------- 
-on-premises/Azure VM (IaaS) | cloud |  [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises computer/Azure VM. The data does not flow through the service in the cloud. <br/><br/>Note: The Data Management Gateway can be on the same on-premises computer/Azure VM as the data store or on a different on-premises computer/Azure VM as long as it can connect to both data stores.
-cloud | on-premises/Azure VM (IaaS) |  Same as above. 
-on-premises/Azure VM (IaaS) | on-premises/Azure VM | [Data Management Gateway](data-factory-data-management-gateway.md) associated with the source**. The data does not flow through the service in the cloud. See the note above.   
-cloud | cloud | **The cloud service that powers the Copy Activity**. Azure Data Factory uses the deployment of this service in the region that is closest to the sink location in the same geography. Refer to the following table for mapping: <br/><br/><table><tr><th>Region of the destination data store</th> <th>Region used for data movement</th></tr><tr><td>East US</td><td>East US</td></tr><tr><td>East US 2</td><td>East US 2</td><tr/><tr><td>Central US</td><td>Central US</td><tr/><tr><td>West US</td><td>West US</td></tr><tr><td>North Central US</td><td>North Central US</td></tr><tr><td>South Central US</td><td>South Central US</td></tr><tr><td>North Europe</td><td>North Europe</td></tr><tr><td>West Europe</td><td>West Europe</td></tr><tr><td>Southeast Asia</td><td>South East Asia</td></tr><tr><td>East Asia</td><td>South East Asia</td></tr><tr><td>Japan East</td><td>Japan East</td></tr><tr><td>Japan West</td><td>Japan East</td></tr><tr><td>Brazil South</td><td>Brazil South</td></tr><tr><td>Australia East</td><td>Australia East</td></tr><tr><td>Australia Southeast</td><td>Australia Southeast</td></tr></table>
-
-See [Services by Region](https://azure.microsoft.com/regions/#services) for availability of Data Factory service and the Data Movement in a region. 
+Region of the destination data store | Region used for data movement
+:----------------------------------- | :----------------------------
+East US | East US
+East US 2 | East US 2
+Central US | Central US
+West US | West US
+North Central US | North Central US
+South Central US | South Central US
+North Europe | North Europe
+West Europe | West Europe
+Southeast Asia | South East Asia
+East Asia | South East Asia
+Japan East | Japan East
+Japan West | Japan East
+Brazil South | Brazil South
+Australia East | Australia East
+Australia Southeast | Australia Southeast
 
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region. 
+
+### Copy data between an on-premises data store and a cloud data store
+When data is being copied between on-premises (or Azure IaaS VM) and cloud, data movement is performed by [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine or Azure IaaS VM.  The data does not flow through the service in the cloud, unless you use [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability, in which case data flows through the staging Azure Blob storage before being written into the sink data store.
 
 
 ## Create pipeline with copy activity 
@@ -142,7 +162,7 @@ The schedule defined in the output dataset determines when the activity runs (fo
 ## Performance & Tuning 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) article, which describes key factors that impact performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing, and discusses various ways to optimize the performance of the Copy Activity.
 
-## Scheduling and ordered copy
+## Scheduling and sequential copy
 See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed information about how scheduling and execution works in  Data Factory. 
 
 It is possible to run multiple copy operations one after another in a sequential/ordered manner. See [Ordered copy](data-factory-scheduling-and-execution.md#ordered-copy) section in the article. 
