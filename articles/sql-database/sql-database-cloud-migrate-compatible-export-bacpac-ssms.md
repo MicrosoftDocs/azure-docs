@@ -4,7 +4,7 @@
    description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

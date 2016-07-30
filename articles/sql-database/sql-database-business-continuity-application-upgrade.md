@@ -3,7 +3,7 @@
    description="This section provides guidance for preventing downtime during an application upgrade." 
    services="sql-database"
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 

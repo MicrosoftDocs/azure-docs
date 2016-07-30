@@ -30,7 +30,7 @@ Use the following steps in the Azure portal to create a new Azure SQL database o
  - Database name
  - Subscription (only if you have multiple subscriptions)
  - Resource group (if just getting started, use the resource group of the logical server)
- - Select source (you can choose a blank database, sample data or a database backup)
+ - Select source (you can choose a blank database, sample data or an Azure database backup - to migrate an on-premises SQL Server database or load data using BCP, see links at the end of this article)
  - Server (a new or existing logical server)
  - Server admin password
  - Password

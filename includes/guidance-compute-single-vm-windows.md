@@ -48,6 +48,8 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 - For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
+- One storage account can support 1 to 20 VMs.
+
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
 - If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
@@ -149,23 +151,24 @@ The script references the following parameter files to build the VM and the surr
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "addressPrefixes": [
-            "172.17.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-subnet",
-              "addressPrefix": "172.17.0.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg",
+        "addressPrefixes": [
+          "172.17.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-subnet",
+            "addressPrefix": "172.17.0.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
-	}
+    }
+  }
 	```
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
@@ -173,17 +176,19 @@ The script references the following parameter files to build the VM and the surr
 	Note that the default security rule shown in the example enables a user to connect to the VM through a remote desktop (RDP) connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
       },
-      "networkSecurityGroupSettings": {
-        "value": {
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "networkSecurityGroupSettings": {
+      "value": [
+        {
           "name": "app1-nsg",
           "subnets": [
             "app1-subnet"
@@ -202,8 +207,9 @@ The script references the following parameter files to build the VM and the surr
             }
           ]
         }
-      }
-	}
+      ]
+    }
+  }
 	```
 
 - **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disk.
@@ -219,71 +225,72 @@ The script references the following parameter files to build the VM and the surr
 	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
 
 	```json
-	"parameters": {
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "app1",
-          "computerNamePrefix": "",
-          "size": "Standard_DS1",
-          "osType": "windows",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osAuthenticationType": "password",
-          "nics": [
-            {
-              "isPublic": "true",
-              "subnetName": "app1-subnet",
-              "privateIPAllocationMethod": "dynamic",
-              "publicIPAllocationMethod": "dynamic",
-              "isPrimary": "true"
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "dataDisks": {
-            "count": 2,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": ""
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "app1",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "osType": "windows",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "sshPublicKey": "",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "app1-subnet",
+            "privateIPAllocationMethod": "dynamic",
+            "publicIPAllocationMethod": "dynamic",
+            "isPrimary": "true"
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 2,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
           }
         },
-        "metadata": {
-          "description": "Settings for Virtual Machines"
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": ""
         }
       },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "resourceGroup": "app1-dev-rg"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 1,
-          "vmStartIndex": 0
-        },
-        "metadata": {
-          "description": "Settings specific to the building block"
-        }
+      "metadata": {
+        "description": "Settings for Virtual Machines"
       }
-	}
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
+      },
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 0
+      },
+      "metadata": {
+        "description": "Settings specific to the building block"
+      }
+    }
+  }
 	```
 
 ## Deployment
