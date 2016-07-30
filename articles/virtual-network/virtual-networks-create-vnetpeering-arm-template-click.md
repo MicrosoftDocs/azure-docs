@@ -27,7 +27,7 @@
 
 To create a VNet peering by using Resource Manager Templates, please follow the steps below:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](,,/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
@@ -211,7 +211,7 @@ This is not a requirement, peering can be established even if users individually
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
    
    Here is how the JSON file is defined:
-   
+
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",

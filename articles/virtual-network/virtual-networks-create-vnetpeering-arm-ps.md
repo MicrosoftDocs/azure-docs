@@ -27,7 +27,7 @@
 
 To create a VNet peering by using PowerShell, please follow the steps below:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](,,/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
