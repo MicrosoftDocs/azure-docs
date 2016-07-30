@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="07/30/2016" 
 	ms.author="awills"/>
  
 # IP addresses used by Application Insights
