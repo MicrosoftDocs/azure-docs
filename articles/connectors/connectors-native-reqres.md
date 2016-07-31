@@ -19,7 +19,9 @@
 
 # Get started with the request and response components
 
-With the request and response components in a logic app, you can respond in real time to events. For example, you can:
+With the request and response components in a logic app, you can respond in real time to events.
+
+For example, you can:
 
 - Respond to an HTTP request with data from an on-premises database through a logic app.
 - Trigger a logic app from an external webhook event.
@@ -33,8 +35,7 @@ A trigger is an event that can be used to start the workflow that is defined in 
 
 Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
 
-1. Add the trigger **Request - When an HTTP request is received** in your logic app.
-	- You can optionally provide a JSON schema (using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
+1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
 2. Add another action so that you can save the logic app.
 3. After saving the logic app, you can get the HTTP request URL from the request card.
 4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
@@ -57,7 +58,7 @@ Here's how to add an HTTP Response action:
 
 4. Add in any parameters that are required for the HTTP response message.
 
-	![Complete response action](./media/connectors-native-reqres/using-action-2.png)
+	![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
 
 5. Click the top left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
