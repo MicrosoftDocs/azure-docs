@@ -193,4 +193,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 ## Next steps
 
+- Learn about [log searches](log-analytics-log-searches.md) to support the queries in tiles.
 - Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom dashboard.
