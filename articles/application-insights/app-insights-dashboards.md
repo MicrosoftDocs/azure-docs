@@ -61,7 +61,7 @@ The first thing you see after you sign in to the [Microsoft Azure portal](https:
 
 
 1. Edit, create and share dashboards using the dashboard toolbar.
-2. Return to the dashboard, or switch to other current views.
+2. Return to the current dashboard, or switch to other recent views.
 3. Switch dashboards.
 4. Create, edit and share dashboards.
 5. Hover over a tile and then use its top bar to move, customize, or remove it.
@@ -71,6 +71,10 @@ The first thing you see after you sign in to the [Microsoft Azure portal](https:
 When you're looking at a blade or set of charts that's particularly interesting, you can pin a copy of it to the dashboard. You'll see it next time you return there.
 
 ![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
+
+1. Pin chart to dashboard. A copy of the chart appears on the dashboard.
+2. Pin the whole blade to the dashboard - it appears on the dashboard as a tile that you can click through.
+3. Click the top left corner to return to the current dashboard. Then you can use the drop-down menu to return to the current view.
 
 Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
 
