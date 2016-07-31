@@ -22,7 +22,7 @@ The View Designer in Log Analytics allows you to create custom Views in the OMS 
 Other articles available for View Designer are:
 
 - [Tile reference](log-analytics-view-designer-tiles.md) - Reference of the settings for each of the tiles available to use in your custom views. 
-- [Visualization part reference](log-analytics-view-visualization-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+- [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
 
 
 ## Concepts

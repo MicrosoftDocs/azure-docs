@@ -22,7 +22,7 @@ The View Designer in Log Analytics allows you to create custom Views in the OMS 
 Other articles available for View Designer are:
 
 - [View Designer](log-analytics-view-designer.md) - Overview of the View Designer and procedures for creating and editing custom views.
-- [Visualization part reference](log-analytics-view-visualization-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
+- [Visualization part reference](log-analytics-view-designer-parts.md) - Reference of the settings for each of the tiles available to use in your custom views. 
 
 
 The following table lists the different types of tiles available in the View Designer.  The sections below describe each tile type in detail and their properties.
@@ -42,7 +42,10 @@ The settings in the following table apply to all tile types.  For settings speci
 |:--|:--|
 | Name        | Text to display at the top of the tile. |
 | Description | Text to display under the tile name.    |
-| **Advanced &#124; Data-flow verification** |
+
+**Advanced &#124; Data-flow verification**
+
+|:--|:--|
 | Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, “Performing Assessment” is displayed. |
@@ -151,8 +154,6 @@ The **Two timelines** tile displays the results of two log queries over time as 
 | Color | Color to use for the columns in the second series.
 | Chart Query | Query to run for the second series.  The count of the number of records over each time interval will be represented by the chart columns.
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count: Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart. |
-
-
 
 ## Next steps
 

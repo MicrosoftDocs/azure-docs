@@ -142,6 +142,92 @@ Header displays a single number summarized from a value column in a log query.  
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
+
+## Donut & list part
+
+Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records.
+
+![Donut & list view](media/log-analytics-view-designer/view-donut-list.png)
+
+| Setting | Description |
+|:--|:--|
+| **General** |
+| Group Title | Text to display at the top of the tile. |
+| New Group | Select to create a new group in the dashboard starting at the current view. |
+| Icon | Image file to display next to the result in the header. |
+| Use Icon | Select to have the icon display. |
+| **Header** |
+| Title | Text to display at the top of the header.
+| Subtitle | Text to display under the Title at the top of the header.
+| **Donut** |
+| Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. | 
+| **Donut** | **Center** |
+| Text | Text to display under the value inside the donut. |
+| Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
+| Result values used in center operation | Optionally click the plus sign to add one or more values.  The results of the query will be limited to records with the property values you specify.  If no values are added, then all records are included in the query. |
+| **List** |
+| Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
+| Color | Color of the bars. |
+| Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
+| Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
+| **List** | **Column Titles** |
+| Name | Text to display at the top of the first column of the list. |
+| Value | Text to display at the top of the second column of the list. |
+
+
+## Donut & list part
+
+Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records.
+
+![Donut & list view](media/log-analytics-view-designer/view-donut-list.png)
+
+
+**General** 
+
+| Setting | Description |
+|:--|:--|
+| Group Title | Text to display at the top of the tile. |
+| New Group | Select to create a new group in the dashboard starting at the current view. |
+| Icon | Image file to display next to the result in the header. |
+| Use Icon | Select to have the icon display. |
+
+**Header**
+ 
+| Setting | Description |
+|:--|:--|
+| Title | Text to display at the top of the header.
+| Subtitle | Text to display under the Title at the top of the header.
+
+**Donut**
+
+| Setting | Description |
+|:--|:--|
+| Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. |
+ 
+**Donut  &#124; Center**
+
+| Setting | Description |
+|:--|:--|
+| Text | Text to display under the value inside the donut. |
+| Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
+| Result values used in center operation | Optionally click the plus sign to add one or more values.  The results of the query will be limited to records with the property values you specify.  If no values are added, then all records are included in the query. |
+
+**List**
+
+| Setting | Description |
+|:--|:--|
+| Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
+| Color | Color of the bars. |
+| Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
+| Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
+
+**List &#124; Column Titles**
+
+| Setting | Description |
+|:--|:--|
+| Name | Text to display at the top of the first column of the list. |
+| Value | Text to display at the top of the second column of the list. |
+
 ## Two timelines & list part
 
 Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column.   
