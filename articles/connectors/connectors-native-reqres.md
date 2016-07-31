@@ -35,7 +35,7 @@ A trigger is an event that can be used to start the workflow that is defined in 
 
 Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
 
-1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
+1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
 2. Add another action so that you can save the logic app.
 3. After saving the logic app, you can get the HTTP request URL from the request card.
 4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
@@ -46,7 +46,7 @@ Here’s an example sequence of how to set up an HTTP request in the Logic App D
 
 ## Use the HTTP Response action
 
-The HTTP Response action is only valid when it is used in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
+The HTTP Response action is only valid when you use it in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
 
 Here's how to add an HTTP Response action:
 
@@ -101,7 +101,7 @@ The following are output details for the request.
 
 #### Response action
 
-The following are input fields for the HTTP response action. A * means that it is a required field.
+The following are input fields for the HTTP Response action. A * means that it is a required field.
 
 |Display name|Property name|Description|
 |---|---|---|
