@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/30/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -57,12 +57,14 @@ Choose what you want to see on the overview. In Customize, you can insert sectio
 The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![A customized dashboard.](./media/app-insights-dashboards/30.png)
+![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
-1. Click the top corner at any time to get back to the dashboard.
-2. Click a chart or tile on the dashboard to see more detail about its data.
-3. Use the navigation bar for a complete view of all your resources.
-4. Edit, create and share dashboards using the dashboard toolbar.
+
+1. Edit, create and share dashboards using the dashboard toolbar.
+2. Return to the dashboard, or switch to other current views.
+3. Switch dashboards.
+4. Create, edit and share dashboards.
+5. Hover over a tile and then use its top bar to move, customize, or remove it.
 
 ## Add to a dashboard
 
