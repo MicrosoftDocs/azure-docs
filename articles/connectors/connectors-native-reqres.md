@@ -84,7 +84,7 @@ The following tables describe the input fields for the trigger and action, and t
 #### Request trigger
 The following is an input field for the trigger from an incoming HTTP request.
 
-|Display Name|Property Name|Description|
+|Display name|Property name|Description|
 |---|---|---|
 |JSON Schema|schema|The JSON schema of the HTTP request body|
 <br>
