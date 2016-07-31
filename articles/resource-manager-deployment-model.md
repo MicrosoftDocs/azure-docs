@@ -110,7 +110,7 @@ To help you understand the two models, let's review the characteristics of Resou
 
 The application shown in the following diagram shows how resources deployed through Resource Manager are contained in a single resource group.
 
-  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+  ![Resource Manager architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
 
 Additionally, there are relationships between the resources within the resource providers:
 
@@ -158,9 +158,9 @@ In Azure Service Management, the compute, storage, or network resources for host
 
 Here are the components and their relationships for Azure Service Management.
 
-  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+  ![classic architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
 
-## Migrating from classic to Resource Manger
+## Migrating from classic to Resource Manager
 
 If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
