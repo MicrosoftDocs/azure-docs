@@ -182,8 +182,6 @@ Header displays a single number summarized from a value column in a log query.  
 ![Donut & list view](media/log-analytics-view-designer/view-donut-list.png)
 
 
-**General** 
-
 | Setting | Description |
 |:--|:--|
 | Group Title | Text to display at the top of the tile. |
@@ -193,20 +191,17 @@ Header displays a single number summarized from a value column in a log query.  
 
 **Header**
  
-| Setting | Description |
 |:--|:--|
 | Title | Text to display at the top of the header.
 | Subtitle | Text to display under the Title at the top of the header.
 
 **Donut**
 
-| Setting | Description |
 |:--|:--|
 | Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. |
  
 **Donut  &#124; Center**
 
-| Setting | Description |
 |:--|:--|
 | Text | Text to display under the value inside the donut. |
 | Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
@@ -214,7 +209,6 @@ Header displays a single number summarized from a value column in a log query.  
 
 **List**
 
-| Setting | Description |
 |:--|:--|
 | Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
 | Color | Color of the bars. |
@@ -223,7 +217,6 @@ Header displays a single number summarized from a value column in a log query.  
 
 **List &#124; Column Titles**
 
-| Setting | Description |
 |:--|:--|
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |

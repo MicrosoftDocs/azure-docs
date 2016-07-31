@@ -48,8 +48,11 @@ The settings in the following table apply to all tile types.  For settings speci
 |:--|:--|
 | Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
-| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, “Performing Assessment” is displayed. |
-| **Time Interval**	|
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+
+**Time Interval**
+
+|:--|:--|
 | Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
 | End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
