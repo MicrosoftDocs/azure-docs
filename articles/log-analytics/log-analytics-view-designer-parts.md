@@ -29,14 +29,14 @@ The following table describes the different types of tiles available in the View
 | View Type | Description |
 |:--|:--|
 | [List of queries](#list-of-queries-part) | Displays a list of log search queries.  The user can click on each query to display its results.  The view will include a single query by default, and you can click **+ Query** to add additional queries. |
-| [Number & list](#number-list-part) | Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Two numbers & list](#two-numbers-list-part) | Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Donut & list](#donut-list-part) | Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records. |
-| [Two timelines & list](#two-timelines-list-part) | Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |   
+| [Number & list](#number-amp-list-part) | Header has a single number showing count of records from a log search query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
+| [Two numbers & list](#two-numbers-amp-list-part) | Header has two numbers showing count of records from separate log search queries.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
+| [Donut & list](#donut-amp-list-part) | Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records. |
+| [Two timelines & list](#two-timelines-amp-list-part) | Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |   
 | [Information](#information-part) | Header displays static text and an optional link.  List displays one or more items with static text and title. |
 | [Line chart, callout, & list](#line-chart-callout-list-part) | Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Line chart & list](#line-chart-list-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Line chart & sparkline](#line-chart-sparkline-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe. |
+| [Line chart & list](#line-chart-amp-list-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
+| [Line chart & sparkline](#line-chart-amp-sparkline-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe. |
 
 
 ## List of queries part
@@ -190,18 +190,21 @@ Header displays a single number summarized from a value column in a log query.  
 | Use Icon | Select to have the icon display. |
 
 **Header**
- 
+
+| Setting | Description |
 |:--|:--|
 | Title | Text to display at the top of the header.
 | Subtitle | Text to display under the Title at the top of the header.
 
 **Donut**
 
+| Setting | Description |
 |:--|:--|
 | Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. |
  
 **Donut  &#124; Center**
 
+| Setting | Description |
 |:--|:--|
 | Text | Text to display under the value inside the donut. |
 | Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
@@ -209,6 +212,7 @@ Header displays a single number summarized from a value column in a log query.  
 
 **List**
 
+| Setting | Description |
 |:--|:--|
 | Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
 | Color | Color of the bars. |
@@ -217,6 +221,7 @@ Header displays a single number summarized from a value column in a log query.  
 
 **List &#124; Column Titles**
 
+| Setting | Description |
 |:--|:--|
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
