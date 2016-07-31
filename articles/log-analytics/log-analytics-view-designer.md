@@ -41,7 +41,7 @@ While View Designer is in preview, you must add it to your workspace by selectin
 
 ![Enable preview](media/log-analytics-view-designer/preview.png)
 
-## Creating a new view
+## Create a new view
 Open a new view in the **View Designer** by clicking on the View Designer tile in the main OMS dashboard.
 
 ![View Designer tile](media/log-analytics-view-designer/view-designer-tile.png)
