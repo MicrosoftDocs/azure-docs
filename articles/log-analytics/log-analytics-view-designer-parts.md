@@ -34,9 +34,9 @@ The following table describes the different types of tiles available in the View
 | [Donut & list](#donut-amp-list-part) | Header displays a single number summarized from a value column in a log query.  The donut graphically displays results of the top three records. |
 | [Two timelines & list](#two-timelines-amp-list-part) | Header displays the results of two log queries over time as column charts with a callout displaying a single number summarized from a value column in a log query.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |   
 | [Information](#information-part) | Header displays static text and an optional link.  List displays one or more items with static text and title. |
-| [Line chart, callout, & list](#line-chart-callout-list-part) | Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
+| [Line chart, callout, & list](#line-chart-callout-amp-list-part) | Header displays a line chart with multiple series from a log query over time and a callout with a summarized value.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
 | [Line chart & list](#line-chart-amp-list-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with horizontal bars indicating the relative value of a numeric column. |
-| [Line chart & sparkline](#line-chart-amp-sparkline-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe. |
+| [Line chart & sparkline](#line-chart-amp-sparklines-part) | Header displays a line chart with multiple series from a log query over time.  List displays the top ten results from a query with sparkline visualizing the value of a numeric column over the selected timeframe. |
 
 
 ## List of queries part
@@ -78,7 +78,7 @@ Header has a single number showing count of records from a log search query.  Li
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
 | Navigation query | Query to run when the user selects an item in the list.  Use {selected item} to include the syntax for item that the user selected. <br><br>For example, if the query has a column called Computer and the navigation query is {selected item}, a query such as Computer=”MyComputer” would be run when the user selected a computer.  If the navigation query is Type=Event {selected item} then the query Type=Event Computer=”MyComputer” would be run. |
-| **Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -106,7 +106,7 @@ Header has two numbers showing count of records from separate log search queries
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as Redmond-Building 41 and Bellevue-Building12.  You could specify – for the Name & Value Separator and City-Building for the Name.  This would parse each value into two properties called City and Building. |
 | Navigation query | Query to run when the user selects an item in the list.  Use {selected item} to include the syntax for item that the user selected. <br><br>For example, if the query has a column called Computer and the navigation query is {selected item}, a query such as Computer=”MyComputer” would be run when the user selected a computer.  If the navigation query is Type=Event {selected item} then the query Type=Event Computer=”MyComputer” would be run. |
-| **Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -129,7 +129,7 @@ Header displays a single number summarized from a value column in a log query.  
 | Subtitle | Text to display under the Title at the top of the header.
 | **Donut** |
 | Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value. | 
-| **Donut  &#124; Center** |
+| **Donut** |  **> Center** |
 | Text | Text to display under the value inside the donut. |
 | Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records.<br>- Percentage: Percentage of the records returned by the values in **Result values used in center operation** to the total records in the query. |
 | Result values used in center operation | Optionally click the plus sign to add one or more values.  The results of the query will be limited to records with the property values you specify.  If no values are added, then all records are included in the query. |
@@ -138,7 +138,7 @@ Header displays a single number summarized from a value column in a log query.  
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
 | Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List &#124; Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -162,7 +162,7 @@ Header displays the results of two log queries over time as column charts with a
 | Query | Query to run for the first series.  The count of the number of records over each time interval will be represented by the chart columns. |
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count: Count of all records returned by the query.<br>- First Sample: Value from the first interval included in the chart.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart.|
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart &#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available.  If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
@@ -171,7 +171,7 @@ Header displays the results of two log queries over time as column charts with a
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
 | Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List &#124; Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -190,7 +190,7 @@ Header displays static text and an optional link.  List displays one or more ite
 | **Header** |
 | Image | Image file to display in the header. |
 | Label | Text to display in the header. |
-| **Header &#124; Link** |
+| **Header** | **> Link** |
 | Label | Link text. |
 | Url | Url for link. |
 | **Information Items** |
@@ -216,11 +216,11 @@ Header displays a line chart with multiple series from a log query over time and
 | Subtitle | Text to display under the Title at the top of the header. |
 | **Line Chart** |
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart &#124; Callout** |
+| **Line Chart** | **> Callout** |
 | Callout Title | Text to display above the callout value. |
 | Series Name | Property value for the series to use for the callout value.  If no series is provided, all records from the query are used. |
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count	Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart.<br>- Min: Minimum value from the intervals included in the chart.<br>- Sum: Sum of the value from all records. |
-| **Line Chart &#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available.  If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
@@ -229,7 +229,7 @@ Header displays a line chart with multiple series from a log query over time and
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
 | Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List &#124; Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -251,7 +251,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Subtitle | Text to display under the Title at the top of the header. |
 | **Line Chart** |
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart &#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available.  If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
@@ -260,7 +260,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Color | Color of the bars. |
 | Name & Value Separator | Single character delimiter if you want to parse the text property into multiple values.  If you specify a delimiter, you can provide names for each field separated by the same delimiter in the Name box.<br><br>For example, consider a property called location that included values such as *Redmond-Building 41* and *Bellevue-Building12*.  You could specify – for the Name & Value Separator and *City-Building* for the Name.  This would parse each value into two properties called *City* and *Building*. |
 | Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List &#124; Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 
@@ -282,7 +282,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Subtitle | Text to display under the Title at the top of the header. |
 | **Line Chart** |
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart &#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The Unit Type specifies the category of the unit and defines the Current Unit Type values that are available.  If you select a value in Convert to then the numeric values are converted from the Current Unit type to the Convert to type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
@@ -290,7 +290,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 | Query | Query to run for the list.  The count of the number of records returned by the query will be displayed. |
 | Operation | The operation to perform on each property in the list to calculate the values for the sparkline.<br><br>- Last Sample: Last value for the series over the time interval.<br>- Max: Maximum value for the series over the time interval.<br>- Min: Minimum value for the series over the time interval.<br>- Sum: Sum of values for the series over the time interval.<br>- Summary: Uses the same measure command as the query in the header. |
 | Navigation query | Query to run when the user selects an item in the list.  Use *{selected item}* to include the syntax for item that the user selected.<br><br>For example, if the query has a column called *Computer* and the navigation query is *{selected item}*, a query such as *Computer="MyComputer"* would be run when the user selected a computer.  If the navigation query is *Type=Event {selected item}* then the query *Type=Event Computer="MyComputer"* would be run. |
-| **List &#124; Column Titles** |
+| **List** | **> Column Titles** |
 | Name | Text to display at the top of the first column of the list. |
 | Value | Text to display at the top of the second column of the list. |
 

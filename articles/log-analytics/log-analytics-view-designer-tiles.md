@@ -36,14 +36,6 @@ The following table lists the different types of tiles available in the View Des
 | [Line chart](#line-chart-tile) | Line chart based on a query. |
 | [Two timelines](#two-timelines-tile) | Column chart with two series each based on a separate query. |
 
-The settings in the following table apply to all tile types.  For settings specific to each tile type, see the specific section.   
-
-| Setting    | Description |
-|:--|:--|
-| Name        | Text to display at the top of the tile. |
-| Description | Text to display under the tile name.    |
-
-
 
 
 ## Number tile
@@ -54,6 +46,8 @@ The **Number** tile displays a single number showing the count of records from a
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | **Tile** |
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
@@ -73,6 +67,8 @@ The **Two Number** tile displays two numbers showing the count of records from t
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | **First Tile** |
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
@@ -95,6 +91,8 @@ The **Donut** tile displays a single number summarized from a value column in a 
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | **Donut** |
 | Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results. |
 | **Donut** | **> Center** |
@@ -120,6 +118,8 @@ The **Line chart** tile displays a line chart with multiple series from a log qu
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | **Line Chart** |	
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
 | **Line Chart** | **> Y Axis** |
@@ -143,6 +143,8 @@ The **Line chart & callout** tile displays a line chart with multiple series fro
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | **Line Chart** |	
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
 | **Line Chart** | **> Callout** |
@@ -169,6 +171,8 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 | Setting | Description |
 |:--|:--|
+| Name        | Text to display at the top of the tile. |
+| Description | Text to display under the tile name.    |
 | First Chart	
 | Legend | Text to display under the callout for the first series.
 | Color | Color to use for the columns in the first series.
