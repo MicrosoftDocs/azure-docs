@@ -32,7 +32,7 @@ The following table lists the different types of tiles available in the View Des
 | [Number](#number-tile) | Single number showing count of records from a query. |
 | [Two numbers](#two-numbers-tile) | Two single numbers showing counts of records from two different queries. |
 | [Donut](#donut-tile) | Donut chart based on a query with a summary value in the center. |
-| [Line chart & callout](#line-chart-callout-tile) | Line chart based on a query and a callout with a summary value. |
+| [Line chart & callout](#line-chart-amp-callout-tile) | Line chart based on a query and a callout with a summary value. |
 | [Line chart](#line-chart-tile) | Line chart based on a query. |
 | [Two timelines](#two-timelines-tile) | Column chart with two series each based on a separate query. |
 
@@ -43,18 +43,7 @@ The settings in the following table apply to all tile types.  For settings speci
 | Name        | Text to display at the top of the tile. |
 | Description | Text to display under the tile name.    |
 
-**Advanced &#124; Data-flow verification**
 
-|:--|:--|
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
-| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
-| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
-
-**Time Interval**
-
-|:--|:--|
-| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
-| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 
 ## Number tile
@@ -68,7 +57,13 @@ The **Number** tile displays a single number showing the count of records from a
 | **Tile** |
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
-
+| **Advanced** |  **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 ## Two Numbers tile
 
@@ -84,6 +79,13 @@ The **Two Number** tile displays two numbers showing the count of records from t
 | **Second Tile** |
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
+| **Advanced** | **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 ## Donut tile
 
@@ -95,14 +97,20 @@ The **Donut** tile displays a single number summarized from a value column in a 
 |:--|:--|
 | **Donut** |
 | Query | Query to run for the donut.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results. |
-| **Donut &#124; Center** |
+| **Donut** | **> Center** |
 | Text | Text to display under the value inside the donut. |
 | Operation | The operation to perform on the value property to summarize to a single value.<br><br>- Sum: Add the values of all records with the property value.<br>- Percentage: Percentage of the summed values from records with the property value compared to the summed values of all records. |
 | Result values used in center operation | Optionally click the plus sign to add one or more values.  The results of the query will be limited to records with the property values you specify.  If no values are added, than all records are included in the query. |
-| **Donut &#124; Additional options** |
+| **Donut** | **> Additional options** |
 | Colors | The color to display for each of the three top properties.  If you want to specify alternate colors for specific property values, then use Advanced Color Mapping. |
 | Advanced Color Mapping | Displays a color for specific property values.  If the value you specify is in the top three, then the alternate color is displayed instead of the standard color.  If the property is not in the top three, then the color is not displayed. |
-
+| **Advanced** | **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 ## Line chart tile
 
@@ -114,10 +122,17 @@ The **Line chart** tile displays a line chart with multiple series from a log qu
 |:--|:--|
 | **Line Chart** |	
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart** | **&#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The **Unit Type** specifies the category of the unit and defines the **Current Unit Type** values that are available.  If you select a value in **Convert to** then the numeric values are converted from the **Current Unit** type to the **Convert to** type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
+| **Advanced** | **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 
 ## Line chart & callout tile
@@ -130,14 +145,21 @@ The **Line chart & callout** tile displays a line chart with multiple series fro
 |:--|:--|
 | **Line Chart** |	
 | Query | Query to run for the line chart.  The first property should be a text value and the second property a numeric value.  This is typically a query that uses the **measure** keyword to summarize results.  If the query uses the **interval** keyword then the X-Axis of the chart will use this time interval.  If the query does not include the **interval** keyword then hourly intervals are used for the X-Axis. |
-| **Line Chart &#124; Callout** |
+| **Line Chart** | **> Callout** |
 | Callout | Title	Text to display above the callout value. |
 | Series Name | Property value for the series to use for the callout value.  If no series is provided, all records from the query are used. |
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br>- Average: Average of the value from all records.<br><br>- Count: Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart.<br>- Min: Minimum value from the intervals included in the chart.<br>- Sum: Sum of the value from all records. |
-| **Line Chart** | **&#124; Y Axis** |
+| **Line Chart** | **> Y Axis** |
 | Use Logarithmic Scale | Select to use a logarithmic scale for the Y-Axis. |
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The **Unit Type** specifies the category of the unit and defines the **Current Unit Type** values that are available.  If you select a value in **Convert to** then the numeric values are converted from the **Current Unit** type to the **Convert to** type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
+| **Advanced** | **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 ## Two timelines tile
 
@@ -157,6 +179,13 @@ The **Two timelines** tile displays the results of two log queries over time as 
 | Color | Color to use for the columns in the second series.
 | Chart Query | Query to run for the second series.  The count of the number of records over each time interval will be represented by the chart columns.
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count: Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart. |
+| **Advanced** | **> Data-flow verification** |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
+| Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
+| **Time Interval** |
+| Duration | Duration from the current date to use for the time interval of the query.  For example, if **7 days** is specified, then the query is limited to records created from 7 days ago to the current date. |
+| End data offset | Optional offset from the current data to use for the time interval of the main query.  For example, if **-1 day** is used for the **End date offset** and **7 days** used for the **Duration**, then the query is limited to records created from 8 days ago to yesterday. |
 
 ## Next steps
 
