@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Azure resiliency technical guidance: recovery from a region-wide service disruption
 

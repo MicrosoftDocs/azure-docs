@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #High availability for applications built on Microsoft Azure
 
