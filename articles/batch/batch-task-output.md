@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/02/2016"
+	ms.date="08/04/2016"
 	ms.author="marsma" />
 
 # Persist Azure Batch job and task output
@@ -44,7 +44,7 @@ To help you more easily persist job and task output, the Batch team has defined 
 
 ## Using the file conventions library
 
-[Azure Batch File Conventions][nuget_package]is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code for persisting files, and in client code to list and retrieve them. Your tasks can also use the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
+[Azure Batch File Conventions][nuget_package] is a .NET class library that your Batch .NET applications can use to easily store and retrieve task outputs to and from Azure Storage. It is intended for use in both task and client code--in task code for persisting files, and in client code to list and retrieve them. Your tasks can also use the library for retrieving the outputs of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
 The conventions library takes care of ensuring that storage containers and task output files are named according to the convention, and are uploaded to the right place when persisted to Azure Storage. When you retrieve outputs, you can easily locate the outputs for a given job or task by listing or retrieving the outputs by ID and purpose, instead of having to know filenames or where it exists in Storage.
 
