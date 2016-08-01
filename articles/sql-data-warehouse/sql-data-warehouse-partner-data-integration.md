@@ -83,7 +83,7 @@ To learn more about some of our other partners, see [Business Intelligence partn
 [snaplogic_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 
 <!--Quickstart_links-->
-[attunity_quickstart]:./media/sql-data-warehouse-partner-data-integration/quick_start_guide_attunity_cloudbeam_azure_sql_data_warehouse.pdf
+[attunity_quickstart]:http://www.attunity.com/sites/default/files/product_resource/quick_start_guide_attunity_cloudbeam_for_microsoft_azure.pdf
 
 <!--PressRelease_links-->
 [alteryx_designer_press]:https://www.alteryx.com/press-releases/alteryx-now-enables-data-analysts-to-perform-in-database-blending-in-microsoft-azure 
