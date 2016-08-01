@@ -32,7 +32,7 @@ When you design your Batch solution, you must consider several factors related j
 
 * **Compute node lifetime**: Compute nodes are often transient, especially in autoscale-enabled pools. The outputs of the tasks that run on a node are available only while the node exists, and only within the file retention time you've set for the task. To ensure that the task output is preserved, your tasks must therefore upload their output files to a durable store, for example, Azure Storage.
 
-* **Output storage**: To persist task output data to durable storage, you can use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) in your task code to upload the task output to a Blob storage container. If you implement a container and file naming convention, your client application or other tasks in the job can then locate and download this output based on that convention.
+* **Output storage**: To persist task output data to durable storage, you can use the [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) in your task code to upload the task output to a Blob storage container. If you implement a container and file naming convention, your client application or other tasks in the job can then locate and download this output based on the convention.
 
 * **Output retrieval**: You can retrieve task output directly from the compute nodes in your pool, or from Azure Storage if your tasks persist their output. To retrieve a task's output directly from a compute node, you need the file name and its output location on the node. If you persist output to Azure Storage, downstream tasks or your client application must have the full path to the file in Azure Storage in order to download it by using the Azure Storage SDK.
 
@@ -40,7 +40,7 @@ When you design your Batch solution, you must consider several factors related j
 
 ## Help for persisted output
 
-The Batch team has defined and implemented a set of naming conventions as well as .NET class library that you can use in your Batch applications to easily store and retrieve job and task output. In addition, the Azure portal is aware of these naming conventions so that you can easily find the files you've stored using the library.
+To help you more easily persist job and task output, the Batch team has defined and implemented a set of naming conventions as well as a .NET class library, the [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) library, that you can use in your Batch applications. In addition, the Azure portal is aware of these naming conventions so that you can easily find the files you've stored by using the library.
 
 ## Using the file conventions library
 
@@ -159,7 +159,7 @@ When you retrieve your persisted output using the Azure Batch File Conventions l
 The code snippet below iterates through all of a job's tasks, prints some information about the output files for the task, and then downloads its files from Storage.
 
 ```csharp
-foreach (CloudTask task in myJob.ListTasks().ToList())
+foreach (CloudTask task in myJob.ListTasks())
 {
     foreach (TaskOutputStorage output in
 		task.OutputStorage(storageAccount).ListOutputs(
@@ -167,9 +167,9 @@ foreach (CloudTask task in myJob.ListTasks().ToList())
     {
         Console.WriteLine($"output file: {output.FilePath}");
 
-	output.DownloadToFileAsync(
-		$"{jobId}-{output.FilePath}",
-		System.IO.FileMode.Create).Wait();
+		output.DownloadToFileAsync(
+			$"{jobId}-{output.FilePath}",
+			System.IO.FileMode.Create).Wait();
     }
 }
 ```
@@ -183,6 +183,8 @@ To enable this support, you must satisfy the following requirements:
  1. [Link an Azure Storage account](#requirement-linked-storage-account) to your Batch account.
  2. Adhere to a set of predefined **naming conventions** for Storage containers and files. If you use the [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) library to persist your output, this requirement is satisfied.
 
+This image shows the outputs for the task with ID "007":
+
 ![Task outputs blade in the Azure portal][2]
 
 ## Code sample
@@ -192,9 +194,8 @@ The [PersistOutputs][github_taskdependencies] sample project is one of the [Azur
 1. Open the project in **Visual Studio 2015**.
 2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
-4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputTask**. Include the `PersistOutputTask.exe` and its dependent assemblies in the ZIP package, and set the application ID to "PersistOutputTask".
-5. Use the Azure portal to **create a pool** (id: "PersistOutputsSamplePool") with one Standard_A1 compute node.
-6. **Start** (run) the **PersistOutputs** project.
+4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputTask**. Include the `PersistOutputTask.exe` and its dependent assemblies in the .zip package, and set the application ID to "PersistOutputTask".
+5. **Start** (run) the **PersistOutputs** project.
 
 ## Next steps
 
