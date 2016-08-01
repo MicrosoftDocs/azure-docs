@@ -75,7 +75,7 @@ When multiple Azure AD accounts from different Azure AD tenants are on the same 
     `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. After you have the GUID, you will need to add the registry key
 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
-From the **tenant ID GUID** key, create a new Multi-String Value (REG-MULTI-SZ) named **AllowedRMSServerUrls**. For its data, specify the licensing distribution point URLs of the other Azure tenants that the device accesses.
+From the **tenant ID GUID** key, create a new Multi-String value (REG-MULTI-SZ) named **AllowedRMSServerUrls**. For its data, specify the licensing distribution point URLs of the other Azure tenants that the device accesses.
 3. You can find the licensing distribution point URLs by running the **Get-AadrmConfiguration** cmdlet. If the values for the **LicensingIntranetDistributionPointUrl** and **LicensingExtranetDistributionPointUrl** are different, specify both values. If the values are the same, specify the value just once.
 
 
@@ -108,7 +108,7 @@ In Windows 10, there is no MDM or Group Policy setting to disable roaming for an
 ## How can I enable or disable roaming?
 In the **Settings** app, go to **Accounts** > **Sync your settings**. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
 
-## What is Microsoft’s recommendation for enabling roaming  in Windows 10?
+## What is Microsoft’s recommendation for enabling roaming in Windows 10?
 Microsoft has a few different settings roaming solutions available, including Roaming User Profiles, UE-V, and Enterprise State Roaming.  Microsoft is committed to making an investment in Enterprise State Roaming in future versions of Windows. If your organization is not ready or comfortable with moving data to the cloud, then Microsoft recommends that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications but is eager to move to the cloud, Microsoft recommends that you use both Enterprise State Roaming and UE-V. While UE-V and Enterprise State Roaming are very similar technologies, they are not mutually exclusive, and today they complement each other to ensure that your organization provides the roaming services that your users need.  
 
 When using both Enterprise State Roaming and UE-V, the following rules apply:
