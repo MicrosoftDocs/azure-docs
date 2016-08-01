@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a virtual network using Templates | Microsoft Azure"
-   description="Learn how to create a virtual network peering using the templayes | Resource Manager."
+   description="Learn how to create a virtual network peering using the templates in Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="narayanannamalai"
@@ -100,7 +100,7 @@ As seen in above template, there are a few configurable properties for VNet peer
 Each link in VNet peering has a set of above properties. For example, you can set AllowVirtualNetworkAccess to True for VNet peering link VNet1 to VNet2 and set it to False for the VNet peering link of the other direction. 
 
 
-4. To deploy the template file, you can run cmdlet New-AzureRmResourceGroupDeployment to create or update the deployment. For more information about using ARM template, please refer to this [article](../resource-group-template-deploy.md)
+4. To deploy the template file, you can run cmdlet New-AzureRmResourceGroupDeployment to create or update the deployment. For more information about using Resource Manager template, please refer to this [article](../resource-group-template-deploy.md)
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
