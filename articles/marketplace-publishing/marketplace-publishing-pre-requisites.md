@@ -13,8 +13,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="07/27/2016"
-  ms.author="hascipio; v-divte"/>
+  ms.date="08/01/2016"
+  ms.author="hascipio"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
 Understand the general, business-process-centric prerequisites that are needed to move forward with the offer creation process.

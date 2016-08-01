@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="07/27/2016"
+   ms.date="08/01/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -130,7 +130,7 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 ### 2.1. Set your VM prices
 Presently for virtual machines, we have the following **3 types of billing models:**
 
-- **Hourly:** Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes (shared core VMS, 1 core VMS, 4 core VMS,8 core VMS,6 core VMS,32 core VMS,64 core VMS,128 core VMS). In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase (see the screenshot below). **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
+- **Hourly:** Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase (see the screenshot below). **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
 
     ![drawing](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
