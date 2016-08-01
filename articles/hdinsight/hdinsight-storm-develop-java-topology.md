@@ -169,13 +169,13 @@ A Java-based Storm topology consists of three components that you must author (o
 
 ###Create the spout
 
-To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It is a modified version of a spout that is provided with the  ([Storm-Starter examples (https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
+To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It is a modified version of a spout that is provided with the  ([Storm-Starter examples](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
 
 > [AZURE.NOTE] For an example of a spout that reads from an external data source, see one of the following examples:
 >
-> * [TwitterSampleSPout (https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java)](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java]: An example spout that reads from Twitter
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): An example spout that reads from Twitter
 >
-> * [Storm-Kafka (https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka)](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): A spout that reads from Kafka
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): A spout that reads from Kafka
 
 For the spout, create a new file named **RandomSentenceSpout.java** in the **src\main\java\com\microsoft\example** directory and use the following as the contents:
 
