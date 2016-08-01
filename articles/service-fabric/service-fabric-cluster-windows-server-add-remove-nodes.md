@@ -24,11 +24,11 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 
 ## Add nodes to your cluster
 
-1. Prepare the VM/machine you want to add to your cluster by following the steps mentioned in the [Prepare the machines to meet the pre-requisites for cluster deployment](service-fabric-cluster-creation-for-windows-server.md#preparemachines) section.
+1. Prepare the VM/machine you want to add to your cluster by following the steps mentioned in the [Prepare the machines to meet the prerequisites for cluster deployment](service-fabric-cluster-creation-for-windows-server.md#preparemachines) section.
 2. Plan which fault domain and upgrade domain you are going to add this VM/machine to.
 3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster.
 4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to this VM/machine and unzip the package.
-5. Open up a Powershell admin prompt, and navigate to the location of the unzipped package.
+5. Run Powershell as an administrator, and navigate to the location of the unzipped package.
 6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
@@ -39,7 +39,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 
 1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
 2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.
-3. Open up a Powershell admin prompt and navigate to the location of the unzipped package.
+3. Run Powershell as an administrator, and navigate to the location of the unzipped package.
 4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```

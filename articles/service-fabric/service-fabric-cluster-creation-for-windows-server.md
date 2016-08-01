@@ -36,8 +36,8 @@ In the download package you will find the following files:
 |**File name**|**Short description**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|The CAB file that contains the binaries that are deployed to each machine in the cluster.|
-|ClusterConfig.Unsecure.DevCluster.json|Cluster configuration sample file that contains the settings for an unsecure, three node, single VM/machine development cluster, including the information for each node in the cluster. |
-|ClusterConfig.Unsecure.MultiMachine.json|Cluster configuration sample file that contains the settings for an unsecure, multi-VM/machine cluster, including the information for each machine in the cluster.|
+|ClusterConfig.Unsecure.DevCluster.json|Cluster configuration sample file that contains the settings for an unsecured, three node, single VM/machine development cluster, including the information for each node in the cluster. |
+|ClusterConfig.Unsecure.MultiMachine.json|Cluster configuration sample file that contains the settings for an unsecured, multi-VM/machine cluster, including the information for each machine in the cluster.|
 |ClusterConfig.Windows.DevCluster.json|Cluster configuration sample file that contains all the settings for a secure, three node, single VM/machine development cluster including the information for each node that is in cluster. The cluster is secured using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
 |ClusterConfig.Windows.MultiMachine.json|Cluster configuration sample file that contains all the settings for a secure, multi-VM/machine cluster using Windows security including the information for each machine that is in the secure cluster. The cluster is secured using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx).|
 |ClusterConfig.x509.DevCluster.json|Cluster configuration sample file that contains all the settings for a secure, three node, single VM/machine development cluster including the information for each node in the cluster. The cluster is secured using x509 certificates.|
@@ -54,11 +54,11 @@ In the download package you will find the following files:
 The following steps need to be performed before you create your cluster.
 
 ### Step 1: Plan your cluster infrastructure
-You are about to create a Service Fabric cluster on machines you own, so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or internet connections supplied to these machines? In addition, consider the physical security of these machines.  Where is the physical location and who needs access to them?  Once you make these decisions, you can logically map the machines to the various fault domains (see below for more information). The infrastructure planning for production clusters will be more involved than the test clusters.
+You are about to create a Service Fabric cluster on machines you own, so you can decide what kinds of failures you want the cluster to survive. For example, do you need separate power lines or Internet connections supplied to these machines? In addition, consider the physical security of these machines.  Where is the physical location and who needs access to them?  Once you make these decisions, you can logically map the machines to the various fault domains (see below for more information). The infrastructure planning for production clusters will be more involved than the test clusters.
 
 <a id="preparemachines"></a>
-### Step 2: Prepare the machines to meet the pre-requisites
-Pre-requisites for each machine that you want to add to the cluster:
+### Step 2: Prepare the machines to meet the prerequisites
+Prerequisites for each machine that you want to add to the cluster:
 
 - Minimum of 2 GB memory is recommended
 - Network connectivity: Make sure that the machines are on a secure network or networks.
@@ -109,26 +109,26 @@ Open one of the *ClusterConfig.json* files from the package you downloaded and m
 
 |**Configuration Setting**|**Description**|
 |-----------------------|--------------------------|
-|**NodeTypes**|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics. <br> **Name** - This is the node type name. <br>**Endpoint Ports** - These are various named end points (ports) that are associated with this node type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other application running on the machine/VM. <br> **Placement Properties** - These describe properties for this node type that you will use as placement constraints for the system services or your services. These properties are user defined key/value pairs that provide extra metadata for a given node. Examples of node properties would be whether or not the node has a hard drive or graphics card, the number of spindles in its hard drive, cores and other physical properties. <br> **Capacities** - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB available by default. These capacities are used at runtime to ensure that services which require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary** - If you have more than one NodeType defined ensure that only one is set to primary with the value *true*, which is where the system services run. All other node types should be set to the value *false*|
+|**NodeTypes**|Node types allow you to separate your cluster nodes into various groups. A cluster must have at least one NodeType. All nodes in a group have the following common characteristics. <br> **Name** - This is the node type name. <br>**Endpoint Ports** - These are various named end points (ports) that are associated with this node type. You can use any port number that you wish, as long as they do not conflict with anything else in this manifest and are not already in use by any other application running on the machine/VM. <br> **Placement Properties** - These describe properties for this node type that you will use as placement constraints for the system services or your services. These properties are user defined key/value pairs that provide extra meta data for a given node. Examples of node properties would be whether or not the node has a hard drive or graphics card, the number of spindles in its hard drive, cores and other physical properties. <br> **Capacities** - Node capacities define the name and amount of a particular resource that a particular node has available for consumption. For example, a node may define that it has capacity for a metric called “MemoryInMb” and that it has 2048 MB available by default. These capacities are used at runtime to ensure that services which require particular amounts of resources are placed on the nodes that have those resources available in the required amounts.<br>**IsPrimary** - If you have more than one NodeType defined ensure that only one is set to primary with the value *true*, which is where the system services run. All other node types should be set to the value *false*|
 |**Nodes**|These are the details for each of the nodes that are part of the cluster (node type, node name, IP address, fault domain and upgrade domain of the node). The machines you want the cluster to be created on need to be listed here with their IP addresses. <br> If you use the same IP address for all the nodes, then a one-box cluster is created, which you can use for testing purposes. One-box clusters should not be used for deploying production workloads.|
 
 ### Step 2: Run the create cluster script
 Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file and the location of the package CAB file.
 
-This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
+This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
 
 ```
-#Create an unsecure local development cluster
+#Create an unsecured local development cluster
 
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
 ```
 ```
-#Create an unsecure multi-machine cluster
+#Create an unsecured multi-machine cluster
 
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
 ```
 
->[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster Powershell on. You will find them in a subfolder called "DeploymentTraces" in the folder where you ran the Powershell command. Also to see whether Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
+>[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster Powershell on. You will find them in a sub-folder called "DeploymentTraces" in the folder where you ran the Powershell command. Also to see whether Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
 
 ### Step 3: Connect to the Cluster
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html
@@ -142,7 +142,7 @@ You can add or remove nodes to your standalone Service Fabric cluster as your bu
 
 To remove a cluster run the *RemoveServiceFabricCluster.ps1* Powershell script from the package folder and pass in the path to the JSON configuration file and the location of the package CAB file.
 
-This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster
+This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster
 
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
