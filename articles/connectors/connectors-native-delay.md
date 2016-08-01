@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add delay in logic apps | Microsoft Azure"
+	pageTitle="Add a delay in logic apps | Microsoft Azure"
 	description="Overview of the delay and delay-until actions, and how to use them with an Azure logic app."
 	services=""
 	documentationCenter=""
@@ -27,8 +27,6 @@ For example, you can:
 - Delay the workflow until an HTTP call has time to complete before resuming and retrieving the result.
 
 To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
----
 
 ## Use the delay actions
 
