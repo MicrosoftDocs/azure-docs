@@ -178,16 +178,21 @@ foreach (CloudTask task in myJob.ListTasks())
 }
 ```
 
-## View output in the Azure portal
+## Task outputs and the Azure portal
 
-You can use the Azure portal to view task outputs and logs that you persist to Azure Storage using the conventions described in this article. Navigate to the task whose output you are interested in, then click either "Saved output files" or "Saved logs."
+The Azure portal will display task outputs and logs that are persisted to a linked Azure Storage account using the naming conventions found in the [Azure Batch File Conventions README][github_file_conventions_readme]. You can implement these conventions yourself in a language of your choosing, or you can use the file conventions library in your  .NET applications.
 
-To enable this support, you must satisfy the following requirements:
+### Enable portal display
+
+To enable the display of your outputs in the portal, you must satisfy the following requirements:
 
  1. [Link an Azure Storage account](#requirement-linked-storage-account) to your Batch account.
- 2. Adhere to a set of predefined **naming conventions** for Storage containers and files. If you use the [Azure Batch File Conventions][net_fileconventions_readme] (NOT FINAL URL) library to persist your output, this requirement is satisfied.
+ 2. Adhere to the predefined naming conventions for Storage containers and files.
+ You can find the definition of these conventions in the file conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, this requirement is satisfied.
 
-This image shows the outputs for the task with ID "007":
+### View outputs in the portal
+
+To view task outputs and logs in the Azure portal, navigate to the task whose output you are interested in, then click either **Saved output files** or **Saved logs**. This image shows the **Saved output files** for the task with ID "007":
 
 ![Task outputs blade in the Azure portal][2]
 
@@ -215,6 +220,7 @@ Check out the [Installing applications and staging data on Batch compute nodes][
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
+[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
