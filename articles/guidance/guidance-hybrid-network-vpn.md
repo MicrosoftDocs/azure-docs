@@ -583,7 +583,7 @@ To run the script that deploys the solution:
 
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [resource-manager-overview]: ../resource-group-overview.md
-[arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
+[arm-templates]: ../resource-group-authoring-templates.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
@@ -623,6 +623,7 @@ To run the script that deploys the solution:
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
 [vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
 [expressroute]: ./guidance-hybrid-network-expressroute.md
+[naming conventions]: ./guidance-naming-conventions.md
 
 [solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Scripts/Deploy-ReferenceArchitecture.ps1
 [gateway-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-vpn/Templates/vpn-gateway-vpn-connection-settings.parameters.json 
