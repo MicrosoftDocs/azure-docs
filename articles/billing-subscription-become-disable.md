@@ -34,7 +34,7 @@ Here is how you can remove your Spending Limit:
 
 3. Select a subscription.
 
-4. If you see *Subscription reached the Spending Limit and has been disabled to prevent charges*, then the subscription is disabled due to the spending limit being reached. Click on it.
+4. If you see *Subscription reached the Spending Limit and has been disabled to prevent charges*, click on it.
 	
 	Alternatively, click **Remove spending limit** in the **Subscription Status** area. 
 	
