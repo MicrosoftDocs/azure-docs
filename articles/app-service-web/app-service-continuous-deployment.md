@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Continuous Deployment to Azure App Service"
+	pageTitle="Continuous Deployment to Azure App Service | Microsoft Azure"
 	description="Learn how to enable continuous deployment to Azure App Service."
 	services="app-service"
 	documentationCenter=""
