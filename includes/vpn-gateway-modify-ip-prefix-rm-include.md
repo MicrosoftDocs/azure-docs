@@ -38,7 +38,7 @@ Modify the prefixes.
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
 	-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
-Create the connection. In this example, we are configuring an IPsec connection type. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/en-us/library/mt603611.aspx) page.
+Create the connection. In this example, we are configuring an IPsec connection type. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) page.
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec `
