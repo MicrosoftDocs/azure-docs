@@ -138,9 +138,6 @@ If you're installing on a Hyper-V cluster, performs steps 5-11 on each node in t
 
 8. After installation is complete continue setup to register the server in the vault.
 
-	![Installation complete](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.PNG)
-
-
 9. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)

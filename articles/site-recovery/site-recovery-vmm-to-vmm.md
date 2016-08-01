@@ -243,7 +243,7 @@ Install the Azure Site Recovery Provider on VMM servers, and register servers in
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
  	
-	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.png)
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 11. After the server is available in the Site Recovery console, in **Source** > **Prepare source** select the VMM server, and select the cloud in which the Hyper-V host is located. Then click **OK**.
 
