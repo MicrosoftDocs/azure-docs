@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2016"
+   ms.date="08/01/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -31,15 +31,15 @@ The address that forms the user name should be on your domain and controlled by 
 1. Create a distribution list (DL) or security group (SG) within your company's domain. Using a DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 Follow the instructions given below.
 
-  a. Add your onboarding team to the DL.
-  b. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
-  c. We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
+    1. Add your onboarding team to the DL.
+    2. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
+    3. We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
 
 2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
 3. Register the DL created in step 1 as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
 
-  a. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
-  b. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
+    1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
+    2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
 
 4. Verify the email address sent to the DL.
 5. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
