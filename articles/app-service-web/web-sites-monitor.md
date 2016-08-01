@@ -176,6 +176,7 @@ customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and 
 (5) **metrics** to display.  
 
+You can learn more about metrics here: [Monitor service metrics](../azure-portal/insights-how-to-customize-monitoring.md).
 
 ## Alerts and Autoscale
 Metrics for an App or App Service plan can be hooked up to alerts, to learn 
