@@ -499,7 +499,7 @@ The template with instructions for deployment is located at:
 https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
 
 ## Deploy to Azure
-[Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrnese%2Fazuredeploy%2Fmaster%2FOMS%2FMSOMS%2FDSC%2F%2Fazuredeploy.json)
+[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrnese%2Fazuredeploy%2Fmaster%2FOMS%2FMSOMS%2FDSC%2F%2Fazuredeploy.json)
 
 Deploy using PowerShell:
 
