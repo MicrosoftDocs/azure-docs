@@ -16,7 +16,7 @@
 		ms.date="06/13/2016"
 		ms.author="krnese"/>
 
-## Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
+# Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
 
 ## Deploy ASR Mobility Service using OMS Automation DSC
 In OMS, we provide you with a comprehensive Backup & Disaster Recovery solution that can be leveraged as part of your business continuity plan.
