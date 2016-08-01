@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -243,21 +243,22 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Tableau Online, perform the following steps:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the classic portal, to open the applications view, in the 
+2. directory view, click **Applications** in the top menu.
 
 	![Assign User][201] 
 
-2. In the applications list, select **Tableau Online**.
+3. In the applications list, select **Tableau Online**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_50.png) 
 
-1. In the menu on the top, click **Users**.
+4. In the menu on the top, click **Users**.
 
 	![Assign User][203] 
 
-1. In the All Users list, select **Britta Simon**.
+5. In the All Users list, select **Britta Simon**.
 
-2. In the toolbar on the bottom, click **Assign**.
+6. In the toolbar on the bottom, click **Assign**.
 
 	![Assign User][205]
 
