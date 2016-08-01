@@ -7,14 +7,14 @@
 	manager=""
 	editor=""/>
 
-<tags
-	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="krnese"/>
+	<tags
+		ms.service="site-recovery"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.tgt_pltfrm="na"
+		ms.workload="storage-backup-recovery"
+		ms.date="06/13/2016"
+		ms.author="krnese@microsoft.com"/>
 
 # Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
 
@@ -57,7 +57,7 @@ The Mobility Service can be installed through command line and accepts several a
 
 That’s why we need to have the binaries (after extracting them from our setup) and store them somewhere we are able to retrieve them using a DSC configuration.
 
-## Step 1: **(jimpark: add title about binaries)**
+## Step 1: Preparing installer files
 
 1. To extract the files you need for this setup, navigate to the following directory on your management server: **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
