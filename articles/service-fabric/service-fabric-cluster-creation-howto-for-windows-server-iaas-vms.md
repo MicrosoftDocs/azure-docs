@@ -23,7 +23,7 @@
 This article describe how to create a cluster on Azure IaaS VMs using the standalone Windows Server installer. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure virtual machines running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), however you are not creating an Azure cloud based Service Fabric cluster, either via the [portal](service-fabric-cluster-creation-via-portal.md), the [ARM template](service-fabric-cluster-creation-via-arm.md), or the [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
 
 
-## Steps to create a standalone Servce Fabric cluster on Azure VMs
+## Steps to create a standalone Service Fabric cluster on Azure VMs
 
 1. Log into the Azure portal and create a new Windows Server 2012 R2 Datacenter VM in a resource group. Read the article [Create a Windows VM in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for more details.
 2. Add a couple more Windows Server 2012 R2 Datacenter VMs to the same resource group. Ensure that each of the VMs has the same admin user name and password when created. Once created you should see all three VMs in the same virtual network.
@@ -71,7 +71,7 @@ This article describe how to create a cluster on Azure IaaS VMs using the standa
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
     ```
 
-8. You should see the Powershell run, connect to each machine and create a cluster. After about a minute, you can test if the cluster is operational by connecting to the Service Fabric Explorer on one of the machine IP addresses e.g. http://10.7.0.5:19080/Explorer/index.html. Because this is a standalone cluster on IaaS VMs if you want to make this secure you have to [deploy certs to the VMs](service-fabric-windows-cluster-x509-security.md) or set up one of the machines as a [Windows Server Active Directory (AD) controller for Windows authentication](service-fabric-windows-cluster-windows-security.md) just like you would do on-premise.
+8. You should see the Powershell run, connect to each machine and create a cluster. After about a minute, you can test if the cluster is operational by connecting to the Service Fabric Explorer on one of the machine IP addresses e.g. http://10.7.0.5:19080/Explorer/index.html. Because this is a standalone cluster on IaaS VMs if you want to make this secure you have to [deploy certs to the VMs](service-fabric-windows-cluster-x509-security.md) or set up one of the machines as a [Windows Server Active Directory (AD) controller for Windows authentication](service-fabric-windows-cluster-windows-security.md) just like you would do on premises.
 
 
 ## Next steps

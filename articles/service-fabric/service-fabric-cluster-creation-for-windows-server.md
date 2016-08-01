@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Createa and Manage a standalone Azure Service Fabric cluster | Microsoft Azure"
+   pageTitle="Create and manage a standalone Azure Service Fabric cluster | Microsoft Azure"
    description="Learn how to create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud."
    services="service-fabric"
    documentationCenter=".net"
