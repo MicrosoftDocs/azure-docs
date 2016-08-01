@@ -150,6 +150,8 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
+`Code to process data and produce output file(s)` is simply a placeholder for the code that your task would normally perform. For example, you might have code that downloads data from Azure Storage and performs some sort of transformation or calculation on it. The important part of this snippet is demonstrating how you can wrap such code in a `using` block to periodically update a file with  [SaveTrackedAsync][net_savetrackedasync].
+
 >[AZURE.NOTE] When you enable file tracking with SaveTrackedAsync, only *appends* to the tracked file are persisted to Azure Storage. You should use this method only for tracking non-rotating log files or other files that are appended to, that is, data is only added to the end of the file when it's updated.
 
 ## Retrieve output
