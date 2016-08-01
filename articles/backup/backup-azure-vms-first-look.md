@@ -213,7 +213,7 @@ To start the initial backup now:
     >[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
 
 ## Next steps
-Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However there are management tasks that will help you understand how to keep your data safe and minimize costs.
+Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However, there are management tasks that will help you understand how to keep your data safe and minimize costs.
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)
