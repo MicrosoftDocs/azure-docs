@@ -3,8 +3,8 @@
 	description="Describes how to use Azure Automation DSC to automatically deploy ASR Mobility Service and Azure agent for virtual/physical machines to Azure."
 	services="site-recovery"
 	documentationCenter=""
-	authors=""
-	manager=""
+	authors="krnese"
+	manager="lorenr"
 	editor=""/>
 
 	<tags
