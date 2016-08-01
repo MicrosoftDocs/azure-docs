@@ -3,8 +3,8 @@
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="trinadhk"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="06/08/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
