@@ -67,7 +67,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
 </br>
-<a id="createstorage"></a>
+
 
 ## Login to Azure
 
@@ -99,17 +99,17 @@ If you want to use an existing storage account, proceed to the [Upload the VM im
 
 If you want to create a new storage account, follow these steps:
 
-	1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
+1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
 
-			Get-AzureRmResourceGroup
+		Get-AzureRmResourceGroup
 
-	2. If you want to create a new resource group, use this command:
+2. If you want to create a new resource group, use this command:
 
-			New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
 
-	3. Create a new storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+3. Create a new storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
-			New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+		New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
 			
 Valid values for -SkuName are:
 
