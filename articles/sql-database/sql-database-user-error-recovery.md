@@ -3,7 +3,7 @@
    description="Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
-   authors="carlrabeler" 
+   authors="CarlRabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 

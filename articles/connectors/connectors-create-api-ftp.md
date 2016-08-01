@@ -1,7 +1,7 @@
 <properties
 pageTitle="Learn how to use the FTP connector in logic apps| Microsoft Azure"
 description="Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	

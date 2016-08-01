@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Understanding NoSQL on Microsoft Azure

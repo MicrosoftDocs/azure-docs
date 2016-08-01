@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

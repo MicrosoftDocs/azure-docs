@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
 	description="Use the features of Enterprise Integration to enable business process and integration scenarios using Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 

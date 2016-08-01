@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="07/29/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -28,6 +28,35 @@ If your question isn't listed here, please let us know and we'll help you find a
 -	You can post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
 -	To reach a wider audience, you can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
 -	You can also send an email to us at [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
+
+## Azure Redis Cache basics
+
+The FAQs in this section cover some of the basics of Azure Redis Cache.
+
+-    [What is Azure Redis Cache?](#what-is-azure-redis-cache)
+-    [How can I get started with Azure Redis Cache?](#how-can-i-get-started-with-azure-redis-cache)
+
+The following FAQs cover basic concepts and questions about Azure Redis Cache and are answered in one of the other FAQ sections.
+
+-	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
+-	[What Redis cache clients can I use?](#what-redis-cache-clients-can-i-use)
+-	[Is there a local emulator for Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+
+
+### What is Azure Redis Cache?
+
+Azure Redis Cache is based on the popular open-source [Redis cache](http://redis.io). It gives you access to a secure, dedicated Redis cache, managed by Microsoft and accessible from any application within Azure. For a more detailed overview, see the [Azure Redis Cache](https://azure.microsoft.com/services/cache/) product page on Azure.com.
+
+
+### How can I get started with Azure Redis Cache?
+
+There are several ways you can get started with Azure Redis Cache.
+
+-    You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md). 
+-    You can watch [How to Build High Performance Apps Using Microsoft Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+-    You can check out the client documentation for the clients that match the development language of your project to see how to use Redis. There are many Redis clients that can be used with Azure Redis Cache. For a list of Redis clients, see [http://redis.io/clients](http://redis.io/clients).
+
 
 ## Planning FAQs
 

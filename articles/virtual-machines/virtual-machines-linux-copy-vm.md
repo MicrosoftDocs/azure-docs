@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 # Create a copy of a Linux virtual machine running on Azure
@@ -28,35 +28,30 @@ You can also [upload and create a VM from custom disk image](virtual-machines-li
 
 Ensure that you meet the following prerequisites before you start the steps:
 
-- You have the Azure CLI downloaded and installed on your machine. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
+- You have the [Azure CLI] (../xplat-cli-install.md) downloaded and installed on your machine. 
 
-- You have a working source Azure VM running Linux. 
-
-- You also need some information about your existing VM:
+- You also need some information about your existing Azure Linux VM:
 
 | Source VM information | Where to get it |
 |------------|-----------------|
-| VM name | 'azure vm list' |
-| Resource Group name | 'azure vm list' |
-| Location | 'azure vm list' |
-| Storage Account name | azure storage account list -g <resourceGroup> |
-| Container name | azure storage container list -a <sourcestorageaccountname> ||
-| Source VM VHD file name | azure storage blob list --container <containerName> |
+| VM name | `azure vm list` |
+| Resource Group name | `azure vm list` |
+| Location | `azure vm list` |
+| Storage Account name | `azure storage account list -g <resourceGroup>` |
+| Container name | `azure storage container list -a <sourcestorageaccountname>` |
+| Source VM VHD file name | `azure storage blob list --container <containerName>` |
 
 
 
 - You will need to make some choices about your new VM: 
-     <br> Container name
-     <br> VM name 
-     <br> VM size 
-     <br> vNet name 
-     <br> SubNet name 
-     <br> IP Name 
-     <br> NIC name
+     <br> -Container name
+     <br> -VM name 
+     <br> -VM size 
+     <br> -vNet name 
+     <br> -SubNet name 
+     <br> -IP Name 
+     <br> -NIC name
 	
-	
-
-
 
 ## Login and set your subscription
 
@@ -83,18 +78,7 @@ Stop and deallocate the source VM. You can use 'azure vm list' to get a list of 
 
 
 
-## Get the container and VHD names
-		
-1. Get the container name. 
-	
-		azure storage container list -a <sourcestorageaccountname> 
 
-	In most cases, the container name will be **vhds**
-
-2. Get the VHD name.
-
-		azure storage blob list --container <container_name>
-		
 ## Copy the VHD
 
 
@@ -102,11 +86,8 @@ You can copy the VHD from the source storage to the destination using the `azure
 
 To copy the VHD to another container in the same storage account, type:
 
-		azure storage blob copy start https://<storageaccount>.blob.core.windows.net:8080/<sourceContainer>/<fileName.vhd> <newcontainerName>
+		azure storage blob copy start https://<sourceStorageAccountName>.blob.core.windows.net:8080/<sourceContainerName>/<SourceVHDFileName.vhd> <newcontainerName>
 		
-
-
-
 
 ## Set up the virtual network for your new VM
 
@@ -123,10 +104,10 @@ Set up a virtual network and NIC for your new VM.
 
 ## Create the new VM 
 
-You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your disk as follows:
+You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your copied disk by typing:
 
 ```bash
-azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <yourNicName> -z "<vmSize>" -d https://<storageAccountName>.blob.core.windows.net/<destinationContainerName/<fileName.vhd> -y Linux
+azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <newNicName> -z "<vmSize>" -d https://<storageAccountName>.blob.core.windows.net/<containerName/<fileName.vhd> -y Linux
 ```
 
 
