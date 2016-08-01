@@ -101,6 +101,12 @@ Option 2: Specify a name, size, and availability set name.
 
 For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+>[AZURE.NOTE] If you have an Enterprise Agreement with Software Assurance, and intend to take advantage
+of the Windows Server [Hybrid Use Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/), add the
+**-LicenseType** parameter to the **New-AzureVMConfig** cmdlet, passing the value **Windows_Server** for
+the typical use case.  Be sure you are using an image you have uploaded; you cannot use a standard
+image from the Gallery with the Hybrid Use Benefit.
+
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
