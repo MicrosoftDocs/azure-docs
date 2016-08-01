@@ -1,3 +1,22 @@
+<properties
+	pageTitle="Change signature hash algorithm for O365 replying party trust | Microsoft Azure"
+	description="This page provides guidelines for changing SHA algorithm for federation trust with O365"
+    keywords="SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust"
+	services="active-directory"
+	documentationCenter=""
+	authors="anandyadavmsft"
+	manager="samueld"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/1/2016"
+	ms.author="anandy"/>
+
 #Change signature hash algorithm for O365 replying party trust
 
 ##Overview
