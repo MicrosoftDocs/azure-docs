@@ -62,7 +62,7 @@ The only quota applicable to apps hosted on **Basic**, **Standard** and
 
 More information about the specific quotas, limits and features available to 
 the different App Service SKUs can be found here: 
-[Azure Subscription Service Limits](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#app-service-limits)
+[Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
 
 #### Quota Enforcement
 
