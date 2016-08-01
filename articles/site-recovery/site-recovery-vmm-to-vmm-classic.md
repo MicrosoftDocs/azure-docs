@@ -134,7 +134,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
  	
-	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG) 
 
 ### Command line installation
 
