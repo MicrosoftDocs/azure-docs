@@ -240,6 +240,8 @@ There are two ways to enable TRIM support in your Linux VM. As usual, please con
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
 
+## Troubleshooting
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next Steps
 
