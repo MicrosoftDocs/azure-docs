@@ -66,6 +66,6 @@ VNet Peering will not be charged for during the review period. Once it is releas
 
 
 ## Next steps
-- [Setup peering between Virtual Networks](virtual-networks-create-vnet-arm-pportal.md).
+- [Setup peering between Virtual Networks](virtual-networks-create-vnetpeering-arm-portal.md).
 - Learn about [NSGs](virtual-networks-nsg.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
