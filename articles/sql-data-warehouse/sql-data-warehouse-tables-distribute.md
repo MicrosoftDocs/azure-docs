@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Next steps
 
-To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.
+
+For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 
 <!--Image references-->
