@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a lab
 
-> [AZURE.NOTE] View this article's accompanying 
-video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+> [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Overview
 
