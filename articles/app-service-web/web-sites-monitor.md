@@ -62,7 +62,7 @@ The only quota applicable to apps hosted on **Basic**, **Standard** and
 
 More information about the specific quotas, limits and features available to 
 the different App Service SKUs can be found here: 
-[Azure Subscription Service Limits](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#app-service-limits)
+[Azure Subscription Service Limits](../azure-subscription-service-limits.md/#app-service-limits)
 
 #### Quota Enforcement
 
@@ -91,7 +91,7 @@ For an **Application**, the available metrics are:
    * The average amount of memory in MiBs used by the app.
 * **CPU Time**
    * The amount of CPU in seconds consumed by the app. For more information 
-   about this metric see: [CPU time vs CPU percentage](#CPU-time-vs.-CPU-percentage)
+   about this metric see: [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage)
 * **Data In**
    * The amount of incoming bandwidth consumed by the app in MiBs.
 * **Data Out**
@@ -176,17 +176,16 @@ customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and 
 (5) **metrics** to display.  
 
-You can learn more about metrics here: [Monitor service metrics](https://azure.microsoft.com/en-us/documentation/articles/insights-how-to-customize-monitoring/)
 
 ## Alerts and Autoscale
 Metrics for an App or App Service plan can be hooked up to alerts, to learn 
-more about this, see [Receive alert notifications](https://azure.microsoft.com/en-us/documentation/articles/insights-receive-alert-notifications/)
+more about this, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
 
 App Service apps hosted in basic, standard or premium App Service Plans 
 support **autoscale**. This allows you to configure rules that monitor the 
 App Service plan metrics and can increase or decrease the instance count 
 providing additional resources as needed, or saving money when the application 
-is over-provision. You can learn more about auto scale here: [Best practices for Azure Insights autoscaling](https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-best-practices/)
+is over-provision. You can learn more about auto scale here: [How to Scale](../azure-portal/insights-how-to-scale.md) and here [Best practices for Azure Insights autoscaling](../azure-portal/insights-autoscale-best-practices.md)
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
