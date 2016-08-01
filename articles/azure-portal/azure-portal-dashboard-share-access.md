@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="07/30/2016"
+   ms.date="08/01/2016"
    ms.author="tomfitz"/>
 
 # Sharing Azure dashboards
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines how much control those users will have for the published dashboard. 
+After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
 
 All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
@@ -26,23 +26,23 @@ All published dashboards are implemented as Azure resources, which means they ex
 
 ## Understanding access control for dashboards
 
-You can assign access at three levels:
+With role-based access control, you can assign users to roles at three different levels of scope:
 
 - subscription
 - resource group
 - resource
 
-The permissions you assign are inherited from subscription down to the resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
+The permissions you assign are inherited from subscription down to the resource. The published dashboard is a resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
 
-Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
+Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** for the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
 
 However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
 
-## Assign access to a dashboard
+## Publish dashboard
 
 Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. Select **Share**.
+1. In the dashboard, select **Share**.
 
      ![select share](./media/azure-portal-dashboard-share-access/select-share.png)
 
@@ -52,11 +52,13 @@ Let's suppose you have finished configuring a dashboard that you want to share w
 
 Your dashboard is now published. If the permissions inherited from the subscription are suitable, you do not need to do anything more. Other users in your organization will be able to access and modify the dashboard based on their subscription level role. However, for this tutorial, let's assign a group of users to a role for that dashboard.
 
-1. Select **Manage users**.
+## Assign access to a dashboard
+
+1. After publishing the dashboard, select **Manage users**.
 
      ![manage users](./media/azure-portal-dashboard-share-access/manage-users.png)
 
-2. You will see a list of existing users that already are assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
+2. You will see a list of existing users that are already assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
 
      ![add user](./media/azure-portal-dashboard-share-access/existing-users.png)
 
@@ -68,7 +70,9 @@ Your dashboard is now published. If the permissions inherited from the subscript
 
      ![select user](./media/azure-portal-dashboard-share-access/select-user.png) 
 
-5. When you have finished adding users or groups, select **OK**. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
+5. When you have finished adding users or groups, select **OK**. 
+
+6. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
 
      ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
