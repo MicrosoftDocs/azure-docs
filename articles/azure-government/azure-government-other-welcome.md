@@ -22,13 +22,13 @@
 Azure Government is enabling U.S. Government & their partners to transform their mission-critical workloads to a trusted hyper-scale cloud by enabling and supporting:
 
 * Trusted foundational principles in security, privacy & control, & transparency
-* Comprehensive & consumable compliance allows smooth transition for customers & partners
+* Comprehensive & consumable compliance supporting smooth transition for customers & partners
 * An open & flexible environment supporting the broadest selection of services and data alliances
 * A complete portfolio of platform, productivity, business applications, & management services
 * A robust network of Partners & solutions
 
 
-This site describes the capabilities of <a href="https://azure.microsoft.com/en-us/features/gov/"> Microsoft Azure Government</a> services, and provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
+NOTE:  This site describes the capabilities of <a href="https://azure.microsoft.com/en-us/features/gov/"> Microsoft Azure Government</a> services, and provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
 You should refer to the <a href="http://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx">Microsoft Azure Trust Center Compliance Page</a> for current information on the Azure Government services covered under specific accreditations and regulations. Additional Microsoft services might also be available, but are not within the scope of the Azure Government covered services and are not addressed by this document. Azure Government services might also permit you to use a variety of additional resources, applications, or services that are provided by third parties—or by Microsoft under separate terms of use and privacy policies—which are not included in the scope of this document. You are responsible for reviewing the terms of all such “add-on” offerings, such as Marketplace offerings, to ensure that they meet your needs regarding compliance.
 
