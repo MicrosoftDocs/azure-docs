@@ -4,7 +4,7 @@
 
 3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
  
-4. Click **Create**. Wait a few minutes for the database to be deployed successfully before proceeding.
+4. Click **Create**. Wait a few minutes for the service to be deployed successfully before proceeding.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
