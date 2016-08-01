@@ -16,7 +16,7 @@
 		ms.date="06/13/2016"
 		ms.author="krnese"/>
 
-# Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
+## Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
 
 ## Deploy ASR Mobility Service using OMS Automation DSC
 In OMS, we provide you with a comprehensive Backup & Disaster Recovery solution that can be leveraged as part of your business continuity plan.
@@ -67,13 +67,13 @@ That’s why we need to have the binaries (after extracting them from our setup)
 
     Use the following cmdlet to extract the installer:
 
-    .\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract
+    `.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract`
 
 2. Select all files and send to a compressed (zipped) folder.
 
 That’s it! You now have the binaries you need to automate the setup of the mobility service using OMS Automation DSC.
 
-## Passphrase
+### Passphrase
 Next, you need to determine where you want to place this zipped folder. In my case, I will later show that I am using a storage account in Azure, where I have also placed the passphrase I need for the setup, so that the agent will register with the management server as part of the process.
 
 The passphrase you got when deploying the management server can be saved to a txt-file as passphrase.txt.
@@ -92,12 +92,12 @@ The following DSC configuration is used in my environment:
 ```
 configuration ASRMobilityService {
 
-    $RemoteFile = ‘https://knrecstor01.blob.core.windows.net/asr/ASR.zip’
-    $RemotePassphrase = ‘https://knrecstor01.blob.core.windows.net/asr/passphrase.txt’
-    $RemoteAzureAgent = ‘http://go.microsoft.com/fwlink/p/?LinkId=394789’
-    $LocalAzureAgent = ‘C:\Temp\AzureVmAgent.msi’
-    $TempDestination = ‘C:\Temp\asr.zip’
-    $LocalPassphrase = ‘C:\Temp\Mobility_service\passphrase.txt’
+    $RemoteFile = 'https://knrecstor01.blob.core.windows.net/asr/ASR.zip'
+    $RemotePassphrase = 'https://knrecstor01.blob.core.windows.net/asr/passphrase.txt'
+    $RemoteAzureAgent = 'http://go.microsoft.com/fwlink/p/?LinkId=394789'
+    $LocalAzureAgent = 'C:\Temp\AzureVmAgent.msi'
+    $TempDestination = 'C:\Temp\asr.zip'
+    $LocalPassphrase = 'C:\Temp\Mobility_service\passphrase.txt'
     $Role = 'Agent'
     $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
@@ -383,11 +383,11 @@ configuration ASRMobilityService {
     $computername
     )
 
-    $RemoteFile = ‘\\myfileserver\share\asr.zip’
-    $RemotePassphrase = ‘\\myfileserver\share\passphrase.txt’
-    $RemoteAzureAgent = ‘\\myfileserver\share\AzureVmAgent.msi’
-    $LocalAzureAgent = ‘C:\Temp\AzureVmAgent.msi’
-    $TempDestination = ‘C:\Temp\asr.zip’
+    $RemoteFile = '\\myfileserver\share\asr.zip'
+    $RemotePassphrase = '\\myfileserver\share\passphrase.txt'
+    $RemoteAzureAgent = '\\myfileserver\share\AzureVmAgent.msi'
+    $LocalAzureAgent = 'C:\Temp\AzureVmAgent.msi'
+    $TempDestination = 'C:\Temp\asr.zip'
     $LocalPassphrase = "C:\Temp\Mobility_service\passphrase.txt"
     $Role = 'Agent'
     $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
@@ -497,6 +497,9 @@ All the above steps will be taken in the right order, so that you easily get sta
 The template with instructions for deployment is located at:
 
 https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
+
+## Deploy to Azure
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrnese%2Fazuredeploy%2Fmaster%2FOMS%2FMSOMS%2FDSC%2F%2Fazuredeploy.json)
 
 Deploy using PowerShell:
 
