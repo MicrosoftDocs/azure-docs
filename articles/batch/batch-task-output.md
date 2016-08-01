@@ -180,15 +180,14 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## Task outputs and the Azure portal
 
-The Azure portal will display task outputs and logs that are persisted to a linked Azure Storage account using the naming conventions found in the [Azure Batch File Conventions README][github_file_conventions_readme]. You can implement these conventions yourself in a language of your choosing, or you can use the file conventions library in your  .NET applications.
+The Azure portal will display task outputs and logs that are persisted to a linked Azure Storage account using the naming conventions found in the [Azure Batch File Conventions README][github_file_conventions_readme]. You can implement these conventions yourself in a language of your choosing, or you can use the file conventions library in your .NET applications.
 
 ### Enable portal display
 
 To enable the display of your outputs in the portal, you must satisfy the following requirements:
 
  1. [Link an Azure Storage account](#requirement-linked-storage-account) to your Batch account.
- 2. Adhere to the predefined naming conventions for Storage containers and files.
- You can find the definition of these conventions in the file conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, this requirement is satisfied.
+ 2. Adhere to the predefined naming conventions for Storage containers and files when persisting outputs. You can find the definition of these conventions in the file conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, this requirement is satisfied.
 
 ### View outputs in the portal
 
