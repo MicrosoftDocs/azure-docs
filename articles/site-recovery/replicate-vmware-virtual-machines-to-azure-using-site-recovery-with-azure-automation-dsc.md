@@ -14,7 +14,7 @@
 		ms.tgt_pltfrm="na"
 		ms.workload="storage-backup-recovery"
 		ms.date="06/13/2016"
-		ms.author="krnese@microsoft.com"/>
+		ms.author="anoopkv"/>
 
 # Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
 
@@ -73,7 +73,7 @@ That’s why we need to have the binaries (after extracting them from our setup)
 
 That’s it! You now have the binaries you need to automate the setup of the mobility service using OMS Automation DSC.
 
-## passphrase
+## Passphrase
 Next, you need to determine where you want to place this zipped folder. In my case, I will later show that I am using a storage account in Azure, where I have also placed the passphrase I need for the setup, so that the agent will register with the management server as part of the process.
 
 The passphrase you got when deploying the management server can be saved to a txt-file as passphrase.txt.
