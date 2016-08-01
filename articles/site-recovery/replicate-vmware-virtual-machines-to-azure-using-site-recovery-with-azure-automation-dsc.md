@@ -14,7 +14,7 @@
 		ms.tgt_pltfrm="na"
 		ms.workload="storage-backup-recovery"
 		ms.date="06/13/2016"
-		ms.author="anoopkv"/>
+		ms.authors="krnese"/>
 
 # Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
 
