@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 

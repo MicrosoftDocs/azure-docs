@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS"
+	pageTitle="Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS | Microsoft Azure"
 	description="This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2012 R2."
 	services="multi-factor-authentication"
 	documentationCenter=""
@@ -75,7 +75,7 @@ At this point, Multi-Factor Authentication Server is set up to be an additional 
 4. In the Multi-Factor Authentication AD FS adapter installer, click **Next** to perform the installation.
 5. Click **Close** when the installation is finished.
 6. Edit the MultiFactorAuthenticationAdfsAdapter.config file by doing the following:
- 
+
 |MultiFactorAuthenticationAdfsAdapter.config Step| Sub step|
 |:------------- | :------------- |
 |Set the **UseWebServiceSdk** node to **true**.||

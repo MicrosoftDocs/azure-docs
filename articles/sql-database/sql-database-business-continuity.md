@@ -4,7 +4,7 @@
    keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
