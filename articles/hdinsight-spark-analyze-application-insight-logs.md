@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="0/01/2016"
 ms.author="larryfr"/>
 
 # Analyze Application Insights telemetry logs with Spark on HDInsight
@@ -44,7 +44,7 @@ The following were used in developing and testing this document:
 
 The following diagram illustrates the overall architecture of this example:
 
-![diagram showing data flowing from Application Insights to blob storage, then being processed by Spark on HDInsight]()
+![diagram showing data flowing from Application Insights to blob storage, then being processed by Spark on HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### Azure storage
 
