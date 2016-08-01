@@ -215,7 +215,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 4. When installation finishes click  **Register** to register the VMM server in the vault.
 5. In **Vault Settings** page, click **Browse** to select the vault key file. Specify the Azure Site Recovery subscription and the vault name.
 
-	![Server registration](./media/site-recovery-vmm-to-azure/provider10.png)
+	![Server registration](./media/site-recovery-vmm-to-azure/provider10.PNG)
 
 6. In **Internet Connection** specify how the Provider running on the VMM server will connect to Site Recovery over the internet.
 
@@ -233,7 +233,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
 9. Enable **Sync cloud metadata** if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
-	![Server registration](./media/site-recovery-vmm-to-azure/provider16.png)
+	![Server registration](./media/site-recovery-vmm-to-azure/provider16.PNG)
 
 10. Registration starts. After registration finishes the server is displayed on the **Settings** > **Servers** blade in the vault.
 

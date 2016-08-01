@@ -140,7 +140,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
-	![Internet Settings](./media/site-recovery-vmm-to-azure-classic/proxydetails.png)
+	![Internet Settings](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
 	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
@@ -164,7 +164,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
  	
-	![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.png)
+	![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
 After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the **VMM Servers** tab on the **Servers** page in the vault.
 
@@ -332,7 +332,10 @@ Test failover simulates your failover and recovery mechanism in an isolated netw
 
 	![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
+2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 
+3. 
+4. 
+5. 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
 
 	- If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located. You can also configure the virtual machine properties in the VMM console.
 	- All of the virtual machines that are displayed have been enabled for protection. The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending. Only virtual machines with initial replication completed can fail over as part of a recovery plan.

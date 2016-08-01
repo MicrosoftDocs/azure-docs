@@ -106,7 +106,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	![InstallComplete](./media/site-recovery-vmm-to-vmm-classic/install-complete.png)
 9. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
 
-	![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.png)
+	![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.PNG)
 
 7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
@@ -134,7 +134,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
  	
-	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.png)
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### Command line installation
 
