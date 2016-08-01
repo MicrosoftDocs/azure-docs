@@ -46,13 +46,47 @@ Logic Apps that are disabled cannot have new instances instantiated and therefor
 
 ## App Service plans
 
-App Service Plans are no longer required to create a Logic App.  Logic Apps previously created with an App Service Plan will continue to behave as before where, depending on the plan chosen, will get throttled after a number of daily executions are exceeded and will not be billed using the action execution meter.
+App Service Plans are no longer required to create a Logic App.  You can also reference an App Service Plan with an existing logic app.  Logic apps previously created with an App Service Plan will continue to behave as before where, depending on the plan chosen, will get throttled after a number of daily executions are exceeded and will not be billed using the action execution meter.
 
 App Service Plans and their daily allowed action executions:
 
 | |Free/Shared/Basic|Standard|Premium|
 |---|---|---|---|
 |Action executions per day| 200|10,000|50,000|
+
+### Convert from Consumption to App Service Plan pricing
+
+To reference an App Service Plan for a consumption Logic App, you can simply [run the below PowerShell script](https://github.com/logicappsio/ConsumptionToAppServicePlan).  Make sure you first have the [Azure PowerShell tools](https://github.com/Azure/azure-powershell) installed.
+
+``` powershell
+Param(
+    [string] $AppService_RG = '<app-service-resource-group>',
+	[string] $AppService_Name = '<app-service-name>',
+    [string] $LogicApp_RG = '<logic-app-resource-group>',
+    [string] $LogicApp_Name = '<logic-app-name>',
+    [string] $subscriptionId = '<azure-subscription-id>'
+)
+
+Login-AzureRmAccount 
+$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" -ResourceGroupName $AppService_RG -ResourceName $AppService_Name
+$logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
+
+$sku = @{
+    "name" = $appservicePlan.Name;
+    "plan" = @{
+      "id" = $appserviceplan.ResourceId;
+      "type" = "Microsoft.Web/ServerFarms";
+      "name" = $appserviceplan.Name  
+    }
+}
+
+$updatedProperties = $logicapp.Properties | Add-Member @{sku = $sku;} -PassThru
+
+$updatedLA = Set-AzureRmResource -ResourceId $logicapp.ResourceId -Properties $updatedProperties -ApiVersion 2015-08-01-preview
+```
+
+### Convert from App Service Plan pricing to Consumption
 
 To change a Logic App that has an App Service Plan associated with it to a consumption model remove the reference to the App Service Plan in the Logic App definition.  This can be done with a call to a PowerShell cmdlet:
 
