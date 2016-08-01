@@ -71,7 +71,7 @@ Creating mass test environments for quality assurance testing, using artifacts a
 Distributing VMs for hackathons, and then easily de-provisioning them when the event ends 
 
 ### How will I be charged for DevTest Labs? 
-DevTest Labs is a free service, meaning that creating labs and configuring the policies, templates, and artifacts in Labs is free. You pay only for the Azure resources used within Labs, such as virtual machines, storage accounts, and virtual networks. For more information on the cost of Labs resources, read about [Azure DevTest Labs pricing](https://azure.microsoft.com/en-us/pricing/details/devtest-lab/). 
+DevTest Labs is a free service, meaning that creating labs and configuring the policies, templates, and artifacts in Labs is free. You pay only for the Azure resources used within Labs, such as virtual machines, storage accounts, and virtual networks. For more information on the cost of Labs resources, read about [Azure DevTest Labs pricing](https://azure.microsoft.com/pricing/details/devtest-lab/). 
 
 ### What are the different security levels in DevTest Labs?  
 Security access is determined by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-built-in-roles.md). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC. A permission is a defined access to a specific action (e.g. read-access to all virtual machines). A role is a set of permissions that can be grouped and assigned to a user (e.g. "subscription owner" has access to all resources within a subscription). A scope is a level within the hierarchy of Azure resource (e.g. a resource group or a single lab or the entire subscription). 
@@ -151,14 +151,13 @@ We have a Github repository of lab ARM templates. Each of these templates has a 
 Resource groups are created this way in order for DevTest Labs to manage the user permissions and access to virtual machines. We are working on improving this experience to allow more flexibility, but you can rename these resource groups as needed. It is advised that you do not move VMs into different resource groups to avoid unintentionally modifying permissions. 
  
 ### How many labs can I create under the same subscription? 
-There is no specific limit on the number of labs that can be created per subscription, but the resources used are limited per subscription. You can read about the limits and quotas imposed on Azure subscriptions and how to increase these limits. 
+There is no specific limit on the number of labs that can be created per subscription, but the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](../azure-limits-quotas-increase-requests.md). 
  
 ### How many VMs can I create per lab? 
-There is no specific limit on the number of VMs that can be created per lab, but currently the lab only supports about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. These limits also vary based on the  We are currently working on increasing these limitations. 
+There is no specific limit on the number of VMs that can be created per lab, but currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. These limits also vary based on the  We are currently working on increasing these limitations. 
  
 ### My artifact failed during VM creation. How do I troubleshoot it? 
-Try using this blog post, written by our MVPs, to learn how to obtain logs regarding your failed artifact. 
+Refer to the blog post [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) - written by one of our MVPs - to learn how to obtain logs regarding your failed artifact. 
  
 ### Why isn't my existing virtual network saving properly?  
 It may be because you have periods in the name of your virtual network. Try removing the periods or replacing them with hyphens, and then try saving you virtual network again.
-
