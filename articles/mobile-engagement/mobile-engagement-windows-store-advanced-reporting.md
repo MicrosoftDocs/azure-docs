@@ -30,7 +30,7 @@ This topic describes additional reporting scenarios in your Windows Universal ap
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-Before starting this tutorial, you must first complete the [Getting Started](../articles/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started.md) tutorial, which is deliberately direct and simple. This tutorial covers a number of options you can choose from.
+Before starting this tutorial, you must first complete the [Getting Started](mobile-engagement/mobile-engagement-windows-store-dotnet-get-started.md) tutorial, which is deliberately direct and simple. This tutorial covers a number of options you can choose from.
 
 ## Specifying engagement configuration at runtime
 
@@ -138,7 +138,7 @@ If you want to report some extra informations with your activity, you can add th
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 
-## Alternate method: call `StartActivity()` manually
+### Alternate method: call `StartActivity()` manually
 
 If you cannot or do not want to overload your `Page` classes, you can instead start your activities by calling `EngagementAgent` methods directly.
 
