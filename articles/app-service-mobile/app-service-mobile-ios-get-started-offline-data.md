@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/01/2016"
 	ms.author="krisragh"/>
 
 # Enable offline sync for your iOS mobile app
