@@ -90,7 +90,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
 
-## Subscription service imits (quotas)
+## Subscription service limits (quotas)
 
 - [Can I get a quota increase on a free trial subscription?](#can-i-get-a-quota-increase-on-a-free-trial-subscription)
 
