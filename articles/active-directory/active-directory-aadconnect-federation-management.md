@@ -28,7 +28,7 @@ This article details the various Active Directory Federation Services (AD FS) re
 |[Adding a new AD FS server](#addadfsserver) | Expanding the AD FS farm with additional AD FS server|
 |[Adding a new AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with additional WAP server|
 |[Add a new federated domain](#addfeddomain)| Add a federated domain|
-| **AD FS Customization**|
+| **AD FS customization**|
 |[Add custom company logo or illustration](#customlogo)| Customize A FS sign-in page with company logo and illustration |
 |[Add sign-in description](#addsignindescription) | Add sign-in page description |
 |[Modifying AD FS claim rules](#modclaims) | Modify AD FS claims for various federation scenarios |
