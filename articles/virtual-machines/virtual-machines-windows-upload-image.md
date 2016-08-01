@@ -105,7 +105,7 @@ If you want to create a new storage account, follow these steps:
 
 	2. If you want to create a new resource group, use this command:
 
-			New-AzureRmResourceGroup -Name YourResourceGroup -Location "West US"
+			New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
 
 	3. Create a new storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
@@ -127,9 +127,9 @@ Your image will be uploaded to a blob storage container in this account. You can
 
 Add the generalized Azure VHD to the storage account by using the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet:
 
-
+		$rgName = "<resourceGroupName>"
 		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
-		Add-AzureRmVhd -ResourceGroupName <resourceGroupName> -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
+		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
 
 	Where:
 	- **storageAccount** the name of the storage account where you want the image to be placed. 
@@ -167,8 +167,8 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 2. Replace the value of **$vnetName** with a name for the virtual network. Create the variable and the virtual network with the subnet.
 
         $vnetName = "<vnetName>"
-		$rgName = "<resourceGroupName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+		$location = "<location>"
+		$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
     You should use values that make sense for your application and environment.
         
@@ -204,7 +204,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$storageAccName = "<storageAccountName>"
 	$vmName = "<vmName>"
 	$vmSize = "<vmSize>"
-	$computerName = "computerName"
+	$computerName = "<computerName>"
 
 	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
@@ -228,32 +228,9 @@ The following PowerShell script shows how to set up the virtual machine configur
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-For example, your workflow might look something like this:
 
-		C:\> $pipName = "testpip6"
-		C:\> $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-		C:\> $subnet1Name = "testsub6"
-		C:\> $nicname = "testnic6"
-		C:\> $vnetName = "testvnet6"
-		C:\> $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
-		C:\> $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
-		C:\> $nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-		C:\> $vmName = "testupldvm6"
-		C:\> $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A4"
-		C:\> $computerName = "testupldcomp6"
-		C:\> $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		C:\> $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-		C:\> $osDiskName = "testupos6"
-		C:\> $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-		C:\> $urlOfUploadedImageVhd = "https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd"
-		C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
-		C:\> $result = New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-		C:\> $result
-		RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-		--------- ------------------- ---------- ------------
-		                         True         OK OK
 
-You should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
