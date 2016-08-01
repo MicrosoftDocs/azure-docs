@@ -42,7 +42,7 @@ Once you have set the signature algorithm as directed in the steps below, AD FS 
 * On any AD FS server, open PowerShell under administrator privileges
 * Set the secure has algorithm by using the Set-AdfsRelyingPartyTrust cmdlet
 
-    Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
+ <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ##Also Read
 
