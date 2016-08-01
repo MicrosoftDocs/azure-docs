@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/27/2016"
 	ms.author="ddove"/>
 
 # Create and manage scaled out Azure SQL Databases using elastic jobs (preview)
