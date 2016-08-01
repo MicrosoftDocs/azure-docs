@@ -30,14 +30,14 @@ the PC settings that are built into the Windows operating system. Generally, the
 - *Edge browser settings*, such as favorites and reading list.
 - *Passwords*, including Internet passwords, Wi-Fi profiles, and others.
 - *Language preferences*, which includes settings for keyboard layouts, system language, date and time, and more.
-- *Ease of access* features such as high-contrast theme, Narrator, and Magnifier.
+- *Ease of access features*, such as high-contrast theme, Narrator, and Magnifier.
 - *Other Windows settings*, such as command prompt settings and application list.
 
 
 **Application data**: Universal Windows apps can write settings data to a roaming folder, and any data written to this folder will automatically be synced. It’s up to the individual app developer to design an app to take advantage of this capability. For more details about how to develop a Universal Windows app that uses roaming, see the [appdata storage API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) and the [Windows 8 appdata roaming developer blog](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## What account is used for settings sync?
-In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this “connected Microsoft account” functionality is being replaced with a primary/secondary account framework.
+In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.
 
 The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, an Azure AD account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they are not capable of powering settings sync.
 
@@ -45,27 +45,28 @@ In Windows 10, only the primary account for the device can be used for settings 
 [How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#How-do-I-upgrade-from-Microsoft-account-settings-sync-in-Windows-8-to-Azure-AD-settings-sync-in Windows-10?)).
 
 Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
-- Windows settings will always roam with the primary account.
-- App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is side-loaded through the Windows Store or when the app is side-loaded through mobile device management (MDM).
 
-If an app’s owner cannot be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account. This is because most apps were acquired via the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
+- Windows settings will always roam with the primary account.
+- App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is side-loaded through the Windows Store or mobile device management (MDM).
+
+If an app’s owner cannot be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account. This is because most users acquire apps through the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
 
 >[AZURE.NOTE]  
-> Windows 10 devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft Accounts to a domain account. The ability to connect a Microsoft Account to a domain account and have all the user's data sync to the Microsoft Account (i.e., the Microsoft Account roaming via the “connected Microsoft Account and Active Directory” functionality) is removed from Windows 10 devices that are joined to a connected Active Directory or Azure AD environment.
+> Windows 10 devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft Accounts to a domain account. The ability to connect a Microsoft Account to a domain account and have all the user's data sync to the Microsoft Account (i.e., the Microsoft Account roaming via the connected Microsoft Account and Active Directory functionality) is removed from Windows 10 devices that are joined to a connected Active Directory or Azure AD environment.
 
 ## How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?
 If you are joined to the Active Directory domain running Windows 8 or Windows 8.1 with a connected Microsoft account, you will sync settings through your Microsoft account. After upgrading to Windows 10, you will continue to sync user settings via Microsoft account as long as you are a domain-joined user and the Active Directory domain does not connect with Azure AD.
 
-If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Azure AD administrator does not enable Enterprise State Roaming, your connected Azure AD account will stop syncing settings. If you are a Windows 10 user and you log in with an Azure AD identity, you will start syncing windows settings as soon as your administrator enables settings sync via Azure AD.
+If the on-premises Active Directory domain does connect with Azure AD, your device will attempt to sync settings using the connected Azure AD account. If the Azure AD administrator does not enable Enterprise State Roaming, your connected Azure AD account will stop syncing settings. If you are a Windows 10 user and you sign in with an Azure AD identity, you will start syncing windows settings as soon as your administrator enables settings sync via Azure AD.
 
 If you stored any personal data on your corporate device, you should be aware that Windows OS and application data will begin syncing to Azure AD. This has the following implications:
 
-- Your personal Microsoft account settings will drift apart from the settings on work or school Azure AD accounts. This is because the Microsoft account and Azure AD settings sync are now using separate accounts.
+- Your personal Microsoft account settings will drift apart from the settings on your work or school Azure AD accounts. This is because the Microsoft account and Azure AD settings sync are now using separate accounts.
 - Personal data such as Wi-Fi passwords, web credentials, and Internet Explorer favorites that were previously synced via a connected Microsoft account will be synced via Azure AD.
 
 
 ## How do Microsoft account and Azure AD Enterprise State Roaming interoperability work?
-In the Nov 2015 or later releases of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If you sign in to Windows using a work or school Azure AD account, all data will sync via Azure AD. If you sign in to Windows using a personal Microsoft account, all data will sync via the Microsoft account. Universal appdata will roam using only the primary sign-in account on the device, and it will only roam if the app’s license is owned by the primary account. Universal appdata for the apps owned by any secondary accounts will not be synced.
+In the Nov 2015 or later releases of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If you sign in to Windows using a work or school Azure AD account, all data will sync via Azure AD. If you sign in to Windows using a personal Microsoft account, all data will sync via the Microsoft account. Universal appdata will roam using only the primary sign-in account on the device, and it will roam only if the app’s license is owned by the primary account. Universal appdata for the apps owned by any secondary accounts will not be synced.
 
 ## Do settings sync for Azure AD accounts from multiple tenants?
 When multiple Azure AD accounts from different Azure AD tenants are on the same device, you must update the device's registry to communicate with Azure Rights Management (RMS) for each Azure AD tenant.  
@@ -81,14 +82,14 @@ From the **tenant ID GUID** key, create a new Multi-String Value (REG-MULTI-SZ) 
 ## What are the roaming settings options for existing Windows desktop applications?
 Roaming only works for Universal Windows apps. There are two options available for enabling roaming on an existing Windows desktop application:
 
-- Using the [Desktop Bridge](http://aka.ms/desktopbridge), you can easily bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
-- Using the [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx), you can create a custom settings template for existing Windows desktop apps and enable roaming for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Pack.
+- The [Desktop Bridge](http://aka.ms/desktopbridge) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
+- [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) helps you create a custom settings template for existing Windows desktop apps and enable roaming for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Pack.
 
-Administrators can configure UE-V to roam Windows desktop app data by disabling roaming of Windows OS settings and Universal app data through [UE-V group policies](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2).
+Administrators can configure UE-V to roam Windows desktop app data by changing roaming of Windows OS settings and Universal app data through [UE-V group policies](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), including:
 
-- Disable Roam Windows settings group policy
-- Enable Do not synchronize Windows Apps group policy
-- Disable IE roaming in the applications section
+- Roam Windows settings group policy
+- Do not synchronize Windows Apps group policy
+- IE roaming in the applications section
 
 In the future, Microsoft may investigate ways to make UE-V deeply integrated into Windows and extend UE-V to roam settings through the Azure AD cloud.
 
@@ -105,9 +106,9 @@ Microsoft is committed to safeguarding customer data. An enterprise user’s set
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual application. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per-app or within-app level.
 
 ## How can I enable or disable roaming?
-In the **Settings** app, go to **Accounts** ->** Sync your settings**. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
+In the **Settings** app, go to **Accounts** -> ** Sync your settings**. From this page, you can see which account is being used to roam settings, and you can enable or disable individual groups of settings to be roamed.
 
-## What is Microsoft’s recommendation for enabling roaming today in Windows 10?
+## What is Microsoft’s recommendation for enabling roaming  in Windows 10?
 Microsoft has a few different settings roaming solutions available, including Roaming User Profiles, UE-V, and Enterprise State Roaming.  Microsoft is committed to making an investment in Enterprise State Roaming in future versions of Windows. If your organization is not ready or comfortable with moving data to the cloud, then Microsoft recommends that you use UE-V as your primary roaming technology. If your organization requires roaming support for existing Windows desktop applications but is eager to move to the cloud, Microsoft recommends that you use both Enterprise State Roaming and UE-V. While UE-V and Enterprise State Roaming are very similar technologies, they are not mutually exclusive, and today they complement each other to ensure that your organization provides the roaming services that your users need.  
 
 When using both Enterprise State Roaming and UE-V, the following rules apply:
