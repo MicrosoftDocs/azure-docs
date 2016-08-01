@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial: Azure Active Directory integration with Tableau Online | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Jostle."
+	description="Learn how to configure single sign-on between Azure Active Directory and Tableau Online."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="08/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -99,7 +99,7 @@ To configure and test Azure AD single sign-on with Tableau Online, you need to c
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Tableau Online application.
 
@@ -262,13 +262,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Tableau Online tile in the Access Panel, you should get automatically signed-on to your Tableau Online application.
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
