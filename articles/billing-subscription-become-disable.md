@@ -34,16 +34,17 @@ Here is how you can remove your Spending Limit:
 
 3. Select a subscription.
 
-4. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click Remove spending limit in the SUBSCRIPTION STATUS area. 
-
-	**Note:** If you are using a free trial subscription, removing the spending limit will convert your subscription to Pay-As-You-Go at the end of the free trial period.
-
+4. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area. 
+	
 5. Select one of the following options that is appropriate for you：
 
 |Option|Effect|
 |------|------|
 |Remove spending limit indefinitely|Removes the spending limit without turning it on automatically at the start of the next billing period.|
 |Remove spending limit for the current billing period|Removes the spending limit so that it turns back on automatically at the start of the next billing period.|
+
+>[AZURE.NOTE] If you are using a Free Trial subscription, removing the Spending Limit will convert your subscription to Pay-As-You-Go at the end of your Free Trial.
+
 ## Your bill is past due
 
 Pay your outstanding balance in full. To do this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
