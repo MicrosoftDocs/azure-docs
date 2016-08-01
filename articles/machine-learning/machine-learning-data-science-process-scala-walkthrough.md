@@ -56,11 +56,11 @@ For a description of the NYC Taxi Trip data and instructions on how to execute c
 
 You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and click on it to enter management page for your cluster. Then click on the **Cluster Dashboards** -> **Jupyter Notebook** to open the notebook associated with the Spark cluster.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
 You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. Just replace the CLUSTERNAME part of this URL with the name of your own cluster. You will need the password for your admin account to access the notebooks.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
 Select Scala to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples for this suite of Spark topic are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)
 
