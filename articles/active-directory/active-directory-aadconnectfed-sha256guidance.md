@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/1/2016"
+	ms.date="08/01/2016"
 	ms.author="anandy"/>
 
 #Change signature hash algorithm for O365 replying party trust
