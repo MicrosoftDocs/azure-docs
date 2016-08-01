@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a virtual network using Templates | Microsoft Azure"
+   pageTitle="Create VNet Peering using Resource Manager Templates | Microsoft Azure"
    description="Learn how to create a virtual network peering using the templates in Resource Manager."
    services="virtual-network"
    documentationCenter=""

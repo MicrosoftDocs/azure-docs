@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
+   pageTitle="Create VNet Peering using the Azure portal | Microsoft Azure"
    description="Learn how to create a virtual network using the Azure portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
