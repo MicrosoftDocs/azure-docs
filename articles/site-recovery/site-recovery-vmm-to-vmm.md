@@ -219,7 +219,7 @@ Install the Azure Site Recovery Provider on VMM servers, and register servers in
 
 7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
-	![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.png)
+	![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.PNG)
 
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
 	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.

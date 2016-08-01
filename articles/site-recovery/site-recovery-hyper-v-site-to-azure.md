@@ -202,7 +202,7 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 - If you  use a custom proxy you'll need to specify the address, port, and credentials
 - If you're using a proxy make sure the URLs described in the [prerequisites](#on-premises-prerequisites) are allowed through it.
 
-	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.png)
+	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
 5.After installation finishes click **Register** to register the server in the vault.	
 	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)

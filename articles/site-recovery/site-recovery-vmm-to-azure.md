@@ -225,7 +225,7 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 	- If you're using a proxy you should have already allowed the URLs described in [prerequisites](#on-premises-prerequisites).
 	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. In **Settings**, expand **Security** > **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
-	![internet](./media/site-recovery-vmm-to-azure/provider13.png)
+	![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 
 7. Accept or modify the location of an SSL certificate that’s automatically generated for data encryption. This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal. Keep this certificate safe. When you run a failover to Azure you’ll need it to decrypt if data encryption is enabled.
 
