@@ -38,11 +38,28 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
     To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
-2. Before any table operations can be performed, the local store must be initialized. This is the relevant code in the `QSTodoService.init` method:
+2. Before any table operations can be performed, the local store must be initialized. This is the relevant code:
 
+**Objective-C**:
+
+In the `QSTodoService.init` method:
+
+```
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+```
+
+**Swift**:
+
+In the `ToDoTableViewController.viewDidLoad` method:
+
+```
+        let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
+        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
+```
+
 
     This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol.
 
