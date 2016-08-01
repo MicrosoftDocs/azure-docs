@@ -141,22 +141,19 @@ If you're installing on a Hyper-V cluster, performs steps 5-11 on each node in t
 	![Installation complete](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.png)
 
 
-9. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select **Use default system proxy settings** to use the default Internet connection settings configured on the server. If you don't specify a value the default settings will be used.
-
-	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider4.png)
-
 9. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/select-key.png)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.png)
 
+10. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select **Use default system proxy settings** to use the default Internet connection settings configured on the server. If you don't specify a value the default settings will be used.
+
+	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.png)
 
 11. Registration starts to register the server in the vault.
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.png)
 
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
-
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider6.png)
 
 
 ### Install the Provider from the command line

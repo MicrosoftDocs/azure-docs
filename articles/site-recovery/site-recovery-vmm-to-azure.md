@@ -213,31 +213,29 @@ Install the Azure Site Recovery Provider on the VMM server, and register the ser
 	![Install location](./media/site-recovery-vmm-to-azure/provider2.png)
 
 4. When installation finishes click  **Register** to register the VMM server in the vault.
-5. In **Internet Connection** specify how the Provider running on the VMM server will connect to Site Recovery over the internet.
+5. In **Vault Settings** page, click **Browse** to select the vault key file. Specify the Azure Site Recovery subscription and the vault name.
 
-	- If you want the Provider to connect directly select **Connect directly without a proxy**.
-	- If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-	- If your existing proxy requires authentication, or you want to use a custom proxy select **Connect with custom proxy settings**.
+	![Server registration](./media/site-recovery-vmm-to-azure/provider10.png)
+
+6. In **Internet Connection** specify how the Provider running on the VMM server will connect to Site Recovery over the internet.
+
+	- If you want the Provider to connect directly select **Connect directly to Azure Site Recovery without a proxy**.
+	- If your existing proxy requires authentication, or you want to use a custom proxy select **Connect to Azure Site Recovery using a proxy server**.
 	- If you  use a custom proxy you'll need to specify the address, port, and credentials
 	- If you're using a proxy you should have already allowed the URLs described in [prerequisites](#on-premises-prerequisites).
 	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. In **Settings**, expand **Security** > **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
-	![internet](./media/site-recovery-vmm-to-azure/provider3.png)
-
-6. In **Vault Settings** page, click **Browse** to select the vault key file. Specify the Azure Site Recovery subscription and the vault name.
-
-	![Server registration](./media/site-recovery-vmm-to-azure/provider4.png)
+	![internet](./media/site-recovery-vmm-to-azure/provider13.png)
 
 7. Accept or modify the location of an SSL certificate that’s automatically generated for data encryption. This certificate is used if you enable data encryption for a cloud protected by Azure in the Azure Site Recovery portal. Keep this certificate safe. When you run a failover to Azure you’ll need it to decrypt if data encryption is enabled.
 
-	![Server registration](./media/site-recovery-vmm-to-azure/provider5.png)
 
 8. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
-13. Enable **Sync cloud metadata** if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
+9. Enable **Sync cloud metadata** if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Register** to complete the process.
 
-	![Server registration](./media/site-recovery-vmm-to-azure/provider6.png)
+	![Server registration](./media/site-recovery-vmm-to-azure/provider16.png)
 
-9. Registration starts. After registration finishes the server is displayed on the **Settings** > **Servers** blade in the vault.
+10. Registration starts. After registration finishes the server is displayed on the **Settings** > **Servers** blade in the vault.
 
 
 #### Command line installation for the Azure Site Recovery Provider

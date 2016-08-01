@@ -213,29 +213,38 @@ Install the Azure Site Recovery Provider on VMM servers, and register servers in
 
 	![Install location](./media/site-recovery-vmm-to-vmm/provider-register.png)
 
-4. In **Proxy Settings** specify how the Provider running on the VMM server will connect to Site Recovery over the internet.
+9. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
 
-	- If you want the Provider to connect directly select **Connect directly without a proxy**.
-	- - If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-	- If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection select **Connect with custom proxy settings**.
-	- If you  use a custom proxy you'll need to specify the address, port, and credentials.
-	- If you're using a proxy you should already have allowed the URLs described in [prerequisites](#provider-and-agent-prerequisites).
-	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. In **Settings**, expand **Security** > **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
+	![Server registration](./media/site-recovery-vmm-to-vmm-classic/vaultcred.png)
 
-	![internet](./media/site-recovery-vmm-to-vmm/provider3.png)
+7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
-4. In **Vault Settings** click **Browse** to select the downloaded key file. Specify the Azure subscription, and the vault name.
+	![Internet Settings](./media/site-recovery-vmm-to-vmm-classic/proxydetails.png)
 
-	![Server registration](./media/site-recovery-vmm-to-vmm/provider-key2.png)
+	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
+	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
+	- Following urls should be accessible from the VMM Server and the Hyper-v hosts
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the **Settings** workspace, expand **Security**, click **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
-5. In **Registration** > **Location to save certificate** click **Next**. A certificate for encryption isn't relevant in this scenario. It's only used when you replicate to Azure storage.
 
-8. In **Server Name** specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
-9. Enable  **Sync Cloud Metadata** if you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console. Click **Next** to complete the process.
+8. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server.
 
-	![Server registration](./media/site-recovery-vmm-to-vmm/provider-sync.png)
 
-10. Registration starts. After registration finishes the VMM server is displayed on the **Settings** > **Servers** blade in the vault.
+10.  The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
+
+11.  In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
+12.  In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
+
+13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
+ 	
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.png)
+
 11. After the server is available in the Site Recovery console, in **Source** > **Prepare source** select the VMM server, and select the cloud in which the Hyper-V host is located. Then click **OK**.
 
 #### Command line installation
