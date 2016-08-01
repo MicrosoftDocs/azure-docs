@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Mobile Engagement"
+	pageTitle="Get started with Android Apps Azure Mobile Engagement"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
 	services="mobile-engagement"
 	documentationCenter="android"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="07/27/2016"
+	ms.date="08/01/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps

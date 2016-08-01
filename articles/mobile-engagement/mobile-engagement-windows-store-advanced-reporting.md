@@ -30,15 +30,9 @@ This topic describes additional reporting scenarios in your Windows Universal ap
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-The tutorial you completed was deliberately direct and simple, but there are a number of options you can choose from.
+Before starting this tutorial, you must first complete the [Getting Started](../articles/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started.md) tutorial, which is deliberately direct and simple. This tutorial covers a number of options you can choose from.
 
-## Install the Mobile Engagement Universal Apps SDK for Windows 8.x and Windows Phone 8.1
-
-NuGet automatically deploys the SDK resources in the `Resources` folder at the root of your application project.
-
-## Initialize the Engagement SDK
-
-### Engagement configuration
+## Specifying engagement configuration at runtime
 
 The Engagement configuration is centralized in the `Resources\EngagementConfiguration.xml` file of your project, which is where it was specified in the [Getting Started](mobile-engagement-windows-store-dotnet-get-started.md) topic.
 
@@ -55,15 +49,13 @@ But you can also specify it at runtime: you can call the following method before
 
 
 
-## Basic reporting
-
-### Recommended method: overload your `Page` classes
+## Recommended method: overload your `Page` classes
 
 In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you can simply make all your `Page` sub-classes inherit from the `EngagementPage` classes.
 
 Here is an example of how to do this for a page of your application. You can do the same thing for all pages of your application.
 
-#### C# Source file
+### C# Source file
 
 Modify your page `.xaml.cs` file:
 
@@ -97,7 +89,7 @@ Modify your page `.xaml.cs` file:
 
 > [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method).
 
-#### XAML file
+### XAML file
 
 Modify your page `.xaml` file:
 
@@ -122,7 +114,7 @@ Modify your page `.xaml` file:
 		    ...
 		</engagement:EngagementPage >
 
-#### Override the default behaviour
+### Override the default behaviour
 
 By default, the class name of the page is reported as the activity name, with no extra. If the class uses the "Page" suffix, Engagement will also remove it.
 
@@ -146,7 +138,7 @@ If you want to report some extra informations with your activity, you can add th
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 
-### Alternate method: call `StartActivity()` manually
+## Alternate method: call `StartActivity()` manually
 
 If you cannot or do not want to overload your `Page` classes, you can instead start your activities by calling `EngagementAgent` methods directly.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/01/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration for Windows Universal Apps Engagement SDK
