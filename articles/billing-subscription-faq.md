@@ -257,7 +257,7 @@ Azure is intended for use by businesses to build cloud scale applications and se
 
 ### Can I try Azure for free, without any risk of being charged?
 
-Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN or BizSpark offer can utilize Azure without any fear of getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for Free Trial offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0.
+Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN, or BizSpark offer can utilize Azure without getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for these offers will have the Spending Limit turned on with a value of $0.
 
 For information on signing up for Azure, see the article [How to sign up for, purchase, upgrade or activate an Azure subscription](billing-buy-sign-up-azure-subscription.md).
 
