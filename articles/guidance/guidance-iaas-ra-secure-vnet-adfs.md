@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/01/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -29,23 +29,13 @@ AD FS can run on-premises, but in a hybrid scenario where elements of an applica
 
 - Hybrid applications where workloads run partly on-premises and partly in Azure.
 
-- Solutions that utilize federated authorization involving access to external web applications hosted by partner organizations.
-
-	If an application running in your Azure VNet requires access to a web application hosted by a partner organization, you can use AD FS to implement federation. AD FS uses AD DS to authenticate the identity of the process or user making the request. AD FS can then pass pertinent information (called *claims*) about the authenticated identity to the federation server in the partner organization. These claims are wrapped up in a security token. The resource partner federation server can validate this token, and then pass the claims made to the web application. The web application can determine whether to authorize the request based on its own business rules. This scenario requires that the partner organization trusts the authentication performed by your AD FS/AD DS services.
-
-	This use case includes single sign-on (SSO) scenarios. The identity of a process can be verified once by using AD DS, and the resulting Kerberos token is cached with the process. The Kerberos token can be used by AD FS to guarantee the authenticity of a request, and the claims associated with the identity can be established and provided to multiple external web applications without the need to repeat authentication.
+- Solutions that utilize federated authorization involving access to external web applications hosted by partner organizations. This use case includes single sign-on (SSO) scenarios. The identity of a process can be verified once, and the resulting identity information is cached with the process.
 
 - Systems that expose web applications to partner organizations.
 
-	Federation can also operate in the other direction. Code running inside a partner organization may be able to invoke a web application hosted as part of your system in Azure. In this case, the federation server in the partner organization is responsible for handling authentication, and passes a token containing claims about the authenticated identity to AD FS. AD FS validates this token, and then passes the claims to the web application which can make the decision to authorize the request. For this scenario your AD FS service must trust the authentication performed by the partner organization.
-
 - Systems that support access from web browsers running outside of the organizational firewall.
 
-	Some organizations provide controlled exposure to web applications from external, registered users. These users connect using a web browser. In this case, there is no partner AD FS to perform authentication, so the system must use AD DS to verify the credentials of these users. This process can involve multi-factor authentication.
-
-- Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices.
-
-	This mechanism enables seamless second factor authentication, persistent single sign-on, and conditional access to consumers that require access to company resources. This solution requires that you enable the Device Registration Service (DRS) on your federation server . For more information, see [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications][DRS].
+- Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. This solution requires that you enable the Device Registration Service (DRS) on your federation server . For more information, see [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications][DRS].
 
 For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview].
 
@@ -77,43 +67,9 @@ The following diagram highlights the important components in this architecture (
 
 - **AD FS servers.** The AD FS servers provide federated authorization and authentication. They perform the following tasks:
 
-	- They use AD DS to authenticate requests made by the application running in the cloud. The partner web application is configured as a *relying partner* of AD FS. The configuration information includes the claims that the partner web application expects.  AD DS can include attributes for the identities that it authenticates (such as the email address, location, etc), and AD FS can take this information and transform in into the claims expected by the relying party before sending these claims (encoded as a security token) to the partner federation server. In this role, the AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts. The complete flow of control for this use case is as follows:
-	
-		1. A corporate user in your organization attempts to access a web application owned by partner A.
+	- They use AD DS to authenticate requests made by the application running in the cloud. The partner web application is configured as a *relying partner* of AD FS. The configuration information includes the claims that the partner web application expects.  AD DS can include attributes for the identities that it authenticates (such as the email address, location, etc), and AD FS can take this information and transform in into the claims expected by the relying party before sending these claims (encoded as a security token) to the partner federation server. In this role, the AD FS servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts. 
 
-		2. If the corporate user is not yet authenticated, she is redirected to the federation server of partner A.
-
-		3. The federation server in partner A provides a Home Realm Discovery (HDR) mechanism, and the corporate user can select the account federation server (AD FS within the organization's Azure VNet).
-		
-			>[AZURE.NOTE] A user might be redirected based on the domain specified as part of her user principal name (UPN). For example, if the user's UPN is *fred@treyresearch.com* then the federation server at partner A could be configured to redirect the user to *treyresearch.com* to perform authentication. This scenario is not considered further in this guidance.
-
-		4. The user is redirected back to the account federation server, where she is authenticated.
-
-		5. The account federation server retrieves the user's claims from the AD database and passes them back to the user's process.
-
-		6. The user's process process wraps the claims inside a Security Assertion Markup Language (SAML) token which it encodes and sends to the federation server on Partner A.
-
-		7. Partner A authenticates the token to verify that it is valid, transforms the claims it contains (if appropriate) and sends the verified claims back to the user's process as another SAML token.
-
-		8. The user's process SAML token containing the authenticated claims to the web application on partner A, which can perform any necessary authorization.
-
-	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner application. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests (the claims can correspond to attributes held in AD DS for the authenticated identity). In this scenario, the corporate web application is the relying party, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The AD FS servers are referred to as *resource partners* because they provide access to resources. The flow of control is:
-
-		1. A user within a partner organization (Partner B) attempts to access the corporate web application running in your organization's Azure VNet.
-
-		2. If the partner user is not yet authenticated, she is redirected to your organization's federation server inside the VNet (AD FS).
-
-		3. HDR in AD FS enables the user to select the federation server in partner B, or she may be redirected to another site for authentication based on her UPN (this case is not considered further here).
-
-		4. The partner user authenticates using the account federation server at partner B.
-
-		5. The account federation server at partner B retrieves the user's claims and passes them back to the user's process.
-
-		6. The user's process creates a SAML token with these claims which it sends to the AD FS in your organization's VNet.
-
-		7. Your organization's ADFS authenticates the token to verify that it is valid, transforms the claims it contains (if appropriate) and sends the verified claims back to the user's process as another SAML token.
-
-		8. The user's process SAML token containing the authenticated claims to the web application in your organization, which can perform any necessary authorization.
+	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner application. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests (the claims can correspond to attributes held in AD DS for the authenticated identity). In this scenario, the corporate web application is the relying party, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The AD FS servers are referred to as *resource partners* because they provide access to resources.
 
 	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests external users running a web browser or device that needs access to your corporate web applications. 
 
@@ -121,9 +77,11 @@ The following diagram highlights the important components in this architecture (
 
 - **Active Directory Federation Services subnet.** The AD FS servers can be contained within their own subnet, with NSG rules acting as a basic firewall.
 
-- **Partner A.** A resource partner organization that which owns or manages external web applications. A federation service (which could be AD FS, but does not have to be) at the resource partner site receives requests in the form of a security token containing authenticated claims from the account partner (AD FS running in Azure in this example). If a security token is valid, the claims are passed to the external web application for authorization.
+- **Partner A.** This is an example resource partner organization which owns or manages external web applications. A federation service (which could be AD FS, but does not have to be) at the resource partner site receives requests in the form of a security token containing authenticated claims from the account partner (AD FS running in Azure in this example). If a security token is valid, the claims are passed to the external web application for authorization.
 
-- **Parter B.** Another partner organization that runs a web application that requests access to the web application running in Azure. The federation server at Partner B authenticates requests locally, and submits security tokens containing claims to AD FS running in Azure. AD FS in Azure validates the security tokens, and if they are valid it can pass the claims to the web application running in Azure to authorize them. 
+- **Parter B.** This is another example partner organization which runs a web application that requests access to the web application running in Azure. The federation server at Partner B authenticates requests locally, and submits security tokens containing claims to AD FS running in Azure. AD FS in Azure validates the security tokens, and if they are valid it can pass the claims to the web application running in Azure to authorize them.
+
+	>[AZURE.NOTE] Partner A and Partner B are both optional. They are examples showing how the architecture integrates with external web applications run by partner organizations, and with users that are managed by partner organizations. You system may have zero or more instances of oraganizations acting as Partner A or Partner B, or both.
 
 - **AD FS web application proxy (WAP) servers.** These computers act as AD FS servers for incoming requests from partner organizations (such as Partner B) and external devices. The WAP servers act as a filter, protecting the AD FS servers from direct access from the public Internet. As with the AD FS servers, deploying the WAP servers in a farm with load balancing gives you greater availability and scalability than deploying a collection of stand-alone servers.
 
@@ -151,11 +109,11 @@ Create VMs with sufficient resources to handle the expected volume of traffic. U
 
 ### Networking recommendations
 
-Using the Azure portal, configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
+Configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
 
 [AZURE.NOTE] Do not give the AD FS VMs public IP addresses. See [Security considerations][security-considerations] for more details.
 
-Also, use the Azure portal to set the IP address of the preferred and secondary DNS servers for the network interfaces for each AD FS and WAP VM to reference the AD DS VMs (which should be running DNS). This step is necessary to enable each VM to join the domain.
+Set the IP address of the preferred and secondary DNS servers for the network interfaces for each AD FS and WAP VM to reference the AD DS VMs (which should be running DNS). This step is necessary to enable each VM to join the domain.
 
 ### Load balancer recommendations
 
@@ -169,7 +127,7 @@ Configure the load balancers for the AD FS VMs and WAP VMs as follows:
 
 	>[AZURE.NOTE] AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer will fail.
 
-- Using the *DNS Manager* console on a VM running the DNS for the domain, add an *A* record for the AD FS load balancer. 
+- Add a DNS *A* record to the domain for the AD FS load balancer. 
 
 	Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name by which clients and the WAP servers will access the AD FS server farm.
 
@@ -185,7 +143,7 @@ Perform the following tasks before configuring the first AD FS server in the far
 
 	For more information, see [Obtain and Configure an SSL Certificate for AD FS][adfs_certificates].
 
-2. On the domain controller, use the following PowerShell command to generate a new root key for the Key Distribution Service. Set the effective time to be the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support creating the group service account that will be used to run the AD FS service:
+2. On the domain controller, generate a new root key for the Key Distribution Service. Set the effective time to be the current time minus 10 hours (this configuration reduces the delay that can occur in distributing and synchronizing keys across the domain). This step is necessary to support creating the group service account that will be used to run the AD FS service. The following Powershell command shows an example of how to do this:
 
 	```powershell
 	Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
@@ -193,7 +151,7 @@ Perform the following tasks before configuring the first AD FS server in the far
 
 3. Add each AD FS server VM to the domain.
 
-Install *Active Directory Federation Services* by using the *Add Roles and Features* wizard in Server Manager. The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS.
+Install *Active Directory Federation Services*. The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS.
 
 ### Trust recommendations
 
@@ -213,15 +171,19 @@ Establish federation trust between your AD FS installation, and the federation s
 
 Publish your organization's web applications and make them available to external partners by using preauthentication through the WAP servers. For more information, see [Publish Applications using AD FS Preauthentication][publish_applications_using_AD_FS_preauthentication]
 
+Note that AD FS supports token transformation and augmentation. Azure Active Directory does not provide this feature. With AD FS, when you set up the trust relationships, you can:
+
+- Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that that AD DS can authorize in your organization.
+
+- Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.3 if your application only understands SAML 1.3 claims. 
+
 ## Availability considerations
 
-Create different availability sets for the AD FS and WAP servers. Ensure that there are at least two servers in each set. 
+Create an AD FS farm with at least two servers to increase availability of the AD FS service. 
 
-*AD FS availability notes?*
+Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. 
 
-*WAP server availability notes?*
-
-*Using SQL Server rather than WID?*
+You can use either SQL Server or the Windows Internal Database (WID) to hold AD FS configuration information. WID provides basic redundancy; changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability using failover clustering or mirroring.
 
 ## Security considerations
 
@@ -230,6 +192,8 @@ AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rule
 Prevent direct exposure of the AD FS servers to the Internet. AD FS are domain-joined computers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use WAP servers to handle these requests. Do not domain-join these WAP servers. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
 
 Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
+
+Restrict direct login access to the AD FS and WAP servers. Only DevOps staff should be able to connect.
 
 Do not join the WAP servers to the domain in the cloud.
 
@@ -249,11 +213,17 @@ Note that if you are using the Windows Internal Database to store AD FS configur
 
 ## Management considerations
 
-*TBC*
+DevOps staff should be prepared to perform the following tasks:
 
-## Monitoring considerations
+- Managing the federation servers (managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services).
 
-*TBC*
+- Managing the WAP servers (managing the WAP farm, managing the WAP certificates).
+
+- Managing web applications (configuring relying parties, authentication methods, and claims mappings).
+
+- Backing up AD FS components.
+
+For more information, see [Managing ADFS Components][managing-adfs-components]
 
 ## Solution components
 
@@ -314,6 +284,9 @@ To run the script that deploys the solution:
 
 ## Next steps
 
+- [Azure Active Directory][aad].
+
+- [Azure Active Directory B2C][aadb2c].
 <!-- links -->
 
 [implementing-active-directory]: ./guidance-iaas-ra-secure-vnet-ad.md
@@ -339,5 +312,8 @@ To run the script that deploys the solution:
 [Deploying_a_federation_server_farm]: https://technet.microsoft.com/library/dn486775.aspx
 [install_and_configure_the_web_application_proxy_server]: https://technet.microsoft.com/library/dn383662.aspx
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
+[managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[aad]: https://azure.microsoft.com/documentation/services/active-directory/
+[aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
