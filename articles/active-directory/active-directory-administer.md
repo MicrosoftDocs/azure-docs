@@ -102,8 +102,8 @@ You can manage each directory as a fully independent resource: each directory is
 
 - **Resource independence**. If you create or delete a resource in one directory, it has no impact on any resource in another directory, with the partial exception of external users, described below. If you use a custom domain 'contoso.com' with one directory, it cannot be used with any other directory.
 - **Administrative independence**.  If a non-administrative user of directory 'Contoso', creates a test directory 'Test' then:
-    - ◦The directory sync tool, to synchronize data with a single AD forest.
-    - ◦The administrators of directory 'Contoso' have no direct administrative privileges to directory 'Test' unless an administrator of 'Test' specifically grants them these privileges. Administrators of 'Contoso' can control access to directory 'Test' by virtue of their control of the user account which created 'Test.'
+    - The directory sync tool, to synchronize data with a single AD forest.
+    - The administrators of directory 'Contoso' have no direct administrative privileges to directory 'Test' unless an administrator of 'Test' specifically grants them these privileges. Administrators of 'Contoso' can control access to directory 'Test' by virtue of their control of the user account which created 'Test.'
 
     And if you change (add or remove) an administrator role for a user in one directory, the change does not affect any administrator role that user may have in another directory.
 
@@ -130,8 +130,8 @@ The following conditions are checked:
 - There can be no applications in the directory. Any applications must be deleted before the directory can be deleted.
 - There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you cannot delete a directory if another user has associated a subscription with it. To associate your subscription with a different directory, sign in to the Azure Management Portal and click **Settings** in the left navigation. Then on the bottom of the **Subscriptions** page, click **Edit Directory**. For more information about Azure subscriptions, see [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory. For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.
+> [AZURE.NOTE]
+> If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory. For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.
 
 - No Multi-Factor Authentication providers can be linked to the directory.
 

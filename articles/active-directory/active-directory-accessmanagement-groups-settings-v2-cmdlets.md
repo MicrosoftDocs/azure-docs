@@ -219,8 +219,6 @@ If you want to remove an owner from a group, use Remove-AzureADGroupOwner:
 
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-Additional instruction from Microsoft program manager Rob de Jong is available at [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
-
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
