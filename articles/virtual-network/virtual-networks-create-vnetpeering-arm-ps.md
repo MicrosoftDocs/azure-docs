@@ -17,7 +17,7 @@
    ms.date="03/15/2016"
    ms.author="telmos"/>
 
-# Create a virtual network using the Azure portal
+# Create VNet Peering using Powershell cmdlets
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
