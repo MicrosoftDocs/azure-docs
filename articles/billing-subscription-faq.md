@@ -153,8 +153,11 @@ Azure Service Level Agreements are independent of our on-premises Microsoft lice
 ### I do not see an invoice for the last billing period. Why?
 
 There could be several reasons for this:
+
 - It is less than 30 days from the day you subscribed to Azure.
+
 - Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+
 - The invoice generation date has not yet arrived.
 
 ### I am unable to log in to the Azure portal
