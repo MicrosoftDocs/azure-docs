@@ -148,7 +148,7 @@ If you're installing on a Hyper-V cluster, performs steps 5-11 on each node in t
 
 11. Registration starts to register the server in the vault.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.PNG)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
 
