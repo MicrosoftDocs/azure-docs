@@ -3,7 +3,7 @@
 	description="Azure SQL Database business continuity scenarios"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 

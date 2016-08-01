@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/30/2016"
 	ms.author="awills"/>
 
 # Navigation and Dashboards in the Application Insights portal
@@ -57,18 +57,24 @@ Choose what you want to see on the overview. In Customize, you can insert sectio
 The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![A customized dashboard.](./media/app-insights-dashboards/30.png)
+![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
-1. Click the top corner at any time to get back to the dashboard.
-2. Click a chart or tile on the dashboard to see more detail about its data.
-3. Use the navigation bar for a complete view of all your resources.
-4. Edit, create and share dashboards using the dashboard toolbar.
+
+1. Edit, create and share dashboards using the dashboard toolbar.
+2. Return to the current dashboard, or switch to other recent views.
+3. Switch dashboards.
+4. Create, edit and share dashboards.
+5. Hover over a tile and then use its top bar to move, customize, or remove it.
 
 ## Add to a dashboard
 
 When you're looking at a blade or set of charts that's particularly interesting, you can pin a copy of it to the dashboard. You'll see it next time you return there.
 
 ![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
+
+1. Pin chart to dashboard. A copy of the chart appears on the dashboard.
+2. Pin the whole blade to the dashboard - it appears on the dashboard as a tile that you can click through.
+3. Click the top left corner to return to the current dashboard. Then you can use the drop-down menu to return to the current view.
 
 Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
 
