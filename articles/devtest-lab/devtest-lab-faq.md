@@ -151,7 +151,7 @@ We have a Github repository of lab ARM templates. Each of these templates has a 
 Resource groups are created this way in order for DevTest Labs to manage the user permissions and access to virtual machines. We are working on improving this experience to allow more flexibility, but you can rename these resource groups as needed. It is advised that you do not move VMs into different resource groups to avoid unintentionally modifying permissions. 
  
 ### How many labs can I create under the same subscription? 
-There is no specific limit on the number of labs that can be created per subscription, but the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](../azure-limits-quotas-increase-requests.md). 
+There is no specific limit on the number of labs that can be created per subscription, but the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests). 
  
 ### How many VMs can I create per lab? 
 There is no specific limit on the number of VMs that can be created per lab, but currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. These limits also vary based on the  We are currently working on increasing these limitations. 
