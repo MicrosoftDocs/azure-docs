@@ -142,7 +142,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 9. Under **Authentication Types** section. Check the **Single sign-on with SAML** checkbox to enable SAML.
 
+	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_12.png)
+
 10. Scroll down until **Import metadata file into Tableau Online** section.  Click Browse and import the metadata file you have downloaded from Azure AD. Then, click **Apply**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 11. In the **Match assertions** section, insert the corresponding Identity Provider assertion name for email address, first name and last name. To get this information from Azure AD:
 
@@ -155,6 +159,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	-  Email: **mail** or **userprincipalname**
 	-  First name: **givenname**
 	-  Last name: **surname**
+
+	![Configure Single Sign-On](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### Creating an Azure AD test user
 In this section, you create a test user in the classic portal called Britta Simon.
@@ -220,6 +226,8 @@ In this section, you create a test user in the classic portal called Britta Simo
 In this section, you create a user called Britta Simon in Tableau Online.
 
 1. On **Tableau Online**, click on **Settings** and then **Authentication** section. Scroll down to **Select Users** section. Click on **Add Users** and then **Enter Email Addresses**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_15.png)
 2. Select **Add users for single sign-on (SSO) authentication**. In the **Enter Email Addresses** textbox add britta.simon@contoso.com
 
 	![Creating an Azure AD test user](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
