@@ -507,7 +507,7 @@ Feature scaling, also known as data normalization, insures that features with wi
 
 >[AZURE.TIP] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
 
-Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
+Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()

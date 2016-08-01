@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/01/2016"
 	ms.author="bradsev;"/>
 
 
@@ -26,11 +26,11 @@ This topic shows how to use Scala for supervised machine learning tasks with the
 
 The modeling process requires training and evaluation on a test data sets with relevant accuracy metrics. We also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. A more advanced topic covered is how models can be optimized using cross-validation and hyper-parameter sweeping. The data used is a sample of the 2013 NYC taxi trip and fare dataset.
 
-[Scale](http://www.scala-lang.org/) is a Java-Virtual-Machine-based language that integrates object-oriented and functional language concepts. It is a scalable language that is well-suited to distributed processing in the cloud.
+[Scala](http://www.scala-lang.org/) is a Java-Virtual-Machine-based language that integrates object-oriented and functional language concepts. It is a scalable language that is well-suited to distributed processing in the cloud and runs on Azure Spark clusters.
 
 [Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. The [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) package provides a uniform set of high-level APIs built on top of DataFrames that help users create and tune practical machine learning pipelines. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment. 
 
-[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) is the Azure hosted offering of open-source Spark. It also includes support for **Jupyter PySpark notebooks** on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). PySpark is the Python API for Spark. The code snippets that provide the solutions and show the relevant plots to visualize the data here run in Jupyter notebooks installed on the Spark clusters. The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model. 
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) is the Azure hosted offering of open-source Spark. It also includes support for **Jupyter Scala notebooks** on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). The Scala code snippets that provide the solutions and show the relevant plots to visualize the data here run in Jupyter notebooks installed on the Spark clusters. The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model. 
 
 The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark 1.6. However, the code here and in the [Scala Jupyter notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) for this walkthrough is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark.
 
@@ -51,9 +51,26 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 
 For a description of the NYC Taxi Trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections of [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
-The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-## Setup: preset Spark and Hive contexts, PySpark magics and libraries
+## Execute Scala code from a Jupyter notebook on the Spark cluster 
+
+You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and click on it to enter management page for your cluster. Then click on the **Cluster Dashboards** -> **Jupyter Notebook** to open the notebook associated with the Spark cluster.
+
+![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+
+You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. Just replace the CLUSTERNAME part of this URL with the name of your own cluster. You will need the password for your admin account to access the notebooks.
+
+![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+
+Select Scala to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples for this suite of Spark topic are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)
+
+
+You can upload the notebook directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Scala Notebook and click **Open**. The Scala notebook is available at the following URL:
+
+[Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
+
+
+## Setup: preset Spark and Hive contexts, Spark magics and libraries
 
 ### Preset Spark and Hive context
 
@@ -62,18 +79,18 @@ The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contain
 	val beginningTime = Calendar.getInstance().getTime()
 
 
-The PySpark kernels that are provided with Jupyter notebooks have a preset contexts, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+The Spark kernels that are provided with Jupyter notebooks have a preset contexts, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
 
 - sc - for SparkContext 
 - sqlContext - for HiveContext
 
 
-### PySpark magics
+### Spark magics
 
-The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+The Spark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
-- **%%local**  Specifies that the code in subsequent lines will be executed locally. The code must be valid Python code.
-- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+- **%%local**  Specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Scala context as a Spark dataframe.
 
 For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
@@ -261,7 +278,7 @@ Once the data has been brought into Spark, the next step in the data science pro
 
 By default, the output of any code snippet that you run from a Jupyter notebook is available within the context of the session that is persisted on the worker nodes. If you want to save a trip to the worker nodes for every computation and if all the data that you need for your computation is available locally on the Jupyter server node (which is the headnode), you can use the %%local magic to run the code snippet on the Jupyter server.
 
-- **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
+- **SQL magic (`%%sql`)** The HDInsight Spark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
 - The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
 
 ### Query the data using SQL
@@ -287,7 +304,7 @@ One can plot using Python code once the data-frame is in local context as pandas
 	sqlResults
 
 
- The Pyspark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You are given the option to choose between several different types of visualizations:
+ The Spark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You are given the option to choose between several different types of visualizations:
 
 - Table
 - Pie
@@ -855,7 +872,7 @@ Next, query the test results as data-frame and visualize using Jupyter autoviz &
 
 The code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
 
->[AZURE.NOTE] This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
+>[AZURE.NOTE] This Spark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
 
 Create plots using Python matplotlib. 
 
@@ -1145,6 +1162,6 @@ Time taken to run the above cell: 61 seconds.
 
 ## Consume Spark-built ML models automatically with Scala
 
-The procedure using pySpark code to automatically load and score new data-sets with ML models built in Spark and saved in Azure blobs has been provided in the [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic. Users can follow the instructions provided there and simply replace the Python code with Scala code provided above to enable automated consumption.
+The procedure using Scala code to automatically load and score new data-sets with ML models built in Spark and saved in Azure blobs has been provided in the [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic. Users can follow the instructions provided there and simply replace the Python code with Scala code provided above to enable automated consumption.
 
 
