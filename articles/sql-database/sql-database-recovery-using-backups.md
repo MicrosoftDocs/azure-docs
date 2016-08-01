@@ -24,7 +24,7 @@ SQL Database provides three options for database recovery using [SQL Database au
 - A database on the same logical server recovered to the deletion time for a deleted database.
 - A new database on any logical server in any region recovered to the most recent daily backups in geo-replicated blob storage (RA-GRS).
 
-You can also use [SQL Database automated backups](sql-database-automated-backups.md) to create a [database copy](sql-database-copy.md) on any logical server in any region that is transactionally consistent with the current SQL Datbase. You can use database copy and [export to a BACPAC](sql-database-export.md) to archive a transactionally consistent copy of a database for long-term storage beyond your retention period, or to transfer a copy of your database to an on-premises or Azure VM instance of SQL Server.
+You can also use [SQL Database automated backups](sql-database-automated-backups.md) to create a [database copy](sql-database-copy.md) on any logical server in any region that is transactionally consistent with the current SQL Database. You can use database copy and [export to a BACPAC](sql-database-export.md) to archive a transactionally consistent copy of a database for long-term storage beyond your retention period, or to transfer a copy of your database to an on-premises or Azure VM instance of SQL Server.
 
 ## Recovery time
 
@@ -68,8 +68,8 @@ Deleted database restore allows you to restore a deleted database to the deletio
 You can use the same or a new database name for the restored database. You can use the [Azure portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [AZURE.SELECTOR]
-- [Deleted datbase restore: Azure portal](sql-database-restore-deleted-database-portal.md)
-- [Deleted datbase restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Deleted database restore: Azure portal](sql-database-restore-deleted-database-portal.md)
+- [Deleted database restore: PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 ## Geo-Restore
 

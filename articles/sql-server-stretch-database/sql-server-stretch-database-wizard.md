@@ -31,7 +31,8 @@ To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-
 ## <a name="Intro"></a>Introduction
 Review the purpose of the wizard and the prerequisites.
 
-The important prerequisites include the following.
+The important prerequisites include the following:
+
 -   You have to be an administrator to change database settings.
 -   You have to have a Microsoft Azure subscription.
 -   Your SQL Server has to be able to communicate with the remote Azure server.

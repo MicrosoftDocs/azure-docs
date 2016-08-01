@@ -97,9 +97,9 @@ If your JSON documents only contain simple top-level properties, you may not nee
        "tags" : [ "search", "storage", "howto" ]    
  	}
 
-## Picking the property containing the array of JSON objects
+## Indexing nested JSON arrays
 
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
+What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this: 
 
 	{ 
 		"level1" : {

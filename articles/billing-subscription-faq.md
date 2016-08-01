@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/27/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -25,7 +25,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [Can notifications be sent to a different email address other than the Account Owner email address associated with my account?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
-- [Why cannot I edit or add details to my subscription?](#why-cannot-i-edit-or-add-details-to-my-subscription)
+- [Why can't I edit or add details to my subscription?](#why-cant-i-edit-or-add-details-to-my-subscription)
 - [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
 
 ## Billing
@@ -36,9 +36,10 @@ This article answers some of the most common questions about Azure Billing and S
 ## Free Trial
 
 - [Can I try Azure for free without any risk of being charged?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
-- [What is a trial subscription and how long does it last?](#what-is-a-trial-subscription-and-how-long-does-it-last)
-- [What resources are available when using a trial account?](#what-resources-are-available-when-using-a-trial-account)
+- [What is a Free Trial subscription and how long does it last?](#what-is-a-free-trial-subscription-and-how-long-does-it-last)
+- [What resources are available when using a Free Trial?](#what-resources-are-available-when-using-a-free-trial)
 - [What happens if I remove the spending limit on my free trial?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
+- [Can I get a quota increase on a free trial subscription?](#can-i-get-a-quota-increase-on-a-free-trial-subscription)
 - [Where can I get more details on Free Trial?](#where-can-i-get-more-details-on-free-trial)
 
 ## How to buy Azure
@@ -70,7 +71,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [What are the Azure SLA Credits?](#what-are-the-azure-sla-credits)
 - [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Azure Spending limits
+## Azure Spending Limits
 
 - [Can I turn the Spending Limit back on if I turn off it?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [Can I adjust the amount of the Spending Limit?](#can-i-adjust-the-amount-of-the-spending-limit)
@@ -84,20 +85,24 @@ This article answers some of the most common questions about Azure Billing and S
 - [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
 - [How do I cancel my Azure Support plan?](#how-do-i-cancel-my-azure-support-plan)
 
-## Migrating subscriptions, services and data
+## Migrating subscriptions, services, and data
 
 - [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [How do I transfer ownership of my subscriptions?](#how-do-i-transfer-ownership-of-my-subscriptions)
+
+## Subscription service limits (quotas)
+
+- [Can I get a quota increase on a free trial subscription?](#can-i-get-a-quota-increase-on-a-free-trial-subscription)
 
 ### What payment options do I have in purchasing Azure?
 
 You can purchase Azure using a credit or debit card or choose to be invoiced.
 
-**NOTE:**
+> [AZURE.NOTE]
 
-- Once you opt for the invoice option, you can't move to the credit card option. To sign up for invoicing, see [Azure Invoicing](https://azure.microsoft.com/pricing/invoicing/).
-- Please note that we do not accept prepaid and virtual credit cards.
-- You are solely responsible for any credit card interest or other credit card charges that may result.
+> - Once you opt for the invoice option, you can't move to the credit card option. To sign up for invoicing, see [Azure Invoicing](https://azure.microsoft.com/pricing/invoicing/).
+> - Please note that we do not accept prepaid and virtual credit cards.
+> - You are solely responsible for any credit card interest or other credit card charges that may result.
 
 ### How can I request the invoice method of payment?
 
@@ -123,11 +128,15 @@ If your credit card gets renewed and the number remains the same, you can simply
 
 Our Service Level Agreement for availability applies to customer applications which use a minimum of two role instances.  There is no SLA for single instances. Please refer to your [SLA page](https://azure.microsoft.com/support/legal/sla/) for complete details.
 
-**Planned maintenance (Classic Portal)**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
+#### Planned maintenance (Classic Portal)
 
-**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
+For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
 
-**Unplanned maintenance:** In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
+>[AZURE.NOTE] For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
+
+#### Unplanned maintenance 
+
+In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
 ### What is the Azure SLA agreement for uptime and connectivity?
 
@@ -150,13 +159,12 @@ There could be several reasons for this:
 
 ### I am unable to log in to the Azure portal
 
-The following article will help you troubleshoot some common causes of login issues:
+Please see [I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md).
 
-[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
-
-**Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
+>[AZURE.NOTE] Make sure you are logging in as the right administrator: an Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
 
 ### How do I purchase Azure Support?
+
 Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.
 
 If you purchase Microsoft Azure through an Enterprise Agreement (EA), you can add either a Standard or Professional Direct support plan to your Enterprise Agreement, by contacting your Large Account Reseller (LAR). Developer Support is not available through an Enterprise Agreement.
@@ -171,7 +179,7 @@ A Microsoft Azure account can be accessed from the [Azure Account Center](https:
 
 ### How do I upgrade to a higher tier Azure Support plan?
 
-You can upgrade to a higher-tier plan by [submitting a support request](billing-how-to-create-billing-support-ticket.md) and choosing a “Subscription Management”. Microsoft will waive the remaining payments on your original Azure Support plan and charge you at the higher tier for the remaining months of your initial commitment.
+You can upgrade to a higher-tier plan by [submitting a support request](billing-how-to-create-billing-support-ticket.md) and choosing **Subscription Management**. Microsoft will waive the remaining payments on your original Azure Support plan and charge you at the higher tier for the remaining months of your initial commitment.
 
 ### When will I be billed for Azure Support?
 
@@ -185,9 +193,9 @@ If you do not wish to auto renew, please log into the [Azure Account Center](htt
 
 ### How do I cancel my Azure Support plan?
 
-An account owner can cancel an Azure Support plan by logging into the [Azure Account Center](https://account.windowsazure.com/Home/Index), selecting “ACCOUNT CENTER”, and selecting “subscriptions”. If you have a subscription, your list of subscriptions will be displayed. Select the subscription you wish to cancel. The details of the subscription will then be displayed with a list of options on the right side of the screen. Select “Cancel” and proceed. If you do not have a subscription, then the message “You do not have any subscriptions.” will be displayed.
+An account owner can cancel an Azure Support plan by logging into the [Azure Account Center](https://account.windowsazure.com/Home/Index), then selecting **subscriptions**. If you have a subscription, your list of subscriptions will be displayed. Select the subscription you wish to cancel. The details of the subscription will then be displayed with a list of options on the right side of the screen. Select **Cancel** and proceed. If you do not have a subscription, then the message “You do not have any subscriptions.” will be displayed.
 
-Note that an Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
+>[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
 For details see [How to cancel your Azure subscription](billing-how-to-cancel-azure-subscription.md).
 
 ### How do I migrate data and services for my Azure subscription to a new subscription?
@@ -230,16 +238,16 @@ To view and edit the Azure account information, you must sign in to the Azure Ac
 2.	On the subscriptions page, click the subscription for which you want to update the payment method.
 3.	On the **subscription** summary page, click Change payment method. The **Change Payment Method** tool appears in a separate window.
 
-**NOTE**: You can also access the Account Center from the Microsoft Azure classic portal. To do so, click your account name, and then click View my bill.
+	**Note**: You can also access the Account Center from the Microsoft Azure classic portal. To do so, click your account name, and then click View my bill.
 4.	On the **Choose payment method** page, click the drop-down list, select the payment method you want update, and then click **Edit**.
 5.	On the details page, verify that you have selected the correct credit card type and card number.
 6.	Make necessary changes to the card details, and then click **Next**.
 
 For more information, see the article [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
-**NOTE**: Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the FAQ "How do I remove a credit card that I no longer use as an Azure payment method?" in this article.
+>[AZURE.NOTE] Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) in this article.
 
-### Why cannot I edit or add details to my subscription
+### Why can't I edit or add details to my subscription?
 
 To view and edit the Azure account information, you must sign in to the Azure Account Center as the account administrator.  If you are the AA and still cannot edit the subscription, please submit a support ticket to request assistance. To create a support ticket, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
@@ -249,7 +257,8 @@ Azure is intended for use by businesses to build cloud scale applications and se
 
 ### Can I try Azure for free, without any risk of being charged?
 
-Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN or BizSpark offer can utilize Azure without any fear of getting charged as long as they keep the Spending Limit feature turned on.
+Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN, or BizSpark offer can utilize Azure without getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for these offers will have the Spending Limit turned on with a value of $0.
+
 For information on signing up for Azure, see the article [How to sign up for, purchase, upgrade or activate an Azure subscription](billing-buy-sign-up-azure-subscription.md).
 
 ### Can I turn the Spending Limit back on if I turn off it?
@@ -260,7 +269,7 @@ For more information, see [Change the Azure Spending Limit](https://msdn.microso
 ### Can I adjust the amount of the Spending Limit?
 
 For the initial release of this feature, the Spending Limit is set at $0 and cannot be adjusted. It is designed to enable customers on our Free Trial, MSDN, MPN or BizSpark offers to utilize Azure with complete assurance of not being billed.
-For more information, see Azure Spending Limit(https://azure.microsoft.com/pricing/spending-limits/).
+For more information, see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
 
@@ -274,19 +283,30 @@ Yes.
 
 There are currently no plans to offer Azure or SQL Database through SPLA.
 
-### What is a trial subscription and how long does it last?
+### What is a Free Trial subscription and how long does it last?
 
-An Azure trial subscription allows you a dollar amount of credit to use on Microsoft services based on your needs for a period of 30 days. To see what services free trial credits cover and do not cover, see the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/).
+An Azure Free Trial subscription is a one-month free trial for any new customer and provide credits of $200 USD of Azure at no charge. To see what services free trial credits cover and do not cover, see the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
-You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/).
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/). See [this guide](billing-buy-sign-up-azure-subscription.md#sign-up-for-an-azure-free-trial-subscription) for step-by-step instructions.
 
-### What resources are available when using a trial account?
+### What resources are available when using a Free Trial?
 
-You receive $200 of Azure credits with the Free Trial. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
+You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details. 
+
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/). 
+
+Also see the [Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 ### What happens if I remove the spending limit on my free trial?
 
 Once you remove the spending limit, you start getting charged for consuming resources beyond the free trial credit. You will not be able to reset the spending limit once it has been removed.
 
+### Can I get a quota increase on a Free Trial subscription?
+
+Free Trial subscriptions are not eligible for quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For details on how to upgrade see [Upgrade Azure Free Trial to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#UpgradeFreeToPYG).
+
+>[AZURE.NOTE] DreamSpark subscriptions are also ineligible for quota increases.
+
 ### Where can I get more details on Free Trial?
+
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
