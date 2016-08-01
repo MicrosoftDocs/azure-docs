@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="0/01/2016"
+ms.date="08/01/2016"
 ms.author="larryfr"/>
 
 # Analyze Application Insights telemetry logs with Spark on HDInsight
