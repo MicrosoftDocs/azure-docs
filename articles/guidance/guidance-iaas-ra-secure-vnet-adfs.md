@@ -175,7 +175,7 @@ Note that AD FS supports token transformation and augmentation. Azure Active Dir
 
 - Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that that AD DS can authorize in your organization.
 
-- Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.3 if your application only understands SAML 1.3 claims. 
+- Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.3 if your application only supports SAML 1.3 claims. 
 
 ## Availability considerations
 
