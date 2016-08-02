@@ -53,8 +53,8 @@ Azure Service Bus has the following trigger(s):
 
 |Trigger | Description|
 |--- | ---|
-|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
-|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
+|[When a message is received in a queue](connectors-create-api-azureservicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
+|[When a message is received in a topic subscription](connectors-create-api-azureservicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
 
 
 ## Azure Service Bus actions
@@ -64,7 +64,7 @@ Azure Service Bus has the following actions:
 
 |Action|Description|
 |--- | ---|
-|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
+|[Send message](connectors-create-api-azureservicebus.md#send-message)|This operation sends a message to a queue or topic.|
 ### Action details
 
 Here are the details for the actions and triggers for this connector, along with their responses:
@@ -75,10 +75,28 @@ Here are the details for the actions and triggers for this connector, along with
 This operation sends a message to a queue or topic. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
-|message*|Message|Message to send|
+|ContentData*|Content|Content of the message|
+|ContentType|Content Type|Content type of the message content|
+|Properties|Properties|Key-value pairs for each brokered property|
 |entityName*|Queue/Topic name|Name of the queue or topic|
+
+These advanced parameters are also available: 
+
+|Property name| Display name|Description|
+| ---|---|---|
+|MessageId|Message Id|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Send to address|
+|ReplyTo|Reply To|Address of the queue to reply to|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to|
+|Label|Label|Application specific label|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue|
+|SessionId|Session Id|Identifier of the session|
+|CorrelationId|Correlation Id|Identifier of the correlation|
+|TimeToLive|Time To Live|This is the duration, in ticks, that a message is valid.  The duration starts from when the message is sent to the Service Bus.|
+
+
 
 An * indicates that a property is required
 
@@ -89,13 +107,14 @@ An * indicates that a property is required
 This operation triggers a flow when a message is received in a queue. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
 |queueName*|Queue name|Name of the queue|
 
+
 An * indicates that a property is required
 
-#### Output details
+#### Output Details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
@@ -104,7 +123,6 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 |---|---|---|
 |ContentData|string|Content of the message|
 |ContentType|string|Content type of the message content|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none"|"base64")|
 |Properties|object|Key-value pairs for each brokered property|
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address|
@@ -123,14 +141,15 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 This operation triggers a flow when a message is received in a topic subscription. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
 |topicName*|Topic name|Name of the topic|
 |subscriptionName*|Topic subscription name|Name of the topic subscription|
 
+
 An * indicates that a property is required
 
-#### Output details
+#### Output Details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
@@ -139,7 +158,6 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 |---|---|---|
 |ContentData|string|Content of the message|
 |ContentType|string|Content type of the message content|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none"|"base64")|
 |Properties|object|Key-value pairs for each brokered property|
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address|
