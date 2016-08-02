@@ -97,6 +97,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 | DW3000 |   100   |  1,600   |  3,200  |  6,400   |
 | DW6000 |   100   |  3,200   |  6,400  |  12,800  |
 
+
 Using the same example above, system wide a query running on a DW2000 in the xlarge resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB).
 
 ### Memory allocations system wide (GB)
@@ -138,7 +139,8 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 | DW3000 |           32            |              120            |    1    |    16    |   32    |   64     |
 | DW6000 |           32            |              240            |    1    |    32    |   64    |  128     |
 
-From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots up to a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distributions for a total memory allocation of 47 GB and concurrency for all of these medium resource class users would be limited to 8 users.
+
+From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots and a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distribution for a total memory allocation of 47 GB and concurrency would be limited to 8 users.
 
 ## Query importance
 
@@ -146,25 +148,25 @@ Under the covers there are a total of eight workload groups which control the be
 
 Below are the importance mappings for each workload group.
 
-| Workload groups      | Concurrency Slot Mapping | Importance Mapping |
-| :------------------  | :----------------------: | :----------------- |
-| SloDWGroupC00        | 1                        | Medium             |
-| SloDWGroupC01        | 2                        | Medium             |
-| SloDWGroupC02        | 4                        | Medium             |
-| SloDWGroupC03        | 8                        | Medium             |
-| SloDWGroupC04        | 16                       | High               |
-| SloDWGroupC05        | 32                       | High               |
-| SloDWGroupC06        | 64                       | High               |
-| SloDWGroupC07        | 128                      | High               |
+| Workload groups | Concurrency Slot Mapping | Importance Mapping |
+| :-------------- | :----------------------: | :----------------- |
+| SloDWGroupC00   |            1             | Medium             |
+| SloDWGroupC01   |            2             | Medium             |
+| SloDWGroupC02   |            4             | Medium             |
+| SloDWGroupC03   |            8             | Medium             |
+| SloDWGroupC04   |           16             | High               |
+| SloDWGroupC05   |           32             | High               |
+| SloDWGroupC06   |           64             | High               |
+| SloDWGroupC07   |          128             | High               |
 
 For a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows.
 
-| Resource class   | Workload Group | Concurrency Slots Used   | Importance |
-| :--------------- | :------------- | :--------------------:   | :--------- |
-| smallrc          | SloDWGroupC00  | 1                        | Medium     |
-| mediumrc         | SloDWGroupC02  | 4                        | Medium     |
-| largerc          | SloDWGroupC03  | 8                        | Medium     |
-| xlargerc         | SloDWGroupC04  | 16                       | High       |
+| Resource class | Workload Group | Concurrency Slots Used | Importance |
+| :------------- | :------------- | :--------------------: | :--------- |
+| smallrc        | SloDWGroupC00  |           1            | Medium     |
+| mediumrc       | SloDWGroupC02  |           4            | Medium     |
+| largerc        | SloDWGroupC03  |           8            | Medium     |
+| xlargerc       | SloDWGroupC04  |          16            | High       |
 
 
 The following DMV query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or to analyze active and historic usage of the workload groups when troubleshooting:
