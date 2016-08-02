@@ -29,7 +29,8 @@ This article describes how you can extend a logic app to better support exceptio
 The following story is the use case for this article.
 A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal using Dynamics CRM Online (CRMOL). They needed to send appointment records between the CRMOL patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
-The project had two major requirements:   
+The project had two major requirements:  
+ 
  -  A method to log records sent from the CRMOL portal
  -  A way to view any errors that occurred within the workflow
 
