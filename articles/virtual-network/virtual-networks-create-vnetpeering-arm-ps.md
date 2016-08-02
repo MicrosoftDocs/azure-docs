@@ -203,6 +203,6 @@ This is not a requirement, peering can be established even if users individually
         Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
         Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
 
-3. Once you remove one link in VNET peering, the  peer link state will go to disconnected.
+2. Once you remove one link in VNET peering, the  peer link state will go to disconnected.
   
-4. In this state, you cannot re-create the link until the peer link state changes to Initiated. We recommend you remove the both links before you re-create the VNET peering. 
+3. In this state, you cannot re-create the link until the peer link state changes to Initiated. We recommend you remove the both links before you re-create the VNET peering. 

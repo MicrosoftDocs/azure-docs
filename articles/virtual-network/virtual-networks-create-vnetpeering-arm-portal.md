@@ -78,33 +78,33 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. In this example we will use two subscriptions A and B and two users UserA and UserB with privileges in the subscriptions respectively
-2. On the portal, Click Browse, choose Virtual Networks. Click the VNET and click Add.
+3. On the portal, Click Browse, choose Virtual Networks. Click the VNET and click Add.
 
     ![Scenario 2 Browse](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. On the Add access blade, click select a role and choose Network Contributor, click Add Users, type the UserB sign in name, and click OK.
+4. On the Add access blade, click select a role and choose Network Contributor, click Add Users, type the UserB sign in name, and click OK.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
    This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding privileged user of the other VNet as users in the local VNet makes it easier to do setup in portal. 
 
-4. Then login to Azure portal with UserB who is the privilege user for SubscriptionB. Follow above steps to add UserA as Network Contributor.
+5. Then login to Azure portal with UserB who is the privilege user for SubscriptionB. Follow above steps to add UserA as Network Contributor.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
     NOTE:  you can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
 
-5. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
+6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
 
     /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
 
     ![Resource ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-6. Login to the portal as UserB and follow above step to create peering link from VNET5 to VNet3. 
+7. Login to the portal as UserB and follow above step to create peering link from VNET5 to VNet3. 
 
     ![Resource ID 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-7. Peering will be established and any Virtaul machine in VNet3 should be able to communicate with any virtual machine in VNet5
+8. Peering will be established and any Virtaul machine in VNet3 should be able to communicate with any virtual machine in VNet5
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
