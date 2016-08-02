@@ -131,13 +131,13 @@ Add the generalized Azure VHD to the storage account by using the [Add-AzureRmVh
 		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
 		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
 
-	Where:
-	- **storageAccount** the name of the storage account where you want the image to be placed. 
-	- **blobContainer** is the blob container where you want to store your image. If the cmdlet does not find an existing blob container with this name, it will create a new one for you.
-	- **targetVHDName** is the name that you want to use for the uploaded VHD file.
-	- **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
+Where:
+- **storageAccount** the name of the storage account where you want the image to be placed. 
+- **blobContainer** is the blob container where you want to store your image. If the cmdlet does not find an existing blob container with this name, it will create a new one for you.
+- **targetVHDName** is the name that you want to use for the uploaded VHD file.
+- **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
 
-	A successful `Add-AzureRmVhd` execution will look similar to the following:
+A successful `Add-AzureRmVhd` execution will look similar to the following:
 
 		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
 		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
@@ -150,9 +150,9 @@ Add the generalized Azure VHD to the storage account by using the [Add-AzureRmVh
 		-------------           --------------
 		C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
 
-	This command will take some time to complete, depending on your network connection and the size of your VHD file.
+This command will take some time to complete, depending on your network connection and the size of your VHD file.
 
-</br>
+
 
 
 ## Create a virtual network
@@ -170,7 +170,7 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 		$location = "<location>"
 		$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
-    You should use values that make sense for your application and environment.
+
         
 ## Create a public IP address and NIC
 
