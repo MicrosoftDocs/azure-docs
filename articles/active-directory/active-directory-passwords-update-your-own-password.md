@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/02/2016"
 	ms.author="asteen"/>
 
 # How to update your own password
@@ -27,6 +27,10 @@ If you are unsure how to manage your Work or School account password, you've com
 * [**Common problems and their solutions**](#common-problems-and-their-solutions)
 
 ## How to register for password reset
+
+> [AZURE.IMPORTANT]
+> **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.
+
 The fastest way to register for password reset is to go to http://aka.ms/ssprsetup.  
 
  1. Navigate to http://aka.ms/ssprsetup.
