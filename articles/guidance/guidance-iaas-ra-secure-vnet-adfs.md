@@ -79,18 +79,6 @@ The following diagram highlights the important components in this architecture (
 
 ## Recommendations
 
-This section summarizes recommendations for implementing AD FS running in Azure, covering:
-
-- VM recommendations.
-
-- Networking recommendations.
-
-- Load balancer recommendations.
-
-- AD FS installation recommendations.
-
-- Trust recommendations.
-
 >[AZURE.NOTE] For detailed information about installing WAP servers, see [Install and Configure the Web Application Proxy Server][install_and_configure_the_web_application_proxy_server]
 
 ### VM recommendations
@@ -121,11 +109,27 @@ Configure the load balancers for the AD FS VMs and WAP VMs as follows:
 
 	Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name by which clients and the WAP servers will access the AD FS server farm.
 
+### Availability recommendations
+
+Create an AD FS farm with at least two servers to increase availability of the AD FS service. 
+
+Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. 
+
+### Security recommendations
+
+Prevent direct exposure of the AD FS servers to the Internet. AD FS are domain-joined computers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
+
+Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
+
+Restrict direct login access to the AD FS and WAP servers. Only DevOps staff should be able to connect.
+
+Do not join the WAP servers to the domain.
+
 ### AD FS installation recommendations
 
 >[AZURE.NOTE] The PDC for the domain must be running and accessible from the AD FS VMs to install AD FS.
 
-Perform the following tasks before configuring the first AD FS server in the farm:
+The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS. Perform the following tasks before configuring the first AD FS server in the farm:
 
 1. Obtain a publicly trusted certificate for performing server authentication. The *subject name* must contain the name by which clients access the federation service. This can be the DNS name registered for the load balancer, for example, *adfs.contoso.com* (avoid using wildcard names such as **.contoso.com*, for security reasons). You should use the same certificate on all AD FS server VMs. You can purchase a certificate from a trusted certification authority, but if your organization uses Active Directory Certificate Services you can create your own. 
 
@@ -141,11 +145,9 @@ Perform the following tasks before configuring the first AD FS server in the far
 
 3. Add each AD FS server VM to the domain.
 
-Install *Active Directory Federation Services*. The article [Deploying a Federation Server Farm][Deploying_a_federation_server_farm] provides detailed instructions for installing and configuring AD FS.
-
 ### Trust recommendations
 
-Establish federation trust between your AD FS installation, and the federation servers of any partners. Configure any claims filtering and mapping required. This process requires:
+Establish federation trust between your AD FS installation, and the federation servers of any partner organizations. Configure any claims filtering and mapping required. This process requires:
 
 - DevOps staff **at each partner organization** to add add a relying party trust for the web applications accessible through your AD FS servers.
 
@@ -165,27 +167,15 @@ Note that AD FS supports token transformation and augmentation. Azure Active Dir
 
 ## Availability considerations
 
-Create an AD FS farm with at least two servers to increase availability of the AD FS service. 
-
-Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. 
-
 You can use either SQL Server or the Windows Internal Database (WID) to hold AD FS configuration information. WID provides basic redundancy; changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability using failover clustering or mirroring.
 
 ## Security considerations
 
 AD FS is heavily dependent on the HTTPS protocol, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, and public DMZ, as well as the subnet containing the AD FS servers.
 
-Prevent direct exposure of the AD FS servers to the Internet. AD FS are domain-joined computers that have full authorization to grant security tokens. If an AD FS server is compromised, a malicious user has the ability to issue full access tokens to all web applications and to federation servers that are protected by AD FS. If your system must handle requests from external users not necessarily connecting from trusted partner sites, use WAP servers to handle these requests. Do not domain-join these WAP servers. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
-
-Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define a simple firewall. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and NVAs, as described by the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. Note that all firewalls should allow traffic on port 443 (HTTPS).
-
-Restrict direct login access to the AD FS and WAP servers. Only DevOps staff should be able to connect.
-
-Do not join the WAP servers to the domain in the cloud.
-
 ## Scalability considerations
 
-Use a farm configuration for the AD FS servers and WAP servers. This enables you to scale out by adding more servers to each farm. The following recommendations, adapted from the document [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing the farms:
+The following recommendations, adapted from the document [Plan your AD FS deployment][plan-your-adfs-deployment], give a starting point for sizing AD FS farms:
 
 - If you have fewer than 1000 users, do not create dedicated AD FS servers, but instead install AD FS on each of the AD DS servers in the cloud (make sure that you have at least two AD DS servers, to maintain availability). Create a single WAP server.
 
