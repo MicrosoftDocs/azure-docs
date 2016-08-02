@@ -5,7 +5,9 @@
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar"
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
