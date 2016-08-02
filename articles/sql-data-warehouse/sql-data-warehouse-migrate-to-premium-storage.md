@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2016"
+   ms.date="08/2/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -73,8 +73,8 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | **Region**          | **Estimated Start Date**     | **Estimated End Date**       |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia East      | Not determined yet           | Not determined yet           |
-| Australia Southeast | Not determined yet           | Not determined yet           |
-| Brazil South        | Not determined yet           | Not determined yet           |
+| Australia Southeast | August 10, 2016              | August 24, 2016              |
+| Brazil South        | August 10, 2016              | August 24, 2016              |
 | Canada Central      | June 23, 2016                | July 1, 2016                 |
 | Canada East         | June 23, 2016                | July 1, 2016                 |
 | Central US          | June 23, 2016                | July 4, 2016                 |
@@ -86,10 +86,10 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | India Central       | June 23, 2016                | July 1, 2016                 |
 | India South         | June 23, 2016                | July 1, 2016                 |
 | India West          | Not determined yet           | Not determined yet           |
-| Japan East          | Not determined yet           | Not determined yet           |
+| Japan East          | August 10, 2016              | August 24, 2016              |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
-| North Europe        | Not determined yet           | Not determined yet           |
+| North Europe        | August 10, 2016              | August 24, 2016              |
 | South Central US    | June 23, 2016                | July 2, 2016                 |
 | Southeast Asia      | June 23, 2016                | July 1, 2016                 |
 | West Europe         | June 23, 2016                | July 8, 2016                 |
@@ -97,8 +97,6 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the steps below to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
-
-> [AZURE.NOTE] SQL Data Warehouse with Premium Storage is not currently geo-redundant.  This means that once your Data Warehouse is migrated over to Premium Storage, the data will only reside in your current region.  Once available, Geo-Backups will copy your Data Warehouse every 24 hours to the [Azure paired region][], allowing you to restore from the Geo-Backup to any region in Azure.  Once Geo-Backup functionality is available for self-migrations, it will be announced on our [main documentation site][].  In contrast, automatic migrations will not have this limitation.  
 
 ### Self-migration instructions
 If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around 1 hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps below for [rename workaround][]. 
@@ -112,18 +110,20 @@ If you would like to control your downtime, you can self-migrate your Data Wareh
 >	-  Auditing at the Database level will need to be re-enabled
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
-#### Optional: rename workaround 
-Two databases on the same logical server cannot have the same name. SQL Data Warehouse does not currently support the ability to rename a DW.  The instructions below will get you around this missing functionality during a self-migration (note: automatic migrations will not have this limitation).
+#### Optional: steps to rename during migration 
+Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
 
 For the purpose of this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
-1.	[Pause][] "MyDW" which will take an automatic backup
-2.	[Restore][] from your most recent snapshot a new database with a different name like "MyDWTemp"
-3.	Delete "MyDW".  **If you fail to do this step, you will be charged for both DWs.**
-4.	Since "MyDWTemp" is a newly created DW, the backup will not be available to restore from for a period of time.  It is recommended to continue operations for a couple of hours on "MyDWTemp" and then continue with steps 5 and 6.
-5.	[Pause][] "MyDWTemp" which will take an automatic backup.
-6.	[Restore][] from your most recent "MyDWTemp" snapshot a new database with the name "MyDW".
-7.	Delete "MyDWTemp". **If you fail to do this step, you will be charged for both DWs.**
+1.	Rename "MyDW" using the ALTER DATABASE command below to something like "MyDW_BeforeMigration".  This will kill all existing transactions and must be done in the master database to succeed.
+
+```sql
+ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
+```	
+
+2.	[Pause][] "MyDW_BeforeMigration" which will take an automatic backup
+3.	[Restore][] from your most recent snapshot a new database with the name you used to have (ex: "MyDW")
+4.	Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
 
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
