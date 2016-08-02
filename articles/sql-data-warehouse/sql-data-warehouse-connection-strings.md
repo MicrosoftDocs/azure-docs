@@ -51,7 +51,7 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds to allow your connection to survive short period of  unavailability.
+> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
 
 ## Next steps
 
