@@ -71,7 +71,7 @@ To navigate between bubbles in the visualization:
 
 ## Filter for specific trends
 
-Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that might be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, for example the Exception Type dimension, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Press the **Ctrl** key and then click to select multiple filters in the same dimension.
+Discover more specific trends with the filter controls at the bottom of the window. To apply a filter, click on its name. You can quickly switch between different filters to discover trends that might be hiding in a particular dimension of your telemetry. If you apply a filter in one dimension, such as the Exception Type dimension, filters in other dimensions remain clickable even though they appear grayed-out. To un-apply a filter, click it again. Press the **Ctrl** key and then click to select multiple filters in the same dimension.
 
 ![Trend filters](./media/app-insights-trends/TrendsFiltering-750.png)
 
@@ -100,6 +100,6 @@ Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the
 
 ||
 |---|---
-|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights, all within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
+|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**Search telemetry, see data in CodeLens, and configure Application Insights, all within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
 |**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, and exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-asp-net/64.png)
-|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
+|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Find dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
