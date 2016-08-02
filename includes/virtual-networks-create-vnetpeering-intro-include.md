@@ -4,5 +4,5 @@ VNet Peering is in public preview, to be able to use it you must register using 
 
 > [AZURE.NOTE] Register-AzureRmProviderFeature -FeatureName AllowVnetPeering -ProviderNamespace Microsoft.Network
 
-               Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
