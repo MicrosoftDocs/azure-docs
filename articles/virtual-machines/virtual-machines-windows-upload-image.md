@@ -132,10 +132,15 @@ Add the generalized Azure VHD to the storage account by using the [Add-AzureRmVh
 		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
 
 Where:
+
 - **storageAccount** the name of the storage account where you want the image to be placed. 
+
 - **blobContainer** is the blob container where you want to store your image. If the cmdlet does not find an existing blob container with this name, it will create a new one for you.
+
 - **targetVHDName** is the name that you want to use for the uploaded VHD file.
+
 - **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
+
 
 A successful `Add-AzureRmVhd` execution will look similar to the following:
 
