@@ -72,7 +72,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 			using Microsoft.Azure.Engagement;
 
-	b. Add a method dedicated to the Engagement initialization and setting:
+	b. Add a method to initialize the Engagement:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -107,7 +107,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. Replace the base class of **MainPage** from **Page** to **EngagementPageOverlay**:
+2. Change the base class of **MainPage** from **Page** to **EngagementPageOverlay**:
 
 		class MainPage : EngagementPageOverlay
 
@@ -146,7 +146,7 @@ In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngage
 		   EngagementReach.Instance.Init(e);
 		}
 
-You're all set for sending a toast. Now we will verify that you have correctly carried out this basic integration.
+You're ready to send a toast. Now we will verify that you have correctly carried out this basic integration.
 
 ###Grant access to Mobile Engagement to send notifications
 
