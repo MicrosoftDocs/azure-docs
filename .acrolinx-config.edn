@@ -11,7 +11,7 @@ recommended improvements.
    ;; linebreak
    :template-change
    "
-* **Article: ${github/filename}
+* Article: ${github/filename}
   [Scorecard link](${acrolinx/scorecard})
   Number of issues: ${acrolinx/flags/total}
   Score: ${acrolinx/qualityscore}
