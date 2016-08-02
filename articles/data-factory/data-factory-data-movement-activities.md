@@ -20,7 +20,9 @@
 # Move data using Copy Activity
 
 ## Overview
-Azure Data Factory allows you to use the Copy Activity to copy data of different shape from a variety of on-premises and cloud data sources to Azure, so it can be further transformed and analyzed. Copy Activity can also be used to publish transformation and analysis results for BI and application consumption.
+Azure Data Factory allows you to use the Copy Activity to copy data of different shapes from a variety of on-premises and cloud data sources to Azure, so it can be further transformed and analyzed. Copy Activity can also be used to publish transformation and analysis results for Business Intelligence (BI) and application consumption.
+
+![Role of copy activity](media/data-factory-data-movement-activities/copy-activity.png)
 
 The Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). This article provide details on data movement in Data Factory and Copy Activity. First, let's see how data migration occurs between two cloud data stores, and between an on-premises data store and a cloud data store
 
