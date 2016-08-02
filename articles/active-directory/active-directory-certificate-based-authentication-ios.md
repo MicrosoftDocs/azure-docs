@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ For all scenarios in this topic, the following tasks are required:
 
 - Access to certificate authority(s) to issue client certificates.  
 
-- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the Getting Started section.  
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
@@ -61,17 +61,19 @@ For all scenarios in this topic, the following tasks are required:
 
 | Apps                      | Support      |
 | ---                       | ---          |
-| OneDrive                  | Yes          |
-| Outlook                   | Coming soon |
-| Word / Excel / PowerPoint | Yes          |
-| Skype for Business        | Coming soon |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | ![Check][1]  |
+| OneDrive                  | ![Check][1]  |
+| Outlook                   | Coming soon  |
+| Yammer                    | ![Check][1]  |
+| Skype for Business        | Coming soon  |
 
 
 ### Requirements  
 
 The device OS version must be iOS 9 and above 
 
-A federation server must be configured to perform CBA on Office mobile applications.  
+A federation server must be configured.  
 
 Azure Authenticator is required for Office applications on iOS.  
 
@@ -98,8 +100,8 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 ### Exchange ActiveSync clients support 
 
 
-Certain Exchange ActiveSync applications on iOS 9 or later are supported. To determine if your email application does support this feature, please contact your application developer. 
-For this scenario, federated authentication with a client certificate is not supported.  
+On iOS 9 or later, the native iOS mail client is supported. For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.  
+
 
 
 ## Getting started 
@@ -148,7 +150,7 @@ Below are examples for adding, removing or modifying a certificate authority.
 
 2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Connect to your target tenant: 
 
@@ -276,3 +278,5 @@ The date you set must be in the future. If the date is not in the future, the **
 
 
 
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png

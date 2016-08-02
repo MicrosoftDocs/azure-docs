@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/01/2016"
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -672,7 +672,10 @@ The following diagram illustrates the relationship between Azure Data Factory an
 ## Debug the pipeline
 Debugging consists of a few basic techniques:
 
-1.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders. 
+1.	If you see the following error message, please confirm that the name of the class in the CS file match the name you specified for the EntryPoint property in the pipeline JSON. In the above walkthrough, name of the class is: MyDotNetActivity and the EntryPoint is specified as: MyDotNetActivityNS.**MyDotNetActivity**. 
+
+			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly  
+2.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders. 
 2.	In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that will help you troubleshoot issues. The logged messages will show up in the user log files (one or mote files named: user-0.log, user-1.log, user-2.log, etc...). 
 
 	In the **OutputDataset** blade, click on the slice to see the **DATA SLICE** blade for that slice. You will see **activity runs** for that slice. You should see one activity run for the slice. If you click Run in the command bar, you can start another activity run for the same slice. 

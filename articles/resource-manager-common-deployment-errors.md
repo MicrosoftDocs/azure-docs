@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2016"
+   ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
@@ -24,22 +24,64 @@ This topic describes how you can resolve some common Azure deployment errors you
 
 ## Invalid template or resource
 
-If you receive an error stating that either the template or a property on a resource is invalid, you may have a missing character in your template. This error
-is easy to make when using template expressions because the expression is wrapped in quotes, so the JSON still validates and your editor may not
-detect the error. For example, the following name assignment for a storage account contains one set of brackets, three functions,
-three sets of parentheses, one set of single quotes, and one property:
+When deploying a template, you may receive:
+
+    Code=InvalidTemplate 
+    Message=Deployment template validation failed
+
+If you receive an error stating that either the template or a property on a resource is invalid, you may have a syntax error in your template. This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
 If you do not provide all of the matching syntax, the template will produce a value that is very different than your intention.
 
-Depending on where the missing character is located in your template, you will receive an error stating that either the template or a resource is invalid.
-The error may also state the deployment process was unable to process the template language expression. When you receive this type of error, carefully
-review the expression syntax.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md) which can warn you about syntax errors. 
 
-## Resource name already exists or is already used by another resource
+## Incorrect segment lengths
 
-For some resources, most notably storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure.
+Another invalid template error occurs when the resource name is not in the correct format.
+
+    Code=InvalidTemplate
+    Message=Deployment template validation failed: 'The template resource {resource-name}' 
+    for type {resource-type} has incorrect segment lengths.
+
+A root level resource must one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has 2 segments and the name has 1 segment, so it is a **valid name**.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "myHostingPlanName",
+
+But the next example is **not a valid name** because it has the same number of segments as the type.
+
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "appPlan/myHostingPlanName",
+
+For child resources, the type and name must have the same number of segments. This makes sense because the full name and type for the child includes the parent name and type, so the full name still has one less segment than the full type. 
+
+    "resources": [
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "contosokeyvault",
+            ...
+            "resources": [
+                {
+                    "type": "secrets",
+                    "name": "appPassword",
+
+Getting the segments right can be particularly tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with 4 segments. Therefore, the name is 3 segments:
+
+    {
+        "type": "Microsoft.Web/sites/providers/locks",
+        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+
+## Resource name already taken or is already used by another resource
+
+For some resources, most notably storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you may receive an error like:
+
+    Code=StorageAccountAlreadyTaken 
+    Message=The storage account named mystorage is already taken.
+
 You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
@@ -47,8 +89,7 @@ You can create a unique name by concatenating your naming convention with the re
 
 ## Cannot find resource during deployment
 
-Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your
-template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
+Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
 
     {
       "apiVersion": "2015-08-01",

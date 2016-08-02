@@ -45,7 +45,7 @@ You can use this service in scenarios such as:
 
 In this section, we have listed the pre-requisites required to use this service. Please review them carefully before shipping your drives.
 
-### Storage accounts
+### Storage account
 
 You must have an existing Azure subscription and one or more **classic** storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one classic storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). 
 
@@ -80,7 +80,7 @@ Download the latest version of the [Azure Import/Export client tool](http://go.m
 
 ### Hard disk drives
 
-Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 8TB. 
+Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10TB. 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. 
 When copying data to your hard drive, you can attach it directly using a SATA connector or you can attach it externally using an external SATA II/III USB adaptor. We recommend using one of the following external SATA II/III USB adaptors:
 
@@ -162,7 +162,7 @@ You must also provide a valid FedEx or DHL carrier account number to be used by 
 
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
-> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. For instance, any package that will cross international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoice are [DHL Commercial Invoice] (http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) or [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
 
 ## How does the Azure Import/Export service work?
 

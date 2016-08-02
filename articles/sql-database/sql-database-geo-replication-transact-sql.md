@@ -3,7 +3,7 @@
     description="Configure Geo-Replication for Azure SQL Database using Transact-SQL"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.workload="NA"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # Configure Geo-Replication for Azure SQL Database with Transact-SQL
@@ -164,9 +164,26 @@ Use the following steps to monitor a Geo-Replication partnership.
 
 9. Click **Execute** to run the query.
 
+## Upgrade a non-readable secondary to readable
+
+In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries. If you are using non-readable secondaries today and want to upgrade them to be readable, you can use the following simple steps for each secondary.
+
+> [AZURE.IMPORTANT] There is no self-service method of in-place upgrading of a non-readable secondary to readable. If you drop your only secondary, then the primary database will remain unprotected until the new secondary is fully synchronized. If your application’s SLA requires that the primary is always protected, you should consider creating a parallel secondary in a different server before applying the upgrade steps above. Note each primary can have up to 4 secondary databases.
+
+
+1. First, connect to the *secondary* server and drop the non-readable secondary database:  
+        
+        DROP DATABASE <MyNonReadableSecondaryDB>;
+
+2. Now connect to the *primary* server and add a new readable secondary
+
+        ALTER DATABASE <MyDB>
+            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
+
+
 
 
 ## Next steps
 
 - To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -24,7 +24,7 @@ The infrastructure for your application is typically made up of many components 
 
 If you are new to Azure Resource Manager, there are some terms you might not be familiar with.
 
-- **resource** - An item that is part of your Azure solution. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
+- **resource** - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
 - **resource group** - A container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that you group together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
 - **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute which supplies the virtual machine resource, Microsoft.Storage which supplies the storage account resource, and Microsoft.Web which supplies resources related to web apps. See [Resource providers](#resource-providers).
 - **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
@@ -52,6 +52,8 @@ The following suggestions will help you take full advantage of Resource Manager 
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
 3. Run imperative commands to manage your resources, such as to start or stop an app or machine.
 4. Arrange resources with the same lifecycle in a resource group. Use tags for all other organizing of resources.
+
+For more recommendations, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
 ## Resource groups
 
@@ -145,8 +147,8 @@ the entire set of tools to create the SDKs are open, freely available, and based
 
 **Samples**: Get started quickly in the language of your choice.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *coming soon*
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *coming soon*
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
+- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
 - [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
 - [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *coming soon*

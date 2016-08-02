@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Get insights from Azure Security Center data with Power BI
@@ -107,7 +107,7 @@ Connect to the [Power BI Content Pack Services](https://msit.powerbi.com/groups/
 
 	![Policy Management dashboard](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Next steps
+## See also
 In this document, you learned how to use Power BI in Azure Security Center. To learn more about Azure Security Center, see the following:
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) - Learn how to plan Azure Security Center adoption.

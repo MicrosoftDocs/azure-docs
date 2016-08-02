@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Security in Azure Data Lake Store
@@ -43,7 +43,10 @@ Today every Azure subscription can be associated with an Azure Active Directory.
 
 ## Authorization and access control
 
-Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. account management from data managemn [role-based access control](../active-directory/role-based access control-what-is.md) (RBAC) provided by Azure for account management, and supports POSIX ACL for accessing data in the store.
+Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. 
+
+* [Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management
+* POSIX ACL for accessing data in the store.
 
 ### Using RBAC for account management
 
@@ -65,7 +68,7 @@ For instructions, see [Assign users or security groups to Azure Data Lake Store 
 
 ### Using ACLs for operations on file systems
 
-Azure Data Lake Store is a hierarchical file system like HDFS and supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) - allowing read (r), write (w), and execute (x) access rights to resources granted to owner, owing group and other users/groups. In the Data Lake Store Public Preview (current release), ACLs are enabled only on the root folder, which means the  ACLs you apply to the root folder is also applicable to all the child folders/files as well. In the future releases, you will be able to set ACLs on any file or folder.
+Azure Data Lake Store is a hierarchical file system like HDFS and supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) - allowing read (r), write (w), and execute (x) access rights to resources granted to owner, owing group and other users/groups. In the Data Lake Store Public Preview (current release), ACLs can be enabled on the root folder, sub-folders, as well as individual files. The ACLs you apply to the root folder will also applicable to all the child folders/files as well.
 
 It is a recommended practice to define ACLs for many users by using [security groups](../active-directory/active-directory-accessmanagement-manage-groups.md). Group the users into a security group, then assign the ACLs for the file and folder to that security group. This is useful when providing custom access since there is a limit where you can only add a maximum of nine entries as part of custom access. See [Assign users or security group as ACLs to the Azure Data Lake Store file system](data-lake-store-secure-data.md#filepermissions) for more information on securing data stored in Data Lake Store using AAD security groups.
 
@@ -105,6 +108,8 @@ You can enable the data access audit trails from the Azure portal (**Diagnostic 
 ![Diagnostic logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
+
+For more information on working with diagnostic logs with Azure Data Lake Store, see [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md).
 
 ## Summary
 
