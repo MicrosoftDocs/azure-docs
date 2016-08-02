@@ -36,11 +36,11 @@ Developers use this type of application across the whole spectrum of cloud-based
 - Direct, customer-facing applications
 - Employee-facing enterprise applications
 
-SaaS applications that are designed for the cloud and those with roots as partner database applications typically will be multitenant applications. These SaaS applications deliver a specialized software application as a service to their tenants. Tenants can access the application service and have full ownership of associated data stored as part of the application. But to take advantage of the benefits of SaaS, though, tenants must surrender some control over their own data. They trust the SaaS service provider to keep their data safe and isolated from other tenants’ data. Examples of this kind of multitenant SaaS application are MYOB, SnelStart, and Salesforce.com. Each of these applications can be partitioned along tenant boundaries and support the application design patterns we discuss in this article.
+SaaS applications that are designed for the cloud and those with roots as partner database applications typically will be multitenant applications. These SaaS applications deliver a specialized software application as a service to their tenants. Tenants can access the application service and have full ownership of associated data stored as part of the application. But to take advantage of the benefits of SaaS, tenants must surrender some control over their own data. They trust the SaaS service provider to keep their data safe and isolated from other tenants’ data. Examples of this kind of multitenant SaaS application are MYOB, SnelStart, and Salesforce.com. Each of these applications can be partitioned along tenant boundaries and support the application design patterns we discuss in this article.
 
 Applications that provide a direct service to customers or to employees within an organization (often referred to as users, rather than tenants) are another category on the multitenant application spectrum. Customers subscribe to the service and do not own the data that the service provider collects and stores. Service providers have less stringent requirements to keep their customers’ data isolated from each other beyond government-mandated privacy regulations. Examples of this kind of customer-facing multitenant application are media content providers like Netflix, Spotify, and Xbox LIVE. Other examples of easily partitionable applications are customer-facing, Internet-scale applications or Internet of Things (IoT) applications in which each customer or device can serve as a partition, and partition boundaries can separate users and devices.
 
-Not all applications partition easily along a single property such as tenant, customer, user, or device. A complex enterprise resource planning (ERP) application, for example, has products, orders, and customers. An ERP application usually has a complex schema with thousands of highly interconnected tables.
+Not all applications partition easily along a single property such as tenant, customer, user, or device. A complex enterprise resource planning (ERP) application, for example, has products, orders, and customers. It usually has a complex schema with thousands of highly interconnected tables.
 
 No single partition strategy can apply to all tables and work across an application's workload. This article focuses on multitenant applications that have easily partitionable data and workloads.
 
@@ -64,7 +64,7 @@ Tenant isolation often is a fundamental requirement in SaaS multitenant applicat
 Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
 
-  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multitenant-data-models.png)
+  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
     Figure 1: Common design practices for multitenant data models
 
 -	**Database-per-tenant**. Each tenant has its own database. All tenant-specific data is confined to the tenant’s database and isolated from other tenants and their data.
@@ -77,9 +77,9 @@ Common design practices for placing tenant data follow three distinct models, sh
 
 It’s important to evaluate the different types of multitenant data models in terms of the application design trade-offs we’ve already identified. These factors help characterize the three most common multitenant data models described earlier and their database usage as shown in Figure 2.
 
--	**Isolation** is the degree of isolation between tenants as a measure of how much tenant isolation a data model achieves.
--	**Cloud resource cost** is the amount of resource sharing between tenants to optimize cloud resource cost. A resource can be defined as the compute and storage cost.
--	**DevOps cost** is the ease of application development, deployment, and manageability reduces overall SaaS operation cost.  
+-	**Isolation**. The degree of isolation between tenants can be a measure of how much tenant isolation a data model achieves.
+-	**Cloud resource cost**. The amount of resource sharing between tenants can optimize cloud resource cost. A resource can be defined as the compute and storage cost.
+-	**DevOps cost**. The ease of application development, deployment, and manageability reduces overall SaaS operation cost.  
 
 In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows the level of resource sharing. The gray, diagonal arrow in the middle indicates the direction of DevOps costs, tending to increase or decrease.
 
@@ -98,18 +98,18 @@ These factors also influence the design pattern a customer chooses:
 -	**Scale**. An application that targets hundreds of thousands or millions of tenants favors database sharing approaches such as sharding. Isolation requirements still can pose challenges.
 -	**Value and business model**. If an application’s per-tenant revenue if very small (less than a dollar), isolation requirements become less critical and a shared database makes sense. If per-tenant revenue is a few dollars or more, a database-per-tenant model is more feasible. It might help reduce development costs.
 
-Given the design trade-offs shown in Figure 2, an ideal multitenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This is a model that fits in the category described in the upper right quadrant of Figure 2.
+Given the design trade-offs shown in Figure 2, an ideal multitenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This is a model that fits in the category described in the upper-right quadrant of Figure 2.
 
-## Multi-tenancy support in Azure SQL Database
+## Multitenancy support in Azure SQL Database
 
-Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic database pools, it now also supports a new application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database can help reduce the cost to develop and operate an application that has many databases (shown by the shaded area in Figure 3 below). These tools can help you build and manage applications that use any of the multi-database patterns.
+Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic database pools, it now also supports a new application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database can help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3 below). These tools can help you build and manage applications that use any of the multi-database patterns.
 
 ![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 Figure 3: Multitenant application patterns in Azure SQL Database
 
 ## Database-per-tenant model with elastic pools and tools
 
-Elastic database pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is designed to be a data tier solution for SaaS providers who build multitenant applications. Combined with elastic database tool offerings, multi-tenancy is built in and the burden of resource sharing among tenants shifts from the application to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, query, transactions, and the elastic database client library.
+Elastic database pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is designed to be a data tier solution for SaaS providers who build multitenant applications. Combined with elastic database tool offerings, multitenancy is built in and the burden of resource sharing among tenants shifts from the application to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
 
 | Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
