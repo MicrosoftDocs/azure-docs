@@ -120,7 +120,6 @@ Elastic database pools in SQL Database combine tenant isolation with resource sh
 ||[Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. This is needed when applications need “all or nothing” guarantees over several database operations. |
 ||[Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
 
-
 ## Shared models
 
 As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a very high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
@@ -134,7 +133,6 @@ As described earlier, for most SaaS providers, a shared model approach might pos
 || [Elastic transactions](sql-database-elastic-transactions-overview.md) |
 || [Elastic database client library](sql-database-elastic-database-client-library.md) |
 || [Elastic database split and merge](sql-database-elastic-scale-overview-split-and-merge.md) |
-
 
 ## Summary
 
