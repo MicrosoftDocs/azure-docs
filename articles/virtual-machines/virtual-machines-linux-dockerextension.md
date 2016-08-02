@@ -105,7 +105,7 @@ You may wish to configure the Docker daemon TCP port, security, or deploy contai
 
 ## Docker VM Extension JSON template reference
 
-This example used a quick-start template. Add the following to your own Resource Manager templates in order to deploy the Azure Docker VM extension:
+This example used a quick-start template. In order to deploy the Azure Docker VM extension with your own Resource Manager templates, add the following:
 
 ```
 {
