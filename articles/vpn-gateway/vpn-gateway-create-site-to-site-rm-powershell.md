@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
