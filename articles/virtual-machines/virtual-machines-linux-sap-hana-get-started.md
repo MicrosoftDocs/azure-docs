@@ -17,8 +17,9 @@
    ms.date="07/26/2016"
    ms.author="hermannd"/>
 
+# Quickstart Guide for manual installation of single-instance SAP HANA on Azure VMs
 
-# Introduction
+## Introduction
 
 This quickstart guide will help to set up a single-instance SAP HANA prototype/demo system on 
 Azure VMs by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12.
@@ -35,7 +36,7 @@ backup, DR, high performance or special security considerations.
 
 The sample setup was done using two virtual machines to accomplish a distributed SAP NetWeaver
 installation using the Azure Resource Manager model ( ARM ) as SAP-Linux-Azure is only supported 
-on ARM and not the classic model. Links to further information about ARM can be also found in the
+on ARM and not the classic model. Links to further information about ARM can be found in the
 general information section at the end of this article.
 
 These were the two test VMs used for the sample installation :
@@ -78,7 +79,7 @@ items are explained and partly shown in form of screenshots in more detail throu
 * create an Azure virtual network which will include the two ARM test VMs later on
 * deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
-* attach four disks to the HANA DB server VM - 2 standard storage like for the app server VM + 
+* attach four disks to the HANA DB server VM - 2 standard storage disks like for the app server VM + 
   2 premium storage disks ( e.g. 2x512GB )
 * depending on size and/or throughput requirements attach multiple disks and create striped
   volumes either using lvm or mdadm
@@ -136,7 +137,16 @@ items are explained and partly shown in form of screenshots in more detail throu
 
 
 
-## Prepare Azure VMs for installation of SAP HANA and NetWeaver 7.5
+## Prepare Azure VMs for manual installation of SAP HANA
+
+This chapter about preparing the Azure VMs for manual installation of SAP HANA consists
+of five sections which cover the following topics :
+
+* Disk Setup
+* Kernel Parameters
+* Filesystems
+* /etc/hosts
+* /etc/fstab
 
 
 ### Disk Setup
@@ -146,6 +156,7 @@ additional disk space to a VM for running SAP. In the case of a SAP app server V
 prototype/demo environment it's fine to use Azure standard storage disks. Whereas for the SAP 
 HANA DB data and log files - Azure Premium storage disks should be used even in a non-production landscape.
 
+See details about Azure Premium Storage [here](../storage-premium-storage.md)
 
 Depending on the size of the system and throughput requirements it might be necessary to attach multiple
 disks instead of one and later on create a stripe set across those disks on OS level. These are the two
@@ -157,14 +168,9 @@ aspects why one would create a stripe set across multiple Azure disks :
 
 More information regarding the two main tools to configure striping can be found here :
 
+[Article about using mdadm to configure Linux software raid on an Azure VM](virtual-machines-linux-configure-raid.md)
 
-Blog which describes how to configure Linux software raid using mdadm :
-
-[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/](virtual-machines-linux-configure-raid.md)
-
-Blog which describes hwo to configure Logical Volume Manager on a Linux VM in Azure :
-
-[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-lvm/](virtual-machines-linux-configure-lvm.md)
+[Article about configuring Logical Volume Manager on a Linux Azure VM](virtual-machines-linux-configure-lvm.md)
 
 
 
@@ -192,17 +198,20 @@ and have to be set manually. There is a specific SAP note which describes the se
 
 
 SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLE for SAP Applications 12 :
-[https://launchpad.support.sap.com/\#/notes/2205917](https://launchpad.support.sap.com/#/notes/2205917)
+[ SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
+One additional topic reagrding page-cache related to running SAP HANA on SLES can be found
+[here](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache) in chapter 6.1 Kernel: Page-Cache Limit
+
+There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://service.sap.com/sap/support/notes/1557506)
 
 SLES 12 has a new tool which replaces the old sapconf utility. It's "tuned-adm" and there is a special
 SAP HANA profile to be used. One can find more details about this tool following the two links below.
 
-SLES documentation about tuned-adm profile sap-hana :
-[https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)
+SLES documentation about tuned-adm profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)
 
-SLES documentation about tuned-adm profile sap-hana - chapter 6.2 Tuning Systems for SAP Workloads with tuned-adm 
-[https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)
+SLES documentation about tuned-adm profile sap-hana - chapter 6.2 Tuning Systems for SAP Workloads with tuned-adm -
+can be found [here](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image005.jpg)
@@ -211,10 +220,8 @@ Here one can see how "tuned-adm" changed the transparent_hugepage as well as the
 according to the required SAP HANA settings.
 
 
-To make the SAP HANA kernel settings permanent one has to use grub2 on SLES 12. Here is a link to the
-SLES documentation describing grub2 :
-
-[https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html)
+To make the SAP HANA kernel settings permanent one has to use grub2 on SLES 12. Further information about
+grub2 can be found [here](https://www.suse.com/documentation/sled-12/book_sle_admin/data/sec_grub2_file_structure.html)
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg)
@@ -248,22 +255,18 @@ under /hana and /usr/sap. The default setting for SAP HANA log backup is e.g. un
 Like before it's key to avoid that the root filesystem runs out of space. Therefore one should make
 sure that there is enough free space under /hana and /usr/sap before installing SAP HANA via swpm.
 
-This article from SAP describes the standard filesystem layout of SAP HANA :
-
-[http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)
+[This article](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)
+from SAP describes the standard filesystem layout of SAP HANA 
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
 
 When installing SAP NetWeaver on a standard SLES 12 Azure gallery image there will be a message that
 there is no swap space. To get rid of this message one could e.g. manually add a swap file as
-described in this document via dd, mkswap and swapon :
+described in this document via dd, mkswap and swapon. Just search for "Adding a Swap File Manually"
+in [this article](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
 
-[https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
-
-Another option is to configure swap space via the Linux VM agent. More information can be found here :
-
-[https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/](virtual-machines-linux-agent-user-guide.md)
+Another option is to configure swap space via the Linux VM agent. More information can be found [here](virtual-machines-linux-agent-user-guide.md)
 
 
 ### /etc/hosts
@@ -284,7 +287,13 @@ watch out as in this case the additional disk space might not be available and p
 root filesystem. In case /hana would be missing SAP HANA wouldn't start though at all.
 
 
-## Graphical desktop
+## Install Graphical Gnome desktop on SLES 12
+
+This chapter consists of two secitions which cover the following topics :
+
+* Installation of Gnome desktop and xrdp on SLES 12
+* Running Java-based SAP MC using Firefox on SLES 12
+
 
 ### Installation of Gnome desktop and xrdp on SLES 12
 
@@ -330,9 +339,7 @@ plugin.
 
 The URL to start the SAP MC is <server>:5<instance_number>13
 
-More details can be found here :
-
-[https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm)
+More details can be found [here](https://help.sap.com/saphelp_nwce10/helpdata/en/48/6b7c6178dc4f93e10000000a42189d/frameset.htm)
 
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image013.jpg)
@@ -353,25 +360,17 @@ One additional issue which might pop up is an error message regarding a missing 
 This is very likely related to the installation of Java 1.8 which is required for SAP GUI 7.4
 
 The IBM Java version seen via Yast doesn't include this file. The solution is a Java download from Oracle.
-Here is an article which talks about this specific issue :
-
-[https://scn.sap.com/thread/3908306](https://scn.sap.com/thread/3908306)
+An article which talks about this specific issue can be found [here](https://scn.sap.com/thread/3908306)
 
 
 
-
-
-
-
-## Manual SAP HANA installation on Azure VMs
-
-### SAP HANA installation via SWPM as part of a NetWeaver 7.5 installation
+## Manual SAP HANA installation via SWPM as part of a NetWeaver 7.5 installation
 
 
 The following list of screenshots shows the key steps of installing SAP NetWeaver 7.5 and SAP HANA SP12
 via SWPM ( sapinst ). As part of a NW 7.5 installation SWPM has the capabilities to also install the HANA
 database as a single instance.
- 
+
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
 
@@ -469,7 +468,7 @@ instance running on the DB server VM.
 
 
 
-### Manual HANA installation via HANA Life Cycle Manager tool hdblcm
+## Manual SAP HANA installation via HANA Life Cycle Manager tool hdblcm
 
 
 Besides installing SAP HANA as part of a distributed installation via SWPM it's also possibe to first 
@@ -478,11 +477,11 @@ screenshots below shows how this works.
 
 Here are three sources of information about the HANA hdblcm tool :
 
-[https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
+[Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 
-[http://saphanatutorial.com/sap-hana-lifecycle-management-tools/](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+[SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 
-[http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+[SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 
 
@@ -566,45 +565,42 @@ the HANA DB instance with transaction "dbacockpit".
 ## General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 
 general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-sap-get-started/](virtual-machines-windows-classic-sap-get-started.md)
-
-general SAP Azure docu about running SAP on Azure with Linux OS in classic mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-sap-get-started/](virtual-machines-linux-classic-sap-get-started.md)
+[Using SAP on Windows virtual machines in Azure](virtual-machines-windows-classic-sap-get-started.md)
 
 information about existing SAP templates for usage by customers :
-[https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
+[Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 
 general SAP Azure docu about running SAP on Azure with Linux OS in ARM mode :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sap-get-started/](virtual-machines-linux-sap-get-started.md)
+[Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md)
 
 certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
-[https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
+[Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
 
 information about virtual machine sizes especially for Linux workloads :
-[https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-sizes/](virtual-machines-linux-sizes.md)
+[Sizes for virtual machines in Azure](virtual-machines-linux-sizes.md)
 
 SAP Note which lists all supported SAP products on Azure and supported Azure VM types for SAP :
-[https://launchpad.support.sap.com/#/notes/1928533/E](https://launchpad.support.sap.com/#/notes/1928533/E)
+[SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
 
 SAP Note about SAP "enhanced monitoring" with Linux VMs on Azure :
-[https://launchpad.support.sap.com/#/notes/2191498/E](https://launchpad.support.sap.com/#/notes/2191498/E)
+[SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
 
 SAP HANA offering on Azure "Large Instances". It's important to understand that this is not about running
 SAP HANA on Azure VMs but in a hybrid environment where the SAP app servers run in Azure VMs but SAP HANA
 runs on bare-metal servers : 
-[https://launchpad.support.sap.com/#/notes/2316233/E](https://launchpad.support.sap.com/#/notes/2316233/E)
+[SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)
 
-SAPOSCOL on Linux :
-[https://launchpad.support.sap.com/#/notes/1102124/E](https://launchpad.support.sap.com/#/notes/1102124/E)
+SAP Note with information about SAPOSCOL on Linux :
+[SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
 
 Key Monitoring Metrics for SAP on Microsoft Azure :
-[https://launchpad.support.sap.com/#/notes/2178632/E](https://launchpad.support.sap.com/#/notes/2178632/E)
+[SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
 
 Information about Azure Resource Manager - ARM :
-[https://azure.microsoft.com/documentation/articles/resource-group-overview/](../resource-group-overview.md)
+[Azure Resource Manager overview](../resource-group-overview.md)
 
 Comparison of deployment models between ARM and classic :
-[https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/](../resource-manager-deployment-model.md)
+[Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
 Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
