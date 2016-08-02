@@ -221,7 +221,7 @@ You can use Security Center Alerts during the following stages:
 - **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
 - **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue.
 
-Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided, to inform further research and to begin mitigation.
+Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation.
 
 The example below shows a suspicious RDP activity taking place:
 
