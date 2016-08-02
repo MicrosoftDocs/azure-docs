@@ -3,10 +3,7 @@
 ## Acrolinx Scorecards
 
 Acrolinx checked the .md files in this pull request for grammar, spelling, punctuation, writing style, and terminology. Review the scorecards for each article and make the
-recommended improvements. The links are good for one hour. If you are prompted to authenticate because the links expired, you can use these shared credentials:
-
-  Account: report-viewer<br>  
-  Password: kermit$  
+recommended improvements.
 
 "
 
@@ -14,9 +11,18 @@ recommended improvements. The links are good for one hour. If you are prompted t
    ;; linebreak
    :template-change
    "
-* Result for ${github/filename}
-  [See the scorecard](${acrolinx/scorecard})  
-  Number of issues: ${acrolinx/flags/total}  
+* **Article: ${github/filename}
+  [Scorecard link](${acrolinx/scorecard})
+  Number of issues: ${acrolinx/flags/total}
   Score: ${acrolinx/qualityscore}
+
+"
+
+ :template-footer
+"
+**Note:** The scorecard links are good for one hour. If you are prompted to authenticate because the links expired, use these credentials or close and reopen the pull request:
+
+>Account: report-viewer
+>Password: kermit$
 
 "}
