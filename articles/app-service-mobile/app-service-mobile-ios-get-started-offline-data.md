@@ -81,9 +81,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
         }
         ```
         
-        
-	In turn, the method `pullData` gets new data that matches a query:
-	
+        In turn, the method `pullData` gets new data that matches a query:
 	
 	```
         -(void)pullData:(QSCompletionBlock)completion
@@ -105,7 +103,6 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
         ```
         
         **Swift**:
-        
         
 	```
 	func onRefresh(sender: UIRefreshControl!) {
@@ -139,7 +136,6 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	    }
 	}        
     	```
-
 
 	In the Objective-C version, in `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` (rather than the sync table itself)  because it will push changes across all tables. Only records that have been modified in some way locally (through CUD operations) will be sent to the server. Then the helper `pullData` is called, which calls `MSSyncTable.pullWithQuery` to retrieve remote data and store in the local database.
 	
