@@ -7,24 +7,25 @@
 	manager="lorenr"
 	editor=""/>
 
-	<tags
-		ms.service="site-recovery"
-		ms.devlang="na"
-		ms.topic="article"
-		ms.tgt_pltfrm="na"
-		ms.workload="storage-backup-recovery"
-		ms.date="06/13/2016"
-		ms.author="krnese"/>
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2016"
+	ms.author="krnese"/>
 
-# Replicate VMware virtual machines to Azure using Site Recovery with Azure Automation DSC
+# Replicate VMware VMs to Azure using Site Recovery with Azure Automation DSC
 
-## Deploy ASR Mobility Service using OMS Automation DSC
+## Overview
 In OMS, we provide you with a comprehensive Backup & Disaster Recovery solution that can be leveraged as part of your business continuity plan.
 
 We started this journey together with Hyper-V using Hyper-V Replica, but have expanded to support a heterogeneous setup as we are well aware that customers have multiple hypervisors and platforms in their clouds.
 
 If you are running VMware workloads or/and physical servers today, we rely on a management server that runs all of the Site Recovery components running in your environment to handle the communication and data replication with Azure when Azure is your destination.
 
+## Deploy ASR Mobility Service using OMS Automation DSC
 Let us start by doing a quick breakdown of what this management server really does:
 
 The management server runs several server roles, such as **configuration** – which coordinates communication and manages data replication and recovery processes.
@@ -35,13 +36,11 @@ In case of a failback from Azure, the **master target** role will be responsible
 
 For the protected machines, we rely on the **Mobility Service** – which is a component that is deployed to every machine (VMware VM or physical server) that you want to replicate to Azure. Its role is to captures data writes on the machine and forward them to the management server (process role).
 
-And this is literally where this blog post kicks off.
-
 When dealing with business continuity, it is important to understand your workloads, your infrastructure, and also the components involved in order to meet the requirements for your RTO and RPO. In this context, the mobility service is key to ensure that your workloads are protected as you would expect.
 
 So how can we in an optimized way ensure that we have a reliable protected setup with the help from some OMS components?
 
-In this blog post I will provide you with an example on how you can leverage OMS Automation DSC together with OMS Site Recovery to ensure that the Mobility Service and Azure VM agent are deployed to your Windows machines you want to protect, and always be running when Azure is the replication target.
+In this article we will provide you with an example on how you can leverage OMS Automation DSC together with OMS Site Recovery to ensure that the Mobility Service and Azure VM agent are deployed to your Windows machines you want to protect, and always be running when Azure is the replication target.
 
 ## Prerequisites
 
@@ -57,7 +56,7 @@ The Mobility Service can be installed through command line and accepts several a
 
 That’s why we need to have the binaries (after extracting them from our setup) and store them somewhere we are able to retrieve them using a DSC configuration.
 
-## Step 1: Preparing installer files
+## Step 1: Extracting binaries
 
 1. To extract the files you need for this setup, navigate to the following directory on your management server: **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
@@ -67,7 +66,7 @@ That’s why we need to have the binaries (after extracting them from our setup)
 
     Use the following cmdlet to extract the installer:
 
-    `.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract`
+    .\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract
 
 2. Select all files and send to a compressed (zipped) folder.
 
@@ -80,7 +79,7 @@ The passphrase you got when deploying the management server can be saved to a tx
 
 I have placed both the zipped folder and the passphrase in a dedicated container in my Azure storage account
 
-![folder location](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/folder-and-passphrase-location.png)
+![folder location](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/folder-and-passphrase-location.png)
 
 If you prefer to keep these files on a share within your network, you can perfectly do so. You just need to ensure that the DSC resource we will be using later actually has access and can get the setup and passphrase.
 
@@ -206,7 +205,7 @@ Login to your automation account and navigate to AssetsàModules and click on Br
 
 Here you can search for the module and import it to your account.
 
-![import module](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/search-and-import-module.png)
+![import module](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/search-and-import-module.png)
 
 Once this is done, head over to your machine where you have the Azure RM modules installed and proceed to import the newly created DSC configuration.
 
@@ -242,7 +241,7 @@ This can take a few minutes, as we are basically deploying the configuration to 
 
 Once completed, you can either retrieve the job information by using PowerShell (Get-AzureRmAutomationDscCompilationJob) or use portal.azure.com
 
-![Retrieve job](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/retrieve-job.png)
+![Retrieve job](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/retrieve-job.png)
 
 We have now successfully published and uploaded our DSC configuration to OMS Automation DSC.
 
@@ -253,7 +252,7 @@ We will now create a metaconfig for DSC that we will apply to our nodes. To succ
 
 These values can be located under ‘Keys’ on the Automation account ‘All settings’ blade.
 
-![Key values](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/key-values.png)
+![Key values](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/key-values.png)
 
 In my environment, I have a Windows Server 2012 R2 physical server that I want to protect with OMS Site Recovery.
 
@@ -315,11 +314,11 @@ This configuration will configure the local configuration manager to register it
 
 Once you run this, the node should start to register with Automation DSC
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/register-node.png)
+![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/register-node.png)
 
 If we go back to portal.azure.com, we can see that the newly registered node has now appeared in the portal.
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/registered-node.png)
+![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/registered-node.png)
 
 On the server, we can run the following PowerShell cmdlet to verify it has been registered correctly:
 
@@ -335,13 +334,13 @@ Get-DscConfigurationStatus
 
 The output shows that the server has successfully pulled its configuration:
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/successful-config.png)
+![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/successful-config.png)
 
 In addition, the Mobility Service setup has its own log that can be found at ‘<SystemDrive>\ProgramData\ASRSetupLogs’.
 
 That’s it – we have now successfully deployed and registered the Mobility Service on our machine we want to protect with Site Recovery, and we can rely on DSC that the required services will always be running.
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-site-recovery-with-azure-automation-dsc/successful-install.png)
+![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/successful-install.png)
 
 Once this has been detected by the management server, you can proceed to configure protection and enable replication on the machine with Site Recovery.
 
@@ -477,9 +476,9 @@ Start-DscConfiguration -ComputerName $computername .\ASRMobilityService -wait -f
 
 If you want to instantiate your own DSC pull server within your corporate network, to mimic the same capabilities you can get from OMS Automation DSC, see the following guide: https://msdn.microsoft.com/en-us/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
 
-## Optional: Deploy DSC ASRMobilityService using ARM Template
+## Optional: Deploy DSC Configuration using Azure Resource Manager Template
 
-In this article, we have so far been focusing on how you can create your own DSC configuration to automatically deploy the Mobility Service and the Azure VM Agent – and ensure they are running on the machines you would like to protect. As a bonus, we have also an ARM (Azure Resource Manager) template that will deploy this DSC configuration to a new or existing Azure Automation account, creating automation assets that will contain the variables for your environment through input parameters in the template.
+In this article, we have so far been focusing on how you can create your own DSC configuration to automatically deploy the Mobility Service and the Azure VM Agent – and ensure they are running on the machines you would like to protect. As a bonus, we have also an Azure Resource Manager##  ## template that will deploy this DSC configuration to a new or existing Azure Automation account, creating automation assets that will contain the variables for your environment through input parameters in the template.
 
 Once deployed, you can simply refer to Step 4 in this guide to onboard your machines.
 
@@ -497,9 +496,6 @@ All the above steps will be taken in the right order, so that you easily get sta
 The template with instructions for deployment is located at:
 
 https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
-
-## Deploy to Azure
-[Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkrnese%2Fazuredeploy%2Fmaster%2FOMS%2FMSOMS%2FDSC%2F%2Fazuredeploy.json)
 
 Deploy using PowerShell:
 
@@ -519,3 +515,7 @@ New-AzureRmResourceGroupDeployment `
                                   -DSCJobGuid $DSCJobGuid `
                                   -Verbose
 ```
+
+## Next steps:
+
+After you deploy the Mobility Service Agents, you can continue to [enable replication](https://azure.microsoft.com/en-in/documentation/articles/site-recovery-vmware-to-azure/#step-6-replicate-applications) for the virtual machines.
