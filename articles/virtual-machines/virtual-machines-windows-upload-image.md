@@ -35,7 +35,7 @@ This article assumes that you have:
 - **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
 
-## Make sure that the VM has the right file format
+## Make sure that the VM is in the right file format
 
 In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. The VHD must be a fixed size and be a whole number of megabytes, that is, a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
 
@@ -94,7 +94,7 @@ Show the available storage accounts.
 
 		Get-AzureRmStorageAccount
 
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload_the_vm_image_to_your_storage_account) section.
+If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-image-to-your-storage-account) section.
 
 If you want to create a storage account, follow these steps:
 
@@ -165,6 +165,7 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 		
 
 1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
+
     	$rgName = "<resourceGroup>"
 		$location = "<location>"
         $subnetName = "<subNetName>"
