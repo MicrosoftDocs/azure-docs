@@ -103,13 +103,13 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     - `MdsAgentVersion: 30.0.4698.16` 
 
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	
+	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
 
 9. Repeat steps 3-5 to install the remaining regular-mode hotfixes.
 
-	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
-	
-	
 	- The iSCSI update KB3146621
+	
 	- The WMI update KB3103616
 	
 
