@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/15/2016"
+   ms.date="08/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -33,10 +33,20 @@ The below table describes the limits for both concurrent queries and concurrency
 
 ### Concurrency limits
 
-|                              | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :--------------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+|  DWU   | Max Concurrent Queries  | Concurrency Slots Allocated |
+| :----  | :---------------------: | :-------------------------: |
+| DW100  |           32            |                4            |
+| DW200  |           32            |                8            |
+| DW300  |           32            |               12            |
+| DW400  |           32            |               16            |
+| DW500  |           32            |               20            |
+| DW600  |           32            |               24            |
+| DW1000 |           32            |               40            |
+| DW1200 |           32            |               48            |
+| DW1500 |           32            |               60            |
+| DW2000 |           32            |               80            |
+| DW3000 |           32            |              120            |
+| DW6000 |           32            |              240            |
 
 When one of these thresholds are met, new queries are queued.  Queued queries are executed in on a first in first out basis as other queries complete and the number of queries and slots fall below the limits.  
 
@@ -72,24 +82,41 @@ The following table maps the memory allocated to each distribution by DWU and re
 
 ### Memory allocations per distribution (MB)
 
-|                | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| smallrc        |   100 |   100 |   100 |   100 |   100 |   100 |    100 |    100 |    100 |    100 |    100 |    100 |
-| mediumrc       |   100 |   200 |   200 |   400 |   400 |   400 |    800 |    800 |    800 |  1,600 |  1,600 |  3,200 |
-| largerc        |   200 |   400 |   400 |   800 |   800 |   800 |  1,600 |  1,600 |  1,600 |  3,200 |  3,200 |  6,400 |
-| xlargerc       |   400 |   800 |   800 | 1,600 | 1,600 | 1,600 |  3,200 |  3,200 |  3,200 |  6,400 |  6,400 | 12,800 |
+|  DWU   | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100  |   100   |    100   |    200  |    400   |
+| DW200  |   100   |    200   |    400  |    800   |
+| DW300  |   100   |    200   |    400  |    800   |
+| DW400  |   100   |    400   |    800  |  1,600   |
+| DW500  |   100   |    400   |    800  |  1,600   |
+| DW600  |   100   |    400   |    800  |  1,600   |
+| DW1000 |   100   |    800   |  1,600  |  3,200   |
+| DW1200 |   100   |    800   |  1,600  |  3,200   |
+| DW1500 |   100   |    800   |  1,600  |  3,200   |
+| DW2000 |   100   |  1,600   |  3,200  |  6,400   |
+| DW3000 |   100   |  1,600   |  3,200  |  6,400   |
+| DW6000 |   100   |  3,200   |  6,400  |  12,800  |
 
 
 Using the same example above, system wide a query running on a DW2000 in the xlarge resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB).
 
 ### Memory allocations system wide (GB)
 
-|                | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-|smallrc         | 6     | 6     | 6     | 6     | 6     | 6     | 6      | 6      | 6      | 6      | 6      | 6      |
-|mediumrc        | 6     | 12    | 12    | 23    | 23    | 23    | 47     | 47     | 47     | 94     | 94     | 188    |
-|largerc         | 12    | 23    | 23    | 47    | 47    | 47    | 94     | 94     | 94     | 188    | 188    | 375    |
-|xlargerc        | 23    | 47    | 47    | 94    | 94    | 94    | 188    | 188    | 188    | 375    | 375    | 750    |
+|  DWU   | smallrc | mediumrc | largerc | xlargerc |
+| :----- | :-----: | :------: | :-----: | :------: |
+| DW100  |    6    |    6     |    12   |    23    |
+| DW200  |    6    |    12    |    23   |    47    |
+| DW300  |    6    |    12    |    23   |    47    |
+| DW400  |    6    |    23    |    47   |    94    |
+| DW500  |    6    |    23    |    47   |    94    |
+| DW600  |    6    |    23    |    47   |    94    |
+| DW1000 |    6    |    47    |    94   |   188    |
+| DW1200 |    6    |    47    |    94   |   188    |
+| DW1500 |    6    |    47    |    94   |   188    |
+| DW2000 |    6    |    94    |   188   |   375    |
+| DW3000 |    6    |    94    |   188   |   375    |
+| DW6000 |    6    |   188    |   375   |   750    |
+
 
 ## Concurrency slot consumption
 
@@ -97,18 +124,23 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 
 ### Allocation and consumption of concurrency slots
 
-|                         | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
-| :---------------------- | ----: | ----: | ----: | ----: | ----: | ----: | -----: | -----: | -----: | -----: | -----: | -----: |
-| **Allocation**          |       |       |       |       |       |       |        |        |        |        |        |        |
-| Max Concurrent Queries  | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots   | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
-| **Slot Consumption**    |       |       |       |       |       |       |        |        |        |        |        |        |
-| smallrc                 | 1     | 1     | 1     | 1     | 1     | 1     | 1      | 1      | 1      | 1      | 1      | 1      |
-| mediumrc                | 1     | 2     | 2     | 4     | 4     | 4     | 8      | 8      | 8      | 16     | 16     | 32     |
-| largerc                 | 2     | 4     | 4     | 8     | 8     | 8     | 16     | 16     | 16     | 32     | 32     | 64     |
-| xlargerc                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
+|  DWU   | Max Concurrent Queries  | Concurrency Slots Allocated | Slots used by smallrc |  Slots used by mediumrc |  Slots used by largerc |  Slots used by xlargerc |
+| :----  | :---------------------: | :-------------------------: | :-----: | :------: | :-----: | :------: |
+| DW100  |           32            |                4            |    1    |     1    |    2    |    4     |
+| DW200  |           32            |                8            |    1    |     2    |    4    |    8     |
+| DW300  |           32            |               12            |    1    |     2    |    4    |    8     |
+| DW400  |           32            |               16            |    1    |     4    |    8    |   16     |
+| DW500  |           32            |               20            |    1    |     4    |    8    |   16     |
+| DW600  |           32            |               24            |    1    |     4    |    8    |   16     |
+| DW1000 |           32            |               40            |    1    |     8    |   16    |   32     |
+| DW1200 |           32            |               48            |    1    |     8    |   16    |   32     |
+| DW1500 |           32            |               60            |    1    |     8    |   16    |   32     |
+| DW2000 |           32            |               80            |    1    |    16    |   32    |   64     |
+| DW3000 |           32            |              120            |    1    |    16    |   32    |   64     |
+| DW6000 |           32            |              240            |    1    |    32    |   64    |  128     |
 
-From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots up to a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distributions for a total memory allocation of 47 GB and concurrency for all of these medium resource class users would be limited to 8 users.
+
+From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots and a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distribution for a total memory allocation of 47 GB and concurrency would be limited to 8 users.
 
 ## Query importance
 
@@ -116,25 +148,25 @@ Under the covers there are a total of eight workload groups which control the be
 
 Below are the importance mappings for each workload group.
 
-| Workload groups      | Concurrency Slot Mapping | Importance Mapping |
-| :------------------  | :----------------------: | :----------------- |
-| SloDWGroupC00        | 1                        | Medium             |
-| SloDWGroupC01        | 2                        | Medium             |
-| SloDWGroupC02        | 4                        | Medium             |
-| SloDWGroupC03        | 8                        | Medium             |
-| SloDWGroupC04        | 16                       | High               |
-| SloDWGroupC05        | 32                       | High               |
-| SloDWGroupC06        | 64                       | High               |
-| SloDWGroupC07        | 128                      | High               |
+| Workload groups | Concurrency Slot Mapping | Importance Mapping |
+| :-------------- | :----------------------: | :----------------- |
+| SloDWGroupC00   |            1             | Medium             |
+| SloDWGroupC01   |            2             | Medium             |
+| SloDWGroupC02   |            4             | Medium             |
+| SloDWGroupC03   |            8             | Medium             |
+| SloDWGroupC04   |           16             | High               |
+| SloDWGroupC05   |           32             | High               |
+| SloDWGroupC06   |           64             | High               |
+| SloDWGroupC07   |          128             | High               |
 
 For a DW500 SQL Data Warehouse, the active workload groups would be mapped to the resource classes as follows.
 
-| Resource class   | Workload Group | Concurrency Slots Used   | Importance |
-| :--------------- | :------------- | :--------------------:   | :--------- |
-| smallrc          | SloDWGroupC00  | 1                        | Medium     |
-| mediumrc         | SloDWGroupC02  | 4                        | Medium     |
-| largerc          | SloDWGroupC03  | 8                        | Medium     |
-| xlargerc         | SloDWGroupC04  | 16                       | High       |
+| Resource class | Workload Group | Concurrency Slots Used | Importance |
+| :------------- | :------------- | :--------------------: | :--------- |
+| smallrc        | SloDWGroupC00  |           1            | Medium     |
+| mediumrc       | SloDWGroupC02  |           4            | Medium     |
+| largerc        | SloDWGroupC03  |           8            | Medium     |
+| xlargerc       | SloDWGroupC04  |          16            | High       |
 
 
 The following DMV query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or to analyze active and historic usage of the workload groups when troubleshooting:
