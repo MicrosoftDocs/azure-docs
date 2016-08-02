@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # Learn about schemas and the Enterprise Integration Pack  
@@ -37,7 +37,7 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)  
 7. Select the *bell* notification icon to see the progress of the schema upload process.  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)  
-8. Select the **Schemas** tile. This refreshes the tile and you should see the number of schemas increase, reflecting the new schema has been added successfully. After you select the **Schemas** tile, you will also see the newly added partner is displayed in the Schemas blade, on the right.     
+8. Select the **Schemas** tile. This refreshes the tile and you should see the number of schemas increase, reflecting the new schema has been added successfully. After you select the **Schemas** tile, you will also see the newly added schema is displayed in the Schemas blade, on the right.     
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)  
 
 

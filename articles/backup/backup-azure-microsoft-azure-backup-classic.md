@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Preparing to back up workloads using Azure Backup Server
 
