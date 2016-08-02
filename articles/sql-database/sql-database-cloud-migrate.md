@@ -4,7 +4,7 @@
    keywords="database migration,sql server database migration,database migration tools,migrate database,migrate sql database"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
