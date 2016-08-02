@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -108,6 +108,91 @@ By leveraging Microsoft threat intelligence feeds, Azure Security Center can det
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the attacked resource, the victim IP, the attacker IP and the detection time.
 
 > [AZURE.NOTE] Live IP addresses were removed from this screenshot for privacy purpose.
+
+### Shellcode Discovered 
+
+Shellcode is the payload that is run after malware has exploited a software vulnerability.  This alert indicates that executable code is exhibiting behavior commonly performed by malicious payloads.  Although non-malicious software may perform this behavior, it is not typical of normal software development practices.  
+This alert provides the following additional fields:
+
+- ADDRESS: The location in memory of the shellcode
+
+This is an example of this type of alert:
+
+![Shellcode alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig10-ga.png)
+
+### Code Injection Discovered
+
+Code injection is the insertion of executable modules into running processes or threads.  This technique is used by malware to access data, hide or prevent its removal (e.g. persistence).  This alert indicates that an injected module is present in the crash dump.
+ 
+Legitimate software developers occasionally perform code injection for non-malicious reasons, such as modifying or extending an existing application or operating system component.  To help differentiate between malicious and non-malicious injected modules, Azure Security Center checks whether or not the injected module conforms to a profile of suspicious behavior.   The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  
+
+This alert provides the following additional fields:
+
+- ADDRESS: The location in memory of the injected module
+- IMAGENAME: The name of the injected module. Note that this can be blank if the image name is not provided within the image.
+- SIGNATURE: Indicates if the injected module conforms to a profile of suspicious behavior.The following table shows examples of results and their description:
+
+| **Signature value**                  | **Description**                                                                                                   |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Suspicious reflective loader exploit | This suspicious behavior often correlates with loading injected code independently of the operating system loader |
+| Suspicious injected exploit          | Signifies maliciousness that often correlates to injecting code into memory                                       |
+| Suspicious injecting exploit         | Signifies maliciousness that often correlates to use of injected code in memory                                   |
+| Suspicious injected debugger exploit | Signifies maliciousness that often correlates to detection or circumvention of a debugger                         |
+| Suspicious injected remote exploit   | Signifies maliciousness that often correlates to command n control (C2) scenarios                                 |
+
+This is an example of this type of alert:
+
+[screenshot placeholder]
+
+### Module Hijacking Discovered
+
+Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality.  DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
+
+Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS or Windows applications.  To help differentiate between malicious and potentially benign changes to the DLL load order, Azure Security Center checks whether or not a loaded module conforms to a suspicious profile.   The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  Analyzing the on disk copy of the hijacking module, such as by verifying the files digital signature or running an anti-virus scan, may provide more information as to the legitimate or malicious nature of the hijacking module.
+
+This alert provides the following fields:
+- SIGNATURE: Indicates if the hijacking module conforms to a profile of suspicious behavior
+- HIJACKEDMODULE: The name of the hijacked Windows system module
+- HIJACKEDMODULEPATH: The path of the hijacked Windows system module
+- HIJACKINGMODULEPATH: The path of the hijacking module 
+
+This is an example of this type of alert:
+
+![DLL Hijack alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig12-ga.png)
+
+### Masquerading Windows Module Detected
+
+Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators.  This alert indicates that the crash dump contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
+
+- Confirm that the file in question is shipped as part of a legitimate software package
+- Verify the file’s digital signature 
+- Run an anti-virus scan on the file
+
+This alert provides the following additional fields:
+
+- DETAILS: Describes whether the modules metadata is valid and whether the module was loaded from a system path.
+- NAME: The name of the masquerading Windows module
+- PATH: The path to the masquerading Windows module.
+
+This alert also extracts and displays the certain fields, from the module’s PE header, such as “CHECKSUM” and “TIMESTAMP”.  These fields are only displayed if the fields are present in the module. See the [Microsoft PE and COFF Specification](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) for details on these fields.
+
+This is an example of this type of alert:
+
+![Masquerading alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig13-ga.png)
+
+### Modified System Binary Discovered 
+
+Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system.  This alert indicates that core Windows OS binaries have been modified in memory or on disk. 
+
+Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Azure Security Center checks whether or not the modified module conforms to a suspicious profile.   The result of this check is indicated by the severity of the alert, alert description, and alert remediation steps. 
+This alert provides the following additional fields:
+
+- MODULENAME: Name of the modified system binary 
+- MODULEVERSION: Version of the modified system binary
+
+This is an example of this type of alert:
+
+![Modified binary alert](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig14-ga.png)
 
 
 ## See also
