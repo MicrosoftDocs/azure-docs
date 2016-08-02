@@ -20,7 +20,7 @@
 # Upload a Windows VM image to Azure for Resource Manager deployments
 
 
-This article shows you how to create and upload a Windows virtual hard disk (VHD) image so that you can use it to quickly create new Windows virtual machines (VMs). For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
+This article shows you how to create and upload a Windows virtual hard disk (VHD) image so you can quickly create VMs. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 
 
@@ -28,7 +28,7 @@ This article shows you how to create and upload a Windows virtual hard disk (VHD
 
 This article assumes that you have:
 
-- **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) or [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F), or [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 - **Azure PowerShell version 1.4 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -37,7 +37,7 @@ This article assumes that you have:
 
 ## Make sure that the VM has the right file format
 
-In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are saved in the VHD file format. The VHD must be a fixed size and be a whole number of megabytes, that is, a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
+In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. The VHD must be a fixed size and be a whole number of megabytes, that is, a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
 
 - If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
 
@@ -75,9 +75,9 @@ This section shows you how to generalize your Windows virtual machine. Sysprep r
 
 		Login-AzureRmAccount
 
-	This opens a pop-up window for you to enter your Azure account credentials.
+	A pop-up window will open for you to enter your Azure account credentials.
 
-2. Get the subscription IDs for all of the available subscriptions.
+2. Get the subscription IDs for your available subscriptions.
 
 		Get-AzureRmSubscription
 
@@ -90,20 +90,19 @@ This section shows you how to generalize your Windows virtual machine. Sysprep r
 
 You need a storage account in Azure house the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-Show all of the available storage accounts.
+Show the available storage accounts.
 
 		Get-AzureRmStorageAccount
 
 If you want to use an existing storage account, proceed to the [Upload the VM image](#upload_the_vm_image_to_your_storage_account) section.
 
-
-To create a new storage account, follow these steps:
+If you want to create a storage account, follow these steps:
 
 1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
 
 		Get-AzureRmResourceGroup
 
-2. If you want to create a new resource group, use this command:
+2. To create a new resource group, use this command:
 
 		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
 
@@ -131,16 +130,16 @@ Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdle
 
 Where:
 
-- **storageAccount** is the name of the storage account where you want the image to be placed. 
+- **storageAccount** is the name of the storage account that will contain the image. 
 
-- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name insn't found, it will be created for you.
+- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name insn't found, it is created for you.
 
 - **targetVHDName** is the name that you want to use for the uploaded VHD file.
 
 - **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
 
 
-If successful, you will get a response that looks similar to this:
+If successful, you get a response that looks similar to this:
 
 		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
 		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
@@ -197,7 +196,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
 
->[AZURE.NOTE] The VM needs to be created in the same storage account as the uploaded VHD file.
+>[AZURE.NOTE] The VM needs to be in the same storage account as the uploaded VHD file.
 
 </br>
 
