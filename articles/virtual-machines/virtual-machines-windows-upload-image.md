@@ -32,7 +32,7 @@ This article assumes that you have:
 
 - **Azure PowerShell version 1.4 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported by Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
+- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
 
 ## Make sure that the VM has the right file format
@@ -75,7 +75,7 @@ This section shows you how to generalize your Windows virtual machine. Sysprep r
 
 		Login-AzureRmAccount
 
-	A pop-up window will open for you to enter your Azure account credentials.
+	A pop-up window opens for you to enter your Azure account credentials.
 
 2. Get the subscription IDs for your available subscriptions.
 
@@ -102,7 +102,7 @@ If you want to create a storage account, follow these steps:
 
 		Get-AzureRmResourceGroup
 
-2. To create a new resource group, use this command:
+2. To create a resource group, use this command:
 
 		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
 
@@ -115,8 +115,8 @@ Valid values for -SkuName are:
 - **Standard_LRS** - Locally redundant storage. 
 - **Standard_ZRS** - Zone redundant storage.
 - **Standard_GRS** - Geo redundant storage. 
-- **Standard_RAGRS** - Read access geo-redundant storage. 
-- **Premium_LRS** - Premium locally-redundant storage. 
+- **Standard_RAGRS** - Read access geo redundant storage. 
+- **Premium_LRS** - Premium locally redundant storage. 
 
 
 
@@ -130,7 +130,7 @@ Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdle
 
 Where:
 
-- **storageAccount** is the name of the storage account that will contain the image. 
+- **storageAccount** is the name of the storage account for the image. 
 
 - **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name insn't found, it is created for you.
 
