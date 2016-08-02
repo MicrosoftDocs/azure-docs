@@ -17,7 +17,7 @@
 	ms.author="ryansoc"/>
 
 #  Azure Government Technical Documentation
-![alt text](./media/azure-government-us-cloud.PNG)
+
 ## <a name="Overview"></a>Overview
 
 Azure Government is enabling U.S. Government & their partners to transform their mission-critical workloads to a trusted hyper-scale cloud.  
