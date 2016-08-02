@@ -68,7 +68,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
 	**Objective-C**:
 	
-	`syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
+	`syncData` first pushes new changes, then calls `pullData` to get data from the remote backend. In turn, the method `pullData` gets new data that matches a query:
 	
 	
 	        -(void)syncData:(QSCompletionBlock)completion
@@ -79,10 +79,6 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	                [self pullData:completion];
 	            }];
 	        }
-        
-        
-        In turn, the method `pullData` gets new data that matches a query:
-	
 	
 	        -(void)pullData:(QSCompletionBlock)completion
 	        {
@@ -102,7 +98,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	        }
         
         
-        **Swift**:
+      **Swift**:
         
         
 		func onRefresh(sender: UIRefreshControl!) {
