@@ -34,11 +34,11 @@ The client project that you downloaded for the tutorial [Create an iOS App] alre
 
 The offline data sync sync feature of Azure Mobile Apps allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
 
-1. In **QSTodoService.m**, notice the type of the member `syncTable` is `MSSyncTable`. Offline sync uses this sync table interface instead of `MSTable`. When a sync table is used, all operations go to the local store and are only synchronized with the remote backend with explicit push and pull operations.
+1. In **QSTodoService.m** (Objective-C) or **ToDoTableViewController.swift** (Swift), notice the type of the member `syncTable` is `MSSyncTable`. Offline sync uses this sync table interface instead of `MSTable`. When a sync table is used, all operations go to the local store and are only synchronized with the remote backend with explicit push and pull operations.
 
     To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
-2. Before any table operations can be performed, the local store must be initialized. Here is the relevant code. This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol. The first parameter of `MSSyncContext` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
+2. Before any table operations can be performed, the local store must be initialized. Here is the relevant code. 
 
 	**Objective-C**:
 	
@@ -59,6 +59,8 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
 	        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
 	```
+	
+	This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol. The first parameter of `MSSyncContext` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
 
 3. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 
