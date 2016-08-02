@@ -873,7 +873,7 @@ The PCase function converts the first character of each space delimited word in 
 `PCase("TEsT")`  
 Returns "Test".
 
-`PCase(LCase("TEST"))`
+`PCase(LCase("TEST"))`  
 Returns "Test"
 
 ----------
