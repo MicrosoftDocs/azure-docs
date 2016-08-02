@@ -64,8 +64,13 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
 	```
 
-3. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
+3. Now, let's perform the actual sync operation, and get data from the remote backend.
 
+	**Objective-C**:
+	
+	`syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
+
+        ```
         -(void)syncData:(QSCompletionBlock)completion
         {
             // push all changes in the sync context, then pull new data
@@ -74,9 +79,11 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
                 [self pullData:completion];
             }];
         }
+        ```
 
-    In turn, the method `pullData` gets new data that matches a query:
-
+	In turn, the method `pullData` gets new data that matches a query:
+	
+	```
         -(void)pullData:(QSCompletionBlock)completion
         {
             MSQuery *query = [self.syncTable query];
@@ -93,18 +100,56 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
                 }
             }];
         }
+        ```
+        
+        **Swift**:
+        
+	```
+	func onRefresh(sender: UIRefreshControl!) {
+	    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+	    
+	    self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
+	        (error) -> Void in
+	        
+	        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+	        
+	        if error != nil {
+	            // A real application would handle various errors like network conditions,
+	            // server conflicts, etc via the MSSyncContextDelegate
+	            print("Error: \(error!.description)")
+	            
+	            // We will just discard our changes and keep the servers copy for simplicity
+	            if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
+	                for opError in opErrors {
+	                    print("Attempted operation to item \(opError.itemId)")
+	                    if (opError.operation == .Insert || opError.operation == .Delete) {
+	                        print("Insert/Delete, failed discarding changes")
+	                        opError.cancelOperationAndDiscardItemWithCompletion(nil)
+	                    } else {
+	                        print("Update failed, reverting to server's copy")
+	                        opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
+	                    }
+	                }
+	            }
+	        }
+	        self.refreshControl?.endRefreshing()
+	    }
+	}        
+    	```
 
-    In `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` (rather than the sync table itself)  because it will push changes across all tables. Only records that have been modified in some way locally (through CUD operations) will be sent to the server. Then the helper `pullData` is called, which calls `MSSyncTable.pullWithQuery` to retrieve remote data and store in the local database.
+ 
 
-    Note that in this example, the push operation was not strictly necessary. If there are any changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, it is best explicitly call push to ensure that everything is consistent across related tables.
+	In the Objective-C version, in `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` (rather than the sync table itself)  because it will push changes across all tables. Only records that have been modified in some way locally (through CUD operations) will be sent to the server. Then the helper `pullData` is called, which calls `MSSyncTable.pullWithQuery` to retrieve remote data and store in the local database.
+	
+	In the Swift version, there is no call to `pushWithCompletion`. This is because the push operation was not strictly necessary. If there are any changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, it is best explicitly call push to ensure that everything is consistent across related tables.
+	
+	In both the Objective-C and Swift versions, the method `pullWithQuery` allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
+	
+	The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store.) The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
-    The method `pullWithQuery` allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
+5. The app syncs when we modify data, add data, or complete an item. The app also syncs whenever a user performs the refresh gesture, and on launch. 
 
-    The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store). The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
-
-5. In the class `QSTodoService`, the method `syncData` is called after the operations that modify data, `addItem` and `completeItem`. It is also called from `QSTodoListViewController.refresh`, so that the user gets the latest data whenever they perform the refresh gesture. The app also performs a sync on launch, since `QSTodoListViewController.init` calls `refresh`.
-
-    Because `syncData` is called whenever data is modified, this app assumes that the user is online whenever they are editing data. In another section, we will update the app so that users can edit even when they are offline.
+	Because the app syncs whenever data is modified, this app assumes that the user is online whenever they are editing data. In another section, we will update the app so that users can edit even when they are offline.
 
 ## <a name="review-core-data"></a>Review the Core Data model
 
