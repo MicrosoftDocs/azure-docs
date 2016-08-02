@@ -71,72 +71,72 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	`syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 	
 	```
-        -(void)syncData:(QSCompletionBlock)completion
-        {
-            // push all changes in the sync context, then pull new data
-            [self.client.syncContext pushWithCompletion:^(NSError *error) {
-                [self logErrorIfNotNil:error];
-                [self pullData:completion];
-            }];
-        }
+	        -(void)syncData:(QSCompletionBlock)completion
+	        {
+	            // push all changes in the sync context, then pull new data
+	            [self.client.syncContext pushWithCompletion:^(NSError *error) {
+	                [self logErrorIfNotNil:error];
+	                [self pullData:completion];
+	            }];
+	        }
         ```
         
         In turn, the method `pullData` gets new data that matches a query:
 	
 	```
-        -(void)pullData:(QSCompletionBlock)completion
-        {
-            MSQuery *query = [self.syncTable query];
-
-            // Pulls data from the remote server into the local table.
-            // We're pulling all items and filtering in the view
-            // query ID is used for incremental sync
-            [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
-                [self logErrorIfNotNil:error];
-
-                // Let the caller know that we have finished
-                if (completion != nil) {
-                    dispatch_async(dispatch_get_main_queue(), completion);
-                }
-            }];
-        }
+	        -(void)pullData:(QSCompletionBlock)completion
+	        {
+	            MSQuery *query = [self.syncTable query];
+	
+	            // Pulls data from the remote server into the local table.
+	            // We're pulling all items and filtering in the view
+	            // query ID is used for incremental sync
+	            [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+	                [self logErrorIfNotNil:error];
+	
+	                // Let the caller know that we have finished
+	                if (completion != nil) {
+	                    dispatch_async(dispatch_get_main_queue(), completion);
+	                }
+	            }];
+	        }
         ```
         
         **Swift**:
         
+        ```
+		func onRefresh(sender: UIRefreshControl!) {
+		    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+		    
+		    self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
+		        (error) -> Void in
+		        
+		        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+		        
+		        if error != nil {
+		            // A real application would handle various errors like network conditions,
+		            // server conflicts, etc via the MSSyncContextDelegate
+		            print("Error: \(error!.description)")
+		            
+		            // We will just discard our changes and keep the servers copy for simplicity
+		            if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
+		                for opError in opErrors {
+		                    print("Attempted operation to item \(opError.itemId)")
+		                    if (opError.operation == .Insert || opError.operation == .Delete) {
+		                        print("Insert/Delete, failed discarding changes")
+		                        opError.cancelOperationAndDiscardItemWithCompletion(nil)
+		                    } else {
+		                        print("Update failed, reverting to server's copy")
+		                        opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
+		                    }
+		                }
+		            }
+		        }
+		        self.refreshControl?.endRefreshing()
+		    }
+		} 
 	```
-	func onRefresh(sender: UIRefreshControl!) {
-	    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-	    
-	    self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
-	        (error) -> Void in
-	        
-	        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-	        
-	        if error != nil {
-	            // A real application would handle various errors like network conditions,
-	            // server conflicts, etc via the MSSyncContextDelegate
-	            print("Error: \(error!.description)")
-	            
-	            // We will just discard our changes and keep the servers copy for simplicity
-	            if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
-	                for opError in opErrors {
-	                    print("Attempted operation to item \(opError.itemId)")
-	                    if (opError.operation == .Insert || opError.operation == .Delete) {
-	                        print("Insert/Delete, failed discarding changes")
-	                        opError.cancelOperationAndDiscardItemWithCompletion(nil)
-	                    } else {
-	                        print("Update failed, reverting to server's copy")
-	                        opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
-	                    }
-	                }
-	            }
-	        }
-	        self.refreshControl?.endRefreshing()
-	    }
-	}        
-    	```
-
+	
 	In the Objective-C version, in `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` (rather than the sync table itself)  because it will push changes across all tables. Only records that have been modified in some way locally (through CUD operations) will be sent to the server. Then the helper `pullData` is called, which calls `MSSyncTable.pullWithQuery` to retrieve remote data and store in the local database.
 	
 	In the Swift version, there is no call to `pushWithCompletion`. This is because the push operation was not strictly necessary. If there are any changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, it is best explicitly call push to ensure that everything is consistent across related tables.
