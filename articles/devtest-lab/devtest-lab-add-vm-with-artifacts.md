@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a lab
 
-> [AZURE.NOTE] View this article's accompanying 
-video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+> [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Overview
 
@@ -105,7 +104,7 @@ The following steps illustrate how to change the order in which the artifacts ar
 
 1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Drag and drop the artifacts in the list to reflect the desired order. **Note:** If you have
 having trouble dragging the artifact, make sure that you are dragging from the left side of the 
@@ -119,7 +118,7 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. On the **Selected Artifacts** blade, select the artifact that you want to view or edit.  
 
