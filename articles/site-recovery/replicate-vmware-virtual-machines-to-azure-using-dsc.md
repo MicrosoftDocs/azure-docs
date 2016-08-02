@@ -246,7 +246,7 @@ Once completed, you can either retrieve the job information by using PowerShell 
 We have now successfully published and uploaded our DSC configuration to OMS Automation DSC.
 
 ## Step 4 – Onboarding machines to OMS Automation DSC
-*One of the pre-reqs for completing this scenario, is that your Windows machines are updated with the latest version of WMF. You can download and install the correct version for your platform following this URL: https://www.microsoft.com/en-us/download/details.aspx?id=50395*
+*One of the pre-reqs for completing this scenario, is that your Windows machines are updated with the latest version of WMF. You can download and install the correct version for your platform following this URL: https://www.microsoft.com/download/details.aspx?id=50395*
 
 We will now create a metaconfig for DSC that we will apply to our nodes. To succeed with this, you need to retrieve the endpoint URL and the primary key for your selected Automation account in Azure.
 
@@ -370,7 +370,7 @@ Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 
 Also for WMF 4.0, ensure the following update is installed on the machine(s):
 
-https://www.microsoft.com/en-us/download/details.aspx?id=40749
+https://www.microsoft.com/download/details.aspx?id=40749
 
 The following configuration can be pushed towards both Windows machines with WMF 5.0 and 4.0
 
@@ -474,7 +474,7 @@ ASRMobilityService
 Start-DscConfiguration -ComputerName $computername .\ASRMobilityService -wait -force -Verbose
 ```
 
-If you want to instantiate your own DSC pull server within your corporate network, to mimic the same capabilities you can get from OMS Automation DSC, see the following guide: https://msdn.microsoft.com/en-us/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
+If you want to instantiate your own DSC pull server within your corporate network, to mimic the same capabilities you can get from OMS Automation DSC, see the following guide: https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
 
 ## Optional: Deploy DSC Configuration using Azure Resource Manager Template
 
@@ -518,4 +518,4 @@ New-AzureRmResourceGroupDeployment `
 
 ## Next steps:
 
-After you deploy the Mobility Service Agents, you can continue to [enable replication](https://azure.microsoft.com/en-in/documentation/articles/site-recovery-vmware-to-azure/#step-6-replicate-applications) for the virtual machines.
+After you deploy the Mobility Service Agents, you can continue to [enable replication](site-recovery-vmware-to-azure.md#step-6-replicate-applications) for the virtual machines.
