@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to download your Azure billing invoice and daily usage data | Microsoft Azure"
 	description="Describes how to download your Azure billing invoice and daily usage data"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"

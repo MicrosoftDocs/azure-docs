@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Why have you received a notification that your Azure subscription has a past due balance | Microsoft Azure"
 	description="Describes how to make payment if your Azure subscription has a past due balance"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"

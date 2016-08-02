@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to Create a Support Ticket for Azure Billing and Subscription Issues | Microsoft Azure"
 	description="Describes How to Create a Support Ticket for Azure Billing and Subscription Issues"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"

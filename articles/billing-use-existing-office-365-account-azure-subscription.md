@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Share a single Azure AD tenant across Office 365 and Azure subscriptions | Microsoft Azure"
 	description="Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"

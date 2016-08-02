@@ -1,7 +1,7 @@
 <properties
 	pageTitle="How to verify your payment method and make payments for an Azure subscription | Microsoft Azure"
 	description="Describes How to verify your payment method and make payments for an Azure subscription"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"

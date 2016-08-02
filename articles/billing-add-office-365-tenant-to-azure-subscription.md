@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Use Office 365 tenant with Azure subscription | Microsoft Azure"
 	description="Learn how to add an Office 365 directory (tenant) to an Azure subscription to make the association."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
