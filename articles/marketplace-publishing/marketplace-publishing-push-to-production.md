@@ -54,6 +54,7 @@ When you are satisfied with your offer (that is, you have tested customer scenar
 - SKU Titles should not be identical for an offer with multiple SKUs.
 
 **Azure Marketplace logo guidelines**
+
 - The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
 - The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. If you are using transparent background, then make sure that the logo/text is not white or black.
 - Do not use a gradient background on the logo.
@@ -62,6 +63,7 @@ When you are satisfied with your offer (that is, you have tested customer scenar
 - The logo should not be stretched.
 
 **Additional guidelines for the Hero logo:**
+
 - The Hero logo is optional. The publisher can choose not to upload a Hero logo. **However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons else the offer will not be approved to production.**
 - The Publisher Display Name, SKU title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
 - The publisher display name, SKU title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (i.e. publisher display name, SKU title, the offer long summary) will be included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370px from the left).
