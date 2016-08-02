@@ -204,15 +204,25 @@ The following PowerShell script shows how to set up the virtual machine configur
 
 </br>
 
-	#Enter a new user name and password in the pop-up window for the following
-	$cred = Get-Credential
+	
 	
 	#Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
+	$cred = Get-Credential
 	
+	# Name of the storage account where the VHD file is and where the OS disk will be created
 	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
 	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
 	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
 	$osDiskName = "<osDiskName>"
 
 	#Get the storage account where the uploaded image is stored
