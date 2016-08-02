@@ -6,6 +6,7 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
+	tags="billing"
 	/>
 
 <tags

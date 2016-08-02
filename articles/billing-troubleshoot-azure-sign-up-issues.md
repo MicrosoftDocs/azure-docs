@@ -6,7 +6,7 @@
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"

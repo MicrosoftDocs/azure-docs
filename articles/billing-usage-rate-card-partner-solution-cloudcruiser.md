@@ -5,7 +5,9 @@
    documentationCenter=""
    authors="BryanLa"
    manager="mbaldwin"
-   editor=""/>
+   editor=""
+   tags="billing"
+   />
 
 <tags
    ms.service="billing"

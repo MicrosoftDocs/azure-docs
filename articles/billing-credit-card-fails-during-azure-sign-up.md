@@ -6,7 +6,7 @@
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="credit card declined, debit card declined, your credit card was declined, do not honor credit card"/>
 
 <tags
