@@ -116,11 +116,9 @@ Two databases on the same logical server cannot have the same name. SQL Data War
 For the purpose of this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
 1.	Rename "MyDW" using the ALTER DATABASE command below to something like "MyDW_BeforeMigration".  This will kill all existing transactions and must be done in the master database to succeed.
-
 ```sql
 ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
-```	
-
+```
 2.	[Pause][] "MyDW_BeforeMigration" which will take an automatic backup
 3.	[Restore][] from your most recent snapshot a new database with the name you used to have (ex: "MyDW")
 4.	Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
