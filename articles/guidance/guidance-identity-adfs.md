@@ -226,11 +226,11 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 <!-- The following text is boilerplate, and should be used in all RA docs -->
 
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Azure Resource Manager (ARM)][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
-When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
+When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
 <!-- End of boilerplate -->
 
@@ -286,7 +286,10 @@ To run the script that deploys the solution:
 - [Azure Active Directory B2C][aadb2c].
 <!-- links -->
 
-[vm-recommendations]: ./uidance-compute-single-vm#Recommendations
+[vm-recommendations]: ./guidance-compute-single-vm.md#Recommendations
+[solution-script]: .
+[gateway-parameters]: .
+[naming-conventions]: ./guidance-naming-conventions.md
 [implementing-active-directory]: ./guidance-iaas-ra-secure-vnet-ad.md
 [resource-manager-overview]: ../resource-group-overview.md
 [implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
