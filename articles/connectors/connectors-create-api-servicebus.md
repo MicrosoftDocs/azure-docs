@@ -114,7 +114,7 @@ This operation triggers a flow when a message is received in a queue.
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
@@ -149,7 +149,7 @@ This operation triggers a flow when a message is received in a topic subscriptio
 
 An * indicates that a property is required
 
-#### Output Details
+#### Output details
 
 ServiceBusMessage: This object has the content and properties of a Service Bus Message.
 
