@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus connector
@@ -73,23 +73,41 @@ Here are the details for the actions and triggers for this connector, along with
 
 #### Send message
 
-|Property name| Display name| Description|
+|Property name| Display name|Description|
 | ---|---|---|
-|message*|Message|Message to send.|
+|ContentData*|Content|Content of the message.|
+|ContentType|Content Type|Content type of the message content.|
+|Properties|Properties|Key-value pairs for each brokered property.|
 |entityName*|Queue/Topic name|Name of the queue or topic.|
 
-An * indicates that a property is required.
+These advanced parameters are also available:
+
+|Property name| Display name|Description|
+| ---|---|---|
+|MessageId|Message Id|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Send to address|
+|ReplyTo|Reply To|Address of the queue to reply to.|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
+|Label|Label|Application-specific label.|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
+|SessionId|Session Id|Identifier of the session.|
+|CorrelationId|Correlation Id|Identifier of the correlation.|
+|TimeToLive|Time To Live|This is the duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
 
 
+
+An * indicates that a property is required
 
 
 #### When a message is received in a queue
 
-|Property name| Display name| Description|
+|Property name| Display name|Description|
 | ---|---|---|
 |queueName*|Queue name|Name of the queue.|
 
+
 An * indicates that a property is required.
+
 
 ##### Output details
 
@@ -100,8 +118,8 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |---|---|---|
 |ContentData|string|Content of the message.|
 |ContentType|string|Content type of the message content.|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none" or "base64").|
 |Properties|object|Key-value pairs for each brokered property.|
+
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address.|
 |ReplyTo|string|Address of the queue to reply to.|
@@ -122,7 +140,9 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |topicName*|Topic name|Name of the topic.|
 |subscriptionName*|Topic subscription name|Name of the topic subscription.|
 
-An * indicates that a property is required.
+
+An * indicates that a property is required
+
 
 ##### Output details
 
@@ -133,13 +153,13 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |---|---|---|
 |ContentData|string|Content of the message.|
 |ContentType|string|Content type of the message content.|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none" or "base64").|
 |Properties|object|Key-value pairs for each brokered property.|
+
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address.|
 |ReplyTo|string|Address of the queue to reply to.|
 |ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application specific label.|
+|Label|string|Application-specific label.|
 |ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|string|Identifier of the session.|
 |CorrelationId|string|Identifier of the correlation.|

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Continuous Delivery for Cloud Services in Azure
@@ -156,7 +156,7 @@ steps:
     Team Explorer window, expand the **Builds** node or choose the **Builds**
     page, and choose **New Build Definition**.
 
-    ![][0]
+    ![New Build Definition option][0]
 
 2.  Choose the **Trigger** tab, and specify the desired conditions for
     when you want the package to be built. For example, specify
@@ -181,7 +181,7 @@ steps:
     package and copy the package files to the location
     \\\\myserver\\drops\\:
 
-    ![][2]
+    ![MSBuild arguments][2]
 
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
@@ -371,7 +371,7 @@ piped into the standard build output.
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![List of arguments][3]
 
     The corresponding XAML looks like this:
 
@@ -430,7 +430,7 @@ piped into the standard build output.
 
         -   PublishScriptFilePath, of type String
 
-            ![][4]
+            ![New variables][4]
 
     4.  If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
         Sequence. If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence. For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
@@ -488,7 +488,7 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in the designer:
 
-    ![][5]
+    ![Workflow activities][5]
 
     The final result of the publish workflow activities will look like
     this in XAML:
@@ -555,7 +555,7 @@ piped into the standard build output.
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![Parameter property values][6]
 
 10. Save the changes to the Build Definition.
 
