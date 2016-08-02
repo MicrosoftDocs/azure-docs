@@ -875,6 +875,7 @@ Returns "Test".
 
 `PCase(LCase("TEST"))`
 Returns "Test"
+
 ----------
 ### RandomNum
 
