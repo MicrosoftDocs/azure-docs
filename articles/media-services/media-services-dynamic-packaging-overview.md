@@ -2,7 +2,7 @@
 	pageTitle="Dynamic Packaging Overview"
 	description="The topic gives and overview of dynamic packaging."
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="media-services"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 

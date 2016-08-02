@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="06/29/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you'll first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
+To deploy the Azure Stack POC, you first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 ## Prepare the deployment machine
 
-1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
+1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
-2.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+2.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
 3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
@@ -41,7 +41,7 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Datacenter VHD (includes KB 3124262)
 
-	**Important**: You must have at least 128GB of free space on the physical boot volume.
+	> [AZURE.IMPORTANT] You must have at least 128GB of free space on the physical boot volume.
 
 5. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
 
@@ -57,7 +57,7 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 10. Log in using a local account with administrator permissions.
 
-11. Verify that four drives for Azure Stack POC data:
+11. Verify that **exactly** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
@@ -66,7 +66,13 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 13. Verify network connectivity to Azure.com.
 
-**Important**: Only one NIC is allowed during the deployment process. If you have multiple NICs, you'll need to make sure all but one is disabled before running the deployment script below. If you used the VHD boot steps defined above, you’ll need to do this after booting into the VHD and before starting the deployment script.
+> [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
+>
+> - **For storage**, use device manager or WMI to disable all other drives (taking the disks offline through disk manager is not enough).
+>
+> - **For network**, if you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
+>
+> If you used the VHD boot steps defined above, you’ll need to make these updates after booting into the VHD and before starting the deployment script.
 
 ## Run the PowerShell deployment script
 
@@ -140,13 +146,13 @@ Microsoft Azure Stack Technical Preview 1 includes a set of validation tests use
 
 **To turn off TiP automated tests**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
 
 **To view the test results**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Get-AzureStackTiPTestsResult`
 

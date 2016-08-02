@@ -3,7 +3,7 @@
    description="Learn how to use the Azure Portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure Portal
 
@@ -27,17 +27,9 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
 
-**The basic Data Lake Analytics process:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytics jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts. In this example, we will read from Azure Data Lake Store.  
-3. Develop a U-SQL script.
-4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
-in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
-
-###Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 

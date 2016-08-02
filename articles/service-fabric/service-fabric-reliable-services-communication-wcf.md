@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/17/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="07/26/2016"
+   ms.author="bharatn"/>
 
 # WCF-based communication stack for Reliable Services
 The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods. The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.
@@ -22,25 +22,38 @@ The Reliable Services framework allows service authors to choose the communicati
 ## WCF Communication Listener
 The WCF-specific implementation of **ICommunicationListener** is provided by the **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** class.
 
+Lest say we have a service contract of type `ICalculator`
+
+```csharp
+[ServiceContract]
+public interface ICalculator
+{
+    [OperationContract]
+    Task<int> Add(int value1, int value2);
+}
+```
+
+We can create a WCF communication listener in the service the following manner.
+
 ```csharp
 
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
-    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
-    return new[] { new ServiceReplicaListener(parameters =>
-        new WcfCommunicationListener(ServiceInitializationParameters,typeof(ICalculator), this)
-        {
+    return new[] { new ServiceReplicaListener((context) =>
+        new WcfCommunicationListener<ICalculator>(
+            wcfServiceObject:this,
+            serviceContext:context,
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
             // that identifies the endpoint that the WCF ServiceHost should listen on.
             //
-            EndpointResourceName = "ServiceEndpoint",
+            endpointResourceName: "WcfServiceEndpoint",
 
             //
             // Populate the binding information that you want the service to use.
             //
-            Binding = this.CreateListenBinding()
-        }
+            listenerBinding: WcfUtility.CreateTcpListenerBinding()
+        )
     )};
 }
 
@@ -52,64 +65,59 @@ For writing clients to communicate with services by using WCF, the framework pro
 ```csharp
 
 public WcfCommunicationClientFactory(
-    ServicePartitionResolver servicePartitionResolver = null,
-    Binding binding = null,
-    object callback = null,
-    IList<IExceptionHandler> exceptionHandlers = null,
-    IEnumerable<Type> doNotRetryExceptionTypes = null)
-
+    Binding clientBinding = null,
+    IEnumerable<IExceptionHandler> exceptionHandlers = null,
+    IServicePartitionResolver servicePartitionResolver = null,
+    string traceId = null,
+    object callback = null);
 ```
 
 The WCF communication channel can be accessed from the **WcfCommunicationClient** created by the **WcfCommunicationClientFactory**.
 
 ```csharp
 
-public class WcfCommunicationClient<TChannel> : ICommunicationClient where TChannel : class
-{
-    public TChannel Channel { get; }
-    public ResolvedServicePartition ResolvedServicePartition { get; set; }
-}
+public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationClient<ICalculator>>
+   {
+       public WcfCommunicationClient(ICommunicationClientFactory<WcfCommunicationClient<ICalculator>> communicationClientFactory, Uri serviceUri, ServicePartitionKey partitionKey = null, TargetReplicaSelector targetReplicaSelector = TargetReplicaSelector.Default, string listenerName = null, OperationRetrySettings retrySettings = null)
+           : base(communicationClientFactory, serviceUri, partitionKey, targetReplicaSelector, listenerName, retrySettings)
+       {
+       }
+   }
 
 ```
 
-Client code can use the **WcfCommunicationClientFactory** along with the **ServicePartitionClient** to determine the service endpoint and communicate with the service.
+Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which implements **ServicePartitionClient** to determine the service endpoint and communicate with the service.
 
 ```csharp
+// Create binding
+Binding binding = WcfUtility.CreateTcpClientBinding();
+// Create a partition resolver
+IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
+// create a  WcfCommunicationClientFactory object.
+var wcfClientFactory = new WcfCommunicationClientFactory<ICalculator>
+    (clientBinding: binding, servicePartitionResolver: partitionResolver);
 
 //
-// Create a service resolver for resolving the endpoints of the calculator service.
-//
-ServicePartitionResolver serviceResolver = new ServicePartitionResolver(() => new FabricClient());
-
-//
-// Create the binding.
-//
-NetTcpBinding binding = CreateClientConnectionBinding();
-
-var clientFactory = new WcfCommunicationClientFactory<ICalculator>(
-    serviceResolver,// ServicePartitionResolver
-    binding,        // Client binding
-    null,           // Callback object
-    null);          // do not retry Exception types
-
-
-//
-// Create a client for communicating with the calc service that has been created with the
+// Create a client for communicating with the ICalculator service that has been created with the
 // Singleton partition scheme.
 //
-var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicationClient<ICalculator>>(
-    clientFactory,
-    ServiceName);
+var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
+                wcfClientFactory,
+                ServiceUri,
+                ServicePartitionKey.Singleton);
 
 //
 // Call the service to perform the operation.
 //
-var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
-    client => client.Channel.AddAsync(2, 3)).Result;
+var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
+                client => client.Channel.Add(2, 3)).Result;
 
 ```
+>[AZURE.NOTE] The default ServicePartitionResolver assumes that the client is running in same cluster as the service. If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.
 
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

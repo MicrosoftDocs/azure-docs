@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Azure Search: code samples, demos, videos and tutorials
@@ -37,7 +37,6 @@ These sites are fully functional web applications that use Azure Search for the 
 
 [**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
 
-[**Try App Service + Azure Search in ASP.NET MVC combo app**](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features in an ASP.NET application.
 
 [**Azure Search Demo Site**](https://searchsamples.azurewebsites.net/#/) is a collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search.
 
@@ -56,7 +55,9 @@ Here are a few of our more highly-rated tutorials and videos for Azure Search.
 
 Link|Released|Details
 ----|------------|-----------
-[Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|January 2016|21 minutes. Custom analyzers allow configuration of tokenizers and token filters. Search Analytics gives insights into search terms entered by users and efficacy of your search index. Search Explorer is a built-in query tool that lets you try out queries from inside the portal. 
+[Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458)|May 2016|17 minutes. Liam Cavanagh explains the benefits of adding 'recommended for you' capabilities to your Azure Search application, and how to derive insights about user preferences from machine learning. 
+[Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt"](https://channel9.msdn.com/Events/Build/2016/B857)|May 2016|1 hour. Learn how Machine Learning and Azure Search can be used together to create sophisticated data-driven applications.
+[Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|January 2016|15 minutes. Custom analyzers allow configuration of tokenizers and token filters. Search Analytics gives insights into search terms entered by users and efficacy of your search index. Search Explorer is a built-in query tool that lets you try out queries from inside the portal. 
 [Channel9 Data Exposed: "Azure Search Enhancements"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|November 2015|17 minutes. Data ingestion of StackExchange data. Build an index in the Azure Portal. Learn now Indexers crawl supported data sources to pull data into an Azure Search index. Language analyzers. Lucene query expressions.
 [What is Azure Search?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|October 2015|Got a minute or two? Watch this one-and-a-half minute video introduction to Azure Search.
 [AzureCon 2015: Best Practices for Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|September 2015|Practical advice on scale-out, performance optimization, and how to achieve coding efficiency when building apps for Web or mobile scenarios, presented by Pablo Castro. 

@@ -14,16 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="07/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Back up Azure virtual machines
-This article provides the procedures for how to back up your Azure virtual machines (VMs).
 
-First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
+> [AZURE.SELECTOR]
+- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
+- [Back up VMs to Backup vault](backup-azure-vms.md)
+
+This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
 
 Backing up Azure virtual machines involves three key steps:
 
@@ -34,22 +39,39 @@ Backing up Azure virtual machines involves three key steps:
 ## Step 1 - Discover Azure virtual machines
 To ensure any new virtual machines (VMs) added to the subscription are identified before registering, run the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and click **Registered Items**.
+1. Sign in to the [Classic portal](http://manage.windowsazure.com/)
 
-2. Select **Azure Virtual Machine** from the drop-down menu.
+2. In the list of Azure services , click **Recovery Services** to open the list of Backup and Site Recovery vaults.
+    ![Open vault list](./media/backup-azure-vms/choose-vault-list.png)
+
+3. In the list of Backup vaults, select the vault to back up a VM.
+
+    If this is a new vault the portal opens to the **Quick Start** page.
+
+    ![Open Registered items menu](./media/backup-azure-vms/vault-quick-start.png)
+
+    If the vault has previously been configured, the portal opens to the most recently-used menu.
+
+4. From the vault menu (at the top of the page), click **Registered Items**.
+
+    ![Open Registered items menu](./media/backup-azure-vms/vault-menu.png)
+
+5. From the **Type** menu, select **Azure Virtual Machine**.
 
     ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click **DISCOVER** at the bottom of the page.
+6. Click **DISCOVER** at the bottom of the page.
     ![Discover button](./media/backup-azure-vms/discover-button-only.png)
 
     The discovery process may take a few minutes while the virtual machines are being tabulated. There is a notification at the bottom of the screen that lets you know that the process is running.
 
     ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    The notification changes when the process is complete.
+    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VMs is assigned to a backup vault it is not available to be assigned to other backup vaults.
 
     ![Discovery done](./media/backup-azure-vms/discovery-complete.png)
+
+    Once you have discovered the new items, go to Step 2 and register your VMs.
 
 ##  Step 2 - Register Azure virtual machines
 You register an Azure virtual machine to associate it with the Azure Backup service. This is typically a one-time activity.

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Import data into Machine Learning Studio ferom another experiment | Microsoft Azure"
+	pageTitle="Import data into Machine Learning Studio from another experiment | Microsoft Azure"
 	description="How to save training data in Azure Machine Learning Studio and use it in another experiment."
 	keywords="import data,data,data sources,training data"
 	services="machine-learning"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -25,7 +25,7 @@
 
 There will be times when you'll want to take an intermediate result from an experiment and use it as part of another experiment.  To do this, you save the module as a dataset:
 
-1. Right-click the output of the module that you want to save as a dataset.
+1. Click the output of the module that you want to save as a dataset.
 
 2. Click **Save as Dataset**.
 

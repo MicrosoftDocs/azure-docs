@@ -3,7 +3,7 @@
 	description="Learn about modeling data for DocumentDB, a NoSQL document database." 
 	keywords="modeling data"
 	services="documentdb" 
-	authors="ryancrawcour" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="ryancraw"/>
+	ms.date="05/12/2016" 
+	ms.author="stbaro"/>
 
 #Modeling data in DocumentDB#
-While schema-free databases, like DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
+While schema-free databases, like Azure DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
 
-How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy?
+How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy? 
 
 After reading this article, you will be able to answer the following questions:
 

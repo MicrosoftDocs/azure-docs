@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Certificate renewal guidance for Office 365 and Azure AD users. | Microsoft Azure"
+	pageTitle="Certificate renewal guidance for Office 365 and Azure Active Directory users | Microsoft Azure"
 	description="This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate."
 	services="active-directory"
 	documentationCenter=""
@@ -13,43 +13,94 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/16/2016"
 	ms.author="billmath"/>
 
 
-# Renewing Federation Certificates for Office 365 and Azure AD
+# Renew federation certificates for Office 365 and Azure Active Directory
 
-If you received an email or a portal notification asking you to renew your certificate for Office 365, this article is intended to help you resolve the issue and keep it from happening again.  This article assumes that you are using AD FS as your federation server.
+##Overview
 
->[AZURE.IMPORTANT] Please be aware that authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following:
+For successful federation between Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS), the certificates used by AD FS to sign security tokens to Azure AD should match what is configured in Azure AD. Any mismatch can lead to broken trust. Azure AD ensures that this information is kept in sync when you deploy AD FS and Web Application Proxy (for extranet access).
+
+This article provides you additional information to manage your token signing certificates and keep them in sync with Azure AD, in the following cases:
+
+* You are not deploying the Web Application Proxy, and therefore the federation metadata is not available in the extranet.
+* You are not using the default configuration of AD FS for token signing certificates.
+* You are using a third-party identity provider.
+
+## Default configuration of AD FS for token signing certificates
+
+The token signing and token decrypting certificates are usually self-signed certificates, and are good for one year. By default, AD FS includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Office 365 and Azure AD automatically update your certificate before it expires.
+
+### Renewal notification from the Office 365 portal or an email
+
+>[AZURE.NOTE] If you received an email or a portal notification asking you to renew your certificate for Office, see [Managing changes to token signing certificates](#managecerts) to check if you need to take any action. Microsoft is aware of a possible issue that can lead to notifications for certificate renewal being sent, even when no action is required.
+
+Azure AD attempts to monitor the federation metadata, and update the token signing certificates as indicated by this metadata. 30 days before the expiration of the token signing certificates, Azure AD checks if new certificates are available by polling the federation metadata.
+
+* If it can successfully poll the federation metadata and retrieve the new certificates, no email notification or warning in the Office 365 portal is issued to the user.
+* If it cannot retrieve the new token signing certificates, either because the federation metadata is not reachable or automatic certificate rollover is not enabled, Azure AD issues an email notification and a warning in the Office 365 portal.
+
+![Office 365 portal notification](./media/active-directory-aadconnect-o365-certs/notification.png)
+
+>[AZURE.IMPORTANT] If you are using AD FS, to ensure business continuity, please verify that your servers have the following updates so that authentication failures for known issues do not occur. This mitigates known AD FS proxy server issues for this renewal and future renewal periods:
 >
-- Your proxy renews its trust token after certificates rollover in AD FS
-- You manually replaced your AD FS certificates
+>Server 2012 R2 - [Windows Server May 2014 rollup](http://support.microsoft.com/kb/2955164)
 >
-A hotfix is available to fix this issue.  See [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
+>Server 2008 R2 and 2012 - [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
 
-## Check to see if you have to do anything
+## Check if the certificates need to be updated <a name="managecerts"></a>
 
-If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires.  You do not need to perform any manual steps or run a script as a scheduled task.  For this to work, both of the following default AD FS configuration settings must be in effect:
+### Step 1: Check the AutoCertificateRollover state
 
-- The AD FS property AutoCertificateRollover must be set to True, indicating that AD FS will automatically generate new token signing and token decryption certificates before the old ones expire.
-	- If the value is False, you are using custom certificate settings.  Go [here](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)  for comprehensive guidance.
-- Your federation metadata must be available to the public internet.
+On your AD FS server, open PowerShell. Check that the AutoCertificateRollover value is set to True.
 
-	Here is how to check:
+	Get-Adfsproperties
 
-	- Verify that your AD FS installation is using automatic certificate rollover by executing the following command in a PowerShell command window on your primary federation server:
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
-	`PS C:\> Get-ADFSProperties`
+[AZURE.NOTE] If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
 
-(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)
-else.
+### Step 2: Confirm that AD FS and Azure AD are in sync
 
-In the resulting output, check for the following setting:
-	
-	AutoCertificateRollover :True
+On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
 
-Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):
+>[AZURE.NOTE] You can download Azure AD PowerShell [here](https://technet.microsoft.com/library/jj151815.aspx).
+
+	Connect-MsolService
+
+Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.
+
+	Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
+
+![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
+
+If the thumbprints in both the outputs match, your certificates are in sync with Azure AD.
+
+### Step 3: Check if your certificate is about to expire
+
+In the output of either Get-MsolFederationProperty or Get-AdfsCertificate, check for the date under "Not After." If the date is less than 30 days away, you should take action.
+
+| AutoCertificateRollover | Certificates in sync with Azure AD | Federation metadata is publicly accessible | Validity | Action |
+|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
+| Yes | Yes | Yes | - | No action needed. See [Renew token signing certificate automatically](#autorenew). |
+| Yes | No  | - | Less than 15 days | Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
+| No | - | - | Less than 30 days | Renew immediately. See [Renew token signing certificate manually](#manualrenew). |
+
+\[-]  Does not matter
+
+## Renew the token signing certificate automatically (recommended) <a name="autorenew"></a>
+
+You don't need to perform any manual steps if both of the following are true:
+- You have deployed Web Application Proxy, which can enable access to the federation metadata from the extranet.
+- You are using the AD FS default configuration (AutoCertificateRollover is enabled).
+
+Check the following to confirm that the certificate can be automatically updated.
+
+**1. The AD FS property AutoCertificateRollover must be set to True.** This indicates that AD FS will automatically generate new token signing and token decryption certificates, before the old ones expire.
+
+**2. The AD FS federation metadata is publicly accessible.** Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):
 
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
@@ -58,47 +109,56 @@ where `(your_FS_name) `is replaced with the federation service host name your or
 
 Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## If you decide to update your certificate manually
-Any time you manually update your AD FS certificates, you must update your Office 365 domain using the PowerShell command Update-MsolFederatedDomain as shown in the steps under Manually update Office 365 federation trust properties in the section [here](#if-your-metadata-is-not-publicly-accessible)
+## Renew the token signing certificate manually <a name="manualrenew"></a>
 
-## If your AutoCertificateRollover property is set to False
+You may choose to renew the token signing certificates manually. For example, the following scenarios might work better for manual renewal:
+* Token signing certificates are not self-signed certificates. The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.
+* Network security does not allow the federation metadata to be publicly available.
 
-If your AutoCertificateRollover property is set to False, you are using non-default AD FS certificate settings.  The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.  In this case you need to renew and update your certificates yourself.  Use the guidance [here](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+In these scenarios, every time you update the token signing certificates, you must also update your Office 365 domain by using the PowerShell command, Update-MsolFederatedDomain.
 
-## If your metadata is not publicly accessible
-If your AutocertificateRollover setting is True but your federation metadata is not publicly available, use the procedure below to ensure your certificates are updated both on premises and in the cloud:
+### Step 1: Ensure that AD FS has new token signing certificates
 
-### Verify that your AD FS system has generated a new certificate.
+**Non-default configuration**
 
-- verify that you are logged on to the primary AD FS server.
-- Check the current signing certificates in AD FS by opening a PowerShell command window and running the following command:
+If you are using a non-default configuration of AD FS (where **AutoCertificateRollover** is set to **False**), you are probably using custom certificates (not self-signed). For more information about how to renew the AD FS token signing certificates, see [Guidance for customers not using AD FS self-signed certificates](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-`PS C:\>Get-ADFSCertificate –CertificateType token-signing.`
+**Federation metadata is not publicly available**
 
-(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)
+On the other hand, if **AutoCertificateRollover** is set to **True**, but your federation metadata is not publicly accessible, first make sure that new token signing certificates have been generated by AD FS. Confirm you have new token signing certificates by taking the following steps:
 
+1. Verify that you are logged on to the primary AD FS server.
+2. Check the current signing certificates in AD FS by opening a PowerShell command window, and running the following command:
 
-- Look at the command output at any certificates listed.  If AD FS has generated a new certificate, you should see two certificates in the output:  One for which the IsPrimary value is True and the NotAfter date is within 5 days, and one for which IsPrimary is False and NotAfter is about a year in the future.
+	PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
-- If you only see one certificate, and the NotAfter date is within 5 days, you need to generate a new certificate by executing the following steps.
+	>[AZURE.NOTE] If you are using AD FS 2.0, you should run Add-Pssnapin Microsoft.Adfs.Powershell first.
 
-- To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+3. Look at the command output at any certificates listed. If AD FS has generated a new certificate, you should see two certificates in the output: one for which the **IsPrimary** value is **True** and the **NotAfter** date is within 5 days, and one for which **IsPrimary** is **False** and **NotAfter** is about a year in the future.
 
-- Verify the update by running the following command again: PS C:\>Get-ADFSCertificate –CertificateType token-signing
-	- Two certificates should be listed now, one of which has a NotAfter date of approximately one year in the future and for which the IsPrimary value is False.
+4. If you only see one certificate, and the **NotAfter** date is within 5 days, you need to generate a new certificate.
 
-- Next, to manually update Office 365 federation trust properties, follow these steps.
+5. To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
+6. Verify the update by running the following command again: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
+Two certificates should be listed now, one of which has a **NotAfter** date of approximately one year in the future, and for which the **IsPrimary** value is **False**.
 
+### Step 2: Update the new token signing certificates for the Office 365 trust
 
-### Manually update Office 365 federation trust properties, follow these steps.
+Update Office 365 with the new token signing certificates to be used for the trust, as follows.
 
 1.	Open the Microsoft Azure Active Directory Module for Windows PowerShell.
 2.	Run $cred=Get-Credential. When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.
 3.	Run Connect-MsolService –Credential $cred. This cmdlet connects you to the cloud service. Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.
 4.	If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer <AD FS primary server>, where <AD FS primary server> is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS.
-5.	Run Update-MSOLFederatedDomain –DomainName <domain>. This cmdlet updates the settings from AD FS into the cloud service and configures the trust relationship between the two.
+5.	Run Update-MSOLFederatedDomain –DomainName <domain>. This cmdlet updates the settings from AD FS into the cloud service, and configures the trust relationship between the two.
 
->[AZURE.NOTE] If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets. For more information, see Support for Multiple Top Level Domains.
-Finally, ensure all Web Application Proxy servers are updated with [Windows Server May 2014](http://support.microsoft.com/kb/2955164) rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.
+
+>[AZURE.NOTE] If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).
+
+## Repair Azure AD trust by using Azure AD Connect <a name="connectrenew"></a>
+
+If you configured your AD FS farm and Azure AD trust by using Azure AD Connect, you can use Azure AD Connect to detect if you need to take any action for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do so.
+
+For more information, see [Repairing the trust](./active-directory-aadconnect-federation-management.md#repairing-the-trust).

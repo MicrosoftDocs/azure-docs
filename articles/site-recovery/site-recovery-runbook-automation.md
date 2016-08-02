@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Add Azure automation runbooks to recovery plans | Microsoft Azure" 
-   description="This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure" 
-   services="site-recovery" 
-   documentationCenter="" 
-   authors="ruturaj" 
-   manager="mkjain" 
+<properties
+   pageTitle="Add Azure automation runbooks to recovery plans | Microsoft Azure"
+   description="This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure"
+   services="site-recovery"
+   documentationCenter=""
+   authors="ruturaj"
+   manager="mkjain"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="powershell"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
@@ -42,12 +42,12 @@ can troubleshoot a simple script if it goes wrong.
 
 ## Protect the application to Azure
 
-Let us begin with a simple application consisting of two virtual machines. Here, we have a HRweb application of Fabrikam. Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are the two virtual machines protected to Azure using Azure Site Recovery. To protect the virtual machines using Azure Site Recovery, follow the steps below. 
+Let us begin with a simple application consisting of two virtual machines. Here, we have a HRweb application of Fabrikam. Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are the two virtual machines protected to Azure using Azure Site Recovery. To protect the virtual machines using Azure Site Recovery, follow the steps below.
 
 1.  Enable protection for your virtual machines.
 
 2.  Ensure that the virtual machines have completed initial replication
-    and are replicating. 
+    and are replicating.
 
 3.  Wait till the initial replication completes and the Replication status says Protected.
 
@@ -69,7 +69,7 @@ Create a Recovery Plan that looks like below.
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/library/azure/dn788799.aspx "here"). 
+To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/library/azure/dn788799.aspx "here").
 
 Next, let's create the necessary artifacts in Azure Automation.
 
@@ -104,7 +104,7 @@ Next, create the following assets in the Account.
 	![](media/site-recovery-runbook-automation/07_1.png)
 
 You can identify the name of your subscription from the settings page of
-your account on the Azure portal. 
+your account on the Azure portal.
 
 ### Add an Azure login credential as asset
 
@@ -130,7 +130,7 @@ Now both these settings are available in your assets.
 
 More information about how to connect to your subscription via
 powershell is given
-[here](../install-configure-powershell.md).
+[here](../powershell-install-configure.md).
 
 Next, you will create a runbook in Azure Automation that can add an
 endpoint for the front-end virtual machine after failover.
@@ -140,7 +140,7 @@ endpoint for the front-end virtual machine after failover.
 ASR passes a context variable to the runbook to help you write
 deterministic scripts. One could argue that the names of the Cloud Service and the Virtual Machine are predictable, but happens that it is not always the case owing to certain scenarios such as the one where the name of the virtual machine name might have changed due to unsupported characters in Azure. Hence this information is passed to the ASR recovery plan as part of the *context*.
 
-Below is an example of how the context variable looks. 
+Below is an example of how the context variable looks.
 
         {"RecoveryPlanName":"hrweb-recovery",
 
@@ -166,11 +166,11 @@ The table below contains name and description for each variable in the context.
 **Variable name** | **Description**
 ---|---
 RecoveryPlanName | Name of plan being run. Helps you take action based on name using the same script
-FailoverType | Specifies whether the failover is test, planned, or unplanned. 
+FailoverType | Specifies whether the failover is test, planned, or unplanned.
 FailoverDirection | Specify whether recovery is to primary or secondary
 GroupID | Identify the group number within the recovery plan when the plan is running
 VmMap | Array of all the virtual machines in the group
-VMMap key | Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable. 
+VMMap key | Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable.
 RoleName | Name of the Azure VM that's being recovered
 CloudServiceName | Azure Cloud Service name under which the virtual machine is created.
 
@@ -191,7 +191,7 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 2.  Navigate to the Author view of the runbook and enter the draft mode.
 
 3.  First specify the variable to use as the recovery plan context
-  
+
 	```
 		param (
 			[Object]$RecoveryPlanContext
@@ -204,7 +204,7 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 
 	```
 		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 		# Connect to Azure
 		$AzureAccount = Add-AzureAccount -Credential $Cred
 		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -224,7 +224,7 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
 	```
 
-	This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters 	required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on. 
+	This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters 	required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on.
 
 6.  The script will now extract the context for the given VM GUID and
     create an endpoint on the virtual machine referenced by it.
@@ -249,7 +249,7 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 		}
 	```
 
-7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution. 
+7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution.
 
 The complete script is given below for your reference
 
@@ -261,7 +261,7 @@ The complete script is given below for your reference
 	)
 
 	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
+
 	# Connect to Azure
 	$AzureAccount = Add-AzureAccount -Credential $Cred
 	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
@@ -273,7 +273,7 @@ The complete script is given below for your reference
 	$AEPublicPort = 80
 	$AEName = "Port 80 for HTTP"
 	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
+
 	#Read the VM GUID from the context
 	$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
@@ -312,7 +312,7 @@ Once the script is ready, you can add it to the recovery plan that you created e
 
 ## Primary side scripts
 
-When you are executing a failover to Azure, you can also choose to execute primary side scripts. These scripts will run on the VMM server during failover. 
+When you are executing a failover to Azure, you can also choose to execute primary side scripts. These scripts will run on the VMM server during failover.
 Primary side scripts are only available only for pre-shutdown and post shutdown stages. This is because we expect the primary site to be typically unavailable when a disaster strikes.
 During an unplanned failover, only if you opt in for primary site operations, it will attempt to run the primary side scripts. If they are not reachable or timeout, the failover will continue to recover the virtual machines.
 Primary side scripts are un-available for VMware/Physical/Hyper-v Sites without VMM protected to Azure - while you failover to Azure.
@@ -337,7 +337,7 @@ there are no errors.
 
     ![](media/site-recovery-runbook-automation/18.png)
 
-4.  After the failover completes, apart from the runbook execution result, you can see whether the execution is successful or not by visiting the Azure virtual machine page and looking at the endpoints. 
+4.  After the failover completes, apart from the runbook execution result, you can see whether the execution is successful or not by visiting the Azure virtual machine page and looking at the endpoints.
 
 ![](media/site-recovery-runbook-automation/19.png)
 
@@ -350,5 +350,3 @@ While we walked through automating one commonly used task of adding an endpoint 
 [Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
 [Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
-
- 

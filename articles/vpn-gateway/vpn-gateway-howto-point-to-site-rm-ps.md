@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
+   ms.date="03/30/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -22,11 +22,22 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. Point-to-Site is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
+A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. Point-to-Site is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
 
-This article applies to VNets and VPN Gateways created using the **Azure Resource Manager** deployment model. If you want to configure a Point-to-Site connection for a VNet that was created using Service Management (also known as the classic deployment model), see [Configure a Point-to-Site VPN connection to a VNet](vpn-gateway-point-to-site-create.md). 
+Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **Resource Manager deployment model** (Service Management).
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+**Deployment models and tools for Point-to-Site connections**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+
 
 ## About this configuration
 
@@ -50,7 +61,7 @@ We'll use the following values for this configuration:
 
 ## Before beginning
 
-- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 	
 - You'll need to install the Azure Resource Manager PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
@@ -112,7 +123,7 @@ We'll use the following values for this configuration:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Upload a root certificate .cer file to Azure. You can use a root certificate from your enterprise certificate environment, or you can use a self-signed root certificate. You can upload up to 20 root certificates. For instructions to create a self-signed root certificate using *makecert*, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). Note that the .cer file should not contain the private key of the root certificate. 
+10. Upload a root certificate .cer file to Azure. You can use a root certificate from your enterprise certificate environment, or you can use a self-signed root certificate. You can upload up to 20 root certificates. For instructions to create a self-signed root certificate using *makecert*, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). Note that the .cer file should not contain the private key of the root certificate. To get the public key as shown in the example below, export the .cer file as a Base-64 encoded X.509 (.CER) file then open that file with notepad. There copy everything in between: -----BEGIN CERTIFICATE----- & -----END CERTIFICATE-----
 	
 	Below is a sample of what this looks like. The challenging part of uploading the public certificate data is that you must copy and paste the entire string with no spaces. Otherwise, the upload will not work. You'll need to use your own certificate .cer file for this step. Don't try to copy and paste the sample from below.
 

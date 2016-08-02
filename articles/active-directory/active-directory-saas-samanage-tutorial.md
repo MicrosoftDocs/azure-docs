@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Azure Active Directory Integration with Samanage | Microsoft Azure" 
     description="Learn how to use Samanage with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory Integration with Samanage
   
@@ -38,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Samanage, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-samanage-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Samanage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Samanage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-samanage-tutorial/IC771709.png "Configure single sign-on")
 
@@ -101,10 +101,10 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     1.  Click **Enable Single Sign-On with SAML**.
         ![Login using SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Login using SAML")
-    2.  In the Azure portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL ** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL ** textbox.
         ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configure Single Sign-On")
-    3.  In the Azure portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    4.  In the Azure portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Samanage** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
     5.  Create a **base-64 encoded** file from your downloaded certificate.  
 
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
@@ -114,7 +114,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
         ![Update](./media/active-directory-saas-samanage-tutorial/IC771722.png "Update")
     8.  Click **Update**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/IC771723.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -152,7 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Samanage, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Samanage **application integration page, click **Assign users**.
 

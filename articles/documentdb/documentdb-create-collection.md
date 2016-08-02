@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="02/22/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # How to create a DocumentDB collection using the Azure portal
@@ -40,33 +40,38 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
-6. Select a pricing tier for the new collection. Each collection you create is a billable entity. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
+6. If you are going to create a collection with a single partition, click the arrow to select a pricing tier, then click View All, then select a performance level for the collection. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md). Each collection you create is a billable entity.
 
-7. Select one of the following **Indexing Policies**. 
+	If you are going to create a partitioned collection, skip to step 7 as you do not need to select a pricing tier.  
 
-	- **Default**. This policy uses hash indexing for strings and range indexing for numbers. It is best for equality queries against strings, ORDER BY, and range and equality queries on numbers. This policy has a lower index storage overhead and includes geospatial indexing.
-	- **Hash**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** and includes geospatial indexing.
+7. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second. For information about requesting increases to these default allocations after creating a collection, see [Request increased DocumentDB account limits](documentdb-increase-limits.md).
 
-	For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+8. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md). 
 
-8. Click **OK** at the bottom of the screen to create the new collection. 
+9. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
 
+10. Click **OK** at the bottom of the screen to create the new collection. 
 
-9. The new collection now appears in the **Collections** lens on the **Database** blade.
+11. The new collection now appears in the **Collections** lens on the **Database** blade.
  
 	![Screen shot of the new collection in the Database blade - Azure portal for DocumentDB - Cloud based database creator for NoSQL JSON databases](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## What is a DocumentDB collection? 
 
-A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the performance level associated with the collection. 
+A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the provisioned throughput of the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-Collections are the transaction boundary for stored procedures and triggers, and the entry point to queries and CRUD operations. Each collection has a reserved amount of throughput specific to that collection, which is not shared with other collections in the same account. Therefore, you can scale out your application both in terms of storage and throughput by adding more collections, and then distributing your documents across them.
+Collections are automatically partitioned into one or more physical servers by DocumentDB. When you create a collection, you can specify the provisioned throughput in terms of request units per second and a partition key property. The value of this property will be used by DocumentDB to distribute documents among partitions and route requests like queries. The partition key value also acts as the transaction boundary for stored procedures and triggers. Each collection has a reserved amount of throughput specific to that collection, which is not shared with other collections in the same account. Therefore, you can scale out your application both in terms of storage and throughput. 
 
 Collections are not the same as tables in relational databases. Collections do not enforce schema, in fact DocumentDB does not enforce any schemas, it's a schema-free database. Therefore you can store different types of documents with diverse schemas in the same collection. You can choose to use collections to store objects of a single type like you would with tables. The best model depends only on how the data appears together in queries and transactions.
 
 ## Other ways to create a DocumentDB collection
 
-Collections do not have to be created using the portal, you can also create them using the [DocumentDB SDKs](documentdb-sdk-dotnet.md). For C# code samples showing how to work with collections by using the DocumentDB .NET SDK, see the [C# collection samples](documentdb-dotnet-samples.md#collection-examples). For Node.js code samples showing how to work with collections by using the DocumentDB Node.js SDK, see the [Node.js collection samples](documentdb-nodejs-samples.md#collection-examples).
+Collections do not have to be created using the portal, you can also create them using the [DocumentDB SDKs](documentdb-sdk-dotnet.md) and the REST API. 
+
+- For a C# code sample, see the [C# collection samples](documentdb-dotnet-samples.md#collection-examples). 
+- For a Node.js code sample, see the [Node.js collection samples](documentdb-nodejs-samples.md#collection-examples).
+- For a Python code sample, see [Python collection samples](documentdb-python-samples.md#collection-examples).
+- For a REST API sample, see [Create a Collection](https://msdn.microsoft.com/library/azure/mt489078.aspx).
 
 ## Troubleshooting
 

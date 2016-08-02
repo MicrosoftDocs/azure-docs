@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Track service health" 
-	description="Find out when Azure has experienced performance degradation or service interruptions. " 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Track service health"
+	description="Find out when Azure has experienced performance degradation or service interruptions. "
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Track service health
@@ -50,10 +50,9 @@ Azure publicizes each time there is a service interruption or performance degrad
     ![Resource groups](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. From there you can go to the details blade to see the specifics of the event.
-   
+
 ## Next steps
 
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever an event happens.
 * [Monitor service metrics](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
-* [Monitor availability and responsiveness of any web page](../app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
- 
+* [Monitor availability and responsiveness of any web page](../application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

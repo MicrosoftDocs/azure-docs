@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -162,6 +162,20 @@ Substitute the instrumentation key that you got from the Azure portal.
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
 * Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* The Application Insight key can be passed dynamically from Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure Appsetting. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This helps in managing different InstrumentationKey for different environment dynamically.
+
+### Alternative ways to set the instrumentation key
+
+Application Insights SDK looks for the key in this order:
+
+1. System property: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
+2. Environment variable: APPLICATION_INSIGHTS_IKEY
+3. Configuration file: ApplicationInsights.xml
+
+You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4. Add an HTTP filter
 
@@ -214,47 +228,48 @@ Either run it in debug mode on your development machine, or publish to your serv
 
 ## 6. View your telemetry in Application Insights
 
+
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
+[Learn more about metrics.][metrics]
 
-Click through any chart to see more detailed metrics.
+Click through any chart to see more detailed aggregated metrics.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`. This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
 
-And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
+### Instance data 
+
+Click through a specific request type to see individual instances. 
+
+Two kinds of data are displayed in Application Insights: aggregated data, stored and displayed as averages, counts, and sums; and instance data - individual reports of HTTP requests, exceptions, page views, or custom events.
+
+When viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Analytics: Powerful query language
 
-[Learn more about metrics.][metrics]
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-#### Smart address name calculation
-
-Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`
-
-
-For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`.
-
-This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Install your app on the server
+## 7. Install your app on the server
 
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * On Windows servers, install:

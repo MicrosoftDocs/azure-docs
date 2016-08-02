@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/26/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
@@ -38,6 +38,8 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
+
 - **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
 - **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.
 - **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, you will configure this setting. In the picture above the scheduler has been set to run every hour instead. If you set this to a value lower than AllowedSyncInterval, the latter will be used.
@@ -48,7 +50,13 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 - **MaintenanceEnabled**. Shows if the maintenance process is enabled. It will update the certificates/keys and purge the operations log.
 - **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled.
 
-You can modify all these settings with `Set-ADSyncScheduler`. The parameter IsStagingModeEnabled can only be set by the installation wizard.
+You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
+
+- CustomizedSyncCycleInterval
+- NextSyncCyclePolicyType
+- PurgeRunHistoryInterval
+- SyncCycleEnabled
+- MaintenanceEnabled
 
 The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server will also effect the staging server (with the exception of IsStagingModeEnabled).
 
@@ -92,6 +100,45 @@ When a sync cycle is running, you cannot make configuration changes. You could w
     - Start **Sychronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running** and select **Stop** from the Actions.
 
 The scheduler is still active and will start again on next opportunity.
+
+## Custom scheduler
+The cmdlets documented in this section are only available in build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) and later.
+
+If the built-in scheduler does not satisfy your requirements, then you can schedule the Connectors using PowerShell.
+
+### Invoke-ADSyncRunProfile
+You can start a profile for a Connector in this way:
+
+```
+Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
+```
+
+The names to use for [Connector names](active-directory-aadconnectsync-service-manager-ui-connectors.md) and [Run Profile Names](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) can be found in the [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md).
+
+![Invoke Run Profile](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
+
+The `Invoke-ADSyncRunProfile` cmdlet is synchronous, i.e. it will not return control until the Connector has completed the operation, either successfully or with an error.
+
+When you schedule your Connectors, the recommendation is to schedule them in the following order:
+
+1. (Full/Delta) Import from on-premises directories, such as Active Directory
+2. (Full/Delta) Import from Azure AD
+3. (Full/Delta) Synchronization from on-premises directories, such as Active Directory
+4. (Full/Delta) Synchronization from Azure AD
+5. Export to Azure AD
+6. Export to on-premises directories, such as Active Directory
+
+If you look at the built-in scheduler, this is the order the Connectors will run.
+
+### Get-ADSyncConnectorRunStatus
+You can also monitor the sync engine to see if it is busy or idle. This cmdlet will return an empty result if the sync engine is idle and is not running a Connector. If a Connector is running, it will return the name of the Connector.
+
+```
+Get-ADSyncConnectorRunStatus
+```
+
+![Connector Run Status](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
+In the picture above, the first line is from a state where the sync engine is idle. The second line from when the Azure AD Connector is running.
 
 ## Scheduler and installation wizard
 If you start the installation wizard, then the scheduler will be temporarily suspended. This is because it is assumed you will make configuration changes and these cannot be applied if the sync engine is actively running. For this reason, do not leave the installation wizard open since it will stop the sync engine from performing any synchronization actions.

@@ -19,7 +19,7 @@
 
     3. Specify the backup frequency in minutes, hours, days, or weeks.
 
-    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. For instance, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
  
     5. Select the starting time and date for the policy.
 

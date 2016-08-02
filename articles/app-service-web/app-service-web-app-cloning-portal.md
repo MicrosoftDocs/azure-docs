@@ -59,6 +59,7 @@ This feature is currently in preview, we are working to add new capabilities ove
 - Easy Auth settings are not cloned
 - Kudu Extension are not cloned
 - TiP rules are not cloned
+- Database content are not cloned
 
 
 ### References ###

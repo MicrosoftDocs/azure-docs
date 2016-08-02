@@ -10,7 +10,7 @@ Take a look at these videos for more about VM scale sets:
 
 ## Creating and managing VM scale sets
 
-VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../articles/resource-group-authoring-templates.md).
 
 A set of example templates for VM scale sets can be found in the Azure Quickstart teamplates GitHub repository here:
 
@@ -26,7 +26,7 @@ To increase or decrease the number of virtual machines in a VM scale set, simply
 
 If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown here: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machines-windows-ps-vmss-create.md)
+To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md)
 
 ## Monitoring your VM scale set
 
@@ -81,7 +81,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during the preview period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during the preview period. The existing [Azure Subscription Service Limits/](../articles/azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 

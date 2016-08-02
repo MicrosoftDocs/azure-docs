@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -75,7 +75,7 @@ Now that you have downloaded the server you can install it and configure it.  Be
 Azure Multi-Factor Authentication Server Requirements|Description|
 :------------- | :------------- | 
 Hardware|<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li>
-Software|<li>Windows Server 2003 or greater if the host is a server OS</li><li>Windows Vista or greater if the host is a client OS</li><li>Microsoft .NET 2.0 Framework</li><li>IIS 6.0 or greater if installing the user portal or web service SDK</li>
+Software|<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li>
 
 ### Azure Multi-Factor Authentication Server firewall requirements
 --------------------------------------------------------------------------------

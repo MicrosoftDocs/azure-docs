@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Overview for Azure Mobile Engagement
@@ -32,11 +32,10 @@ Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Release notes
 
-###3.2.0 (01/22/2016)
-Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.3.0**
+###3.3.0 (04/19/2016)
+Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.4.0**
 
--   Custom schemes, ms-appx and ms-appdata available on action urls.
--   Stability improvements.
+-   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-phone-release-notes.md)
 
@@ -44,11 +43,16 @@ For earlier version please see the [complete release notes](mobile-engagement-wi
 
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-You may have to follow several procedures if you missed several versions of the SDK. See the complete [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure/). For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
+You may have to follow several procedures if you missed several versions of the SDK. See the complete [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md). For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
-###From 2.0.0 to 3.0.0
+###From 2.0.0 to 3.3.0
 
-None.
+####Test logs
+
+Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
 
 ### Upgrade from older versions
 

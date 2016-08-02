@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="07/25/2016" 
 	ms.author="juliako"/>
 
 
@@ -23,17 +23,21 @@
 This topic contains links to Azure SDK for .NET Release Notes. 
 
 
+##Azure SDK for .NET 2.9 Release Notes
+
+[Azure SDK for .NET 2.9 Release Notes](azure-sdk-dotnet-release-notes-2-9.md)
+
 ##Azure SDK for .NET 2.8 Release Notes
 
-[Azure SDK for .NET 2.8 Release Notes](azure-sdk-dotnet-release-notes-2_8.md)
+[Azure SDK for .NET 2.8 Release Notes](azure-sdk-dotnet-release-notes-2-8.md)
 
 ##Azure SDK for .NET 2.7 Release Notes
 
-[Azure SDK for .NET 2.7 Release Notes](azure-sdk-dotnet-release-notes-2_7.md)
+[Azure SDK for .NET 2.7 Release Notes](azure-sdk-dotnet-release-notes-2-7.md)
 
 ##Azure SDK for .NET 2.6 Release Notes
 
-[Azure SDK for .NET 2.6 Release Notes](azure-sdk-dotnet-release-notes-2_6.md)
+[Azure SDK for .NET 2.6 Release Notes](azure-sdk-dotnet-release-notes-2-6.md)
 
 ##Azure SDK for .NET 2.5.1 Release Notes
 

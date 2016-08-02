@@ -14,15 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Create a new Bing Search API in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-bingsearch.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
+<!--Archived
 Add the Bing Search API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
@@ -55,13 +57,15 @@ When finished, a new Bing Search API is added to your app service environment.
 
 ## See the REST APIs
 
-[Bing Search REST API](../connectors/create-api-bingsearch.md) reference.
+[Bing Search REST API](../connectors/connectors-create-api-bingsearch.md) reference.
 
 
 ## Summary and next steps
 In this topic, you added the Bing Search API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: https://datamarket.azure.com/dataset/bing/search

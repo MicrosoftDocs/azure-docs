@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
-	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure using Resource Manager."
+	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines-windows"
 	authors="JoeDavies-MSFT"
@@ -11,17 +11,15 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
-# Base Configuration test environment with Azure Resource Manager
+# Base Configuration test environment
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-test-config-env.md).
-
-This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager.
+This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure virtual network, using virtual machines created in Resource Manager.
 
 You can use the resulting test environment:
 
@@ -30,7 +28,7 @@ You can use the resulting test environment:
 
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only virtual network named TestLab that simulates a simplified, private intranet connected to the Internet.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 It contains:
 
@@ -50,7 +48,7 @@ There are four phases to setting up the Corpnet subnet of the Windows Server 201
 3.	Configure APP1.
 4.	Configure CLIENT1.
 
-If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN or Visual Studio subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
@@ -94,16 +92,22 @@ Create a new storage account for your new test environment with these commands.
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Next, you create the TestLab Azure Virtual Network that will host the Corpnet subnet of the base configuration.
+Next, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration and protect it with a network security group.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
+	$locShortName="<the location of your new resource group in lowercase with spaces removed, example: westus>"
 	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
 	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+	$rule1=New-AzureRMNetworkSecurityRuleConfig -Name "RDPTraffic" -Description "Allow RDP to all VMs on the subnet" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+	New-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName -Location $locShortName -SecurityRules $rule1
+	$vnet=Get-AzureRMVirtualNetwork -ResourceGroupName $rgName -Name TestLab
+	$nsg=Get-AzureRMNetworkSecurityGroup -Name Corpnet -ResourceGroupName $rgName
+	Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name Corpnet -AddressPrefix "10.0.0.0/24" -NetworkSecurityGroup $nsg
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG01.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph1.png)
 
 ## Phase 2: Configure DC1
 
@@ -132,7 +136,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 Next, connect to the DC1 virtual machine.
 
 1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.  
-2.	In the **DC1** pane,, click **Connect**.
+2.	In the **DC1** pane, click **Connect**.
 3.	When prompted, open the DC1.rdp downloaded file.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use the following:
@@ -163,7 +167,7 @@ Note that these commands can take a few minutes to complete.
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
 1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
-2.	In the **DC1** pane, click** Connect**.
+2.	In the **DC1** pane, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use the following:
@@ -189,7 +193,7 @@ Next, to allow traffic for the Ping tool, run this command at an administrator-l
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG02.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph2.png)
 
 ## Phase 3: Configure APP1
 
@@ -238,7 +242,7 @@ Next, create a shared folder and a text file within the folder on APP1 with thes
 
 This is your current configuration.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG03.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph3.png)
 
 ## Phase 4: Configure CLIENT1
 
@@ -292,13 +296,14 @@ Next, verify that you can access web and file share resources on APP1 from CLIEN
 
 This is your final configuration.
 
-![](./media/virtual-machines-windows-test-config-env/BC_TLG04.png)
+![](./media/virtual-machines-windows-test-config-env/virtual-machines-windows-test-config-env-ph4.png)
 
 Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
-## Next step
+## Next steps
 
-- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
+- Add a new virtual machine using the the [Azure portal](virtual-machines-windows-hero-tutorial.md).
+- Build the [simulated hybrid cloud test environment](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure

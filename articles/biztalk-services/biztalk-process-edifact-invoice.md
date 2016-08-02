@@ -1,22 +1,22 @@
 <properties
    pageTitle="Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services | Microsoft Azure BizTalk Services"
    description="How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/29/2016"
+   ms.date="05/31/2016"
    ms.author="deonhe"/>
 
-# Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services
+# Tutorial: Process EDIFACT invoices using Azure BizTalk Services
 You can use the BizTalk Services Portal to configure and deploy X12 and EDIFACT agreements. In this tutorial, we look at how to create an EDIFACT agreement for exchanging invoices between trading partners. This tutorial is written around an end-to-end business solution involving two trading partners, Northwind and Contoso that exchange EDIFACT messages.  
 
 ## Sample based on this tutorial

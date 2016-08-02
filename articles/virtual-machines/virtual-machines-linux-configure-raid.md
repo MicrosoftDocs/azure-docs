@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Configure software RAID on avirtual machine running Linux | Microsoft Azure" 
+	pageTitle="Configure software RAID on a virtual machine running Linux | Microsoft Azure" 
 	description="Learn how to use mdadm to configure RAID on Linux in Azure." 
 	services="virtual-machines-linux" 
-	documentationCenter="" 
-	authors="szarkos" 
-	writer="szark" 
+	documentationCenter="na" 
+	authors="rickstercdn"  
 	manager="timlt" 
-	editor=""
+	editor="tysonn"
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
@@ -15,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
-	ms.author="szark"/>
+	ms.date="06/21/2016" 
+	ms.author="rclaus"/>
 
 
 
@@ -25,9 +24,7 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 
 
 ## Attaching data disks
-Two or more empty data disks will typically be needed to configure a RAID device.  This article will not go into detail on how to attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](virtual-machines-windows-classic-attach-disk.md#attachempty) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
-
->[AZURE.NOTE] The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.  Please see [Virtual Machine and Cloud Service Sizes for Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) for detailed information about VM sizes and the number of data disks supported.
+Two or more empty data disks will typically be needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine.  Please see the Microsoft Azure article [attach a disk](virtual-machines-linux-add-disk.md) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 
 ## Install the mdadm utility
@@ -49,7 +46,7 @@ Two or more empty data disks will typically be needed to configure a RAID device
 ## Create the disk partitions
 In this example we will create a single disk partition on /dev/sdc. The new disk partition will then be called /dev/sdc1.
 
-- Start fdisk to begin creating partitions
+1. Start fdisk to begin creating partitions
 
 		# sudo fdisk /dev/sdc
 		Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -61,38 +58,37 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- Press 'n' at the prompt to create a **n**ew partition:
+2. Press 'n' at the prompt to create a **n**ew partition:
 
 		Command (m for help): n
 
-- Next, press 'p' to create a **p**rimary partition:
+3. Next, press 'p' to create a **p**rimary partition:
 
 		Command action
 			e   extended
 			p   primary partition (1-4)
-		p
 
-- Press '1' to select partition number 1:
+4. Press '1' to select partition number 1:
 
 		Partition number (1-4): 1
 
-- Select the starting point of the new partition, or just press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
+5. Select the starting point of the new partition, or just press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press `<enter>` create a single partition that spans the entire drive:
+6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press `<enter>` create a single partition that spans the entire drive:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
+7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
 
 		Command (m for help): t
 		Selected partition 1
 		Hex code (type L to list codes): fd
 
-- Finally, write the partition table to the drive and exit fdisk:
+8. Finally, write the partition table to the drive and exit fdisk:
 
 		Command (m for help): w
 		The partition table has been altered!
@@ -100,13 +96,10 @@ In this example we will create a single disk partition on /dev/sdc. The new disk
 
 ## Create the RAID array
 
-1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1):
+1. The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1).  After running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command:
 
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
-
-In this example, after running this command a new RAID device called **/dev/md127** will be created. Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the `--force` parameter to the `mdadm` command.
-
 
 2. Create the file system on the new RAID device
 
@@ -118,7 +111,7 @@ In this example, after running this command a new RAID device called **/dev/md12
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
+	**SLES 11 & openSUSE** - enable boot.md and create mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -177,5 +170,3 @@ In this example, after running this command a new RAID device called **/dev/md12
 	In addition to the above parameters, the kernel parameter "`bootdegraded=true`" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine. By default this could also result in a non-bootable system.
 
 	Please refer to your distribution's documentation on how to properly edit kernel parameters. For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "`/boot/grub/menu.lst`" file.  On Ubuntu this parameter can be added to the `GRUB_CMDLINE_LINUX_DEFAULT` variable on "/etc/default/grub".
-
- 

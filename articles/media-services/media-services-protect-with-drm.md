@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
- 	ms.date="03/18/2016"" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,10 @@
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-Microsoft Azure Media Services enables you to deliver encrypted MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/) licenses. It also enables you to delivery encrypted DASH streams with Widevine DRM licenses. Both PlayReady and Widevine are encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
+Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). It also enables you to deliver encrypted DASH streams with Widevine DRM licenses. Both PlayReady and Widevine are encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
 
-Media Services provides a service for delivering Microsoft PlayReady licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user plays back protected content. When a user requests PlayReady protected content, the player application will request a license from the AMS license service. The AMS license service will issue a license to the player if it is authorized. A PlayReady license contains the decryption key that can be used by the client player to decrypt and stream the content.
+Media Services provides a service for delivering PlayReady and Widevine DRM licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady or Widevine DRM runtime to enforce when a user plays back protected content. When a user requests a DRM protected content, the player application will request a license from the AMS license service. The AMS license service will issue a license to the player if it is authorized. A PlayReady or Widevine license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
-Starting with the Media Services .NET SDK version 3.5.2, Media Services also enables you to configure Widevine license template and get Widevine licenses. 
 
 You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). For more information, see: integration with [Axinom](media-services-axinom-integration.md) and [castLabs](media-services-castlabs-integration.md).
 
@@ -302,33 +301,30 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            return inputAsset;
 		        }
 		
-		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
-		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-		
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-		            job.Submit();
-		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-		
-		            return job.OutputMediaAssets[0];
-		        }
+			    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+			    {
+			        var encodingPreset = "H264 Multiple Bitrate 720p";
+			
+			        IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+			                                inputAsset.Name,
+			                                encodingPreset));
+			
+			        var mediaProcessors =
+			            _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();
+			
+			        var latestMediaProcessor =
+			            mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+			
+			        ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+			        encodeTask.InputAssets.Add(inputAsset);
+			        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 	AssetCreationOptions.StorageEncrypted);
+			
+			        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+			        job.Submit();
+			        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+			
+			        return job.OutputMediaAssets[0];
+			    }
 		
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -532,7 +528,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 			        // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
 			        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
 			        // to append /? KID =< keyId > to the end of the url when creating the manifest.
-			        // As a result Widevine license aquisition URL will have KID appended twice, 
+			        // As a result Widevine license acquisition URL will have KID appended twice, 
 			        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 			
 		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);

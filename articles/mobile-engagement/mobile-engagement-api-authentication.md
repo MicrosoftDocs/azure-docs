@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Authenticate with Mobile Engagement REST APIs
 
@@ -147,7 +147,7 @@ Now that you have a valid token, you are ready to make the API calls.
 
 >[AZURE.NOTE] <br/>
 >1. Ignore the API Root Address as this was for the previous APIs.<br/>
->2.You need to use the Application Resource name which is different than the Application name itself. 
+>2. If you created the app using Azure Classic portal then you need to use the Application Resource name which is different than the Application name itself. If you created the app in the Azure Portal then you should use the App Name itself (there is no differentiation between Application Resource Name and App Name for apps created in the new portal).  
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png

@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Add the Microsoft Translator in PowerApps Enterprise or logic apps| Microsoft Azure"
-	description="Overview of the Microsoft Translator API with REST API parameters"
-	services=""
+    pageTitle="Add the Microsoft Translator in PowerApps Enterprise or logic apps| Microsoft Azure"
+    description="Overview of the Microsoft Translator connector with REST API parameters"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Microsoft Translator API
-Connect to Microsoft Translator to translate text, detect a language, and more. The Microsoft Translator API can be be used from:
+# Get started with the Microsoft Translator connector
+Connect to Microsoft Translator to translate text, detect a language, and more. The Microsoft Translator connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -32,9 +32,9 @@ With Microsoft Translator, you can:
 
 - Build your business flow based on the data you get from Microsoft Translator. 
 - Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
-- Add the Microsoft Translator API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Microsoft Translator connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -45,7 +45,12 @@ Triggers | Actions
 --- | ---
 None | <ul><li>Detect language</li><li>Text to speech</li><li>Translate text</li><li>Get languages</li><li>Get speech languages</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
+
+
+## Create a connection to Microsoft Translator
+
+>[AZURE.INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 
 
 ## Swagger REST API reference

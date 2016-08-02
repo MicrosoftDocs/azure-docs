@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/03/2016" 
 	ms.author="mimig"/>
 
 # Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI
@@ -24,7 +24,7 @@
 - [Azure Portal](documentdb-create-account.md)
 - [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
-This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
+This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
 
 - [Create a DocumentDB account using CLI](#quick-create-documentdb-account)
 - [Create a DocumentDB account using an ARM template](#deploy-documentdb-from-a-template)
@@ -37,7 +37,7 @@ Before you can use the Azure CLI with Azure resource groups, you need to have th
 
 ### Update your Azure CLI version
 
-At the command prompt, type `azure --version` to see whether you have already installed version 0.9.11 or later.
+At the command prompt, type `azure --version` to see whether you have already installed version 0.9.11 or later. You may be prompted to participate in Microsoft Azure CLI data collection at this step, and can select y or n to opt-in or opt-out.
 
 	azure --version
     0.9.11 (node: 0.12.7)
@@ -56,8 +56,7 @@ Which produces the following output:
 
     info:    Executing command login
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
-    Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
-    AD application, use the --username and --password parameters.
+    Enter the code E1A2B3C4D to authenticate.
 
 > [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
@@ -78,7 +77,7 @@ The command shell also provides the following output.
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
     +
-    info:    login command OKK
+    info:    login command OK
 
 In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
@@ -94,7 +93,7 @@ Which provides the following output:
     info:    New mode is arm
     info:    config mode command OK
 
-You can switch back to the default set of commands by typing `azure config mode asm`.
+If needed, you can switch back to the default set of commands by typing `azure config mode asm`.
 
 ## <a id="quick-create-documentdb-account"></a>Task: Create a DocumentDB account using Azure CLI
 
@@ -226,7 +225,7 @@ To create a parameters file, copy the following content into a new file and name
         }
     }
 
-In the azuredeploy.parameters.json file, update the value "samplearmacct" to the database name you'd like to use, then save the file. `<databaseAccountName>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
+In the azuredeploy.parameters.json file, update the value "samplearmacct" to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
 
 ### Step 2: Create or retrieve your resource group
 
@@ -298,15 +297,21 @@ As the account is provisioned, you will receive the following information:
     + Creating a deployment
     info:    Created template deployment "azuredeploy"
     + Waiting for deployment to complete
+    + 
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
     data:    ResourceGroupName  : new_res_group
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
     data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
     data:    databaseAccountName  String  samplearmacct
-    data:    location             String  West US
     info:    group deployment create command OK
 
 If you encounter errors, see [Troubleshooting](#troubleshooting).  
@@ -329,7 +334,7 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
     	azure group log show new_res_group --last-deployment
 
-    Then see [Troubleshooting resource group deployments in Azure](../virtual-machines/resource-group-deploy-debug.md) for additional information.
+    Then see [Troubleshooting resource group deployments in Azure](../resource-manager-troubleshoot-deployments-cli.md) for additional information.
 
 - Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
 

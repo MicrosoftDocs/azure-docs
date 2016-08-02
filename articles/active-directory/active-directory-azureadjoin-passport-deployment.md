@@ -3,8 +3,9 @@
 	description="Deployment instructions to enable Microsoft Passport in your organization."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configure Microsoft Passport, Microsoft Passport for Work deployment"
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 

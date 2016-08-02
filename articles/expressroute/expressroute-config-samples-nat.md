@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Router configuration samples to setup and manage NAT
@@ -120,36 +120,36 @@ NAT Commands:
  - Allow services on the interfaces
 
 
-	security {   
-	 zones {
-	        security-zone Trust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth0.100;
-	            }
-	        }
-	        security-zone Untrust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth1.100;
-	            }
-	        }
-	    }
-	}
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
 
 
 ### 3. Create security policies between zones

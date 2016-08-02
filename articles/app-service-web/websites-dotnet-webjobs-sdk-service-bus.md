@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure Service Bus with the WebJobs SDK
 
 ## Overview
 
-This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
+This guide provides C# code samples that show how to trigger a process when an Azure Service Bus message is received. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 
@@ -61,7 +61,7 @@ The connection strings can also be set in the Azure runtime environment, which t
 
 To write a function that the WebJobs SDK calls when a queue message is received, use the `ServiceBusTrigger` attribute. The attribute constructor takes a parameter that specifies the name of the queue to poll.
 
-### How ServicebusTrigger works
+### How ServiceBusTrigger works
 
 The SDK receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
 

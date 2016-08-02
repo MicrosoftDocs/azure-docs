@@ -13,28 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in SQL Server on Azure
 
 
-## Introduction
-
-This document shows how to sample data stored in SQL Server on Azure using either SQL or the Python Programming Language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, uploading it to an Azure blob, and then reading it into Azure Machine Learning Studio.
+This document shows how to sample data stored in SQL Server on Azure using either SQL or the Python programming language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, uploading it to an Azure blob, and then reading it into Azure Machine Learning Studio.
 
 The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the[Pandas](http://pandas.pydata.org/) library to do the sampling.
 
 >[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic for instructions on how to move your data to SQL Server on Azure.
 
 **Why sample your data?**
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 The **menu** below links to topics that describe how to sample data from various storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Using SQL
 
@@ -63,7 +61,7 @@ Tablesample can be used for sampling as well as demonstrated below. This may be 
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
-You can directly  use the sample queries above in the Azure ML Reader module to down-sample the data on the fly and bring it into an Azure ML experiment. A screen shot of using the reader module to read the sampled data is shown below:
+You can directly  use the sample queries above in the Azure ML Import Data module to down-sample the data on the fly and bring it into an Azure ML experiment. A screen shot of using the reader module to read the sampled data is shown below:
    
 ![reader sql][1]
 
@@ -86,7 +84,7 @@ You can now work with the sampled data in the Pandas data frame.
 
 ###<a name="python-aml"></a>Connecting to Azure Machine Learning
 
-You can use the following sample code to save the down-sampled data to a file and upload it to an Azure blob. The data in the blob can be directly read into an Azure ML Experiment using the *Reader Module*. The steps are as follows: 
+You can use the following sample code to save the down-sampled data to a file and upload it to an Azure blob. The data in the blob can be directly read into an Azure ML Experiment using the *Import Data Module*. The steps are as follows: 
 
 1. Write the pandas data frame to a local file
 
@@ -114,13 +112,13 @@ You can use the following sample code to save the down-sampled data to a file an
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Read data from Azure blob using Azure ML *Reader Module* as shown in the screen grab below:
+3. Read data from Azure blob using Azure ML *Import Data Module* as shown in the screen grab below:
  
 ![reader blob][2]
 
-## The Cortana Analytics Process in Action example
+## The Team Data Science Process in Action example
 
-For an end-to-end walkthrough example of the Cortana Analytics Process a using a public dataset, see [Cortana Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

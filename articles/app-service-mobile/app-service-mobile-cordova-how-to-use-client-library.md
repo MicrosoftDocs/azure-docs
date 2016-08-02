@@ -3,8 +3,8 @@
 	description="How to Use Apache Cordova Plugin for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="dwrede"
+	authors="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/23/2016"
+	ms.author="ggailey"/>
 
 # How to Use Apache Cordova Client Library for Azure Mobile Apps
 
@@ -156,4 +156,3 @@ service attack against Notification Hubs or the PNS.
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-

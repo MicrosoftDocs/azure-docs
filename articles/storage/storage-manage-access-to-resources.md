@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Manage anonymous read access to containers and blobs

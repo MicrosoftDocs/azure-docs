@@ -1,89 +1,142 @@
 <properties
-   pageTitle="Cloud business continuity - database recovery | Microsoft Azure"
+   pageTitle="Cloud business continuity - database recovery - SQL Database | Microsoft Azure"
    description="Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running."
    keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
-   editor="monicar"/>
+   authors="CarlRabeler"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.workload="NA"
+   ms.date="07/20/2016"
+   ms.author="carlrab"/>
 
-# Overview: Cloud business continuity and database disaster recovery with SQL Database
+# Overview of business continuity with Azure SQL Database
 
-Business continuity is about designing, deploying, and running applications in a way that is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. Unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region and application upgrades. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function.
+This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
 
-To discuss cloud business continuity solutions there are several concepts you need be familiar with:
+## SQL Database features that you can use to provide business continuity
 
-* **Disaster recovery (DR):** a process of restoring the normal business function of the application
+SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
 
-* **Estimated Recovery Time (ERT):** The estimated duration for the database to be fully available after a restore or failover request.
+### Use database backups to recover a database
 
-* **Recovery time objective (RTO)**: The maximum acceptable time before the application fully recovers after the disruptive event. RTO measures the maximum loss of availability during the failures.
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 minutes in order to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
 
-* **Recovery point objective (RPO)**: The maximum amount of last updates (time interval) the application can lose by the moment it fully recovers after the disruptive event. RPO measures the maximum loss of data during the failures.
+You can use these automatic database backups to recover a database from a variety of disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery will depend on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
+
+> [AZURE.IMPORTANT] To recover using automated backups, you must be a memboer of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell or the REST API. You cannot use Transact-SQL.
+
+Use automated backups as your business continuity and recovery mechanism if your application:
+
+- Is not considered mission critical.
+- Doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
+- Has a low rate of data change (e.g. transactions per hour) and losing up to an hour of change is an acceptable data loss. 
+- Is cost sensitive. 
+
+If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database on a regular basis to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md). 
+
+### Use Active Geo-Replication to reduce recovery time and limit data loss associated with a recovery
+
+In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to 4 readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be also used to provide better query performance for read-only queries to geographically dispersed users.
+
+If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there will be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users will experience a small amount of downtime and will need to reconnect. 
+
+> [AZURE.IMPORTANT] To use Active Geo-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
+
+Use Active Geo-Replication if your application meets any of these criteria:
+
+- Is mission critical.
+- Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
+- Downtime will result in financial liability.
+- Has a high rate of data change is high and losing an hour of data is not acceptable.
+- The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
+
+## Recover a database after a user or application error
+
+*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to a an application defect. 
+
+In this scenario, these are your recovery options.
+
+### Perform a point-in-time restore
+
+You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
+
+For more information and for detailed steps for restoring a database to a point in time using the Azure Portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
+
+### Restore a deleted database
+
+If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
+
+For more information and for detailed steps for restoring a deleted database using the Azure Portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
+
+> [AZURE.IMPORTANT] If the logical server is deleted, you cannot recover a deleted database. 
+
+### Import from a database archive
+
+If the data loss occurred outside the current retention period for automated backups and you have been archiving the database, you can [Import an archived BACPAC file](sql-database-import.md) to a new database. At this point, you can either replace the original database with the imported database or copy the needed data from the imported data into the original database. 
+
+## Recover a database to another region from an Azure regional data center outage
+
+<!-- Explain this scenario -->
+
+Although rare, an Azure data ceneter can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+
+- One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
+- Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover will only take a few seconds while recovery from backups will take hours.
+
+When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
+
+### Prepare for an outage
+
+Regardless of the business continuity feature you will use, you must:
+
+- Identify and prepare the target server, including server-level firewall rules, logins and master database level permissions.
+- Determine how you will redirect clients and client applications to the new server
+- Document other dependencies, such as auditing settings and alerts 
+ 
+If you do not plan and prepare properly, bringing your applications online after a failover or a recovery will take additional time and will likely also require troubleshooting at a time of stress - a bad combination.
+
+### Failover to a geo-replicated secondary database 
+
+If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+
+> [AZURE.NOTE] When the data center comes back online, you can failback to the original primary (or not).
+
+### Perform a Geo-Restore 
+
+If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery will take place within 12 hours in most cases - with data loss of up to 1 hour determined by when the last hourly differential backup with takan and replicated. Until the recovery completes, the database will be unable to record any transactions or respond to any queries. 
+
+> [AZURE.NOTE] If the data center comes back online before you switch your application over to the recovered database, you can simply cancel the recovery.  
+
+### Perform post failover / recovery tasks 
+
+After recovery from either recovery mechanism, you must perform the following addtional tasks before your users and applications are back up and running:
+
+- Redirect clients and client applications to the new server and restored database
+- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
+- Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
+- Configure auditing, as appropriate
+- Configure alerts, as appropriate
+
+## Upgrade an application with minimal downtime
+
+Sometimes an application needs to be take offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path in the event something goes wrong. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
+
+## Next steps
+
+For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 
-## Cloud business continuity scenarios
-
-Following are key scenarios to consider when planning for business continuity and database recovery.
-
-###Design applications for business continuity
-
-The application I am building is critical for my business. I want to design and configure it to be able to survive a regional disaster of catastrophic failure of the service. I know the RPO and RTO requirements for my application and will choose the configuration that meets these requirements.
-
-###Recover from human error
-
-I have administrative rights to access the production version of the application. As part of regular maintenance process I made a mistake and deleted some critical data in production. I want to quickly restore the data in order to mitigate the impact of the error.
-
-###Recover from an outage
-
-I am running my application in production and receive an alert suggesting that there is a major outage in the region it is deployed in. I want to initiate the recovery process to bring it back in a different region to mitigate the impact on the business.
-
-###Perform disaster recovery drill
-
-Because the recovery from an outage will relocate the application’s data tier to a different region I want to periodically test the recovery process and evaluate its impact on the application to stay prepared.
-
-###Application upgrade without downtime
-
-I am releasing a major upgrade of my application. It involves the database schema changes, deployment of additional stored procs etc. This process will require stopping user access to the database. At the same I want to make sure the upgrade does not cause a significant disruption of the business operations.
-
-##Business continuity features
-
-The following table shows the differences of the cloud business continuity features across the service tiers:
-
-| Capability | Basic tier | Standard tier |Premium tier
-| --- |--- | --- | ---
-| Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
-| Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
-| Standard Geo-Replication | not included |  ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
-| Active Geo-Replication | not included | not included | ERT < 30s, RPO < 5s
-
-These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature.
-
-> [AZURE.NOTE] The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
-###Point In Time Restore
 
-Point In Time Restore is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. Refer to [Recover from human error](sql-database-user-error-recovery.md) for details of how to use Point In Time Restore.
 
-###Geo-Restore
-
-Geo-Restore is also available with Basic, Standard, and Premium databases. It provides the default recovery option when also  database is unavailable because of an incident in the region where your database is hosted. Similar to Point In Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.  Refer to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to use Geo-Restore.
-
-###Standard Geo-Replication
-
-Standard Geo-Replication is available for Standard and Premium databases. It’s designed for applications that can use the capacity of standard service tier but have more aggressive recovery requirements than Geo-Restore can offer. When the primary database fails you can initiate failover to a non-readable secondary database stored in the DR paired region. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database.
-
-###Active Geo-Replication
-
-Active Geo-Replication is available for Premium databases. It’s designed for write-intensive applications with the most aggressive recovery requirements. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries in the same way as Standard Geo-Replication.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database. Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.

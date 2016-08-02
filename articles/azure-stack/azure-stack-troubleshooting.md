@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/30/2016"
 	ms.author="erikje"/>
 
 # Microsoft Azure Stack troubleshooting
 
-If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuraiton requirements and this note:
+If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements and this note:
 
 >[AZURE.IMPORTANT] Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
 Installing on a new fresh installation of Windows Server 2016 Technical Preview 4 (TP4) is also recommended instead of using an existing server where other tests may already have been made.
 
-If you do install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
+If you install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure that you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft azure Stack, and it is subject to frequent edits and updates.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Azure Active Directory
 
@@ -41,7 +41,7 @@ Two options are possible to work around this:
   - https://*.microsoftonline-p.com 
   - https://login.live.com
 
-Also, depending on your current actions, please ensure you are running PowerShell as the regular AzureStack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
+Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
 ### Cookies error when attempting to connect via AAD and AzureRM PowerShell
 
@@ -136,6 +136,24 @@ By leveraging the steps mentioned just before in this document, you create such 
 
 However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
 
+### Can't delete resource groups hosting a SQL Server "virtual server"
+
+The SQL Server resource provider includes the notion of a “virtual server”, that you can create/reuse when you create a database. This creates a Contained Database authentication user, and provides tenant-scoped virtual servers that can be used to connect to specific databases on the underlying SQL Server hosting servers.
+
+When creating a database, you can specify credentials (username/password), and those credentials will be used for all the databases on the logical server you create, but you can’t specify existing wellknown logins on the backing hosting server (due to the access scoping that happens with the chosen account).  
+
+In particular, if you use a well-known login on the underlying hosting server (like “sa”), there is a known issue where the hosting resource group cannot be deleted afterwards. 
+
+### SQL Server or MySQL Server gallery package fails to publish
+
+If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
+
+
+### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
+
+Workaround: Clear any previous cache (C:/Users/<your alias>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
+
+
 ## Platform Image Repository
 
 ### A new image added to the Platform Image Repository (PIR) may not show up in the portal
@@ -152,7 +170,20 @@ This is mentioned in the documentation but can be easily missed:
 
 To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
 
-## Powershell
+### Terminal provisioning state 'failed' error
+
+If you copy VHDX files in the file share, the Platform Image Repository (PIR) will also show them in the portal, even though VHDX images are not supported by Azure Stack.
+
+Workaround: If you get this error when deploying a custom image, double check that the disk you are using is not in the VHDX format, as this could be an easy mistake when preparing the sysprepped image.
+
+
+## Portal
+
+### Error when creating a storage account
+
+When creating a storage account in the portal, you must select a subscription first (before entering a name).
+
+## PowerShell
 
 ### I can’t find the AzureRM.AzureStackStorage PowerShell module
 
@@ -211,6 +242,34 @@ SQL Server requires .NET Framework 3.5, and the image used in the template must 
 
 To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
 
+### Template deployment fails using Visual Studio
+
+A deployment in Visual Studio may time out after one hour with an access token expiration (UTC is earlier than current UTC time). This is a known issue with Visual Studio.
+
+Workaround:  publish the template using PowerShell.
+
+
+### Azure template won't deploy to Azure Stack
+
+Make sure that:
+
+- The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
+- The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 1, vs the “East US” or “South India” in Azure).
+- You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in azure Resource Manager syntax.
+
+You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
+
+
+
+
+## Tenant
+
+### Tenant can't change plan's status to "public"
+
+If the service admin sets an offer/plan to private, the tenant admin cannot change it to public.
+
+Workaround: Change the plan and offer to public at the service admin level.  The tenant admin can then flip it to public or private.
+
 ## Virtual machines
 
 ### Frequent crashes in the ComputeController (CRP.SelfHost) service
@@ -248,32 +307,53 @@ Please note this would not happen in a multi system deployment because you would
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this expected?
 
-About the VHDs remaining after being untouched for more than 14 days of inactivity, here are some more information, and one question.
-
-Here is the way this is designed:
+Yes, this is expected. It was designed this way because:
 
 - When you delete a VM, VHDs are not deleted. Disks are separate resources in the resource group.
-- When a storage account gets deleted, the deletion is visible immediately through ARM (portal, PS,...) but the disks it may contain are still kept in storage until garbage collection runs. Garbage collection has been updated to run every 2 days in this TP1 release.
+- When a storage account gets deleted, the deletion is visible immediately through Azure Resource Manager (portal, PowerShell) but the disks it may contain are still kept in storage until garbage collection runs. Garbage collection runs every 2 days in the TP1 release.
 
 So:
 
 - If you delete a VM and nothing more, VHDs will stay there, and may still be there for weeks or months.
-- If you delete the storage account containing those VHDs, they should be deleted the next time garbage collection runs (in a maximum of 2 days, depending when it ran last)
+- If you delete the storage account containing those VHDs, they should be deleted the next time garbage collection runs (in a maximum of 2 days, depending when it ran last).
 
-So if you see "orphan" VHDs (that have not been touched for more than 2 days), it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there. If the storage account was deleted less than 2 days ago, it's also normal, because garbage collection may not have run yet. If the storage account was deleted more than 2 days ago, those VHDs should not be there, and this should be investigated.
+If you see "orphan" VHDs (that have not been touched for more than 2 days), it is important to know if they are part of the folder for a storage account that was deleted. If the storage account was not deleted, it's normal they are still there. If the storage account was deleted less than 2 days ago, it's also normal, because garbage collection may not have run yet. If the storage account was deleted more than 2 days ago, those VHDs should not be there, and this should be investigated.
 
 Example flow:
 
-- Day 1 : Create a storage account and VM with VHDs in this storage account
-- Day 2 : Delete VM – VHDs remain, per design
-- Day 3 : Delete storage account (directly or via resource group) – which should be allowed since there is no VM still “attached” to the disks in the storage account
-- Day 3 + 2 (maximum, depending on last garbage collector run) : VHDs should be deleted
+- Day 1 : Create a storage account and VM with VHDs in this storage account.
+- Day 2 : Delete VM – VHDs remain, per design.
+- Day 3 : Delete storage account (directly or via resource group) – which should be allowed since there is no VM still “attached” to the disks in the storage account.
+- Day 3 + 2 (maximum, depending on last garbage collector run) : VHDs should be deleted.
 
-Note that having this garbage collector enables a scenario where Storage service administrator can "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document)
+The garbage collector lets the Storage service administrator "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document).
 
+### Virtual machine doesn't have internet connectivity
 
+If you create a virtual machine from the default gallery, the virtual machine won’t have internet connectivity.
+ 
+To get around this issue, try either of these options:
 
+- Option 1: Deploy a [virtual machine template](https://github.com/Azure/AzureStack-QuickStart-Templates) with the correct DNS settings (192.168.0.2).
+- Option 2: Deploy the virtual machine from the default gallery and then follow these steps:
+    1. Update the DNS for Vnet and set the DNS to Custom DNS, with Primary DNS server 192.168.100.2 (ignore the **Invalid argument** error for secondary DNS server).
+    ![Set Custom DNS](media/azure-stack-troubleshooting/customdns.png) 
+    2. From the portal, **Stop** the virtual machine and then **Start** it.
+    ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
+    
+### Performance issues while deploying or deleting tenant virtual machines
 
+If you see performance issues while deploying or deleting tenant virtual machines, try this workaround:
+
+1. Restart the WinRM service on the Hyper-V Host 2.
+
+2. If that doesn’t work, restart the CRP service on the xRPVM.
+
+3. If that doesn’t work, restart the xRPVM.
+ 
+### "Loading..." message never stops when trying to deploy a new virtual machine
+
+Workaround: Reset IIS in the PortalVM.
 
 
 ## Next steps

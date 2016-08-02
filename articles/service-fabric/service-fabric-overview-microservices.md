@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Why a microservices approach to building applications?
@@ -27,19 +27,23 @@ The changing business needs are:
 
 These business needs are affecting *how* we build applications.
 
+For more information on Azure's approach to microservices, read [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+
 ## Monolithic vs. microservice design approach
 All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes, How much do you know about your requirements today, and where do you think these may go in the future? For example, if you are building a reporting application for a department and you are sure that this will remain within the scope of your company and that the reports will be short-lived, your choice of approach will be different than, say, building a service for delivering video content to tens of millions of customers. Sometimes, getting something out the door as proof of concept is the driving factor, with the knowledge that the application can be redesigned later. There is little point in overengineering something that never gets used. It’s the usual engineering trade-off. On the other hand, when companies talk about building for the cloud, the expectation is growth and usage. The issue is that growth and scale are unpredictable. We would like to be able to prototype quickly while also knowing that we are on a path to deal with future success. This is the lean startup approach: build, measure, learn, iterate.
 
 During the client-server era, we tended to focus on building tiered applications by using specific technologies in each tier. The term "monolithic" application has emerged for these approaches. The interfaces tended to be between the tiers, and a more tightly coupled design was usually used between components within each tier. Developers designed and factored with classes compiled into libraries and linked these together into a few exes and dlls. There are benefits to such a monolithic design approach. It can be simpler to design and have faster calls between components, since these are often over IPC. Also, everyone tests a single product, and this tends to be more people-resource efficient.  The downsides are that the application is tightly coupled within the tiered layers, and you cannot scale individual components. If you need to perform fixes or upgrades, you have to wait for others to finish their testing; and it is more difficult to be agile.
 
 Microservices address these downsides and more closely align with the business requirements described above, but they also have both upsides and downsides. The benefits of microservices are that each one typically encapsulates simpler business functionality, and they can be scaled up or down, tested, deployed, and managed independently. One important benefit of a microservice approach is that teams tend to be more driven by business scenarios than by technology, which the tiered approach encouraged. In practice, this means that smaller teams develop a microservice based on a customer scenario, by using any technologies they choose. In other words, the organization doesn’t need to standardize tech to maintain monoliths. Further, individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate for the problem that service is trying to solve. In practice, having a set of recommended technologies, such as a particular NoSQL store or web application framework, is preferable, of course.
-The downside of microservices comes in managing the increased number of separate entities; dealing with more complex deployments and versioning; having more network traffic between the microservices; and the corresponding network latencies. Having lots of chatty, very granular services is a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. Ultimately, standards are what make the microservice approach work, by agreeing on how to communicate and being tolerant of only the things you need from a service, rather than rigid contracts. It is important to define these contacts up front in the design, since services are going to be updated independently of one another. Another description coined for designing with a microservices approach is “fine-grained SOA”.
+
+The downside of microservices comes in managing the increased number of separate entities, dealing with more complex deployments and versioning, having more network traffic between the microservices, and the corresponding network latencies. Having lots of chatty, very granular services is a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. Ultimately, standards are what make the microservice approach work, by agreeing on how to communicate and being tolerant of only the things you need from a service, rather than rigid contracts. It is important to define these contacts up front in the design, since services are going to be updated independently of one another. Another description coined for designing with a microservices approach is “fine-grained SOA”.
 
 
 ***At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to each and agreed-upon standards for communication.***
 
 
 As more cloud apps are produced, more people are discovering that this decomposition of the overall app into independent, scenario-focused services is a better longer-term approach.
+
 ## Comparison between application development approaches
 
 ![Service Fabric platform application development][Image1]
@@ -53,7 +57,7 @@ As more cloud apps are produced, more people are discovering that this decomposi
 4. This approach scales out by deploying each service independently, creating instances of these services across servers/VMs/containers.
 
 
-Designing with a microservice approach is not a panacea for all projects, but it does align more closely with the business objectives described earlier. Also, starting with a monolithic approach may be acceptable if you know that later you will have the opportunity to rework the code into a microservice design if necessary. More commonly, you begin with a monolithic app and slowly break up it in stages, starting with the functional areas that need to be more scalable or agile.
+Designing with a microservice approach is not a panacea for all projects, but it does align more closely with the business objectives described earlier. Also, starting with a monolithic approach may be acceptable if you know that later you will have the opportunity to rework the code into a microservice design if necessary. More commonly, you begin with a monolithic app and slowly break it up in stages, starting with the functional areas that need to be more scalable or agile.
 
 To summarize, the microservice approach is to compose your application of many smaller services running in containers deployed across a cluster of machines. Each service is developed by a smaller team that focuses on a scenario, and each service is independently tested, versioned, deployed, and scaled, so that the application as a whole can evolve.
 
@@ -93,7 +97,7 @@ Returning to the monolithic versus microservice approach for a moment, the diagr
 
 ***On the right is the microservices approach, a graph of interconnected microservices where state is typically scoped to the microservice and a variety of technologies are used.***
 
-In a monolithic approach, typically there is a single database used by the application. The advantage is that it is a single location, making it easy to deploy. Each component can have a single table to store its state. The hard part is that teams need to be strict in separating state, and inevitably there are temptations to simply add a new column to an existing customer table, do a join between tables, and generally create dependencies at the storage layer. Once this happens, you can't scale individual components. In the microservices approach, each service manages and stores its own state, meaning that it is responsible for in scaling both code and state together to meet the demands of the service. The downside to this comes in when there is a need create any views, or queries, of your applications’ data, since you will need to query across these disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple ad-hoc queries on the data, each microservice should consider writing its data into a data warehousing service for offline analytics.
+In a monolithic approach, typically there is a single database used by the application. The advantage is that it is a single location, making it easy to deploy. Each component can have a single table to store its state. The hard part is that teams need to be strict in separating state, and inevitably there are temptations to simply add a new column to an existing customer table, do a join between tables, and generally create dependencies at the storage layer. Once this happens, you can't scale individual components. In the microservices approach, each service manages and stores its own state, meaning that it is responsible for scaling both code and state together to meet the demands of the service. The downside to this comes in when there is a need to create any views, or queries, of your applications’ data, since you will need to query across these disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple ad-hoc queries on the data, each microservice should consider writing its data into a data warehousing service for offline analytics.
 
 
 Versioning is specific to the deployed version of a microservice. It is required so that multiple different versions can be rolled out and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to be rolled back to an earlier version. The other scenario for versioning is performing A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely. After lifecycle management of microservices, this now brings us to communication between them.
@@ -144,10 +148,9 @@ The objective of Service Fabric is to reduce the complexities of building applic
 ## Next steps
 
 * For more information:
-	* [Overview of Service Fabric](service-fabric-overview.md)
-	* [Technical overview](service-fabric-technical-overview.md)
-* Setting up your Service Fabric [development environment](service-fabric-get-started.md)
-* Choosing a [programming model framework](service-fabric-choose-framework.md) for your service
+    * [Overview of Service Fabric](service-fabric-overview.md)
+    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

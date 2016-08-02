@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: LinkedIn configuration | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: LinkedIn configuration | Microsoft Azure"
 	description="Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Provide sign-up and sign-in to consumers with LinkedIn accounts
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Provide sign-up and sign-in to consumers with LinkedIn accounts
 
 ## Create a LinkedIn application
 
@@ -38,7 +36,7 @@ To use LinkedIn as an identity provider in Azure Active Directory (Azure AD) B2C
 
 	>[AZURE.NOTE] **Client Secret** is an important security credential.
 
-6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**.
+6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**. The **{tenant}** value is case-sensitive.
 
     ![LinkedIn - Setup app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

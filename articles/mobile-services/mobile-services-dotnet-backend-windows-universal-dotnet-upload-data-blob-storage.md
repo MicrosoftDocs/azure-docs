@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
@@ -38,7 +38,7 @@ In this tutorial you add functionality to the Mobile Services quickstart app to 
 This tutorial requires the following:
 
 + Microsoft Visual Studio 2013 Update 3, or a later version.
-+ [Azure Storage account](../storage-create-storage-account.md)
++ [Azure Storage account](../storage/storage-create-storage-account.md)
 + A camera or other image capture device attached to your computer.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
@@ -51,11 +51,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Now that you have been able to securely upload images by integrating your mobile service with the Blob service, check out some of the other backend service and integration topics:
 
-+ [Schedule backend jobs in Mobile Services](../mobile-services-dotnet-backend-schedule-recurring-tasks.md)
++ [Schedule backend jobs in Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
      Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.
 
-+ [Mobile Services .NET How-to Conceptual Reference](../mobile-services-windows-dotnet-how-to-use-client-library.md)
++ [Mobile Services .NET How-to Conceptual Reference](mobile-services-dotnet-how-to-use-client-library.md)
 
      Learn more about how to use Mobile Services with .NET
 
@@ -71,6 +71,6 @@ Now that you have been able to securely upload images by integrating your mobile
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
-[How To Create a Storage Account]: ../storage-create-storage-account.md
+[Get started with Mobile Services]: mobile-services-windows-store-dotnet-get-started.md
+[How To Create a Storage Account]: ../storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866

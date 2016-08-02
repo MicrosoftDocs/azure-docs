@@ -3,9 +3,9 @@
    description="This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="abhishekram"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Diagnostics and performance monitoring for Reliable Actors
@@ -31,7 +31,7 @@ All events that belong to the Reliable Actors EventSource are associated with on
 |---|---|
 |0x1|Set of important events that summarize the operation of the Fabric Actors runtime.|
 |0x2|Set of events that describe actor method calls. For more information, see the [introductory topic on actors](service-fabric-reliable-actors-introduction.md#actors).|
-|0x4|Set of events related to actor state. For more information, see the topic on [stateful actors](service-fabric-reliable-actors-introduction.md#stateful-actors).|
+|0x4|Set of events related to actor state. For more information, see the topic on [actor state management](service-fabric-reliable-actors-state-management.md).|
 |0x8|Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Performance counters
@@ -114,9 +114,11 @@ The Reliable Actors runtime publishes the following performance counters related
 |Category name|Counter name|Description|
 |---|---|---|
 |Service Fabric Actor|# of actor calls waiting for actor lock|Number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency|
+|Service Fabric Actor|Average milliseconds per lock wait|Time taken (in milliseconds) to acquire the per-actor lock that enforces turn-based concurrency|
+|Service Fabric Actor|Average milliseconds actor lock held|Time (in milliseconds) for which the per-actor lock is held|
 
 ### Actor state management events and performance counters
-The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-introduction.md#actor-state-management).
+The Reliable Actors runtime emits the following events related to [actor state management](service-fabric-reliable-actors-state-management.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -128,27 +130,41 @@ The Reliable Actors runtime publishes the following performance counters related
 |Category name|Counter name|Description|
 |---|---|---|
 |Service Fabric Actor|Average milliseconds per save state operation|Time taken to save actor state in milliseconds|
+|Service Fabric Actor|Average milliseconds per load state operation|Time taken to load actor state in milliseconds|
 
-### Events related to stateless actor instances
-The Reliable Actors runtime emits the following events related to [stateless actor instances](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
-
-|Event name|Event ID|Level|Keyword|Description|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|Informational|0x1|Stateless actor instance opened. This implies that the actors for this partition can be created inside this instance (and possibly other instances too).|
-|ServiceInstanceClose|4|Informational|0x1|Stateless actor instance closed. This implies that the actors for this partition will no longer be created inside this instance. No new requests will be delivered to actors already created within this instance. The actors will be destroyed after any in-progress requests are completed.|
-
-### Events related to stateful actor replicas
-The Reliable Actors runtime emits the following events related to [stateful actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+### Events related to actor replicas
+The Reliable Actors runtime emits the following events related to [actor replicas](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
-|ReplicaChangeRoleToPrimary|1|Informational|0x1|Stateful actor replica changed role to Primary. This implies that the actors for this partition will be created inside this replica.|
-|ReplicaChangeRoleFromPrimary|2|Informational|0x1|Stateful actor replica changed role to non-Primary. This implies that the actors for this partition will no longer be created inside this replica. No new requests will be delivered to actors already created within this replica. The actors will be destroyed after any in-progress requests are completed.|
+|ReplicaChangeRoleToPrimary|1|Informational|0x1|Actor replica changed role to Primary. This implies that the actors for this partition will be created inside this replica.|
+|ReplicaChangeRoleFromPrimary|2|Informational|0x1|Actor replica changed role to non-Primary. This implies that the actors for this partition will no longer be created inside this replica. No new requests will be delivered to actors already created within this replica. The actors will be destroyed after any in-progress requests are completed.|
 
-### Actor activation and deactivation events
+### Actor activation and deactivation events and performance counters
 The Reliable Actors runtime emits the following events related to [actor activation and deactivation](service-fabric-reliable-actors-lifecycle.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
 |ActorActivated|5|Informational|0x1|An actor has been activated.|
 |ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|
+
+The Reliable Actors runtime publishes the following performance counters related to actor activation and deactivation.
+
+|Category name|Counter name|Description|
+|---|---|---|
+|Service Fabric Actor|Average OnActivateAsync milliseconds|Time taken to execute OnActivateAsync method in milliseconds|
+
+### Actor request processing performance counters
+When a client invokes a method via an actor proxy object, it results in a request message being sent over the network to the actor service. The service processes the request message and sends a response back to the client. The Reliable Actors runtime publishes the following performance counters related to actor request processing.
+
+|Category name|Counter name|Description|
+|---|---|---|
+|Service Fabric Actor|# of outstanding requests|Number of requests being processed in the service|
+|Service Fabric Actor|Average milliseconds per request|Time taken (in milliseconds) by the service to process a request|
+|Service Fabric Actor|Average milliseconds for request deserialization|Time taken (in milliseconds) to deserialize actor request message when it is received at the service|
+|Service Fabric Actor|Average milliseconds for response serialization|Time taken (in milliseconds) to serialize the actor response message at the service before the response is sent to the client|
+
+## Next steps
+ - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)

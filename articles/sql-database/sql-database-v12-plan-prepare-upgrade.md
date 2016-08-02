@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/25/2016"
 	ms.author="genemi"/>
 
 
@@ -60,14 +60,14 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
 - [SQL Database service tiers](sql-database-service-tiers.md)
-- [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
+- [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md)
 
 
 
-### Review the geo-replication configuration
+### Review the Geo-Replication configuration
 
 
-If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
+If your Azure SQL database is configured for Geo-Replication, you should document its current configuration, and stop Geo-Replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for Geo-Replication.
 
 
 The strategy is to leave the source intact and test on a copy of the database.
@@ -97,13 +97,13 @@ You can reduce the steps necessary during upgrade by switching your V11 database
 If you are unsure which service tier to switch to, the S2 level of the Standard tier might be a sensible initial choice. Any lesser tier will have fewer resources than the Web and Business tier had.
 
 
-### Suspend geo-replication during upgrade
+### Suspend Geo-Replication during upgrade
 
 
-The upgrade to V12 cannot run if geo-replication is active on your database. You must first reconfigure your database to stop using geo-replication.
+The upgrade to V12 cannot run if Geo-Replication is active on your database. You must first reconfigure your database to stop using Geo-Replication.
 
 
-After the upgrade completes you can configure your database to again use geo-replication.
+After the upgrade completes you can configure your database to again use Geo-Replication.
 
 
 ### Client on an Azure VM
@@ -159,6 +159,9 @@ In the older Azure Classic Portal, on the database page, you can click **Open in
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ### Limitation *during* upgrade to V12
 
 
@@ -168,7 +171,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | Limitation | Description |
 | :--- | :--- |
 | Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
-| No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
+| No Geo-Replication | Geo-Replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 | Database is briefly unavailable in final phase of upgrade to V12 | The databases belonging to your V11 server remain available during the upgrade process. However, the connection to the server and databases is briefly unavailable in the final phase, when the switch over begins from V11 to the ready V12.<br/><br/>The switch over period can range from 40 seconds to 5 minutes. For most servers, switch over is expected to complete within 90 seconds. Switch over time increases for servers that have a large number of databases, or when the databases have heavy write workloads. |
 
 
@@ -226,7 +229,7 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 
 PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
 
-- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server.md)
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 
 For reference documentation about these PowerShell cmdlets, see:
 
@@ -253,4 +256,3 @@ If the upgrade fails for any odd reason, your V11 database remains active and av
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 

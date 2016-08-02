@@ -6,7 +6,7 @@
 	documentationCenter="android"
 	authors="RickSaling"
 	writer="ricksal"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ The following videos demonstrate how to use the designer.
 Day 1 video covers:
 
 - Designer Overview
-- Basic Workflows – “Hello World”
+- Basic Workflows – "Hello World"
 - Creating multiple output MP4 files for use with Azure Media Services streaming
 
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]

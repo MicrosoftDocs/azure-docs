@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/27/2016"
 	ms.author="szark"/>
 
 #Introduction to Linux on Azure
@@ -27,7 +27,7 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
 
- - See [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md)
+ - See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
  - See [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md)
 
 
@@ -64,12 +64,12 @@ The Azure Linux Agent includes functionality to automatically detect this name c
  - [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 
 ### Cloud-Init
-**Ubuntu** and **CoreOS** images utilize cloud-init pn Azure, which provides additional capabilities for bootstrapping a virtual machine.
+**Ubuntu** and **CoreOS** images utilize cloud-init on Azure, which provides additional capabilities for bootstrapping a virtual machine.
 
  - [How to Inject Custom Data](virtual-machines-windows-classic-inject-custom-data.md)
  - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [How to Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [How to Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Virtual Machine Image Capture

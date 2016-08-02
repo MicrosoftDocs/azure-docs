@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Table storage from Java | Microsoft Azure"
-	description="Learn how to use the table storage service in Azure. Code samples are written in Java code."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 

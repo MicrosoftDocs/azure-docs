@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="07/06/2016"
  ms.author="nberdy"/>
 
 # Introduction to diagnostic metrics
 
-Diagnostic metrics are part of an Azure-wide metrics push to provide you better data on the state of the Azure resources in your subscription. Metrics allow a user to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help the user see what is going on with their IoT hub and help root-cause issues without needing to contact Azure support.
+Diagnostic metrics provide you with better data on the state of the Azure resources in your subscription. Metrics allow a user to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help the user see what is going on with their IoT hub and help root-cause issues without needing to contact Azure support.
 
 You can enable diagnostic metrics from the Azure portal.
 
@@ -54,11 +54,17 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 
 ## Next steps
 
-Now that you’ve seen an overview of diagnostic metrics, follow these links to learn more:
+Now that you’ve seen an overview of diagnostic metrics, follow these links to learn more about managing Azure IoT Hub:
 
-- [IoT Hub operations monitoring][lnk-operations-monitoring]
-- [Scaling IoT Hub][lnk-scaling]
-- [IoT Hub high availability and disaster recovery][lnk-dr]
+- [Operations monitoring][lnk-monitor]
+- [Manage access to IoT Hub][lnk-itpro]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,3 +76,10 @@ Now that you’ve seen an overview of diagnostic metrics, follow these links to 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

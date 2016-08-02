@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="07/30/2016"
 	ms.author="tarcher"/>
 
 # Continuous Delivery for Cloud Services in Azure
@@ -37,7 +37,7 @@ Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
 attempt to automate the publication process.
 
-## Step 1: Configure the Build Server
+## 1: Configure the Build Server
 
 Before you can create an Azure package by using MSBuild, you must
 install the required software and tools on the build server.
@@ -55,7 +55,7 @@ documentation.
 	On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. You should copy it to the same directory on the build server.
 5.  Install the [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
-## Step 2: Build a Package using MSBuild Commands
+## 2: Build a Package using MSBuild Commands
 
 This section describes how to construct an MSBuild command that builds an
 Azure package. Run this step on the build server to verify that
@@ -97,7 +97,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     Optionally, you can specify the project name as an MSBuild
     parameter. If not specified, the current directory is used. For more
     information about MSBuild command line options, see [MSBuild Command
-    Line Reference][1].
+    Line Reference](1).
 
 4.  Locate the output. By default, this command creates a directory in
     relation to the root folder for the project, such as
@@ -137,7 +137,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     build environment, then you can follow the instructions in the next
     step to add the Azure package build to your build process.
 
-## Step 3: Build a Package using TFS Team Build
+## 3: Build a Package using TFS Team Build
 
 If you have Team Foundation Server (TFS) set up as a build controller
 and the build server set up as a TFS build machine, then you can optionally set up
@@ -156,7 +156,7 @@ steps:
     Team Explorer window, expand the **Builds** node or choose the **Builds**
     page, and choose **New Build Definition**.
 
-    ![][0]
+    ![New Build Definition option][0]
 
 2.  Choose the **Trigger** tab, and specify the desired conditions for
     when you want the package to be built. For example, specify
@@ -181,7 +181,7 @@ steps:
     package and copy the package files to the location
     \\\\myserver\\drops\\:
 
-    ![][2]
+    ![MSBuild arguments][2]
 
     **Note:** Copying the files to a public share makes it easier to
     manually deploy the packages from your development computer.
@@ -191,7 +191,7 @@ steps:
     Team Explorer, right-click **All Build Definitions,** and then
     choose **Queue New Build**.
 
-## Step 4: Publish a Package using a PowerShell Script
+## 4: Publish a Package using a PowerShell Script
 
 This section describes how to construct a Windows PowerShell script that
 will publish the Cloud app package output to Azure using
@@ -239,14 +239,14 @@ Template workflow activities in Visual Studio TFS Team Build.
     deployment is being created.
 
     -   To create a new cloud service, you can call this script or use
-        the Azure management portal. The cloud service name
+        the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The cloud service name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   To create a new storage account, you can call this script or use
-        the Azure management portal. The storage account name
+        the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The storage account name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique. You can try using the same name as the
         cloud service.
@@ -268,8 +268,8 @@ Template workflow activities in Visual Studio TFS Team Build.
         PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
-    swap. The VIP swap can be done via the Azure Management
-    Portal or by using the Move-Deployment cmdlet.
+    swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or 
+    by using the Move-Deployment cmdlet.
 
     **Example scenario 2:** continuous deployment to the production
     environment of a dedicated test service
@@ -304,8 +304,8 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
-    Azure Management Portal. Read the following article to learn
-    more:
+    [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+    Read the following article to learn more:
     [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Upgrade Deployment vs. Delete Deployment -\> New Deployment**
@@ -329,7 +329,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     enable continuous delivery from automation where no user/operator
     prompting is possible.
 
-## Step 5: Publish a Package using TFS Team Build
+## 5: Publish a Package using TFS Team Build
 
 This optional step connects TFS Team Build to the script created in step 4,
 which handles publishing of the package build to Azure. This
@@ -371,7 +371,7 @@ piped into the standard build output.
         PublishScriptLocation
         ServiceName
 
-    ![][3]
+    ![List of arguments][3]
 
     The corresponding XAML looks like this:
 
@@ -430,7 +430,7 @@ piped into the standard build output.
 
         -   PublishScriptFilePath, of type String
 
-            ![][4]
+            ![New variables][4]
 
     4.  If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
         Sequence. If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence. For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
@@ -488,7 +488,7 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in the designer:
 
-    ![][5]
+    ![Workflow activities][5]
 
     The final result of the publish workflow activities will look like
     this in XAML:
@@ -555,7 +555,7 @@ piped into the standard build output.
 
     8.  SubscriptionName = 'default'
 
-    ![][6]
+    ![Parameter property values][6]
 
 10. Save the changes to the Build Definition.
 

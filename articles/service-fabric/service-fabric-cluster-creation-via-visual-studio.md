@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/11/2016"
+   ms.date="06/27/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
@@ -39,20 +39,20 @@ Before the template is deployed to create the cluster, you must provide values f
 
 |Parameter name           |Description|
 |-----------------------  |--------------------------|
-|clusterLocation          |The name of the **Azure region** where the Service Fabric cluster will be located. For example, "East US."|
+|adminUserName            |The name of the administrator account for Service Fabric machines (nodes).|
 |certificateThumbprint    |The thumbprint of the certificate that will secure the cluster.|
 |sourceVaultResourceId    |The *resource ID* of the key vault where the certificate that secures the cluster is stored.|
 |certificateUrlValue      |The URL of the cluster security certificate.|
 
-The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates) article.
+The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [Service Fabric cluster security scenarios](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) article.
 
 ## Optional: change the cluster name
-Every Service Fabric cluster has a name. When a Fabric cluster is created in Azure, cluster name determines (together with the Azure region) the Domain Name System (DNS) name for the cluster. For example, if you name your cluster `myBigCluster`, and the `clusterLocation` parameter is set to East US, the DNS name of the cluster will be `myBigCluster.eastus.cloudapp.azure.com`.
+Every Service Fabric cluster has a name. When a Fabric cluster is created in Azure, cluster name determines (together with the Azure region) the Domain Name System (DNS) name for the cluster. For example, if you name your cluster `myBigCluster`, and the location (Azure region) of the resource group that will host the new cluster is East US, the DNS name of the cluster will be `myBigCluster.eastus.cloudapp.azure.com`.
 
 By default the cluster name is generated automatically and made unique by attaching a random suffix to a "cluster" prefix. This makes it very easy to use the template as part of a **continuous integration** (CI) system. If you want to use a specific name for your cluster, one that is meaningful to you, set the value of the `clusterName` variable in the Resource Manager template file (`ServiceFabricCluster.json`) to your chosen name. It is the first variable defined in that file.
 
 ## Optional: add public application ports
-You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
+You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`ServiceFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
 
 1. A template variable that defines the TCP port value for the port:
 
@@ -100,7 +100,7 @@ You may also want to change the public application ports for the cluster before 
 If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started creating an internal load balancer using a template](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## Deploy the template by using Visual Studio
-After you have saved all the required parameter values in the`ServiceFabricCluster.param.dev.json` file, you are ready to deploy the template and create your Service Fabric cluster. Right-click the resource group project in Visual Studio Solution Explorer and choose **Deploy**. Visual Studio will show the **Deploy to Resource Group** dialog box, asking you to authenticate to Azure, if necessary:
+After you have saved all the required parameter values in the`ServiceFabricCluster.param.dev.json` file, you are ready to deploy the template and create your Service Fabric cluster. Right-click the resource group project in Visual Studio Solution Explorer and choose **Deploy | New Deployment...**. Visual Studio will show the **Deploy to Resource Group** dialog box, asking you to authenticate to Azure, if necessary:
 
 ![Deploy to Resource Group dialog][3]
 

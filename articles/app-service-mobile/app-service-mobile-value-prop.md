@@ -3,7 +3,7 @@
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="krisagh"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
 
-Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers
+Azure App Service is a fully managed [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) offering for professional developers
 that brings a rich set of capabilities to web, mobile and integration scenarios. *Mobile Apps* in
 *Azure App Service* offer a highly scalable, globally available mobile application development platform
 for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.

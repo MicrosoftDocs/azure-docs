@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Azure Active Directory integration with Zendesk | Microsoft Azure" 
     description="Learn how to use Zendesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/20/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Zendesk
   
@@ -81,11 +81,17 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Zendesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.zendesk.com*", and then click **Next**.
+3.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure app URL](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
+  
+	a. In the **Zendesk Sign In URL** textbox, type your URL using the following pattern: `https://<tenant-name>.zendesk.com`
 
-4.  On the **Configure single sign-on at Zendesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\zendesk.cer**.
+	b. Click **Next**.
+
+
+
+4.  On the **Configure single sign-on at Zendesk** page, click **Download certificate**, and then save the certificate file locally on your compiter.
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
 
@@ -97,7 +103,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Security](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Security")
 
-8.  On the **Security** page, select the **Admin & Agents** tab.
+8.  On the **Security** page, click the **Admin & Agents** tab.
 
 9.  Select **Single sign-on (SSO) and SAML**, and then select **SAML**.
 

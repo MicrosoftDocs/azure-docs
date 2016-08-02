@@ -3,7 +3,7 @@
 	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
-	ms.author="ryancraw"/>
+	ms.date="06/30/2016" 
+	ms.author="andrl"/>
 
 # DocumentDB SDK
 
@@ -35,6 +35,24 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
+  - Fixed a bug to not retry when an incorrect partition key value is provided.
+
+### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+  - Added the support for multi-region database accounts.
+  - Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions(). 
+  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
+
+### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+- Added retry policy support for throttling.  
+
+### <a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+- Added time to live (TTL) support for documents. 
+
+### <a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ### <a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -74,6 +92,11 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.1](#1.8.1) | June 30, 2016 |---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
+| [1.7.1](#1.7.1) | April 30, 2016 |---
+| [1.7.0](#1.7.0) | April 27, 2016 |---
+| [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.1](#1.5.1) | December 31, 2015 |--- 
 | [1.5.0](#1.5.0) | December 04, 2015 |---
 | [1.4.0](#1.4.0) | October 05, 2015 |---

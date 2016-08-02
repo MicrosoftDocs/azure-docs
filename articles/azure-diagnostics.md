@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
@@ -56,6 +56,7 @@ Note that Web Apps do not use Azure Diagnostics. Find the equivalent information
 - [Set up Azure Diagnostics in a Cloud Services Application](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 For more advanced topics, see
+
 - [Using Azure Diagnostics with Application Insights for Cloud Services](./application-insights/app-insights-cloudservices.md)
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@ For more advanced topics, see
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines-dotnet-diagnostics.md)
 
 For more advanced topics, see
+
 - [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 

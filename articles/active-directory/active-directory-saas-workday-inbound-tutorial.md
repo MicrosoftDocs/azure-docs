@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="MarkusVi"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
+    ms.date="07/13/2016" 
     ms.author="markvi" />
 
 
@@ -53,9 +53,9 @@ The scenario outlined in this tutorial consists of the following building blocks
   
 The objective of this section is to outline how to enable the application integration for Workday.
 
-###To enable the application integration for Workday, perform the following steps:
+### Steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-workday-inbound-tutorial/IC700993.png "Active Directory")
 
@@ -84,12 +84,18 @@ The objective of this section is to outline how to enable the application integr
 
 ## Creating an integration system user
 
-1. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. <br><br>   ![Create user](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
+### Steps:
+
+
+1. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. 
+
+	![Create user](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
 
 
 
-2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically. <br>
-Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely. <br><br>   ![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
+2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically. Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely. 
+
+	![Create Integration System User](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Create Integration System User")
  
 
 
@@ -99,25 +105,40 @@ Leave the Session Timeout Minutes with its default value of 0, which will preven
 
 For the scenario outlined in this tutorial, you need to create an unconstrained integration system security group and assign the user to it.
 
+### Steps:
 
-1. Enter create security group in the search box, and then click **Create Security Group**. <br><br>   ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
+1. Enter create security group in the search box, and then click **Create Security Group**. 
+
+	![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
  
 
-2. Complete the Create Security Group task.  Select Integration System Security Group—Unconstrained from the Type of Tenanted Security Group dropdown, to create a security group to which members will be explicitly added. <br><br>   ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
+2. Complete the Create Security Group task.  Select Integration System Security Group—Unconstrained from the Type of Tenanted Security Group dropdown, to create a security group to which members will be explicitly added. 
+
+	![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
  
 
 
 
 ## Assigning the integration system user to the security group
 
-1. Enter edit security group in the search box, and then click **Edit Security Group**. <br><br>   ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
+### Steps:
+
+
+1. Enter edit security group in the search box, and then click **Edit Security Group**. 
+
+	![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "Edit Security Group")
  
  
 
-2. Search for, and select the new integration security group by name. <br><br> ![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Edit Security Group")
-Edit Security Group 
+2. Search for, and select the new integration security group by name. 
 
-3. Add the new integration system user to the new security group. <br><br>   ![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
+	![Edit Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750984.png "Edit Security Group")
+
+ 
+
+3. Add the new integration system user to the new security group. 
+
+	![System Security Group](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "System Security Group")  
 
 
 
@@ -135,23 +156,34 @@ In this step, you grant to the new security group permissions for **Get** and **
 - Worker Data: Current Staffing Information
 
 - Worker Data: Business Title on Worker Profile
- 
-   
-
-1. Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.  <br><br>   ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
- 
-
-2. Search for system and select the **System** functional area.  Click **OK**.  <br><br>   ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Domain Security Policies")  
-
-
-3. In the list of security policies for the System functional area, expand Security Administration and select the domain security policy, External Account Provisioning.  <br><br>   ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
-
-
-4. Click **Edit Permissions**, and then, on the **Edit Permissions**dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. <br><br>   ![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
 
  
+### Steps:
 
-5. Repeat step 1, above, to return to the screen for selecting functional areas, and this time, search for staffing, select the Staffing functional area, and click **OK**.<br><br>   ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
+1. Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.  
+
+	![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Domain Security Policies")  
+ 
+
+2. Search for system and select the **System** functional area.  Click **OK**.  
+
+	![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Domain Security Policies")  
+
+
+3. In the list of security policies for the System functional area, expand Security Administration and select the domain security policy, External Account Provisioning.  
+
+	![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Domain Security Policies")  
+
+
+4. Click **Edit Permissions**, and then, on the **Edit Permissions**dialog page, add the new security group to the list of security groups with **Get** and **Put** integration permissions. 
+
+	![Edit Permission](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Edit Permission")  
+
+ 
+
+5. Repeat step 1, above, to return to the screen for selecting functional areas, and this time, search for staffing, select the Staffing functional area, and click **OK**.
+
+	![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Domain Security Policies")  
  
 
 6. In the list of security policies for the Staffing functional area, expand Worker Data: Staffing, and repeat step 4 above for each of these remaining security policies:
@@ -165,7 +197,7 @@ In this step, you grant to the new security group permissions for **Get** and **
      - Worker Data: Business Title on Worker Profile
 
 
-<br><br>   ![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
+	![Domain Security Policies](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Domain Security Policies")  
 
 
 
@@ -175,14 +207,21 @@ In this step, you grant to the new security group permissions for **Get** and **
 
 ## Activating security policy changes
 
+### Steps:
 
-1. Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes. <br><br>   ![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
+1. Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes. 
+
+	![Activate](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "Activate") 
  
 
-2. Begin the Activate Pending Security Policy Changes task by entering a comment for auditing purposes, and then click **OK**. <br><br>   ![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activate Pending Security")   
+2. Begin the Activate Pending Security Policy Changes task by entering a comment for auditing purposes, and then click **OK**. 
+
+	![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "Activate Pending Security")   
  
 
-3. Complete the task on the next screen by checking the checkbox labelled Confirm, and then click **OK**. <br><br>   ![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
+3. Complete the task on the next screen by checking the checkbox labelled Confirm, and then click **OK**. 
+
+	![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
 
 
 
@@ -193,28 +232,36 @@ In this step, you grant to the new security group permissions for **Get** and **
 The objective of this section is to outline how to configure Azure AD to import people from Workday.
 
 
-### To configure user import in Azure AD, perform the following steps:
+### Steps:
 
 
 1. On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.
 
 
-2.On the **Settings and admin credentials** page, perform the following steps, and then click **Next**: <br><br>   ![Settings and admin credentials](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
+2. On the **Settings and admin credentials** page, perform the following steps, and then click **Next**: 
+
+	![Settings and admin credentials](./media/active-directory-saas-workday-inbound-tutorial/IC750995.png "Settings and admin credentials")  
  
-     2.1. In the Workday admin user name textbox, type the name of the user you have created in the Creating an integration system user section.
+	a. In the Workday admin user name textbox, type the name of the user you have created in the Creating an integration system user section.
 
-     2.2. In the Workday admin password textbox, type the password of the user you have created in the Creating an integration system user section.
+    b. In the Workday admin password textbox, type the password of the user you have created in the Creating an integration system user section.
 
-     2.3. In the Workday tenant URL textbox, type the URL or your Workday tenant.
+    c. In the Workday tenant URL textbox, type the URL or your Workday tenant.
 
 
-3. On the **Test connection** page, click **Start test** to confirm connectivity, and then click **Next**. <br><br>   ![Test connection](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Test connection")  
+3. On the **Test connection** page, click **Start test** to confirm connectivity, and then click **Next**. 
+
+	![Test connection](./media/active-directory-saas-workday-inbound-tutorial/IC750996.png "Test connection")  
  
 
-4. On the **Provisioning** options page, click **Next**. <br><br>   ![Provisioning options](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Provisioning options")
+4. On the **Provisioning** options page, click **Next**. 
+
+	![Provisioning options](./media/active-directory-saas-workday-inbound-tutorial/IC750997.png "Provisioning options")
 
 
-5. On the **Start provisioning** dialog, click **Complete**. <br><br>   ![Start provisioning](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Start provisioning")
+5. On the **Start provisioning** dialog, click **Complete**. 
+
+	![Start provisioning](./media/active-directory-saas-workday-inbound-tutorial/IC750998.png "Start provisioning")
  
 
 You can now go to the **Users** section and check whether your Workday user has been imported.

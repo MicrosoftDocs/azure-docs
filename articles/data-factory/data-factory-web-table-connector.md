@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="07/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data from a Web table source using Azure Data Factory
@@ -21,13 +21,15 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from a Web table to other data stores, but not  moving data from other data stores to a Web table destination.
 
+> [AZURE.NOTE] This Web connector currently only support extracting table content from an HTML page.
+
 ## Sample: Copy data from Web table to Azure Blob
 
 The sample below shows:
 
 1.	A linked service of type [Web](#web-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [WebTabe](#WebTable-dataset-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [WebTable](#WebTable-dataset-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [WebSource](#websource-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -46,7 +48,7 @@ This example uses the Web linked service with anonymous authentication. See [Web
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -76,8 +78,8 @@ Setting **external**  to **true** and specifying **externalData** policy (option
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -101,7 +103,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -173,10 +175,9 @@ The following table provides description for JSON elements specific to Web linke
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Web** | Yes | 
 | Url | URL to the Web source | Yes |
+| authenticationType | Anonymous or Basic. | Yes |
 | userName | Username for Basic authentication. | Yes (for Basic Authentication)
 | password | Password for Basic authentication. | Yes (for Basic Authentication)
-| authenticationType | Anonymous, Basic, or WebApi. | Yes |
-| apiKey | ApiKey for WebApi authentication. | Yes (for WebApi authentication)|   
 
 ### Using Anonymous authentication
 
@@ -188,7 +189,7 @@ The following table provides description for JSON elements specific to Web linke
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -233,8 +234,8 @@ index | The index of the table in the resource. See [Get index of a table in an 
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {

@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Cloud disaster recovery solutions - SQL Database geo-replication | Microsoft Azure"
+   pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Azure"
    description="Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database."
    keywords="cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning"
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,14 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/23/2016"
+   ms.date="07/20/2016"
    ms.author="sashan"/>
 
-# Design an application for cloud disaster recovery using geo-replication in SQL Database
+# Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database
 
-Learn how to use geo-replication in SQL Database to design applications to include a cloud disaster recovery solution. For business continuity planning, you'll consider the application deployment topology, the service level agreement you are targeting, traffic latency, and costs. In this article we look at the common application patterns, and discuss the benefits and trade-offs of each option.
 
-## Design pattern 1: Active-passive deployment for cloud disaster recovery with a colocated database
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
+
+
+
+Learn how to use [Active Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to design database applications resilient to regional failures and catastrophic outages. For business continuity planning, you'll consider the application deployment topology, the service level agreement you are targeting, traffic latency, and costs. In this article we look at the common application patterns, and discuss the benefits and trade-offs of each option.
+
+## Design pattern 1: Active-passive deployment for cloud disaster recovery with a co-located database
 
 This option is best suited for applications with the following characteristics:
 
@@ -35,21 +40,21 @@ In this case the application deployment topology is optimized for handling regio
 
 In addition to the main application instances, you should consider deploying a small [worker role application](cloud-services-choose-me.md#tellmecs) that monitors your primary database by issuing periodic T-SQL read-only (RO) commands. You can use it to automatically trigger failover, to generate an alert on your application's admin console, or to do both. To ensure that monitoring is not impacted by region-wide outages you should deploy the monitoring application instances to each region and have them connected to the database in the other region but only the instance in the secondary region needs to be active.
 
-> [AZURE.NOTE] If you are using [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) you can have both monitoring applications active and probe both primary and secondary databases. The latter can be used to detect a failure in the secondary region and alert when the application is not protected.     
+> [AZURE.NOTE] Both monitoring applications should be active and probe both primary and secondary databases. The latter can be used to detect a failure in the secondary region and alert when the application is not protected.     
 
 The following diagram shows this configuration before an outage.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
 After an outage in the primary region the monitoring application detects that the primary database is not accessible and registers an alert. Depending on your application SLA you can decide how many consecutive monitoring probes should fail before it declares a database outage. To achieve coordinated failover of the application end-point and the database you should have the monitoring application perform the following steps:
 
 1. [Update the status of the primary end-point](https://msdn.microsoft.com/library/hh758250.aspx) to trigger end-point failover.
-2. Call the secondary database to [initiate database failover](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Call the secondary database to [initiate database failover](sql-database-geo-replication-portal.md).
 
-After failover, the application will process the user requests in the secondary region but will remain colocated with the database because the primary database will now be in the secondary region. This is illustrated by the next diagram. In all diagrams solid lines indicates active connections, dotted lines indicate suspended connections and stop signs indicate action triggers.
+After failover, the application will process the user requests in the secondary region but will remain co-located with the database because the primary database will now be in the secondary region. This is illustrated by the next diagram. In all diagrams solid lines indicates active connections, dotted lines indicate suspended connections and stop signs indicate action triggers.
 
 
-![Geo-replication: Failover to secondary database. App data backup.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+![Geo-Replication: Failover to secondary database. App data backup.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 
 If an outage happens in the secondary region the replication link between the primary and the secondary database will be suspended and the monitoring application will register an alert that the primary database is exposed. This will not impact the application's performance but it will operate exposed and therefore at higher risk in case both regions fail in succession.
 
@@ -63,7 +68,7 @@ Once the outage is mitigated the secondary database will be automatically synchr
 The key **advantages** of this design pattern are:
 
 + The SQL connection string is set during the application deployment in each region and doesn’t change after failover.
-+ The application's performance is not impacted by failover as the application and the database are always colocated.
++ The application's performance is not impacted by failover as the application and the database are always co-located.
 
 The main **tradeoff** is that the redundant application instance in the secondary region is only used for disaster recovery.
 
@@ -79,22 +84,22 @@ If your applications has these characteristics, load balancing the end user conn
 
 As in pattern #1, you should consider deploying a similar monitoring application. But unlike pattern #1 it will not be responsible for triggering the end-point failover.
 
-> [AZURE.NOTE] While this pattern uses more than one secondary database only one of the secondaries would be used for failover for the reasons noted earlier. Because this pattern requires read-only access to the secondary it requires [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] While this pattern uses more than one secondary database only one of the secondaries would be used for failover for the reasons noted earlier. Because this pattern requires read-only access to the secondary it requires Active Geo-Replication.
 
 Traffic manager should be configured for performance routing to direct the user connections to the application instance closest to the user's geographic location. The following diagram illustrates this configuration before an outage.
-![No outage: Performance routing to nearest application. Geo-replication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+![No outage: Performance routing to nearest application. Geo-Replication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 If a database outage is detected in the primary region you initiate failover of the primary database to one of the secondary regions, which will change the location of the primary database. Traffic manager will automatically exclude the offline end-point from the routing table but will continue routing the end user traffic to the remaining online instances. Because the primary database is now in a different region all online instances must change their read-write SQL connection string to connect to the new primary. It is important that you make this change prior to initiating the database failover. The read-only SQL connection strings should remain unchanged as they always point to the database in the same region. The failover steps are:  
 
 1. Change read-write SQL connection strings to point to the new primary.
-2. Call the designated secondary database to [initiate database failover](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Call the designated secondary database to [initiate database failover](sql-database-geo-replication-portal.md).
 
 The following diagram illustrates the new configuration after the failover.
 ![Configuration after failover. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
 In case of an outage in one of the secondary regions traffic manager will automatically remove the offline end-point in that region from the routing table. The replication channel to the secondary database in that region will be suspended. Because the remaining regions will get additional user traffic the application's performance may be impacted during the outage. Once the outage is mitigated the secondary database in the impacted region will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. The following diagram illustrates an outage in one of the secondary regions.
 
-![Outage in secondary region. Cloud disaster recovery - geo-replication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
+![Outage in secondary region. Cloud disaster recovery - Geo-Replication.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
 The key **advantage** of this design pattern is that you can scale the application workload across multiple secondaries to achieve the optimal end user performance. The **tradeoffs** of this option are:
 
@@ -110,7 +115,7 @@ This option is best suited for applications with the following characteristics:
 + Any data loss is high business risk; the database failover can only be used as a last resort if the outage is permanent.
 + The application can operate in "read-only mode" for a period of time.
 
-In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is colocated with the primary database and operates in read-write mode (RW), the application logic in the secondary region is colocated with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](../traffic-manager/traffic-manager-configure-failover-routing-method.md) with [end-point monitoring](../traffic-manager/traffic-manager-monitoring.md) enabled for both application instances.
+In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is co-located with the primary database and operates in read-write mode (RW), the application logic in the secondary region is co-located with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](../traffic-manager/traffic-manager-configure-failover-routing-method.md) with [end-point monitoring](../traffic-manager/traffic-manager-monitoring.md) enabled for both application instances.
 
 The following diagram illustrates this configuration before an outage.
 ![Active-passive deployment before failover. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
@@ -121,7 +126,7 @@ When traffic manager detects a connectivity failure to the primary region it wil
 
 Once the outage in the primary region is mitigated traffic manager will detect the restoration of connectivity in the primary region and will switch user traffic back to the application instance in the primary region. That application instance resumes and operates in read-write mode using the primary database.
 
-> [AZURE.NOTE] Because this pattern requires read-only access to the secondary it requires [Active geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] Because this pattern requires read-only access to the secondary it requires Active Geo-Replication.
 
 In case of an outage in the secondary region traffic manager will mark the application end-point in the primary region as degraded and the replication channel will be suspended. However it will not impact the application's performance during the outage. Once the outage is mitigated the secondary database will be immediately synchronized with the primary. During synchronization performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized.
 
@@ -147,6 +152,19 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 
 | Pattern | RPO | ERT
 | :--- |:--- | :---
-| Active-passive deployment for disaster recovery with colocated database access | Read-write access < 5 sec | Failure detection time + failover API call + application verification test
+| Active-passive deployment for disaster recovery with co-located database access | Read-write access < 5 sec | Failure detection time + failover API call + application verification test
 | Active-active deployment for application load balancing | Read-write access < 5 sec | Failure detection time + failover API call + SQL connection string change + application verification test
 | Active-passive deployment for data preservation | Read-only access < 5 sec Read-write access = zero |  Read-only access = connectivity failure detection time + application verification test <br>Read-write access = time to mitigate the outage
+
+## Next steps
+
+- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
+
+## Next steps
+
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

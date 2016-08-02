@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,56 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # The Azure AD Privileged Identity Management security wizard
 
-The first time you run Azure Privileged Identity Management (PIM), you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use Privileged Identity Management to reduce risk.
+If you're the first person to run Azure Privileged Identity Management (PIM) for your organization, you will be presented with a wizard. The wizard helps you understand the security risks of privileged identities and how to use PIM to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
-There are three sections to review: **YOUR ADMINS MIGHT PUT YOU AT RISK, MANAGE YOUR ADMINS’ ATTACK SURFACE**, and **DEFINE TEMPORARY ADMIN SETTINGS**. Each section gives you an overview of the concepts and an explanation of some actions to take.
+## What to expect
 
-At first, all of your global administrators will be permanent. When you click on **YOUR ADMINS MIGHT PUT YOU AT RISK**, you will be shown a list of global administrator roles and how many of them you currently have.
+Before your organization starts using PIM, all role assignments are permanent: the users are always in these roles even if they do not presently need their privileges.  The first step of the wizard shows you a list of high-privileged roles and how many users are currently in those roles. You can drill in to a particular role to learn more about users if one or more of them are unfamiliar.
 
-Clicking on **MANAGE YOUR ADMINS’ ATTACK SURFACE** will present you with an opportunity to change administrators to temporary, leave them permanent, or remove them from the role altogether.
+The second step of the wizard gives you an opportunity to change administrator's role assignments.  
 
-**DEFINE TEMPORARY ADMINS SETTINGS** allows you to require multi-factor authentication, enable notifications, and determine how long a temporary administrator will have privileges.
+> [AZURE.WARNING] It is important that you have at least one global administrator, and more than one privileged role administrator with an organizational account (not a Microsoft account). If there is only one privileged role administrator, the organization will not be able to manage PIM if that account is deleted.
+> Also, keep role assignments permanent if a user has a Microsoft account (An account they use to sign in to Microsoft services like Skype and Outlook.com). If you plan to require MFA for activation for that role, that user will be locked out.
 
-## Change global administrator roles to temporary or permanent
 
-You have three options for changing the time window of a global administrator:
+After you have made changes, the wizard will no longer show up. The next time you or another privileged role administrator use PIM, you will see the PIM dashboard.  
 
-1.  Click the **Make all temporary** button to make all global administrators temporary. Only choose this option if all the administrators have organizational accounts, and have registered for Azure MFA.
+- If you would like to add or remove users from roles or change assignments from permanent to eligible, read more at [how to add or remove a user's role](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-2.  Click the **Make all permanent** button to make all global administrators permanent.
 
-3.  Select **Keep Perm**, **Make Temp**, or **Remove from Role** for each global administrator.
-
-## Change the activation period for a global administrator role.
-
-There are two ways to set the activation period for a global administrator:
-
-1.  Move the **activation period** slider to the left or right to increase or decrease the activation period. The activation period can be up to 72 hours.
-
-2.  Enter the number of hours in the **hours** field to the right of the slider.
-
-## Enable notifications
-
-So administrators can receive mail when roles are made active, enable notifications by clicking the **Enable** button. You can also disable this feature later.
-
-## Require Multi-Factor Authentication
-
-If you want administrators to be required to use MFA to sign in to their accounts and to request an extension of their role, enable MFA by clicking the **Enable** button.
-
-<!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
-
-Select the roles that these settings will be applied to. Click **OK**.
-
-> [AZURE.WARNING] It is important at this time that you have more than one security administrator with an organizational account (not a Microsoft account). If there is only one security administrator who is not set to permanent and does not have MFA set up, the user will not be able to administer PIM at all if the account is deleted.
-
-Click the **OK** button when you are finished.
-
-After you have made changes, the wizard will no longer show up. However, you can access it again by clicking the **Wizard** button under **Manage identities**.
 
 ## Next steps
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

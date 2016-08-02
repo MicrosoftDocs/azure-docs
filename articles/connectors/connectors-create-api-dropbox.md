@@ -1,298 +1,440 @@
 <properties
-	pageTitle="Add the Dropbox API in PowerApps Enterprise or logic apps| Microsoft Azure"
-	description="Overview of the Dropbox API with REST API parameters"
-	services=""
-    suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+pageTitle="Dropbox | Microsoft Azure"
+description="Create Logic apps with Azure App service. Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
+editor=""
+tags="connectors" />
 
 <tags
-   ms.service="multiple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="03/16/2016"
-   ms.author="mandia"/>
+ms.service="app-service-logic"
+ms.devlang="multiple"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="integration"
+ms.date="07/15/2016"
+ms.author="deonhe"/>
 
-# Get started with the Dropbox API 
-Connect to Dropbox to manage files, such us create files, get files, and more. The Dropbox API can be be used from:
+# Get started with the Dropbox connector
 
-- Logic apps 
-- PowerApps
+Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox.
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-dropbox.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-&nbsp; 
+## Connect to Dropbox
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Dropbox connector](../app-service-logic/app-service-logic-connector-dropbox.md).
+Before your logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
+
+### Create a connection to Dropbox
+
+>[AZURE.INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
+
+## Use a Dropbox trigger
+
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+In this example, we will use the **When a file is created** trigger. When this trigger occurs, we will call the **Get file content using path** Dropbox action. 
+
+1. Enter *dropbox* in the search box on the Logic Apps designer, then select the **Dropbox - When a file is created** trigger.      
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
+  
+2. Select the folder in which you want to track file creation. Select ... (identified in the red box) and browse to the folder you wish to select for the trigger's input.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+
+## Use a Dropbox action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+Now that the trigger has been added, follow these steps to add an action that will get the new file's content.
+
+1. Select **+ New Step** to add the action you would like to take when a new file is created.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
+
+2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+
+3. Enter *dropbox* to search for actions related to Dropbox.  
+
+4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. You will be prompted to authorize your logic app to access your Dropbox account if you have not done so previously.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
+
+5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your logic app creation.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
+
+6. Save your work and create a new file in Dropbox to activate your workflow.  
+
+## Technical details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## Dropbox triggers
+
+The Dropbox connector has the following trigger(s):  
+
+|Trigger | Description|
+|--- | ---|
+|[When a file is created](connectors-create-api-dropbox.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a folder.|
+|[When a file is modified](connectors-create-api-dropbox.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a folder.|
+
+## Dropbox actions
+
+The Dropbox connector has the following actions:
+
+|Action|Description|
+|--- | ---|
+|[Get file metadata](connectors-create-api-dropbox.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-dropbox.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-dropbox.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-dropbox.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-dropbox.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-dropbox.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-dropbox.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-dropbox.md#copy-file)|This operation copies a file to Dropbox.|
+|[List files in folder](connectors-create-api-dropbox.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-dropbox.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract archive to folder](connectors-create-api-dropbox.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
+
+### Action details
+
+Here are the details for the actions and triggers for this connector, along with their responses:
 
 
-With Dropbox, you can: 
+### Get file metadata
+This operation gets the metadata for a file. 
 
-- Build your business flow based on the data you get from Dropbox. 
-- Use triggers for when a file is created or updated.
-- Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can email that file using Office 365.
-- Add the Dropbox API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+An * indicates that a property is required
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+#### Output Details
 
-## Triggers and actions
-Dropbox includes the following triggers and actions.
+BlobMetadata
 
-Triggers | Actions
---- | ---
-<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-All APIs support data in JSON and XML formats.
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
-## Create the connection to Dropbox
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your Dropbox.
 
-1. Sign in to your Dropbox account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Dropbox. 
 
-After you create the connection, you enter the Dropbox properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
+### Update file
+This operation updates a file. 
 
->[AZURE.TIP] You can use this same Dropbox connection in other logic apps.
 
-## Swagger REST API reference
-Applies to version: 1.0.
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
 
-### Create file    
-Uploads a file to Dropbox.  
-```POST: /datasets/default/files```
+An * indicates that a property is required
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query|none |Folder path to upload the file to Dropbox|
-|name|string|yes|query|none |Name of the file to create in Dropbox|
-|body|string(binary) |yes|body|none |Content of the file to upload to Dropbox|
+#### Output Details
 
-#### Response
-|Name|Description|
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Delete file
+This operation deletes a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file metadata using path
+This operation gets the metadata of a file using the path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Get file content using path
+This operation gets the content of a file using the path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file content
+This operation gets the content of a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Create file
+This operation creates a file. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copy file
+This operation copies a file to Dropbox. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### When a file is created
+This operation triggers a flow when a new file is created in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderId*|Folder|Select a folder|
+
+An * indicates that a property is required
+
+
+
+
+### When a file is modified
+This operation triggers a flow when a file is modified in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderId*|Folder|Select a folder|
+
+An * indicates that a property is required
+
+
+
+
+### List files in folder
+This operation gets the list of files and subfolders in a folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|Folder|Select a folder|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
+
+
+There are no parameters for this call
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip). 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to extract the archive contents|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
+| Name | Description |
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
-
-### When a file is created    
-Triggers a flow when a new file is created in a Dropbox folder.  
-```GET: /datasets/default/triggers/onnewfile```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|none |Unique identifier of the folder in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Copy file    
-Copies a file to Dropbox.  
-```POST: /datasets/default/copyFile```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|none |Url to source file|
-|destination|string|yes|query| none|Destination file path in Dropbox, including target filename|
-|overwrite|boolean|no|query|none |Overwrites the destination file if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Delete file    
-Deletes a file from Dropbox.  
-```DELETE: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none|Unique identifier of the file to delete from Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Extract archive to folder    
-Extracts an archive file into a folder in Dropbox (example: .zip).  
-**```POST: /datasets/default/extractFolderV2```**
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|none |Path to the archive file|
-|destination|string|yes|query|none |Path in Dropbox to extract the archive contents|
-|overwrite|boolean|no|query|none |Overwrites the destination files if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file content using id    
-Retrieves file contents from Dropbox using id.  
-```GET: /datasets/default/files/{id}/content```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file content using path    
-Retrieves file contents from Dropbox using path.  
-```GET: /datasets/default/GetFileContentByPath```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none |Unique path to the file in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file metadata using id    
-Retrieves file metadata from Dropbox using file id.  
-```GET: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file metadata using path    
-Retrieves file metadata from Dropbox using path.  
-```GET: /datasets/default/GetFileByPath```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none |Unique path to the file in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Update file    
-Updates a file in Dropbox.  
-```PUT: /datasets/default/files/{id}```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path| none|Unique identifier of the file to update in Dropbox|
-|body|string(binary) |yes|body|none |Content of the file to update in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### When a file is modified    
-Triggers a flow when a file is modified in a Dropbox folder.  
-```GET: /datasets/default/triggers/onupdatedfile```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderId|string|yes|query|none |Unique identifier of the folder in Dropbox|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-## Object definitions
-
-#### DataSetsMetadata
-
-|Property Name | Data Type | Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### BlobMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 ## Next steps
-
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Go back to the [APIs list](apis-list.md).
-
-
-<!--References-->
-[1]: https://www.dropbox.com/login
-[2]: https://www.dropbox.com/developers/apps/create
-[3]: https://www.dropbox.com/developers/apps
-[8]: ./media/connectors-create-api-dropbox/dropbox-developer-site.png
-[9]: ./media/connectors-create-api-dropbox/dropbox-create-app.png
-[10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
-[11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)

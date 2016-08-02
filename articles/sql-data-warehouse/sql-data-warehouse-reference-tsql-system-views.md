@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/08/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -24,6 +24,8 @@
 - [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 - [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 - [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
+- [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
+- [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
 - [sys.pdw_nodes_column_store_dictionaries](http://msdn.microsoft.com/library/mt203902.aspx)
 - [sys.pdw_nodes_column_store_row_groups](http://msdn.microsoft.com/library/mt203880.aspx)
 - [sys.pdw_nodes_column_store_segments](http://msdn.microsoft.com/library/mt203916.aspx)
@@ -126,7 +128,7 @@
 
 ## SQL Server DMVs available in SQL Data Warehouse
 
-SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions.
+SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
 Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
 
@@ -214,7 +216,11 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 - [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 - [COLUMNS](http://msdn.microsoft.com/library/ms188348.aspx)
 - [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
+- [ROUTINES](https://msdn.microsoft.com/library/ms188757.aspx)
+- [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
 - [TABLES](http://msdn.microsoft.com/library/ms186224.aspx)
+- [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
+- [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 - [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps

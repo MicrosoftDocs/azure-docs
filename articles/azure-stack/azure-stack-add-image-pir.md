@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="08/01/2016"
 	ms.author="erikje"/>
 
 # Add an image to the Platform Image Repository (PIR) in Azure Stack
@@ -46,7 +46,7 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 10. For **OsType**, type *Windows* or *Linux*.
 
-11. After the command completes, restart your browser to see the new item in the Marketplace. The image can now be referenced in your virtual machine deployment templates.  
+11. After the command completes, restart your browser to see the new item in the Marketplace. The image can now be referenced in your virtual machine deployment templates. In some cases it may take up to 5 minutes for this new image to appear in the Marketplace.  
 
 >[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
@@ -65,4 +65,4 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 ## Next steps
 
-[Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)
+[Frequently asked questions for Azure Stack](azure-stack-faq.md)

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Analyze Edge Performance"
+	pageTitle="Analyze Edge Performance in Azure CDN | Microsoft Azure"
 	description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Analyze edge node performance in Microsoft Azure CDN
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Overview
 Edge performance analytics provides granular information traffic and bandwidth usage for the CDN. This information can then be used to generate trending statistics, which allow you to gain insight on how your assets are being cached and delivered to your clients. In turn, this allows you to form a strategy on how to optimize the delivery of your content and to determine what issues should be tackled to better leverage the CDN. As a result, not only will you be able to improve data delivery performance, but you will also be able to reduce your CDN costs.
 
-> [AZURE.NOTE] Edge performance analytics is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
->
-> All reports use UTC/GMT notation when specifying a date/time.
+> [AZURE.NOTE] All reports use UTC/GMT notation when specifying a date/time.
 
 ## Reports and log collection
 

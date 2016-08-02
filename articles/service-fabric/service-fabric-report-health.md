@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Add custom Service Fabric health reports
@@ -141,9 +141,9 @@ Once the watchdog details have been finalized, you should decide on a source ID 
 
 The next decision point is which entity to report on. Most of the time, this is obvious, based on the condition. You should choose the entity with best possible granularity. If a condition impacts all replicas in a partition, report on the partition, not on the service. There are corner cases where more thought is needed, though. If the condition impacts an entity, such as a replica, but the desire is to have the condition flagged for more than the duration of replica life, then it should be reported on the partition. Otherwise, when the replica is deleted, all reports associated with it will be cleaned up from the store. This means that watchdog writers must also think about the lifetimes of the entity and the report. It must be clear when a report should be cleaned up from a store (e.g. when an error reported on an entity no longer applies).
 
-Let's look at an example that puts together the points above. Consider a Service Fabric application composed of a master stateful persistent service and slave stateless services deployed on all nodes (one slave service type for each type of task). The master has a processing queue that contains commands to be executed by slaves. The slaves execute the incoming requests and send back acknowledgement signals. One condition that could be monitored is the length of the master processing queue. If the master queue length reaches a threshold, a warning is reported. This indicates that the slaves can't handle the load. If the queue reaches the maximum length and commands are dropped, an error is reported, as the service can't recover. The reports can be on the property **QueueStatus**. The watchdog lives inside the service, and it's sent periodically on the master primary replica. The time to live is two minutes, and it's sent periodically every 30 seconds. If the primary goes down, the report is cleaned up automatically from store. If the service replica is up, but it is deadlocked or having other issues, the report will expire in the health store. In this case, the entity will be evaluated at error.
+Let's look at an example that puts together the points above. Consider a Service Fabric application composed of a master stateful persistent service and secondary stateless services deployed on all nodes (one secondary service type for each type of task). The master has a processing queue that contains commands to be executed by secondaries. The secondaries execute the incoming requests and send back acknowledgement signals. One condition that could be monitored is the length of the master processing queue. If the master queue length reaches a threshold, a warning is reported. This indicates that the secondaries can't handle the load. If the queue reaches the maximum length and commands are dropped, an error is reported, as the service can't recover. The reports can be on the property **QueueStatus**. The watchdog lives inside the service, and it's sent periodically on the master primary replica. The time to live is two minutes, and it's sent periodically every 30 seconds. If the primary goes down, the report is cleaned up automatically from store. If the service replica is up, but it is deadlocked or having other issues, the report will expire in the health store. In this case, the entity will be evaluated at error.
 
-Another condition that can be monitored is task execution time. The master distributes tasks to the slaves based on the task type. Depending on the design, the master could poll the slaves for task status. It could also wait for slaves to send back acknowledgement signals when they are done. In the second case, care must be taken to detect situations where slaves die or messages are lost. One option is for the master to send a ping request to the same slave, which sends back its status. If no status is received, the master considers this a failure and reschedules the task. This assumes that the tasks are idempotent.
+Another condition that can be monitored is task execution time. The master distributes tasks to the secondaries based on the task type. Depending on the design, the master could poll the secondaries for task status. It could also wait for secondaries to send back acknowledgement signals when they are done. In the second case, care must be taken to detect situations where secondaries die or messages are lost. One option is for the master to send a ping request to the same secondary, which sends back its status. If no status is received, the master considers this a failure and reschedules the task. This assumes that the tasks are idempotent.
 
 We can translate the monitored condition as a warning if the task is not done in a certain time (**t1**, e.g. 10 minutes); and as an error if the task is not completed in time (**t2**, e.g. 20 minutes). This reporting can be done in multiple ways:
 
@@ -151,7 +151,7 @@ We can translate the monitored condition as a warning if the task is not done in
 
 - Another watchdog process (in the cloud or external) checks the tasks (from outside, based on the desired task result) to see if they are completed. If they do not respect the thresholds, a report is sent on the master service. A report is also sent on each task that includes the task identifier (e.g. **PendingTask+taskid**). Reports should be sent only on unhealthy states. Time to live should be set to a few minutes, and the reports should be marked to be removed when they expire to ensure cleanup.
 
-- The slave that is executing a task reports if it takes longer than expected to run it. It reports on the service instance on the property **PendingTasks**. This pinpoints the service instance that has issues, but it doesn't capture the situation where the instance dies. The reports are cleaned up at that time. It could report on the slave service. If the slave completes the task, the slave instance clears the report from the store. This doesn't capture the situation where the acknowledgement message is lost and the task is not finished from the master's point of view.
+- The secondary that is executing a task reports if it takes longer than expected to run it. It reports on the service instance on the property **PendingTasks**. This pinpoints the service instance that has issues, but it doesn't capture the situation where the instance dies. The reports are cleaned up at that time. It could report on the secondary service. If the secondary completes the task, the secondary instance clears the report from the store. This doesn't capture the situation where the acknowledgement message is lost and the task is not finished from the master's point of view.
 
 However the reporting is done in the cases described above, the reports will be captured in application health when health is evaluated.
 
@@ -291,6 +291,8 @@ Based on the health data, service writers and cluster/application administrators
 [Introduction to Service Fabric health Monitoring](service-fabric-health-introduction.md)
 
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
+
+[How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Use system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 

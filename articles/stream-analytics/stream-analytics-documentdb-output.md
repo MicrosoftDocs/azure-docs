@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Target Azure DocumentDB for JSON output from Stream Analytics
@@ -30,11 +30,11 @@ Some of the DocumentDB collection options are detailed below.
 
 ## Tune consistency, availability, and latency
 
-To match your application requirements, DocumentDB allows you to fine tune the Database and Collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, DocumentDB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in DocumentDB. For further information on this topic, review the [change your database and query consistency levels](../articles/documentdb-consistency-levels.md) article.
+To match your application requirements, DocumentDB allows you to fine tune the Database and Collections and make trade-offs between consistency, availability and latency. Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. Also by default, DocumentDB enables synchronous indexing on each CRUD operation to your collection. This is another useful option to control the write/read performance in DocumentDB. For further information on this topic, review the [change your database and query consistency levels](../documentdb/documentdb-consistency-levels.md) article.
 
 ## Choose a performance level
 
-DocumentDB collections can be created at 3 different performance levels (S1, S2 or S3), which determine the throughput available for CRUDs to that collection. Additionally, performance is impacted by the indexing/consistency levels on your collection. Please refer to [this article](../articles/documentdb-performance-levels.md) for understanding these performance levels in detail.
+DocumentDB collections can be created at 3 different performance levels (S1, S2 or S3), which determine the throughput available for CRUDs to that collection. Additionally, performance is impacted by the indexing/consistency levels on your collection. Please refer to [this article](../documentdb/documentdb-performance-levels.md) for understanding these performance levels in detail.
 
 ## Upserts from Stream Analytics
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/27/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -35,7 +35,7 @@ providers such as Facebook, Twitter, Google and Microsoft as well as Azure Activ
 
 You can find samples for each use case in the [samples directory on GitHub].
 
-## <a name="howto-cmdline-basicapp"></a>How to: Create a Basic Node.js backend using the Command Line
+### <a name="howto-cmdline-basicapp"></a>How to: Create a Basic Node.js backend using the Command Line
 
 Every Azure App Service Mobile App Node.js backend starts as an ExpressJS application.  ExpressJS is the most popular web service framework
 available for Node.js.  You can create a basic [Express] application as follows:
@@ -89,7 +89,7 @@ client library quick starts:
 
 You can find the code for this basic application in the [basicapp sample on GitHub].
 
-## <a name="howto-vs2015-basicapp"></a>How to: Create a Node backend with Visual Studio 2015
+### <a name="howto-vs2015-basicapp"></a>How to: Create a Node backend with Visual Studio 2015
 
 Visual Studio 2015 requires an extension to develop Node.js applications within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
@@ -131,13 +131,13 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
-## <a name="download-quickstart"></a>How to: Download the Node.js backend quickstart code project using Git
+### <a name="download-quickstart"></a>How to: Download the Node.js backend quickstart code project using Git
 
 When you create a new Node.js Mobile App backend by using the portal **Quick start** blade, a new Node.js project is created for you and deployed to your site. You can add tables and APIs and edit code files for the Node.js backend in the portal. You can also use one of a variety of deployment tools to download the backend project so that you can add or modify tables and APIs, then republish the project. For more information, see the [Azure App Service Deployment Guide]. the following procedure uses a Git repository to download the quickstart project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system specific distributions and installation guidance.
 
-2. Follow the steps in [Enable the web app repository](../app-service-web/web-sites-publish-source-control.md#Step4) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service-web/web-sites-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 
@@ -156,7 +156,7 @@ When you create a new Node.js Mobile App backend by using the portal **Quick sta
 
 The site is republished every time a new set of commits is pushed to the site.
 
-## <a name="howto-publish-to-azure"></a>How to: Publish your Node.js backend to Azure
+### <a name="howto-publish-to-azure"></a>How to: Publish your Node.js backend to Azure
 
 Microsoft Azure provides many mechanisms for publishing your Azure App Service Mobile Apps Node.js backend to the Azure service.  These include utilizing deployment tools integrated into Visual Studio, command-line tools and continuous deployment options based on source control.  For more information on this topic, refer to the [Azure App Service Deployment Guide].
 
@@ -165,7 +165,7 @@ Azure App Service has specific advice for Node.js application that you should re
 - How to [specify the Node Version]
 - How to [use Node modules]
 
-## <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
+### <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
 
 Many applications are a combination of web and mobile apps and the ExpressJS framework allows you to combine the two facets.  Sometimes, however, you
 may wish to only implement a mobile interface.  It is useful to provide a landing page to ensure the app service is up and running.  You can either
@@ -175,7 +175,7 @@ provide your own home page or enable a temporary home page.  To enable a tempora
 
 You can add this setting to your `azureMobile.js` file if you only want this option available when developing locally.
 
-## <a name="TableOperations"></a>Overview: Table operations
+## <a name="TableOperations"></a>Table operations 
 
 The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tables stored in Azure SQL Database as a WebAPI.  Five operations are provided.
 
@@ -189,7 +189,7 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 
 This WebAPI supports [OData] and extends the table schema to support [offline data sync].
 
-## <a name="howto-dynamicschema"></a>How to: Define tables using a dynamic schema
+### <a name="howto-dynamicschema"></a>How to: Define tables using a dynamic schema
 
 Before a table can be used, it must be defined.  Tables can be defined with a static schema (where the developer defines the columns within the schema) or dynamically (where the SDK controls the schema based on incoming requests). In addition, the developer can control specific aspects of the WebAPI by adding Javascript code to the definition.
 
@@ -228,7 +228,7 @@ Tables use dynamic schema by default.  To turn off dynamic schema globally, set 
 
 You can find a complete example in the [todo sample on GitHub].
 
-## <a name="howto-staticschema"></a>How to: Define tables using a static schema
+### <a name="howto-staticschema"></a>How to: Define tables using a static schema
 
 You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node.js SDK will automatically add any additional columns required for offline data sync to the list that you provide.  For example, the QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  This can be defined in the table definition JavaScript file (located in the tables directory) as follows:
 
@@ -249,7 +249,7 @@ You can explicitly define the columns to expose via the WebAPI.  The azure-mobil
 
 If you define tables statically, then you must also call the tables.initialize() method to create the database schema on startup.  The tables.initialize() method returns a [Promise] - this is used to ensure that the web service does not serve requests prior to the database being initialized.
 
-## <a name="howto-sqlexpress-setup"></a>How to: Use SQL Express as a development data store on your local machine
+### <a name="howto-sqlexpress-setup"></a>How to: Use SQL Express as a development data store on your local machine
 
 The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for serving data out of the box: SDK provides three options for serving data out of the box:
 
@@ -310,7 +310,7 @@ The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** en
 
 Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.
 
-## <a name="howto-config-localdev"></a>How to: Configure your project for local development
+### <a name="howto-config-localdev"></a>How to: Configure your project for local development
 
 Azure Mobile Apps reads a JavaScript file called _azureMobile.js_ from the local filesystem.  You should not use this file to configure the Azure Mobile Apps SDK in production - use App Settings within the [Azure Portal] instead.  The _azureMobile.js_ file should export a configuration object.  The most common settings are:
 
@@ -339,7 +339,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
 
-## <a name="howto-appsettings"></a>How: Configure App Settings for your Mobile App
+### <a name="howto-appsettings"></a>How: Configure App Settings for your Mobile App
 
 Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
 app in App Settings:
@@ -367,7 +367,7 @@ To set an App Setting:
 
 Changing most app settings will require a service restart.
 
-## <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
+### <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
@@ -405,7 +405,7 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 
-## <a name="howto-tables-auth"></a>How to: Require Authentication for access to tables
+### <a name="howto-tables-auth"></a>How to: Require authentication for access to tables
 
 If you wish to use App Service Authentication with the tables endpoint, you must configure App Service Authentication in the [Azure Portal] first.  For
 more details about configuring authentication in an Azure App Service, review the Configuration Guide for the identity provider you intend to use:
@@ -444,7 +444,7 @@ The access property can take one of three values
 
 If the access property is undefined, unauthenticated access is allowed.
 
-## <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
+### <a name="howto-tables-getidentity"></a>How to: Use authentication claims with your tables
 
 You can set up a number of claims that are requested when authentication is set up.  These claims are not normally available through the `context.user` object.
 However, they can be retrieved using the `context.user.getIdentity()` method.  The `getIdentity()` method returns a Promise that resolves to an object.  The object
@@ -507,7 +507,7 @@ For example, if you set up Microsoft Account authentication and request the emai
 
 To see what claims are available, use a web browser to view the `/.auth/me` endpoint of your site.
 
-## <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
+### <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
 
 In addition to appearing on the table, the access property can be used to control individual operations.  There are four operations:
 
@@ -530,7 +530,7 @@ For example, you may wish to provide a read-only unauthenticated table.  This ca
 
     module.exports = table;
 
-## <a name="howto-tables-query"></a>How to: Adjust the query that is used with table operations
+### <a name="howto-tables-query"></a>How to: Adjust the query that is used with table operations
 
 A common requirement for table operations is to provide a restricted view of the data.  For example, you may provide a table that is
 tagged with the authenticated user ID such that the user can only read or update their own records.  The following table definition
@@ -571,7 +571,7 @@ a [QueryJS] object that is used to convert an OData query to something that the 
 
     context.query.where('myfield eq ?', 'value');
 
-## <a name="howto-tables-softdelete"></a>How to: Configure Soft Delete on a table
+### <a name="howto-tables-softdelete"></a>How to: Configure soft delete on a table
 
 Soft Delete does not actually delete records.  Instead it marks them as deleted within the database by setting the deleted column to true.  The Azure Mobile Apps SDK automatically removes soft-deleted records from results unless the Mobile Client SDK uses IncludeDeleted().  To configure a table for soft delete, set the softDelete property in the table definition file.  An example might be:
 
@@ -598,7 +598,7 @@ Soft Delete does not actually delete records.  Instead it marks them as deleted 
 
 You will need to establish a mechanism for purging records - either from a client application, via a WebJob or through a custom mechanism.
 
-## <a name="howto-tables-seeding"></a>How to: Seed your database with data
+### <a name="howto-tables-seeding"></a>How to: Seed your database with data
 
 When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
 follows:
@@ -631,7 +631,7 @@ the seeded data.
 
 We recommend that you explicitly call the initialize() method to create the table when the service starts running.
 
-## <a name="Swagger"></a>How to: Enable Swagger Support
+### <a name="Swagger"></a>How to: Enable Swagger support
 
 Azure App Service Mobile Apps comes with built-in [Swagger] support.  To enable Swagger support, first install the swagger-ui as a dependency:
 
@@ -652,10 +652,11 @@ authentication using the `table.access` property.
 
 You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
 
-## <a name="push"></a>Overview: Push notifications
-Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+## <a name="push">Push notifications
 
-## <a name="send-push"></a>How to: Send push notifications
+Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
+
+### </a><a name="send-push"></a>How to: Send push notifications
 
 The following code shows how to use the push object to send a broadcast push notification to registered iOS devices:
 
@@ -688,7 +689,8 @@ By creating a template push registration from the client, you can instead send a
     }
 
 
-##<a name="push-user"></a>How to: Send push notifications to an authenticated user using tags
+###<a name="push-user"></a>How to: Send push notifications to an authenticated user using tags
+
 When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
 
     // Only do the push if configured
@@ -703,7 +705,10 @@ When an authenticated user registers for push notifications, a user ID tag is au
 
 When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration.
 
-## <a name="CustomAPI"></a>Overview: Custom APIs
+## <a name="CustomAPI"></a> Custom APIs
+
+###  <a name="howto-customapi-basic"></a>How to: Define a simple custom API
+
 
 In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom
 APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
@@ -717,8 +722,6 @@ the Configuration Guide for the identity provider you intend to use:
 - [How to configure Google Authentication]
 - [How to configure Microsoft Authentication]
 - [How to configure Twitter Authentication]
-
-## <a name="howto-customapi-basic"></a>How to: Define a simple custom API
 
 Custom APIs are defined in much the same way as the Tables API.
 
@@ -756,7 +759,7 @@ Let's take a simple API that will return the server date using the _Date.now()_ 
 
 Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.
 
-## <a name="howto-customapi-auth"></a>How to: Require authentication for access to a custom API
+### <a name="howto-customapi-auth"></a>How to: Require authentication for access to a custom API
 
 Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the API developed in the previous section, add an **access** property:
 
@@ -786,7 +789,7 @@ You can also specify authentication on specific operations:
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
-## <a name="howto-customapi-auth"></a>How to: Handle Large File Uploads
+### <a name="howto-customapi-auth"></a>How to: Handle large file uploads
 
 Azure Mobile Apps SDK uses the [body-parser middleware](https://github.com/expressjs/body-parser) to accept and decode body content in your submission.  You can pre-configure
 body-parser to accept larger file uploads:
@@ -814,7 +817,7 @@ body-parser to accept larger file uploads:
 You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
 increase the size of the actual upload.
 
-## <a name="howto-customapi-sql"></a>How to: Execute Custom SQL Statements
+### <a name="howto-customapi-sql"></a>How to: Execute custom SQL statements
 
 The Azure Mobile Apps SDK allows access to the entire Context through the request object, allowing you to execute
 parameterized SQL statements to the defined data provider easily:
@@ -846,20 +849,22 @@ parameterized SQL statements to the defined data provider easily:
     api.get.access = 'authenticated';
     module.exports = api;
 
-## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>How to: Debug, Diagnose and Troubleshoot Azure Mobile Apps
+## <a name="Debugging"></a>Debugging, Easy Tables, and Easy APIs
+
+### <a name="howto-diagnostic-logs"></a>How to: Debug, diagnose and troubleshoot Azure Mobile apps
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
 Refer to the following articles to get started in troubleshooting your Node.js Mobile backend:
 
 - [Monitoring an Azure App Service]
 - [Enable Diagnostic Logging in Azure App Service]
-- [Toubleshoot an Azure App Service in Visual Studio]
+- [Troubleshoot an Azure App Service in Visual Studio]
 
 Node.js applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated will appear in the Diagnostic Logs on the [Azure Portal].
 
-## <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
 
-Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the Visual Studio online editor.
+Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the App Service Editor.
 
 When you click **Easy tables** in your backend site settings, you can add a new table or modify or delete an existing table. You can also see data in the table.
 
@@ -868,29 +873,29 @@ When you click **Easy tables** in your backend site settings, you can add a new 
 The following commands are available on the command bar for a table:
 
 + **Change permissions** - modify the the permission for read, insert, update and delete operations on the table. Options are to allow anonymous access, to require authentication, or to disable all access to the operation. This modifies the table.json project code file.
-+ **Edit script** - the script file for the table is opened in the Visual Studio Team Services editor.
++ **Edit script** - the script file for the table is opened in the App Service Editor.
 + **Manage schema** - add or delete columns or change the table index.
 + **Clear table** - truncates an existing table be deleting all data rows but leaving the schema unchanged.
 + **Delete rows** - delete individual rows of data.
 + **View streaming logs** - connects you to the streaming log service for your site.
 
-##<a name="work-easy-apis"></a>How to: Work with Easy APIs in the Azure portal
+###<a name="work-easy-apis"></a>How to: Work with Easy APIs in the Azure portal
 
-Easy APIs in the portal let you create and work with custom APIs right in the portal. You can even edit API scripts using the Visual Studio online editor.
+Easy APIs in the portal let you create and work with custom APIs right in the portal. You can even edit API scripts using the App Service Editor.
 
 When you click **Easy APIs** in your backend site settings, you can add a new custom API endpoint or modify or delete an existing API endpoint.
 
 ![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Team Services editor, or view the streaming logs.
+In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the App Service Editor or view the streaming logs.
 
-##<a name="online-editor"></a>How to: Edit code in Visual Studio Team Services
+###<a name="online-editor"></a>How to: Edit code in the App Service Editor
 
-The Azure portal lets you edit your Node.js backend script files in Visual Studio Team Services without having to download the project to your local computer. To edit script files in the online editor:
+The Azure portal lets you edit your Node.js backend script files in the App Service Editor without having to download the project to your local computer. To edit script files in the online editor:
 
-1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the Visual Studio Team Services editor.
+1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the App Service Editor.
 
-	![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
@@ -922,7 +927,7 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 [Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/

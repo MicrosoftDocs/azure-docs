@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/04/2016" 
 	ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search
@@ -47,7 +47,7 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
 
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
 1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 1. Go to the service dashboard for Azure Search.
 1. Click the **Properties** tile to copy the service URL
 1. Click the **Keys** tile to copy the `api-key`.

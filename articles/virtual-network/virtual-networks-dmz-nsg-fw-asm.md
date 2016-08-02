@@ -20,7 +20,7 @@
 
 [Return to the Security Boundary Best Practices Page][HOME]
 
-This example will create a DMZ with a firewall, four windows servers, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is a also a Traffic Scenario section to provide a in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
+This example will create a DMZ with a firewall, four windows servers, and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Inbound DMZ with NVA and NSG][1]
 
@@ -28,7 +28,7 @@ This example will create a DMZ with a firewall, four windows servers, and Networ
 In this example there is a subscription that contains the following:
 
 - Two cloud services: “FrontEnd001” and “BackEnd001”
-- A Virtual Network, “CorpNetwork”, with two subnets; “FrontEnd” and “BackEnd”
+- A Virtual Network “CorpNetwork”, with two subnets: “FrontEnd” and “BackEnd”
 - A single Network Security Group that is applied to both subnets
 - A network virtual appliance, in this example a Barracuda NextGen Firewall, connected to the Frontend subnet
 - A Windows Server that represents an application web server (“IIS01”)
@@ -39,7 +39,7 @@ In this example there is a subscription that contains the following:
 
 In the references section below there is a PowerShell script that will build most of the environment described above. Building the VMs and Virtual Networks, although are done by the example script, are not described in detail in this document.
  
-To build the environment;
+To build the environment:
 
   1.	Save the network config xml file included in the references section (updated with names, location, and IP addresses to match the given scenario)
   2.	Update the user variables in the script to match the environment the script is to be run against (subscriptions, service names, etc)
@@ -47,7 +47,7 @@ To build the environment;
 
 **Note**: The region signified in the PowerShell script must match the region signified in the network configuration xml file.
 
-Once the script runs successfully the following post-script steps may be taken;
+Once the script runs successfully the following post-script steps may be taken:
 
 1.	Set up the firewall rules, this is covered in the section below titled: Firewall Rules.
 2.	Optionally in the references section are two scripts to set up the web server and app server with a simple web application to allow testing with this DMZ configuration.
@@ -215,7 +215,7 @@ Save the Full Script in a PowerShell script file. Save the Network Config into a
 Modify the user defined variables as needed. Run the script, then follow the Firewall rule setup instruction above.
 
 #### Full Script
-This script will, based on the user defined variables;
+This script will, based on the user defined variables:
 
 1.	Connect to an Azure subscription
 2.	Create a new storage account

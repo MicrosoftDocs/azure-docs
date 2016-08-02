@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
+	pageTitle="Customize HDInsight clusters using script actions | Microsoft Azure"
 	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/03/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -23,11 +23,23 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 
 > [AZURE.NOTE] The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md).
 
+Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md). 
+
 ## Understanding Script Actions
 
 A Script Action is simply a Bash script that you provide a URL to, and parameters for, and it is then ran on the HDInsight cluster nodes. The following are characteristics and features of script actions.
 
+* Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
+
+    * A blob storage account that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
+    
+    * A publicly readable URI such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    
+    For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
+
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
+
+    > [AZURE.NOTE] When used with HDInsight Premium, you can specify that the script should be used on the edge node.
 
 * Can be __persisted__ or __ad hoc__.
 
@@ -47,11 +59,13 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
 * Are ran with __root level privileges__ on the cluster nodes.
 
-* Can be used through the __Azure Portal__, __Azure PowerShell__, or __HDInsight .NET SDK__
+* Can be used through the __Azure Portal__, __Azure PowerShell__, __Azure CLI__, or __HDInsight .NET SDK__
 
-> [AZURE.IMPORTANT] There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
+
+> [AZURE.IMPORTANT] There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
 
 ### Script Action in the cluster creation process
 
@@ -90,9 +104,11 @@ When applying a script to a cluster, the cluster state will change to from __Run
     EndTime           : 2/23/2016 7:41:05 PM
     Status            : Succeeded
 
+> [AZURE.NOTE] If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
+
 ## Example Script Action scripts
 
-Script Action scripts can be used from the Azure Portal, Azure PowerShell, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
+Script Action scripts can be used from the Azure Portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. HDInsight provides scripts to install the following components on HDInsight clusters:
 
 Name | Script
 ----- | -----
@@ -128,6 +144,8 @@ This section provides examples on the different ways you can use script actions 
 ### Use a Script Action from Azure Resource Manager templates
 
 In this section, we use Azure Resource Manager (ARM) templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to create a cluster using script action.
+
+> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from an ARM template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 #### Before you begin
 
@@ -416,19 +434,17 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
 
 ## Apply a Script Action to a running cluster
 
-This section provides examples on the different ways you can apply script actions to a running HDInsight cluster- from the Azure Portal, using PowerShell CMDlets, and using the .NET SDK.
+This section provides examples on the different ways you can apply script actions to a running HDInsight cluster; from the Azure Portal, using PowerShell CMDlets, using the cross-platform Azure CLI, and using the .NET SDK.
 
 ### Apply a Script Action to a running cluster from the Azure Portal
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select __Settings__.
+2. From the HDInsight cluster blade, select the __Script Actions__ tile.
 
-    ![Settings icon](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. From the Settings blade, select __Script Actions__.
-
-    ![Script Actions link](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] You can also select __All settings__ and then select __Script Actions__ from the Settings blade.
 
 4. From the top of the Script Actions blade, select __Submit new__.
 
@@ -458,7 +474,8 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-
+        
+    > [AZURE.NOTE] If using an HDInsight Premium cluster, you can use a nodetype of `"edgenode"` to run the script on the edge node.
 
 2. Use the following command to apply the script to the cluster:
 
@@ -472,6 +489,40 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
         Uri             : https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
+
+### Apply a Script Action to a running cluster from the Azure CLI
+
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
+1. Open a shell session, terminal, command-prompt or other command-line for your system and use the following command to switch to Azure Resource Manager mode.
+
+        azure config mode arm
+
+2. Use the following to authenticate to your Azure subscription.
+
+        azure login
+
+3. Use the following command to apply a script action to a running cluster
+
+        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+
+    If you omit parameters for this command, you will be prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
+
+    Valid __nodetypes__ are __headnode__, __workernode__, and __zookeeper__. If the script should be applied to multiple node types, specify the types separated by a ';'. For example, `-n headnode;workernode`.
+
+    To persist the script, add the `--persistOnSuccess`. You can also persist the script at a later date by using `azure hdinsight script-action persisted set`.
+    
+    Once the job completes, you will receive output similar to the following.
+    
+        info:    Executing command hdinsight script-action create
+        + Executing Script Action on HDInsight cluster
+        data:    Operation Info
+        data:    ---------------
+        data:    Operation status:
+        data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
+        info:    hdinsight script-action create command OK
 
 ### Apply a Script Action to a running cluster from the HDInsight .NET SDK
 
@@ -512,7 +563,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 | Set-AzureRmHDInsightPersistedScriptAction | Promotes an ad hoc script action to a persisted script action |
 | Remove-AzureRmHDInsightPersistedScriptAction | Demotes a persisted script action to an ad hoc action |
 
-> [AZURE.IMPORTANT] Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran against new worker nodes added to the cluster.
+> [AZURE.IMPORTANT] Using `Remove-AzureRmHDInsightPersistedScriptAction` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran on new worker nodes added to the cluster.
 
 The following example script demonstrates using the cmdlets to promote, then demote a script.
 
@@ -532,9 +583,24 @@ The following example script demonstrates using the cmdlets to promote, then dem
     # execution ID.
     Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
 
+### Using the Azure CLI
+
+| Use the following... | To ... |
+| ----- | ----- |
+| `azure hdinsight script-action persisted list <clustername>` | Retrieve a list of persisted script actions |
+| `azure hdinsight script-action persisted show <clustername> <scriptname>` | Retrieve information on a specific persisted script action |
+| `azure hdinsight script-action history list <clustername>` | Retrieve a history of script actions applied to the cluster |
+| `azure hdinsight script-action history show <clustername> <scriptname>` | Retrive information on a specific script action |
+| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Promotes an ad hoc script action to a persisted script action |
+| `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Demotes a persisted script action to an ad hoc action |
+
+> [AZURE.IMPORTANT] Using `azure hdinsight script-action persisted delete` does not undo the actions performed by a script, it only removes the persisted flag so that the script will not be ran on new worker nodes added to the cluster.
+
 ### Using the HDInsight .NET SDK
 
-For an example of using the .NET SDK to retrieve script history from a cluster, promote or demote scripts, see [TBD]().
+For an example of using the .NET SDK to retrieve script history from a cluster, promote or demote scripts, see [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+
+> [AZURE.NOTE] This example also demonstrates how to install an HDInsight application using the .NET SDK.
 
 ## Troubleshooting
 

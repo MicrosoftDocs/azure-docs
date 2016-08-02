@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Microsoft Azure" 
+	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Microsoft Azure"
 	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning."
 	services="machine-learning"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/31/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -51,7 +51,7 @@ What kind of features should be created to enhance the dataset when training a m
 
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
-* A regression example [Prediction of the number of bike rentals](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) in a supervised experiment where the target values are known
+* A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
 * A text mining classification example using [Feature Hashing][feature-hashing]
 
 ### Example 1: Adding Temporal Features for Regression Model ###
@@ -133,4 +133,3 @@ Note that it is not always necessarily to perform feature engineering or feature
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 

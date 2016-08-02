@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="06/08/2016"
 	ms.author="heidist"/>
 
 # Import data to Azure Search using the portal
 
-Azure Portal includes an **Import Data** command on the Azure Search dashboard that guides you through data ingestion in Azure Search. The command relies on the built-in indexers feature that crawls an existing data source, creating and uploading documents based on the rowset found in the data source.
+Azure Portal includes an **Import Data** command on the Azure Search dashboard for loading data into an index. The command relies on the built-in indexer features that crawl an existing data source, creating and uploading documents based on a rowset pulled from the data source.
 
-Using the wizard, data import is a 3-part construction:
+Data import in the wizard is a 3-part construction:
 
 - a data source connection
 - a target index into which data is uploaded (the wizard can often generate this for you)
@@ -68,4 +68,10 @@ The data import operation you just completed created an indexer behind the scene
 
 ##Edit an existing indexer
 
-In the service dashboard, double-click on the Indexer tile to slide out a list of all indexers created for your subscription. Double-click one of the indexers to run, edit or delete it.
+In the service dashboard, double-click on the Indexer tile to slide out a list of all indexers created for your subscription. Double-click one of the indexers to run, edit or delete it. You can replace the index with another existing one, change the data source, and set options for error thresholds during indexing.
+
+##Edit an existing index
+
+In Azure Search, structural updates to an index will require a rebuild of that index, which consists of deleting the index, recreating the index, and reloading data. Structural updates include changing a data type and renaming or deleting a field.
+
+Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.

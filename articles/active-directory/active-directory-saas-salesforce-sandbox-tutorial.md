@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/22/2016" 
+    ms.date="05/19/2016" 
     ms.author="jeedes" />
 
 
@@ -104,23 +104,33 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Single Sign-On Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Single Sign-On Settings")
 
-    1.  Select **SAML Enabled**.
-    2.  Click **New**.
+    a.  Select **SAML Enabled**.
+    
+    b.  Click **New**.
 
 9.  On the SAML Single Sign-On Settings section, perform the following steps:
 
     ![SAML Single Sign-On Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML Single Sign-On Settings")
 
-    1.  In the Name textbox, type the name of the configuration (e.g.: *SPSSOWAAD\_Test*).
-    2.  In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
-    3.  In the **Entity Id** textbox, type **https://test.salesforce.com** if this is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`
-    4.  Click **Browse** to upload the downloaded certificate.
-    5.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
-    6.  As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
-    7.  In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
-    8.  In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Identity Provider Logout URL** textbox.
-    9.  As **Service Provider Initiated Request Binding**, select **HTTP POST**.
-    10. Click **Save**.
+    a.  In the Name textbox, type the name of the configuration (e.g.: *SPSSOWAAD\_Test*).
+    
+    b.  In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
+    
+    c.  In the **Entity Id** textbox, type **https://test.salesforce.com** if this is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`
+    
+    d.  Click **Browse** to upload the downloaded certificate.
+    
+    e.  As **SAML Identity Type**, select **Assertion contains the Federation ID from the User object**.
+    
+    f.  As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
+    
+    g.  In the Azure classic portal, on the **Configure single sign-on at Salesforce Sandbox** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** textbox.
+    
+    h.  SFDC does not support SAML logout.  As a workaround, paste 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' it into the **Identity Provider Logout URL** textbox.
+    
+    i.  As **Service Provider Initiated Request Binding**, select **HTTP POST**.
+    
+    j. Click **Save**.
 
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
@@ -177,15 +187,15 @@ The objective of this section is to outline how to enable user provisioning of A
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Salesforce Sandbox")
 
-    1.  In the **Salesforce Sandbox Admin User Name** textbox, type a Salesforce sandbox account name that has the **System Administrator** profile in Salesforce.com assigned.
+    a.  In the **Salesforce Sandbox Admin User Name** textbox, type a Salesforce sandbox account name that has the **System Administrator** profile in Salesforce.com assigned.
 
-    2.  In the **Salesforce Sandbox Admin Password** textbox, type the password for this account.
+    b.  In the **Salesforce Sandbox Admin Password** textbox, type the password for this account.
 
-    3.  In the **User Security Token** textbox, paste the security token value.
+    c.  In the **User Security Token** textbox, paste the security token value.
 
-    4.  Click **Validate** to verify your configuration.
+    d.  Click **Validate** to verify your configuration.
 
-    5.  Click the **Next** button to open the **Confirmation** page.
+    e.  Click the **Next** button to open the **Confirmation** page.
 
 9.  On the **Confirmation** page, click **Complete** to save your configuration.
 ##Assigning users

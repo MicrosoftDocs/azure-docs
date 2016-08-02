@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2016"
+   ms.date="05/09/2016"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
@@ -52,7 +52,7 @@ Based on your database's usage, there are currently 2 categories of recommendati
 | Recommendation | Description |
 | :--- | :--- |
 | Upgrade | Upgrade to a new tier. |
-| Unavailable | A database requires a minimum workload or approximately 14 days of activity. There is not enough data to provide a valid recommendation. |
+| Unavailable | A database requires a minimum workload or approximately 35 days of activity. There is not enough data to provide a valid recommendation. |
 
 ## Getting pricing tier recommendations
 

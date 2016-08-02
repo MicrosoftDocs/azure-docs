@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Creating a Hello World Application for Azure in Eclipse"
+    pageTitle="Create a Hello World Cloud Service for Azure in Eclipse"
     description="Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Creating a Hello World Application for Azure in Eclipse #
+# Create a Hello World Cloud Service for Azure in Eclipse #
 
 The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
@@ -59,10 +59,11 @@ First, we'll start off with creating a Java project.
 As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
 1. In Eclipse's Project Explorer, click **MyHelloWorld**.
-1. In the Eclipse toolbar, click the **Publish to Azure Cloud** button,
-    ![][ic710882]
+1. In the Eclipse toolbar, click the **Publish** drop down button and then click **Publish As Azure Cloud Service**
+    ![][publishDropdownButton]
 1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
     ![][ic789598]
+
     This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
     However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
 1. In the **Publish to Azure** dialog:
@@ -192,3 +193,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719490]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719490.png
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
+[publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png

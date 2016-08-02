@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Resource Manager support for Traffic Manager Preview | Microsoft Azure "
-   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM) in preview"
+   pageTitle="Azure Resource Manager support for Traffic Manager | Microsoft Azure "
+   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,9 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="jtuliani" />
 
-# Azure Resource Manager support for Azure Traffic Manager Preview
+# Azure Resource Manager support for Azure Traffic Manager
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. 
 
 ## Resource model
@@ -42,8 +42,6 @@ However, whilst the features remain the same, some terminology has changed:
 There are currently a small number of limitations in the ARM support for Azure Traffic Manager:
 
 - Traffic Manager profiles created using the existing (non-ARM) Azure Service Management (ASM) API, tools and 'classic' portal are not available via ARM, and vice versa. Migration of profiles from ASM to ARM APIs is not currently supported, other than by deleting and re-creating the profile.
-
-- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the Azure portal (which also uses the ARM API).
 
 - Traffic Manager endpoints of type 'AzureEndpoints', when referencing a Web App, can only reference the default (production) [Web App slot](../app-service-web/web-sites-staged-publishing.md).  Custom slots are not yet supported.  As a workaround, custom slots can be configured using the 'ExternalEndpoints' type. 
 
@@ -131,9 +129,9 @@ All profile properties can be changed, with the exception that the profile Relat
 
 For example, to change the profile TTL:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
-	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## Add Traffic Manager Endpoints
 There are three types of Traffic Manager endpoints:
@@ -299,12 +297,12 @@ To delete a Traffic Manager profile, use the Remove-AzureRmTrafficManagerProfile
 This cmdlet will prompt for confirmation.  The optional ‘-Force’ switch can be used to suppress this prompt.
 The profile to be deleted can also be specified using a profile object:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
-	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> Remove-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 This sequence can also be piped:
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
 
 ## Next steps
 

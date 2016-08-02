@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Elastic database queries for sharding (horizontal partitioning) | Microsoft Azure"
-    description="how to set up elastic queries over hotizontal partitions"    
+    pageTitle="Reporting across scaled-out cloud databases | Microsoft Azure"
+    description="how to set up elastic queries over horizontal partitions"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -12,51 +12,51 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/28/2016"
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016"
+    ms.author="torsteng" />
 
-# Elastic database queries for sharding (horizontal partitioning)
-
-This document explains how to setup elastic database queries for horizontal partitioning scenarios and how to perform your queries. For a definition of the horizontal partitioning scenario, see the [elastic database query overview (preview)](sql-database-elastic-query-overview.md).
+# Reporting across scaled-out cloud databases (preview)
 
 ![Query across shards][1]
 
-The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale-introduction.md).  
+Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
+
+For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
+
+For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md). 
+
  
-## Creating database objects
+## Prerequisites
 
-Elastic database query extends the T-SQL syntax to refer to data tiers that use sharding (or horizontal partitioning) to distribute data across many databases. This section provides an overview of the DDL statements associated with elastic query over sharded tables. These statements create the metadata representation of your sharded data tier in the elastic query database. A prerequisite for running these statements is to create a shard map using the elastic database client library. For more information, see [Shard map management](sql-database-elastic-scale-shard-map-management.md); or use the sample in the following topic to create one: [Get started with elastic database tools](sql-database-elastic-scale-get-started.md).   
+* Create a shard map using the elastic database client library. see [Shard map management](sql-database-elastic-scale-shard-map-management.md). Or use the sample app in [Get started with elastic database tools](sql-database-elastic-scale-get-started.md).
+* Alternatively, see [Migrate existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
+* The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included with the ALTER DATABASE permission.
+* ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
-Defining the database objects for elastic database query relies on the following T-SQL statements which are explained further for the horizontal partitioning scenario below: 
+## Overview
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) 
+These statements create the metadata representation of your sharded data tier in the elastic query database. 
 
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)  
+1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
+4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
+## 1.1 Create database scoped master key and credentials 
 
-### 1.1 Database scoped master key and credentials 
+The credential is used by the elastic query to connect to your remote databases.  
 
-A credential represents the user ID and password that elastic query will use to connect to your remote databases in Azure SQL DB. To create the required master key and credential use the following syntax: 
-
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = ’password’;
-    CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = ‘<username>’,  
-    SECRET = ‘<password>’
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
+    SECRET = '<password>'
     [;]
-
-Or to drop the credential and key:
-
-    DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
-    DROP MASTER KEY;   
-
  
-**Note**    Ensure that the *< username>* does not include any *“@servername”* suffix. 
+**Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
 
-### 1.2 External data sources
+## 1.2 Create external data sources
 
-Provide the information about your shard map and your data tier by defining an external data source. The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier. The syntax to create an external data source is defined as follows: 
+Syntax:
 
 	<External_Data_Source> ::=    
 	CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                               	           
@@ -66,18 +66,8 @@ Provide the information about your shard map and your data tier by defining an e
 			CREDENTIAL = <credential_name>, 
 			SHARD_MAP_NAME = ‘<shardmapname>’ 
                    ) [;] 
- 
-or to drop an external data source: 
 
-	DROP EXTERNAL DATA SOURCE <data_source_name>[;] 
-
-#### Permissions for CREATE/DROP EXTERNAL DATA SOURCE 
-
-The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission is included into the ALTER DATABASE permission. 
-
-**Example** 
-
-The following example illustrates the use of the CREATE statement for external data sources. 
+### Example 
 
 	CREATE EXTERNAL DATA SOURCE MyExtSrc 
 	WITH 
@@ -89,23 +79,16 @@ The following example illustrates the use of the CREATE statement for external d
 		SHARD_MAP_NAME='ShardMap' 
 	);
  
-You can retrieve the list of current external data sources from the following catalog view: 
+Retrieve the list of current external data sources: 
 
 	select * from sys.external_data_sources; 
 
-Note that the same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query. 
+The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier. 
+The same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query. 
 
-### 1.3 External tables 
+## 1.3 Create external tables 
  
-Elastic query extends the external table DDL to refer to external tables that are horizontally partitioned across several databases. The external table definition covers the following aspects: 
-
-* **Schema**: The external table DDL defines a schema that your queries can use. The schema provided in your external table definition needs to match the schema of the tables on the shards where the actual data is stored. 
-
-* **Data distribution**: The external table DDL defines the data distribution that you used to distribute the data across your data tier. Note that Azure SQL Database does not validate the distribution you define on the external table against the actual distribution on the shards. You are responsible for to ensuring that the actual data distribution on the shards matches your external table definition. 
-
-* **Data tier reference**: The external table DDL refers to an external data source. The external data source specifies a shard map which provides the external table with the information necessary to locate all the databases in your data tier. 
-
-Using an external data source as outlined in the previous section, the syntax to create and drop external tables is as follows: 
+Syntax:  
 
 	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])     
@@ -118,31 +101,7 @@ Using an external data source as outlined in the previous section, the syntax to
       [ OBJECT_NAME = N'nonescaped_object_name',] 
       DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
 
-The DATA\_SOURCE clause defines the external data source (a shard map in the case of horizontal partitioning) that is used for the external table.  
-
-The SCHEMA\_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the shard, or a to a table with a different name, respectively. If omitted, the schema of the remote object is assumed to be “dbo” and its name is assumed to be identical to the external table name being defined.  
-
-The SCHEMA\_NAME and OBJECT\_NAME clauses are particularly useful if the name of your remote table is already taken in the database where you want to create the external table. An example for this problem is when you want to define an external table to get an aggregate view of catalog views or DMVs on your scaled out data tier. Since catalog views and DMVs already exist locally, you cannot use their names for the external table definition. Instead, use a different name and use the catalog view’s or the DMV’s name in the SCHEMA_NAME and/or OBJECT_NAME clauses. (See the example below.) 
-
-The DISTRIBUTION clause specifies the data distribution used for this table:  
-
-* SHARDED means that the data for this table is horizontally partitioned across the databases in your shard map. The partitioning key for the data distribution is captured in the <sharding_column_name> parameter.  
-
-* REPLICATED means that identical copies of the table are present on each database in your shard map. Azure SQL DB does not maintain the copies of the table. It is your responsibility to ensure that the replica are identical across the databases. 
-
-* ROUND\_ROBIN means that the table is distributed using horizontal partitioning. However, an application dependent distribution has been used.  
-
-The query processor utilizes the information provided in the DISTRIBUTION clause to build the most efficient query plans.
-
-Use the following statement to drop external tables:
-
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
-
-**Permissions for CREATE/DROP EXTERNAL TABLE:** ALTER ANY EXTERNAL DATA SOURCE permissions are needed which is also needed to refer to the underlying data source.  
-
-**Security considerations:** Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. You should carefully manage access to the external table in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
-
-**Example**: The following example illustrates how to create an external table:  
+**Example**
 
 	CREATE EXTERNAL TABLE [dbo].[order_line]( 
 		 [ol_o_id] int NOT NULL, 
@@ -165,17 +124,38 @@ Use the following statement to drop external tables:
 		DISTRIBUTION=SHARDED(ol_w_id)
 	); 
 
-The following example shows how to retrieve the list of external tables from the current database: 
+Retrieve the list of external tables from the current database: 
 
-	select * from sys.external_tables; 
+	SELECT * from sys.external_tables; 
 
-## Querying 
+To drop external tables:
 
-### 2.1 Full fidelity T-SQL queries 
+	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+
+### Remarks
+
+The DATA\_SOURCE clause defines the external data source (a shard map) that is used for the external table.  
+
+The SCHEMA\_NAME and OBJECT\_NAME clauses map the external table definition to a table in a different schema. If omitted, the schema of the remote object is assumed to be “dbo” and its name is assumed to be identical to the external table name being defined. This is useful if the name of your remote table is already taken in the database where you want to create the external table. For  example, you want to define an external table to get an aggregate view of catalog views or DMVs on your scaled out data tier. Since catalog views and DMVs already exist locally, you cannot use their names for the external table definition. Instead, use a different name and use the catalog view’s or the DMV’s name in the SCHEMA\_NAME and/or OBJECT\_NAME clauses. (See the example below.) 
+
+The DISTRIBUTION clause specifies the data distribution used for this table. The query processor utilizes the information provided in the DISTRIBUTION clause to build the most efficient query plans.  
+
+1. **SHARDED** means data is horizontally partitioned across the databases. The partitioning key for the data distribution is the **<sharding_column_name>** parameter.
+2. **REPLICATED** means that identical copies of the table are present on each database. It is your responsibility to ensure that the replicas are identical across the databases.
+3. **ROUND\_ROBIN** means that the table is horizontally partitioned using an application-dependent distribution method. 
+
+**Data tier reference**: The external table DDL refers to an external data source. The external data source specifies a shard map which provides the external table with the information necessary to locate all the databases in your data tier. 
+
+
+### Security considerations 
+
+Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Avoid undesired elevation of privileges through the credential of the external data source. Use GRANT or REVOKE for an external table just as though it were a regular table.  
 
 Once you have defined your external data source and your external tables, you can now use full T-SQL over your external tables.
 
-**Example for horizontal partitioning:** The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders and order lines are sharded by the warehouse id column, and that the elastic query can collocate the joins on the shards and process the expensive part of the query on the shards in parallel. 
+## Example: querying horizontal partitioned databases 
+
+The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders and order lines are sharded by the warehouse id column, and that the elastic query can co-locate the joins on the shards and process the expensive part of the query on the shards in parallel. 
 
 	select  
 		 w_id as warehouse,
@@ -192,31 +172,21 @@ Once you have defined your external data source and your external tables, you ca
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2.2 Stored procedure SP_ EXECUTE_FANOUT 
+## Stored procedure for remote T-SQL execution: sp\_execute_remote
 
-Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called sp_execute_fanout and takes the following parameters:   
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
 
-* Server name (nvarchar): Fully qualified name of the logical server hosting the shard map. 
-* Shard map database name (nvarchar): The name of the shard map database. 
-* User name (nvarchar): The user name to log into the shard map database. 
-* Password (nvarchar): Password for the user. 
-* Shard map name (nvarchar): The name of the shard map to be used for the query. The name is found in the _ShardManagement.ShardMapsGlobal table, which is the default name used when creating databases with the sample app found in [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md). The default name found in the app is "CustomerIDShardMap." 
-*  Query: The T-SQL query to be executed on each shard. 
-*  Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
-*  Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql)  
+* Data source name (nvarchar): The name of the external data source of type RDBMS. 
+* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
+* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
 
-sp\_execute\_fanout uses the shard map information provided in the invocation parameters to execute the given T-SQL statement on all shards registered with the shard map. Any results are merged using UNION ALL semantics. The result also includes the additional ‘virtual’ column with the shard name. 
-
-Note that the same credentials are used to connect to the shard map database and to the shards. 
+The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
 
 Example: 
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Connectivity for tools  
@@ -225,17 +195,15 @@ Use regular SQL Server connection strings to connect your application, your BI a
 
 ## Best practices 
 
-* Make sure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL DB firewalls.  
+* Ensure that the elastic query endpoint database has been given access to the shardmap database and all shards through the SQL DB firewalls.  
 
-* Elastic query does not validate or enforce the data distribution defined by the external table. If your actual data distribution is different from the distribution specified in your table definition, your queries may yield unexpected results. 
+* Validate or enforce the data distribution defined by the external table. If your actual data distribution is different from the distribution specified in your table definition, your queries may yield unexpected results. 
 
-* Elastic query currently does not perform shard elimination when predicates over the sharding key would allow to safely exclude certain shards from processing.
+* Elastic query currently does not perform shard elimination when predicates over the sharding key would allow it to safely exclude certain shards from processing.
 
 * Elastic query works best for queries where most of the computation can be done on the shards. You typically get the best query performance with selective filter predicates that can be evaluated on the shards or joins over the partitioning keys that can be performed in a partition-aligned way on all shards. Other query patterns may need to load large amounts of data from the shards to the head node and may perform poorly
 
-
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

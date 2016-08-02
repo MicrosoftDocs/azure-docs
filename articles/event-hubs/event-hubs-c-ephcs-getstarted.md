@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -30,48 +30,15 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-cli-create.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ Microsoft Visual Studio Express for Windows
 
 + An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
-## Create an Event Hub
-
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
-
-2. Click **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
-
-	![][1]
-
-3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
-
-	![][2]
-
-4. Click the namespace you just created (usually ***event hub name*-ns**).
-
-	![][3]
-
-5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
-
-	![][4]
-
-6. Click the **Configure** tab at the top of the page, add a rule named **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Manage, Send, Listen* rights, and then click **Save**.
-
-	![][5]
-
-7. On the same page, take note of the generated keys for **SendRule**.
-
-	![][6b]
-
-8. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings.
-
-	![][6]
-
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
@@ -97,15 +64,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 - [Event Hubs overview][]
 
 <!-- Images. -->
-[1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
-[2]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub2.png
-[3]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub4.png
-[5]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub5.png
-[6]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub6.png
-[6b]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub6b.png
-
-
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 

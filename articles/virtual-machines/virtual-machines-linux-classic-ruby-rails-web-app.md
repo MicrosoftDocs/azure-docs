@@ -14,21 +14,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
-
-
-
-
-#Ruby on Rails Web application on an Azure VM
+# Ruby on Rails Web application on an Azure VM
 
 This tutorial shows how to host a Ruby on Rails website on Azure using a Linux virtual machine.  
 
 This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a different Linux distribution, you might need to modify the steps to install Rails.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Create an Azure VM
 
@@ -70,9 +65,10 @@ After the VM is provisioned, you can get the SSH endpoint by running the followi
 
 3. Use the following command to install Rails:
 
-		sudo gem install rails --no-rdoc --no-ri
+		sudo gem install rails --no-rdoc --no-ri -V
 
 	Use the --no-rdoc and --no-ri flags to skip installing the documentation, which is faster.
+	This command will likely take a long time to execute, so adding the -V will display information about the installation progress.
 
 ## Create and run an app
 
@@ -93,7 +89,6 @@ You should see output similar to the following.
 	[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
 	[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
 	[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
-
 
 ## Add an endpoint
 
@@ -129,8 +124,7 @@ You should see output similar to the following.
 
 	![default rails page][default-rails-cloud]
 
-
-##<a id="next"></a>Next steps
+## Next steps
 
 In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources. For more information, see http://rubyonrails.org/deploy/.
 
@@ -144,33 +138,21 @@ To use Azure services from your Ruby application, see:
 
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
-
-
 <!-- WA.com links -->
-[blobs]: ../storage-ruby-how-to-use-blob-storage.md
-
-[cdn-howto]: /develop/ruby/app-services/
-
+[blobs]: ../storage/storage-ruby-how-to-use-blob-storage.md
+[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
 [management-portal]: https://manage.windowsazure.com/
-
-[tables]: /develop/ruby/how-to-guides/table-service/
-
-[vm-instructions]: virtual-machines-linux-cli-create.md
-
+[tables]: ../storage/storage-ruby-how-to-use-table-storage.md
+[vm-instructions]: virtual-machines-linux-classic-createportal.md
 
 <!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
-
 [sqlite3]: http://www.sqlite.org/
 
 <!-- Images -->
 
 [default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-
 [vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-
 [endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png

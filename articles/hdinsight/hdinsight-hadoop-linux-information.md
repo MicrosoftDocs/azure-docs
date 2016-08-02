@@ -14,18 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
 
 Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
+##Prerequisites
+
+Many of the steps in this document use the following utilities, which may need to be installed on your system.
+
+* [cURL](https://curl.haxx.se/) - used to communicate with web-based services
+* [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
+* [Azure CLI](../xplat-cli-install.md) - used to remotely manage Azure services
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
+
 ## Domain names
 
 The fully qualified domain name (FQDN) to use when connecting to the cluster from the internet is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, you can visit the __Hosts__ page on the Ambari Web UI, or use the following to return a list of hosts from the Ambari REST API using [cURL](http://curl.haxx.se/) and [jq](https://stedolan.github.io/jq/):
+Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, you can visit the __Hosts__ page on the Ambari Web UI, or use the following to return a list of hosts from the Ambari REST API:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -72,11 +82,11 @@ Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This direc
 * __2.2.4.9-1__: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
 * __current__: This directory contains links to directories under the __2.2.4.9-1__ directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
 
-Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasb:///example'.
+Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasbs:///example'.
 
 ## HDFS, Azure Blob storage, and storage best practices
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
 HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
 
@@ -88,11 +98,11 @@ Since it is the default store for HDInsight, you normally don't have to do anyth
 
 	hadoop fs -ls /example/data
 
-Some commands may require you to specify that you are using Blob storage. For these, you can prefix the command with **WASB://**.
+Some commands may require you to specify that you are using Blob storage. For these, you can prefix the command with **wasb://**, or **wasbs://**.
 
-HDInsight also allows you to associate multiple Blob storage accounts with a cluster. To access data on a non-default Blob storage account, you can use the format **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. For example, the following will list the contents of the **/example/data** directory for the specified container and Blob storage account:
+HDInsight also allows you to associate multiple Blob storage accounts with a cluster. To access data on a non-default Blob storage account, you can use the format **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. For example, the following will list the contents of the **/example/data** directory for the specified container and Blob storage account:
 
-	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
+	hadoop fs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
 
 ### What Blob storage is the cluster using?
 
@@ -106,7 +116,7 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 
     This will return a value similar to the following, where __CONTAINER__ is the default container and __ACCOUNTNAME__ is the Azure Storage Account name:
 
-        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 1. Get the resource group for the Storage Account, use the [Azure CLI](../xplat-cli-install.md). In the following command, replace __ACCOUNTNAME__ with the Storage Account name retrieved from Ambari:
 
@@ -242,6 +252,7 @@ If the cluster already provides a version of a component as a standalone jar fil
 
 ## Next steps
 
+* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md)
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

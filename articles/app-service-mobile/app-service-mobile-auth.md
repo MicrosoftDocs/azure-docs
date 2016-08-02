@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikref"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="mahender"/>
 
 # Authentication and Authorization in Azure Mobile Apps
 
 ## What is App Service Authentication / Authorization?
+
+> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
 App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
@@ -90,8 +92,6 @@ The following tutorials show how to configure App Service to leverage different 
 - [How to configure your app to use Twitter login]
 
 If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
-
-You can also find some more detail on the above flows in the [App Service authentication overview](app-service-authentication-overview.md). This topic also includes information about the App Service Gateway, which is no longer used in Mobile Apps, but the conceptual content still applies.
 
 [Add authentication to your iOS app]: app-service-mobile-ios-get-started-users.md
 [Add authentication to your Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started-users.md

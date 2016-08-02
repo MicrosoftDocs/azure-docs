@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Windows Universal SDK Overview for Azure Mobile Engagement
@@ -32,10 +32,11 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.3.1 (02/18/2016)
+###3.4.0 (04/19/2016)
 
--   Fix conflicts between web announcement's HTML content and SDK's HTML page.
--   Stability improvements.
+-   Reach overlay improvements.
+-   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
+-   Fixed in-activity notifications targeting the first activity not displayed on App start.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 
@@ -45,11 +46,27 @@ If you already have integrated an older version of Engagement into your applicat
 
 You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md). For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
 
-###From 3.2.0 to 3.3.0
+###From 3.3.0 to 3.4.0
 
-#### Resources
-This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+####Test logs
+
+Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+####Resources
+
+The Reach overlay has been improved. It is part of the SDK NuGet package resources.
+
+While upgrading to the new version of the SDK you can choose whether you want to keep your existing files from the overlay folder of your resources or not:
+
+* If the previous overlay is working for you or you are integrating the `WebView` elements manually then you can decide to keep your exiting files, it will still work. 
+* If you want to update to the new overlay, just replace the whole `overlay` folder from your resources with the new one from the SDK package
+(UWP apps: after the upgrade, you can get the new overlay folder from %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
+
+> [AZURE.WARNING] Using the new overlay will overwrite any customizations made on the previous version.
 
 ### Upgrade from older versions
 
-See [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure/) 
+See [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md) 

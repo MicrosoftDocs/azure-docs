@@ -12,20 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Public IP address space in a Virtual Network (VNet)
 
-You can now add public IP address space to your VNets. Previously, you could only add RFC 1918 address blocks (private space) to your VNets. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
+Virtual networks (VNets) can contain both public and private (RFC 1918 address blocks) IP address spaces. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
 
-Adding a public IP address space works conceptually like this:
+The picture below shows a VNet that includes public and private IP adress spaces.
 
 ![Public IP Conceptual](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
 
 ## How do I add a public IP address range?
 
-You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or making the configuration in the portal. You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address space configured in the same virtual network.
+You add a public IP address range the same way you would add a private IP address range; by either using a *netcfg* file, or by adding the configuration in the [Azure portal](http://portal.azure.com). You can add a public IP address range when you create your VNet, or you can go back and add it afterward. The example below shows both public and private IP address spaces configured in the same VNet.
 
 ![Public IP Address in Portal](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
 
@@ -45,8 +45,4 @@ There are a few IP address ranges that are not allowed:
 
 ## Next Steps
 
-[How to manage Virtual Network (VNet) Properties](../virtual-networks-settings)
-
-[How to manage DNS servers used by a virtual network (VNet)](../virtual-networks-manage-dns-in-vnet)
-
-[How to delete a Virtual Network (VNet)](../virtual-networks-delete-vnet) 
+[How to manage DNS servers used by a VNet](../virtual-networks-manage-dns-in-vnet)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -24,13 +24,13 @@
 
 *By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-In this tutorial you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
+In this tutorial, you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
 
 It is assumed that you have an existing installation of WordPress. If you do not, please follow the guidance provided in [Create a WordPress web site from the gallery in Azure][website-from-gallery].
 
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 
-Lets get started.
+Let's get started.
 
 ## Allow Multisite
 
@@ -66,7 +66,7 @@ The network is now configured in the database, but there is one remaining step t
 After clicking the **Install** button on the *Network Setup* page, WordPress will attempt to update the `wp-config.php` and `web.config` files. However, you should always check the files to ensure the updates were successful. If not, this screen will present you with the necessary updates. Edit and save the files.
 
 
-After making these updates you will need to log out and log back in to the wp-admin dashboard.
+After making these updates you will need to log out and log back into the wp-admin dashboard.
 
 There should now be an additional menu on the admin bar labeled **My Sites**. This menu allows you to control your new network through the **Network Admin** dashboard.
 
@@ -83,7 +83,7 @@ The **Free** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan m
 * Under **General**, select either *SHARED* or *STANDARD*
 * Click **Save**
 
-You may receive a message asking you to verify the change and acknowledge your web app may now incur cost, depending upon usage and the other configuration you set.
+You may receive a message asking you to verify the change and acknowledge your web app may now incur a cost, depending upon usage and the other configuration you set.
 
 It takes a few seconds to process the new settings, so now is a good time to start setting up your domain.
 
@@ -105,7 +105,7 @@ When the *SSL settings* are displayed, you will see the fields where you will in
 
 ![Manage custom domains dialog][wordpress-manage-domains]
 
-After typing your domain into the text box, Azure will verify the CNAME record you created previously. If the DNS has not fully propigated, a red indicator will show. If it was successful, you will see a green checkmark. 
+After typing your domain into the text box, Azure will verify the CNAME record you created previously. If the DNS has not fully propagated, a red indicator will show. If it was successful, you will see a green checkmark. 
 
 Take note of the IP Address listed at the bottom of the dialog. You will need this to setup the A record for your domain.
 
@@ -120,7 +120,7 @@ Using the IP address from the previous step, return to your DNS manager and setu
 
 ## Install and setup the plugin
 
-WordPress Multisite currently does not have a built in method to map custom domains. However, there is a plugin called [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] that adds the functionality for you. Log in to the Network Admin portion of your site and install the **WordPress MU Domain Mapping** plugin.
+WordPress Multisite currently does not have a built-in method to map custom domains. However, there is a plugin called [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] that adds the functionality for you. Log in to the Network Admin portion of your site and install the **WordPress MU Domain Mapping** plugin.
 
 After installing and activating the plugin, visit **Settings** > **Domain Mapping** to configure the plugin. In the first textbox, *Server IP Address*, input the IP Address you used to setup the A record for the domain. Set any *Domain Options* you desire (the defaults are often fine) and click **Save**.
 

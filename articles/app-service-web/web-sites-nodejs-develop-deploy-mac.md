@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Create a Node.js web app in Azure App Service
@@ -66,7 +66,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 6. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 7. Select an **App Service plan/Location** or create a new one.
 

@@ -3,7 +3,7 @@
 	description="Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="dkshir"/>
+	ms.date="06/14/2016"
+	ms.author="iainfou"/>
 
 
 # How to capture a classic Linux virtual machine as an image
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-machines-linux-capture-image.md).
 
 This article shows you how to capture a classic Azure virtual machine running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines from the image.
 
@@ -29,16 +28,16 @@ Azure stores the image under **Images**. This is also where any images you've up
 
 ## Before You begin
 
-These steps assume that you've already created an Azure virtual machine using the classic deployment model and configured the operating system, including attaching any data disks. If you haven't done this yet, read [How to Create a Linux Virtual Machine] [].
+These steps assume that you've already created an Azure virtual machine using the Classic deployment model and configured the operating system, including attaching any data disks. If you haven't done this yet, read [How to Create a Linux Virtual Machine] [].
 
 
 ## Capture the virtual machine
 
-1. Connect to the virtual machine using an SSH client of your choice. For details, see [How to Log on to a Virtual Machine Running Linux] [].
+1. [Connect to the virtual machine](virtual-machines-linux-classic-log-on.md) using an SSH client of your choice.
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	This command will attempt to clean the system and make it suitable for re-provisioning. This operation performs the following tasks:
 
@@ -55,7 +54,6 @@ These steps assume that you've already created an Azure virtual machine using th
 3. Type **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
 
 4. Type **Exit** to close the SSH client.
-
 
 	>[AZURE.NOTE] The next steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer. All the steps below can also be done in the [Azure classic portal] [].
 
@@ -87,12 +85,11 @@ These steps assume that you've already created an Azure virtual machine using th
 
 
 ## Next steps
-The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
+The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI with Azure Service Management](../virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
 
 **See Also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
-[How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-classic-log-on.md
 [About Virtual Machine Images in Azure]: virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md

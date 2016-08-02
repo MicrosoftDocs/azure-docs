@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -63,7 +63,7 @@ With the diagram above in mind, here’s what you need to know about its various
 • Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful for the intended parties. Developers can use the provided authentication libraries to handle validation of any token from Azure AD, including JSON Web Tokens (JWT) or SAML 2.0. If you want to perform validation manually, see the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) documentation.
 
 
-> [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
+> [AZURE.IMPORTANT] Azure AD uses public key cryptography to sign tokens and verify that they are valid. See [Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md) for more information on the necessary logic you must have in your application to ensure it’s always updated with the latest keys.
 
 
 • The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory Authentication Protocols](active-directory-authentication-protocols.md) topic and in the sections below.
@@ -203,10 +203,9 @@ The user’s session expires when the lifetime of the token issued by Azure AD e
 
 ### Single Page Application (SPA)
 
+This section describes authentication for a Single Page Application, that uses Azure AD and the OAuth 2.0 implicit authorization grant to secure its web API back end. Single Page Applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a Web API back end that runs on a server and implements the application’s business logic. To learn more about the implicit authorization grant, and help you decide whether it's right for your application scenario, see [Understanding the OAuth2 implicit grant flow in Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-This section describes authentication for a single page application that uses Azure AD to secure its web API back end. Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic. In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.
-
-
+In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) and the implicit authorization grant to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its Web API back end, which is secured using the OWIN middleware. 
 #### Diagram
 
 ![Single Page Application diagram](./media/active-directory-authentication-scenarios/single_page_app.png)
@@ -465,6 +464,6 @@ When the first application uses its authorization code to get a JWT access token
 
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 
-[Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
+[Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md)
 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)

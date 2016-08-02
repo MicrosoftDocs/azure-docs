@@ -1,6 +1,6 @@
 <properties
  pageTitle="Get started with Azure Scheduler in Azure portal | Microsoft Azure"
- description=""
+ description="Get started with Azure Scheduler in Azure portal"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Get started with Azure Scheduler in Azure portal

@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Modify a live ASP.NET 5 Web Application running in a local Docker container using Edit and Refresh | Microsoft Azure"
-   description="Learn how to modify an app that is running in a local Docker container and refresh the container via Edit and Refresh"
-   services="visual-studio-online"
+   pageTitle="Debugging apps in a local Docker container | Microsoft Azure"
+   description="Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints"
+   services="azure-container-service"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,133 +12,123 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/17/2016"
-   ms.author="tarcher" />
+   ms.date="07/22/2016"
+   ms.author="allclark" />
 
-# Modify a live ASP.NET 5 Web Application running in a local Docker container using Edit and Refresh
+# Debugging apps in a local Docker container
 
 ## Overview
-The Visual Studio Tools for Docker provides a convenient way to develop and test your application locally in a Docker container without having to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET 5 Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes. 
+The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container.
+You don't have to restart the container each time you make a code change.
+This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
+make any necessary changes, and then refresh the browser to see those changes.
+It will also show you how to set breakpoints for debugging.
+
+> [AZURE.NOTE] Windows Container support will be coming in a future release
 
 ## Prerequisites
 The following tools need to be installed.
 
-- [Visual Studio 2015 Update 1](https://go.microsoft.com/fwlink/?LinkId=691979)
-- [Microsoft ASP .NET and Web Tools 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
-- [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
+- [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
+- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
 
-> [AZURE.NOTE] If you have a previous version of the Visual Studio 2015 Tools for Docker installed, you'll need to uninstall it from the Control Panel prior to installing the latest version.
+To run Docker containers locally, you'll need a local docker client.
+You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
+or you can use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
 
-## Configuring and testing the Docker client 
-This section will guide you through making sure that the default instance of Docker machine is configured and running. 
+If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure-tools-docker-setup.md)
 
-1. Create a default docker host instance by issuing the following command at a command prompt.
+## 1. Create a web app
 
-		docker-machine create --driver virtualbox default
- 
-1. Verify the default instance is configured and running by issuing the following command at the command prompt. (You should see an instance named `default' running.
+[AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-		docker-machine ls 
-		
-	![][0]
- 
-1. Set default as the current host by issuing the following command at the command prompt.
+## 2. Add Docker support
 
-		docker-machine env default
+[AZURE.INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-1. Issue the following command to configure your shell.
 
-		FOR /f "tokens=*" %i IN ('docker-machine env default') DO %i
+## 3. Edit your code and refresh
 
-1. The following command should display an empty response of active containers running.
+To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
-		docker ps
+1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
 
-	![][1]
- 
-> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host. To do this, issue the following command at a command prompt: `docker-machine start default`
+    Once the container image has been built and is running in a Docker container, Visual Studio will launch the Web app in your default browser.
+    If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
 
-## Editing an app running in a local Docker container
-Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to test and run their application in a Docker container, make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container. 
+1. Go to the About page, which is where we're going to make our changes.
 
-1. From the Visual Studio menu, select **File > New > Project**. 
+1. Return to Visual Studio and open `Views\Home\About.cshtml`.
 
-1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.
+1. Add the following HTML content to the end of the file and save the changes.
 
-1. Select **ASP.NET Web Application**.
+	```
+	<h1>Hello from a Docker Container!</h1>
+	```
 
-1. Give your new application a name (or take the default).
+1.	Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
 
-1. Tap **OK**.  
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
 
-1. Under **ASP.NET 5 Templates**, select **ASP.NET Web Application**.
+1.	Your changes have been applied!
 
-1. Tap **OK**.
+## 4. Debug with breakpoints
 
-1. From the Visual Studio Solution Explorer, right-click the project and select **Add > Docker Support**.
+Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
+
+1.	Return to Visual Studio and open `Controllers\HomeController.cs`
+
+1.  Replace the contents of the About() method with the following:
+
+	```
+	string message = "Your application description page from wthin a Container";
+	ViewData["Message"] = message;
+    ````
+
+1.  Set a breakpoint to the left of the `string message`... line.
+
+1.  Hit **&lt;F5>** to start debugging.
+
+1.  Navigate to the About page to hit your breakpoint.
+
+1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
 	![][2]
- 
-1. The following files are created under the project node:
 
-	![][3]
+##Summary
 
-1. Set the Solution Configuration to `Debug` and press **&lt;F5>** to start testing your application locally.
+With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
+with the production realism of developing within a Docker container.
 
-1. Once the container image has been built and is running in a Docker container, a PowerShell console will try to launch the Web app in your default browser. If you are using the Microsoft Edge browser, see the [Troubleshooting](#troubleshooting) section.
+## Troubleshooting
 
-1. Return to Visual Studio and open `Views\Home\Index.cshtml`. 
+[Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
-1. Append the following HTML content to the end of the file and save the changes
+## More about Docker with Visual Studio, Windows, and Azure
 
-		<div>
-			<h1>Hello from Docker Container!</h1>
-		</div>
+- [Docker Tools for Visual Studio](http://aka.ms/dockertoolsforvs) - Developing your .NET Core code in a container
+- [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
+- [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
+- [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
+- [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
+-    For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-1.	Switch back to your browser and refresh it.
+## Various Docker tools
 
-1.	Scroll to the end of the home page and you should see changes have been applied! Note that it can take a few seconds for the site to recompile, so if you are not seeing your changes reflected immediately, simply refresh the browser again.
+[Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
-##Troubleshooting 
+## Good articles
 
-- **Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.**
+[Introduction to Microservices from NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
 
-	This could be an error during `docker-compose-up`. To view the error, perform the following steps:
+## Presentations
 
-	1. Open the `Properties\launchSettings.json` file
-	
-	1. Locate the Docker entry.
-	
-	1. Locate the line that begins as follows:
+- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810)
+- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
-			"commandLineArgs": "-ExecutionPolicy RemoteSigned …”
-	
-	1. Add the `-noexit` parameter so that the line now resembles the following. This will keep PowerShell open so that you can view the error.
-
-			"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
-
-- **Build : Failed to build the image, Error checking TLS connection: Host is not running**
-
-	Verify the default docker host is running. See the [Configuring the Docker client](#configuring-the-docker-client) section.
-
-- **Unable to find volume mapping**
-
-	By default, VirtualBox shares `C:\Users` as `c:/Users`. If the project is not under `c:\Users`, manually add it to the VirtualBox [Shared folders](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
-
-- **Using Microsoft Edge as the default browser**
-
-	If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
-	1. From the Windows Run box, type `Internet Options`.
-	2. Tap **Internet Options** when it appears. 
-	2. Tap the **Security** tab.
-	3. Select the **Local Intranet** zone.
-	4. Tap **Sites**. 
-	5. Add your virtual machine's IP (in this case, the Docker Host) in the list. 
-	6. Refresh the page in Edge, and you should see the site up and running. 
-	7. For more information on this issue, visit Scott Hanselman's blog post, [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
-
-[0]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-machine-ls.png
-[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-ps.png
-[2]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
-[3]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
+[2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png

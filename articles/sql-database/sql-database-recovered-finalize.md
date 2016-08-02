@@ -3,8 +3,8 @@
    description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="CarlRabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.date="07/05/2016"
+   ms.author="carlrab"/>
 
 # Finalize your recovered Azure SQL Database
 
@@ -29,7 +29,7 @@ Verify connection strings of your application are pointing to the newly recovere
   + The recovered database uses a different name from the source database name
   + The recovered database is on a different server from the source server
 
-For more information about changing connection strings, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx) and [Connections to Azure SQL Database: Central Recommendations ](sql-database-connect-central-recommendations.md).
+For more information about changing connection strings, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx) and [SQL Database Development Overview](sql-database-develop-overview.md).
  
 ## Modify Firewall Rules
 Verify the firewall rules at server-level and database-level, and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled. For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx) and [How to: Configure Firewall Settings (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx).

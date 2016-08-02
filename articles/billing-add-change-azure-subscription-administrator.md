@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # How to add or change Azure administrator roles
@@ -24,12 +24,37 @@ There are three kinds of administrator roles in Microsoft Azure:
 | Administrative role   | Limit  | Description
 | ------------- | ------------- |---------------|
 |Account Administrator (AA)  | 1 per Azure account  |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the [Account Center](https://account.windowsazure.com/Home/Index) and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator.
-| Service Administrator (SA) | 1 per Azure subscription  |This person is authorized to manage services on the [Azure Portal](https://manage.windowsazure.com/). By default, for a new subscription, the Account Administrator is also the Service Administrator.|
-|Co-administrator (CA)|200 per subscription|This person has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories.|
+| Service Administrator (SA) | 1 per Azure subscription  |This role is authorized to manage services in the [Azure portal](https://portal.azure.com). By default, for a new subscription, the Account Administrator is also the Service Administrator.|
+|Co-administrator (CA) in the [Azure classic portal](https://manage.windowsazure.com)|200 per subscription| This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories. |
 
 > [AZURE.NOTE] Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ## How to add an admin for a subscription
+
+**Azure portal**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
+
+	![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
+
+3. In the subscription blade, select **Settings**> **Users**.
+
+	![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
+4. In the Users blade, select **Add**>**Select a role** > **Owner**.
+
+	![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+
+	**Note**
+	- The owner role has same access privileges as co-administrator. This role does not have access privilege to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
+	- The owners you added through the [Azure portal](https://portal.azure.com) cannot manage services in the [Azure classic portal](https://manage.windowsazure.com).  
+
+5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
+
+	![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+
+**Azure classic portal**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -66,10 +91,9 @@ The following email address can be added as a Co-Administrator:
 
 ## How to change Service Administrator for a subscription
 
-Azure classic portal
 Only the Account Administrator can change the Service Administrator for a subscription.
 
-1. Log on into [Account Management Portal](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
+1. Log on into [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
 
 2. Select the subscription you want to change.
 
@@ -83,12 +107,12 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 ## How to change the Account Administrator
 
-To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](billing-subscription-transfer.md).
+To transfer ownership of the Azure account to another account, see [Transferring Ownership of an Azure subscription](billing-subscription-transfer.md).
 
 ## Next Steps
 
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](./active-directory/active-directory-understanding-resource-access.md)
 
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 * For more information on how Azure Active Directory relates to your Azure subscription, see [Assigning administrator roles in Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md)

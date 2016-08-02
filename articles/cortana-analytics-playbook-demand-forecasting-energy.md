@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Solution Template Playbook for demand forecasting of energy | Microsoft Azure"
-	description="A Solution Template with Microsoft Cortana Analytics that helps forecast demand for an energy utility company."
+	pageTitle="Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Azure"
+	description="A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="ilanr9"
@@ -16,7 +16,7 @@
 	ms.date="01/24/2016"
 	ms.author="ilanr9;yijichen;garye"/>
 
-# Cortana Analytics Solution Template Playbook for Demand Forecasting of Energy  
+# Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy  
 
 ## Executive Summary  
 
@@ -26,11 +26,11 @@ working on a number of engagements within the energy domain. During these engage
 
 In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
->[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see [Cortana Analytics Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
+>[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
 
 ## Overview  
 
-This document covers the business, data, and technical aspects of using Cortana Analytics and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
+This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
 
 1. Business understanding  
 2. Data understanding  
@@ -75,7 +75,7 @@ The **Energy Demo** goal is to demonstrate a typical predictive analytics and ma
 leveraged upon. The information in this playbook can help the customer accomplishing the following goals:
 -   Short time to value of machine learning based solution
 -   Ability to expand a pilot use case to other use cases or to a broader scope based on their business need
--   Quickly gain Cortana Analytics Suite product knowledge
+-   Quickly gain Cortana Intelligence Suite product knowledge
 
 With these goals in mind, this playbook aims at delivering the business and technical knowledge that will assist in achieving these goals.
 
@@ -115,13 +115,13 @@ The following table compares STLF and LTLF in respect to the most important attr
 
 |Attribute|Short Term Load Forecast|Long Term Load Forecase|
 |---|---|---|
-|Forecast Horizon|From 1 hour to 48 hours|From 1 week to 6 months or more|
+|Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
 |Data granularity|Hourly|Hourly or daily|
 |Typical use cases|<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul>|<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul>|
 |Typical predictors|<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul>|<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul>|
 |Historical data range|Two to three years' worth of data|Five to 10 years' worth of data|
-|Typical accuracy|MAPE* of 95% or better|MAPE* of 75% or better|
-|Forecast frequency|Produced every hour or every 24 hours|Produced once a week, monthly or quarterly|
+|Typical accuracy|MAPE* of 5% or lower|MAPE* of 25% or lower|
+|Forecast frequency|Produced every hour or every 24 hours|Produced once monthly, quarterly or yearly|
 \*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) –
 Mean Average Percent Error
 
@@ -145,19 +145,19 @@ The short-term and long-term models are deployed individually per each substatio
 More information about this use case can be found [here](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
 #### Use Case Qualification Criteria – Prerequisites
-The main strength of Cortana Analytics is in its powerful ability to deploy and scale machine learning centric solutions. It is designed to support thousands of predictions that are executed concurrently. It can automatically scale to meet a changing consumption pattern. A solution's
+The main strength of Cortana Intelligence is in its powerful ability to deploy and scale machine learning centric solutions. It is designed to support thousands of predictions that are executed concurrently. It can automatically scale to meet a changing consumption pattern. A solution's
 focus therefore, is on accuracy and computational performance. For example, a utility company is interested in producing accurate energy demand forecast for the next hour, and for each hour of the day. On the other hand, we are less interested in answering the question of why the demand is predicted to be as it is (the model itself will take care of that).
 
 It is therefore important to realize that not all use cases and business problems can be effectively solved using machine learning.
 
-Cortana Analytics and machine learning could be highly effective in solving a given business problem when the following criteria are met:
+Cortana Intelligence and machine learning could be highly effective in solving a given business problem when the following criteria are met:
 -   The business problem in hand is **predictive** in nature. A predictive use case example is a utility company that would like to predict power load on a given substation during the next hour. On the other hand, analyzing and ranking drivers of historical demand would be **descriptive** in nature and therefore less applicable.
 -   There is a clear **path of action** to be taken once the prediction is available. For example, predicting an overload on a substation during the next hour can trigger a proactive action of reducing load that is associated with that substation and thus potentially preventing an overload.
 -   The use case represents a **typical type of problem** such that when solved it can pave the way to solving other similar use cases.
 -   The customer can set **quantitative and qualitative goals** to demonstrate a successful solution implementation. For example, a good quantitative goal for energy demand forecast would be the required accuracy threshold (*e.g.*, up to 5% error is allowed) or when predicting substation overload then the precision (rate of true positives) and recall (extent of true positives) should be above a given threshold. These goals should be derived from the customer's business goals.
 -   There is a clear **integration scenario** with the company's business workflow. For example, the substation load forecast can be integrated into the grid control center to allow overload prevention activities.
 -   The customer has ready to use **data with sufficient quality** to support the use case (see more in the next section, **Data Quality**, of this playbook).
--   The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Analytics Suite components.
+-   The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Intelligence Suite components.
 -   The customer is willing to establish **an end to end data flow** that facilities the delivery of data into the cloud on an ongoing basis, and is willing to **operationalize** the solution.
 -   The customer is ready to **dedicate resources** who will be actively engaged during the initial pilot implementation so that knowledge and ownership of the solution can be transferred to the customer upon successful completion.
 -   The customer resource should be a **skilled data professional**, preferably a data scientist.
@@ -165,20 +165,20 @@ Cortana Analytics and machine learning could be highly effective in solving a gi
 Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
 ### Cloud-Based Solutions
-Cortana Analytics Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT
+Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT
 solutions. Within the energy sector, there is a clear trend of gradual migration of operations into the cloud. This trend goes hand in hand along with the development of the smart grid as discussed above, in **Industry Trends**. As this playbook is focused on a cloud-based solution in the energy domain, it is important to explain the benefits and other considerations of deploying a cloud-based solution.
 
 Perhaps the biggest advantage of a cloud-based solution is the cost. As a solution makes use of cloud-deployed components, there is no upfront costs or COGS (Cost of Goods Sold) component costs associated with it. That means that there is no need to invest in hardware, software, and IT maintenance, and therefore there is a substantial reduction in business risk.
 
 Another important advantage is the pay-as-you-go cost structure of cloud-based solutions. Cloud-based servers for computing or storage can be deployed and scaled on a just-as-needed basis. This represents the cost efficiency advantage of a cloud-based solution.
 
-Finally, there is no need for investing in IT maintenance or future infrastructure development as all this is part of the cloud-based offering. To that extent, Cortana Analytics Suite includes the best in class services and its road map keeps evolving. New features, components, and capabilities are constantly being introduced and evolve.
+Finally, there is no need for investing in IT maintenance or future infrastructure development as all this is part of the cloud-based offering. To that extent, Cortana Intelligence Suite includes the best in class services and its road map keeps evolving. New features, components, and capabilities are constantly being introduced and evolve.
 
 For a company that is just starting its transition into the cloud, we are highly recommending to take a gradual approach by implementing a cloud migration road map. We believe that for utilities and companies in the energy domain, the use cases that are discussed in this playbook
 represent an excellent opportunity for piloting predictive analytics solutions in the cloud.
 
 #### Business Case Justification Considerations
-In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Analytics Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
+In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
 
 On the other hand, one should have a good understanding of the business value of operating an energy demand forecasting (short or long term). In fact, it is important to realize the business value of each forecast operation. For example, accurately forecasting power load for the next
 24 hours can prevent overproduction or can help prevent overloads on the grid and this can be quantified in terms of financial savings on a daily basis.
@@ -186,12 +186,12 @@ On the other hand, one should have a good understanding of the business value of
 A basic formula for calculating the financial benefit of demand forecast solution would be:
 ![Basic formula for calculating the financial benefit of demand forecast solution](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Since Cortana Analytics Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
+Since Cortana Intelligence Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
 
-Current Cortana Analytics Suite and Azure ML pricing plans can be found [here](http://azure.microsoft.com/pricing/details/machine-learning/).
+Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](http://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### Solution Development Process
-The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Analytics Suite.
+The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Intelligence Suite.
 
 This is illustrated in the following diagram:
 
@@ -278,7 +278,7 @@ The following tables shows examples of a good consumption and temperature data f
 As can be seen above, this example includes 3 different values for consumption associated with 3 power phases. Also, note that the date and time fields are separated, however they can also be combined into a single column. In this case the location column is represented in a 5-digit zip-code format and the temperature in a degree Celsius format.
 
 ### Data Format
-Cortana Analytics Suite can support the most common data formats like CSV, TSV, JSON, *etc.*. It is important that the data format stays consistent for the entire life cycle of the project.
+Cortana Intelligence Suite can support the most common data formats like CSV, TSV, JSON, *etc.*. It is important that the data format stays consistent for the entire life cycle of the project.
 
 ### Data Ingestion
 Since energy demand forecast is constantly and frequently predicted, we must ensure that the raw data is flowing by means of a solid and reliable data ingestion process. The ingestion process must guarantee that the raw data is available for the forecasting process at the required time. That implies that the data ingestion frequency should be greater than the forecasting frequency.
@@ -286,7 +286,7 @@ Since energy demand forecast is constantly and frequently predicted, we must ens
 For example: If our demand forecasting solution would generate a new forecast at 8:00AM on a daily basis then we need to ensure that all the data that has been collected during the last 24 hours has been fully ingested till that point and has to even include the last hour of
 data.
 
-In order to accomplish this, Cortana Analytics Suite offers various ways to support a reliable data ingestion process. This will be further discussed in the **Deployment** section of this document.
+In order to accomplish this, Cortana Intelligence Suite offers various ways to support a reliable data ingestion process. This will be further discussed in the **Deployment** section of this document.
 
 ### Data Quality
 The raw data source that is required for performing reliable and accurate demand forecasting must meet some basic data quality criteria. Although advanced statistical methods can be used to compensate for some possible data quality issue, we still need to ensure that we are crossing some base data quality threshold when ingesting new data. Here are a few considerations concerning raw data quality:
@@ -294,7 +294,7 @@ The raw data source that is required for performing reliable and accurate demand
 -   **Measurement accuracy** – the actual value of consumption or temperature should be accurately recorded. Inaccurate measurements will produce inaccurate forecasts. Typically, the measurement error should be lower than 1% relative to the true value.
 -   **Time of measurement** – it is required that the actual timestamp of the data collected will not deviate by more than 10 seconds relative to the true time of the actual measurement.
 -   **Synchronization** – When multiple data sources are being used (*e.g.*, consumption and temperature) we must ensure that there are no time synchronization issues between them. This means that the time difference between the collected timestamp from any two independent data sources should not exceed more than 10 seconds.
--   **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Analytics Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
+-   **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Intelligence Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
 
 ### Data Preparation and Feature Engineering
 Once the raw data has been ingested (see **Data Ingestion**) and has been securely stored, it is ready to be processed. The data preparation phase is basically taking the raw data and converting (transforming, reshaping) it into a form for the modeling phase. That may include
@@ -394,7 +394,7 @@ The main deployable building block in Azure ML is the web service. This is the m
 
 ![We Service Deployment and Consumption](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-As can be seen, the web service is deployed in the Cortana Analytics Suite cloud and can be invoked over its exposed REST API endpoint. Different type of clients across various domains can invoke the service through the Web API simultaneously. The web service can also scale to
+As can be seen, the web service is deployed in the Cortana Intelligence Suite cloud and can be invoked over its exposed REST API endpoint. Different type of clients across various domains can invoke the service through the Web API simultaneously. The web service can also scale to
 support thousands of concurrent calls.
 
 ### A Typical Solution Architecture
@@ -417,9 +417,9 @@ These are the steps that take place as part of the energy demand forecast cycle:
 It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
 ### End to End Deployment Architecture
-In order to practically deploy an energy demand forecast solution on Cortana Analytics, we need to ensure that the required components are established and configured correctly.
+In order to practically deploy an energy demand forecast solution on Cortana Intelligence, we need to ensure that the required components are established and configured correctly.
 
-The following diagram illustrates a typical Cortana Analytics based architecture that implements and orchestrates the data flow cycle that is described above:
+The following diagram illustrates a typical Cortana Intelligence based architecture that implements and orchestrates the data flow cycle that is described above:
 
 ![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 

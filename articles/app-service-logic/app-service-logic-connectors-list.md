@@ -1,55 +1,42 @@
 <properties
 	pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
 	description="Read about the Connectors and API Apps in Azure App Service"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="erikre"
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/11/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 
 # List of Connectors and API Apps to use in your Logic Apps
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [API List](../connectors/apis-list.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the Logic Apps General Availability (GA) version, see [New Connectors List](../connectors/apis-list.md).
 
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## Core Connectors
 The following table lists all the available connectors and API Apps created by Microsoft that are available as Core Connectors:
 
 Name | Description
 --- | ---
-[Azure HDInsight](app-service-logic-connector-hdinsight.md) | Use this connector to create a Hadoop cluster on Azure, submit different Hadoop jobs, and more.
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions.
-[Azure Storage Blob](app-service-logic-connector-azurestorageblob.md) | Connects to Blob storage and can get, delete, list, and more. 
 [Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing to translate text into another language.
-[Box](app-service-logic-connector-box.md) | Connects to Box and can upload, get, delete, list, and more file tasks.
-[Chatter](app-service-logic-connector-chatter.md) | Connects to Chatter and can post messages, search, and even retrieve new messages.
-[Dropbox](app-service-logic-connector-dropbox.md) | Connect to Dropbox and can get, delete, list, and more file tasks.
-[Facebook](app-service-logic-connector-facebook.md) | Connect to Facebook and can publish messages, pictures, and more. You can also get messages and comments, get user information about different likes, including books and movies.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
-[Microsoft OneDrive](app-service-logic-connector-onedrive.md) | Connects to your personal Microsoft OneDrive and upload, delete, list files, and more.
-[Microsoft SharePoint](app-service-logic-connector-sharepoint.md) | Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported.
-[Microsoft Yammer](app-service-logic-connector-yammer.md) | Connects to Yammer to post messages and get new messages.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | You can  complete different tasks including create, update, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.
 [Slack](app-service-logic-connector-slack.md) | Connect to Slack and post messages to Slack channels.
-[Salesforce](app-service-logic-connector-salesforce.md) | Connect to your Salesforce account and manage  accounts, leads, opportunities, and more.
-[SugarCRM](app-service-logic-connector-sugarcrm.md) | Connects to SugarCRM Online and create, update, read, and more with different types of modules, including accounts, contacts, and so on.
-[Twilio](app-service-logic-connector-twilio.md) | Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more.
-[Twitter](app-service-logic-connector-twitter.md) | Connects to Twitter and get timelines, post tweets, and more.
 [Wait](app-service-logic-connector-wait.md) | Use this connector to delay the execution of your app. You can delay the app for a specific duration or until an occurrence at a specific time.
 
 
@@ -77,8 +64,6 @@ MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure 
 [Oracle Database](app-service-logic-connector-oracle.md) | Connects to on-premises Oracle Database and  can create, update, get, and delete entries on a database table.
 [POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Connect to a POP3 server to retrieve emails with attachments.
 [SAP](app-service-logic-connector-sap.md) | Connects to an on-premises SAP server and invokes RFCs, BAPIs and tRFCs, and send IDOCs.
-[SFTP](app-service-logic-connector-sftp.md) (SSH File Transfer Protocol)| Connects to SFTP and can upload, get, delete files, and more.
-[SMTP](app-service-logic-connector-smtp.md) (Simple Mail Transfer Protocol) | Connects to a SMTP server and can send email with attachments.
 
 ## Connectors as Triggers
 Several connectors provide triggers for Logic Apps. These triggers are of two types:

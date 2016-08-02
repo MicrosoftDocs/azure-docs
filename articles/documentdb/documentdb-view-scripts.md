@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="06/28/2016"
 	ms.author="anhoh"/>
 
 # Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
@@ -88,6 +88,8 @@ Script Explorer allows you to easily perform CRUD operations on DocumentDB serve
 	![Screenshot of Script Explorer delete command](./media/documentdb-view-scripts/scriptexplorerdeletescript2.png)
 
 ## Execute a stored procedure
+
+> [AZURE.WARNING] Executing stored procedures in Script Explorer is not yet supported for server side partitioned collections. For more information, visit [Partitioning and Scaling in DocumentDB](documentdb-partition-data.md).
 
 Script Explorer allows you to execute server-side stored procedures from the Azure portal.
 

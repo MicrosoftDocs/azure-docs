@@ -3,7 +3,7 @@
    description="Best practices for data serialization and how it affects rolling application upgrades."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
-   ms.author="jesseb"/>
+   ms.date="07/06/2016"
+   ms.author="vturecek"/>
 
 
 # How data serialization affects an application upgrade
@@ -65,4 +65,3 @@ Control how your application upgrades by using [Upgrade Parameters](service-fabr
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
- 

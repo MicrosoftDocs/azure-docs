@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Azure Active Directory integration with Replicon | Microsoft Azure" 
     description="Learn how to use Replicon with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Replicon
   
@@ -37,7 +37,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Replicon, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
 
@@ -106,7 +106,7 @@ The objective of this section is to outline how to enable users to authenticate 
     3.  Click the **+** to expand the **metaDataConfiguration** section.
     4.  Click **Choose File**, to select your identity provider metadata XML file, and click **Submit**.
 
-7.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+7.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC778418.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -144,7 +144,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Replicon, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Replicon **application integration page, click **Assign users**.
 

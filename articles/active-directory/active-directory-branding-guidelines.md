@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="06/23/2016"
    ms.author="mbaldwin"/>
 
 
 # Branding Guidelines for Applications
 
 
-This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory. These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, for sign-up and sign-in to your application.
+This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
 
 ## Personal accounts vs. work or school accounts from Microsoft
 
@@ -47,7 +47,7 @@ In an earlier version of these guidelines, we recommended using a “blue badge�
 
 Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work or school account from Microsoft. Azure AD will show a consent prompt the first time they access your app.
+**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
 
 **If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
 
@@ -66,19 +66,22 @@ However, we recommend that you write explanatory text instead of relying on butt
 ## Visual guidance for sign-in
 Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
 
-### Pictogram and “work or school account”
-It’s the association of the Microsoft logo and the generic “work or school” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “work or school account,” it’s ok to shorten it to “work account.”
+### Pictogram and “Sign in with Microsoft”
+It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in”.
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/work-or-school-account.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/work-account.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-light.png)
 
-You can also provide additional explanation to help end-users recognize whether they can use this button:
+You can also use a dark color scheme for the buttons.
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
 
 ## Branding Do’s and Don’ts
-**DO** use “work or school account” in combination with the Microsoft logo to represent sign-ins with Azure AD. If space is at a premium, it’s ok to say “work account”, but **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
+
+**DO** use “work or school account” in combination with the "Sign in with Microsoft" button to provide additional explanation to help end-users recognize whether they can use it. **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
 
 **DON’T** use “Office 365 ID” or “Azure ID”. Office 365 is also the name of a consumer offering from Microsoft which doesn’t use Azure AD for authentication.
 
@@ -89,7 +92,3 @@ You can also provide additional explanation to help end-users recognize whether 
 ## Navigation Do’s and Don’ts
 
 **DO** provide a way for users to sign out and switch to another user account. While most people have a single personal account from Microsoft/Facebook/Google/Twitter, people are often associated with more than one organization. Support for multiple signed-in users is coming soon.
-
-## Supporting both Azure AD and Microsoft Accounts in Your App
-
-If your app supports both Azure AD and Microsoft accounts, you need to include two separate sign-in buttons in your app. We are actively working on an update that will allow you to integrate once and support both personal and work accounts from Microsoft. When this is available, you’ll be able to show a single “sign-in with Microsoft” button in your app.

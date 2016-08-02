@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -80,15 +80,15 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 
 | Task                                                                                                                                                                                                                                                                                                                                                                                             | Reference                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Deploy Active Directory Domain Services domain with the Windows Server 2012 R2 schema extensions. You do not need to upgrade any of your domain controllers to Windows Server 2012 R2. The schema upgrade is the only requirement. | [Upgrade your Active Directory Domain Services Schema](#Upgrade your Active Directory Domain Services Schema)               |
-| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service.                                                                                                                                                   | [Prepare your Active Directory support devices](#Prepare your Active Directory to support devices) |
+| Deploy Active Directory Domain Services domain with the Windows Server 2012 R2 schema extensions. You do not need to upgrade any of your domain controllers to Windows Server 2012 R2. The schema upgrade is the only requirement. | [Upgrade your Active Directory Domain Services Schema](#upgrade-your-active-directory-domain-services-schema)               |
+| Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service.                                                                                                                                                   | [Prepare your Active Directory support devices](#prepare-your-active-directory-to-support-devices) |
 
 
 ##Part 3: Enable device writeback in Azure AD
 
 | Task                                                                                                                                                                                                                                                                                                                                                                                             | Reference                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Complete part 2 of Enabling device writeback in Azure AD Connect. Upon completion, return this this guide. | [Enabling device writeback in Azure AD Connect](#Upgrade your Active Directory Domain Services Schema)               |
+| Complete part 2 of Enabling device writeback in Azure AD Connect. Upon completion, return this this guide. | [Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema)               |
 
 
 ##[Optional] Part 4: Enable multi-factor authentication
@@ -102,10 +102,10 @@ The deployment is now complete. You can now try out some scenarios. Follow the l
 
 | Task                                                                                                                                                                                                                         | Reference                                                                       |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Join some devices to your workplace using Azure Active Directory Device Registration. You can join iOS, Windows, and Android devices                                                                                         | [Join devices to your workplace using Azure Active Directory Device Registration](#Join devices to your workplace using Azure Active Directory Device Registration) |
+| Join some devices to your workplace using Azure Active Directory Device Registration. You can join iOS, Windows, and Android devices                                                                                         | [Join devices to your workplace using Azure Active Directory Device Registration](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | You can view and enable/disable registered devices using the Administrator Portal. In this task you will view some registered devices using the Administrator Portal.                                                        | [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md)                             |
-| Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory.                                                                                                                  | [Verify registered devices are written-back to Active Directory](#Verify registered devices are written-back to Active Director)                  |
-| Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task you will create an application access rule and a custom access denied message | [Create an application access policy and custom access denied message](#Create an application access policy and custom access denied message)            |
+| Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory.                                                                                                                  | [Verify registered devices are written-back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory)                  |
+| Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task you will create an application access rule and a custom access denied message | [Create an application access policy and custom access denied message](#create-an-application-access-policy-and-custom-access-denied-message)            |
 
 
 
@@ -120,13 +120,13 @@ This will help you integrate your Azure AD tenant with your on-premises active d
   1.	Add domains.
   2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
-  >[AZURE.NOTE] Configure Federation with AD FS as outlined in the document linked above.
-  >[AZURE.NOTE] You do not need to configure any of the preview features.
-
-
+  
+  > [AZURE.NOTE] 
+  > Configure Federation with AD FS as outlined in the document linked above. You do not need to configure any of the preview features.
 
 
 ## Upgrade your Active Directory Domain Services schema
+
 > [AZURE.NOTE]
 > Upgrading your Active Directory schema cannot be reversed. It is recommended that you first perform this in a test environment.
 
@@ -136,6 +136,7 @@ This will help you integrate your Azure AD tenant with your on-premises active d
 4. From a command prompt, navigate to the adprep directory and execute: **adprep.exe /forestprep**. Follow the onscreen instructions to complete the schema upgrade.
 
 ## Prepare your Active Directory to support devices
+
 >[AZURE.NOTE] This is a one-time operation that you must run to prepare your Active Directory forest to support devices. You must be logged on with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema to complete this procedure.
 
 
@@ -181,7 +182,7 @@ Where `yourdomainname` is the domain name that you have configured with Azure Ac
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-There are many different ways to communicate this URL to your users. One recommended way is to publish this URL in a custom application access denied message in AD FS. This is covered in the upcoming section: [Create an application access policy and custom access denied message](#Create an application access policy and custom access denied message).
+There are many different ways to communicate this URL to your users. One recommended way is to publish this URL in a custom application access denied message in AD FS. This is covered in the upcoming section: [Create an application access policy and custom access denied message](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ###Join a Windows 8.1 device using Azure Active Directory Device Registration
 
@@ -208,6 +209,7 @@ By default, device objects that are written-back from Azure Active Directory wil
 Consider the following scenario: You create an application Relying Party Trust in AD FS and configure an Issuance Authorization Rule that allows only registered devices. Now only devices that are registered are allowed to access the application. To make it easy for your users to gain access to the application, you configure a custom access denied message that includes instructions on how to join their device. Now your users have a seamless way to register their devices in order to access an application.
 
 The following steps will show you how to implement this scenario.
+
 >[AZURE.NOTE]
 This section assumes that you have already configured a Relying Party Trust for your application in AD FS.
 

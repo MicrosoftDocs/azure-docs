@@ -3,8 +3,8 @@
    description="How to use a JUnit sampler to generate and upload data to an Elasticsearch cluster."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.date="07/21/2016"
+   ms.author="masashin"/>
    
 # Deploying a JMeter JUnit sampler for testing Elasticsearch performance
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 

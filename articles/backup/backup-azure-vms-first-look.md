@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protect VMs in Azure with Azure Backup | Microsoft Azure"
-	description="Protect Azure VMs with Azure Backup service. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
+	pageTitle="First Look: Protect Azure VMs with a backup vault | Microsoft Azure"
+	description="Protect Azure VMs with Backup vault. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,86 +13,99 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # First look: Backing up Azure virtual machines
 
-This article is a tutorial that will take you through the set of steps for preparing your Azure environment to back up an Azure virtual machine (VM). This tutorial assumes you already have a VM in your Azure subscription and that you have taken the measures to allow the backup service to access the VM. At a high level, here are the steps that you will complete.  
+> [AZURE.SELECTOR]
+- [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [First Look: Protect Azure VMs with a backup vault](backup-azure-vms-first-look.md)
 
-![High-level view of VM backup process](./media/backup-azure-vms-first-look/BackupAzureVM.png)
+This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to a backup vault in Azure. This article describes the Classic model or Service Manager deployment model, for backing up VMs. If you are interested in backing up a VM to a Recovery Services vault that belongs to a Resource Group, see [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md). To successfully complete this tutorial, these prerequisites must exist:
 
+- You have created a VM in your Azure subscription.
+- The VM has connectivity to Azure public IP addresses. For additional information, see [Network connectivity](./backup-azure-vms-prepare.md#network-connectivity).
 
-1. Create or sign in to your Azure subscription.
-2. Create a backup vault or identify an existing backup vault *in the same region as your VM*.
-3. Use the Azure portal to discover and register the virtual machines in the subscription.
-4. Install the VM Agent on the virtual machine (if you are using a VM from the Azure gallery, the VM Agent will already be present).
-5. Create the policy for protecting the virtual machines.
-6. Run the backup.
+To back up a VM, there are five main steps:  
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). Currently, the Azure Backup service does not support Azure Resource Manager (ARM)-based virtual machines - also known as IaaS V2 virtual machines. Since IaaS V2 VMs came about with the release of the new Azure portal, this tutorial is designed for use with the type of VMs that can be created in the Azure classic portal.
+![step-one](./media/backup-azure-vms-first-look/step-one.png) Create a backup vault or identify an existing backup vault. <br/>
+![step-two](./media/backup-azure-vms-first-look/step-two.png) Use the Azure Classic portal to discover and register the virtual machines. <br/>
+![step-three](./media/backup-azure-vms-first-look/step-three.png) Install the VM Agent. <br/>
+![step-four](./media/backup-azure-vms-first-look/step-four.png) Create the policy for protecting the virtual machines. <br/>
+![step-five](./media/backup-azure-vms-first-look/step-five.png) Run the backup.
+
+![High-level view of VM backup process](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
+
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Resource Manager-based VMs. For details on backing up VMs to a recovery services vault, see [First Look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md).
+
 
 
 ## Step 1 - Create a backup vault for a VM
 
-A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that will be applied to the virtual machines being backed up.
+A backup vault is an entity that stores all the backups and recovery points that have been created over time. The backup vault also contains the backup policies that are applied to the virtual machines being backed up.
 
-This image shows the relationships between the various Azure Backup entities:
-    ![Azure Backup entities and relationships](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+1. Sign in to the [Azure Classic portal](http://manage.windowsazure.com/).
 
-To create a backup vault:
+2. In the lower left corner of the Azure portal, click **New**
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/).
+    ![Click New menu](./media/backup-azure-vms-first-look/new-button.png)
 
-2. In the Azure portal click **New** > **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create** (see the image below).
+3. In the Quick Create wizard, click **Data Services** > **Recovery Services** > **Backup Vault** > **Quick Create**.
 
-    ![Create backup vault](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
+    ![Create backup vault](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-3. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+    The wizard prompts you for the **Name** and **Region**. If you administer more than one subscription, a dialog for choosing the subscription appears.
 
-4. In **Region**, select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
+4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription.
 
-    If you are unsure of the region in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a backup vault in each region - although complete the creation of the vault in the first region before going to the next. There is no need to specify storage accounts to store the backup data--the backup vault and the Azure Backup service handle this automatically.
+5. In **Region**, select the geographic region for the vault. The vault **must** be in the same region as the virtual machines it protects.
 
-5. In **Subscription** select the subscription you want to associate with the backup vault. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+    If you don't know the region in which your VM exists, close this wizard and click **Virtual Machines** in the list of Azure services. The Location column provides the name of the region. If you have virtual machines in multiple regions, create a backup vault in each region.
 
-6. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
+6. If there is no **Subscription** dialog in the wizard, skip to the next step. If you work with multiple subscriptions, select a subscription to associate with the new backup vault.
+
+    ![Create vault toast notification](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
+
+7. Click **Create Vault**. It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
 
     ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    A message will confirm the vault has been successfully created. It will be listed on the **recovery services** page as **Active**.
+    A message confirms the vault has been successfully created. It is listed on the **Recovery services** page as **Active**.
 
     ![Create vault toast notification](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
-7. In the list of vaults on **Recovery Services** page, click the vault you created to launch the **Quick Start** page.
+8. In the list of vaults on **Recovery Services** page, select the vault you created to launch the **Quick Start** page.
 
     ![List of backup vaults](./media/backup-azure-vms-first-look/active-vault-demo.png)
 
-8. On the **Quick Start** page, click **Configure** to open the storage replication option.
+9. On the **Quick Start** page, click **Configure** to open the storage replication option.
     ![List of backup vaults](./media/backup-azure-vms-first-look/configure-storage.png)
 
-9. On the **storage replication** option, choose the replication option for your vault.
+10. On the **storage replication** option, choose the replication option for your vault.
 
     ![List of backup vaults](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, it is recommended that you continue using geo-redundant storage. If you are using Azure as  non-primary backup storage endpoint, then you can consider choosing locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. Choose geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about geo-redundant and locally redundant storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
-After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, discover and register the Azure virtual machines.
 
 ## Step 2 - Discover and Register Azure virtual machines
-Before registering the a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
+Before registering the VM with a vault, run the discovery process to identify any new VMs. This returns a list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
 
-1. Sign in to the [Azure portal](http://manage.windowsazure.com/)
+1. Sign in to the [Azure Classic portal](http://manage.windowsazure.com/)
 
 2. In the Azure classic portal, click **Recovery Services** to open the list of Recovery Services vaults.
     ![Select workload](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
-3. In the list of **Recovery Services** vaults, select the vault you want to use to back up a VM.
+3. From the list of vaults, select the vault to back up a VM.
 
-    When you select your vault, it will open in the **Quick Start** page
+    When you select your vault, it opens in the **Quick Start** page
 
-4. From the vault menu (at the top of the page), click **Registered Items**.
+4. From the vault menu, click **Registered Items**.
+
+    ![Select workload](./media/backup-azure-vms-first-look/configure-registered-items.png)
 
 5. From the **Type** menu, select **Azure Virtual Machine**.
 
@@ -112,7 +125,7 @@ Before registering the a VM with a vault, run the discovery process to ensure th
 7. Click **REGISTER** at the bottom of the page.
     ![Register button](./media/backup-azure-vms-first-look/register-icon.png)
 
-8. In the **Register Items** shortcut menu, select the virtual machines that you want to register. If there are two or more virtual machines with the same name, use the cloud service to distinguish between them.
+8. In the **Register Items** shortcut menu, select the virtual machines that you want to register.
 
     >[AZURE.TIP] Multiple virtual machines can be registered at one time.
 
@@ -126,36 +139,21 @@ Before registering the a VM with a vault, run the discovery process to ensure th
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    When the operation completes, the status changes to reflect the *registered* state.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
 ## Step 3 - Install the VM Agent on the virtual machine
 
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. However, VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed explicitly. Before you attempt to back up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you creating a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM. You can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
 
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
-
-The following table provides additional information about the VM Agent for Windows and Linux VMs.
-
-| **Operation** | **Windows** | **Linux** |
-| --- | --- | --- |
-| Installing the VM Agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
-| Validating the VM Agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
+If your VM migrated from an on-premises datacenter, the VM probably does not have the VM Agent installed. You must install the VM Agent on the virtual machine before proceeding to protect the VM. For detailed steps on installing the VM Agent, see the [VM Agent section of the Backup VMs article](backup-azure-vms-prepare.md#vm-agent).
 
 
-### Backup extension
+## Step 4 - Create the backup policy
+Before you trigger the initial backup job, set the schedule when backup snapshots are taken. The schedule when backup snapshots are taken, and the length of time those snapshots are retained, is the backup policy. The retention information is based on Grandfather-father-son backup rotation scheme.
 
-Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
-
-The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
-
-
-## Step 4 - Protect Azure virtual machines
-Now you can set up a backup and retention policy for the virtual machine. Multiple virtual machines can be protected by using a single protect action. Azure Backup vaults created after May 2015 come with a default policy built into the vault. This default policy comes with a default retention of 30 days and a once-daily backup schedule.
-
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
+1. Navigate to the backup vault under **Recovery Services** in the Azure Classic portal, and  click **Registered Items**.
 2. Select **Azure Virtual Machine** from the drop-down menu.
 
     ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
@@ -171,9 +169,9 @@ Now you can set up a backup and retention policy for the virtual machine. Multip
 
     If there are two or more virtual machines with the same name, use the Cloud Service to distinguish between the virtual machines.
 
-5. On **Configure protection** select an existing policy or create a new policy to protect the virtual machines that you identified.
+5. On the **Configure protection** menu select an existing policy or create a new policy to protect the virtual machines that you identified.
 
-    Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at any given point in time.
+    New Backup vaults have a default policy associated with the vault. This policy takes a daily snapshot each evening, and the daily snapshot is retained for 30 days. Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at a time.
 
     ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
 
@@ -181,35 +179,25 @@ Now you can set up a backup and retention policy for the virtual machine. Multip
 
 6. On **Retention Range** define the daily, weekly, monthly, and yearly scope for the specific backup points.
 
-    ![Protect with flexible retention](./media/backup-azure-vms/policy-retention.png)
-
-    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken. For example, a backup point taken at the end of each quarter may need to be preserved for a longer period (for audit purposes) - while the backup point taken daily (which serves as an operational recovery point) only needs to be preserved for 90 days.
-
     ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
 
-    In this example image:
+    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken.
 
-    - **Daily retention policy**: Backups taken daily are stored for 30 days.
-    - **Weekly retention policy**: Backups taken every week on Sunday will be preserved for 104 weeks.
-    - **Monthly retention policy**: Backups taken on the last Sunday of each month will be preserved for 120 months.
-    - **Yearly retention policy**: Backups taken on the first Sunday of every January will be preserved for 99 years.
-
-    A job is created to configure the protection policy and associate the virtual machines to that policy for each virtual machine that you've selected.
-
-6. Click **Job** and choose the right filter to view the list of **Configure Protection** jobs.
+7. Click **Jobs** to view the list of **Configure Protection** jobs.
 
     ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
+    Now that you've established the policy, go to the next step and run the initial backup.
 
 ## Step 5 - Initial backup
 
-Once a virtual machine has been protected with a policy, you can view that relationship on the **Protected Items** tab. Until the initial backup for a VM has occurred, the **Protection Status** shows as **Protected - (pending initial backup)**. By default, the first scheduled backup is the *initial backup*.
+Once a virtual machine has been protected with a policy, you can view that relationship on the **Protected Items** tab. Until the initial backup occurs, the **Protection Status** shows as **Protected - (pending initial backup)**. By default, the first scheduled backup is the *initial backup*.
 
 ![Backup pending](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
-To trigger the initial backup immediately after configuring protection:
+To start the initial backup now:
 
-1. On the **Protected Items** page click the **Backup Now** button at the bottom of the page.
+1. On the **Protected Items** page, click **Backup Now** at the bottom of the page.
     ![Backup Now icon](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
     The Azure Backup service creates a backup job for the initial backup operation.
@@ -218,16 +206,14 @@ To trigger the initial backup immediately after configuring protection:
 
     ![Backup in progress](./media/backup-azure-vms-first-look/protect-inprogress.png)
 
-    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
-
-    When initial backup is complete, the status of the virtual machine in the **Protected Items** tab will be *Protected*.
+    When initial backup is complete, the status of the virtual machine in the **Protected Items** tab is *Protected*.
 
     ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
     >[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
 
 ## Next steps
-Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM, however there are management tasks that will help you understand how to keep your data safe and keep costs down.
+Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However, there are management tasks that will help you understand how to keep your data safe and minimize costs.
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)

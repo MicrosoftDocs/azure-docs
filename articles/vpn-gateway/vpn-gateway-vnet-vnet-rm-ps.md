@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell
@@ -58,27 +58,7 @@ You may want to connect virtual networks for the following reasons:
 
 ### VNet-to-VNet FAQ
 
-- The virtual networks can be in the same or different Azure regions (locations).
-
-- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
-
-- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways unless cross-premises connectivity is required.
-
-- VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
-
-- VNet-to-VNet requires Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types. 
-
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 (Default/Standard Gateways) or 30 (High Performance Gateways) VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks or on-premises sites.
-
-- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of VNet-to-VNet connections to fail.
-
-- Redundant tunnels between a pair of virtual networks are not supported.
-
-- All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
-
-- VNet-to-VNet traffic travels across the Microsoft Network, not the Internet.
-
-- VNet-to-VNet traffic within the same region is free for both directions; cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Please refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)] 
 
 
 ## Which set of steps should I use?
@@ -95,7 +75,7 @@ For configuration steps, the key difference between the two is whether you can c
 - [VNets that reside in different subscriptions](#difsub)
 
 
-## <a name ="samesub"/>How to connect VNets that are in the same subscription
+## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
 This configuration applies to virtual networks that are in the same subscription, as shown in the diagram below:
 
@@ -107,7 +87,7 @@ This configuration applies to virtual networks that are in the same subscription
 	
 - You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
-### <a name ="Step1"/>Step 1 - Plan your IP address ranges
+### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
 
 It’s important to decide the ranges that you’ll use to configure your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
@@ -140,7 +120,7 @@ For this exercise, use the following values for the VNets:
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Resource Group: TestRG4
 - Location: West US
 - DNS Server: 8.8.8.8
@@ -152,7 +132,7 @@ For this exercise, use the following values for the VNets:
 
 
 
-### <a name ="Step2"/>Step 2 - Create and configure TestVNet1
+### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
 1. Declare your variables
 
@@ -312,7 +292,7 @@ Once you've configured TestVNet1, you'll repeat the steps to create TestVNet4. F
 
 	The connection should be established after a few minutes.
 
-## <a name ="Verify"/>How to verify a VNet-to-VNet connection
+## <a name="Verify"></a>How to verify a VNet-to-VNet connection
 
 The examples below will show you how to verify your connection. Please be sure to change the values to match your environment.
 
@@ -355,7 +335,7 @@ After the cmdlet has finished, scroll through to view the values. In the example
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>How to connect VNets that are in different subscriptions
+## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
 The configuration steps below add an additional VNet-to-VNet connection to connect TestVNet1 to TestVNet5, which resides in a different subscription. The difference here is that part of the configuration steps need be performed in a separate PowerShell session in the context of the second subscription, especially when the two subscriptions belong to different organizations. Upon completing the steps below, the resulting configuration is shown in the diagram below:
 
@@ -453,7 +433,7 @@ This step must be done in the context of the new subscription. This part may be 
 
 		$vnet5     = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
 		$subnet5   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig 
+		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
 
 8. Create the TestVNet5 gateway
 
@@ -528,5 +508,6 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+- Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 

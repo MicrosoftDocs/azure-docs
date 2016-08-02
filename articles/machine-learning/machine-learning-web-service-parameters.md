@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raymondl;garye"/>
 
 #Use Azure Machine Learning Web Service Parameters
 
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this. 
 
-A common example is setting up the [Reader][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Writer][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 
+A common example is setting up the [Import Data][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 
 
 You can set Web Service Parameters and associate them with one or more module parameters in your experiment, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when they call the web service. 
 
@@ -35,14 +35,16 @@ Once you define a Web Service Parameter, it's available to any other module para
 
 You can decide whether to provide a default value for the Web Service Parameter. If you do, then the parameter is optional for the user of the web service. If you don't provide a default value, then the user is required to enter a value when the web service is accessed.
 
-The documentation for the web service (provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio) will include information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.
+The API documentation for the web service will include information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.
+
+>[AZURE.NOTE] The API documentation for a classic web service is provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio. The API documentation for a new web service is provided through the [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portal on the **Consume** and **Swagger API** pages for your web service.
 
 
 ##Example
 
-As an example, let's assume we have an experiment with a [Writer][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
+As an example, let's assume we have an experiment with a [Export Data][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
 
-1.	In Machine Learning Studio, click the [Writer][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
+1.	In Machine Learning Studio, click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
 
 2.	Specify the storage type:
 
@@ -57,7 +59,7 @@ As an example, let's assume we have an experiment with a [Writer][writer] module
 
     Select "Set as web service parameter".
 
-    An entry is added under **Web Service Parameters** at the bottom of the Properties pane with the name "Path to blob beginning with container". This is the Web Service Parameter that is now associated with this [Writer][writer] module parameter.
+    An entry is added under **Web Service Parameters** at the bottom of the Properties pane with the name "Path to blob beginning with container". This is the Web Service Parameter that is now associated with this [Export Data][writer] module parameter.
 
 4.	To rename the Web Service Parameter, click the name, enter "Blob path", and press the **Enter** key. 
  
@@ -67,9 +69,9 @@ As an example, let's assume we have an experiment with a [Writer][writer] module
 
 6.	Click **Run**. 
 
-7.	Click **PUBLISH WEB SERVICE** to publish the web service.
+7.	Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** to deploy the web service.
 
-The user of the web service can now specify a new destination for the [Writer][writer] module when accessing the web service.
+The user of the web service can now specify a new destination for the [Export Data][writer] module when accessing the web service.
 
 ##More information
 

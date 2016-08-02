@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="How to register data sources"
-   description="How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted, and the data sources supported during preview."
+<properties
+   pageTitle="How to register data sources | Microsoft Azure"
+   description="How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted during registration."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 

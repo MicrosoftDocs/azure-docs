@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="06/13/2016"
    ms.author="subramar"/>
 
 
@@ -29,9 +29,8 @@ With Service Fabric monitored rolling upgrades, the application administrator ca
 
 ## Step 1: Build and deploy the Visual Objects sample
 
-These steps can be done by downloading the application from GitHub, and adding the **webgl-utils.js** and **gl-matrix-min.js** files into the project as mentioned in the sample's readme file. Without that, the application will not work.
 
-After adding these to the project, build and publish the application by right clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command in the Service Fabric menu item as follows.  See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) for more information.  Alternatively, you can use PowerShell to deploy your application.
+Build and publish the application by right clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command in the Service Fabric menu item as follows.  See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) for more information.  Alternatively, you can use PowerShell to deploy your application.
 
 > [AZURE.NOTE] Before any of the Service Fabric commands may be used in PowerShell, you first need to connect to the cluster by using the `Connect-ServiceFabricCluster` cmdlet. Similarly, it is assumed that the Cluster has already been set up on your local machine. See the article on [setting up your Service Fabric development environment](service-fabric-get-started.md).
 
@@ -52,17 +51,17 @@ You can use the Visual Studio *Edit Manifest Files* option after you right-click
 After the changes are made, the manifest should look like the following (highlighted portions show the changes):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<CodePackageName="Code"Version="2.0">
+<CodePackageName="Code" Version="2.0">
 ```
 
 Now we need to update the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) to use version 2.0 of the **VisualObjects.ActorService** project, and also update the Application version to 2.0.0.0 from 1.0.0.0. Now the corresponding lines in the *ApplicationManifest.xml* should read like the following:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 

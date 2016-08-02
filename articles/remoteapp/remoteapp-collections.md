@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/02/2016" 
+    ms.date="07/20/2016" 
     ms.author="elizapo" />
 
 
@@ -49,23 +49,23 @@ Ok, how do I create one?
 - Provide full access to on-premises network + Azure VNET.
 - Includes domain join access for apps and data. Remote applications can authentication against your on-premises Active Directory - they can then access resources in your domain.
 - Enable advanced monitoring and management with existing System Center solutions and Windows Group Policies (through a custom image built on Windows Server 2012 R2)
-- Support [Express Route](https://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
+- Support [ExpressRoute](https://azure.microsoft.com/services/expressroute/) to connect your Azure VNET to your local VNET.
 
 Create using the **Create with VNET** option and DO choose to join a domain.
 
 ## Authentication options
 Azure RemoteApp supports both Microsoft accounts and Azure Active Directory accounts, but not all collections support all methods. 
 
-| Account type                      |                                                             | Cloud | Cloud + VNET | Hybrd |
-|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
-| Microsoft Account                 |                                                             | Yes   | Yes          | No    |
-| Azure Active Directory (Azure AD) |                                                             |       |              |       |
-|                                   | Azure AD only                                               | Yes   | Yes          | No    |
-|                                   | AD Connect with password sync                               | Yes   | Yes          | Yes   |
-|                                   | AD Connect without password sync                            | Yes   | Yes          | No    |
-|                                   | AD Connect with AD FS                                       | Yes   | Yes          | Yes   |
-|                                   | 3rd-party Azure-supported identity providers (such as Ping) | Yes   | Yes          | Yes   |
-| Multi-Factor Authentication       |                                                             | Yes   | Yes          | Yes   |
+| Account type                      |                                                             | Cloud | Cloud + VNET | Hybrid |
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
+| Microsoft Account                 |                                                             | Yes   | Yes          | No     |
+| Azure Active Directory (Azure AD) |                                                             |       |              |        |
+|                                   | Azure AD only                                               | Yes   | Yes          | No     |
+|                                   | AD Connect with password sync                               | Yes   | Yes          | Yes    |
+|                                   | AD Connect without password sync                            | Yes   | Yes          | No     |
+|                                   | AD Connect with AD FS                                       | Yes   | Yes          | Yes    |
+|                                   | 3rd-party Azure-supported identity providers (such as Ping) | Yes   | Yes          | Yes    |
+| Multi-Factor Authentication       |                                                             | Yes   | Yes          | Yes    |
 
 
 

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Technical prerequisites for creating a virtual machine image for the Azure Marketplace
@@ -48,7 +48,7 @@ Now that you reviewed the prerequisites and completed the necessary tasks, you c
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial/)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

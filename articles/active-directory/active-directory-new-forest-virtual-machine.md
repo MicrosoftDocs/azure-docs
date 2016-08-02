@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure" 
-	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
+<properties
+	pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure"
+	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network."
 	services="active-directory, virtual-network"
     keywords="active directory virtual machine, install active directory forest, azure active directory videos "
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="stevenpo" 
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
 	tags=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="01/25/2016" 
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 
 # Install a new Active Directory forest on an Azure virtual network
 
-This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network. 
+This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network.
 
 You might also be interested in these related topics:
 
 - For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario Diagram
@@ -36,9 +36,9 @@ In this scenario, external users need to access applications that run on domain-
 7
 ## How does this differ from on-premises?
 
-There is not much difference between installing a domain controller on Azure versus on-premises. The main differences are listed in the following table. 
+There is not much difference between installing a domain controller on Azure versus on-premises. The main differences are listed in the following table.
 
-To configure...  | On-premises  | Azure virtual network	
+To configure...  | On-premises  | Azure virtual network
 ------------- | -------------  | ------------
 **IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Run the Set-AzureStaticVNetIP cmdlet to assign a static IP address
 **DNS client resolver**  | Set Preferred and Alternate DNS server address on the network adapter properties of domain members   | Set DNS server address on the the virtual network properties
@@ -49,7 +49,7 @@ To configure...  | On-premises  | Azure virtual network
 ## Create an Azure virtual network
 
 1. Sign in to the Azure classic portal.
-2. Create a virtual network. Click **Networks** > **Create a virtual network**. Use the values in the following table to complete the wizard. 
+2. Create a virtual network. Click **Networks** > **Create a virtual network**. Use the values in the following table to complete the wizard.
 
 	On this wizard page…  | Specify these values
 	------------- | -------------
@@ -60,7 +60,7 @@ To configure...  | On-premises  | Azure virtual network
 
 
 ## Create VMs to run the domain controller and DNS server roles
- 
+
 Repeat the following steps to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
@@ -83,20 +83,20 @@ For more information about setting a static IP address, see [Configure a Static 
 
 ## Install Windows Server Active Directory
 
-Use the same routine to [install AD DS](https://technet.microsoft.com/library/jj574166.aspx) that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM. 
+Use the same routine to [install AD DS](https://technet.microsoft.com/library/jj574166.aspx) that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM.
 
 After the DC installation finishes, connect to the VM again and log on to the DC. Remember to specify domain credentials.
 
 ## Reset the DNS server for the Azure virtual network
 
-1. Reset the DNS forwarder setting on the new DC/DNS server. 
-  1. In Server Manager, click **Tools** > **DNS**. 
-  2. In **DNS Manager**, right-click the name of the DNS server and click **Properties**. 
-  3. On the **Forwarders** tab, click the IP address of the forwarder and click **Edit**.  Select the IP address and click **Delete**. 
-  4. Click **OK** to close the editor and **Ok** again to close the DNS server properties. 
-2. Update the DNS server setting for the virtual network. 
-  1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the DIP of one of the VMs that runs the DC/DNS server role and click **Save**. 
-  2. Select the VM and click **Restart** to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server. 
+1. Reset the DNS forwarder setting on the new DC/DNS server.
+  1. In Server Manager, click **Tools** > **DNS**.
+  2. In **DNS Manager**, right-click the name of the DNS server and click **Properties**.
+  3. On the **Forwarders** tab, click the IP address of the forwarder and click **Edit**.  Select the IP address and click **Delete**.
+  4. Click **OK** to close the editor and **Ok** again to close the DNS server properties.
+2. Update the DNS server setting for the virtual network.
+  1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the DIP of one of the VMs that runs the DC/DNS server role and click **Save**.
+  2. Select the VM and click **Restart** to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server.
 
 
 ## Create VMs for domain members
@@ -120,9 +120,9 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 -  [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Configure a Cloud-Only Virtual Network](../virtual-network/virtual-networks-create-vnet.md)
+
 -  [Configure a Site-to-Site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
--  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [Install a Replica Active Directory Domain Controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
@@ -136,5 +136,3 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
-
- 

@@ -11,7 +11,7 @@
 	ms.service="na"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="12/16/2015"
 	ms.author="dwrede"/>
@@ -51,7 +51,7 @@ You can always pin frequently accessed resources to your startboard, but you mig
 
 ## How to manage and delegate access to a resource
 
-From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
+From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](./active-directory/role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
 
 1.	Browse to your resource.
 2.	Click ‘All settings’ in the Essentials section.

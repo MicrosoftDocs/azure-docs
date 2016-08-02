@@ -5,7 +5,7 @@
     keywords="enterprise state roaming, windows cloud"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Windows 10 roaming settings reference
@@ -33,7 +33,7 @@ See the following table for a summary of the devices and account types that are 
 
 
 ##What is backup?
-Windows settings generally sync by default, but some settings are only backed up, such as the list of installed applications on a device. If a user disables sync on the device using the Settings app, application data that normally syncs becomes backup only. Backup data can only be accessed through the restore operation during the first run experience of a new device. Backups can be disabled via the device settings, and can be managed and deleted through the user’s OneDrive account.
+Windows settings generally sync by default, but some settings are only backed up, such as the list of installed applications on a device. Backup is for mobile devices only and currently not available for Enterprise State Roaming users. Backup uses a Microsoft account and stores the settings and application data into OneDrive. If a user disables sync on the device using the Settings app, application data that normally syncs becomes backup only. Backup data can only be accessed through the restore operation during the first run experience of a new device. Backups can be disabled via the device settings, and can be managed and deleted through the user’s OneDrive account.
 
 ## Windows Settings overview
 The following settings groups are available for end-users to enable/disable settings sync on Windows 10 devices.
@@ -46,6 +46,10 @@ The following settings groups are available for end-users to enable/disable sett
 - Other Windows Settings: see Windows Settings details
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+
+Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Edge browser Settings menu option.
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
  
 ## Windows Settings details
 In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
@@ -58,11 +62,11 @@ Settings that don't roam or sync will not belong to a group.
 |----------------------------------|---------|---------|-------|
 | **Accounts**: account picture        |  sync   |X        |Theme  |
 | **Accounts**: other account settings |X        |X        |       |
-|  **Advanced mobile broadband**: Internet connection sharing network name (enables auto-discovery of mobile Wi-Fi hotspots via Bluetooth)|sync  |sync   |Passwords |
+|  **Advanced mobile broadband**: Internet connection sharing network name (enables auto-discovery of mobile Wi-Fi hotspots via Bluetooth)|X  |X   |Passwords |
 |**App data**: individual apps can sync data|sync backup   | sync backup|internal       |
 |**App list**: list of installed apps  |X         |backup  |Other  |
 |**Bluetooth**: all Bluetooth settings |X        |X        |       |
-|**Command prompt**: all command prompt settings |sync|    |X      |Other
+|**Command prompt**: all command prompt settings |sync    |X      |    |
 |**Cortana**: on or off                |X        |X        |       |
 |**Cortana**: enable Cortana on the lock screen  |X        |X        |       |
 |**Cortana**: user name                |sync     |sync     |internal|
@@ -71,7 +75,7 @@ Settings that don't roam or sync will not belong to a group.
 |**Cortana**: find info on flights and more|X    |sync    |internal|
 |**Credentials**: Credential Locker    |sync     |sync     |password|
 |**Date, Time, and Region**: automatic time (Internet time sync) |sync     |sync     |language|
-|**Date, Time, and Region**: 24-hour clock|sync     |sync     |language|
+|**Date, Time, and Region**: 24-hour clock|sync     |X     |language|
 |**Date, Time, and Region**: date and time|sync     |X     |language|
 |**Date, Time, and Region**: time zone |     |X     |language|
 |**Date, Time, and Region**: daylight savings time|sync     |X     |language|
@@ -85,8 +89,8 @@ Settings that don't roam or sync will not belong to a group.
 |**Desktop personalization**: desktop Theme (background, system color, default system sounds, screen saver) |sync     |X     |Theme|
 |**Desktop personalization**: slideshow wallpaper |sync     |X     |Theme|
 |**Desktop personalization**: taskbar settings (position, auto-hide, etc.) |sync     |X     |Theme|
-|**Desktop personalization**: start screen layout |sync     |backup     ||
-|**Devices**: shared printers you've connected to |sync         | X    |other |
+|**Desktop personalization**: start screen layout |X     |backup     ||
+|**Devices**: shared printers you've connected to |X         | X    |other |
 |**Edge browser**: reading list        |sync     |sync     |internal|
 |**Edge browser**: favorites           |sync     |sync     |internal|
 |**Edge browser**: all other Edge settings|X     |X    ||
@@ -105,18 +109,18 @@ Settings that don't roam or sync will not belong to a group.
 |**Keyboard**: turn on filter keys (off by default)|sync     |X     |ease of access|
 |**Keyboard**: turn on toggle keys (off by default)|sync     |X     |ease of access|
 |**Internet Explorer**: domain Language: Chinese (CHS) QWERTY - enable self-learning|sync     |X  |Language|
-|**Language**: CHS QWERTY - enable dynamic c&idate ranking|sync     |X  |Language|
+|**Language**: CHS QWERTY - enable dynamic candidate ranking|sync     |X  |Language|
 |**Language**: CHS QWERTY - char-set Simplified Chinese|sync     |X  |Language|
 |**Language**: CHS QWERTY - char-set Traditional Chinese|sync     |X  |Language|
 |**Language**: CHS QWERTY - fuzzy pinyin|sync     |sync  |Language|
 |**Language**: CHS QWERTY - fuzzy pairs|sync     |sync  |Language|
-|**Language**: CHS QWERTY - full pinyin||sync     |X  |Language|
+|**Language**: CHS QWERTY - full pinyin|sync     |X  |Language|
 |**Language**: CHS QWERTY - double pinyin|sync     |X  |Language|
 |**Language**: CHS QWERTY - reading auto correction|sync     |X  |Language|
 |**Language**: CHS QWERTY - C/E switch key, shift|sync     |X  |Language|
 |**Language**: CHS QWERTY - C/E switch key, Ctrl|sync     |X  |Language|
 |**Language**: CHS WUBI - single character input mode     |sync     |X  |Language|
-|**Language**: CHS WUBI - show the remaining coding of the c&idate     |sync     |X  |Language|
+|**Language**: CHS WUBI - show the remaining coding of the candidate     |sync     |X  |Language|
 |**Language**: CHS WUBI - beep when 4-coding is invalid|sync     |X  |Language|
 |**Language**: CHS Bopomofo - include CJK Ext-A|sync     |X  |Language|
 |**Language**: Japanese IME - predictive typing and custom words|sync     |sync     |Language|
@@ -126,7 +130,7 @@ Settings that don't roam or sync will not belong to a group.
 |**Language**: spellcheck - autocorrect and highlight misspellings|sync     |backup     |Language|
 |**Language**: list of keyboards|sync     |backup     |Language|
 |**Lock Screen**: all lock screen settings|X     |X     ||
-|**Magnifier**: on or off (master toggle)|X    |backup     |Ease of access|
+|**Magnifier**: on or off (master toggle)|X    |X     |Ease of access|
 |**Magnifier**: turn inversion color on or off (off by default)|sync     |X     |Ease of access|
 |**Magnifier**: tracking - follow the keyboard focus|sync     |X     |Ease of access|
 |**Magnifier**: tracking - follow the mouse cursor|sync     |X     |Ease of access|

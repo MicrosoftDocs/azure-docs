@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -66,13 +66,13 @@ To set up the SVM model, do the following:
 
 1.	Find the [Two-Class Support Vector Machine][two-class-support-vector-machine] module in the module palette and drag it onto the canvas.
 2.	Right-click the [Train Model][train-model] module, select **Copy**, and then right-click the canvas and select **Paste**. Note that the copy of the [Train Model][train-model] module has the same column selection as the original.
-3.	Connect the output of the SVM module to the left input port ("Untrained model") of the [Train Model][train-model] module.
+3.	Connect the output of the SVM module to the left input port ("Untrained model") of the second [Train Model][train-model] module.
 4.	Find the [Normalize Data][normalize-data] module and drag it onto the canvas.
 5.	Connect the input of this module to the left output of the left [Execute R Script][execute-r-script] module (note that the output port of a module may be connected to more than one other module).
-6.	Connect the left output port ("Transformed Dataset") of the [Normalize Data][normalize-data] module to the right input port ("Dataset") of the [Train Model][train-model] module.
+6.	Connect the left output port ("Transformed Dataset") of the [Normalize Data][normalize-data] module to the right input port ("Dataset") of the second [Train Model][train-model] module.
 7.	In the **Properties** pane for the [Normalize Data][normalize-data] module, select **Tanh** for the **Transformation method** parameter.
 8.	Click **Launch column selector**, select "No columns" for **Begin With**, select **Include** in the first dropdown, select **column type** in the second dropdown, and select **Numeric** in the third dropdown. This specifies that all the numeric columns (and only numeric) will be transformed.
-9.	Click the plus sign (+) to the right of this row - this creates a new row of dropdowns. Select **Exclude** in the first dropdown, select **column names** in the second dropdown, and enter "Credit risk" in the text field (or select **column indices** and enter "21"). This specifies that the Credit Risk column should be ignored (we need to do this because this column is numeric and so would otherwise be transformed).
+9.	Click the plus sign (+) to the right of this row - this creates a new row of dropdowns. Select **Exclude** in the first dropdown, select **column names** in the second dropdown, and click the text field and select "Credit risk" from the list of columns. This specifies that the Credit Risk column should be ignored (we need to do this because this column is numeric and so would otherwise be transformed).
 10.	Click **OK**.  
 
 

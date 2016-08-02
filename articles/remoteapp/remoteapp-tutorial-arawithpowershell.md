@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/23/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 
 
 # Use Windows PowerShell cmdlets with Azure RemoteApp
-=====================================
 
  You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
 

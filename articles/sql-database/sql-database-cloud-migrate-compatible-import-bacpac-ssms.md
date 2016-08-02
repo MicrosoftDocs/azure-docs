@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
+   pageTitle="Migrating a SQL Server database to Azure SQL Database | Microsoft Azure"
    description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
-   manager="jeffreyg"
+   authors="CarlRabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Import from BACPAC to SQL Database using SSMS
@@ -32,25 +32,33 @@ This article shows how to import from a [BACPAC](https://msdn.microsoft.com/libr
 
 	 > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Open Management Studio and connect to your source database in Object Explorer.
-
-	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingBACPAC01.png)
-
-3. Once the BACPAC has been created, connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
+2. Connect to your Azure SQL Database server, right-click the **Databases** folder and click **Import Data-tier Application...**
 
     ![Import data-tier application menu item](./media/sql-database-cloud-migrate/MigrateUsingBACPAC03.png)
 
-4.	In the import wizard, choose the BACPAC file you just exported to create the new database in Azure SQL Database.
+3.	In the import wizard, import your BACPAC file from your local disk or select the Azure storage account and container to which you uploaded your BACPAC file to create the new database in Azure SQL Database.
 
     ![Import settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-5.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size** and **Service Objective** (performance level).
+    ***Important:*** When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+
+4.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size** and **Service Objective** (performance level).
 
     ![Database settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC05.png)
 
-6.	Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
+5.	Click **Next** and then click **Finish** to import the BACPAC file into a new database in the Azure SQL Database server.
 
-7. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
+6. Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 
-8.	Using the Azure Portal, view your database and its properties.
+6.	Using the Azure Portal, view your database and its properties.
 
+## Next steps
+
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Additional resources
+
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

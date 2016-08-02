@@ -50,7 +50,7 @@ The Table service contains the following components:
     quickly, and inserted/updated in atomic operations. An entity's row
     key is its unique identifier within a partition.
 
-
+For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/

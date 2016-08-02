@@ -3,7 +3,7 @@
    description="How to deploy and remove applications in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
-   ms.author="seanmck"/>
+   ms.date="06/14/2016"
+   ms.author="ryanwi"/>
 
 # Deploy an application
 
@@ -30,7 +30,9 @@ Once an [application type has been packaged][10], it's ready for deployment into
 
 Uploading the application package puts it in a location that's accessible by internal Service Fabric components. You can use PowerShell to perform the upload. Before you run any PowerShell commands in this article, always start by using **Connect-ServiceFabricCluster** to connect to the Service Fabric cluster.
 
-Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifest(s), and code/config/data package(s). The **Copy-ServiceFabricApplicationPackage** command will upload the package. For example:
+Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifest(s), and code/config/data package(s). The **Copy-ServiceFabricApplicationPackage** command will upload the package to the cluster image store. The **Get-ImageStoreConnectionStringFromClusterManifest** cmdlet, which is part of the Service Fabric SDK PowerShell module, is used to get the image store connection string.  To import the SDK module, run *Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"*.
+
+The following example uploads the package:
 
 ~~~
 PS D:\temp> dir
@@ -174,12 +176,6 @@ DefaultParameters      : {}
 
 PS D:\temp>
 ~~~
-
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
 
 ## Troubleshooting
 

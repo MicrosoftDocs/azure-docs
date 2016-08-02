@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Configuring and managing access to IoT Hub
@@ -30,23 +30,31 @@ Devices can communicate with IoT Hub in Azure using a variety of protocols. Typi
 | AMQP     | 5671    |
 | AMQP over WebSockets | 443    |
 | MQTT | 8883 |
+| LWM2M (Device management) | 5684 |
 
-Once you have created an IoT hub in an Azure region, the hub will keep the same IP address for the lifetime of that hub. However, in a disaster recovery scenario, if Microsoft moves the IoT hub to a different scale unit then it will be assigned a new IP address.
+Once you have created an IoT hub in an Azure region, the hub will keep the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it will be assigned a new IP address.
 
 ## IoT Hub and security
 
-Only devices registered with an IoT hub are allowed to communicate with that IoT hub. A registered device must be granted the *DeviceConnect* permission. A device identifies itself by including a token that encapsulates the devices unique ID in each request it makes, and the hub checks the validity of the token and that the device is not blacklisted (*DeviceConnect* permission revoked).
+Only devices registered with an IoT hub are allowed to communicate with that IoT hub. A registered device must be granted the *DeviceConnect* permission. A device identifies itself by including a token that encapsulates the devices unique ID in each request it makes, and the hub checks the validity of the token and that the device is not blacklisted (*DeviceConnect* permission revoked). For information about the tokens supported by IoT Hub, see [Use IoT Hub security tokens and X.509 certificates][lnk-tokens]
 
 Access to other management endpoints in an IoT hub is also controlled through a set of permissions: *iothubowner*, *service*, *registryRead*, and *registryReadWrite*. Any client management application that connects to an IoT hub must include a token with the appropriate permissions.
 
 ## Next steps
 
-This article contains specific information for IT Pros and developers configuring their development and test environments. Follow these links to learn more about the Azure IoT Hub service:
+This article contains specific information for IT Pros and developers configuring their development and test environments. The [security section in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
 
-- [What is Azure IoT Hub?][lnk-iothub]
-- The [security section in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
-- [Manage IoT Hub through the Azure portal][lnk-manage-portal] describes how to use the Azure portal to manage your IoT hub.
+To further explore the capabilities of IoT Hub, see:
 
-[lnk-iothub]: iot-hub-what-is-iot-hub.md
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+
 [lnk-devguide]: iot-hub-devguide.md#security
-[lnk-manage-portal]: iot-hub-manage-through-portal.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-tokens]: iot-hub-sas-tokens.md

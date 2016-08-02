@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Classic Portal" 
+	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure Classic Portal" 
 	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure Classic Portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="03/08/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
-#Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure Classic Portal
+#How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure Classic Portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
->[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Common Live Streaming Scenario
 
@@ -72,7 +72,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
-For details, see [Azure Free Trial](azure.microsoft.com).
+For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a single bitrate live stream.
 
@@ -110,7 +110,7 @@ To change the number of streaming reserved units, do the following:
 2.	Select the CHANNELS page.
 3.	Select Add+ to add a new channel.
 
-Choose **Standard** encoding types. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+Choose **Standard** encoding types. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard0][standard0]
 
@@ -120,7 +120,7 @@ For the **Standard** encoding type, valid ingest protocol options are:
 - Single bitrate RTMP
 - RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
 
-For detailed explanation about each protocol, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard1][standard1]
 
@@ -128,7 +128,7 @@ You cannot change the input protocol while the Channel or its associated program
 
 On the **Advertising Configuration** page you can specify the source for ad markers signals. When using Portal, you can only select API, which indicates that the live encoder within the Channel should listen to an asynchronous Ad Marker API. When using Portal, you can only select API.
 
-For more information, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard2][standard2]
 
@@ -149,7 +149,7 @@ Once you created the Channel, you can select the **ENCODER** tab where you can v
 
 ![standard5][standard5]
 
-For more information, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Get ingest URLs
@@ -174,7 +174,7 @@ Each program is associated with an Asset. To publish the program you must create
 
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+You should not reuse existing programs for new events. Instead, create and start a new program for each event.
 
 Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
 

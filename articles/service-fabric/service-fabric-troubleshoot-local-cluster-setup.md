@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
@@ -50,6 +50,8 @@ If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect
 #### Solution
 
 Always run Service Fabric cmdlets directly from Windows PowerShell.
+
+>[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
 
 ### Type Initialization exception
 
@@ -90,6 +92,7 @@ This error usually occurs when you try to try to start a service host process ma
 
 Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
 
+>[AZURE.TIP] If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
 
 ## Next steps
 

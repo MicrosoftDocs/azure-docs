@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="06/14/2016" 
 	ms.author="stefsch"/>	
 
 # Implementing a Layered Security Architecture with App Service Environments
@@ -89,7 +89,9 @@ With the NSG applied to the subnet, only the three upstream App Service Environm
 
 
 ## Additional Links and Information ##
-Configuration [network security groups][NetworkSecurityGroupsClassic] on classic virtual networks. 
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+
+Configuring [network security groups][NetworkSecurityGroupsClassic] on classic virtual networks. 
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 

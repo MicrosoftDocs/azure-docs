@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/13/2016"
 	ms.author="rajanaki"/>
 
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [Azure Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Classic Portal](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Overview
@@ -121,7 +123,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Step 2: Create a Recovery Services vault
+## Step 2: Create a Recovery Services vault 
 
 1. Create an ARM resource group if you don't have one already
 
@@ -131,19 +133,11 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Step 3: Generate a vault registration key
+## Step 3: Set the Recovery Services Vault context
 
-Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
+1.  Set the vault context by running the below command.
 
-1.	Get the vault setting file and set the context:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Set the vault context by running the following commands:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Step 4: Install the Azure Site Recovery Provider
 
@@ -192,7 +186,7 @@ Note that the storage account must be in the same region as the Azure Site Recov
 
 ## Step 6: Install the Azure Recovery Services Agent
 
-1. Download the Azure Recovery Services agent at [http:/aka.ms/latestmarsagent](http:/aka.ms/latestmarsagent "http:/aka.ms/latestmarsagent")
+1. Download the Azure Recovery Services agent at [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent)
 and install it on each Hyper-V host server located in the VMM clouds you want to protect.
 
 2. Run the following command on all VMM hosts:
@@ -245,7 +239,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. In addition, create one or more Azure virtual networks. 
 
-Learn more about how to create a virtual network using Azure Resource Manager and PowerShell, in [Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell/)
+Learn more about how to create a virtual network using Azure Resource Manager and PowerShell, in [Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Note that multiple Virtual Machine networks can be mapped to a single Azure network. If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after fail-over. If there is no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
@@ -273,7 +267,7 @@ After the servers, clouds and networks are configured correctly, you can enable 
 
  Note the following:
 
- - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](../site-recovery-best-practices) in the planning guide.
+ - Virtual machines must meet Azure requirements. Check these in [Prerequisites and Support](site-recovery-best-practices.md) in the planning guide.
 
  - To enable protection, the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
@@ -320,7 +314,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run an unplanned failover
 
-1. Start the planned failover by running the following command:
+1. Start the unplanned failover by running the following command:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -350,7 +344,7 @@ Use the following commands to monitor the activity. Note that you have to wait i
 
 ## Next steps
 
-[Read more](https://msdn.microsoft.com/library/dn850420.aspx) about Azure Site Recovery PowerShell cmdlets</a>.
+[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
 
 
 

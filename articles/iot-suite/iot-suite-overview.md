@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
-	description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
+	description="Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems."
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -14,12 +14,12 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/19/2016"
+     ms.date="05/23/2016"
      ms.author="dobett"/>
 
-# Overview of Azure IoT Suite
+# What is Azure IoT Suite?
 
-The Azure IoT services offer a broad range of capabilities. These enterprise grade services enable you to:
+The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 
 - Collect data from devices
 - Analyze data streams in-motion
@@ -53,14 +53,7 @@ IoT Suite includes preconfigured solutions that enable you to quickly get starte
 
 ## Next steps
 
-Now that you have an overview of what IoT Suite can do and what are its main components, you can:
-
-- Learn more about the preconfigured solutions in IoT Suite, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
-
-- Get started using one of the preconfigured solutions, see [Getting started with the IoT preconfigured solutions][lnk-preconfig-start].
-
-- Learn more about the Azure IoT Hub service, see the [IoT Hub documentation][lnk-iot-hub].
-
+Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,5 +64,3 @@ Now that you have an overview of what IoT Suite can do and what are its main com
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/

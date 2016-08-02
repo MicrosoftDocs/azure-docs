@@ -1,6 +1,6 @@
 <properties
     pageTitle="How to use Table storage (C++) | Microsoft Azure"
-    description="Learn how to use the Table storage service in Azure. Samples are written in C++."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # How to use Table storage from C++

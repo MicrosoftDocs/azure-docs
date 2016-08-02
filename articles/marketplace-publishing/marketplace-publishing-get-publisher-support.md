@@ -23,7 +23,7 @@ Microsoft provides support for a wide variety of products and services. Ensuring
 
 - If you are a publisher in the Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.
 
-- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://ms.portal.azure.com/.
+- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://portal.azure.com/.
 
 - If you are a publisher in the Marketplace and have a question relating to your app or service, continue reading below.
 

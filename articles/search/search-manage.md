@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
@@ -59,7 +59,6 @@ Besides adding Search to the subscription, an administrator is responsible for t
 +	Management and distribution of the api-keys.
 +	Monitor resource usage
 +	Scale up or down (applies to standard search only)
-+	Start or stop the service
 +	Set roles to control administrative access
 
 <a id="sub-3"></a>
@@ -160,15 +159,6 @@ To help with future planning, you might want to check storage (using [Get Index 
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
-<a id="sub-7"></a>
-## Start or Stop the Service
-
-You can start, stop, or even delete the service using commands in the service dashboard.
-
- ![][11]
-
-
-Stopping or starting the service does not turn off billing. You must delete the service to avoid charges altogether. Any data associated with your service is deleted when your service is decommissioned.
 
 <a id="sub-8"></a>
 ## Set roles on administrative access
@@ -195,14 +185,12 @@ Roles provide access control after the service is created. Only subscription man
 [Manage the api-keys]: #sub-4
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
-[Start or Stop the Service]: #sub-7
 [Set roles to control administrative access]: #sub-8
 
 <!--Image references-->
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
-[11]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png
 
 
  

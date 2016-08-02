@@ -4,20 +4,19 @@
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
-	editor=""/>
-
+	manager="jwhit"
+	editor=""
+	keywords="what is automation, azure automation, azure automation examples"/>
 <tags
 	ms.service="automation"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/23/2016"
+	ms.date="05/10/2016"
 	ms.author="magoedte;bwren"/>
 
 # Azure Automation overview
-
 
 Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals. You can automate processes using runbooks or automate configuration management using Desired State Configuration. This article provides brief overview of Azure Automation and answers some common questions. You can refer to other articles in this library for more detailed information on the different topics.
 
@@ -67,7 +66,7 @@ You can get [PowerShell modules](automation-runbook-gallery.md#modules-in-powers
 
 ## Example practical applications of Azure Automation 
 
-Following are just a few examples of the kinds of scenarios that you can automate with Azure Automation. 
+Following are just a few examples of what are the kinds of automation scenarios with Azure Automation. 
 
 * Create and copy virtual machines in different Azure subscriptions. 
 * Schedule file copies from a local machine to an Azure Blob Storage container. 

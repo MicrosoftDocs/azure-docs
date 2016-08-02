@@ -1,10 +1,10 @@
 <properties
-pageTitle=" Use the Slack API in your Logic apps| Microsoft Azure"
-description="Get started using the Slack API (connector) in your Microsoft Azure App Service Logic apps"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle=" Use the Slack Connector in your Logic apps| Microsoft Azure"
+description="Get started using the Slack Connector in your Microsoft Azure App Service Logic apps"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,14 +14,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Slack API
+# Get started with the Slack connector
 
 Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Slack](../app-service-logic/app-service-logic-connector-Slack.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With the Slack connector, you can:
 
@@ -42,7 +42,7 @@ You can take these action(s):
 |--- | ---|
 |PostMessage|Post a Message to a specified channel.|
 ## Create a connection to Slack
-To use the Slack API, you first create a **connection** then provide the details for these properties: 
+To use the Slack connector, you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|

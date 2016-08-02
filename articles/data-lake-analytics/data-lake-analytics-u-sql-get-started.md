@@ -3,7 +3,7 @@
    description="Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: Get started with Azure Data Lake Analytics U-SQL language
 
-U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process all data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data in the store and across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDF's, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, please refer to this [Visual Studio blog post](http://blogs.msdn.com/b/visualstudio/archive/2015/09/28/introducing-u-sql.aspx).
+U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process all data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data in the store and across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDF's, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, please refer to this [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE. 
 
@@ -48,7 +48,7 @@ In the tutorial, you ran a Data Lake Analytics job with the following U-SQL scri
         TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
 
-This script doesn't have any transformation steps. It reads from the source file called **SearchLog.tsv**, schematizes it, and outputs the rowset back into a file called **SearchLog-from-adltools.csv**. 
+This script doesn't have any transformation steps. It reads from the source file called **SearchLog.tsv**, schematizes it, and outputs the rowset back into a file called **SearchLog-first-u-sql.csv**. 
 
 Notice the question mark next to the data type of the Duration field. That means the Duration field could be null.
 
@@ -114,7 +114,7 @@ Use **SELECT** to transform rowsets:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-The WHERE clause uses [C# boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ands) and disjunctions (ors). 
+The WHERE clause uses [C# boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs). 
 
 The following script uses the DateTime.Parse() method and a conjunction.
 
@@ -250,7 +250,7 @@ The predicate in a JOIN has to be an equality join and no expression. If you wan
 
 U-SQL allows you to use data in the context of a database and schema. So you don't have to always read from or write to files. 
 
-Every U-SQL script runs with a default database (master) and default schema (dbo) as its default context. You can create your own database and/or schema. To change the context, use the **USE** statement to change the context.
+Every U-SQL script runs with a default database (master) and default schema (DBO) as its default context. You can create your own database and/or schema. To change the context, use the **USE** statement to change the context.
 
 
 ### Create a table-valued function (TVF)
@@ -320,7 +320,7 @@ The following script creates a view called *SearchlogView* in the default databa
         FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
     
-The following script demonstates using the defined view:
+The following script demonstrates using the defined view:
 
     @res =
         SELECT
@@ -412,7 +412,7 @@ What is covered in the tutorial is only a small part of U-SQL. Because of the sc
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-- [Using U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
+- [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Let us know what you think

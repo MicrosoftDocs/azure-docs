@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
-
-## Introduction 
 
 Azure Storage Explorer is a free windows based tool for inspecting and altering data in an Azure storage account. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Azure Storage Explorer](http://storageexplorer.com/).
 

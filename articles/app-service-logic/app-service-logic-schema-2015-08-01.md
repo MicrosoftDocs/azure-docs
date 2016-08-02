@@ -4,16 +4,16 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 	
 # New schema version 2015-08-01-preview
@@ -33,7 +33,7 @@ The biggest change is that you no longer need to deploy API apps into your Azure
 
 Each of these is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
 
-### Managed API's
+### Managed APIs
 
 There are a number of API's that are managed by Microsoft on your behalf, such as Office 365, Salesforce, Twitter, FTP etc.... Some of these managed API's can be used as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
@@ -95,7 +95,7 @@ With the following body:
 }
 ```
 
-### Deploying managed API's in an Azure Resource manager template
+### Deploying managed APIs in an Azure Resource manager template
 
 You can create a full application in an ARM template as long as it doesn’t require interactive sign-in. If it requires sign-in, you can set everything up with the ARM template, but will still have to visit the portal to authorize the connections. 
 
@@ -190,7 +190,7 @@ You can create a full application in an ARM template as long as it doesn’t req
 
 You can see in this example that the connections are just normal resources that live in your resource group. They reference the managedAPIs available to you in your subscription.
 
-### Your custom Web API's
+### Your custom Web APIs
 
 If you use your own API's (specifically, not Microsoft-managed ones), then you should use the built-in **HTTP** action to call them. In order to have an ideal experience, you should expose a swagger endpoint for your API. This will enable the Logic app designer to render the inputs and outputs for your API. Without a swagger, the designer will only be able to show the inputs and outputs as opaque JSON objects.
 
@@ -219,6 +219,7 @@ If you host your Web API on **App Service** then it will automatically show up i
 If you previously deployed an API app, you can call it via the **HTTP** action.
 
 For example, if you use Dropbox to list files, you may have something like this in your **2014-12-01-preview** schema version definition:
+
 ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
@@ -420,9 +421,9 @@ The HTTP Listener capabilities are now built-in, so you no longer need to deploy
 
 With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. If you want to `/run` the workflow, you'll need to have one of a `manual`, `apiConnectionWebhook` or `httpWebhook` triggers. 
 
-## 4. Calling child Workflows
+## 4. Calling child workflows
 
-Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
+Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
 
 ```
 "mynestedwf" : {

@@ -3,7 +3,7 @@
 	description="Learn how to create Debian 7 & 8 VHD files for deployment in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="SuperScottz"
+	authors="szarkos"
 	manager="timlt"
 	editor=""
     tags="azure-resource-manager,azure-service-management"/>
@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="mingzhan"/>
-
+	ms.date="05/09/2016"
+	ms.author="szark"/>
 
 
 
@@ -28,13 +27,30 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 ## Installation notes
 
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the **convert-vhd** cmdlet.
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md) or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 - Do not configure a swap partition on the OS disk. The Azure Linux agent can be configured to create a swap file on the temporary resource disk. More information about this can be found in the steps below.
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-## Debian 7.x and 8.x
+## Use Azure-Manage to create Debian VHDs
+
+There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://gitlab.credativ.com/de/azure-manage) scripts from [credativ](http://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download azure-manage (and dependencies) and run the azure_build_image script:
+
+	# sudo apt-get update
+	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
+
+	# sudo apt-get install python3-pip
+	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
+	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# cd azure-manage
+	# sudo pip3 install .
+
+	# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+
+
+## Manually prepare a Debian VHD
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -44,22 +60,42 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 4. Edit the `/etc/default/grub` file and modify the **GRUB_CMDLINE_LINUX** parameter as follows to include additional kernel parameters for Azure.
 
-        GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. Rebuild the grub and run:
 
         # sudo update-grub
 
-6. Install the dependency packages for Azure Linux Agent:
+6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 7 or 8:
 
-        # apt-get install -y git parted
+	**Debian 7.x "Wheezy"**
 
-7.	Install the Azure Linux Agent from GitHub using [guidance](virtual-machines-linux-update-agent.md) and choose version 2.0.14:
+		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
-			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
-			# chmod +x waagent
-			# cp waagent /usr/sbin
-			# /usr/sbin/waagent -install -verbose
+
+	**Debian 8.x "Jessie"**
+
+		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+
+
+7. Install the Azure Linux Agent:
+
+		# sudo apt-get update
+		# sudo apt-get install waagent
+
+8. For Debian 7, it is required to run the 3.16-based kernel from the wheezy-backports repository. First create a file called /etc/apt/preferences.d/linux.pref with the following contents:
+
+		Package: linux-image-amd64 initramfs-tools
+		Pin: release n=wheezy-backports
+		Pin-Priority: 500
+
+	Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
 
 8. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
 
@@ -69,13 +105,6 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 9. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-## Using a Credativ script to create Debian VHD
-
-There is a script available on the Credativ website that can help you to build the Debian VHD automatically. You can download it from [here](https://gitlab.credativ.com/de/azure-manage) and install it in in your Linux VM. To create a Debian VHD (for example, Debian 7) run:
-
-        # azure_build_image --option release=wheezy --option image_prefix=lilidebian7 --option image_size_gb=30 SECTION
-
-If any issue to use this script, just file a issue to Credativ [here](https://gitlab.credativ.com/groups/de/issues).
 
 ## Next steps
 

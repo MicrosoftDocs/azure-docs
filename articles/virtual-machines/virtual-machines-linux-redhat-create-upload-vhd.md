@@ -43,11 +43,13 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
 **RHEL installation notes**
 
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
+
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the **convert-vhd** PowerShell cmdlet.
 
 - VHDs must be created as "fixed"--dynamic VHDs are not supported.
 
-- When you're installing the Linux operating system, we recommend that you use standard partitions rather than Logical Volume Manager (LVM) (which is often the default for many installations). This will help you to avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. You can use LVM or RAID on data disks if you prefer.
+- When you're installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
 - Do not configure a swap partition on the OS disk. You can configure the Linux agent to create a swap file on the temporary resource disk. More information about this is available in the steps below.
 

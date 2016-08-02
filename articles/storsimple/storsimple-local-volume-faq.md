@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/07/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # StorSimple locally pinned volumes: frequently asked questions (FAQ)
@@ -183,7 +183,7 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 
 **Q.** Can I clone a locally pinned volume?
 
-**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2)
+**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
 
 ## Questions about failing over a locally pinned volume
 
@@ -195,7 +195,7 @@ More information on how to [convert a tiered volume to a locally pinned volume](
 - Tiered if the target device is running StorSimple 8000 series update 1.x
 - Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
 
-More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions)
+More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
 **Q.** Are locally pinned volumes instantly restored during disaster recovery (DR)?
 
@@ -211,6 +211,6 @@ More information on [failover and DR of locally pinned volumes across versions](
 
 **Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
 
-**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recover.md#device-failover-across-software-versions)
+**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
 

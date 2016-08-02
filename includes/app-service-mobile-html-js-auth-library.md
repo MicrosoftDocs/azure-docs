@@ -68,11 +68,14 @@ This example gets a token from Live Connect, which is supplied to your App Servi
 ###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
 The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  For example, to use the fetch API:
+AJAX method.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
+is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
-fetch(url)
+var headers = new Headers();
+headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
+fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
@@ -80,4 +83,5 @@ fetch(url)
     });
 ```
 
-You could also use jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+Fetch is available as an npm package or for browser download from CDNJS. You could also use 
+jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.

@@ -6,7 +6,7 @@
 	authors="szarkos"
 	manager="timlt"
 	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"

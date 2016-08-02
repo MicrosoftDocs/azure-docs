@@ -3,7 +3,7 @@
 	description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
-	ms.author="ryancraw"/>
+	ms.date="07/25/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -24,7 +24,7 @@
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
-##DocumentDB .NET SDK
+## DocumentDB .NET SDK
 
 <table>
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -35,6 +35,40 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.9.2"/>[1.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+
+  - Added support for parallel queries for partitioned collections.
+  - Added support for cross partition ORDER BY and TOP queries for partitioned collections.
+  - Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+  - Fixed the ability to use parameters of different types when using user defined functions in LINQ. 
+  - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
+  - Added methods to the IDocumentClient interface that were missing: 
+      - UpsertAttachmentAsync method that takes mediaStream and options as parameters
+      - CreateAttachmentAsync method that takes options as a parameter
+      - CreateOfferQuery method that takes querySpec as a parameter.
+  - Unsealed public classes that are exposed in the IDocumentClient interface.
+
+### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
+  - Added the support for multi-region database accounts.
+  - Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
+  - Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
+  - Added configuration option to set the ServicePoint.ConnectionLimit for a given DocumentDB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
+  - Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
+
+
+### <a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+  - Added an overload to Uri based ExecuteStoredProcedureAsync method that takes RequestOptions as a parameter.
+  
+### <a name="1.7.0"/>[1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
+  - Added time to live (TTL) support for documents.
+
+### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
+  
+### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
+  - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream.
@@ -122,6 +156,14 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.9.2](#1.9.2) | July 23, 2016 |---
+| 1.9.1 | Deprecated |---
+| 1.9.0 | Deprecated |---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
+| [1.7.1](#1.7.1) | May 06, 2016 |---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
+| [1.6.3](#1.6.3) | April 08, 2016 |---
+| [1.6.2](#1.6.2) | March 29, 2016 |---
 | [1.5.3](#1.5.3) | February 19, 2016 |---
 | [1.5.2](#1.5.2) | December 14, 2015 |---
 | [1.5.1](#1.5.1) | November 23, 2015 |---

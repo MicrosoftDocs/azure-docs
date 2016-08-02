@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,22 +15,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="06/30/2016"
 	ms.author="genli"/>
 
 # I am unable to log in to manage my Azure subscription
+
+> [AZURE.NOTE] If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident on the [Azure Support site](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 This article will help you troubleshoot some common causes of login issues.
 
 ## Which portal are you trying to access?
 
-An Account Owner can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) have access to [Azure Portal](https://manage.windowsazure.com/).
+An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
 
-Click the links below for instructions on updating the administrator roles:
-
-- [To update the SA on your account](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [To add a new CA in the management portal](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+For more information about Azure administrator roles, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
 ## Is your subscription associated with a Microsoft account or Organizational account?
 
@@ -52,6 +50,6 @@ Now that it is possible to log into Azure with an organizational account, here a
 |Microsoft Account |Yes|No|No|
 |Organizational Account|Yes|Yes|No|
 
-## Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser
+## Is there a problem with the Internet Browser?
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on Get Support. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
+Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="06/01/2016" 
 	ms.author="tarcher"/>
 
 # Error During Authentication Detection

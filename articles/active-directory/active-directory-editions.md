@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="07/08/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -30,7 +30,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 Office 365 subscriptions include additional Azure Active Directory features described in the comparison table below. 
 
 
-> [AZURE.NOTE] For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). <br>Azure Active Directory Premium and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information
+> [AZURE.NOTE] For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information
 
 
 - **Azure Active Directory Basic** - Designed for task workers with cloud-first needs, this edition provides cloud centric application access and self-service identity management solutions. With the Basic edition of Azure Active Directory, you get productivity enhancing and cost reducing features like group-based access management, self-service password reset for cloud applications, and Azure Active Directory Application Proxy (to publish on-premises web applications using Azure Active Directory), all backed by an enterprise-level SLA of 99.9 percent uptime.
@@ -50,7 +50,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 ##Comparing generally available features
 
-> [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/server-cloud/products/azure-active-directory/Features.aspx).
+> [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 |                          | Azure AD Free | Azure AD Basic | Azure AD Premium |
 | ---                      | :-:           | :-:            | :-:              |
@@ -60,7 +60,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 
 
-<br>
+
 
 **Common Features**
 
@@ -117,8 +117,8 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 
 
-<br>
-<hr>
+
+
 ## Common Features
 #### Directory Objects 
 
@@ -134,7 +134,6 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 | Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 
 
-<br>
 
 #### User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
 
@@ -153,8 +152,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 - [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br>
-<hr>
+
+
 #### Single Sign-On (SSO)
 
 **Type:** Common Features
@@ -164,18 +163,18 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
 | :-: | :-: | :-: | :-: |
-| 10 apps per user [1] <br>(pre-integrated SaaS and developer-integrated apps)| 10 apps per user [1] <br> (free tier + Application proxy apps) | No Limit [2] <br> (free, Basic tiers +Self-Service App Integration templates)| 10 apps per user [1] <br> (pre-integrated SaaS and developer-integrated apps)|
+| 10 apps per user (1) | 10 apps per user (1) | No Limit (2) | 10 apps per user (1)|
 
-[1] With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access Panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however end users will only see 10 apps in their Access Panel at a time.
+1. With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access Panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however end users will only see 10 apps in their Access Panel at a time.
 
-[2] Self-service integration of any application supporting SAML, SCIM, or forms-based authentication by using templates provided in the application gallery menu. For more details, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md).
+2. Self-service integration of any application supporting SAML, SCIM, or forms-based authentication by using templates provided in the application gallery menu. For more details, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md).
 
 **More details:**
 
 - [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
-<br>
-<hr>
+
+
 #### Self-Service Password Change for cloud users
 
 **Type:** Common Features
@@ -191,8 +190,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 - [How to update your own password](active-directory-passwords-update-your-own-password.md)
 
 
-<br>
-<hr>
+
+
 #### Connect  (Sync engine that extends on-premises directories to Azure Active Directory) 
 
 **Type:** Common Features
@@ -208,8 +207,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<br>
-<hr>
+
+
 #### Security/Usage Reports
 
 **Type:** Common Features
@@ -225,8 +224,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
-<br>
-<hr>
+
+
 
 ## Premium and Basic Features
 #### Group-based access management/provisioning
@@ -244,8 +243,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
 
-<br>
-<hr>
+
+
 #### Self-Service Password Reset for cloud users
 
 **Type:** Basic Features
@@ -261,8 +260,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [Azure AD Password Reset for Users and Admins](active-directory-passwords.md)
 
-<br>
-<hr>
+
+
 #### Company Branding (Logon Pages/Access Panel customization)
 
 **Type:** Basic Features
@@ -278,8 +277,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 
-<br>
-<hr>
+
+
 #### Application Proxy
 
 **Type:** Basic Features
@@ -295,8 +294,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
 
-<br>
-<hr>
+
+
 #### SLA 99.9%
 
 **Type:** Basic Features
@@ -312,8 +311,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
-<br>
-<hr>
+
+
 
 ## Premium Features
 #### Self-Service Group and app Management/Self-Service application additions/ Dynamic Groups
@@ -329,7 +328,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 
 
-<br>
+
          
 #### Self-Service Password Reset/Change/Unlock  with on-premises write-back
 
@@ -344,7 +343,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 
 
-<br>
+
 
 #### Multi-Factor Authentication (Cloud and On-premises (MFA Server))
 
@@ -361,8 +360,8 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 - [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br>
-<hr>
+
+
 #### MIM CAL + MIM Server 
 
 Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Since Microsoft Identity Manager runs on Windows Server OS, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
@@ -378,7 +377,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 
 
-<br>
+
 
 #### Cloud App Discovery 
 
@@ -395,8 +394,8 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 - [Finding unmanaged cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br>
-<hr>
+
+
 #### Connect Health
 
 **Type:** Premium Features
@@ -412,8 +411,8 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 - [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md)
 
-<br>
-<hr>
+
+
 #### Automatic password rollover for group accounts
 
 **Type:** Premium Features
@@ -426,8 +425,8 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 |  |  | ![Check][12]|  |
 
 
-<br>
-<hr>
+
+
 ## Azure Active Directory Join – Windows 10 only  related features
 #### Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
 
@@ -441,7 +440,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 | ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 
 
-<br>
+
 
 #### MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join
 
@@ -454,7 +453,21 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 | :-: | :-: | :-: | :-: |
 |  |  | ![Check][12]|  |
 
-<hr>
+
+#### Enterprise State Roaming
+
+**Type:** Azure Active Directory Join – Windows 10 only  related features
+
+
+**Availability:**
+
+| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
+| :-: | :-: | :-: | :-: |
+| | | ![Check][12]| |
+
+**More details:**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Azure AD preview features
@@ -466,8 +479,10 @@ In addition to the generally available features of the Free, Basic, and Premium 
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+- [Certificate based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
+- [Certificate based authentication on Android](active-directory-certificate-based-authentication-android.md)
+ 
 
 
 
@@ -478,7 +493,6 @@ In addition to the generally available features of the Free, Basic, and Premium 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)
-
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png

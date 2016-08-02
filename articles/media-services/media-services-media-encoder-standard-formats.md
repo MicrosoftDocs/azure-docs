@@ -3,8 +3,8 @@
 	description="This topic gives an overview of Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="07/17/2016"
+	ms.author="juliako;anilmur"/>
 
 #Media Encoder Standard Formats and Codecs
 
@@ -37,7 +37,9 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
 QuickTime (.mov) |Yes
- 
+
+>[AZURE.NOTE] Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, please provide a feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+
 ###Audio formats in input containers 
 
 Media Encoder Standard supports carrying the following audio formats in input containers:
@@ -86,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Yes
 Windows Media Audio|Yes 
 WAV/PCM|Yes 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Yes 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Yes 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Yes 
 AMR (adaptive multi-rate)|Yes
 AES (SMPTE 331M and 302M, AES3-2003)		|No 

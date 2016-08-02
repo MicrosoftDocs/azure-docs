@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/24/2016" 
 	ms.author="luisca"/> 
 
 # Machine Learning Apps in the Azure Marketplace

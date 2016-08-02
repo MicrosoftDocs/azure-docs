@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor and manage Azure Data Factory pipelines" 
-	description="Learn how to use Azure Classic Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
+	description="Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="06/16/2016" 
 	ms.author="spelluru"/>
 
 
@@ -188,12 +188,12 @@ For example:
 
 
 ## Debug pipelines
-Azure Data Factory provides rich capabilities via Azure Classic Portal and Azure PowerShell to debug and troubleshoot pipelines.
+Azure Data Factory provides rich capabilities via Azure Portal and Azure PowerShell to debug and troubleshoot pipelines.
 
 ### Find errors in a pipeline
 If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state due to the failure. You can debug and troubleshoot errors in Azure Data Factory using the following mechanisms.
 
-#### Use Azure Classic Portal to debug an error:
+#### Use Azure Portal to debug an error:
 
 1.	Click **With errors** on **Datasets** tile on the data factory home page.
 	
@@ -266,7 +266,7 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 ## Re-run failures in a pipeline
 
-### Using Azure Classic Portal
+### Using Azure Portal
 
 Once you troubleshoot and debug failures in a pipeline, you can re-run failures by navigating to the error slice and clicking the **Run** button on the command bar.
 

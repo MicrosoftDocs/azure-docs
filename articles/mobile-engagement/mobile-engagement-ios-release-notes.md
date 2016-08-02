@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Release Notes"
+	pageTitle="Azure Mobile Engagement iOS SDK Release Notes | Microsoft Azure"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,14 +13,27 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
-#Release notes
+#Azure Mobile Engagement iOS SDK release notes
+
+##3.2.4 (06/30/2016)
+
+-   Fixed aggregation between technical logs and other logs.
+
+##3.2.3 (06/07/2016)
+
+-   Fixed the bug where delivery feedback is not reported when app is in the background.
+-   Optimized the sending of technical logs.
+
+##3.2.2 (04/07/2016)
+
+-   Fixed bug on HTTP request cancellation which sometimes leads to crash.
 
 ##3.2.1 (12/11/2015)
 
--   Fixed the delay when a new app instance is triggered by a notification with deep links 
+-   Fixed the delay when a new app instance is triggered by a notification with deep links
 
 ##3.2.0 (10/08/2015)
 

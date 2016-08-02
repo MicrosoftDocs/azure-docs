@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Use Case - Customer Profiling
 
-Azure Data Factory is one of many services used to implement the Cortana Analytics Suite of solution accelerators.  For more information about Cortana Analytics, please visit [Cortana Analytics Suite](http://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
+Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  For more information about Cortana Intelligence, please visit [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
 
 All you need to access and try out this simple use case is an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/).  You can deploy a sample that implements this use case by following the steps described in the [Samples](data-factory-samples.md) article.
 
@@ -37,7 +37,7 @@ There are many challenges that gaming companies face when trying to implement th
 This simple use case can be used as an example of how you can use Azure Data Factory to ingest, prepare, transform, analyze, and publish data.
 
 ![End-to-end workflow](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
-Figure above depicts how the data pipelines appear in the Azure Classic Portal UI after they have been deployed.
+Figure above depicts how the data pipelines appear in the Azure Portal UI after they have been deployed.
 
 1.	The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
 2.	The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.

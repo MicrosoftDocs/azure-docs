@@ -14,15 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Create a new Office 365 Outlook API in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-office365-outlook.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
+<!--Archived
 Add the Office 365 Outlook API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
@@ -119,13 +121,15 @@ Some good info on AAD applications at [How and why applications are added to Azu
 
 ## See the REST APIs
 
-[Office 365 Outlook REST API](../connectors/create-api-office365-outlook.md) reference.
+[Office 365 Outlook REST API](../connectors/connectors-create-api-office365-outlook.md) reference.
 
 
 ## Summary and next steps
 In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-outlook/browse-to-registered-apis.PNG

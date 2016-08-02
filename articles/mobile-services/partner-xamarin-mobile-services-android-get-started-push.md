@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
@@ -33,7 +33,7 @@ This tutorial requires the following:
 + An active Google account.
 + [Google Cloud Messaging Client Component]. You will add this component during the tutorial.
 
-You should already have the [Xamarin.Android] and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services].
+You should already have Xamarin and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services].
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
@@ -73,7 +73,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with authentication](mobile-services-android-get-started-users.md)
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
-* [What are Notification Hubs?](../notification-hubs/notification-hubs-overview.md)
+* [What are Notification Hubs?](../notification-hubs/notification-hubs-push-notification-overview.md)
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
@@ -89,5 +89,4 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
+	pageTitle="Deploy a split-merge service | Microsoft Azure"
 	description="Splitting and Merging with elastic database tools"
 	services="sql-database"  
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ddove"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
-	ms.author="sidneyh" />
+	ms.date="05/27/2016"
+	ms.author="ddove" />
 
-# Elastic database Split-Merge tool tutorial
+# Deploy a split-merge service 
+
+The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
+
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
-2. Open a command prompt and navigate to the directory where you downloaded nuget.exe.
+2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commmands.
 3. Download the latest Split-Merge package into the current directory with the below command:
 `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-The steps above download the Split-Merge files to the current directory. The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the Split-Merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
+The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the split-merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
 
 ## Prerequisites
 
-1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL DB database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.com). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
 
 2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
 
@@ -39,7 +42,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
 
 
-## Configuring your Split-Merge service
+## Configure your Split-Merge service
 
 ### Split-Merge service configuration
 
@@ -58,12 +61,13 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 5.    For the **SplitMergeWorker** role, enter a valid connection string to Azure storage for the **WorkerRoleSynchronizationStorageAccountConnectionString** setting.
         
-### Configuring security
+### Configure security
+
 For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
-### Creating a self-signed certificate
+### Create a self-signed certificate
 
 Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
 
@@ -121,7 +125,7 @@ For the web role:
 
 Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-### Deploying your Split-Merge service
+## Deploy your service
 
 1. Go to the [Azure portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
@@ -137,7 +141,7 @@ Please note that for production deployments separate certificates should be used
 ![Upload][4]
 
 
-## Deployment troubleshooting
+## Troubleshoot the deployment
 
 If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
 
@@ -152,13 +156,13 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Ensure that the server name does not begin with **https://**.
 * Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
-## Testing your Split-Merge service deployment
+## Test the service deployment
 
-### Connecting with a web browser
+### Connect with a web browser
 
 Determine the web endpoint of your Split-Merge service. You can find this in the Azure Classic Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
-### Testing with PowerShell scripts
+### Test with PowerShell scripts
 
 The deployment and your environment can be tested by running the included sample PowerShell scripts.
 
@@ -214,7 +218,7 @@ The script files included are:
   </tr>
 </table>
 
-##Using PowerShell to verify your deployment
+## Use PowerShell to verify your deployment
 
 1.    Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
 2.    Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
@@ -294,11 +298,11 @@ The script files included are:
 
 6.    Experiment with other data types! All of these scripts take an optional -ShardKeyType parameter that allows you to specify the key type. The default is Int32, but you can also specify Int64, Guid, or Binary.
 
-## Creating your own requests
+## Create requests
 
 The service can be used either by using the web UI or by importing and using the SplitMerge.psm1 PowerShell module which will submit your requests through the web role.
 
-The Split-Merge service can move data in both sharded tables and reference tables. A sharded table has a sharding key column and has different row data on each shard. A reference table is not sharded so it contains the same row data on every shard. Reference tables are useful for data that does not change often and is used to JOIN with sharded tables in queries.
+The service can move data in both sharded tables and reference tables. A sharded table has a sharding key column and has different row data on each shard. A reference table is not sharded so it contains the same row data on every shard. Reference tables are useful for data that does not change often and is used to JOIN with sharded tables in queries.
 
 In order to perform a split-merge operation, you must declare the sharded tables and reference tables that you want to have moved. This is accomplished with the **SchemaInfo** API. This API is in the **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** namespace.
 
@@ -314,6 +318,7 @@ Note that the Split-Merge service does not create the target database (or schema
 
 
 ## Troubleshooting
+
 You may see the below message when running the sample powershell scripts:
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.

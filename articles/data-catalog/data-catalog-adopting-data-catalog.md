@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Adopting Azure Data Catalog  | Microsoft Azure"
-   description="This article will help you get started adopting Azure Data Catalog in your organization. To successfully adopt **Azure Data Catalog**, you'll want to focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="Adopting Azure Data Catalog | Microsoft Azure"
+	description="This article presents an approach and process for organizations considering adopting Azure Data Catalog, including defining a vision, identifying key business use cases, and choosing a pilot project."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="01/28/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/25/2016"
+	ms.author="spelluru"/>
 
 # Adopting Azure Data Catalog
 This article will help you get started adopting **Azure Data Catalog** in your organization. To successfully adopt **Azure Data Catalog**, you'll want to focus on three key items: define your vision, identify key business use cases within your organization, and choose a pilot project.

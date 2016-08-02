@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Testing a runbook in Azure Automation"
+	pageTitle="Testing a runbook in Azure Automation | Microsoft Azure"
 	description="Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output."
 	services="automation"
 	documentationCenter=""
 	authors="mgoedtel"
-	manager="stevenka"
+	manager="jwhit"
 	editor="tysonn" />
 <tags 
 	ms.service="automation"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="magoedte;bwren" />
 
 # Testing a runbook in Azure Automation
@@ -27,30 +27,18 @@ The procedure to test each [type of runbook](automation-runbook-types.md) is the
 
 You can work with any [runbook type](automation-runbook-types.md) in the Azure portal.
 
-1. Open the Draft version of the runbook in either the [textual editor](automation-editing-a-runbook#Portal) or [graphical editor](automation-graphical-authoring-intro.md).
+1. Open the Draft version of the runbook in either the [textual editor](automation-editing-a-runbook.md#Portal) or [graphical editor](automation-graphical-authoring-intro.md).
 2. Click the **Test** button to open the Test blade.
 3. If the runbook has parameters, they will be listed in the left pane where you can provide values to be used for the test.
-4. If you want to run the test on a [Hybrid Runbook Worker](automation-hybrid), then change **Run Settings** to **Hybrid Worker** and select the name of the target group.  Otherwise, keep the default **Azure** to run the test in the cloud.
+4. If you want to run the test on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), then change **Run Settings** to **Hybrid Worker** and select the name of the target group.  Otherwise, keep the default **Azure** to run the test in the cloud.
 5. Click the **Start** button to start the test.
 6. If the runbook is [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) or [Graphical](automation-runbook-types.md#graphical-runbooks), then you can stop or suspend it while it is being tested with the buttons underneath the Output Pane. When you suspend the runbook, it completes the current activity before being suspended. Once the runbook is suspended, you can stop it or restart it.
 7. Inspect the output from the runbook in the output pane.
 
 
+## Next Steps
 
-## To test a runbook in the Azure portal
-
-You can only work with [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks) in the Azure portal.
-
-
-1. [Open the Draft version of the runbook](automation-edit-textual-runbook.md#to-edit-a-runbook-with-the-azure-portal).
-2. Click the **Test** button to start the test.  If the runbook has parameters, you will receive a dialog box to provide values to be used for the test.
-6. You can stop or suspend the runbook while it is being tested with the buttons underneath the Output Pane. When you suspend the runbook, it completes the current activity before being suspended. Once the runbook is suspended, you can stop it or restart it.
-7. Inspect the output from the runbook in the output pane.
-
-
-## Related articles
-
-- [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- [Graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
-- [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md)
-- [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+- To learn how to create or import a runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+- To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+- To learn more about configuring runboks to return status messages and errors, including recommended practices, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)

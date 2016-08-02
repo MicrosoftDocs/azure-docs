@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI
@@ -24,6 +24,8 @@
 Learn how to use the [Azure Command-line Interface](../xplat-cli-install.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [Install and configure Azure CLI][azure-command-line-tools].
+
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Prerequisites
 
@@ -47,7 +49,7 @@ To get help, use the **-h** switch.  For example:
 	
 ##Create clusters
 
-See [Create Windows-based Hadoop clusters in HDInsight using Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md).
+See [Create Linux-based clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ##List and show cluster details
 Use the following commands to list and show cluster details:
@@ -59,9 +61,14 @@ Use the following commands to list and show cluster details:
 
 
 ##Delete clusters
+
 Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <Cluster Name>
+
+You can also delete a cluster by deleting the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+
+	azure group delete <Resource Group Name>
 
 ##Scale clusters
 
@@ -90,7 +97,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [How to use the Azure CLI] [azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

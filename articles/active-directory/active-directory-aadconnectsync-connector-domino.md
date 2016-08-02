@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -32,12 +32,12 @@ The Lotus Domino Connector enable you to integrate the synchronization service w
 
 From a high level perspective, the following features are supported by the current release of the connector:
 
-| Feature | Support |
-| --- | --- |
-| Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 9.x</li> |
-| Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
-| Operations | <li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li> |
-| Schema | <li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li> |
+Feature | Support
+--- | ---
+Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 9.x</li>
+Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li>
+Operations | <li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li>
+Schema | <li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li>
 
 The Lotus Domino connector leverages the Lotus Notes client to communicate with Lotus Domino Server. As a consequence of this, a supported Lotus Notes Client must be installed on the synchronization server. The communication between the client and the server is implemented through the Lotus Notes .NET Interop (Interop.domino.dll) interface. This interface facilitates the communication between the Microsoft.NET platform and Lotus Notes client and supports access to Lotus Domino documents and views. For delta import it is also possible that the C++ native interface is used (depending on the selected delta import method).
 
@@ -59,10 +59,10 @@ To perform any of the supported tasks in Lotus Domino connector, you must be a m
 
 The following table lists the permissions that are required for each operation:
 
-| Operation | Access Rights |
-| --- | --- |
-| Import | <li>Read public documents</li><li> Full Access Administrator (When you are member of Full Access administrators group, you will automatically have the effective access to in ACL.)</li> |
-| Export and Set Password | Effective Access: <li>Create documents</li><li>Delete documents</li><li>Read public documents</li><li>Write public documents</li><li>Replicate or copy documents</li>In addition to the above access, the following roles must be assigned for export operations: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
+Operation | Access Rights
+--- | ---
+Import | <li>Read public documents</li><li> Full Access Administrator (When you are member of Full Access administrators group, you will automatically have the effective access to in ACL.)</li>
+Export and Set Password | Effective Access: <li>Create documents</li><li>Delete documents</li><li>Read public documents</li><li>Write public documents</li><li>Replicate or copy documents</li>In addition to the above access, the following roles must be assigned for export operations: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li>
 
 ### Direct operations and AdminP
 
@@ -70,21 +70,21 @@ Operations will either go directly to the Domino directory or through the AdminP
 
 **Primary Address Book**
 
-| Object | Create | Update | Delete |
-| --- | --- | --- | --- |
-| Person | AdminP | Direct | AdminP |
-| Group | AdminP | Direct | AdminP |
-| MailInDB | Direct | Direct | Direct |
-| Resource | AdminP | Direct | AdminP |
+Object | Create | Update | Delete
+--- | --- | --- | ---
+Person | AdminP | Direct | AdminP
+Group | AdminP | Direct | AdminP
+MailInDB | Direct | Direct | Direct
+Resource | AdminP | Direct | AdminP
 
 **Secondary Address Book**
 
-| Object | Create | Update | Delete |
-| --- | --- | --- | --- |
-| Person | N/A | Direct | Direct |
-| Group | Direct | Direct | Direct |
-| MailInDB | Direct | Direct | Direct |
-| Resource | N/A | N/A | N/A |
+Object | Create | Update | Delete
+--- | --- | --- | ---
+Person | N/A | Direct | Direct
+Group | Direct | Direct | Direct
+MailInDB | Direct | Direct | Direct
+Resource | N/A | N/A | N/A
 
 When a resource is created a Notes document will be created. Similarly, when a resource is deleted, the Notes document will be deleted.
 
@@ -112,7 +112,7 @@ On the features page install only the required Lotus Notes features and **Client
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
+**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account. Also make sure to close the Lotus Notes client on the server. It cannot be running at the same time the Connector tries to connect to the Domino server.
 
 ### Create Connector
 
@@ -329,11 +329,11 @@ All these operations are performed in Lotus Domino and then imported into the sy
 
 A Resource is another type of a database in Lotus Domino. Resources can be conference rooms with various types of equipment such as projectors. There are sub-types of resources supported by Lotus Domino connector that are defined on the basis of the Resource Type attribute:
 
-| Type of Resource | Resource Type Attribute |
-| --- | --- |
-| Room | 1 |
-| Resource (Other) | 2 |
-| Online Meeting | 3 |
+Type of Resource | Resource Type Attribute
+--- | ---
+Room | 1
+Resource (Other) | 2
+Online Meeting | 3
 
 For the Resource object type to work, the following is required:
 
@@ -411,21 +411,21 @@ When you provision Person objects to your Lotus Domino directory, your objects m
 
 The following table lists these properties and provides a description of them.
 
-| Property | Description |
-| --- | --- |
-| \_MMS_AltFullName | The alternate full name of user. |
-| \_MMS_AltFullNameLanguage | The language to be used for specifying the alternate full name of user. |
-| \_MMS_CertDaysToExpire | The number of days from the current date before the certificate expires. If not specified, the default date is two years from the current date. |
-| \_MMS_Certifier | Property that contains the organizational hierarchy name of the certifier. For Example: OU=OrganizationUnit,O=Org,C=Country. |
-| \_MMS_IDPath | If the property is empty, no user identification file is created locally on the Sync Server. If the property contains a file name, a user ID file is created in the madata folder. The property can also contain a full path in which the user ID file is created in this location. |
-| \_MMS_IDRegType | Persons can be classified into contacts. US Users and international Users. The following table lists the possible values:<li>0 - Contact</li><li>1 - U.S. user</li><li>2 - International user</li> |
-| \_MMS_IDStoreType | Required property for U.S. and international users. The property contains an integer value that specifies whether the user identification is stored as an attachment in the Notes address book or in the person’s mail file. If the User ID file is an attachment in the address book, it can optionally be created as a file with \_MMS_IDPath.<li>Empty - Store ID file in ID Vault, No identification file (used for Contacts).</li><li> 1 - Attachment in the Notes address book. The \_MMS_Password property must be set for user identification files that are attachments</li><li>2 - Store ID in person’s Mail File. The \_MMS_UseAdminP must be set to false to let the mail file be created during the Person registration.The \_MMS_Password property must be set for user identification files.</li>
-| \_MMS_MailQuotaSizeLimit | The number of megabytes that are allowed for the e-mail file database. |
-| \_MMS_MailQuotaWarningThreshold | The number of megabytes that are allowed for the e-mail file database before a warning is issued. |
-| \_MMS_MailTemplateName | The e-mail template file that is used to create the user's e-mail file. If a template is specified, the mail file is created using the specified template. If no template is specified, the default template file is used to create the file. |
-| \_MMS_OU | Optional property that is the OU name under the certifier. This property should be empty for contacts. |
-| \_MMS_Password | Required property for users. The property contains the password for the identification file of the object. |
-| \_MMS_UseAdminP | Property should be set to true if the mail file should be created by the AdminP process on the Domino server (asynchronous to the export process). If property is set to false the mail file is created with the Domino user (synchronous in the export process). |
+Property | Description
+--- | ---
+\_MMS_AltFullName | The alternate full name of user.
+\_MMS_AltFullNameLanguage | The language to be used for specifying the alternate full name of user.
+\_MMS_CertDaysToExpire | The number of days from the current date before the certificate expires. If not specified, the default date is two years from the current date.
+\_MMS_Certifier | Property that contains the organizational hierarchy name of the certifier. For Example: OU=OrganizationUnit,O=Org,C=Country.
+\_MMS_IDPath | If the property is empty, no user identification file is created locally on the Sync Server. If the property contains a file name, a user ID file is created in the madata folder. The property can also contain a full path in which the user ID file is created in this location.
+\_MMS_IDRegType | Persons can be classified into contacts. US Users and international Users. The following table lists the possible values:<li>0 - Contact</li><li>1 - U.S. user</li><li>2 - International user</li>
+\_MMS_IDStoreType | Required property for U.S. and international users. The property contains an integer value that specifies whether the user identification is stored as an attachment in the Notes address book or in the person’s mail file. If the User ID file is an attachment in the address book, it can optionally be created as a file with \_MMS_IDPath.<li>Empty - Store ID file in ID Vault, No identification file (used for Contacts).</li><li> 1 - Attachment in the Notes address book. The \_MMS_Password property must be set for user identification files that are attachments</li><li>2 - Store ID in person’s Mail File. The \_MMS_UseAdminP must be set to false to let the mail file be created during the Person registration.The \_MMS_Password property must be set for user identification files.</li>
+\_MMS_MailQuotaSizeLimit | The number of megabytes that are allowed for the e-mail file database.
+\_MMS_MailQuotaWarningThreshold | The number of megabytes that are allowed for the e-mail file database before a warning is issued.
+\_MMS_MailTemplateName | The e-mail template file that is used to create the user's e-mail file. If a template is specified, the mail file is created using the specified template. If no template is specified, the default template file is used to create the file.
+\_MMS_OU | Optional property that is the OU name under the certifier. This property should be empty for contacts.
+\_MMS_Password | Required property for users. The property contains the password for the identification file of the object.
+\_MMS_UseAdminP | Property should be set to true if the mail file should be created by the AdminP process on the Domino server (asynchronous to the export process). If property is set to false the mail file is created with the Domino user (synchronous in the export process).
 
 For a user with an associated identification file, the \_MMS_Password property must contain a value. For e-mail access through the Lotus Notes client, the MailServer and MailFile properties of a user must contain a value.
 
@@ -451,13 +451,13 @@ The Lotus Domino connector mainly supports four types of objects (document types
 
 This section lists the attributes that are mandatory for each supported object type in order to export object to a Domino server.
 
-| Object Type | Mandatory Attributes |
-| --- | --- |
-| Group | <li>ListName</li> |
-| Main-In Database | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Person | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>_MMS_UseAdminP</li> |
-| Contact (Person with no certifier) | <li>\_MMS_IDRegType</li> |
-| Resource | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+Object Type | Mandatory Attributes
+--- | ---
+Group | <li>ListName</li>
+Main-In Database | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
+Person | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li>
+Contact (Person with no certifier) | <li>\_MMS_IDRegType</li>
+Resource | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
 
 ## Common issues and questions
 

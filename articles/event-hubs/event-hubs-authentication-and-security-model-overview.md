@@ -1,43 +1,43 @@
 <properties 
-   pageTitle="Overview of Event Hubs authentication and security model | Microsoft Azure"
-   description="Event Hubs authentication and security model overview."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Overview of Event Hubs authentication and security model | Microsoft Azure"
+    description="Event Hubs authentication and security model overview."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/03/2016"
+    ms.author="sethm;clemensv" />
 
 # Event Hubs authentication and security model overview
 
 The Event Hubs security model meets the following requirements:
 
-- Only devices that present valid credentials can send data to an Event hub.
+- Only devices that present valid credentials can send data to an Event Hub.
 - A device cannot impersonate another device.
-- A rogue device can be blocked from sending data to an Event hub.
+- A rogue device can be blocked from sending data to an Event Hub.
 
 ## Device authentication
 
-The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) tokens and event publishers. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event hub. It is not possible to receive messages from a publisher.
+The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) tokens and *event publishers*. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event Hub. It is not possible to receive messages from a publisher.
 
-Typically, an Event hub employs one publisher per device. All messages that are sent to any of the publishers of an Event hub are enqueued within that Event hub. Publishers allow fine-grained access control and throttling.
+Typically, an Event Hub employs one publisher per device. All messages that are sent to any of the publishers of an Event Hub are enqueued within that Event Hub. Publishers enable fine-grained access control and throttling.
 
 Each device is assigned a unique token, which is uploaded to the device. The tokens are produced such that each unique token grants access to a different unique publisher. A device that possesses a token can only send to one publisher, but no other publisher. If multiple devices share the same token, then each of these devices shares a publisher.
 
-Although not recommended, it is possible to equip devices with tokens that grant direct access to an Event hub. Any device that holds this token can send messages directly into that Event hub. Such a device will not be subject to throttling. Furthermore, the device cannot be blacklisted from sending to that Event hub.
+Although not recommended, it is possible to equip devices with tokens that grant direct access to an Event Hub. Any device that holds this token can send messages directly into that Event Hub. Such a device will not be subject to throttling. Furthermore, the device cannot be blacklisted from sending to that Event Hub.
 
 All tokens are signed with a SAS key. Typically, all tokens are signed with the same key. Devices are not aware of the key; this prevents devices from manufacturing tokens.
 
 ### Create the SAS key
 
-When creating a namespace, Service Bus generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
+When creating a namespace, Service Bus generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
 
 The following example creates a send-only key when creating the Event hub:
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event hub with a SAS rule that allows sending to that Event hub
+// Create Event Hub with a SAS rule that enables sending to that Event Hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -87,7 +87,7 @@ Typically, the tokens have a lifespan that resembles or exceeds the lifespan of 
 
 Once the tokens have been created, each device is provisioned with its own unique token.
 
-When the device sends data into an Event hub, the device tags its token with the send request. To prevent an attacker from eavesdropping and stealing the token, the communication between the device and the Event hub must occur over an encrypted channel.
+When the device sends data into an Event Hub, the device tags its token with the send request. To prevent an attacker from eavesdropping and stealing the token, the communication between the device and the Event Hub must occur over an encrypted channel.
 
 ### Blacklisting devices
 
@@ -95,7 +95,7 @@ If a token is stolen by an attacker, the attacker can impersonate the device who
 
 ## Authentication of back-end applications
 
-To authenticate back-end applications that consume the data generated by devices, Event Hubs employs a security model that is similar to the model that is used for Service Bus topics. An Event Hubs consumer group is equivalent to a subscription to a Service Bus topic. A client can create a consumer group if the request to create the consumer group is accompanied by a token that grants manage privileges for the Event hub, or for the namespace to which the Event hub belongs. A client is allowed to consume data from a consumer group if the receive request is accompanied by a token that grants receive rights on that consumer group, the Event hub, or the namespace to which the Event hub belongs.
+To authenticate back-end applications that consume the data generated by devices, Event Hubs employs a security model that is similar to the model that is used for Service Bus topics. An Event Hubs consumer group is equivalent to a subscription to a Service Bus topic. A client can create a consumer group if the request to create the consumer group is accompanied by a token that grants manage privileges for the Event Hub, or for the namespace to which the Event Hub belongs. A client is allowed to consume data from a consumer group if the receive request is accompanied by a token that grants receive rights on that consumer group, the Event Hub, or the namespace to which the Event Hub belongs.
 
 The current version of Service Bus does not support SAS rules for individual subscriptions. The same holds true for Event Hubs consumer groups. SAS support will be added for both features in the future.
 
@@ -145,7 +145,7 @@ ACS supports multiple ways to create service identities, relying parties, and ru
 
 To learn more about Event Hubs, visit the following topics:
 
-- [Event Hubs overview].
+- [Event Hubs overview]
 - A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
 

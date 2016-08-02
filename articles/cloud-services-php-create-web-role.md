@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #How to create PHP web and worker roles
@@ -26,7 +26,7 @@ This guide will show you how to create PHP web or worker roles in a Windows deve
 
 Azure provides three compute models for running applications: Azure App Service, Azure Virtual Machines, and Azure Cloud Services. All three models support PHP. Cloud Services, which includes web and worker roles, provides *platform as a service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications. A worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
 
-For more information about these options, see [Compute hosting options provided by Azure](./cloud-services/fundamentals-application-models.md).
+For more information about these options, see [Compute hosting options provided by Azure](./cloud-services/cloud-services-choose-me.md).
 
 ## Download the Azure SDK for PHP
 

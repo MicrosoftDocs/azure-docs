@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="07/14/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: Version Release History
@@ -21,6 +21,13 @@
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. 
 
 This article is designed to help you keep track of the versions that have been released.
+
+
+## July 2016
+
+**New preview features:**
+
+- [Azure AD Connect Health for AD DS](active-directory-aadconnect-health-adds.md).
 
 
 ## January 2016

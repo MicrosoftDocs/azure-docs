@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Best Practices for Handling State in Azure Resource Manager Templates"
+	pageTitle="Handling State in Resource Manager Templates | Microsoft Azure"
 	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,27 +13,52 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Sharing state in Azure Resource Manager templates
 
-This topic shows best practices for managing and sharing state within an Azure Resource Manager template and across linked templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
+This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 
-## Using complex objects to share state
+## Provide standard configuration settings
 
 Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
 
-With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). Known configurations enable customers to easily select the right t-shirt size—that is, a given deployment. In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
+With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
 
-
-The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, 
-operating system settings and availability settings.
+The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
 
     "variables": {
+      "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
+      "tshirtSizeSmall": {
+        "vmSize": "Standard_A1",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "vmCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 1,
+          "pool": "db",
+          "map": [0,0],
+          "jumpbox": 0
+        }
+      },
+      "tshirtSizeMedium": {
+        "vmSize": "Standard_A3",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
+        "vmCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1],
+          "jumpbox": 0
+        }
+      },
       "tshirtSizeLarge": {
         "vmSize": "Standard_A4",
         "diskSize": 1023,
@@ -54,7 +79,7 @@ operating system settings and availability settings.
           "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
         ],
         "imageReference": {
-	  "publisher": "Canonical",
+          "publisher": "Canonical",
           "offer": "UbuntuServer",
           "sku": "14.04.2-LTS",
           "version": "latest"
@@ -83,10 +108,11 @@ operating system settings and availability settings.
       }
     }
 
+Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You will use this variable to retrieve the associated complex object variable for that t-shirt size.
+
 You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, 
 and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value 
-for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the 
-value for `variables('tshirtSize').vmTemplate`.
+for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -108,7 +134,7 @@ value for `variables('tshirtSize').vmTemplate`.
             "value": "[parameters('replicatorPassword')]"
           },
           "osSettings": {
-	    "value": "[variables('osSettings')]"
+            "value": "[variables('osSettings')]"
           },
           "subnet": {
             "value": "[variables('networkSettings').subnets.data]"
@@ -141,18 +167,11 @@ value for `variables('tshirtSize').vmTemplate`.
       }
     }
 
-## Passing state to a template and its linked templates
+## Pass state to a template
 
-You can share state information into a template and its linked templates through:
-
-- parameters that you provide directly to the main template during deployment
-- parameters, static variables, and generated variables that the main template shares with its linked templates
-
-### Common parameters provided to the main template
+You share state into a template through parameters that you provide directly during deployment.
 
 The following table lists commonly-used parameters in templates.
-
-**Commonly used parameters passed to the main template**
 
 Name | Value | Description
 ---- | ----- | -----------
@@ -165,117 +184,66 @@ tshirtSize	| String from a constrained list of offered t-shirt sizes	| The named
 virtualNetworkName	| String	| Name of the virtual network that the consumer wants to use.
 enableJumpbox	| String from a constrained list (enabled/disabled)	| Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
 
-### Parameters sent to linked templates
+The **tshirtSize** parameter used in the previous section is defined as:
+
+    "parameters": {
+      "tshirtSize": {
+        "type": "string",
+        "defaultValue": "Small",
+        "allowedValues": [
+          "Small",
+          "Medium",
+          "Large"
+        ],
+        "metadata": {
+          "Description": "T-shirt size of the MongoDB deployment"
+        }
+      }
+    }
+
+
+## Pass state to linked templates
 
 When connecting to linked templates, you will often use a mix of static and generated variables.
 
-#### Static variables
+### Static variables
 
-Static variables are often used to provide base values, such as URLs, that are used throughout a template or as values that are used to compose values for dynamic variables.
+Static variables are often used to provide base values, such as URLs, that are used throughout a template.
 
-In the template excerpt below, *templateBaseUrl* specifies the root location for the template in GitHub. The next line builds a new variable *sharedTemplateUrl* that concatenates the 
-value of *templateBaseUrl* with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the *templateBaseUrl* is 
-concatenated to specify the known configuration template location stored in the *vmTemplate* property.
+In the template excerpt below, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is 
+concatenated to the known configuration template location and stored in the `vmTemplate` property.
 
-The benefit of this approach is you can easily move, fork, or use the template as a base for a new one. If the template location changes, you only need to change the static variable 
-in the one place — the main template — which passes it throughout the templates.
+The benefit of this approach is that if the template location changes, you only need to change the static variable 
+in one place which passes it throughout the linked templates.
 
-    "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-    "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-    "tshirtSizeSmall": {
-      "vmSize": "Standard_A1",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-      "vmCount": 2,
-      "slaveCount": 1,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 1,
-        "pool": "db",
-        "map": [0,0],
-        "jumpbox": 0
+    "variables": {
+      "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+      "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+      "tshirtSizeSmall": {
+        "vmSize": "Standard_A1",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "vmCount": 2,
+        "slaveCount": 1,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 1,
+          "pool": "db",
+          "map": [0,0],
+          "jumpbox": 0
+        }
       }
     }
 
-#### Generated variables
+### Generated variables
 
 In addition to static variables, a number of variables are generated dynamically. This section identifies some of the common types of generated variables.
 
-##### tshirtSize
+#### tshirtSize
 
-When calling the main template, you can select a t-shirt size from a fixed number of options, which typically include values such as *Small*, *Medium*, and *Large*.
+You are familiar with this generated variable from the examples above.
 
-In the main template, this option appears as a parameter such as *tshirtSize*:
-
-    "tshirtSize": {
-      "type": "string",
-      "defaultValue": "Small",
-      "allowedValues": [
-        "Small",
-        "Medium",
-        "Large"
-      ],
-      "metadata": {
-        "Description": "T-shirt size of the MongoDB deployment"
-      }
-    }
-
-Within the main template, variables correspond to each of the sizes. For example, if the available sizes are small, medium, and large, the variables section would include variables 
-named *tshirtSizeSmall*, *tshirtSizeMedium*, and *tshirtSizeLarge*.
-
-As the following example shows, these variables define the properties of a particular t-shirt size. Each identifies the VM type, disk size, associated scale unit resource template 
-to link to, number of instances, storage account details, and jumpbox status.
-
-The storage account name prefix is taken from a parameter supplied by a user, and the linked template is the concatenation of the base URL for the template and the filename of a specific scale unit resource template.
-
-    "tshirtSizeSmall": {
-      "vmSize": "Standard_A1",
-			"diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-      "vmCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 1,
-        "pool": "db",
-        "map": [0,0],
-        "jumpbox": 0
-      }
-    },
-    "tshirtSizeMedium": {
-      "vmSize": "Standard_A3",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
-      "vmCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1],
-        "jumpbox": 0
-      }
-    },
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    }
-
-The *tshirtSize* variable appears further down in the variables section. The end of the t-shirt size you provided (*Small*, *Medium*, *Large*) is concatenated with the text *tshirtSize* to retrieve the 
-associated complex object variable for that t-shirt size:
-
-    "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
-
-This variable is passed to the linked scale unit resource template.
-
-##### networkSettings
+#### networkSettings
 
 In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store 
 network settings and pass them to linked templates.
@@ -299,7 +267,7 @@ An example of communicating network settings can be seen below.
       }
     }
 
-##### availabilitySettings
+#### availabilitySettings
 
 Resources created in linked templates are often placed in an availability set. In the following example, the availability set name is specified and also the fault domain and update domain count to use.
 
@@ -312,7 +280,7 @@ Resources created in linked templates are often placed in an availability set. I
 If you need multiple availability sets (for example, one for master nodes and another for data nodes), you can use a name as a prefix, specify multiple availability sets, or follow the model shown earlier 
 for creating a variable for a specific t-shirt size.
 
-##### storageSettings
+#### storageSettings
 
 Storage details are often shared with linked templates. In the example below, a *storageSettings* object provides details about the storage account and container names.
 
@@ -322,7 +290,7 @@ Storage details are often shared with linked templates. In the example below, a 
         "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
     }
 
-##### osSettings
+#### osSettings
 
 With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes 
 it easier to support multiple operating system choices for deployment.
@@ -338,7 +306,7 @@ The following example shows an object for *osSettings*:
       }
     }
 
-##### machineSettings
+#### machineSettings
 
 A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a new VM: administrator user name and password, a prefix for the VM names, and an operating 
 system image reference as shown below:
@@ -358,7 +326,7 @@ system image reference as shown below:
 Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based 
 on the preference of a template consumer.
 
-##### vmScripts
+#### vmScripts
 
 The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. 
 Inside references include the installed software installed and configuration.
@@ -383,7 +351,7 @@ The variables section is where you’ll find the variables that define the speci
     },
 
 
-## Returning state from a template
+## Return state from a template
 
 Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed 
 by the source template.
@@ -392,18 +360,81 @@ The following example shows how to pass the private IP address generated in a li
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }
 
 Within the main template, you can use that data with the following syntax:
 
-    "masterIpAddress": {
-        "value": "[reference('master-node').outputs.masterip.value]"
+    "[reference('master-node').outputs.masterip.value]"
+
+You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
+
+    "outputs": { 
+      "masterIpAddress": {
+        "value": "[reference('master-node').outputs.masterip.value]",
+        "type": "string"
+      }
+     
+For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
+
+## Define authentication settings for virtual machine
+
+You can use the same pattern shown above for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
+
+    "parameters": {
+      "authenticationType": {
+        "allowedValues": [
+          "password",
+          "sshPublicKey"
+        ],
+        "defaultValue": "password",
+        "metadata": {
+          "description": "Authentication type"
+        },
+        "type": "string"
+      }
     }
 
+You add variables for the different authentication types, and a variable to store which type is used for this deployment based on the value of the parameter.
+
+    "variables": {
+      "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
+      "osProfilepassword": {
+        "adminPassword": "[parameters('adminPassword')]",
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]"
+      },
+      "osProfilesshPublicKey": {
+        "adminUsername": "notused",
+        "computerName": "[parameters('vmName')]",
+        "customData": "[base64(variables('customData'))]",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": "true",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshPublicKey')]",
+                "path": "/home/notused/.ssh/authorized_keys"
+              }
+            ]
+          }
+        }
+      }
+    }
+
+When defining the virtual machine, you set the **osProfile** to the variable you created.
+
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      ...
+      "osProfile": "[variables('osProfile')]"
+    }
+
+
 ## Next steps
-- [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-- [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+- To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+- To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
 

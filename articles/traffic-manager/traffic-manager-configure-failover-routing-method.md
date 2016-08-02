@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Configure Traffic Manager failover traffic routing method | Microsoft Azure"
    description="This article will help you configure failover traffic routing method in Traffic Manager"
    services="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # Configure Failover routing method

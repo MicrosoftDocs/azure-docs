@@ -13,26 +13,25 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
-
 If you created an HPC Pack cluster in Azure VMs, you might want ways to easily add, remove,
 start (provision), or stop (deprovision) a number of compute node VMs in the
 cluster. To do these tasks, run Azure PowerShell scripts that are
-installed on the head node VM (starting with HPC Pack 2012 R2 Update 1). These scripts help you control the number
+installed on the head node VM. These scripts help you control the number
 and availability of your HPC Pack cluster resources so you can control costs.
 
->[AZURE.NOTE] The scripts are in the %CCP\_HOME%bin folder on the head node. You must
-run each of the scripts as an administrator.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
 
 ## Prerequisites
 
-* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic (Service Management) deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+* **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the current HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+
+    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. You must run each of the scripts as an administrator.
 
 * **Azure publish settings file or management certificate** - You need to do one of the following on the head node:
 
@@ -73,7 +72,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
     3. The image must be a private image in the User category, not a public Azure VM image.
 
-* **Quantity**- Number of compute node VMs to be added.
+* **Quantity** - Number of compute node VMs to be added.
 
 * **InstanceSize** - Size of the compute node VMs.
 
@@ -185,6 +184,5 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Next steps
 
-* If you want a way to
-automatically grow or shrink the cluster nodes according to
-the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+* If you want a way to automatically grow or shrink the cluster nodes according to
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 
@@ -57,10 +57,7 @@ Follow this step for all your accounts that you’d like to migrate to the new a
 
 Once you have added all the accounts to the new app uninstall the old app from your phone.
 
-Curious how to remove individual accounts from the old app?
-Tap on the account. You’ll get an option to “Delete”. 
 
-![Remove account](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
 ## How to add an account using the barcode scanner
 
@@ -165,3 +162,8 @@ From that point forward, when you are required to verify your sign-in, you tap o
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
+## How to delete an account
+
+To remove individual accounts from the Azure Authenticator App simply tap on the account. You’ll get an option to “Delete”. 
+
+![Remove account](./media/multi-factor-authentication-azure-authenticator/remove.png)

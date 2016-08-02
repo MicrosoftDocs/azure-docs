@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="02/04/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
@@ -33,11 +33,11 @@ The emulator simulates the Azure Compute service and runs in your local environm
 
     ![Azure emulator in the system tray](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC783828.png)
 
-1. Display the user interface for the compute emulator by opening the shortcut menu for the Azure icon in the notification area and then clicking **Show Compute Emulator UI**.
+1. Display the user interface for the compute emulator by opening the shortcut menu for the Azure icon in the notification area, and then select **Show Compute Emulator UI**.
 
     The left pane of the UI shows the services that are currently deployed to the compute emulator and the role instances that each service is running. You can choose the service or roles to display lifecycle, logging, and diagnostic information in the right pane. If you put the focus in the top margin of an included window, it expands to fill the right pane.
 
-1. Step through the application by clicking commands on the **Debug** menu and setting breakpoints in your code. As you step through the application in the debugger, the panes are updated with the current status of the application. When you stop debugging, the application deployment is deleted.If your application includes a web role and you've set the Startup action property to start the web browser, Visual Studio starts your web application in the browser.If you change the number of instances of a role in the service configuration, you must stop your cloud service and then restart debugging so that you can debug these new instances of the role.
+1. Step through the application by selecting commands on the **Debug** menu and setting breakpoints in your code. As you step through the application in the debugger, the panes are updated with the current status of the application. When you stop debugging, the application deployment is deleted.If your application includes a web role and you've set the Startup action property to start the web browser, Visual Studio starts your web application in the browser.If you change the number of instances of a role in the service configuration, you must stop your cloud service and then restart debugging so that you can debug these new instances of the role.
 
     **Note:** When you stop running or debugging your service, the local compute emulator and storage emulator aren't stopped. You must stop them explicitly from the notification area.
 
@@ -52,7 +52,7 @@ If you enable remote debugging for a cloud service, it doesn't exhibit degraded 
 
 ### To enable remote debugging for a cloud service
 
-1. Open the shortcut menu for the Azure project, and then click **Publish**.
+1. Open the shortcut menu for the Azure project, and then select **Publish**.
 
 1. Select the **Staging** environment and the **Debug** configuration.
 
@@ -68,7 +68,7 @@ If you enable remote debugging for a cloud service, it doesn't exhibit degraded 
 
 1. In Server Explorer, expand the node for your cloud service.
 
-1. Open the shortcut menu for the role or role instance to which you want to attach, and then click **Attach Debugger**.
+1. Open the shortcut menu for the role or role instance to which you want to attach, and then select **Attach Debugger**.
 
     If you debug a role, the Visual Studio debugger attaches to each instance of that role. The debugger will break on a breakpoint for the first role instance that runs that line of code and meets any conditions of that breakpoint. If you debug an instance, the debugger attaches to only that instance and breaks on a breakpoint only when that specific instance runs that line of code and meets the breakpoint's conditions.
 
@@ -78,13 +78,13 @@ If you enable remote debugging for a cloud service, it doesn't exhibit degraded 
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z)To detach a specific process, open its shortcut menu, and then click Detach Process. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then click Detach Process.
+1. To identify the processes to which the debugger is attached, open the Processes dialog box by, on the menu bar, choosing Debug, Windows, Processes. (Keyboard: Ctrl+Alt+Z)To detach a specific process, open its shortcut menu, and then select **Detach Process**. Or, locate the instance node in Server Explorer, find the process, open its shortcut menu, and then select **Detach Process**.
 
     ![Debug Processes](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
 >[AZURE.WARNING] Avoid long stops at breakpoints when remote debugging. Azure treats a process that's stopped for longer than a few minutes as unresponsive and stops sending traffic to that instance. If you stop for too long, msvsmon.exe detaches from the process.
 
-To detach the debugger from all processes in your instance or role, open the shortcut menu for the role or instance that you're debugging, and then click Detach Debugger.
+To detach the debugger from all processes in your instance or role, open the shortcut menu for the role or instance that you're debugging, and then select **Detach Debugger**.
 
 ## Limitations of remote debugging in Azure
 
@@ -109,7 +109,7 @@ You can debug programs that run on Azure virtual machines by using Server Explor
 
 1. In Server Explorer, expand the Virtual Machines node and select the node of the virtual machine that you want to debug.
 
-1. Open the context menu and click **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, click **Yes**.
+1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**.
 
     Azure installs the remote debugging extension on the virtual machine to enable debugging.
 
@@ -117,17 +117,17 @@ You can debug programs that run on Azure virtual machines by using Server Explor
 
     ![Azure activity log](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746721.png)
 
-1. After the remote debugging extension finishes installing, open the virtual machine's context menu and click **Attach Debugger...**
+1. After the remote debugging extension finishes installing, open the virtual machine's context menu and select **Attach Debugger...**
 
     Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
 
     ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-1. In the **Attach to Process** dialog box, click **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. Click the processes you want to debug on the virtual machine and then click **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) and [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information.
+1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) and [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) for more information.
 
 ## Create a web project and a virtual machine for debugging
 
@@ -139,7 +139,7 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
 1. In Visual Studio, create a new ASP.NET Web Application.
 
-1. In the New ASP.NET Project dialog, in the Azure section, choose **Virtual Machine** in the dropdown list box. Leave the **Create remote resources** check box selected. Click **OK** to proceed.
+1. In the New ASP.NET Project dialog, in the Azure section, choose **Virtual Machine** in the dropdown list box. Leave the **Create remote resources** check box selected. Select **OK** to proceed.
 
     The **Create virtual machine on Azure** dialog box appears.
 
@@ -148,7 +148,7 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
     **Note:** You'll be asked to sign in to your Azure account if you're not already signed in.
 
-1. Select the various settings for the virtual machine and then click **OK**. See [Virtual Machines]( http://go.microsoft.com/fwlink/?LinkId=623033) for more information.
+1. Select the various settings for the virtual machine and then select **OK**. See [Virtual Machines]( http://go.microsoft.com/fwlink/?LinkId=623033) for more information.
 
     The name you enter for DNS name will be the name of the virtual machine. 
 
@@ -160,7 +160,7 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
 1. After the virtual machine is fully configured, select the virtual machine’s node in Server Explorer.
 
-1. Open the context menu and click **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, click **Yes**. 
+1. Open the context menu and select **Enable Debugging**. When asked if you're sure if you want to enable debugging on the virtual machine, select **Yes**. 
 
     Azure installs the remote debugging extension to the virtual machine to enable debugging.
 
@@ -174,17 +174,17 @@ Visual Studio ASP.NET projects offer an option to create a handy virtual machine
 
 1. In the **File Publish Options**, select **Remove additional files at destination** if the project was already deployed at an earlier time.
 
-1. After the project publishes, on the virtual machine's context menu in Server Explorer, click **Attach Debugger...**
+1. After the project publishes, on the virtual machine's context menu in Server Explorer, select **Attach Debugger...**
 
     Azure gets a list of the processes on the virtual machine and shows them in the Attach to Process dialog box.
 
     ![Attach debugger command](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746722.png)
 
-1. In the **Attach to Process** dialog box, click **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
+1. In the **Attach to Process** dialog box, select **Select** to limit the results list to show only the types of code you want to debug. You can debug 32- or 64-bit managed code, native code, or both.
 
     ![Select code type dialog box](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. Click the processes you want to debug on the virtual machine and then click **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) for more information.
+1. Select the processes you want to debug on the virtual machine and then select **Attach**. For example, you might choose the w3wp.exe process if you wanted to debug a web app on the virtual machine. See [Debug One or More Processes in Visual Studio](https://msdn.microsoft.com/library/jj919165.aspx) for more information.
 
 ## Next steps
 

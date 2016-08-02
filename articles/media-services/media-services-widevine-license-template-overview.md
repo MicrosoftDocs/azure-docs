@@ -2,7 +2,7 @@
 	pageTitle="Widevine License Template Overview" 
 	description="This topic gives an overview of a Widevine license template that used to configure Widevine licenses." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Widevine License Template Overview

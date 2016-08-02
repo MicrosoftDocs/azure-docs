@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory 

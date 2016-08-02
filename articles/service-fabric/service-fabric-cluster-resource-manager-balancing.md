@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Balancing your service fabric cluster
@@ -39,13 +39,15 @@ ClusterManifest.xml:
         </Section>
 ```
 
-Today we only perform one of these actions at a time, sequentially. This is so that, for example, we’ve already responded to any requests to create new replicas before we move on to balancing the cluster. As you can see by the default time intervals specified, we can scan and check for anything we need to do very frequently, meaning that each set of changes is usually smaller (we’re not scanning through hours of changes in the cluster and trying to correct them all at once, we can effectively handle things as they happen). This makes the Service Fabric resource manager very responsive to things that happen in the cluster.
+Today we only perform one of these actions at a time, sequentially. This is so that, for example, we’ve already responded to any requests to create new replicas before we move on to balancing the cluster. As you can see by the default time intervals specified, we can scan and check for anything we need to do very frequently, meaning that the set of changes we make at the end of the round is usually smaller: we’re not scanning through hours of changes in the cluster and trying to correct them all at once, we are trying to handle things more or less as they happen but with some batching when many things happen at the same time. This makes the Service Fabric resource manager very responsive to things that happen in the cluster.
 
-Fundamentally the Cluster Resource Manager also needs to know when to consider the cluster imbalanced, and which replicas should be moved in order to fix things. For that we have two other major pieces of configuration: Balancing Thresholds and Activity Thresholds.
+Fundamentally the Cluster Resource Manager also needs to know when to consider the cluster imbalanced, and which replicas should be moved in order to fix things. For that we have two other major pieces of configuration: *Balancing Thresholds* and *Activity Thresholds*.
 
 ## Balancing thresholds
-A Balancing Threshold is the main control for triggering proactive rebalancing. The Balancing Threshold defines how imbalanced the cluster needs to be for a specific metric in order for the Resource Manager to consider it imbalanced and trigger balancing during the next run.
-Balancing Thresholds are defined on a per-metric basis as a part of the cluster manifest:
+A Balancing Threshold is the main control for triggering proactive rebalancing. The Balancing Threshold defines how imbalanced the cluster needs to be for a specific metric in order for the Resource Manager to consider it imbalanced and trigger balancing.
+Balancing Thresholds are defined on a per-metric basis as a part of the cluster definition:
+
+ClusterManifest.xml
 
 ``` xml
     <Section Name="MetricBalancingThresholds">
@@ -58,11 +60,13 @@ The Balancing Threshold for a metric is a ratio. If the amount of load on the mo
 
 ![Balancing Threshold Example][Image1]
 
-In this simple example each service is just consuming one unit of some metric. In the top example, the maximum load on a node is 5 and the minimum is two. Let’s say that the balancing threshold for this metric is 3. Therefore, in the top example, the cluster is considered balanced and no balancing will be triggered. In the bottom example, the max load on a node is 10, while the minimum is 2, putting us over the designed balancing threshold of 3. As a result, load will almost certainly be distributed to Node3 once the Resource Manager has a chance to run. Note that since we are not using a greedy approach some could also land on Node2 since that would result in minimization of the overall differences between nodes.
+In this simple example each service is just consuming one unit of some metric. In the top example, the maximum load on a node is 5 and the minimum is 2. Let’s say that the balancing threshold for this metric is 3. Therefore, in the top example, the cluster is considered balanced and no balancing will be triggered (since the ratio in the cluster is 5/2 = 2.5 and that is less than the specified balancing threshold of 3).
+
+In the bottom example, the max load on a node is 10, while the minimum is 2 (resulting in a ratio of 5), putting us over the designed balancing threshold of 3. As a result, global rebalancing will happen the next time the timer fires and the load will almost certainly be distributed to Node3. Note that since we are not using a greedy approach some could also land on Node2 since that would result in minimization of the overall differences between nodes, but we would expect that the majority of the load would flow to Node3.
 
 ![Balancing Threshold Example Actions][Image2]
 
-Note that getting below the balancing threshold is not an explicit goal – Balancing Thresholds are just the trigger.
+Note that getting below the balancing threshold is not an explicit goal – Balancing Thresholds are just the *trigger* that tells the Service Fabric Cluster Resource Manager that it should look into the cluster to determine what improvements it can make.
 
 ## Activity thresholds
 Sometimes, although nodes are relatively imbalanced, the total amount of load in the cluster is low. This could be just because of the time of day, or because the cluster is new and just getting bootstrapped. In either case, you may not want to spend time balancing because there’s actually very little to be gained – you’ll just be spending network and compute resources to move things around. There’s another control inside of the Resource Manager, known as Activity Threshold, which allows you to specify some absolute lower bound for activity – if no node has at least this much load then balancing will not be triggered even if the Balancing Threshold is met.
@@ -70,12 +74,14 @@ As an example let’s say that we have reports with the following totals for con
 
 ![Activity Threshold Example][Image3]
 
-Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the Cluster Manifest:
+Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the cluster definition:
+
+ClusterManifest.xml
 
 ``` xml
-      <Section Name="MetricActivityThresholds">
-        <Parameter Name="Memory" Value="1536"/>
-      </Section>
+    <Section Name="MetricActivityThresholds">
+      <Parameter Name="Memory" Value="1536"/>
+    </Section>
 ```
 
 ## Balancing services together

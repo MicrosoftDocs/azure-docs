@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)" 
+	pageTitle="How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI) | Microsoft Azure" 
 	description="Learn how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create and manage a Redis cache from the Azure CLI." 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/28/2016" 
 	ms.author="sdanie"/>
 
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
@@ -31,7 +31,7 @@ To create and manage Azure Redis Cache instances using Azure CLI, you must compl
 -	You must have an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a few moments.
 -	[Install the Azure CLI](../xplat-cli-install.md).
 -	Connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account, and log in from the Azure CLI using the `azure login` command. To understand the differences and choose, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
--	Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Setting the Azure Resource Manager mode](../xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	Before running any of the following commands, switch the Azure CLI into Resource Manager mode by running the `azure config mode arm` command. For more information, see [Set the Azure Resource Manager mode](../xplat-cli-azure-resource-manager.md#set-the-azure-resource-manager-mode).
 
 ## Redis Cache properties
 

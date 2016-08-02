@@ -1,171 +1,190 @@
 <properties
-pageTitle="Use the Azure Service Bus API in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure Service Bus API (connector) in your Microsoft Azure App service Logic apps"
-services=""	
-documentationCenter="" 	
+pageTitle="Learn to use the Azure Service Bus connector in your logic apps.| Microsoft Azure"
+description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="03/16/2016"
+ms.workload="integration"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
-# Get started with the Azure Service Bus API
+# Get started with the Azure Service Bus connector
 
 Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-azureservicebus.md).
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-With Azure Service Bus, you can:
+## Connect to Azure Service Bus
 
-* Use it to build logic apps  
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Create a connection to Azure Service Bus
 
-## Let's talk about triggers and actions
+>[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
-The Azure Service Bus API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+## Use a Azure Service Bus trigger
 
- The Azure Service Bus API has the following action(s) and/or trigger(s) available:
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-### Azure Service Bus actions
-You can take these action(s):
+>[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
 
-|Action|Description|
-|--- | ---|
-|SendMessage|Sends message to Azure Service Bus queue or topic.|
-### Azure Service Bus triggers
-You can listen for these event(s):
+## Use a Azure Service Bus action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
+
+## Technical details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## Azure Service Bus triggers
+
+Azure Service Bus has the following trigger(s):  
 
 |Trigger | Description|
 |--- | ---|
-|GetMessageFromQueue|Gets a new message from Azure Service Bus queue.|
-|GetMessageFromTopic|Gets a new message from Azure Service Bus topic subscription.|
+|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
+|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
 
 
-## Create a connection to Azure Service Bus
-To use the Azure Service Bus API, you first create a **connection** then provide the details for these properties: 
+## Azure Service Bus actions
 
-|Property| Required|Description|
+Azure Service Bus has the following actions:
+
+
+|Action|Description|
+|--- | ---|
+|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
+### Action details
+
+Here are the details for the actions and triggers for this connector, along with their responses:
+
+
+
+### Send message
+This operation sends a message to a queue or topic. 
+
+
+|Property name| Display name|Description|
 | ---|---|---|
-|ConnectionString|Yes|Provide Azure Service Bus Connection String|  
+|ContentData*|Content|Content of the message|
+|ContentType|Content Type|Content type of the message content|
+|Properties|Properties|Key-value pairs for each brokered property|
+|entityName*|Queue/Topic name|Name of the queue or topic|
 
-Follow these steps to create a service bus **connection** that you can then use in your logic app:
+These advanced parameters are also available: 
 
-1. Select **Recurrence**
-2. Select a **Frequency** and enter an **Interval**     
-![Configure Service Bus][1] 
-3. Select **Add an action**     
- ![Configure Service Bus][2]   
-4. Enter **Service Bus** in the search box and wait for the search to return all entries with Service Bus in the name
-5. Select **Service Bus - Send message**  
-![Configure Service Bus][3]
-7. Enter a **Connection name** and a **Connection string** then select **Create connection**:      
-![Configure Service Bus][4]
-7. After the connection is created, you'll be presented with the **Send message** dialog. Enter all the required information for sending a message.  
-![Configure Service Bus][5]
-8. Select the **Save** button on the menu above to save your work.    
-
->[AZURE.TIP] You can use this connection in other logic apps.
-
-## Azure Service Bus REST API reference
-#### This documentation is for version: 1.0
-
-
-### Sends message to Azure Service Bus queue or topic.
-**```POST: /{entityName}/messages```** 
+|Property name| Display name|Description|
+| ---|---|---|
+|MessageId|Message Id|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Send to address|
+|ReplyTo|Reply To|Address of the queue to reply to|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to|
+|Label|Label|Application specific label|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue|
+|SessionId|Session Id|Identifier of the session|
+|CorrelationId|Correlation Id|Identifier of the correlation|
+|TimeToLive|Time To Live|This is the duration, in ticks, that a message is valid.  The duration starts from when the message is sent to the Service Bus.|
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|message| |yes|body|none|Service Bus message|
-|entityName|string|yes|path|none|Name of the queue or topic|
+An * indicates that a property is required
 
 
-### Here are the possible responses:
+
+
+### When a message is received in a queue
+This operation triggers a flow when a message is received in a queue. 
+
+
+|Property name| Display name|Description|
+| ---|---|---|
+|queueName*|Queue name|Name of the queue|
+
+
+An * indicates that a property is required
+
+#### Output details
+
+ServiceBusMessage: This object has the content and properties of a Service Bus Message.
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|ContentData|string|Content of the message|
+|ContentType|string|Content type of the message content|
+|Properties|object|Key-value pairs for each brokered property|
+|MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address|
+|ReplyTo|string|Address of the queue to reply to|
+|ReplyToSessionId|string|Identifier of the session to reply to|
+|Label|string|Application specific label|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue|
+|SessionId|string|Identifier of the session|
+|CorrelationId|string|Identifier of the correlation|
+|TimeToLive|string|This is the duration, in ticks, that a message is valid.  The duration starts from when the message is sent to the Service Bus.|
+
+
+
+
+### When a message is received in a topic subscription
+This operation triggers a flow when a message is received in a topic subscription. 
+
+
+|Property name| Display name|Description|
+| ---|---|---|
+|topicName*|Topic name|Name of the topic|
+|subscriptionName*|Topic subscription name|Name of the topic subscription|
+
+
+An * indicates that a property is required
+
+#### Output details
+
+ServiceBusMessage: This object has the content and properties of a Service Bus Message.
+
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|ContentData|string|Content of the message|
+|ContentType|string|Content type of the message content|
+|Properties|object|Key-value pairs for each brokered property|
+|MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|string|Send to address|
+|ReplyTo|string|Address of the queue to reply to|
+|ReplyToSessionId|string|Identifier of the session to reply to|
+|Label|string|Application specific label|
+|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue|
+|SessionId|string|Identifier of the session|
+|CorrelationId|string|Identifier of the correlation|
+|TimeToLive|string|This is the duration, in ticks, that a message is valid.  The duration starts from when the message is sent to the Service Bus.|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
-------
 
-
-
-### Gets a new message from Azure Service Bus queue.
-**```GET: /{queueName}/messages/head```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|queueName|string|yes|path|none|Name of the queue.|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Gets a new message from Azure Service Bus topic subscription.
-**```GET: /{topicName}/subscriptions/{subscriptionName}/messages/head```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|topicName|string|yes|path|none|Name of the topic.|
-|subscriptionName|string|yes|path|none|Name of the topic subscription.|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-## Object definition(s): 
-
- **ServiceBusMessage**:Message comprises of content and properties
-
-Required properties for ServiceBusMessage:
-
-ContentTransferEncoding
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|ContentData|string|
-|ContentType|string|
-|ContentTransferEncoding|string|
-|Properties|object|
-
-
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
-[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png 
-[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
-[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
-[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
-[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
+## Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)

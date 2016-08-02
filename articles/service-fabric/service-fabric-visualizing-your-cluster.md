@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/13/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Visualize your cluster with Service Fabric Explorer
@@ -64,6 +64,8 @@ For example, to delete an application instance, simply choose the application fr
 
 ![Deleting an application in Service Fabric Explorer][sfx-delete-application]
 
+>[AZURE.TIP] The same actions can be performed from the tree view by clicking on the ellipsis next to each element.
+
 The following table lists the actions available for each entity:
 
 | **Entity** | **Action** | **Description** |
@@ -97,9 +99,9 @@ The full URL is also available in the cluster essentials pane of the Azure porta
 
 ### Connect to a secure cluster
 
-You can control access to your Service Fabric cluster by requiring clients to present a certificate in order to connect to it.
+You can control client access to your Service Fabric cluster either with [certificates](service-fabric-cluster-security.md) or using [Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
 
-If you attempt to connect to Service Fabric Explorer on a secure cluster, your browser will ask you to present a certificate in order to gain access.
+If you attempt to connect to Service Fabric Explorer on a secure cluster, you will either be required to present a client certificate or login using AAD, depending on the type of security set up for the cluster's management endpoints.
 
 ## Next steps
 

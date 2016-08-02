@@ -2,7 +2,7 @@
 	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js" 
 	description="This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 

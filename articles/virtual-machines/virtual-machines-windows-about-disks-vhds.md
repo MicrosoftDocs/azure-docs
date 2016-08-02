@@ -1,6 +1,6 @@
 <properties
-	pageTitle="About disks and VHDs | Microsoft Azure"
-	description="Learn about the basics of disks and VHDs for virtual machines in Azure."
+	pageTitle="About disks and VHDs for Windows VMs | Microsoft Azure"
+	description="Learn about the basics of disks and VHDs for Windows virtual machines in Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # About disks and VHDs for Azure virtual machines
+
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk (in the case of a Windows VM) and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. This article is also available for [Linux virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

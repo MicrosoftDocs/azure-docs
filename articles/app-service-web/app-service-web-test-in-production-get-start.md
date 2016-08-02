@@ -39,7 +39,7 @@ With the Traffic Routing feature in [Azure App Service](http://go.microsoft.com/
 
 At the basic level in every TiP scenario, you route a predefined percentage of your live traffic to a non-production deployment slot. To do this, follow the steps below:
 
->[AZURE.NOTE] The steps here assumes that you already have a [non-production deployment slot](web-sites-staged-publishing.md) and that the desired web app content is already [deployed](web-sites-publish-source-control.md) to it.
+>[AZURE.NOTE] The steps here assumes that you already have a [non-production deployment slot](web-sites-staged-publishing.md) and that the desired web app content is already [deployed](web-sites-deploy.md) to it.
 
 1. Log into the [Azure Portal](https://portal.azure.com/).
 2. In your web app's blade, click **Settings** > **Traffic Routing**.

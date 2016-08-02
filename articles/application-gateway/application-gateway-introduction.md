@@ -40,7 +40,9 @@ HTTP layer 7 load balancing is useful for:
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
- 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+
+
 ## Gateway sizes and instances
 
 Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
@@ -62,6 +64,10 @@ The table below shows an average performance throughput for each application gat
 ## Health monitoring
 
 Azure Application Gateway automatically monitors the health of the back-end instances. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
+
+
+
+
 
 ## Configuring and managing
 

@@ -1,50 +1,50 @@
 <properties
-   pageTitle="Using the Oracle Database Connector in Logic Apps | Microsoft Azure App Service"
-   description="How to create and configure the Oracle Database Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   pageTitle="Using the Oracle Database Connector in Logic apps | Microsoft Azure App Service"
+   description="How to create and configure the Oracle Database Connector or API app and use it in a Logic app in Azure App Service"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Get started with the Oracle Database Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+# Get started with the Oracle database connector and add it to your Logic app
+>[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
 
-Connect to an on-premises Oracle Database server to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the Oracle Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
+Connect to an on-premises Oracle Database server to create and change your information or data. Connectors can be used in Logic apps to retrieve, process, or push data as a part of a "workflow". When you use the Oracle connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
 - Expose a section of the data residing in your Oracle database using a web or mobile application.
 - Insert data into your Oracle database table for storage. For example, you can enter employee records, update sales orders, and so on.
 - Get data from Oracle and use it in a business process. For example, you can get customer records and put those customer records in SalesForce.
 
 
-## Triggers and Actions
+## Triggers and actions
 *Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer.
 
-The Oracle Database Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions. If you are using an XML trigger or action, you can use the [Transform API App](app-service-logic-transform-xml-documents.md) to convert data into another XML data format.
+The Oracle Database connector can be used as a trigger or an action in a Logic app and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions. If you are using an XML trigger or action, you can use the [Transform API App](app-service-logic-transform-xml-documents.md) to convert data into another XML data format.
 
-The Oracle Database Connector has the following Triggers and Actions available:
+The Oracle database connector has the following Triggers and Actions available:
 
 Triggers | Actions
 --- | ---
 Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From Table</li><li>Delete From Table</li><li>Call Stored Procedure</li>
 
 
-## Create an Oracle Database Connector
+## Create an Oracle database connector
 
-A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
+A connector can be created within a Logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. In the Azure startboard, select **Marketplace**.
-2. Select **API Apps** and search for “Oracle Database Connector”.
+2. Select **API Apps** and search for “Oracle database connector”.
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
@@ -68,11 +68,11 @@ Post Poll Statement | No | Enter the statement to execute after the poll. For ex
 ![][1]  
 
 
-## Use the Connector as a Trigger
-Let's look at a simple logic app that polls data from a Oracle table, adds the data in another table, and updates the data.
+## Use the connector as a Trigger
+Let's look at a simple Logic app that polls data from a Oracle table, adds the data in another table, and updates the data.
 
 ### Add the Trigger
-1. When creating or editing a logic app, select the Oracle Connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:
+1. When creating or editing a Logic app, select the Oracle connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:
 <br/>
 ![][5]
 
@@ -80,14 +80,14 @@ Let's look at a simple logic app that polls data from a Oracle table, adds the d
 <br/>
 ![][6]
 
-3. The trigger now appears as configured in the logic app. The output(s) of the trigger is shown and can be used as inputs in any subsequent actions:
+3. The trigger now appears as configured in the Logic app. The output(s) of the trigger is shown and can be used as inputs in any subsequent actions:
 <br/>
 ![][7]
 
-## Use the Connector as an Action
-Using our simple logic app that polls data from an Oracle table, adds the data in another table, and updates the data.
+## Use the connector as an Action
+Using our simple Logic app that polls data from an Oracle table, adds the data in another table, and updates the data.
 
-To use the Oracle Connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the Oracle Connector:
+To use the Oracle connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the Oracle connector:
 
 1. Select the same Oracle connector from gallery as an action. Select one of the Insert actions, like *Insert Into TempEmployeeDetails (JSON)*:
 <br/>
@@ -105,7 +105,7 @@ To use the Oracle Connector as an action, enter the name of the Tables and/or St
 <br/>
 ![][12]
 
-You can test the logic app by adding a new record in the table that is being polled.
+You can test the Logic app by adding a new record in the table that is being polled.
 
 ## Hybrid Configuration
 
@@ -115,14 +115,14 @@ App Service uses the Hybrid Configuration Manager to connect securely to your on
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
-## Do more with your Connector
-Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+## Do more with your connector
+Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and connector](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->

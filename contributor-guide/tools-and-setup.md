@@ -1,18 +1,18 @@
-<properties 
-pageTitle="Install and set up tools for authoring in GitHub" 
-description="Tools and steps to get set up for authoring Azure content in GitHub." 
-services="contributor-guide" 
-documentationCenter="" 
+<properties
+pageTitle="Install and set up tools for authoring in GitHub"
+description="Tools and steps to get set up for authoring Azure content in GitHub."
+services="contributor-guide"
+documentationCenter=""
 authors="tysonn"  
 manager="carolz" />
 
-<tags 
+<tags
 ms.service="contributor-guide"
- ms.devlang="" 
+ ms.devlang=""
  ms.topic="article"
-  ms.tgt_pltfrm="" 
-  ms.workload="" 
-  ms.date="01/19/2015" 
+  ms.tgt_pltfrm=""
+  ms.workload=""
+  ms.date="01/19/2015"
   ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
@@ -43,9 +43,9 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (required)
+- **Email**: your Microsoft email address (optional)
 - **Company**: Microsoft Corporation (required)
-- **Location**: list your location (required)
+- **Location**: list your location (optional)
 
 Your profile should resemble this profile:
 
@@ -84,20 +84,24 @@ If you only need or want to make textual updates to an existing article, you pro
  That opens the easy-to-use web editor that makes it easy to submit changes. You don't need to follow the other steps in this article.
 
 ###All other changes
-You need to install the tools if you want to make any of the following sorts of changes:
+The GitHub UI does support creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we typically recommend you install the tools and learn the commands for creating and managing articles. If you want to use the UI, see:
 
- - Major changes to an article
- - Create and publish a new article
- - Add new images or update images
- - Update an article over a period of days without publishing changes each of those days
+- [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+- [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
- Go to the next section!
+For the following sorts of work, we strongly recommend you install and learn to use the tools:
+
+ - Making major changes to an article
+ - Creating and publishing a new article
+ - Adding new images or updating images
+ - Updating an article over a period of days without publishing changes each of those days
+ - Creating content for a release that has to go out on a certain day at a certain time
 
 ##Permissions in GitHub
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
+If you are a Microsoft PM or writer who is working on Azure content, you must work in our private content repository, azure-content-pr. Visit [https://repos.opensource.microsoft.com ](https://repos.opensource.microsoft.com ) to request the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
 
 ## Install Git for Windows
 
@@ -108,7 +112,7 @@ You can accept the default settings; if you want the commands to be available wi
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
-(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/)) 
+(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/))
 
 ## Enable two-factor authentication
 
@@ -118,6 +122,8 @@ To enable this, follow the instructions in both the following GitHub help topics
 
 - [About Two-Factor Authentication](https://help.github.com/articles/about-two-factor-authentication/)
 - [Creating an access token for command-line use](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
+
+When you create the token, select all the scopes available in the token-creation UI ([details on each scope](https://developer.github.com/v3/oauth/#scopes))
 
 After you enable 2FA, you have to enter the access token instead of your GitHub password at the command prompt when you try to access a GitHub repository from the command line. The access token is not the authentication code that you get in a text message when you set up 2FA. It's a long string that looks something like this:  fdd3b7d3d4f0d2bb2cd3d58dba54bd6bafcd8dee. A few notes about this:
 
@@ -132,7 +138,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check. 
+- **Atom**: Most of us use GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. It has spell check.
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
@@ -144,15 +150,15 @@ We author content using simple "markdown" notation in the files, rather than com
 
 If you use Atom, you'll need to set a few things up.
 
-- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length. 
-- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. 
-- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view. 
+- Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. So, configure Atom to use 4 spaces - you can find this setting under File>Settings>Editor Settings>Tab Length.
+- You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad.
+- To turn on the markdown preview, click Packages>Markdown Preview>Toggle Preview. You can use Ctrl-Shift-M to toggle the preview HTML view.
 
 ## Fork the repository and copy it to your computer
 
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 
-2. Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
+2. Copy the Personal Access Token that you got from [https://github.com/settings/tokens](https://github.com/settings/tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 
 3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
@@ -217,14 +223,13 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 
 ##Next steps
 
-- [Create a local working branch](./git-commands-for-master.md) on your computer so you can start work.
+- Understand the type of content that belongs in the technical content repo, and know what does not belong. See the [content channel guidance](./content-channel-guidance.md)!
+- Follow [these steps to create or modify an article and then submit it for publishing](./git-commands-for-master.md).
 - Copy [the markdown template](../markdown templates/markdown-template-for-new-articles.md) as the basis for a new article.
+- Use [this checklist to verify your pull request will meet the quality criteria](./contributor-guide-pr-criteria.md) for merging.
 
 
-
-
-
-###Contributors' Guide Links
+###Contributors' guide navigation
 
 - [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)

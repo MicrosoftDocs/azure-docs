@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -60,6 +60,8 @@ tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanage
 ## Enable using Azure PowerShell
 
 For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserver, you would do the following:
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 

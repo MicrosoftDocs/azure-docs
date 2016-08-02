@@ -18,12 +18,13 @@ Here's what you need to know:
 
 ##Rules
 
-- No spaces or punctuation characters. Use hyphens to separate the words in the file name.
-- Use all lowercase letters
+- Files names can contain ONLY lowercase letters, numbers, and hyphens. 
+- No spaces or punctuation characters. Use the hyphens to separate words and numbers in the file name.
 - No more than 80 characters - this is a publishing system limit
-- Use action verbs that are specific such as develop, buy, build, troubleshoot. No -ing words.
+- Use action verbs that are specific, such as develop, buy, build, troubleshoot. No -ing words.
 - No small words - don't include a, and, the, in, or, etc.
 - All files must be in markdown and use the .md file extension.
+- Spell the words out; don't use unapproved or unnecessary acronyms in file names
 
 ##Pattern
 
@@ -43,7 +44,9 @@ Here are a few examples of valid names that follow the pattern. :
 - mobile-services-dotnet-backend-get-started-settings-sync.md
 - active-directory-java-authenticate-users-access-control-eclipse.md
 - virtual-machines-install-windows-server-2008r2.md
-
+- cache-aspnet-session-state-provider
+- azure-sdk-dotnet-release-notes-2-8
+- storsimple-disaster-recovery-using-azure-site-recovery
 
 ##Marketplace content
 
@@ -54,6 +57,21 @@ To distinguish content that focuses on partner contributions to the Azure market
 ##File name approval
 
 It's the job of our group of pull request reviewers to review file names when a new file is submitted to the repository for the first time. Pull request reviewers should review the file name and provide feedback via the pull request comment stream if changes are needed. The file name needs to be corrected before the pull request is accepted. Contributors can easily push the update to the pending pull request.
+
+##Folder names in the repo
+
+Folders should be created only for services, and the file name should match the service slug. Use only letters and hyphens, and use all lowercase letters. Obtain approval from the repository admin before you create a new folder that is not for a released service.
+
+##Changing case in file names
+
+Windows operating systems are case insensitive, so if you need to change a file name to fix casing, it is better to make a substantive change, unless you are able to make the change on a Linux or Mac. For example:
+
+  biztalk-administration-and-Development-Task-List-in-BizTalk-Services --> biztalk-services-administration-and-development-task-list
+
+Use the following command to rename a file:
+```
+  git mv <articles/service-folder/current-file-name.md> <articles/service-folder/new-file-name>
+```
 
 ###Contributors' Guide Links
 

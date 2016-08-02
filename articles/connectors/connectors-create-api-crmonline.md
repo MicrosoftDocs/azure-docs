@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Dynamic CRM Online API in PowerApps Enterprise or to your Logic Apps | Microsoft Azure"
-description="Overview of the CRM Online API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Dynamic CRM Online connector in PowerApps Enterprise or to your Logic Apps | Microsoft Azure"
+description="Overview of the CRM Online connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor="" tags="connectors" />
 
 <tags
@@ -13,11 +13,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the CRM API
-Connect to Dynamics CRM Online to create a new record, update an item, and more. The CRM Online API can be be used from:
+# Get started with the CRM connector
+Connect to Dynamics CRM Online to create a new record, update an item, and more. The CRM Online connector can be used from:
 
 - Logic apps
 - PowerApps
@@ -32,22 +32,22 @@ With CRM Online, you can:
 - Use actions that delete a record, get entities, and more. These actions get a response, and then make the output available for other actions. For example, when an item is updated in CRM, you can send an email using Office 365.
 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The CRM API includes the following actions. There are no triggers. 
+The CRM connector includes the following actions. There are no triggers. 
 
 | Triggers | Actions|
 | --- | --- |
 |None| <ul><li>Create a new record</li><li>Gets records</li><li>Delete a record</li><li>Gets a record</li><li>Gets entities</li><li>Update an item</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to CRM Online
 
-When you add this API to your logic apps, you must sign in to Dynamics CRM Online. Follow these steps to sign into CRM online and complete the configuration of the **connection** in your logic app:
+When you add this connector to your logic apps, you must sign in to Dynamics CRM Online. Follow these steps to sign into CRM online and complete the configuration of the **connection** in your logic app:
 
 1. In your logic app, select **Add an action**:  
 ![Configure CRM Online][13]

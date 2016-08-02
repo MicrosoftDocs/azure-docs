@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/09/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #Connecting DocumentDB with Azure Search using indexers
@@ -21,6 +21,9 @@
 If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
 To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+
+In order send requests to interact with the REST APIs, you can use [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), or any tool of your preference.
+
 
 ##<a id="Concepts"></a>Azure Search indexer concepts
 
@@ -42,11 +45,11 @@ Issue a HTTP POST request to create a new data source in your Azure Search servi
     Content-Type: application/json
     api-key: [Search service admin key]
 
-The `api-version` is required. Valid values include `2015-02-28` or a later version.
+The `api-version` is required. Valid values include `2015-02-28` or a later version. Visit [API versions in Azure Search](../search/search-api-versions.md) to see all supported Search API versions.
 
 The body of the request contains the data source definition, which should include the following fields:
 
-- **name**: The name of the data source.
+- **name**: Choose any name to represent your DocumentDB database.
 
 - **type**: Use `documentdb`.
 
@@ -56,13 +59,15 @@ The body of the request contains the data source definition, which should includ
 
 - **container**:
 
-    - **name**: Required. Specify the DocumentDB collection to be indexed.
+    - **name**: Required. Specify the id of the DocumentDB collection to be indexed.
 
     - **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 
 - **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
 
 - **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
+
+See below for an [example request body](#CreateDataSourceExample).
 
 ###<a id="DataChangeDetectionPolicy"></a>Capturing changed documents
 
@@ -75,7 +80,7 @@ The purpose of a data change detection policy is to efficiently identify changed
 
 You will also need to add `_ts` in the projection and `WHERE` clause for your query. For example:
 
-    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
+    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
 ###<a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
@@ -88,7 +93,7 @@ When rows are deleted from the source table, you should delete those rows from t
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] You will need to include the property in your SELECT clause if you are using a custom projection.
+> [AZURE.NOTE] You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
 
 ###<a id="CreateDataSourceExample"></a>Request body example
 
@@ -121,7 +126,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 ##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search/search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search/search-create-index-portal.md) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -129,6 +134,8 @@ Create a target Azure Search index if you don’t have one already. You can do t
 
 
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
+
+>[AZURE.NOTE] For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
 
 ###Figure A: Mapping between JSON Data Types and Azure Search Data Types
 

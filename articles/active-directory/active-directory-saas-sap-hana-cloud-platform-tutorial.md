@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Azure Active Directory integration with SAP HANA Cloud Platform | Microsoft Azure" 
     description="Learn how to use SAP HANA Cloud Platform with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with SAP HANA Cloud Platform
   
@@ -73,7 +73,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
 
@@ -94,7 +94,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     1.  Click the **Local Service Provider** tab.
     2.  To download the SAP HANA Cloud Platform metadata file, click **Get Metadata**.
 
-6.  In the Azure Active Directory portal, on the **Configure App URL** page, perform the following steps, and then click **Next**.
+6.  In the Azure Active classic portal, on the **Configure App URL** page, perform the following steps, and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configure App URL")
 
@@ -153,7 +153,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     >
     >b.  The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-13. In the Azure portal, on the **Configure single sign-on at SAP HANA Cloud Platform** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
+13. In the Azure classic portal, on the **Configure single sign-on at SAP HANA Cloud Platform** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configure Single Sign-On")
   
@@ -187,7 +187,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to SAP HANA Cloud Platform, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **SAP HANA Cloud Platform** application integration page, click **Assign users**.
 

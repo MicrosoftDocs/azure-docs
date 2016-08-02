@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="05/02/2016"
 	ms.author="billmath"/>
 
 # Determine identity requirements for your hybrid identity solution
@@ -93,7 +93,7 @@ You also have to evaluate the user requirements. This evaluation is important to
 - How do users typically login to their on-premises environment?
 - How will users sign-in to the cloud?
 
->[Note]
+>[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
 
 ## Next steps

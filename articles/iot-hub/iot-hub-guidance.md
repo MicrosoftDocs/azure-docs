@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Design your solution
@@ -23,6 +23,7 @@ This article provides guidance for how to design the following capabilities in y
 - Device provisioning
 - Field gateways
 - Device authentication
+- Device heartbeat
 
 ## Device provisioning
 
@@ -39,41 +40,28 @@ The device data that a given IoT solution stores depends on the specific require
 *Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a new device ID and keys to the
 [IoT Hub identity registry][lnk-devguide-identityregistry]. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
 
-The article [IoT Hub device management guidance][lnk-device-management] describes some common strategies for device provisioning. The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
+The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
 
 ## Field gateways
 
-In an IoT solution, a *field gateway* sits between your devices and your IoT hub. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway communicates with IoT Hub using a protocol that is supported by IoT Hub. A field gateway can be a specialized standalone device or software that runs on an existing piece of hardware.
+In an IoT solution, a *field gateway* sits between your devices and your IoT hub. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway communicates with IoT Hub using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end to end scenario for which the gateway is intended.
 
 A field gateway differs from a simple traffic routing device (such as a network address translation (NAT) device or firewall) because it typically performs an active role in managing access and information flow in your solution. For example, a field gateway may:
 
-- Manage local devices. For example, a field gateway could perform event rule processing and send commands to devices in response to specific telemetry data.
-- Filter or aggregate telemetry data before it forwards it to IoT Hub. This can reduce the amount of data that is sent to IoT Hub and potentially reduce costs in your solution.
-- Help to provision devices.
-- Transform telemetry data to facilitate processing in your solution back end.
-- Perform protocol translation to enable devices to communicate with IoT Hub--even when they do not use the transport protocols that IoT Hub supports.
-
-> [AZURE.NOTE] While you typically deploy a field gateway that is local to your devices, in some scenarios, you might deploy a [protocol gateway][lnk-gateway] in the cloud.
-
-### Types of field gateways
-
-A field gateway can be *transparent* or *opaque*:
-
-| &nbsp; | Transparent gateway | Opaque gateway|
-|--------|-------------|--------|
-| Identities that are stored in the IoT Hub identity registry | Identities of all connected devices | Only the identity of the field gateway |
-| IoT Hub can provide [device identity anti-spoofing][lnk-devguide-antispoofing] | Yes | No |
-| [Throttles and quotas][lnk-throttles-quotas] | Apply to each device | Apply to the field gateway |
-
-> [AZURE.IMPORTANT]  When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+- **Add support for new and legacy devices**: There are millions of new and legacy sensors and actuators that cannot send data directly to the cloud. These devices either use a protocol that is not suited for the internet, do not implement encryption, or can’t store identity certificates.  Using a gateway reduces the burden and cost of connecting these devices.
+- **Run edge analytics**: There are many operations that can be done locally to reduce the quantity of data exchanged with the cloud. Examples include data filtering, batching, and compression. It may also be desirable to perform some computations such as data cleansing or scoring a machine learning model with real-time data on premise.
+- **Minimize latency**: Milliseconds matter when you are trying to prevent manufacturing line shutdowns or restore an electrical service. Analyzing data close to the device that collected the data may make the difference between averting disaster and a cascading system failure.
+- **Conserve network bandwidth**: A typical offshore oil platform generates between 1TB and 2TB of data each day. A Boeing 787 creates half a terabyte of data per flight. It is not practical to transport vast amounts of data from thousands or hundreds of thousands of edge devices to the cloud. Nor is it necessary, because many critical analyses do not require cloud-scale processing and storage.
+- **Operate reliably**: IoT data is increasingly used for decisions affecting citizen safety and critical infrastructure. The integrity and availability of the infrastructure and data cannot be compromised by intermittent cloud connections. Using capabilities such as store and forward to collect and act upon data locally and then send it up to the cloud when appropriate, help you create reliable solutions.
+- **Address privacy and security concerns**: IoT devices, and the data they produce, need to be protected. Gateways can provide services such as isolating devices from the open internet, providing encryption and identity services for devices that are not capable of providing these services themselves, securing data that is locally buffered or stored, and removing personally identifiable information before sending it over the internet.
 
 ### Other considerations
 
-You can use the [Azure IoT device SDKs][lnk-device-sdks] to implement a field gateway. Some device SDKs offer specific functionality that helps you to implement a field gateway--such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub. As explained in [IoT Hub developer guide - Choosing your communication protocol][lnk-devguide-protocol], you should avoid using HTTP/1 as the transport protocol for a field gateway.
+You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDKs offers specific functionality that such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub.
 
 ## Custom device authentication
 
-You can use the IoT Hub [device identity registry][lnk-devguide-identityregistry] to configure per-device security credentials and access control. However, if an IoT solution already has a significant investment in a custom device identity registry and/or authentication scheme, you can integrate this existing infrastructure with IoT Hub by creating a *token service*. In this way, you can use other IoT features in your solution.
+You can use the IoT Hub [device identity registry][lnk-devguide-identityregistry] to configure per-device security credentials and access control using [tokens][lnk-sas-token]. However, if an IoT solution already has a significant investment in a custom device identity registry and/or authentication scheme, you can integrate this existing infrastructure with IoT Hub by creating a *token service*. In this way, you can use other IoT features in your solution.
 
 A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub.
 
@@ -94,7 +82,7 @@ For a device to connect to your hub, you must still add it to the IoT Hub device
 
 ### Comparison with a custom gateway
 
-The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-gateway] topic.
+The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
 
 ## Device heartbeat <a id="heartbeat"></a>
 
@@ -109,29 +97,45 @@ A more complex implementation could include the information from [operations mon
 
 ## Next steps
 
-Follow these links to learn more about Azure IoT Hub:
+To learn more about planning your IoT Hub deployment, see:
 
-- [Get started with IoT Hub (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][lnk-what-is-hub]
+- [MQTT support][lnk-mqtt]
+- [Supported devices][lnk-devices]
+- [Support additional protocols][lnk-protocols]
+- [Compare with Event Hubs][lnk-compare]
+- [Scaling, HA and DR][lnk-scaling]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal-manage]
+- [Secure your IoT solution from the ground up][lnk-securing]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
-[lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
 [lnk-portal]: https://portal.azure.com
-[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
-[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
-[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md
+[lnk-sas-token]: iot-hub-sas-tokens.md
+[lnk-securing]: iot-hub-security-ground-up.md

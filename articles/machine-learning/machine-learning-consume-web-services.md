@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/21/2016"
+	ms.date="05/22/2016"
 	ms.author="garye" />
 
 
@@ -355,7 +355,7 @@ A running batch job can be cancelled at any time by calling the designated Cance
 
 The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio in the **Tools** menu, select **Nuget Package Manager** and click **Package Manager Console**.
 
-Azure Machine Learning experiments that are deployed as web services can include web service input modules. This means that they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using a **Reader** module instead. In this case, the **Reader** module typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
+Azure Machine Learning experiments that are deployed as web services can include web service input modules. This means that they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using an **Import Data** module instead. In this case, the **Import Data** module typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
 
 The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK. Note the comments for details on the settings and calls.
 

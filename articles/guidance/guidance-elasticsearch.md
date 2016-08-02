@@ -4,8 +4,8 @@
    description="Elasticsearch on Azure Guidance."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -16,9 +16,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.author="masashin"/>
 
 # Elasticsearch on Azure Guidance
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster: 
 

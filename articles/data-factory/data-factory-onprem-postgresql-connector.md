@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data from PostgreSQL using Azure Data Factory
@@ -30,7 +30,7 @@ Data factory only supports moving data from PostgreSQL to other data stores, not
 
 For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) on the same system as the Data Management Gateway.
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from PostgreSQL to Azure Blob
 
@@ -136,7 +136,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -144,7 +144,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -152,7 +152,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -179,7 +179,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "select * from public.usstates"
+	                        "query": "select * from \"public\".\"usstates\""
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -221,7 +221,7 @@ Property | Description | Required
 type | The type property must be set to: **OnPremisesPostgreSql** | Yes
 server | Name of the PostgreSQL server. | Yes 
 database | Name of the PostgreSQL database. | Yes 
-schema | Name of the schema in the database. | No 
+schema | Name of the schema in the database. The schema name is case sensitive. | No 
 authenticationType | Type of authentication used to connect to the PostgreSQL database. Possible values are: Anonymous, Basic, and Windows. | Yes 
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
@@ -237,7 +237,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
+tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. The tableName is case sensitive. | No (if **query** of **RelationalSource** is specified) 
 
 ## PostgreSQL copy activity type properties
 
@@ -249,7 +249,13 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)
+query | Use the custom query to read data. | SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". | No (if **tableName** of **dataset** is specified)
+
+> [AZURE.NOTE] Schema and table names are case sensitive and they have to enclosed in "" (double quotes) in the query.  
+
+**Example:**
+
+ "query": "select * from \"MySchema\".\"MyTable\""
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

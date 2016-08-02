@@ -3,7 +3,7 @@
 	description="Learn how to install MongoDB on an Azure VM created with the classic deployment model running Windows Server."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="07/20/2016"
+	ms.author="iainfou"/>
 
 #Install MongoDB on a Windows VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-
-[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure classic portal][AzurePortal], you can create a virtual machine running Windows Server from the Image Gallery, using the classic deployment model. You can then install and configure a MongoDB database on the virtual machine.
+[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  This article guides you through creating a new Windows Server virtual machine (VM) using the [Azure classic portal][AzurePortal], creating and attaching a data disk to the VM, and then installing and configuring MongoDB. If have an existing VM in Azure that you would like to use, you can jump straight to [installing and configuring MongoDB](#install-and-run-mongo-on-win2k8-vm).
 
 
 ## Create a virtual machine running Windows Server
@@ -44,7 +43,7 @@ For instructions on initializing the disk, see "How to: Initialize a new data di
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-##Summary
+## Summary
 In this tutorial, you learned how to create a virtual machine running Windows Server, remotely connect to it, and attach a data disk.  You also learned how to install and configure MongoDB on the Windows-based virtual machine. You can now access MongoDB on the Windows-based virtual machine, by following the advanced topics in the [MongoDB documentation][MongoDocs].
 
 [MongoDocs]: http://docs.mongodb.org/manual/

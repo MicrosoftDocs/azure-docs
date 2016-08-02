@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="sethm" />
 
 # Service Bus pricing and billing
 
 Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all queues, topics/subscriptions, relays, and Event Hubs created within that namespace.
 
->[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus pricing FAQ](service-bus-pricing-faq.md).
+>[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
@@ -106,7 +106,7 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 |---|
 |Brokered connections are not charged in the Premium tier.|
 
-For more information about brokered connections, see the [FAQ](#FAQ) section later in this topic.
+For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
 
 ## Relay
 
@@ -121,7 +121,7 @@ Relays are available only in Standard tier namespaces. Otherwise, pricing and co
 
 ### How is the Relay Hours meter calculated?
 
-See [this topic](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
+See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### What are brokered connections and how do I get charged for them?
 
@@ -147,6 +147,6 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 - For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- See the [Service Bus pricing FAQ](service-bus-pricing-faq.md) for some common FAQs around Service bus pricing and billing.
+- See the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
 
 [Azure classic portal]: http://manage.windowsazure.com

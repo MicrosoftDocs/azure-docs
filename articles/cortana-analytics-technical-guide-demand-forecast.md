@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Demand Forecast in Energy Technical Guide | Microsoft Azure"
-	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for demand forecast in energy."
+	description="A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Technical Guide to the Cortana Analytics Solution Template for Demand Forecast in Energy
+# Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy
 
 ## **Overview**
 
-Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Analytics Suite. A deployed template will provision your subscription with necessary Cortana Analytics component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
+Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Intelligence Suite. A deployed template will provision your subscription with necessary Cortana Intelligence component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
+
+The solution template can be found [here](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1) 
 
 The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
 
@@ -283,12 +285,12 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1.  Add Power BI output in Azure Stream Analytics (ASA).
 
     -  You will need to follow the instructions in
-    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics\stream-analytics-power-bi-dashboard.md)
+    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
-	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
+	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
 
-	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
+	- Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
     you have added the output, click **"Start"** at the bottom of the page to start the Stream
     Analytics job. You should get a confirmation message (*e.g.*,
     "Starting stream analytics job myteststreamingjob12345asablob succeeded").
@@ -316,7 +318,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 	-	Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
 
 4.	Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+		![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### Setup Cold Path Dashboard
@@ -334,7 +336,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 
     -   Once **"Azure SQL Database"** on your solution template diagram turns green, click it and then click **"Open"**. You will be guided to Azure management portal and your database information page will be opened as well.
 
-    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Soution Name + Random Number + 'db'"** (e.g. "mytest12345db").
+    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Solution Name + Random Number + 'db'"** (e.g. "mytest12345db").
 
 	-	Click your database, in the new pop out pannel, you can find your database server name on the top. Your database server name name shoud be **"Your Solution Name + Random Number + 'database.windows.net,1433'"** (e.g. "mytest12345.database.windows.net,1433").
 
@@ -352,7 +354,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 	-   In the pop out window, replace **"Server"** and **"Database"** with
 	your own server and database names, and then click **"OK"**. For server
 	name, make sure you specify the port 1433
-	(**YourSoutionName.database.windows.net, 1433**). Ignore the warning
+	(**YourSolutionName.database.windows.net, 1433**). Ignore the warning
 	messages that appear on the screen.
 
 	-   In the next pop out window, you'll see two options on the left pane
@@ -394,8 +396,11 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 data up-to-date".
 
 	-   Schedule the refresh based on your needs. To find more information, see
-[Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+[Data refresh in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
+
+## **How to delete your solution**
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost Estimation Tools**
 
@@ -408,3 +413,6 @@ Solution Template in your subscription:
 
 -   [Microsoft Azure Cost Estimator
     Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+
+## **Acknowledgements**
+This article is authored by data scientists Yijing Chen and software engineer Qiu Min at Microsoft.

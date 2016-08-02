@@ -13,33 +13,33 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/08/2016"
+	ms.date="07/21/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-By using automatic scaling in Azure Batch, you can dynamically add or remove compute nodes in a Batch pool during job execution to automatically adjust the processing power that is used by your application. This automatic adjustment can save you both time and money.
+With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters that you define. You can potentially save both time and money by automatically adjusting the amount of compute power used by your application--add nodes as your job's task demands increase, and remove them when they decrease.
 
-You can enable automatic scaling on a pool of compute nodes by associating an *autoscale formula* with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. The number of compute nodes in the pool, which responds to service metrics data samples that are collected periodically, is adjusted at a configurable interval based on the associated formula.
+You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Batch responds to service metrics data samples that are collected periodically, and adjusts the number of compute nodes in the pool at a configurable interval based on your formula.
 
-You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on a pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs.
+You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on a pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as monitor the status of automatic scaling runs.
 
 ## Automatic scaling formulas
 
-An automatic scaling formula is a string value that contains one or more statements that are assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST API), or the [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET API). You define these formulas. When they are assigned to a pool, they determine the number of available compute nodes in a pool for the next interval of processing (see more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
+An automatic scaling formula is a string value that you define that contains one or more statements, and is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). When assigned to a pool, the Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
-You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include system-defined and user-defined variables, as well as constants. They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
+You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements:
+Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for  `variable1`, then pass it to a function to populate `variable2`:
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-By using the statements in your formula, your goal is to arrive at a number of compute nodes that the pool should be scaled to--the **target** number of **dedicated nodes**. This number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval ([automatic scaling intervals](#interval) are discussed below). Then it will adjust the target number of nodes in the pool to the number that your autoscale formula specifies at the time of evaluation.
+With these statements in your formula, your goal is to arrive at a number of compute nodes that the pool should be scaled to--the **target** number of **dedicated nodes**. This number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval ([automatic scaling intervals](#automatic-scaling-interval) are discussed below). Then it will adjust the target number of nodes in the pool to the number that your autoscale formula specifies at the time of evaluation.
 
 As a quick example, this two-line autoscale formula specifies that the number of nodes should be adjusted according to the number of active tasks, up to a maximum of 10 compute nodes:
 
@@ -50,17 +50,19 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 The next few sections of this article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various compute resource and task metrics within Batch. You can use these metrics to intelligently adjust your pool's node count based on resource usage and task status. You'll then learn how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. We'll finish up with a few example formulas.
 
-> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The Batch service will create nodes only up to that limit. Therefore, it may not reach the target number that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> [AZURE.IMPORTANT] Each Azure Batch account is limited to a maximum number of cores (and therefore compute nodes) that can be used for processing. The Batch service will create nodes only up to that core limit. Therefore, it may not reach the target number of compute nodes that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 
-## <a name="variables"></a>Variables
+## Variables
 
-You can use both system-defined and user-defined variables in autoscale formulas. In the two-line example formula above, `$TargetDedicated` is a system-defined variable, while `$averageActiveTaskCount` is user-defined. The tables below show both read-write and read-only variables that are defined by the Batch service.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the two-line example formula above, `$TargetDedicated` is a service-defined variable, while `$averageActiveTaskCount` is a user-defined variable.
 
-*Get* and *set* the values of these **system-defined variables** to manage the number of compute nodes in a pool:
+The tables below show both read-write and read-only variables that are defined by the Batch service.
+
+You can **get** and **set** the values of these service-defined variables to manage the number of compute nodes in a pool:
 
 <table>
   <tr>
-    <th>Variables (read-write)</th>
+    <th>Read-write<br/>service-defined variables</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -80,11 +82,11 @@ You can use both system-defined and user-defined variables in autoscale formulas
    </tr>
 </table>
 
-*Get* the value of these **system-defined variables** to make adjustments that are based on metrics from the Batch service:
+You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
 <table>
   <tr>
-    <th>Variables (read-only)</th>
+    <th>Read-only<br/>service-defined<br/>variables</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -152,7 +154,7 @@ You can use both system-defined and user-defined variables in autoscale formulas
   </tr>
 </table>
 
-> [AZURE.TIP] The read-only, system-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
+> [AZURE.TIP] The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
 
 ## Types
 
@@ -163,6 +165,7 @@ These **types** are supported in a formula.
 - doubleVecList
 - string
 - timestamp--timestamp is a compound structure that contains the following members:
+
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -171,6 +174,7 @@ These **types** are supported in a formula.
 	- minute (00-59)
 	- second (00-59)
 - timeinterval
+
 	- TimeInterval_Zero
 	- TimeInterval_100ns
 	- TimeInterval_Microsecond
@@ -186,166 +190,52 @@ These **types** are supported in a formula.
 
 These **operations** are allowed on the types that are listed above.
 
-<table>
-  <tr>
-    <th>Operation</th>
-    <th>Allowed operators</th>
-  </tr>
-  <tr>
-    <td>double &lt;operator&gt; double =&gt; double</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator&gt; timeinterval =&gt; timeinterval</td>
-    <td>*</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator&gt; double =&gt; doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operator&gt; doubleVec =&gt; doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator&gt; double =&gt; timeinterval</td>
-    <td>*, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator&gt; timeinterval =&gt; timeinterval</td>
-    <td>+, -</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator&gt; timestamp =&gt; timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator&gt; timeinterval =&gt; timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator&gt; timestamp =&gt; timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>&lt;operator&gt;double =&gt; double</td>
-    <td>-, !</td>
-  </tr>
-  <tr>
-    <td>&lt;operator&gt;timeinterval =&gt; timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator&gt; double =&gt; double</td>
-    <td>&lt;, &lt;=, ==, &gt;=, &gt;, !=</td>
-  </tr>
-  <tr>
-    <td>string &lt;operator&gt; string =&gt; double</td>
-    <td>&lt;, &lt;=, ==, &gt;=, &gt;, !=</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operator&gt; timestamp =&gt; double</td>
-    <td>&lt;, &lt;=, ==, &gt;=, &gt, !=</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operator&gt; timeinterval =&gt; double</td>
-    <td>&lt;, &lt;=, ==, &gt;=, &gt;, !=</td>
-  </tr>
-  <tr>
-    <td>double &lt;operator&gt; double =&gt; double</td>
-    <td>&&, ||</td>
-  </tr>
-  <tr>
-    <td>test double only (nonzero is true, zero is false)</td>
-    <td>? :</td>
-  </tr>
-</table>
+| Operation								| Supported operators	| Result type	|
+| ------------------------------------- | --------------------- | ------------- |
+| double *operator* double 				| +, -, *, /            | double		    |
+| double *operator* timeinterval 		| *                     | timeinterval	    |
+| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
+| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
+| timeinterval *operator* double 		| *, /                  | timeinterval	    |
+| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
+| timeinterval *operator* timestamp 	| +                     | timestamp		    |
+| timestamp *operator* timeinterval 	| +                     | timestamp		    |
+| timestamp *operator* timestamp 		| -                     | timeinterval	    |
+| *operator*double 						| -, !                  | double		    |
+| *operator*timeinterval 				| -                     | timeinterval	    |
+| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
+| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
+| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
+| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
+| double *operator* double 				| &&, &#124;&#124;      | double		    |
+
+When testing a double with a ternary operator (`double ? statement1 : statement2`), nonzero is **true**, and zero is **false**.
 
 ## Functions
 
 These predefined **functions** are available for you to use in defining an automatic scaling formula.
 
-<table>
-  <tr>
-    <th>Function</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
-    <td>Returns the average value for all values in the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>len</b>(doubleVecList)</td>
-    <td>Returns the length of the vector that is created from the doubleVecList.</td>
-  <tr>
-    <td>double <b>lg</b>(double)</td>
-    <td>Returns the log base 2 of the double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Returns the componentwise log base 2 of the doubleVecList. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
-  </tr>
-  <tr>
-    <td>double <b>ln</b>(double)</td>
-    <td>Returns the natural log of the double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Returns the componentwise log base 2 of the doubleVecList.  A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
-  </tr>
-  <tr>
-    <td>double <b>log</b>(double)</td>
-    <td>Returns the log base 10 of the double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Returns the componentwise log base 10 of the doubleVecList. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double log(double) version is assumed.</td>
-  </tr>
-  <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
-    <td>Returns the maximum value in the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
-    <td>Returns the minimum value in the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
-    <td>Returns the two-norm of the vector that is created from the doubleVecList.
-  </tr>
-  <tr>
-    <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>Returns the percentile element of the vector v.</td>
-  </tr>
-  <tr>
-    <td>double <b>rand</b>()</td>
-    <td>Returns a random value between 0.0 and 1.0.</td>
-  </tr>
-  <tr>
-    <td>double <b>range</b>(doubleVecList)</td>
-    <td>Returns the difference between the min and max values in the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
-    <td>Returns the sample standard deviation of the values in the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td><b>stop</b>()</td>
-    <td>Stops evaluation of the autoscaling expression.</td>
-  </tr>
-  <tr>
-    <td>double <b>sum</b>(doubleVecList)</td>
-    <td>Returns the sum of all the components of the doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>Returns the time stamp of the current time if no parameters are passed, or the time stamp of the dateTime string if it is passed. Supported dateTime formats are W3C-DTF and RFC 1123.</td>
-  </tr>
-  <tr>
-    <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>Returns the value of the element that is at location i in vector v, with a starting index of zero.</td>
-  </tr>
-</table>
+| Function							| Return type	| Description
+| --------------------------------- | ------------- | --------- |
+| avg(doubleVecList)				| double 		| Returns the average value for all values in the doubleVecList.
+| len(doubleVecList)				| double 		| Returns the length of the vector that is created from the doubleVecList.
+| lg(double)						| double 		| Returns the log base 2 of the double.
+| lg(doubleVecList)					| doubleVec 	| Returns the componentwise log base 2 of the doubleVecList. A vec(double) must explicitly be passed for the parameter. Otherwise, the double lg(double) version is assumed.
+| ln(double)						| double 		| Returns the natural log of the double.
+| ln(doubleVecList)					| doubleVec 	| Returns the componentwise log base 2 of the doubleVecList. A vec(double) must explicitly be passed for the parameter. Otherwise, the double lg(double) version is assumed.
+| log(double)						| double 		| Returns the log base 10 of the double.
+| log(doubleVecList)				| doubleVec 	| Returns the componentwise log base 10 of the doubleVecList. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double log(double) version is assumed.
+| max(doubleVecList)				| double 		| Returns the maximum value in the doubleVecList.
+| min(doubleVecList)				| double 		| Returns the minimum value in the doubleVecList.
+| norm(doubleVecList)				| double 		| Returns the two-norm of the vector that is created from the doubleVecList.
+| percentile(doubleVec v, double p)	| double 		| Returns the percentile element of the vector v.
+| rand()							| double 		| Returns a random value between 0.0 and 1.0.
+| range(doubleVecList)				| double 		| Returns the difference between the min and max values in the doubleVecList.
+| std(doubleVecList)				| double 		| Returns the sample standard deviation of the values in the doubleVecList.
+| stop()							| 				| Stops evaluation of the autoscaling expression.
+| sum(doubleVecList)				| double 		| Returns the sum of all the components of the doubleVecList.
+| time(string dateTime="")			| timestamp 	| Returns the time stamp of the current time if no parameters are passed, or the time stamp of the dateTime string if it is passed. Supported dateTime formats are W3C-DTF and RFC 1123.
+| val(doubleVec v, double i)		| double 		| Returns the value of the element that is at location i in vector v, with a starting index of zero.
 
 Some of the functions that are described in the table above can accept a list as an argument. The comma-separated list is any combination of *double* and *doubleVec*. For example:
 
@@ -355,7 +245,7 @@ The *doubleVecList* value is converted to a single *doubleVec* prior to evaluati
 
 ## <a name="getsampledata"></a>Obtain sample data
 
-Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The system-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
+Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -446,13 +336,13 @@ You can use both **resource** and **task** metrics when you're defining a formul
   <tr>
     <td><b>Resource</b></td>
     <td><p><b>Resource metrics</b> are based on the CPU, bandwidth, and memory usage of compute nodes, as well as the number of nodes.</p>
-		<p> These system-defined variables are useful for making adjustments based on node count:</p>
+		<p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>These system-defined variables are useful for making adjustments based on node resource usage:</p>
+    <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -467,7 +357,7 @@ You can use both **resource** and **task** metrics when you're defining a formul
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following system-defined variables are useful for making pool-size adjustments based on task metrics:</p>
+    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -517,7 +407,7 @@ To enable automatic scaling when you're creating a pool, use one of the followin
 
 > [AZURE.IMPORTANT] If you create an autoscale-enabled pool by using one of the above techniques, the *targetDedicated* parameter for the pool must **not** be specified. Also note that if you wish to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.
 
-The following code snippet shows the creation of an autoscale-enabled pool ([CloudPool][net_cloudpool]) by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to five on Mondays, and one on every other day of the week. In addition, the automatic scaling interval is set to 30 minutes (see [Automatic scaling interval](#interval) below). In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
+The following code snippet shows the creation of an autoscale-enabled pool ([CloudPool][net_cloudpool]) by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to five on Mondays, and one on every other day of the week. In addition, the automatic scaling interval is set to 30 minutes (see [Automatic scaling interval](#automatic-scaling-interval) below). In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -527,7 +417,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-### <a name="interval"></a>Automatic scaling interval
+### Automatic scaling interval
 
 By default, the Batch service adjusts a pool's size according to its autoscale formula every **15 minutes**. This interval is configurable, however, by using the following pool properties:
 
@@ -703,16 +593,9 @@ The formula in the above code snippet:
 
 ## Next steps
 
-1. To fully assess the efficiency of your application, you might need to access a compute node. To take advantage of remote access, a user account must be added to the node that you want to access, and a Remote Desktop Protocol (RDP) file must be retrieved for that node.
-    - Add the user account in one of these ways:
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx)--This PowerShell cmdlet takes the pool name, compute node name, account name, and password as parameters.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)--This .NET method creates an instance of the [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) class, on which the account name and password can be set for the compute node. [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) is then called on the instance to create the user on that node.
-        * [Add a user account to a node](https://msdn.microsoft.com/library/dn820137.aspx)--The name of the pool and the compute node are specified in the URI. The account name and password are sent to the node in the request body of this REST API request.
-    - Get the RDP file:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx)--This .NET method requires the ID of the pool, the node ID, and the name of the RDP file to create.
-        * [Get a remote desktop protocol file from a node](https://msdn.microsoft.com/library/dn820120.aspx)--This REST API request requires the name of the pool and the name of the compute node. The response contains the contents of the RDP file.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)--This PowerShell cmdlet gets the RDP file from the specified compute node and saves it to the specified file location or to a stream.
-2.	Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
+* [Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) contains details about how you can execute multiple tasks simultaneously on the compute nodes in your pool. In addition to autoscaling, this feature may help to lower job duration for some workloads, saving you money.
+
+* For another efficiency booster, ensure that your Batch application queries the Batch service in the most optimal way. In [Query the Azure Batch service efficiently](batch-efficient-list-queries.md), you'll learn how to limit the amount of data that crosses the wire when you query the status of potentially thousands of compute nodes or tasks.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx

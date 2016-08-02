@@ -1,9 +1,10 @@
 <properties
-	pageTitle="Elastic database jobs overview | Microsoft Azure" 
+	pageTitle="Managing scaled-out cloud databases | Microsoft Azure" 
 	description="Illustrates the elastic database job service" 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -12,40 +13,60 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
-	ms.author="ddove;sidneyh" />
+	ms.date="05/27/2016" 
+	ms.author="ddove" />
 
-# Elastic Database jobs overview
+# Managing scaled-out cloud databases
 
-The **Elastic Database jobs** feature (preview) enables you to  reliably execute a Transact-SQL (T-SQL) script or apply a DACPAC ([data-tier application](https://msdn.microsoft.com/library/ee210546.aspx)) across a group of databases, including:
+To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to  reliably execute a Transact-SQL (T-SQL) script or apply a DACPAC ([data-tier application](https://msdn.microsoft.com/library/ee210546.aspx)) across a group of databases, including:
 
 * a custom-defined collection of databases (explained below)
 * all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
 * a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). 
  
-For instructions on installation, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). See also [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+## Documentation
+
+* [Install the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). 
+* [Get started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+* [Create and manage jobs using PowerShell](sql-database-elastic-jobs-powershell.md).
+* [Create and manage scaled out Azure SQL Databases](sql-database-elastic-jobs-getting-started.md)
 
 **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
 
 ![Elastic database job service][1]
 
-## Benefits
-* Easily manage schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection.
-* Reduce overhead: Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group.
-* Accounting: Jobs run the script and log the status of execution for each database. 
-* Flexibility: Define custom groups of Azure SQL Databases
-* Define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases 
-* Deploy a data-tier application (DACPAC)
-* Automatic retry when running scripts
-* Define execution schedules
-* Aggregate data from a collection of Azure SQL Databases into a single destination table
+## Why use jobs?
+
+**Manage**
+
+Easily do schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection.
+
+**Reports**
+
+Aggregate data from a collection of Azure SQL Databases into a single destination table.
+
+**Reduce overhead**
+
+Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases.
+
+**Accounting**
+
+Jobs run the script and log the status of execution for each database. You also get automatic retry when failures occur.
+
+**Flexibility**
+
+Define custom groups of Azure SQL Databases, and define schedules for running a job.
+
+**Deployment**
+
+Deploy data-tier applications (DACPACs).
 
 > [AZURE.NOTE] In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.
 
-## Scenarios
+## Applications 
 
-* Performance administrative task, such as deploy new schema
-* Update reference data, for example product information common across all databases, even using schedules to automate the updates every weekday after hours.
+* Perform administrative tasks, such as deploying a new schema.
+* Update reference data-product information common across all databases. Or schedules automatic updates every weekday, after hours.
 * Rebuild indexes to improve query performance. The rebuilding can be configured to execute across a collection of databases on a recurring basis, such as during off-peak hours.
 * Collect query results from a set of databases into a central table on an on-going basis. Performance queries can be continually executed and configured to trigger additional tasks to be executed.
 * Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
@@ -58,7 +79,8 @@ For instructions on installation, go to [Installing the Elastic Database job com
 5.	Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 
 6.	Or use PowerShell scripts: [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
 
-## The importance of idempotent scripts
+## Idempotent scripts
+
 The scripts must be [idempotent](https://en.wikipedia.org/wiki/Idempotence). In simple terms, "idempotent" means that if the script succeeds, and it is run again, the same result occurs. A script may fail due to transient network issues. In that case, the job will automatically retry running the script a preset number of times before desisting. An idempotent script has the same result even if has been successfully run twice. 
 
 A simple tactic is to test for the existence of an object before creating it.  
@@ -80,12 +102,13 @@ There are two kinds of groups:
 1. Shard sets
 2. Custom groups
 
-Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group. A jobs will run against the group with no adjustment.
+Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group when you add it to the shard map. A job can then be run against the group.
 
 Custom groups, on the other hand, are rigidly defined. You must explicitly add or remove databases from custom groups. If a database in the group is dropped, the job will attempt to run the script against the database resulting in an eventual failure. Groups created using the Azure portal currently are custom groups. 
 
 
-## Components and pricing 
+## Components and pricing
+ 
 The following components work together to create an Azure Cloud service that enables ad-hoc execution of administrative jobs. The components are installed and configured automatically during setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
 
 * **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. From the portal, the service is deployed and hosted in your Microsoft Azure subscription. The default deployed service runs with the minimum of two worker roles for high availability. The default size of each worker role (ElasticDatabaseJobWorker) runs on an A0 instance. For pricing, see [Cloud services pricing](https://azure.microsoft.com/pricing/details/cloud-services/). 
@@ -94,13 +117,15 @@ The following components work together to create an Azure Cloud service that ena
 * **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How Elastic Database jobs work
-1.	An Azure SQL Database is designated a control database which stores all meta-data and state data.
-2.	The control database is accessed by  **Elastic Database jobs** to both launch and track jobs to execute.
+
+1.	An Azure SQL Database is designated a **control database** which stores all meta-data and state data.
+2.	The control database is accessed by the **job service** to launch and track jobs to execute.
 3.	Two different roles communicate with the control database: 
 	* Controller: Determines which jobs require tasks to perform the requested job, and retries failed jobs by creating new job tasks.
 	* Job Task Execution: Carries out the job tasks.
 
 ### Job task types
+
 There are multiple types of job tasks that carry out execution of jobs:
 
 * ShardMapRefresh: Queries the shard map to determine all the databases used as shards
@@ -109,7 +134,8 @@ There are multiple types of job tasks that carry out execution of jobs:
 * ScriptExecution: Executes a script against a particular database using defined credentials
 * Dacpac: Applies a DACPAC to a particular database using particular credentials
 
-## End-to-End job execution work-flow
+## End-to-end job execution work-flow
+
 1.	Using either the Portal or the PowerShell API, a job is inserted into the  **control database**. The job requests execution of a Transact-SQL script against a group of databases using specific credentials.
 2.	The controller identifies the new job. Job tasks are created and executed to split the script and to refresh the group’s databases. Lastly, a new job is created and executed to expand the job and create new child jobs where each child job is specified to execute the Transact-SQL script against an individual database in the group.
 3.	The controller identifies the created child jobs. For each job, the controller creates and triggers a job task to execute the script against a database. 

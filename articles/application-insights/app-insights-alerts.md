@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -41,9 +41,9 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 * Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 * Be careful to note the units in which you're asked to enter the threshold value.
 * The name that you give to the alert must be unique within the resource group (not just your application).
-* If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource.
-* If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners" box). 
-* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that will respond to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved.
+* If you check the box "Email owners...", alerts will be sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](app-insights-resources-roles-access-control.md) (not the resource).
+* If you specify "Additional emails", alerts will be sent to those individuals or groups (whether or not you checked the "email owners..." box). 
+* Set a [webhook address](../azure-portal/insights-webhooks-alerts.md) if you have set up a web app that will respond to alerts. It will be called both when the alert is Activated (that is, triggered) and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top of the blade.
 
 *I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at Settings -> Users. [Learn about access control][roles].

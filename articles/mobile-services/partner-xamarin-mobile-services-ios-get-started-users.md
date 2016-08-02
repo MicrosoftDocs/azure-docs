@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -36,7 +36,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later versions.
+Completing this tutorial requires [Xamarin Studio], XCode 6.0, and iOS 7.0 or later versions.
 
 ##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
@@ -153,4 +153,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download

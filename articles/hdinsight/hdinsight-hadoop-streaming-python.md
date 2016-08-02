@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #Develop Python streaming programs for HDInsight
@@ -32,6 +32,8 @@ To complete the steps in this article, you will need the following:
 * A Linux-based Hadoop on HDInsight cluster
 
 * A text editor
+
+    > [AZURE.IMPORTANT] The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters. If you are not sure, use the optional step in the [Run MapReduce](#run-mapreduce) section to convert any CRLF to LF.
 
 * For Windows clients, PuTTY and PSCP. These utilities are available from the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY Download Page</a>.
 
@@ -154,9 +156,14 @@ This copies the files from the local system to the head node.
 
 	> [AZURE.NOTE] If you used a password to secure your SSH account, you will be prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key, for example, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
+2. (Optional) If you used a text editor that uses CRLF as the line ending when creating the mapper.py and reducer.py files, or do not know what line-ending your editor uses, use the following commands to convert occurrences of CRLF in mapper.py and reducer.py to LF.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. Use the following command to start the MapReduce job.
 
-		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasbs:///example/data/gutenberg/davinci.txt -output wasbs:///example/wordcountout
 
 	This command has the following parts:
 

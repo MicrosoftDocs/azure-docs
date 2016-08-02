@@ -13,27 +13,41 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/01/2016"
+    ms.date="04/28/2016"
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
-When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Cortana Analytics Gallery](http://gallery.azureml.net/)
+When you want to create an experiment, look for examples in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/). You can find sample experiments that have been contributed by the Machine Learning team as well as those shared by the broader Machine Learning community. You also can ask questions or post comments about experiments.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Browse the Cortana Analytics Gallery
-1. Go to the [Gallery](http://gallery.azureml.net/)
-2. Browse either by going to **Trending Experiments** or **Microsoft samples**.
-3. Use search and filters to narrow results:
-![](./media/machine-learning-sample-experiments/image1.png) 
-4. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio**.
-![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](https://azure.microsoft.com/pricing/details/machine-learning/)
-![](./media/machine-learning-sample-experiments/image3.png) 
+## Browse the Cortana Intelligence Gallery
+To see what experiments are available in the Gallery, go to the [Gallery](http://gallery.cortanaintelligence.com/) and click **Experiments** at the top of the page.
+On this page you can view **Recently added** experiments, look at **What's popular**, or see the latest **Popular Microsoft experiments**.
 
-## Use as template in Studio
-1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New*** to create a new experiment
-2. Browse through the Sample content, and pick one to use as a template.
+To browse all experiments:
+
+1. Click **Browse all** at the top of the page.
+2. Under **Refine by** select **Experiment** to see all the experiments in the Gallery.
+3. You can further refine the list by selecting filters on the left. For example, to browse experiments that use a PCA-based anomaly detection algorithm, select **Experiment** under **Categories**, and **PCA-Based Anomaly Detection** under **Algorithms Used**  (if you don't see that algorithm, click **Show all** at the bottom of the list).<br></br>
+![](./media/machine-learning-sample-experiments/refine-the-view.png) 
+4. You can use the search box to further narrow your choices. For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box and select **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:
+![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+5. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio** on the experiment's page.
+
+> [AZURE.NOTE] To open an experiment in Machine Learning Studio, you'll need to sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](https://azure.microsoft.com/pricing/details/machine-learning/)
+
+![](./media/machine-learning-sample-experiments/example-experiment.png) 
+
+
+## Use a template in Machine Learning Studio
+
+You also can create a new experiment in Machine Learning Studio using a Gallery sample as a template.
+
+1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New*** to create a new experiment.
+2. Browse through the sample content and click one.
+
+A new experiment is created in your workspace using the sample experiment as a template. 
 
 ## Next steps
 - [Prepare your data](machine-learning-data-science-import-data.md)

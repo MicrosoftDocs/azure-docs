@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/11/2016"
+   ms.date="07/13/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
 
 > [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 
@@ -28,6 +28,17 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **July 13 2016**
+July Guest OS rollout is starting July 13 2016, and projected to be released on August 12 2016. 
+
+###### **June 15 2016**
+June Guest OS rollout is starting June 15 2016, and projected to be released on July 14 2016. 
+
+###### **May 17 2016**
+May Guest OS rollout is starting May 17 2016, and projected to be released on June 10 2016. 
+
+###### **April 18 2016**
+April Guest OS rollout is starting April 18 2016, and projected to be released on May 12 2016. 
 
 ###### **March 14 2016**
 March Guest OS rollout is starting March 14 2016, and projected to be released on April 8 2016. 
@@ -46,15 +57,19 @@ November 201511-02 Guest OS was released on January 4, 2016 for deployment. This
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
+Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Dates with a * are subject to change
 
 | Configuration String           | Release date    | Disable date  | Expired date |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.30_201603-01     | *April 8 2016   | Post 4.32     | TBD |
-| WA-GUEST-OS-4.29_201602-01     | March 12 2016   | Post 4.31     | TBD |
-| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | Post 4.30     | TBD | 
+| WA-GUEST-OS-4.34_201607-01     | Aug 12 2016*    | Post 4.36     | TBD |
+| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Post 4.35     | TBD |
+| WA-GUEST-OS-4.32_201605-01     | June 10 2016    | Post 4.34     | TBD |
+| WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Aug 13 2016   | TBD |
+| WA-GUEST-OS-4.30_201603-01     | April 7 2016    | July 10 2016  | TBD |
+| WA-GUEST-OS-4.29_201602-02     | March 12 2016   | June 2 2016   | TBD |
+| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016    | TBD | 
 | WA-GUEST-OS-4.27_201512-01     | Jan 12 2016     | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-4.26_201511-02~~ | Jan 4 2016      | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-4.26_201511-01~~ | Dec 10 2015     | March 12 2016 | TBD |
@@ -70,15 +85,19 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 
 **Windows Server 2012**
 
-Supports .NET 4.0, 4.5
+Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Dates with a * are subject to change
 
 | Configuration String           | Release date   | Disable date  | Expired date |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.37_201603-01     | *April 8 2016  | Post 3.39     | TBD |
-| WA-GUEST-OS-3.36_201602-01     | March 12 2016  | Post 3.38     | TBD |
-| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | Post 3.37     | TBD |
+| WA-GUEST-OS-3.41_201607-01     | Aug 12 2016*   | Post 3.43     | TBD |
+| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Post 3.42     | TBD |
+| WA-GUEST-OS-3.39_201605-01     | June 10 2016   | Post 3.41     | TBD |
+| WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Aug 13 2016   | TBD |
+| WA-GUEST-OS-3.37_201603-01     | April 7 2016   | July 10 2016  | TBD |
+| WA-GUEST-OS-3.36_201602-02     | March 12 2016  | June 2 2016   | TBD |
+| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016    | TBD |
 | WA-GUEST-OS-3.34_201512-01     | Jan 12 2016    | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-3.33_201511-02~~ | Jan 4 2016     | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-3.33_201511-01~~ | Dec 10 2015    | March 12 2016 | TBD |
@@ -95,15 +114,19 @@ Supports .NET 4.0, 4.5
 
 **Windows Server 2008 R2 SP1**
 
-Supports .NET 3.5, 4.0
+Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Dates with a * are subject to change
 
 | Configuration String           | Release date  | Disable date  | Expired date |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.49_201603-01     | *April 8 2016 | Post 2.51     | TBD |
-| WA-GUEST-OS-2.48_201602-01     | March 12 2016 | Post 2.50     | TBD |
-| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | Post 2.49     | TBD |
+| WA-GUEST-OS-2.53_201607-01     | Aug 12 2016*  | Post 2.55     | TBD |
+| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Post 2.54     | TBD |
+| WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Post 2.53     | TBD |
+| WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Aug 13 2016   | TBD |
+| WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
+| WA-GUEST-OS-2.48_201602-02     | March 12 2016 | June 2 2016   | TBD |
+| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016    | TBD |
 | WA-GUEST-OS-2.46_201512-01     | Jan 12 2016   | April 12 2016 | TBD |
 | ~~WA-GUEST-OS-2.45_201511-02~~ | Jan 4 2016    | March 12 2016 | TBD |
 | ~~WA-GUEST-OS-2.45_201511-01~~ | Dec 10 2015   | March 12 2016 | TBD |

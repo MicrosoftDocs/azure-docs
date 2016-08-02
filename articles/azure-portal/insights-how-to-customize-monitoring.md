@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Monitor service metrics" 
-	description="Learn how to customize monitoring charts in Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
+<properties
+	pageTitle="Monitor service metrics"
+	description="Learn how to customize monitoring charts in Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
 	services="azure-portal"
 documentationCenter=""/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Monitor service metrics
@@ -22,7 +22,7 @@ All Azure services track key metrics that allow you to monitor the health, perfo
 
 For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to learn more.
 
-## Using monitoring charts 
+## Using monitoring charts
 
 You can chart any of the metrics them over any time period you choose.
 
@@ -57,13 +57,13 @@ With the powerful customization in the portal you can add as many charts as you 
     ![Add Menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
 2. Then, you can select select a chart from the **Gallery** on the right side of your screen:
     ![Gallery](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-3. If you don't see the metric you want, you can always add one of the preset metrics, and **Edit** the chart to show the metric that you need. 
+3. If you don't see the metric you want, you can always add one of the preset metrics, and **Edit** the chart to show the metric that you need.
 
 ## Monitoring usage quotas
 
 Most metrics show you trends over time, but certain data, like usage quotas, are point-in-time information with a threshold.
 
-You can also see usage quotas on the blade for resources that have quotas: 
+You can also see usage quotas on the blade for resources that have quotas:
 
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
@@ -75,6 +75,5 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library
 * [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Scale instance count automatically](insights-how-to-scale.md) to make sure your service is available and responsive.
 * [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
-* Use [Application Insights for JavaScript apps and web pages](../app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
-* [Monitor availability and responsiveness of any web page](../app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
- 
+* Use [Application Insights for JavaScript apps and web pages](../application-insights/app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
+* [Monitor availability and responsiveness of any web page](../application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

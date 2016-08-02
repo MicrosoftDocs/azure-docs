@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="markusvi;andkjell"/>
+	ms.date="06/27/2016"
+	ms.author="markvi;andkjell"/>
 
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory

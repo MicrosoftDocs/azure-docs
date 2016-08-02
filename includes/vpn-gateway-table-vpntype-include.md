@@ -1,4 +1,4 @@
-### VPN type for the Resource Manager deployment model
+#### VPN type - Resource Manager deployment model
 
 |      | **Route-based**    | **Policy-based** |
 |-----------------------------------|--------------------|------------------|
@@ -10,7 +10,7 @@
 | **Classic to Resource Manager**   | yes                | no               |
 
 
-### VPN type for the classic deployment model
+#### VPN type - classic deployment model
 
 
 |       | **Dynamic**        | **Static**   |

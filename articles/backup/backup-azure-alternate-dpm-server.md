@@ -3,7 +3,7 @@
 	description="Recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault."
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
+	authors="nkolli1"
 	manager="shreeshd"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="giridham;jimpark"/>
+	ms.date="05/05/2016"
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 # Recovering data from another DPM server in the backup vault
 You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.

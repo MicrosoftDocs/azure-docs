@@ -11,10 +11,10 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="03/02/2016"
+  ms.date="05/16/2016"
   ms.author="araguila"/>
   
 # Permissions on the azureiotsuite.com site
@@ -39,7 +39,7 @@ You can find more information about administrator roles in AAD in [Assigning adm
 
 **Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure classic portal][lnk-classic-portal].
 
-**Domain User/Member:** There can be many domain users/members per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted  for the application they provision is **ADMINISTRATOR**. They can create an application using the build.cmd script in the [azure-iot-solution][lnk-github-repo] repository, but the default role they are granted is **IMPLICIT READONLY**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **IMPLICIT READONLY** role by default for that application. They do not have the ability to assign roles for applications; therefore cannot add users or roles for users for an application even if they provisioned it.
+**Domain User/Member:** There can be many domain users/members per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted  for the application they provision is **ADMINISTRATOR**. They can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo] or [azure-iot-predictive-maintenance][lnk-pm-github-repo] repository, but the default role they are granted is **IMPLICIT READONLY**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **IMPLICIT READONLY** role by default for that application. They do not have the ability to assign roles for applications; therefore cannot add users or roles for users for an application even if they provisioned it.
 
 **Guest User/Guest:** There can be many guest users/guests per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
 
@@ -66,27 +66,27 @@ There are two defined and one implicit role defined in the application that is c
 
 -   **IMPLICIT READ ONLY:** This is the same as Read Only, but is granted to all users of your AAD tenant. This was done for convenience during development. You can remove this role by modifying the [RolePermissions.cs][lnk-resource-cs] source file.
 
-### Changing Application Roles
+### Changing application roles for a user
+
+You can use the following procedure to make a user in your Active Directory an administrator of your preconfigured solution.
 
 You must be an AAD global administrator to change roles for a user:
 
-1. Go to the [Azure classic portal][lnk-classic-portal]
+1. Go to the [Azure classic portal][lnk-classic-portal].
 
-2. Select **Active Directory**
+2. Select **Active Directory**.
 
-3. Click the name of your AAD tenant
+3. Click the name of your AAD tenant (this is the directory you chose on azureiotsuite.com when you provisioned your solution).
 
 4. Click **Applications**.
 
-5. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
-
-6. Click the name of the application that matches your preconfigured solution name.
+5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, switch the **Show** drop down to **Applications my company owns** and click the check mark.
 
 7. Click **Users**.
 
 8. Select the user you want to switch roles.
 
-9. Click the assign button and role you'd like to assign, click the check mark.
+9. Click **Assign** and select the role (such as **Admin**) you'd like to assign to the user, click the check mark.
 
 ## FAQ
 
@@ -129,14 +129,21 @@ Take a look at the diagram below:
 
 ![][img-flowchart]
 
+> [AZURE.NOTE] If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order: add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, please contact [Help & Support][lnk-help-support].
+
 **Why am I seeing this error when I have an Azure subscription?** *An Azure subscription is required to create pre-configured solutions. You can create a free trial account in just a couple of minutes.*
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the diagram above and validate the mapping of your subscription and this AAD tenant.
 
+## Next steps
+
+To continue learning about IoT Suite, see how you can [customize a preconfigured solution][lnk-customize].
+
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-github-repo]: https://github.com/Azure/azure-iot-solution
+[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
@@ -144,4 +151,5 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-
+[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Restore  data to a Windows Server or Windows Client from Azure | Microsoft Azure"
+   pageTitle="Restore data to a Windows Server or Windows Client from Azure using the Resource Manager deployment model | Microsoft Azure"
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Restore files to a Windows server or Windows client machine
+# Restore files to a Windows server or Windows client machine using Resource Manager deployment model
+
+> [AZURE.SELECTOR]
+- [Azure portal](backup-azure-restore-windows-server.md)
+- [Classic portal](backup-azure-restore-windows-server-classic.md)
+
 This article covers the steps required to perform two types of restore operations:
 
 - Restore data to the same machine from which the backups were taken.
 - Restore data to any other machine.
 
-In both cases, the data is retrieved from the Azure Backup vault.
+In both cases, the data is retrieved from the Azure Recovery Services vault.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
@@ -69,12 +76,12 @@ The terminology used in these steps includes:
 
 - *Source machine* – The original machine from which the backup was taken and which is currently unavailable.
 - *Target machine* – The machine to which the data is being recovered.
-- *Sample vault* – The Backup vault to which the *Source machine* and *Target machine* are registered. <br/>
+- *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered. <br/>
 
 > [AZURE.NOTE] Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However the vice-versa does not hold true.
 
 1. Open the **Microsoft Azure Backup** snap in on the *Target machine*.
-2. Ensure that the *Target machine* and the *Source machine* are registered to the same backup vault.
+2. Ensure that the *Target machine* and the *Source machine* are registered to the same Recovery Services vault.
 3. Click **Recover Data** to initiate the workflow.
 
     ![Recover Data](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@ The terminology used in these steps includes:
 
     ![Another Server](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the backup vault against the vault credential file is displayed.
+5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the Recovery Services vault against the vault credential file is displayed.
 
 6. Select the *Source machine* from the list of displayed machines.
 
@@ -108,10 +115,4 @@ The terminology used in these steps includes:
 11. Once the input is provided, click **Recover**, which triggers the restore of the backed up files to the destination provided.
 
 ## Next steps
-- [Azure Backup FAQ](backup-azure-backup-faq.md)
-- Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
-
-## Learn more
-- [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Backup Azure virtual machines](backup-azure-vms-introduction.md)
-- [Backup up Microsoft workloads](backup-azure-dpm-introduction.md)
+- Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).

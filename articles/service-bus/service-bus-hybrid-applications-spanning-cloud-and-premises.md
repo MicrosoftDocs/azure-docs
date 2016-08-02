@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Enable hybrid applications spanning cloud and premises
@@ -36,13 +36,13 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. M
 ## Popular
 
 - [Service Bus Pricing Info](https://azure.microsoft.com/pricing/details/service-bus/)
-- [Service Bus Pricing FAQ](service-bus-pricing-faq.md)
+- [Service Bus FAQ](service-bus-faq.md)
 - [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Sign up for a free Azure trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Related services
 
 - [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)
-- [Mobile Services](https://azure.microsoft.com/services/mobile-services/)
+- [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
 - [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  

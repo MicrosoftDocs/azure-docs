@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introduction to operations monitoring
 
 IoT Hub operations monitoring enables users to monitor the status of operations on their IoT hub in real time. IoT Hub tracks events across several categories of operations, and users can opt into having events from one or more categories sent to an endpoint of their IoT hub for processing. Users can monitor the data for errors or set up more complex processing based on data patterns.
 
-IoT Hub monitors four categories of events:
+IoT Hub monitors five categories of events:
 
 - Device identity operations
 - Device telemetry
 - Cloud-to-device commands
 - Connections
+- File uploads
 
 ## How to enable operations monitoring
 
@@ -35,7 +36,7 @@ IoT Hub monitors four categories of events:
 
     ![][1]
 
-3. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**.
+3. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -122,13 +123,35 @@ The connections category tracks errors when devices connect or disconnect from a
          "deviceId": "device-ID"
     }
 
+### File uploads
+
+The file upload category tracks errors which occur at the IoT hub and are related to file upload functionality. This includes errors which occur with the SAS URI (such as when it expires before a device notifies the hub of a completed upload), failed uploads reported by the device, and when a file is not found in storage during IoT Hub notification message creation. Note that this category cannot catch errors which directly occur while the device is uploading a file to storage.
+
+    {
+         "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## Next steps
 
-Now that you’ve seen an overview of operations monitoring, follow these links to learn more:
+Now that you’ve seen an overview of operations monitoring, see [Manage access to IoT Hub][lnk-itpro] for additional information about managing IoT Hub.
 
-- [IoT Hub diagnostic metrics][lnk-diagnostic-metrics]
-- [Scaling IoT Hub][lnk-scaling]
-- [IoT Hub high availability and disaster recovery][lnk-dr]
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -138,3 +161,10 @@ Now that you’ve seen an overview of operations monitoring, follow these links 
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
+
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

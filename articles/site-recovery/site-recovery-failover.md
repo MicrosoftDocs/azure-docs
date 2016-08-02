@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
@@ -34,8 +34,8 @@ After protection is enabled for virtual machines and physical servers and they'r
 **Failover** | **When to run** | **Details** | **Process**
 ---|---|---|---
 **Test failover** | Run to validate your replication strategy or perform a disaster recovery drill | No data loss or downtime.<br/><br/>No impact on replication<br/><br/>No impact on your production environment | Start the failover<br/><br/>Specify how test machines will be connected to networks after failover<br/><br/>Track progress on the **Jobs** tab. Test machines are created and start in the secondary location<br/><br/>Azure - connect to the machine in the Azure portal<br/><br/>Secondary site - access the machine on the same host and cloud<br/><br/>Complete testing and automatically clean up test failover settings.
-**Planned failover** | Run to meet compliance requirements<br/><br/>Run for planned maintenance<br/><br/>Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports<br/><br/>Run to failback after failover from primary to secondary | No data loss<br/><br/>Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.<br/>,br/>Virtual machines are impact as  target machines becomes source machines after failover. | Start the failover<br/><br/>Track progress on the **Jobs** tab. Source machines are shut down<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site - access the machine on the same host and in the same cloud<br/><br/>Commit the failover
-**Unplanned failover** | Run this type of failover in a reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack <br/><br/> You can run an unplanned failover can be done even if primary site isn't available. | Data loss dependent on replication frequency settings<br/><br/>Data will be up-to-date in accordance with the last time it was synchronized< | Start the failover<br/><br/>Track progress on the **Jobs** tab. Optionally try to shut down virtual machines and synchronize latest data<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site access the machine on the same host and in the same cloud<br/><br/>Commit the failover
+**Planned failover** | Run to meet compliance requirements<br/><br/>Run for planned maintenance<br/><br/>Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports<br/><br/>Run to failback after failover from primary to secondary | No data loss<br/><br/>Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.<br/><br/>Virtual machines are impact as  target machines becomes source machines after failover. | Start the failover<br/><br/>Track progress on the **Jobs** tab. Source machines are shut down<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site - access the machine on the same host and in the same cloud<br/><br/>Commit the failover
+**Unplanned failover** | Run this type of failover in a reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack <br/><br/> You can run an unplanned failover can be done even if primary site isn't available. | Data loss dependent on replication frequency settings<br/><br/>Data will be up-to-date in accordance with the last time it was synchronized | Start the failover<br/><br/>Track progress on the **Jobs** tab. Optionally try to shut down virtual machines and synchronize latest data<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site access the machine on the same host and in the same cloud<br/><br/>Commit the failover
 
 
 The types of failovers that are supported depend on your deployment scenario.
@@ -49,8 +49,8 @@ VMM site to Azure | Supported | Supported | Supported
 Azure to VMM site | Unsupported | Supported | Unsupported 
 Hyper-V site to Azure | Supported | Supported | Supported
 Azure to Hyper-V site | Unsupported | Supported | Unsupported
-VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
-Physical server to Azure | Not supported | This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
+VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |Unsupported | Supported
+Physical server to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) | Unsupported | Supported
 
 ## Failover and failback
 
@@ -253,4 +253,5 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 9. You can log onto the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
+	>[AZURE.NOTE] If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a currupted state. This is because Data Synchonization copies the latest data from Azure VM disks to the on-prem data disks, and untill the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchonization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchonization.
  

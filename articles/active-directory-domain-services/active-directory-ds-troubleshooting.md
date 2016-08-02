@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Troubleshooting guide
@@ -41,14 +41,19 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 - Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
 
-- Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
+- **External accounts** Ensure that the affected user account is not an external account in the Azure AD tenant. Examples of external accounts include Microsoft accounts (for example, 'joe@live.com') or user accounts from an external Azure AD directory. Since Azure AD Domain Services does not have credentials for such user accounts, these users cannot sign in to the managed domain.
 
-- Ensure that the affected user account's UPN prefix (i.e. the first part of the UPN) in your Azure AD tenant is less than 20 characters in length. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account will not be available in the Azure AD Domain Services managed domain.
+- **Overly long UPN prefix** Ensure that the affected user account's UPN prefix (i.e. the first part of the UPN) in your Azure AD tenant is less than 20 characters in length. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account will not be available in the Azure AD Domain Services managed domain.
+
+- **Duplicate UPN prefix** Ensure that you do not have other user accounts in your Azure AD tenant which have the same UPN prefix (i.e. the first part of the UPN) as that of the affected user account. For instance, if you have two user accounts 'joeuser@finance.contoso.com' and 'joeuser@engineering.contoso.com', both users will encounter issues signing in to the managed domain. This could also happen if one of the user accounts is an external account (eg.'joeuser@live.com'). We are working on a fix for this issue.
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
     - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
+
     - You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
+
     - Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
+
     - If the issue persists after verifying the steps above, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
@@ -57,7 +62,4 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 
 ### Contact Us
-If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
-
-- **Email:** You may email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com). Ensure you include the tenant ID for your Azure AD directory and the domain name you've configured for AAD Domain Services, so we can investigate the issue.
-- **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/):** Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support] (active-directory-ds-contact-us.md).

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Service Fabric testability scenarios: Service communication
@@ -67,7 +67,7 @@ By using Service Fabric's testability tools, you can author a test scenario to t
 
     ```powershell
 
-    PS > Restart-ServiceFabricNode -NodeName Node.1
+    PS > Restart-ServiceFabricNode -NodeName Node_1
 
     ```
 

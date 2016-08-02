@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Tutorial: Azure Directory integration with TOPdesk - Public | Microsoft Azure" 
-    description="Learn how to use TOPdesk - Public with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Tutorial: Azure Active Directory integration with TOPdesk - Public | Microsoft Azure" 
+    description="Learn how to use TOPdesk - Public with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Directory integration with TOPdesk - Public
 
@@ -39,7 +39,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for TOPdesk - Public, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-topdesk-public-tutorial/IC700993.png "Active Directory")
 
@@ -97,7 +97,7 @@ Configuring single sign-on for TOPdesk - Public requires you to upload a logo ic
 
         >[AZURE.NOTE] You will need the value in the **Configure App URL** section later in this tutorial.
 
-6.  In a different web browser window, log into your **Azure Active Directory** portal as an administrator.
+6.  In a different web browser window, log into your **Azure classic portal** as an administrator.
 
 7.  On the **TOPdesk - Public** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
@@ -155,7 +155,7 @@ Configuring single sign-on for TOPdesk - Public requires you to upload a logo ic
     5.  In the **Display name** textbox, type a name for your configuration.
     6.  Click **Save**.
 
-17. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+17. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configure Single Sign-On")
 
@@ -189,7 +189,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to TOPdesk - Public, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **TOPdesk - Public **application integration page, click **Assign users**.
 

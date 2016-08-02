@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)
+
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 
@@ -515,15 +517,15 @@ The following example shows several ways to write logs:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-In the WebJobs SDK Dashboard, the output from the **TextWriter** object shows up when you go to the page for a particular function invocation and click **Toggle Output**:
+In the WebJobs SDK Dashboard, the output from the **TextWriter** object shows up when you go to the page for a particular function invocation and select **Toggle Output**:
 
-![Click function invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Invocation link](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Logs in function invocation page](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and click **Toggle Output**.
+In the WebJobs SDK Dashboard, the most recent 100 lines of Console output show up when you go to the page for the WebJob (not for the function invocation) and select **Toggle Output**.
 
-![Click Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Toggle output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webjobname}*/job_log.txt in the web app file system.
 

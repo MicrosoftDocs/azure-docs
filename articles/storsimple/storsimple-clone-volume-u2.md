@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="07/27/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume (Update 2)
@@ -35,7 +35,7 @@ This tutorial describes how you can use a backup set to clone an individual volu
 >
 >`Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.` 
 >
->You can successfully convert the volume to locally pinned if you first convert the transient clone to a permanent clone. To convert the transient clone to a permanent clone, take a cloud snapshot of it.
+>This error is received only if you are cloning on to a different device. You can successfully convert the volume to locally pinned if you first convert the transient clone to a permanent clone. To convert the transient clone to a permanent clone, take a cloud snapshot of it.
 
 ## Create a clone of a volume
 
@@ -90,9 +90,9 @@ This clone is now a regular volume, and any operation that is possible on a volu
 
 ## Transient vs. permanent clones
 
-You can clone a specific volume from a backup set. A clone created in this way is a *transient* clone. The transient clone will have references to the original volume and will use that volume to read while writing locally. This could result in slow performance, especially if the cloned volume is large.
+Transient clones are created only when you are cloning to a different device. You can clone a specific volume from a backup set to a different device managed by the StorSimple Manager. The transient clone will have references to the data in the original volume and will use that data to read and write locally on the target device. 
 
-After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. The permanent clone is independent and doesn’t have any references to the original volume that it was cloned from. For faster performance, we recommend that you create permanent clones. 
+After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. During this process, a copy of the data is created on the cloud and the time to copy this data is determined by the size of the data and the Azure latencies (this is an Azure-to-Azure copy). This process can take days to weeks. The transient clone becomes a permanent clone this way and doesn’t have any references to the original volume data that it was cloned from. 
 
 ## Scenarios for transient and permanent clones
 
@@ -108,7 +108,7 @@ To watch a video that demonstrates how you can use the clone and restore feature
 
 ### Testing in the production environment with a permanent clone
 
-You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment. For increased performance, you need to take a cloud snapshot of this clone. The cloned volume is now independent, which results in faster performance. In this scenario, a permanent clone is used.
+You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment and then take a cloud snapshot of this clone to create an independent cloned volume. In this scenario, a permanent clone is used.  
 
 ## Next steps
 - Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set-u2.md).

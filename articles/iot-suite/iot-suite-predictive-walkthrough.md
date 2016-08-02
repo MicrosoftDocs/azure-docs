@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/16/2016"
  ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution walkthrough
@@ -43,7 +43,7 @@ In the preconfigured solution, a simulated device represents an aircraft engine.
 
 *Cycle count*. A cycle represents a completed flight of variable length between 2-10 hours in which telemetry data is captured every half hour for the duration of the flight.
 
-*Telemetry*. There are 4 sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the Machine Learning model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Analytics Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+*Telemetry*. There are 4 sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the Machine Learning model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 The simulated devices can handle the following commands sent from an IoT hub:
 
@@ -64,7 +64,7 @@ The **event processor** takes the average sensor values for a completed cycle 
 
 ## Azure Machine Learning
 
-For more information on how the model was created from the original data set, see the [Cortana Analytics Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 ## Let's start walking
 
@@ -109,7 +109,14 @@ You can stop the simulation at any point, but clicking **Start Simulation** repl
 
 Now you've run the predictive maintenance preconfigured solution you may want to modify it, see [Guidance on customizing preconfigured solutions][lnk-customize].
 
-  
+The [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog post provides additional detail about the predictive maintenance preconfigured solution.
+
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+
+- [Frequently asked questions for IoT Suite][lnk-faq]
+- [IoT security from the ground up][lnk-security-groundup]
+
+
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
 [img-machine-learning]: media/iot-suite-predictive-walkthrough/machine-learning.png
@@ -120,6 +127,8 @@ Now you've run the predictive maintenance preconfigured solution you may want to
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md

@@ -1,53 +1,94 @@
 <properties
  pageTitle="Linux compute VMs in an HPC Pack cluster | Microsoft Azure"
- description="Learn how to script the deployment of an HPC Pack cluster in Azure containing a head node running Windows Server with Linux compute nodes."
+ description="Learn how to create and use an HPC Pack cluster in Azure for Linux high performance computing (HPC) workloads"
  services="virtual-machines-linux"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
+ ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="12/02/2015"
+ ms.date="06/23/2016"
  ms.author="danlep"/>
 
 # Get started with Linux compute nodes in an HPC Pack cluster in Azure
 
-This article shows you how to use an Azure PowerShell script to set up a Microsoft HPC Pack cluster in Azure which contains a head node running Windows Server and several compute nodes running a Linux distribution. We also show several ways to move data files to the Linux compute nodes. You can use this cluster to run Linux HPC workloads in Azure.
+Set up a Microsoft HPC Pack cluster in Azure which contains a head node running Windows Server and several compute nodes running a supported Linux distribution. Explore options to move data among the Linux nodes and the Windows head node of the cluster. Learn how to submit Linux HPC jobs to the cluster.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-At a high level the following diagram shows the HPC Pack cluster you'll create.
+At a high level the following diagram shows the HPC Pack cluster you'll create and work with.
 
-![HPC cluster with Linux nodes][scenario]
+![HPC Pack cluster with Linux nodes][scenario]
+
 
 ## Deploy an HPC Pack cluster with Linux compute nodes
 
-You'll use the Microsoft HPC Pack IaaS deployment script (**New-HpcIaaSCluster.ps1**) to automate the cluster deployment in Azure infrastructure services (IaaS). This Azure PowerShell script uses an HPC Pack VM image in the Azure Marketplace for fast deployment and provides a comprehensive set of configuration parameters to make the deployment easy and flexible. The script deploys the Azure virtual network, storage accounts, cloud services, domain controller, optional separate SQL Server database server, cluster head node, compute nodes, broker nodes, Azure PaaS (“burst”) nodes, and Linux compute nodes (Linux support introduced in [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Following are two recommended ways to create an HPC Pack cluster in Azure with Linux compute nodes:
 
-For an overview of HPC Pack cluster deployment options, see the [Getting started guide for HPC Pack 2012 R2 and HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx) and [Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+* **Azure Resource Manager template** - Use a template from the Azure Marketplace, or a quickstart template from the commmunity, to automate creation of the cluster in the Resource Manager deployment model. For example, the [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) template in the Azure Marketplace creates a complete HPC Pack cluster infrastructure for Linux HPC workloads.
+
+* **PowerShell script** - Use the [Microsoft HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) (**New-HpcIaaSCluster.ps1**) to automate a complete cluster deployment in the classic deployment model. This Azure PowerShell script uses an HPC Pack VM image in the Azure Marketplace for fast deployment and provides a comprehensive set of configuration parameters to deploy Linux compute nodes.
+
+For an overview of HPC Pack cluster deployment options in Azure, see [Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 ### Prerequisites
+
+* **Azure subscription** - You can use a subscription in either the Azure Global or Azure China service. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes. To increase a quota, open an online customer support request at no charge.
+
+* **Linux distributions** - Currently HPC Pack supports the following Linux distributions for compute nodes. You can use Marketplace versions of these distributions where available, or supply your own.
+
+    * CentOS-based: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
+    * Red Hat Enterprise Linux: 6.7, 6.8, 7.2
+    * SUSE Linux Enterprise Server: SLES 12, SLES 12 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
+    * Ubuntu Server: 14.04 LTS, 16.04 LTS
+
+
+
+    >[AZURE.TIP]To use the Azure RDMA network with size A8 and A9 compute node VMs, specify one of the SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC images from the Marketplace. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md).
+
+Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 
 * **Client computer** - You'll need a Windows-based client computer to run the cluster deployment script.
 
 * **Azure PowerShell** - [Install and configure Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 or later) on your client computer.
 
-* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.0 or later of the script.
+* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). You can check the version of the script by running `.\New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.1 or later of the script.
 
-* **Azure subscription** - You can use a subscription in either the Azure Global or Azure China service. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+### Deployment option 1. Use a Resource Manager template
 
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes. For the example in this article, you will need at least 12 available cores. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+1. Go to the [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) template in the Azure Marketplace, and click **Deploy**.
 
-### Create the configuration file
+2. In the Azure portal, review the information and then click **Create**.
 
-The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a small cluster consisting of a head node and 2 Linux compute nodes, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+    ![Portal creation][portal]
+
+3. On the **Basics** blade, enter a name for the cluster, which will also name the head node VM. You can choose an existing resource group or create a new group for the deployment.
+
+4. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
+
+    >[AZURE.NOTE]The **Post-configuration script URL** is an optional setting to specify a publicly available Windows PowerShell script that you want to run on the head node VM after it is running. 
+    
+5. On the **Compute node settings** blade, select a naming pattern for the nodes, the number and size of the nodes, and the Linux distribution to deploy.
+
+6. On the **Infrastructure settings** blade, enter names for the virtual network and Active Directory domain for the cluster, domain and VM administrator credentials, and a naming pattern for the storage accounts needed for the cluster.
+
+    >[AZURE.NOTE]HPC Pack uses the Active Directory domain to authenticate cluster users. 
+
+7. After the validation tests run and you review the terms of use, click **Purchase**.
+
+
+### Deployment option 2. Use the IaaS deployment script
+
+The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. The following sample configuration file deploys a small cluster consisting of an HPC Pack head node and two size A7 CentOS 7.0 Linux compute nodes. Modify the file as needed for your environment and desired cluster configuration, and save it with a name such as HPCDemoConfig.xml. For example, you'll need to supply your subscription name and a unique storage account name and cloud service name, and you might want to choose a different supported Linux image for the compute nodes. For more information about the elements in the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -71,7 +112,7 @@ The HPC Pack IaaS deployment script uses an XML configuration file as input whic
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-  <VMSize>A4</VMSize>
+  <VMSize>ExtraLarge</VMSize>
   <EnableRESTAPI />
   <EnableWebPortal />
   </HeadNode>
@@ -85,52 +126,7 @@ The HPC Pack IaaS deployment script uses an XML configuration file as input whic
 </IaaSClusterConfig>
 ```
 
-Here are brief descriptions of the elements in the configuration file.
-
-* **IaaSClusterConfig** - Root element of the configuration file.
-
-* **Subscription** - Azure subscription used to deploy the HPC Pack cluster. Use the command below to make sure the Azure subscription name is configured and unique in your client computer. In this sample, we use the Azure subscription “Subscription-1”.
-
-    ```
-    PS > Get-AzureSubscription –SubscriptionName <SubscriptionName>
-    ```
-
-    >[AZURE.NOTE]Alternatively, use the subscription ID to specify the subscription you want to use. See the Manual.rtf file in the script folder.
-
-* **StorageAccount** - All the persistent data for the HPC Pack cluster will be stored to the specified storage account (allvhdsje in this example). If the storage account doesn’t exist, the script will create it in the region specified in **Location**.
-
-* **Location** - Azure region where you'll deploy the HPC Pack cluster (Japan East in this example).
-
-* **VNet** - Settings of the virtual network and subnet where the HPC cluster will be created. You can create the virtual network and subnet yourself before running this script, or the script creates a virtual network with address space 192.168.0.0/20, and subnet with address space 192.168.0.0/23. In this example, the script creates the virtual network centos7rdmavnetje and subnet CentOS7RDMACluster.
-
-* **Domain** - Active Directory domain settings for the HPC Pack cluster. All the Windows VMs created by the script will join the domain. Currently, the script supports three domain options: ExistingDC, NewDC, and HeadNodeAsDC. This example sets up the head node as the domain controller with a fully qualified domain name of hpc.local.
-
-* **Database** - Database settings for the HPC Pack cluster. Currently, the script supports three database options: ExistingDB, NewRemoteDB, and LocalDB. This example creates a local database on the head node.
-
-* **HeadNode** - Settings for the HPC Pack head node. This example creates a size A7 head node named CentOS7RDMA-HN in the cloud service centos7rdma-je. To support HPC job submission from remote (non-domain-joined) client computers, the script enables the HPC job scheduler REST API and HPC web portal.
-
-* **LinuxComputeNodes** - Settings for the HPC Pack Linux compute nodes. This example creates two size A7 CentOS 7 Linux compute nodes (CentOS7RDMA-LN1 and CentOS7RDMA-LN2) in the cloud service centos7rdma-je.
-
-### Additional considerations for Linux compute nodes
-
-* Currently HPC Pack supports the following Linux distributions for compute nodes: Ubuntu Server 14.10, CentOS 6.6, CentOS 7.0, and SUSE Linux Enterprise Server 12.
-
-* The example in this article uses a specific CentOS version available in the Azure Marketplace to create the cluster. If you want to use other images available, use the **get-azurevmimage** Azure PowerShell cmdlet  to find the one you need. For example, to list all the CentOS 7.0 images, run the following command:
-
-    ```
-    get-azurevmimage | ?{$_.Label -eq "OpenLogic 7.0"}
-    ```
-
-    Find the one you need and replace the **ImageName** value in the configuration file.
-
-* Linux images that support RDMA connectivity for size A8 and A9 VMs are available. If you specify an image with Linux RDMA drivers installed and enabled, the HPC Pack IaaS deployment script will deploy them. For example, specify the image name `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` for the current SUSE Linux Enterprise Server 12 – Optimized for High Performance Compute image in the Marketplace.
-
-* To enable Linux RDMA on the Linux VMs created from supported images to run MPI jobs, install and configure a specific MPI library on the Linux nodes after cluster deployment according to your application needs. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
-
-* Make sure you deploy all the Linux RDMA nodes within one service so that the RDMA network connection works between the nodes.
-
-
-## Run the HPC Pack IaaS deployment script
+**To run the HPC Pack IaaS deployment script**
 
 1. Open the PowerShell console on the client computer as an administrator.
 
@@ -140,17 +136,17 @@ Here are brief descriptions of the elements in the configuration file.
     cd E:\IaaSClusterScript
     ```
 
-3. Run the command below to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml.
+3. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
 
-    The script generates a log file automatically since  the **-LogFile** parameter isn't specified. The logs aren't written in real time, but collected at the end of the validation and the deployment, so if the PowerShell process is stopped while the script is running, some logs will be lost.
+    The script generates a log file automatically since  the **-LogFile** parameter isn't specified. The logs aren't written in real time, but are collected at the end of the validation and the deployment. If the PowerShell process is stopped while the script is running, some logs will be lost.
 
     a. Because the **AdminPassword** is not specified in the above command, you'll be prompted to enter the password for user *MyAdminName*.
 
-    b. The script then starts to validate the configuration file. It takes from tens of seconds to several minutes depending on the network connection.
+    b. The script then starts to validate the configuration file. It can take up to several minutes depending on the network connection.
 
     ![Validation][validate]
 
@@ -162,40 +158,44 @@ Here are brief descriptions of the elements in the configuration file.
 
     ![Deploy][deploy]
 
-4. After the configuration finishes successfully, Remote Desktop to the head node and open HPC Cluster Manager to check the status of the HPC Pack cluster. You can manage and monitor Linux compute nodes the same way you work with Windows compute nodes. For example, you'll see the Linux nodes listed in Node Management.
+## Connect to the head node
 
-    ![Node Management][management]
+After the deployment finishes successfully, [connect by Remote Desktop to the head node](virtual-machines-windows-connect-logon.md) using the domain credentials you provided when you deployed the cluster (for example, *hpc\clusteradmin*). 
 
-    You'll also see the Linux nodes in the Heat Map view.
+On the head node, start HPC Cluster Manager to check the status of the HPC Pack cluster. You can manage and monitor Linux compute nodes the same way you work with Windows compute nodes. For example, you'll see the Linux nodes listed in **Resource Management** (these nodes are deployed with the **LinuxNode** template).
 
-    ![Heat map][heatmap]
+![Node Management][management]
+
+You'll also see the Linux nodes in the **Heat Map** view.
+
+![Heat map][heatmap]
 
 ## How to move data in a cluster with Linux nodes
 
 You have several choices to move data among Linux nodes and the Windows head node of the cluster. Here are three common methods.
 
-* **Azure File** - Exposes a file share to store data files in Azure storage. Both Windows nodes and the Linux nodes can mount an Azure File share as a drive or folder at the same time even if they are deployed in different virtual networks.
+* **Azure File** - Exposes a managed SMB file share to store data files in Azure storage. Both Windows nodes and the Linux nodes can mount an Azure File share as a drive or folder at the same time even if they are deployed in different virtual networks.
 
-* **Head node SMB share** - Mounts a shared folder of the head node on Linux nodes.
+* **Head node SMB share** - Mounts a standard Windows shared folder of the head node on Linux nodes.
 
 * **Head node NFS server**  - Provides a file-sharing solution for a mixed Windows and Linux environment.
 
 ### Azure File storage
 
-The [Azure File](https://azure.microsoft.com/services/storage/files/) service exposes file shares using the standard SMB 2.1 protocol. Azure VMs and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share through the File storage API. For more information, see [How to use Azure File storage with PowerShell and .NET](../storage/storage-dotnet-how-to-use-files.md).
+The [Azure File](https://azure.microsoft.com/services/storage/files/) service exposes file shares using the standard SMB 2.1 protocol. Azure VMs and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share through the File storage API. 
 
-To create an Azure File share, see the detailed steps in [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../storage/storage-dotnet-how-to-use-files.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-In this example, we create an Azure File share named rdma on our storage account allvhdsje. To mount the share on the head node, open a Command window and enter the following commands:
+In the following example, create an Azure File share on a storage account. To mount the share on the head node, open a Command Prompt and enter the following commands:
 
 ```
 > cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
 > net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-In this example, allvhdsje is the storage account name, storageaccountkey is the storage account key, and rdma is the Azure File share name. The Azure File share will be mounted onto Z: on your head node.
+In this example, allvhdsje is your storage account name, storageaccountkey is your storage account key, and rdma is the Azure File share name. The Azure File share will be mounted onto Z: on your head node.
 
-To mount the Azure File share on Linux nodes, run a **clusrun** command on the head node. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** is a useful HPC Pack tool to carry out administrative tasks on multiple nodes. (See also [CLusrun for Linux nodes](#CLusrun-for-Linux-nodes) in this article.)
+To mount the Azure File share on Linux nodes, run a **clusrun** command on the head node. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** is a useful HPC Pack tool to carry out administrative tasks on multiple nodes. (See also [Clusrun for Linux nodes](#Clusrun-for-Linux-nodes) in this article.)
 
 Open a Windows PowerShell window and enter the following commands.
 
@@ -205,9 +205,9 @@ PS > clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
 ```
 
-The first command creates a folder named /rdma on all nodes in the LinuxNodes group. The second command mounts the Azure File share allvhdsjw.file.core.windows.net/rdma onto the /rdma folder with dir and file mode bits set to 777. In the second command, allvhdsje is your storage account name  and storageaccountkey is your storage account key.
+The first command creates a folder named /rdma on all nodes in the LinuxNodes group. The second command mounts the Azure File share allvhdsjw.file.core.windows.net/rdma onto the /rdma folder with dir and file mode bits set to 777. In the second command, allvhdsje is your storage account name and storageaccountkey is your storage account key.
 
->[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
+>[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means that the “,” (comma character) is a part of the command.
 
 ### Head node share
 
@@ -227,14 +227,14 @@ PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
 ```
 
-The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS7RDMA-HN/OpenFOAM onto the folder with dir and file mode bits set to 777. The username and password in the command should be the username and password of a cluster user on the head node.
+The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS7RDMA-HN/OpenFOAM onto the folder with dir and file mode bits set to 777. The username and password in the command should be the username and password of a cluster user on the head node. (See [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx).)
 
->[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
+>[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means that the “,” (comma character) is a part of the command.
 
 
 ### NFS server
 
-The NFS service enables users to share and migrate files between computers running the Windows Server 2012 operating system using the SMB protocol and Linux-based computers using the NFS protocol. The NFS server and all other nodes have to be deployed in same virtual network. It provides better compatibility with Linux nodes compared with an SMB share; for example, it supports file link.
+The NFS service enables you to share and migrate files between computers running the Windows Server 2012 operating system using the SMB protocol and Linux-based computers using the NFS protocol. The NFS server and all other nodes have to be deployed in the same virtual network. It provides better compatibility with Linux nodes compared with an SMB share; for example, it supports file links.
 
 1. To install and set up an NFS server, follow the steps in [Server for Network File System First Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
 
@@ -248,7 +248,7 @@ The NFS service enables users to share and migrate files between computers runni
 
     ![NFS management properties][nfsmanage]
 
-2. Open a Windows PowerShell window and run the following command to mount the NFS share.
+2. Open a Windows PowerShell window and run the following commands to mount the NFS share.
 
   ```
   PS > clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -258,7 +258,7 @@ The NFS service enables users to share and migrate files between computers runni
   The first command creates a folder named /nfsshared on all nodes in the LinuxNodes group. The second command mounts the NFS share CentOS7RDMA-HN:/nfs onto the folder. Here CentOS7RDMA-HN:/nfs is the remote path of your NFS share.
 
 ## How to submit jobs
-There are several ways to submit jobs to the HPC Pack cluster
+There are several ways to submit jobs to the HPC Pack cluster:
 
 * HPC Cluster Manager or HPC Job Manager GUI
 
@@ -266,13 +266,13 @@ There are several ways to submit jobs to the HPC Pack cluster
 
 * REST API
 
-Job submission to the cluster in Azure via HPC Pack GUI tools and the HPC web portal are the same as for Windows compute nodes. See [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) and [How to Submit Jobs from and On-premises Client](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
+Job submission to the cluster in Azure via HPC Pack GUI tools and the HPC web portal are the same as for Windows compute nodes. See [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) and [How to submit jobs from an on-premises client computer](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
 
 To submit jobs via the REST API, refer to [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Also refer to the Python sample in the [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756) to submit jobs from a Linux client.
 
 ## Clusrun for Linux nodes
 
-The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes either through a Command prompt or HPC Cluster Manager. Following are some basic examples.
+The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes either through a Command Prompt or HPC Cluster Manager. Following are some basic examples.
 
 * Show current user names on all nodes in the cluster.
 
@@ -292,7 +292,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
     > clusrun /interleaved /nodegroup:linuxnodes echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE] You might need to use certain escape characters in **clusrun** commands. As shown in this example, use ^ in a Command window to escape the ">" symbol.
+>[AZURE.NOTE] You might need to use certain escape characters in **clusrun** commands. As shown in this example, use ^ in a Command Prompt to escape the ">" symbol.
 
 ## Next steps
 
@@ -300,10 +300,11 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 
 * Try a cluster with size [A8 or A9](virtual-machines-windows-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads. For an example, see [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
 
-* Try an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) with Azure Resource Manager to speed up deployments of HPC Pack with a larger number of  Linux compute nodes.
+* If you are interested in working with Linux nodes in an on-premises HPC Pack cluster, see the [TechNet guidance](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-classic-hpcpack-cluster/scenario.png
+[portal]: ./media/virtual-machines-linux-classic-hpcpack-cluster/portal.png
 [validate]: ./media/virtual-machines-linux-classic-hpcpack-cluster/validate.png
 [resources]: ./media/virtual-machines-linux-classic-hpcpack-cluster/resources.png
 [deploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster/deploy.png

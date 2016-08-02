@@ -12,114 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="05/28/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting and Q&A for Application Insights for Windows devices
 
-Questions or problems with [Visual Studio Application Insights in Windows][windows]? Here are some tips.
+Application Insights is no longer supported for device apps (but is fully supported for web apps and services).
 
+[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user metrics and feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. 
 
+Go to:
 
-## No data 
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp for Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [HockeyApp Blog](http://hockeyapp.net/blog/)
+* Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
 
-*I added Application Insights successfully and ran my app, but I've never seen data in the portal.*
-
-* Wait a minute and click Refresh.
-* Check that you have an instrumentation key defined in the ApplicationInsights.config file, and that it is the same as the key in the Application Insights portal. To see the key, click Essentials on the overview blade.
-* Make sure your app [requests outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
-* Is there a firewall between your emulator or test device and the Application Insights portal? You might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
-* In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-
-
-#### I used to see data, but it has stopped
-
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
-
-
-## How do I add Application Insights to a Universal App?
-
-If you're creating a new solution in Visual Studio 2015, just select the Add Application Insights option in the new project dialog.  This will send telemetry from all the target app types to the same Application Insights resource.
-
-If you already create the universal app solution, right-click each primary project and select **Add Application Insights**. 
-
-
-
-## Disabling telemetry
-
-*How can I disable telemetry collection?*
-
-In code:
-
-    TelemetryConfiguration config = TelemetryConfiguration.Active;
-    config.TrackingIsDisabled = true;
-
-## Changing the target resource
-
-*How can I change which Application Insights resource my project sends data to?*
-
-In the new Application Insights overview blade, open Essentials and copy the instrumentation key.
-
-Paste the key into your ApplicationInsights.config file in the `<InstrumentationKey>` node.
-
-Or, if you want to change targets at run time, use:
-
-     var telemetry = new TelemetryClient();
-     telemetry.Context.InstrumentationKey = newKey;
-    
-## How do I monitor a client-server app?
-
-There are two ways of doing this:
-
-* Create two Application Insights resources (with different instrumentation keys), for the client and the server. But create them in the same Azure resource group. That makes it easy to switch between one and the other.
-* Use one Application Insights resource and put its instrumentation key into both client and server projects. Then you can correlate metrics and events from the two sources.
-
-To help correlate events in the client and server, generate an operation id for each request. Transmit it between the client and server, add it to the telemetry at both ends:
-
-    telemetry.Context.OperationId = opid;
-
-
-## The Azure start screen
-
-*I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?*
-
-No, it shows the health of Azure servers around the world.
-
-*From the Azure start board (home screen), how do I find data about my app?*
-
-Assuming you [already set up your app for Application Insights][windows], click Browse, select Application Insights, and select the resource you created for your app. To get there faster in future, you can pin the resource to the start board.
-
-## Data retention 
-
-*How long is data retained in the portal? Is it secure?*
-
-See [Data retention and privacy][data].
-
-## Next steps
-
-*I set up Application Insights for my Java server app. What else can I do?*
-
-* [Monitor availability of your web pages][availability]
-* [Monitor web page usage][usage]
-* [Track usage and diagnose issues in your device apps][platforms]
-* [Write code to track usage of your app][track]
-* [Capture diagnostic logs][javalogs]
-
-
-## Get help
-
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-
-<!--Link references-->
-
-[availability]: app-insights-monitor-web-app-availability.md
-[data]: app-insights-data-retention-privacy.md
-[javalogs]: app-insights-java-trace-logs.md
-[platforms]: app-insights-platforms.md
-[track]: app-insights-api-custom-events-metrics.md
-[universal]: app-insights-windows-get-started.md#universal
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
 
  
