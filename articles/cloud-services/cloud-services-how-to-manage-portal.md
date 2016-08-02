@@ -23,9 +23,9 @@
 - [Azure portal](cloud-services-how-to-manage-portal.md)
 - [Azure classic portal](cloud-services-how-to-manage.md)
 
-Your cloud service can be managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. This includes updating the deployment, promoting a staged deployment to production, deleting the instance roles, and scaling your cloud service.
+Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
 
-How to scale your cloud service is covered [here](cloud-services-how-to-scale-portal.md).
+More information about how to scale your cloud service is available [here](cloud-services-how-to-scale-portal.md).
 
 ## How to: Update a cloud service role or deployment
 
@@ -45,7 +45,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine is able to process client requests while the other is updated.
+	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
 
 6. Check **Start deployment** to have the update applied after the upload of the package has finished.
 
@@ -55,7 +55,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 ## How to: Swap deployments to promote a staged deployment to production
 
-When you decide to deploy a new release of a cloud service, stage and test your new release in your cloud service staging environment. To promote a new release to production, use **Swap** to switch the URLs by which the two deployments are addressed. 
+When you decide to deploy a new release of a cloud service, stage and test your new release in your cloud service staging environment. Use **Swap** to switch the URLs by which the two deployments are addressed and promote a new release to production. 
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
@@ -83,7 +83,7 @@ The Azure portal does not link resources together like the current Azure classic
 
 Before you can delete a cloud service, you must delete each existing deployment.
 
-To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected. Even if a cloud service is not running, you will be billed compute costs for deployed role instances.
+To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected. You are billed for compute costs for deployed role instances that are stopped.
 
 Use the following procedure to delete a deployment or your cloud service. 
 
@@ -102,7 +102,7 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 > [AZURE.NOTE]
-> If verbose monitoring is configured for your cloud service, Azure will not delete the monitoring data from your storage account when you delete the cloud service. You must delete the data manually. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
+> When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
 
 [Azure portal]: https://portal.azure.com
 
