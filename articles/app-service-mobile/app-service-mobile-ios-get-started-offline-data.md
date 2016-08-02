@@ -234,7 +234,13 @@ In this section, you will connect to an invalid URL to simulate an offline scena
 
 1. Change the Mobile App URL in **QSTodoService.m** to an invalid URL, and run the app again:
 
-        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
+	**Objective-C** in QSTodoService.m:
+	
+        	self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
+	
+	**Swift** in ToDoTableViewController.swift:
+
+		let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
 
 2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted.
 
