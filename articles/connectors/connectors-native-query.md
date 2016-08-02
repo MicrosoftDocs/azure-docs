@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Add the query action in logic apps | Microsoft Azure"
-	description="Overview of the query action for performing actions like Filter Array."
+	description="Overview of the query action for performing actions like filter array."
 	services=""
 	documentationCenter=""
 	authors="jeffhollan"
@@ -28,9 +28,9 @@ To get started using the query action in a logic app, see [Create a logic app](.
 
 ## Use the query action
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions.](connectors-overview.md)  
+An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
 
-The query action currently has one operation that is exposed in the designer, which is the filter array. This allows you to query an array and return a set of filtered results.
+The query action currently has one operation that is exposed in the designer called the filter array. This allows you to query an array and return a set of filtered results.
 
 Here's how you can add it in a logic app:
 
@@ -40,32 +40,28 @@ Here's how you can add it in a logic app:
 
 	![Select the query action](./media/connectors-native-query/using-action-1.png)
 
-4. Select an array to filter (the screenshot below shows the array of results from a Twitter search).
-5. Create a condition to evaluate on each item (the screenshot below filters tweets from users who have more than 100 followers).
+4. Select an array to filter. (The screenshot below shows the array of results from a Twitter search.)
+5. Create a condition to evaluate on each item. (The screenshot below filters tweets from users who have more than 100 followers.)
 
 	![Complete the query action](./media/connectors-native-query/using-action-2.png)
 
 6. The action will output a new array that contains only results that met the filter requirements.
 7. Click the top left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
-## Technical details
+## Query action
 
-Below are the details for actions this connector supports.
-
-## Query actions
-
-The connector has one possible action.
+Here are the details for the action that this connector supports. The connector has one possible action.
 
 |Action|Description|
 |---|---|
 |Filter array|Evaluates a condition for each item in an array and returns the results|
 
-### Action details
+## Action details
 
-The query action comes with one possible action. Below, there is information on each of the actions, their required and optional input fields, and the corresponding output details associated with their usage.
+The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
 
-#### Filter array
-Makes an HTTP outbound request.
+### Filter array
+The following are input fields for the action, which makes an HTTP outbound request.
 A * means that it is a required field.
 
 |Display name|Property name|Description|
@@ -74,9 +70,9 @@ A * means that it is a required field.
 |Condition*|where|The condition to evaluate for each item|
 <br>
 
-**Output details**
+### Output details
 
-HTTP response
+The following are output details for the HTTP response.
 
 |Property name|Data type|Description|
 |---|---|---|
