@@ -23,15 +23,15 @@
 - [Azure portal](cloud-services-how-to-manage-portal.md)
 - [Azure classic portal](cloud-services-how-to-manage.md)
 
+Your cloud service can be managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. This includes updating the deployment, promoting a staged deployment to production, deleting the instance roles, and scaling your cloud service.
 
-In the **Cloud Services** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
-
+How to scale your cloud service is covered [here](cloud-services-how-to-scale-portal.md).
 
 ## How to: Update a cloud service role or deployment
 
-If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
+If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
 
-1. In the [Azure portal][], select the cloud service you want to update. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to update. This step opens the cloud service instance blade.
 
 2. In the blade, click the **Update** button.
 
@@ -43,7 +43,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 4. **Optionally** update the deployment label and the storage account. 
 
-5. If any service roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
+5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
 
 	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
 
