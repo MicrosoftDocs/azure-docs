@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/2/2016"
+   ms.date="08/02/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
