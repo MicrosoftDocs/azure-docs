@@ -1,5 +1,5 @@
 ﻿<properties
-    pageTitle="Logging and Error Handling in Logic Apps | Microsoft Azure"
+    pageTitle="Logging and error handling in Logic Apps | Microsoft Azure"
     description="View a real-life use case of advanced error handling and logging with Logic Apps"
     keywords=""
     services="logic-apps"
