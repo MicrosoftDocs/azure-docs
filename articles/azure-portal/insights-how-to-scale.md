@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com"
 	manager="ronmart"
 	editor=""
-	services="azure-portal"
+	services="monitoring"
 	documentationCenter="monitoring"/>
 
 <tags
