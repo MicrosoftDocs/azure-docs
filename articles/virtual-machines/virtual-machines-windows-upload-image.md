@@ -213,6 +213,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$vmName = "<vmName>"
 	$vmSize = "<vmSize>"
 	$computerName = "<computerName>"
+	$osDiskName = "<osDiskName>"
 
 	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
@@ -227,7 +228,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 	#Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
 	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
 	#You set this variable when you uploaded the VHD
