@@ -22,7 +22,7 @@ This article answers some of the most common questions about DevTest Labs.
 
 ## General
 - [Why should I use DevTest Labs?](#why-should-i-use-devtest-labs) 
-- [What does "worry free, self-service" mean?](##what-does-quotworry-free-self-servicequot-mean)
+- [What does "worry free, self-service" mean?](#what-does-quotworry-free-self-servicequot-mean)
 - [How can I use DevTest Labs?](#how-can-i-use-devtest-labs) 
 - [How will I be charged for DevTest Labs?](#how-will-i-be-charged-for-devtest-labs) 
  
