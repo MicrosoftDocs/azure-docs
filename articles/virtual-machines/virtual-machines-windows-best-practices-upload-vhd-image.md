@@ -36,9 +36,9 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 3.	Remove the Network adapter from Hyper-V Manager and set to “Not connected” or reset all the network interfaces to default in Windows:
 
-		-	Remove all static IP address, gateway and DNS settings.
-		-	Set the IP setting to “Obtain an IP address automatically.
-		- Set the DNS setting to “Obtain DNS server address automatically”
+	-	Remove all static IP address, gateway and DNS settings.
+	-	Set the IP setting to “Obtain an IP address automatically”.
+	- Set the DNS setting to “Obtain DNS server address automatically”
 
 ## Windows Configuration
 
@@ -52,8 +52,10 @@ The following are best practices for preparing and uploading the Windows VM to A
 3. Setup the disk SAN policy: `diskpart san policy=onlineall`
 4. Setup the time service:
 
-	- `REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
-	- `sc config w32time start= auto`
+		REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
+
+		 sc config w32time start= auto`
+
 5. Make sure that the below windows services are set to its windows default values which are all enabled and with the following startup setting:
 
 		sc config bfe start= auto
@@ -95,7 +97,7 @@ The following are best practices for preparing and uploading the Windows VM to A
 		sc config WinHttpAutoProxySvc start= manual
 
 		sc config LanmanWorkstation start= auto
-		
+
 		sc config RemoteRegistry start= auto
 
 6. Remove any self-signed certificate tied to RDP listener:
@@ -106,18 +108,19 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 7. Setup the KeepAlive values on the RDP listener
 
-	-	`REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f`
+		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
-	- `REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f`
+		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
 
-	- `REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f`
+		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
 
-8. Make sure that NLA is enabled
-		- REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
+8. Make sure that NLA is enabled:
 
-		- REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
+			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
-		- REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
+			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
+
+			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
 
 9. Enable RDP：REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f
 
