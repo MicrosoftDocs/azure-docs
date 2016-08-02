@@ -71,7 +71,7 @@ Upgrading a cloud application with a SQL Database is a disruptive operation, and
 
 - For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
 - To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 - To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

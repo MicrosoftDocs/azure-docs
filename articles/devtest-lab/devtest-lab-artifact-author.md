@@ -122,6 +122,10 @@ Create your custom artifact by following steps below:
 
 1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
 
+## Related blog posts
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
 ## Next steps
 
 - Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).

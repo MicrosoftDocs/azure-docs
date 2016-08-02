@@ -52,7 +52,7 @@ The **Number** tile displays a single number showing the count of records from a
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
 | **Advanced** |  **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -76,7 +76,7 @@ The **Two Number** tile displays two numbers showing the count of records from t
 | Legend | Text to display under the value. |
 | Query | Query to run.  The count of the number of records returned by the query will be displayed. |
 | **Advanced** | **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -103,7 +103,7 @@ The **Donut** tile displays a single number summarized from a value column in a 
 | Colors | The color to display for each of the three top properties.  If you want to specify alternate colors for specific property values, then use Advanced Color Mapping. |
 | Advanced Color Mapping | Displays a color for specific property values.  If the value you specify is in the top three, then the alternate color is displayed instead of the standard color.  If the property is not in the top three, then the color is not displayed. |
 | **Advanced** | **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -127,7 +127,7 @@ The **Line chart** tile displays a line chart with multiple series from a log qu
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The **Unit Type** specifies the category of the unit and defines the **Current Unit Type** values that are available.  If you select a value in **Convert to** then the numeric values are converted from the **Current Unit** type to the **Convert to** type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
 | **Advanced** | **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -156,7 +156,7 @@ The **Line chart & callout** tile displays a line chart with multiple series fro
 | Units | Specify the units for the values returned by the query.  This information is used to display labels on the chart indicating the value types and optionally for converting the values.  The **Unit Type** specifies the category of the unit and defines the **Current Unit Type** values that are available.  If you select a value in **Convert to** then the numeric values are converted from the **Current Unit** type to the **Convert to** type. |
 | Custom Label | Text to display for the Y Axis next to the label for the unit type.  If no label is specified, then only the unit type is displayed. |
 | **Advanced** | **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -184,7 +184,7 @@ The **Two timelines** tile displays the results of two log queries over time as 
 | Chart Query | Query to run for the second series.  The count of the number of records over each time interval will be represented by the chart columns.
 | Operation | The operation to perform on the value property to summarize to a single value for the callout.<br><br>- Average: Average of the value from all records.<br>- Count: Count of all records returned by the query.<br>- Last Sample: Value from the last interval included in the chart.<br>- Max: Maximum value from the intervals included in the chart. |
 | **Advanced** | **> Data-flow verification** |
-| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the dashboard is installed and data comes available. |
+| Enabled | Select if data-flow verification should be enabled for the tile.  This provides an alternate message if data is not available for the tile.  This is typically used to provide a message during the temporary period when the view is installed and data comes available. |
 | Query | Query to run to check if data is available for the view.  If the query returns no results, then a message is displayed instead of the value from the main query. |
 | Message | Message to display if the data-flow verification query returns no data.  If you provide no message, *Performing Assessment* is displayed. |
 | **Time Interval** |
@@ -194,4 +194,4 @@ The **Two timelines** tile displays the results of two log queries over time as 
 ## Next steps
 
 - Learn about [log searches](log-analytics-log-searches.md) to support the queries in tiles.
-- Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom dashboard.
+- Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom view.
