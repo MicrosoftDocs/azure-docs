@@ -156,7 +156,7 @@ additional disk space to a VM for running SAP. In the case of a SAP app server V
 prototype/demo environment it's fine to use Azure standard storage disks. Whereas for the SAP 
 HANA DB data and log files - Azure Premium storage disks should be used even in a non-production landscape.
 
-See details about Azure Premium Storage [here](../storage-premium-storage.md)
+See details about Azure Premium Storage [here](../storage/storage-premium-storage.md)
 
 Depending on the size of the system and throughput requirements it might be necessary to attach multiple
 disks instead of one and later on create a stripe set across those disks on OS level. These are the two
