@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Learn about the Docker VM Extenstion on Azure | Microsoft Azure"
+   pageTitle="Learn about the Docker VM Extension on Azure | Microsoft Azure"
    description="Learn how to use the Docker VM Extension to quickly and securely deploy a Docker environment in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
