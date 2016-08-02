@@ -112,7 +112,7 @@ The Shared Access Signature document also provides information on how you can ei
     
     The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use __SHIFT+ENTER__ to run the cell again. This time, the results should display the directories that contain telemetry data.
 
-    Pick one of the directories and copy the wasb path to it. It will be used in the next step.
+    > [AZURE.NOTE] For the remainder of the steps in this document, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app. If you are using telemetry data that does not include a requests directory, pick another directory and adjust the rest of the steps to use that directory and the schema for the data stored within it.
 
 6. In the next cell, enter the following. Replace __WASB\_PATH__ with the path from the previous step.
 
