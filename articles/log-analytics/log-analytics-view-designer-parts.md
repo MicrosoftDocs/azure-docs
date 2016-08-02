@@ -49,7 +49,7 @@ Displays a list of log search queries.  The user can click on each query to disp
 |:--|:--|
 | **General** |
 | Title | Text to display at the top of the view. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Pre-selected filters | Comma delimited list of properties to include in the left filter pane when the user selects a query. |
 | Render mode | Initial view displayed when the query is selected.  The user can select any available views after opening the query. |
 | **Queries** |
@@ -67,7 +67,7 @@ Header has a single number showing count of records from a log search query.  Li
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the view. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header.
 | Use Icon | Select to have the icon display. |
 | **Title** |
@@ -92,7 +92,7 @@ Header has two numbers showing count of records from separate log search queries
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the view. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header.
 | Use Icon | Select to have the icon display. |
 | **Title** |
@@ -121,7 +121,7 @@ Header displays a single number summarized from a value column in a log query.  
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
 | Use Icon | Select to have the icon display. |
 | **Header** |
@@ -153,7 +153,7 @@ Header displays the results of two log queries over time as column charts with a
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
 | Use Icon | Select to have the icon display. |
 | **First Chart** |
@@ -185,7 +185,7 @@ Header displays static text and an optional link.  List displays one or more ite
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Color | Background color for the header. |
 | **Header** |
 | Image | Image file to display in the header. |
@@ -208,7 +208,7 @@ Header displays a line chart with multiple series from a log query over time and
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
 | Use Icon | Select to have the icon display. |
 | **Header** |
@@ -243,7 +243,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
 | Use Icon | Select to have the icon display. |
 | **Header** |
@@ -274,7 +274,7 @@ Header displays a line chart with multiple series from a log query over time.  L
 |:--|:--|
 | **General** |
 | Group Title | Text to display at the top of the tile. |
-| New Group | Select to create a new group in the dashboard starting at the current view. |
+| New Group | Select to create a new group in the view starting at the current view. |
 | Icon | Image file to display next to the result in the header. |
 | Use Icon | Select to have the icon display. |
 | **Header** |
