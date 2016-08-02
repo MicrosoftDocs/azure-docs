@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus connector
@@ -53,8 +53,8 @@ Azure Service Bus has the following trigger(s):
 
 |Trigger | Description|
 |--- | ---|
-|[When a message is received in a queue](connectors-create-api-azureservicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
-|[When a message is received in a topic subscription](connectors-create-api-azureservicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
+|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
+|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
 
 
 ## Azure Service Bus actions
@@ -64,7 +64,7 @@ Azure Service Bus has the following actions:
 
 |Action|Description|
 |--- | ---|
-|[Send message](connectors-create-api-azureservicebus.md#send-message)|This operation sends a message to a queue or topic.|
+|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
 ### Action details
 
 Here are the details for the actions and triggers for this connector, along with their responses:
