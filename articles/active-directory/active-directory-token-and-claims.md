@@ -15,8 +15,6 @@
    ms.workload="identity"
    ms.date="07/19/2016"
    ms.author="mbaldwin"
-   experimental: true
-   experiment_id: "priyamo-table-20160728"
    />
 
 # Azure AD token reference
