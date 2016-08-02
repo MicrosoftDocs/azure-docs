@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # DevTest Labs FAQ
+
+This article answers some of the most common questions about DevTest Labs.
 
 ## General
 - [Why should I use DevTest Labs?](#why-should-i-use-devtest-labs) 
@@ -30,7 +32,7 @@
  
 ## CI/CD Integration & Automation 
  
-- [Does DevTest Labs integrate with my CI/CD toolchain?](#does-devtest-labs--integrate-with-my-cicd-toolchain) 
+- [Does DevTest Labs integrate with my CI/CD toolchain?](#does-devtest-labs-integrate-with-my-cicd-toolchain) 
  
 ## Virtual Machines 
  
@@ -60,7 +62,7 @@
 ### Why should I use DevTest Labs? 
 DevTest Labs can save your team time and money. Developers can create their own environments using a number of different bases, and use artifacts to quickly deploy and configure applications. Using custom images and formulas, virtual machines can be saved as templates and easily reproduced. On top of all of this, the lab offers several policies ― such as auto-shutdown, cost threshold, max VMs per user, max VM sizes ― that allow lab administrators to reduce waste and effortlessly manage a team's environments. For a more in depth explanation of DevTest Labs, read the [overview](devtest-lab-overview.md) or check out the [introductory video](/documentation/videos/videos/what-is-azure-devtest-labs). 
 
-### What does "worry free, self-service" mean?
+## What does "worry free, self-service" mean?
 It means that developers and testers can create their own environments as needed, and administrators have the security of knowing that DevTest Labs will help minimize waste and control cost. They can specify which VM sizes are allowed, the maximum number of VMs, and when VMs are started and shut down. It is also easy to monitor costs and set alerts in order to stay aware of how resources in the lab are being used. 
 
 ### How can I use DevTest Labs? 
