@@ -27,17 +27,16 @@ This article describes how you can extend a logic app to better support exceptio
 ## Overview of the use case and scenario
 
 The following story is the use case for this article.
+A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal using Dynamics CRM Online (CRMOL). They needed to send appointment records between the CRMOL patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
-> A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal using Dynamics CRM Online (CRMOL). They needed to send appointment records between the CRMOL patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
-
-> The project had two major requirements:   
-> -  A method to log records sent from the CRMOL portal
-> -  A way to view any errors that occurred within the workflow
+The project had two major requirements:   
+ -  A method to log records sent from the CRMOL portal
+ -  A way to view any errors that occurred within the workflow
 
 
 ## How we solved the problem
 
->[AZURE.TIP] You can view a high-level video at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group")
+>[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group")
 
 We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both Error and Log records. We could also define a schema for each within the API app.  
 
