@@ -33,20 +33,20 @@ The below table describes the limits for both concurrent queries and concurrency
 
 ### Concurrency limits
 
-|  DWU   | Max Concurrent Queries  | Max Concurrency Slots |
-| :----  | :---------------------: | :-------------------: |
-| DW100  |           32            |          4            |
-| DW200  |           32            |          8            |
-| DW300  |           32            |         12            |
-| DW400  |           32            |         16            |
-| DW500  |           32            |         20            |
-| DW600  |           32            |         24            |
-| DW1000 |           32            |         40            |
-| DW1200 |           32            |         48            |
-| DW1500 |           32            |         60            |
-| DW2000 |           32            |         80            |
-| DW3000 |           32            |        120            |
-| DW6000 |           32            |        240            |
+|  DWU   | Max Concurrent Queries  | Concurrency Slots Allocated |
+| :----  | :---------------------: | :-------------------------: |
+| DW100  |           32            |                4            |
+| DW200  |           32            |                8            |
+| DW300  |           32            |               12            |
+| DW400  |           32            |               16            |
+| DW500  |           32            |               20            |
+| DW600  |           32            |               24            |
+| DW1000 |           32            |               40            |
+| DW1200 |           32            |               48            |
+| DW1500 |           32            |               60            |
+| DW2000 |           32            |               80            |
+| DW3000 |           32            |              120            |
+| DW6000 |           32            |              240            |
 
 When one of these thresholds are met, new queries are queued.  Queued queries are executed in on a first in first out basis as other queries complete and the number of queries and slots fall below the limits.  
 
@@ -123,20 +123,20 @@ As mentioned above, the higher the resource class the more memory granted.  Sinc
 
 ### Allocation and consumption of concurrency slots
 
-|  DWU   | Max Concurrent Queries  | Max Concurrency Slots | smallrc | mediumrc | largerc | xlargerc |
-| :----  | :---------------------: | :-------------------: | :-----: | :------: | :-----: | :------: |
-| DW100  |           32            |          4            |    1    |     1    |    2    |    4     |
-| DW200  |           32            |          8            |    1    |     2    |    4    |    8     |
-| DW300  |           32            |         12            |    1    |     2    |    4    |    8     |
-| DW400  |           32            |         16            |    1    |     4    |    8    |   16     |
-| DW500  |           32            |         20            |    1    |     4    |    8    |   16     |
-| DW600  |           32            |         24            |    1    |     4    |    8    |   16     |
-| DW1000 |           32            |         40            |    1    |     8    |   16    |   32     |
-| DW1200 |           32            |         48            |    1    |     8    |   16    |   32     |
-| DW1500 |           32            |         60            |    1    |     8    |   16    |   32     |
-| DW2000 |           32            |         80            |    1    |    16    |   32    |   64     |
-| DW3000 |           32            |        120            |    1    |    16    |   32    |   64     |
-| DW6000 |           32            |        240            |    1    |    32    |   64    |  128     |
+|  DWU   | Max Concurrent Queries  | Concurrency Slots Allocated | Slots used by smallrc |  Slots used by mediumrc |  Slots used by largerc |  Slots used by xlargerc |
+| :----  | :---------------------: | :-------------------------: | :-----: | :------: | :-----: | :------: |
+| DW100  |           32            |                4            |    1    |     1    |    2    |    4     |
+| DW200  |           32            |                8            |    1    |     2    |    4    |    8     |
+| DW300  |           32            |               12            |    1    |     2    |    4    |    8     |
+| DW400  |           32            |               16            |    1    |     4    |    8    |   16     |
+| DW500  |           32            |               20            |    1    |     4    |    8    |   16     |
+| DW600  |           32            |               24            |    1    |     4    |    8    |   16     |
+| DW1000 |           32            |               40            |    1    |     8    |   16    |   32     |
+| DW1200 |           32            |               48            |    1    |     8    |   16    |   32     |
+| DW1500 |           32            |               60            |    1    |     8    |   16    |   32     |
+| DW2000 |           32            |               80            |    1    |    16    |   32    |   64     |
+| DW3000 |           32            |              120            |    1    |    16    |   32    |   64     |
+| DW6000 |           32            |              240            |    1    |    32    |   64    |  128     |
 
 From this table you can see that a SQL Data Warehouse running as DW1000 offers a total of 40 concurrency slots up to a max of 32 concurrent queries.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each of the queries would consume 1 concurrency slot.  If all users were running in medium resource class, each user would be allocated 800 MB per distributions for a total memory allocation of 47 GB and concurrency for all of these medium resource class users would be limited to 8 users.
 
