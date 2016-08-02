@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/02/2016"
    ms.author="hascipio" />
 
 # Deploy your offer to the Azure Marketplace
@@ -31,7 +31,7 @@ When you are satisfied with your offer (that is, you have tested customer scenar
 
     ![drawing][img-pubportal-publish-pushproduction]
 
->[AZURE.NOTE] In case of Virtual Machines, when you click on the button Request approval to push to production, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows "Listed") for any failure information which need correction from your end.
+>[AZURE.IMPORTANT] In case of Virtual Machines, when you click on the button Request approval to push to production, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows "Listed") for any failure information which need correction from your end.
 
 > - At first your production request goes to the certification team who validate the vhd. However, if you are updating your already listed offer and the request has got only marketing change, then the certification step is skipped.
 > - At the next step, the request come to the content validation team who verify the marketing content of the offer.
@@ -39,7 +39,7 @@ When you are satisfied with your offer (that is, you have tested customer scenar
 > - Once the offer is approved in production in the step above, replication of the offer start across all the Azure datacenters. It generally takes 24-48hours for the replication to complete but may take up to a week depending on the size of the vhd. However, if you are updating your already listed offer and it has got only marketing change, then the replication is faster.
 > - When the replication is complete, then the offer will be available in the Azure Marketplace.
 
-> [AZURE.IMPORTANT] You can always delete the offer while it is in a **Draft** status (i.e., never **Push to staging** or **Push to production**). On the **History** tab, click the **Discard draft** button at the bottom of the page to delete a draft.
+> You can always delete the offer while it is in a **Draft** status (i.e., never **Push to staging** or **Push to production**). On the **History** tab, click the **Discard draft** button at the bottom of the page to delete a draft.
 
 
 ## Production checklist for all Virtual Machine offers
