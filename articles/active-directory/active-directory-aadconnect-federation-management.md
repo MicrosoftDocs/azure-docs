@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Active Directory Federation Services Management and customization with Azure AD Connect | Microsoft Azure"
 	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Powershell."
+	keywords="AD FS,ADFS,AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -13,18 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/01/2016"
 	ms.author="anandy"/>
 
 # Active Directory Federation Services management and customization with Azure AD Connect
 
 This article details the various Active Directory Federation Services (AD FS) related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
 
+| Topic | What it covers |
+|:------|:-------------|
+|**AD FS management**|
+|[Repairing the trust](#repairthetrust)| Repairing the federation trust with O365. |
+|[Adding a new AD FS server](#addadfsserver) | Expanding the AD FS farm with additional AD FS server|
+|[Adding a new AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with additional WAP server|
+|[Add a new federated domain](#addfeddomain)| Add a federated domain|
+| **AD FS customization**|
+|[Add custom company logo or illustration](#customlogo)| Customize A FS sign-in page with company logo and illustration |
+|[Add sign-in description](#addsignindescription) | Add sign-in page description |
+|[Modifying AD FS claim rules](#modclaims) | Modify AD FS claims for various federation scenarios |
+
 ## AD FS management
 
 Azure AD Connect provides various AD FS related tasks that can be performed using the Azure AD Connect wizard with minimal user intervention. After you have finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
-### Repairing the trust
+### Repairing the trust <a name=repairthetrust></a>
 
 Azure AD Connect can check for the current health of the AD FS and Azure ADtrust and take appropriate actions to repair the trust. Follow the below steps to repair your Azure AD and AD FS trust.
 
@@ -52,7 +65,7 @@ Click on install to go ahead and repair the trust.
 
 >[AZURE.NOTE] Azure AD Connect can only repair / take action on the certificates that are self signed. Third party certificates cannot be repaired by Azure AD Connect.
 
-### Adding a new AD FS server
+### Adding a new AD FS server <a name=addadfsserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add an AD FS server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
 
@@ -84,7 +97,7 @@ Click on Next and go through the final Configure page. After Azure AD Connect ha
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Adding a new AD FS web application proxy server
+### Adding a new AD FS web application proxy server <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
 
@@ -118,7 +131,7 @@ Click on Install to finish the configuration. After the configuration is complet
 
 ![](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### Add a new federated domain
+### Add a new federated domain <a name=addfeddomain></a>
 
 It is easy to add a new domain to be federated with Azure AD using Azure AD Connect. Azure AD Connect not only adds the new domain for federation but modifies the claim rules in order to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
@@ -148,7 +161,7 @@ Click on next and **Ready to configure** page will show the list of actions that
 
 The following sections provide details on how you can perform some of the common tasks that you may have to do for customizing your AD FS sign-in page. 
 
-### Add custom company logo or illustration
+### Add custom company logo or illustration <a name=customlogo></a>
 
 To change the logo of the company that is displayed on the sign-in page, use the following PowerShell Windows PowerShell cmdlet and syntax.
 
@@ -159,13 +172,13 @@ To change the logo of the company that is displayed on the sign-in page, use the
 > [AZURE.NOTE] The TargetName parameter is required. The default theme that is released with AD FS is named default.
  
 
-### Add sign-in description
+### Add sign-in description <a name=addsignindescription></a>
 
 To add a sign-in page description to the sign-in page, use the following Windows PowerShell PowerShell cmdlet and syntax.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### Modifying AD FS claim rules
+### Modifying AD FS claim rules <a name=modclaims></a>
 
 AD FS provides the option to specify custom rules to issue claims. It supports a rich claim language using which you can use to create custom claim rules. For more information you can check the article [here](https://technet.microsoft.com/library/dd807118.aspx). 
 
