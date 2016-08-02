@@ -100,6 +100,6 @@ Anomalies are defined as bubbles with counts/percentages exceeding 2.1 times the
 
 ||
 |---|---
-|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**Search telemetry, see data in CodeLens, and configure Application Insights, all within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
+|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights, all within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
 |**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, and exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-asp-net/64.png)
 |**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Find dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
