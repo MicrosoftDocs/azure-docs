@@ -95,7 +95,7 @@ DocumentDB collections allow you to group your data based on both the query patt
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-## <a href="changing-performance-levels-using-the-azure-portal"></a>Change from S1, S2, S3 to user-defined performance
+## <a id="changing-performance-levels-using-the-azure-portal"></a>Change from S1, S2, S3 to user-defined performance
 
 Follow these steps to change from using pre-defined throughput levels to user-defined throughput levels in the Azure portal. By using user-defined throughput levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks.
 
@@ -162,7 +162,7 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
 
-## <a href="change-throughput"></a>Changing the throughput of a collection
+## <a id="change-throughput"></a>Changing the throughput of a collection
 
 If you are already using user-defined performance, you can change the throughput of your collection by doing the following. If you need to change from an S1, S2 or S3 performance level (pre-defined performance) to user-defined performance, see [Change from S1, S2, S3 to user-defined performance](#changing-performance-levels-using-the-azure-portal).
 

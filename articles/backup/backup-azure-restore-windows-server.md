@@ -3,8 +3,8 @@
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags

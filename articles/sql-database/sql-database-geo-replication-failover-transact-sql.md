@@ -3,7 +3,7 @@
     description="Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
-    authors="carlrabeler" 
+    authors="CarlRabeler" 
     manager="jhubbard" 
     editor=""/>
 

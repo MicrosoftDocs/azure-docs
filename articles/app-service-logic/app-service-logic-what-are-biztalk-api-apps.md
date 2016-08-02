@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What are Connectors and BizTalk API Apps" 
 	description="Learn about API Apps, Connectors and BizTalk API Apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="erikre" 

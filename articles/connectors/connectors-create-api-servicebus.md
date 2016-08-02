@@ -1,7 +1,7 @@
 <properties
 pageTitle="Learn to use the Azure Service Bus connector in your logic apps.| Microsoft Azure"
 description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/27/2016"
+ms.date="08/02/2016"
 ms.author="deonhe"/>
 
 # Get started with the Azure Service Bus connector
@@ -75,10 +75,28 @@ Here are the details for the actions and triggers for this connector, along with
 This operation sends a message to a queue or topic. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
-|message*|Message|Message to send|
+|ContentData*|Content|Content of the message|
+|ContentType|Content Type|Content type of the message content|
+|Properties|Properties|Key-value pairs for each brokered property|
 |entityName*|Queue/Topic name|Name of the queue or topic|
+
+These advanced parameters are also available: 
+
+|Property name| Display name|Description|
+| ---|---|---|
+|MessageId|Message Id|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Send to address|
+|ReplyTo|Reply To|Address of the queue to reply to|
+|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to|
+|Label|Label|Application specific label|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue|
+|SessionId|Session Id|Identifier of the session|
+|CorrelationId|Correlation Id|Identifier of the correlation|
+|TimeToLive|Time To Live|This is the duration, in ticks, that a message is valid.  The duration starts from when the message is sent to the Service Bus.|
+
+
 
 An * indicates that a property is required
 
@@ -89,9 +107,10 @@ An * indicates that a property is required
 This operation triggers a flow when a message is received in a queue. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
 |queueName*|Queue name|Name of the queue|
+
 
 An * indicates that a property is required
 
@@ -104,7 +123,6 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 |---|---|---|
 |ContentData|string|Content of the message|
 |ContentType|string|Content type of the message content|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none"|"base64")|
 |Properties|object|Key-value pairs for each brokered property|
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address|
@@ -123,10 +141,11 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 This operation triggers a flow when a message is received in a topic subscription. 
 
 
-|Property Name| Display Name|Description|
+|Property name| Display name|Description|
 | ---|---|---|
 |topicName*|Topic name|Name of the topic|
 |subscriptionName*|Topic subscription name|Name of the topic subscription|
+
 
 An * indicates that a property is required
 
@@ -139,7 +158,6 @@ ServiceBusMessage: This object has the content and properties of a Service Bus M
 |---|---|---|
 |ContentData|string|Content of the message|
 |ContentType|string|Content type of the message content|
-|ContentTransferEncoding|string|Content transfer encoding of the message content ("none"|"base64")|
 |Properties|object|Key-value pairs for each brokered property|
 |MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address|

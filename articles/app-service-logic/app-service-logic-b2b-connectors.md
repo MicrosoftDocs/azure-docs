@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Business-to-Business Connectors and API Apps in Logic Apps | Microsoft Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="erikre" 
