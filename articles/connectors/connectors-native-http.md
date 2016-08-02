@@ -72,7 +72,7 @@ Full details about the HTTP trigger parameters are available on [MSDN](https://m
 
 ## Use the HTTP action
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions.](connectors-overview.md)
+An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
 
 1. Select the **New Step** button.
 2. Choose **Add an action**.
