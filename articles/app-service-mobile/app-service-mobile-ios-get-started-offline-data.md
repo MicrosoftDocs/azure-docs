@@ -141,9 +141,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	
 	The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store.) The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
-5. The app syncs when we modify data, add data, or complete an item. The app also syncs whenever a user performs the refresh gesture, and on launch. 
-
-	Because the app syncs whenever data is modified, this app assumes that the user is online whenever they are editing data. In another section, we will update the app so that users can edit even when they are offline.
+5. The app syncs when we modify or add data, a user performs the refresh gesture, and on launch. Because the app syncs whenever data is modified, this app assumes that the user is online. In another section, we will update the app so that users can edit even when they are offline.
 
 ## <a name="review-core-data"></a>Review the Core Data model
 
@@ -214,6 +212,8 @@ When using the Core Data offline store, you need to define particular tables and
 
 In this section, you will modify the app so that it does not sync on app start, or when inserting and updating items, but only when the refresh gesture button is performed.
 
+**Objective-C**:
+
 1. In **QSTodoListViewController.m**, change the **viewDidLoad** method to remove the call to `[self refresh]` at the end of the method. Now, the data will not be synced with the server on app start, but instead will be the contents of local store.
 
 2. In **QSTodoService.m**, modify the definition of `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace with the following:
@@ -227,7 +227,7 @@ In this section, you will modify the app so that it does not sync on app start, 
             if (completion != nil) {
                 dispatch_async(dispatch_get_main_queue(), completion);
             }
-
+            
 ## <a name="test-app"></a>Test the app
 
 In this section, you will connect to an invalid URL to simulate an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile backend.
@@ -242,7 +242,7 @@ In this section, you will connect to an invalid URL to simulate an offline scena
 
 		let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
 
-2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted.
+2. Add some todo items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted.
 
 3. View the contents of the remote TodoItem table:
 
