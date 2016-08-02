@@ -29,10 +29,10 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 2. If the Publishing Portal notifies you of any errors, correct them.
 3.	In the **Who can access your staged offer?** dialog box, enter the list of Azure subscriptions that you will use to preview your offer in the [Azure preview portal](https://portal.azure.com).
 
-    >[AZURE.NOTE] 1. In case of Virtual Machines and Solution templates, please **do not** whitelist subscriptions of type CSP, DreamSpark or Azure in Open.
+    >[AZURE.NOTE] In case of Virtual Machines and Solution templates, please **do not** whitelist subscriptions of type CSP, DreamSpark or Azure in Open.
 
 
-    >[AZURE.NOTE] 2. In case of Virtual Machines, when you click on the button **PUSH TO STAGING**, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows STAGED) for any failure information which need correction from your end.
+    > In case of Virtual Machines, when you click on the button **PUSH TO STAGING**, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows STAGED) for any failure information which need correction from your end.
 
     > - At first your staging request goes to the certification team who validate the vhd. However, if your request has got only marketing change, then the certification step is skipped.
     > - Once the certification is complete, replication of the offer start across all the Azure datacenters. It generally takes 24-48hours for the replication to complete but may take up to a week depending on the size of the vhd. However, if your request has got only marketing change, then the replication is faster.
