@@ -40,6 +40,10 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
 2. Before any table operations can be performed, the local store must be initialized. Here is the relevant code. 
 
+	This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol. 
+	
+	Also, the first parameter of `MSSyncContext` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
+	
 	**Objective-C**:
 	
 	In the `QSTodoService.init` method:
@@ -59,8 +63,6 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
 	        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
 	```
-	
-	This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol. The first parameter of `MSSyncContext` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
 
 3. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 
