@@ -132,7 +132,7 @@ Where:
 
 - **storageAccount** is the name of the storage account for the image. 
 
-- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name insn't found, it is created for you.
+- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name isn't found, it's created for you.
 
 - **targetVHDName** is the name that you want to use for the uploaded VHD file.
 
