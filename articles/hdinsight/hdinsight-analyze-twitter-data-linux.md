@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
 
 In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [AZURE.NOTE] While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE] While individual pieces of this document can be used with Windows-based HDInsight clusters (Python for example,) many steps are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Prerequisites
 
@@ -161,6 +161,8 @@ The following Python code will download 10,000 tweets from Twitter and save them
 
 	A progress indicator should appear, and count up to 100% as the tweets are downloaded and saved to file.
 
+    > [AZURE.NOTE] If it is taking a very long time for the progress bar to advance, you should change the filter to track trending topics; when there are a lot of tweets about the topic you are filtering on, you can very quickly get the 10000 tweets needed.
+
 ###Upload the data
 
 To upload the data to WASB (the distributed file system used by HDInsight,) use the following commands:
@@ -288,11 +290,11 @@ This stores the data in a location that all nodes in the cluster can access.
 
 4. Use the following command to run the HiveQL contained in the file:
 
-		hive -i twitter.hql		
+		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql		
 		
-	This will load the Hive shell, run the HiveQL in the __twitter.hql__ file, and finally return a `hive >` prompt.
+	This will load the Hive shell, run the HiveQL in the __twitter.hql__ file, and finally return a `jdbc:hive2//localhost:10001/>` prompt.
 	
-5. From the `hive >` prompt, use the following to verify that you can select data from the __tweets__ table created by the HiveQL in the __twitter.hql__ file:
+5. From the beeline prompt, use the following to verify that you can select data from the __tweets__ table created by the HiveQL in the __twitter.hql__ file:
 		
 		SELECT name, screen_name, count(1) as cc
 			FROM tweets

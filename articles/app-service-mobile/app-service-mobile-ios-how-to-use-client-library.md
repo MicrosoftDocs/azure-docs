@@ -394,18 +394,18 @@ To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` 
 
 **Objective-C**:
 ```
-    [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"contents": @"Hello world!" }
-                HTTPMethod:@"POST"
-                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
-                   headers:nil
-                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
-                    if(error) {
-                        NSLog(@"ERROR %@", error);
-                    } else {
-                        // Do something with result
-                    }
-                }];
+[self.client invokeAPI:@"sendEmail"
+                  body:@{ @"contents": @"Hello world!" }
+            HTTPMethod:@"POST"
+            parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+               headers:nil
+            completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"ERROR %@", error);
+                } else {
+                    // Do something with result
+                }
+            }];
 ```
 
 **Swift**:

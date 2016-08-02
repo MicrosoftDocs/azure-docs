@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/07/2016"
+ms.date="07/12/2016"
 ms.author="eugenesh" />
 
 # Indexing CSV blobs with Azure Search blob indexer 
@@ -25,19 +25,22 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 
 you might want to parse it into 2 documents, each containing "id", "datePublished", and "tags" fields.
 
-This article shows how to configure Azure Search blob indexer for CSV parsing. Happy indexing! 
+In this article you will learn how to parse CSV blobs with an Azure Search blob indexer. 
 
 > [AZURE.IMPORTANT] This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments. 
 
 ## Setting up CSV indexing
 
-To index CSV blobs, enable the `delimitedText` parsing mode:  
+To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode:  
 
 	{
 	  "name" : "my-csv-indexer",
 	  ... other indexer properties
 	  "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
 	}
+
+For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 `firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
 If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
 
@@ -49,7 +52,7 @@ Currently, only the UTF-8 encoding is supported. Also, only the comma `','` char
 
 ## Request examples
 
-Putting this all together, here are the complete payloads examples. 
+Putting this all together, here are the complete payload examples. 
 
 Datasource: 
 

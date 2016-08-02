@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 # Creating an Azure Active Directory (Azure AD) tenant or Azure AD B2C tenant: Issues and resolutions
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Creating an Azure AD tenant
 
 If you can't create an Azure AD tenant the first time, please try again. If the problem persists, contact Support.
 
-## Creating an Azure AD B2C tenant (preview)
+## Creating an Azure AD B2C tenant
 
 If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started.md), try the following:
  

@@ -111,12 +111,21 @@ Refreshing this screen after a few moments changes the status of the parent job 
 
 ## Next steps
 
-You’ve now completed a guided exploration of the device management concepts as using the sample device management UI experience. If you want to gain a more advanced understanding of the device management APIs and experiment with some code examples, visit the following developer tutorials:
+You’ve now completed a guided exploration of the device management concepts as using the sample device management UI experience. If you want to gain a more advanced understanding of the device management APIs and experiment with some code examples, visit the following developer tutorials and resources:
 
 - [How to use the device twin][lnk-tutorial-twin]
 - [How to find device twins using queries][lnk-tutorial-queries]
 - [How to use device jobs to update device firmware][lnk-tutorial-jobs]
+- [Enable managed devices behind an IoT gateway][lnk-dm-gateway]
 - [Introducing the Azure IoT Hub device management client library][lnk-library-c]
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Secure your IoT solution from the ground up][lnk-securing]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -130,7 +139,15 @@ You’ve now completed a guided exploration of the device management concepts as
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
-[lnk-library-c]: iot-hub-device-management-library.md
+
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md

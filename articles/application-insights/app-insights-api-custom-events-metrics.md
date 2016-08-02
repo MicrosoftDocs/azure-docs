@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -240,7 +240,7 @@ You can also call it yourself if you want to simulate requests in a context wher
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,22 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Track Dependency
 
@@ -505,7 +520,35 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
 > [AZURE.WARNING] Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
-#### <a name="timed"></a> Timing events
+## Operation context
+
+When your web app receives an HTTP request, the Application Insights request tracking module assigns an ID to the request, and sets the same value as the current Operation ID. The operation ID is cleared when the response to the request is sent. Any tracking calls made during the operation are assigned the same operation ID (provided they use the default TelemetryContext). This allows you to correlate the events related to a particular request when you inspect them in the portal.
+
+![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+If you are monitoring events not associated with an HTTP request, or if you aren't using the request tracking module - for example, if you are monitoring a backend process - then you can set your own operation context using this pattern:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
+
+Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
+
+
+## <a name="timed"></a> Timing events
 
 Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
@@ -617,7 +660,7 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -662,7 +705,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 

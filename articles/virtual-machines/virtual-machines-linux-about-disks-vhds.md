@@ -25,6 +25,9 @@ Just like any other computer, virtual machines in Azure use disks as a place to 
 
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
 
+## Troubleshooting
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+
 ## Next steps
 
 -  [Attach a disk](virtual-machines-linux-attach-disk-portal.md) to add additional storage for your VM.

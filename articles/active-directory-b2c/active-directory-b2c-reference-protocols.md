@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview | Microsoft Azure"
-	description="How to build apps directly by using the protocols supported by the Azure Active Directory B2C preview."
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	description="How to build apps directly by using the protocols supported by Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C preview: Authentication protocols
+# Azure AD B2C: Authentication protocols
 
 Azure Active Directory (Azure AD) B2C provides identity as a service for your apps by supporting two industry standard protocols: OpenID Connect and OAuth 2.0. The service is standards-compliant, but any two implementations of these protocols can have subtle differences.  The information in this guide will be useful to you if you write your code by directly sending and handling HTTP requests, rather than by using an open source library. We recommend that you read this page before you dive into the details of each specific protocol. But if you are already familiar with Azure AD B2C, you can go straight to [the protocol reference guides](#protocols).
 
 <!-- TODO: Need link to libraries above -->
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The basics
 Every app that uses Azure AD B2C needs to be registered in your B2C directory in the [Azure portal](https://portal.azure.com). The app registration process collects and assigns a few values to your app:
@@ -65,7 +63,3 @@ When you're ready to review some example requests, you can start with one of the
 
 - [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
-- Build single-page apps by using the OAuth 2.0 implicit flow (coming soon)
-- Build daemons and server-side processes by using the OAuth 2.0 client credentials flow (coming soon)
-- Use user names and passwords to get tokens by using the OAuth 2.0 resource owner password credentials flow (coming soon)
-- Get tokens in a web API by using the OAuth 2.0 on-behalf-of flow (coming soon)

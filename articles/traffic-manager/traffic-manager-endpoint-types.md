@@ -98,11 +98,13 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 ## FAQ
 
 ### Can I use Traffic Manager with endpoints from multiple subscriptions?
-Yes.  How you do this depends on whether you are using the Service Management APIs or the Resource Manager APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Service Management.
+For Azure Web Apps, this is not possible.  This is because Web Apps require that any custom domain name used with Web Apps is only used within a single subscriptions.   It is not possible to use Web Apps from multiple subscriptions with the same domain name, and hence they cannot be used with Traffic Manager.
+
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription.  How you do this depends on whether you are using the Service Management APIs or the Resource Manager APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Service Management.
 
 In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint.  These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-In Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
+In Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).
 
 ### Can I use Traffic Manager with Cloud Service ‘Staging’ slots?
 Yes.  Cloud Service ‘staging’ slots can be configured in Traffic Manager as External endpoints.

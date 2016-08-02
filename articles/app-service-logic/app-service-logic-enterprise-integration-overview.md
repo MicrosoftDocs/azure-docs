@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service" 
+	pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
 	description="Use the features of Enterprise Integration to enable business process and integration scenarios using Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Overview of the Enterprise Integration Pack
@@ -36,7 +36,7 @@ Architecturally, the Enterprise Integration Pack is based on **integration accou
 You can build and manage B2B apps using the Enterprise Integration Pack via the Logic apps designer on the **Azure portal**.  
 
 Here is an overview of the steps you need to take before you can create apps in the Azure portal:
-![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
+![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
 ## What are some common scenarios?
 
@@ -51,18 +51,16 @@ Enterprise Integration supports these industry standards:
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
 
 ## Learn more about:
-- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
-- [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
-- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
-- [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
 - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
-- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about integration accounts")
 - [Business to Business (B2B) scenarios](./app-service-logic-enterprise-integration-b2b.md "Learn how to create Logic apps with B2B features ")  
-- [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")  
+- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
 - [Flat file encoding/decoding](./app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  
-
-
-
+- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about integration accounts")
+- [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
+- [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
+- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
+- [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
+- [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
 
 
 

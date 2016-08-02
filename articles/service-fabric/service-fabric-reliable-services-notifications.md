@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Service Notifications | Microsoft Azure"
-   description="Conceptual documentation for Service Fabric Reliable Service Notifications"
+   pageTitle="Reliable Services notifications | Microsoft Azure"
+   description="Conceptual documentation for Service Fabric Reliable Services notifications"
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -16,45 +16,44 @@
    ms.date="06/24/2016"
    ms.author="mcoskun"/>
 
-# Reliable Service Notifications
+# Reliable Services notifications
 
-Notifications allow clients to track the changes that are being made in to the object they are interested in.
-There are two type of object that support notification: **Reliable State Manager** and **Reliable Dictionary**.
+Notifications allow clients to track the changes that are being made to an object that they're interested in. 
+Two types of objects support notifications: *Reliable State Manager* and *Reliable Dictionary*.
 
-Common reasons for using Notifications are
+Common reasons for using notifications are:
 
-- Building materialized views such as secondary indices or aggregated filtered views of the replica's state. For example a sorted index of all keys in a Reliable Dictionary.
-- Sending monitoring data such as number of users added in the last hour.
+- Building materialized views, such as secondary indexes or aggregated filtered views of the replica's state. An example is a sorted index of all keys in Reliable Dictionary.
+- Sending monitoring data, such as the number of users added in the last hour.
 
-Notifications are fired as part of applying operations.
-Since they are part of the apply of the operation, it is important to note handling of notifications should complete as fast as possible and no expensive operation should be done in synchronous events.
+Notifications are fired as part of applying operations. 
+Because of that, notifications should be handled as fast as possible, and synchronous events shouldn't include any expensive operations.
 
-## Reliable State Manager Notifications
+## Reliable State Manager notifications
 
-Reliable State Manager provides notifications for the following events
+Reliable State Manager provides notifications for the following events:
 
 - Transaction
     - Commit
-- State Manager
+- State manager
     - Rebuild
-    - Addition of a Reliable State
-    - Removal of a Reliable State
+    - Addition of a reliable state
+    - Removal of a reliable state
 
-Reliable State Manager tracks the current inflight transactions.
-The only transaction state change that will cause a notification to be fired is a transaction being committed.
+Reliable State Manager tracks the current inflight transactions. 
+The only change in transaction state that causes a notification to be fired is a transaction being committed.
 
-Reliable State Manager maintains a collection of Reliable State's like Reliable Dictionary and Reliable Queue.
-Reliable State Manager fires notifications when this collection changes: a Reliable State is added, removed or the entire collection has been rebuilt.
-Reliable State Manager's collection gets rebuilt in three cases
+Reliable State Manager maintains a collection of reliable states like Reliable Dictionary and Reliable Queue. 
+Reliable State Manager fires notifications when this collection changes: a reliable state is added or removed, or the entire collection is rebuilt.
+The Reliable State Manager collection is rebuilt in three cases:
 
-- Recovery: When a replica starts up, it will recover its previous state from the disk. At the end of recovery, it fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of recovered **IReliableState**.
-- Full Copy: Before a replica can join the configuration set, it first has to be built. Sometimes, this might require a full copy of Reliable State Manager's state from the Primary replica to be applied to the idle secondary replica. Reliable State Manager on the secondary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it acquired from the Primary.
-- Restore: In disaster recovery scenarios, replica's state can be restored from a backup using **RestoreAsync**. In such cases, Reliable State Manager on the primary will fire an event with **NotifyStateManagerChangedEventArgs** that contains the set of **IReliableState** it restored from the backup.
+- Recovery: When a replica starts, it recovers its previous state from the disk. At the end of recovery, it uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of recovered reliable states.
+- Full copy: Before a replica can join the configuration set, it has to be built. Sometimes, this requires a full copy of Reliable State Manager's state from the primary replica to be applied to the idle secondary replica. Reliable State Manager on the secondary replica uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it acquired from the primary replica.
+- Restore: In disaster recovery scenarios, the replica's state can be restored from a backup via **RestoreAsync**. In such cases, Reliable State Manager on the primary replica uses **NotifyStateManagerChangedEventArgs** to fire an event that contains the set of reliable states that it restored from the backup.
 
-### How to use Reliable State Manager Notifications
-To register for transaction notifications and/or state manager notifications, user needs to register with the **TransactionChanged** or **StateManagerChanged** events on the Reliable State Manager respectively.
-Common place to register with these event handlers is the constructor of your StatefulService.
-This because by registering on the constructor, client ensures that it will not miss any notification that is caused by a changed during the life time of the **IReliableStateManager**.
+To register for transaction notifications and/or state manager notifications, you need to register with the **TransactionChanged** or **StateManagerChanged** events on Reliable State Manager. 
+A common place to register with these event handlers is the constructor of your stateful service. 
+When you register on the constructor, you won't miss any notification that's caused by a change during the lifetime of **IReliableStateManager**.
 
 ```C#
 public MyService(StatefulServiceContext context)
@@ -65,13 +64,13 @@ public MyService(StatefulServiceContext context)
 }
 ```
 
-**TransactionChanged** EventHandler uses **NotifyTransactionChangedEventArgs** to provide details about the event.
-It contains the Action property (e.g. **NotifyTransactionChangedAction.Commit**) that specifies the type of change and Transaction property that provides a reference to the Transaction that changed.
+The **TransactionChanged** event handler uses **NotifyTransactionChangedEventArgs** to provide details about the event. 
+It contains the action property (for example, **NotifyTransactionChangedAction.Commit**) that specifies the type of change. 
+It also contains the transaction property that provides a reference to the transaction that changed.
 
->[AZURE.NOTE] Today TransactionChanged events are only raised if the Transaction is committed hence Action will be equal to NotifyTransactionChangedAction.Commit.
-However, more Actions may be added in future updates. Hence, we recommend checking the Action and only processing the event if it is one that you expect.
+>[AZURE.NOTE] Today, **TransactionChanged** events are raised only if the transaction is committed. The action is then equal to **NotifyTransactionChangedAction.Commit**. But in the future, events might be raised for other types of transaction state changes. We recommend checking the action and processing the event only if it's one that you expect.
 
-Following is an example **TransactionChanged** event handler
+Following is an example **TransactionChanged** event handler.
 
 ```C#
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -86,14 +85,14 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-**StateManagerChanged** EventHandler uses **NotifyStateManagerChangedEventArgs** to provide details about the event.
-**NotifyStateManagerChangedEventArgs** has two subclasses: NotifyStateManagerRebuildEventArgs and NotifyStateManagerSingleEntityChangedEventArgs.
-Action property in **NotifyStateManagerChangedEventArgs** should be used to cast the **NotifyStateManagerChangedEventArgs** to the correct subclass
+The **StateManagerChanged** event handler uses **NotifyStateManagerChangedEventArgs** to provide details about the event.
+**NotifyStateManagerChangedEventArgs** has two subclasses: **NotifyStateManagerRebuildEventArgs** and **NotifyStateManagerSingleEntityChangedEventArgs**.
+You use the action property in **NotifyStateManagerChangedEventArgs** to cast **NotifyStateManagerChangedEventArgs** to the correct subclass:
 
-- NotifyStateManagerChangedAction.Rebuild: NotifyStateManagerRebuildEventArgs
-- NotifyStateManagerChangedAction.Add and Remove: NotifyStateManagerSingleEntityChangedEventArgs
+- **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
+- **NotifyStateManagerChangedAction.Add** and **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
-Following is an example **StateManagerChanged** notification handler
+Following is an example **StateManagerChanged** notification handler.
 
 ```C#
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
@@ -109,20 +108,19 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## Reliable Dictionary Notifications
+## Reliable Dictionary notifications
 
-Reliable Dictionary provides notification for the following events
+Reliable Dictionary provides notifications for the following events:
 
-- Rebuild: Called when the **ReliableDictionary** has recovered its state from local disk, copy from Primary or backup.
-- Clear: Called when the **ReliableDictionary**'s state has been cleared using **ClearAsync** method.
+- Rebuild: Called when **ReliableDictionary** has recovered its state from a recovered or copied local state or backup.
+- Clear: Called when the state of **ReliableDictionary** has been cleared through the **ClearAsync** method.
 - Add: Called when an item has been added to **ReliableDictionary**.
 - Update: Called when an item in **IReliableDictionary** has been updated.
 - Remove: Called when an item in **IReliableDictionary** has been deleted.
 
-### How to use Reliable Dictionary Notifications
-To register for Reliable Dictionary notifications, user needs to register with the **DictionaryChanaged** event handler on the **IReliableDictionary**.
-Common place to register with these event handlers is in the **ReliableStateManager.StateManagerChanged** add notification.
-This is because, registering at the time of addition of **IReliableDictionary** to the **IReliableStateManager**, ensures that you will not miss any notifications.
+To get Reliable Dictionary notifications, you need to register with the **DictionaryChanged** event handler on **IReliableDictionary**. 
+A common place to register with these event handlers is in the **ReliableStateManager.StateManagerChanged** add notification.
+Registering when **IReliableDictionary** is added to **IReliableStateManager** ensures that you won't miss any notifications.
 
 ```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -142,10 +140,10 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 }
 ```
 
->[AZURE.NOTE] ProcessStateManagerSingleEntityNotification is the sample method called by OnStateManagerChangedHandler example above.
+>[AZURE.NOTE] **ProcessStateManagerSingleEntityNotification** is the sample method that the preceding **OnStateManagerChangedHandler** example calls.
 
-Note that above code sets the IReliableNotificationAsyncCallback as well as the **DictionaryChanged**.
-Since **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** which needs to be enumerated asynchronously, rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
+The preceding code sets the **IReliableNotificationAsyncCallback** interface, along with **DictionaryChanged**. 
+Because **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** interface--which needs to be enumerated asynchronously--rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
 
 ```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -162,17 +160,17 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 }
 ```
 
->[AZURE.NOTE] In the above code, as part of processing the rebuild notification, first the aggregated state maintained is cleared. This is because, since the Reliable Collection is being rebuild with new state, all previous notifications are irrelevant.
+>[AZURE.NOTE] In the preceding code, as part of processing the rebuild notification, first the maintained aggregated state is cleared. Because the reliable collection is being rebuilt with a new state, all previous notifications are irrelevant.
 
-**DictionaryChanged** EventHandler uses **NotifyDictionaryChangedEventArgs** to provide details about the event.
-**NotifyDictionaryChangedEventArgs** has five subclasses.
-Action property in **NotifyDictionaryChangedEventArgs** should be used to cast the **NotifyDictionaryChangedEventArgs** to the correct subclass
+The **DictionaryChanged** event handler uses **NotifyDictionaryChangedEventArgs** to provide details about the event.
+**NotifyDictionaryChangedEventArgs** has five subclasses. 
+Use the action property in **NotifyDictionaryChangedEventArgs** to cast **NotifyDictionaryChangedEventArgs** to the correct subclass:
 
-- NotifyDictionaryChangedAction.Rebuild: NotifyDictionaryRebuildEventArgs
-- NotifyDictionaryChangedAction.Clear: NotifyDictionaryClearEventArgs
-- NotifyDictionaryChangedAction.Add and Remove: NotifyDictionaryItemAddedEventArgs
-- NotifyDictionaryChangedAction.Update: NotifyDictionaryItemUpdatedEventArgs
-- NotifyDictionaryChangedAction.Remove: NotifyDictionaryItemRemovedEventArgs
+- **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
+- **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
+- **NotifyDictionaryChangedAction.Add** and **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+- **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
+- **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
 ```C#
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
@@ -207,16 +205,17 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## Recommendations
 
-- DO complete notifications events as fast as possible.
-- DO NOT execute any expensive operations (e.g IO operations) as part of synchronous events.
-- DO check the Action type before processing the event. New Action types can be added in future.
+- *Do* complete notification events as fast as possible.
+- *Do not* execute any expensive operations (for example, I/O operations) as part of synchronous events.
+- *Do* check the action type before you process the event. New action types might be added in the future.
 
 Here are some things to keep in mind:
-- Notifications are fired as part of the execution of an operation. For example, a restore notification, will be fired as the last step of restore and restore will not complete until the notification event is processed.
-- Since notifications are fired as part of the applying operations, clients will only see notifications for locally committed operations. Note that since operations are guaranteed only to be locally committed (in other words logged), they may or may not be undone in the future.
-- On the redo path, a single notification will be fired for each applied operation. This means, if a transaction T1 includes Create(X), Delete(X), Create(X), you will get one notification for creation of X, one for delete and one for create again in that order.
-- For transactions that contain multiple operations, operations will be applied in order they were received on the Primary from user.
-- As part of processing false progress, some operations might be undone. Notifications will be raised for such undo operations rolling the state of the replica back to stable point. One important difference of undo notifications, is that events of with duplicate keys will be aggregated. For example, if the above T1 is being undone, user will see a single notification to Delete(X).
+
+- Notifications are fired as part of the execution of an operation. For example, a restore notification is fired as the last step of a restore operation. A restore will not finish until the notification event is processed.
+- Because notifications are fired as part of the applying operations, clients see only notifications for locally committed operations. And because operations are guaranteed only to be locally committed (in other words, logged), they might or might not be undone in the future.
+- On the redo path, a single notification is fired for each applied operation. This means that if transaction T1 includes Create(X), Delete(X), and Create(X), you'll get one notification for the creation of X, one for the deletion, and one for the creation again, in that order.
+- For transactions that contain multiple operations, operations are applied in the order in which they were received on the primary replica from the user.
+- As part of processing false progress, some operations might be undone. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
 
 ## Next steps
 
