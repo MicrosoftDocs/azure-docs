@@ -52,7 +52,7 @@ You may want to connect virtual networks for the following reasons:
 
 - **Cross region geo-redundancy and geo-presence**
 	- You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
-	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
+	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 
 - **Regional multi-tier applications with strong isolation boundary**
 	- Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
@@ -101,7 +101,7 @@ The table below shows an example of how to define your VNets. Use the ranges bel
   
 ## Step 2 - Create VNet1
 
-In the examples below, we’ll create two virtual networks, VNet1 and VNet2. When using any of the examples, be sure to substitute your own values.
+In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address range doesn't overlap with the range for your second VNet or with any of the other VNets that you want to connect to.
 
 1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
 
@@ -123,9 +123,7 @@ On the DNS Servers and VPN Connectivity page, enter the following information, a
 
   ![DNS Servers and VPN Connectivity](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
 
-
 - **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server; it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you’ll have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
-
 - Don’t select any of the checkboxes for P2S or S2S connectivity. Just click the arrow on the lower right to move to the next screen.
 
 ### Virtual Network Address Spaces
@@ -134,9 +132,7 @@ On the Virtual Network Address Spaces page, specify the address range that you w
 
 It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
-
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
-
 
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap with any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
@@ -145,7 +141,8 @@ It’s especially important to select a range that does not overlap with any of 
 
 ## Step 3 - Create VNet2
 
-Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1.
+Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address range doesn't overlap with any of the other VNets that you want to connect to.
+
 
 ## Step 4 - Add the local network sites
 
@@ -186,7 +183,7 @@ Each VNet must point to the respective local network that you want to route traf
 
 ## Step 5 - Configure a gateway for each VNet
 
-Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways.
+Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static, you will need to delete them and recreate them as Dynamic Routing gateways. Note that if you delete a gateway, the public IP address assigned to it will be released, and you will need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
 
 1. On the **Networks** page, verify that the status column for your virtual network is **Created**.
 
@@ -214,7 +211,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 
 When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. We'll do this using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
-1. Open Windows PowerShell and login.
+1. Open Windows PowerShell and log in.
 
 		Add-AzureAccount
 
