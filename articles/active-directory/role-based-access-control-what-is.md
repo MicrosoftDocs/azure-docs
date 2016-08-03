@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Active Directory Role-based Access Control | Microsoft Azure"
+	pageTitle="Role-Based Access Control | Microsoft Azure"
 	description="Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/03/2016"
+	ms.date="08/03/2016"
 	ms.author="kgremban"/>
 
 # Get started with access management in the Azure portal
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. This article introduces the basics of access management, then helps you get up and running with RBAC in the Azure portal.
+Security-oriented companies are concerned about giving employees the exact amount of permissions they need. Too many permissions means that an account is unnecessarily exposed to attackers. Too few permissions means that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure.
+
+Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can specify what actions they are allowed to take in that scope. For example, you can use RBAC to give one employee access to all the virtual machines in the subscription, while another can manage all the SQL databases within the same subscription.
 
 ## Basics of access management in Azure
 Each Azure subscription is associated with one Azure Active Directory (AD) directory. Users, groups, and applications from that directory can manage resources in the Azure subscription. These access rights are granted using the Azure portal, Azure command-line tools, and Azure Management APIs.
