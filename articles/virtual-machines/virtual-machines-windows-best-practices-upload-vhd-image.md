@@ -116,11 +116,11 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 8. Make sure that NLA is enabled:
 
-			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
+		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
-			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
+		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
 
-			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
+		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
 
 9. Enable RDP：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
 
@@ -130,53 +130,53 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 	- Inbound
 
-		netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+			netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
 	- Inbound and outbound
 
-		netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+			netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
 
-		netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+			netsh advfirewall firewall set rule group="Core Networking" new enable=yes
 
 	- Outbound
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
 12. Make sure that the WMI repository is healthy.
 13. Ensure the BCD settings are the same as below:
@@ -206,15 +206,15 @@ The following are best practices for preparing and uploading the Windows VM to A
 22. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 23.	Ideally, the OS patch level should be at the latest however if that is not possible, please ensure the following KBs are installed:
 
-	- [KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
+	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
 
 	- [KB3115224](https://support.microsoft.com/kb/3115224) Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
 
 	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 
-	- [KB3063075](https://support.microsoft.com/kb/3063075) Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Windows Azure
+	- [KB3063075](https://support.microsoft.com/kb/3063075) Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Microsoft Azure
 
-	- [KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
+	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
 
 	- [KB3114025](https://support.microsoft.com/kb/3114025) Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
 
