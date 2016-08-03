@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -115,7 +115,7 @@ Table storage will be used to hold the values that are read from Event Hubs beca
 
     ![Cloud explorer](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
 
-5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter a **events** as the name of your table. Save the name as you will need it in later steps.
+5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter **events** as the name of your table. Save the name as you will need it in later steps.
 
 ## Create EventHubWriter
 

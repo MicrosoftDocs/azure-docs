@@ -58,6 +58,11 @@ There are several ways you can get started with Azure Redis Cache.
 -    You can check out the client documentation for the clients that match the development language of your project to see how to use Redis. There are many Redis clients that can be used with Azure Redis Cache. For a list of Redis clients, see [http://redis.io/clients](http://redis.io/clients).
 
 
+If you don't already have an Azure account you can:
+
+-    [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
+-    [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+
 ## Planning FAQs
 
 -	[What Redis Cache offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)

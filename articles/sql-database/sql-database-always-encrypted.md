@@ -537,7 +537,7 @@ After creating a database that uses Always Encrypted you may want to do the foll
 - Run this sample from a different computer. It won't have access to the encryption keys so it will not have access to the plaintext data and it will not run successfully. 
 - [Rotate and cleanup your Keys](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
-- Deploy Always Encrypted certificates to other client machines.
+- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the section titled *Making Certificates Available to Applications and Users*).
 
 
 ## Related Information
