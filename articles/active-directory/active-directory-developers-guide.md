@@ -103,7 +103,13 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md): Learn about Azure AD’s signing key rollover cadence and how to update the key for the most common application scenarios.
 
+- [OAuth 2.0 protocol: Using the authorization code grant](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol's authorization code grant, to authorize access to Web applications and Web APIs in your Azure Active Directory tenant.
+
 - [OAuth 2.0 protocol: Understanding the implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn more about the implicit authorization grant, and whether it's right for your application.
+
+- [OAuth 2.0 protocol: Service to Service Calls Using Client Credentials](active-directory-protocols-oauth-service-to-service.md): The OAuth 2.0 Client Credentials Grant flow permits a web service (a confidential client) to use its own credentials to authenticate when calling another web service, instead of impersonating a user. In this scenario, the client is typically a middle-tier web service, a daemon service, or website.
+
+- [OpenID Connect 1.0 protocol: Sign-in and authentication](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol. A client application can receive an id_token to manage the sign-in process, or augment the authorization code flow to receive both an id_token and authorization code.
 
 - [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 

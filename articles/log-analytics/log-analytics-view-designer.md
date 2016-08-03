@@ -81,5 +81,5 @@ Views only have one row of visualization parts.  Rearrange existing parts in a v
 
 ## Next steps
 
-- Add [Tiles](log-analytics-view-designer-tiles.md) to your custom dashboard.
-- Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom dashboard.
+- Add [Tiles](log-analytics-view-designer-tiles.md) to your custom view.
+- Add [Visualization Parts](log-analytics-view-designer-parts.md) to your custom view.

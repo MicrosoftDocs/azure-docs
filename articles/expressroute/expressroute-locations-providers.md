@@ -132,9 +132,11 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 |**Location**|**Exchange**|**Connectivity Providers**|
 |-------------|------------|-------------------------|
+| **New York** | Equinix | Lightower |
 | **Seattle** | Equinix | Alaska Communications |
 | **Silicon Valley** | Equinix | XO Communications |
 | **Singapore** | Equinix | 1CLOUDSTAR |
+| **Washington DC** | Equinix | Lightower |
 
 ## ExpressRoute system integrators
 
