@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/01/2016"
+	ms.date="08/03/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Windows Universal Apps
@@ -44,7 +44,7 @@ The following steps assume the use of Visual Studio 2015 though the steps are si
 
 1. Start Visual Studio, and in the **Home** screen, select **New Project**.
 
-2. In the pop-up, select **Windows 8** -> **Universal** -> **Blank App (Universal Windows 8.1)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
+2. In the pop-up, select **Windows** -> **Universal** -> **Blank App (Universal Windows)**. Fill in the app **Name** and **Solution name**, and then click **OK**.
 
     ![][1]
 

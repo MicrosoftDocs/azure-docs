@@ -1,34 +1,44 @@
-<properties 
-	pageTitle="Windows Universal SDK Overview" 
-	description="Overview of the Windows Universal SDK for Azure Mobile Engagement" 									
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+<properties
+	pageTitle="Windows Universal SDK Integration"
+	description="Windows Universal Integration for SDK for Azure Mobile Engagement" 									
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2016"
+	ms.author="piyushjo;ricksal" />
 
-#Windows Universal SDK Overview for Azure Mobile Engagement
+#Windows Universal SDK Integration for Azure Mobile Engagement
 
-Start here to get the details on how to integrate Azure Mobile Engagement in a Windows Universal App. If you'd like to give it a try first, make sure you complete our [15 minutes tutorial](mobile-engagement-windows-store-dotnet-get-started.md).
+This document describes all the integration and configuration options available for the Azure Mobile Engagement Windows Universal SDK.
 
-Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
+## Prerequisites
 
-##Integration procedures
+Before starting this tutorial, you must first complete our [15 minutes tutorial](mobile-engagement-windows-store-dotnet-get-started.md).
 
-1. Start here: [How to integrate Mobile Engagement in your Windows Universal app](mobile-engagement-windows-store-integrate-engagement.md)
+## Advanced features
 
-2. For Notifications: [How to integrate Reach (Notifications) in your Windows Universal app](mobile-engagement-windows-store-integrate-engagement-reach.md)
+### Reporting features
+You can add these features:
+1. [Advanced reporting options](mobile-engagement-windows-advanced-reporting.md)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](mobile-engagement-windows-store-use-engagement-api.md)
+2. [Advanced configuration options](mobile-engagement-windows-advanced-configuration.md)
+
+### Notifications
+
+[How to integrate Reach (Notifications) in your Windows Universal app](mobile-engagement-windows-store-integrate-engagement-reach.md)
+
+### Tag plan implementation:
+
+[How to use the advanced Mobile Engagement tagging API in your Windows Universal app](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##Release notes
 
@@ -61,7 +71,7 @@ The Reach overlay has been improved. It is part of the SDK NuGet package resourc
 
 While upgrading to the new version of the SDK you can choose whether you want to keep your existing files from the overlay folder of your resources or not:
 
-* If the previous overlay is working for you or you are integrating the `WebView` elements manually then you can decide to keep your exiting files, it will still work. 
+* If the previous overlay is working for you or you are integrating the `WebView` elements manually then you can decide to keep your exiting files, it will still work.
 * If you want to update to the new overlay, just replace the whole `overlay` folder from your resources with the new one from the SDK package
 (UWP apps: after the upgrade, you can get the new overlay folder from %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
 
@@ -69,4 +79,4 @@ While upgrading to the new version of the SDK you can choose whether you want to
 
 ### Upgrade from older versions
 
-See [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md) 
+See [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md)
