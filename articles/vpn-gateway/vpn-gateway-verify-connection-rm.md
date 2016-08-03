@@ -24,7 +24,7 @@ You can verify your gateway connection in a few different ways. This article wil
 
 ## Before you begin
 
-If you plan to use PowerShell, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. For more information about using these cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+If you plan to use PowerShell, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. For more information about using Resource Manager cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 1. Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
