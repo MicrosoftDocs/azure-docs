@@ -135,7 +135,10 @@ We'll use the following values for this configuration:
 
 11. Create the virtual network gateway for your VNet. The *-GatewayType* must be **Vpn** and the *-VpnType* must be **RouteBased**.
 
-		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Vpn -VpnType RouteBased -EnableBgp $false -GatewaySku Standard -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
+		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+		-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
+		-VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
+		-VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
 ## Client configuration
 
@@ -143,7 +146,8 @@ Each client that connects to Azure by using Point-to-Site must have two things: 
 
 1. Download the VPN client configuration package. In this step, use the following example to download the client configuration package.
 
-		Get-AzureRmVpnClientPackage -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
+		Get-AzureRmVpnClientPackage -ResourceGroupName $RG `
+		-VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
 
 	The PowerShell cmdlet will return a URL link. Copy-paste the link that is returned to a web browser to download the package to your computer. Below is an example of what the returned URL will look like.
 
@@ -193,7 +197,8 @@ You can add up to 20 trusted root certificates to Azure. Follow the steps below 
 
 3. You can verify that the new certificate was added correctly by using the following cmdlet.
 
-		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG `
+		-VirtualNetworkGatewayName $GWName
 
 ### Remove a trusted root certificate
 
@@ -221,7 +226,8 @@ You can revoke client certificates. The certificate revocation list allows you t
 
 2. Add the thumbprint to the list of revoked thumbprint.
 
-		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+		-VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
 
 3. Verify that the thumbprint was added to the certificate revocation list. You need to add one thumbprint at a time.
 
@@ -233,7 +239,8 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 1.  Remove the thumbprint from the list of revoked client certificate thumbprint.
 
-		Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+		Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+		-VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
 
 2. Check if the thumbprint is removed from the revoked list.
 
