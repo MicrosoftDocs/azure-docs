@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2016" 
+	ms.date="08/03/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -76,7 +76,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Monitor resources
 
-The blade presents default graphs and tables for monitoring each resource type. You can customize how you monitor the resource by changing the displayed graphs and tables.
+When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type. You can customize how you monitor the resource by changing the displayed graphs and tables.
 
 1. Within the blade for a resource, add more graphs and tables by selecting **Add a section** below the summary.
 
@@ -144,7 +144,7 @@ For step-by-step guidance, see [Export Azure Resource Manager template from exis
 
 ## Delete resource group or resources
 
-Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. You are not deleting the linked resources, but they may not operate correctly without the expected resources.
+Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
