@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Scale instance count manually or automatically"
+	pageTitle="Scale instance count manually or automatically | Microsoft Azure"
 	description="Learn how to scale your services Azure."
 	authors="stepsic-microsoft-com"
 	manager="ronmart"
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
