@@ -82,7 +82,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 - Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-- VHDs are backed up by [Azure Storage][azure-storage], which is replicated for durability and availability.
+- VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
 
 - To protect against accidental data loss during normal operations (e.g., because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
 
