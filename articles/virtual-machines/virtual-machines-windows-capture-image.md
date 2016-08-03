@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/02/2016"
 	ms.author="cynthn"/>
 
 # How to capture a Windows virtual machine in the Resource Manager deployment model
@@ -25,14 +25,15 @@ This article shows you how to use Azure PowerShell to capture an Azure virtual m
 
 ## Prerequisites
 
-These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. If you haven't done this yet, read [How to create a Windows VM with Resource Manager and PowerShell](virtual-machines-windows-ps-create.md). You can just as easily create a Windows virtual machine using the [Azure portal](https://portal.azure.com). Read [How to create a Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md).
+- These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. 
 
+- You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
-## Prepare the VM for image capture
+## Prepare the source VM 
 
 This section shows you how to generalize your Windows virtual machine. This removes all your personal account information, among other things. You will typically want to do this when you want to use this VM image to quickly deploy similar virtual machines.
 
-> [AZURE.WARNING] Please note that the virtual machine cannot be logged in via RDP once it is generalized, since the process removes all user accounts. This is an irreversible change. 
+> [AZURE.WARNING] Please note that the source virtual machine cannot be logged in via RDP once it is generalized, because the process removes all user accounts. This is an irreversible change. 
 
 1. Sign in to your Windows virtual machine. In the [Azure portal](https://portal.azure.com), navigate through **Browse** > **Virtual machines** > Your Windows virtual machine > **Connect**.
 
@@ -52,32 +53,24 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
    Sysprep shuts down the virtual machine. Its status changes to **Stopped** in the Azure portal.
 
-</br>
+
 ## Capture the VM
-
-You can capture the generalized Windows VM by using either Azure PowerShell or the new Azure Resource Manager Explorer tool. This section will show you the steps for both.
-
-### Using PowerShell
-
-This article assumes that you have installed Azure PowerShell version 1.0.x. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
 1. Open Azure PowerShell and sign in to your Azure account.
 
 		Login-AzureRmAccount
 
-	This command will open a pop-up window to enter your Azure credentials.
+	A pop-up window opens for you to enter your Azure account credentials.
 
-2. If the subscription ID that is selected by default is different from the one you want to work in, use either of the following to set the right subscription.
+2. Get the subscription IDs for your available subscriptions.
 
-		Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Get-AzureRmSubscription
 
-	or
+3. Set the correct subscription using the subscription ID.		
 
-		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 
-	You can find the subscriptions that your Azure account has by using the command `Get-AzureRmSubscription`.
-
-3. Now you will need to deallocate the resources that are used by this virtual machine by using this commmand.
+4. Deallocate the resources that are used by this virtual machine by using this commmand.
 
 		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
 
@@ -87,91 +80,57 @@ This article assumes that you have installed Azure PowerShell version 1.0.x. We 
 	`$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br>
 	`$vm.Statuses`</br> The **DisplayStatus** field corresponds to the **Status** shown in the Azure portal.
 
-4. Next, you need to set the status of the virtual machine to **Generalized**. Note that you will need to do this because the generalization step above (`sysprep`) does not do it in a way that Azure can understand.
+5. Next, you need to set the status of the virtual machine to **Generalized**. 
 
 		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
 
 	>[AZURE.NOTE] The generalized state as set above will not be shown on the portal. However, you can verify it by using the Get-AzureRmVM command as shown in the tip above.
 
-5. Capture the virtual machine image to a destination storage container by using this command.
+6. Copy the virtual machine image to the destination storage container using this command.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	The `-Path` variable is optional. You can use it to save the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images in. The URL of the image that is stored will be similar to `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. It will be created in the same storage account as that of the original virtual machine.
+	The `-Path` variable is optional. You can use it to save the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. The URL of the image that is stored will be similar to `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. It will be created in the same storage account as that of the original virtual machine.
 
-	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. You can also verify the URI on the portal; it will be copied to a blob named **system** in your storage account. 
-
-
-### Using Azure Resource Explorer (Preview)
-
-The [Azure Resource Explorer (Preview)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool that you can use to manage Azure resources that have been created in the Resource Manager deployment model. With this tool, you can easily
-
-- Discover the Azure Resource Management APIs.
-- Get API documentation.
-- Make API calls directly in your Azure subscriptions.
-
-To learn more about what you can do with this powerful tool, view the video [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
-
-You can use the Resource Explorer to capture the virtual machine, as an alternative to the PowerShell method.
-
-1. Open the [Resource Explorer website](https://resources.azure.com/) and sign in to your Azure account.
-
-2. On the top right side of the tool, select **Read/Write** to allow _PUT_ and _POST_ operations. It is set to **Read Only** by default, which means you can only do _GET_ operations by default.
-
-	![Resource Explorer Read/Write](./media/virtual-machines-windows-capture-image/ArmExplorerReadWrite.png)
-
-3. Next, find your Windows virtual machine. You can either type the name in the *Search box* at the top of the tool, or you can navigate through the menu on the left as **subscriptions** > *your Azure subscription* > **resourceGroups** > *your resource group* > **providers** > **Microsoft.Compute** > **virtualMachines** > *your Windows virtual machine*. When you click your virtual machine on the left navigation, you will see its template on the right side of the tool.
-
-4. On the top right side of the template page, you should see tabs for the various operations that are available for this virtual machine. Click the tab for **Actions (POST/DELETE)**.
-
-	![Resource Explorer Action menu](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
-
-	- You will see a list of all the actions that you can perform on the virtual machine.
-
-		![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
-
-5. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
-
-6. Mark the virtual machine as generalized by clicking the action button for **generalize**. You can verify the status changes by clicking the **InstanceView** menu under your virtual machine name on the left side, and navigating to the **statuses** section on the right side.
-
-7. Under the **capture** action button, you can set the values for capturing your image. Your filled values could look like the following.
-
-	![Resource Explorer capture](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
-
-	Click the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image, as well as a JSON template file.
-
-8. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). The installer will install the Azure Storage Explorer locally on your machine.
-
-	- Open the Storage Explorer and sign in to your Azure subscription. It should show you all the storage accounts that are available to your subscription.
-
-	- On the left-hand side, you should see the storage account of the virtual machine that we captured in the above steps. Double-click the **system** menu underneath it. You should see the contents of the **system** folder on the right side.
-
-		![Storage Explorer system](./media/virtual-machines-windows-capture-image/StorageExplorer1.png)
-
-	- Double-click **Microsoft.Compute** > **Images**, which will show you all of your image folders. Double-click the folder name that you entered for the **destinationContainerName** variable while capturing the image from Resource Explorer. It will show you both the VHD, as well as the JSON template file.
-
-	- From here, you can either find out the URL or download the VHD/template by right-clicking it.
-
-		![Storage Explorer template](./media/virtual-machines-windows-capture-image/StorageExplorer2.png)
+	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. You can also verify the URI in the portal; it will be copied to a blob named **system** in your storage account. 
 
 
-## Deploy a new VM from the captured image
+## Create a virtual network
 
-Now you can use the captured image to create a new Windows VM. These steps show you how to use Azure PowerShell and the VM image that was captured in the above steps to create the VM in a new virtual network.
+Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
->[AZURE.NOTE] The VM image should be present in the same storage account as the actual virtual machine that will be created.
 
-### Create network resources
+		
 
-Use the following sample PowerShell script to set up a virtual network and NIC for your new VM. Use values for the variables (represented by the **$** sign) as appropriate to your application.
+1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+    	$rgName = "<resourceGroup>"
+		$location = "<location>"
+        $subnetName = "<subNetName>"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+        
+2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
 
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
+        $vnetName = "<vnetName>"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        
+            
+## Create a public IP address and network interface
 
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
+
+        $ipName = "<ipName>"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        
+2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
+
+        $nicName = "<nicName>"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+
+		
+
 
 ### Create a new VM
 
