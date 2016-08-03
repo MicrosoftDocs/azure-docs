@@ -230,7 +230,7 @@ In this section, you will modify the app so that it does not sync on app start, 
 
 **Swift**:
 
-1. In `viewDidLoad` in **ToDoTableViewController.swift**, comment out these two lines, to stop syncing on app start. At the time of this article's writing, the Swift Todo app did not update the service when someone added or completed an item, so there's no need to make a change for that:
+1. In `viewDidLoad` in **ToDoTableViewController.swift**, comment out these two lines, to stop syncing on app start. At the time of this article's writing, the Swift Todo app did not update the service when someone added or completed an item, only on app start.
 
 		self.refreshControl?.beginRefreshing()
 		self.onRefresh(self.refreshControl)
