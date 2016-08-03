@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2016"
+	ms.date="08/03/2016"
 	ms.author="banders"/>
 
 # Connect Linux computers to Log Analytics
@@ -551,6 +551,256 @@ The logs for the OMS Agent for Linux for omsconfig (agent configuration) program
 Logs for the OMI and SCX components (which provide performance metrics data) is at:
 
 /var/opt/omi/log/ and /var/opt/microsoft/scx/log
+
+## Troubleshooting the OMS Agent for Linux
+
+Use the following information to diagnose and troubleshoot common issues.
+
+If none of the troubleshooting information in this section helps you, you can also use the following resources to help resolve your problem.
+
+- Customers with Premier support can log a support case via [Premier](https://premier.microsoft.com/)
+- Customers with Azure support agreements can log support cases in the [Azure portal](https://manage.windowsazure.com/?getsupport=true)
+- File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)
+- Feedback forum for ideas and to create a bug report [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback)
+
+### Important log locations
+
+File | Path
+---- | -----
+OMS Agent for Linux Log File | `/var/opt/microsoft/omsagent/log/omsagent.log `
+OMS Agent Configuration Log File | `/var/opt/microsoft/omsconfig/omsconfig.log`
+
+### Important configuration files
+
+Catergory | File Location
+----- | -----
+Syslog | `/etc/syslog-ng/syslog-ng.conf` or `/etc/rsyslog.conf` or `/etc/rsyslog.d/95-omsagent.conf`
+Performance, Nagios, Zabbix, OMS output and general agent | `/etc/opt/microsoft/omsagent/conf/omsagent.conf`
+Additional configurations | `/etc/opt/microsoft/omsagent/conf.d/*.conf`
+
+>[AZURE.NOTE] Editing configuration files for performance counters and syslog are overwritten if OMS Portal Configuration is enabled. You can disable configuration in the OMS Portal (for all nodes) or for single nodes by running the following:
+
+```
+sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+```
+
+
+### Enable debug logging
+
+To enable debug logging, you can use the OMS output plugin and verbose output.
+
+#### OMS output plugin
+
+FluentD allows the plugin to specify logging levels for different log levels for inputs and outputs. To specify a different log level for OMS output, edit the general agent configuration in the `/etc/opt/microsoft/omsagent/conf/omsagent.conf` file.
+
+Near the bottom of the configuration file, change the `log_level` property from `info` to `debug`.
+
+ ```
+ <match oms.** docker.**>
+  type out_oms
+  log_level debug
+  num_threads 5
+  buffer_chunk_limit 5m
+  buffer_type file
+  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+  buffer_queue_limit 10
+  flush_interval 20s
+  retry_limit 10
+  retry_wait 30s
+</match>
+ ```
+
+Debug logging allows you to see batched uploads to the OMS Service separated by type, number of data items, and time taken to send.
+
+*Example debug enabled log:*
+```
+Success sending oms.nagios x 1 in 0.14s
+Success sending oms.omi x 4 in 0.52s
+Success sending oms.syslog.authpriv.info x 1 in 0.91s
+```
+
+#### Verbose output
+Instead of using the OMS output plugin, you can also output data items directly to `stdout`, which is visible in the OMS Agent for Linux log file.
+
+In the OMS general agent configuration file at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`, comment-out the OMS output plugin by adding a `#` in front of each line.
+
+```
+#<match oms.** docker.**>
+#  type out_oms
+#  log_level info
+#  num_threads 5
+#  buffer_chunk_limit 5m
+#  buffer_type file
+#  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+#  buffer_queue_limit 10
+#  flush_interval 20s
+#  retry_limit 10
+#  retry_wait 30s
+#</match>
+```
+
+Below the output plugin, remove the comment in the following section by removing the `#` symbol at the beginning of each line.
+
+```
+<match **>
+  type stdout
+</match>
+```
+
+### Forwarded Syslog messages do not appear in the log
+
+#### Probable causes
+
+- The configuration applied to the Linux server does not allow collection of the sent facilities and/or log levels
+- Syslog is not being forwarded correctly to the Linux server
+- The number of messages being forwarded per second are too large for the base configuration of the OMS Agent for Linux to handle
+
+#### Resolutions
+
+- Verify that the configuration in the OMS Portal for Syslog has all the facilities and the correct log levels
+  - **OMS Portal > Settings > Data > Syslog**
+-  Verify that native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to receive the forwarded messages
+- Check firewall settings on the Syslog server to ensure that messages are not being blocked
+-  Simulate a Syslog message to OMS using the `logger` command - for example:
+  - `logger -p local0.err "This is my test message"`
+
+### Problems connecting to OMS when using a proxy
+
+#### Probable causes
+
+- The proxy specified when installing and configuring the agent is incorrect
+- The OMS Service endpoints are not whitelistested in your datacenter
+
+#### Resolutions
+
+- Reinstall the OMS Agent for Linux using the following command with the option `-v` enabled. This allows verbose output of the agent connecting through the proxy to the OMS Service.
+  - `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
+  - Review the documentation for OMS proxy at [Configuring the agent for use with an HTTP proxy server](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#configuring-the-agent-for-use-with-an-http-proxy-server)
+- Verify that the following OMS Service endpoints are whitelisted
+
+Agent Resource | Ports
+---- | ----
+&#42;.ods.opinsights.azure.com | Port 443
+&#42;.oms.opinsights.azure.com | Port 443
+ods.systemcenteradvisor.com | Port 443
+&#42;.blob.core.windows.net/ | Port 443
+
+### A 403 error is displayed when onboarding
+
+#### Probable causes
+
+- The date and time are incorrect on Linux Server
+- The Workspace ID and Workspace Key used are incorrect
+
+#### Resolution
+
+- Verify the time on your Linux server with the `date` command. If the data is greater than or less than 15 minutes from the current time, then onboarding fails. To correct this, update the date and/or timezone of your Linux server.
+- The latest version of the OMS Agent for Linux notifies you if a time difference is causing onboarding failure
+- Re-onboard using the correct Workspace ID and Workspace Key. See  [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) for more information.
+
+### A 500 error or 404 error appears in the log file after onboarding
+
+This is a known issue that occurs during the first upload of Linux data into an OMS workspace. This does not affect data being sent or other problems. You can ignore the errors when initially onboarding.
+
+### Nagios data does not appear in the OMS Portal
+
+#### Probable causes
+- The omsagent user does not have permissions to read from the Nagios log file
+- The Nagios source and filter sections are still commented in the omsagent.conf file
+
+#### Resolutions
+
+- Add the omsagent user in order to read from the Nagios file. See [Nagios alerts](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts) for more information.
+- In the OMS Agent for Linux general configuration file at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`, ensure that **both** the Nagios source and filter sections have comments removed, similar to the following example.
+
+```
+<source>
+  type tail
+  path /var/log/nagios/nagios.log
+  format none
+  tag oms.nagios
+</source>
+
+<filter oms.nagios>
+  type filter_nagios_log
+</filter>
+```
+
+
+### Linux data doesn't appear in the OMS Portal
+
+#### Probable causes
+
+- Onboarding to the OMS Service failed
+- Connection to the OMS Service is blocked
+- The OMS Agent for Linux data is backed-up
+
+#### Resolutions
+
+- Verify that onboarding to the OMS Service was successful by verifying that the `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` exists.
+- Re-onboard using the omsadmin.sh command line. See [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) for more information.
+- If using a proxy, use the proxy troubleshooting steps above
+- In some cases, when the OMS Agent for Linux cannot communicate with the OMS Service, data on the Agent is backed-up to the full buffer size of 50 MB. Restart the OMS Agent for Linux by running the either the `service omsagent restart` or `systemctl restart omsagent` commands.
+  >[AZURE.NOTE] This issue is fixed in Agent version 1.1.0-28 and later.
+
+### Syslog Linux performance counter configuration is not applied in the OMS portal
+
+#### Probable causes
+
+- The configuration agent in the OMS Agent for Linux has not retrieved the latest configuration from the OMS portal.
+- The revised settings in the portal were not applied
+
+#### Resolutions
+
+`omsconfig` is the configuration agent in the OMS Agent for Linux that retrieves OMS portal configuration changes every 5 minutes. This configuration is then applied to the OMS Agent for Linux configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+
+- In some cases, the OMS Agent for Linux configuration agent might not be able to communicate with the portal configuration service resulting in latest configuration not being applied.
+- Verify that the `omsconfig` agent is installed with the following:
+  - `dpkg --list omsconfig` or `rpm -qi omsconfig`
+  - If not installed, reinstall the latest version of the OMS Agent for Linux
+
+- Verify that the `omsconfig` agent can communicate with the OMS service
+  - Run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` command
+    - The command above returns the configuration that agent retrieves from the portal, including Syslog settings, Linux performance counters, and custom logs
+    - If the command above fails, run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` command. This command forces the omsconfig agent to communicate with the OMS service to retrieve the latest configuration.
+
+
+### Custom Linux log data does not appear in the OMS Portal
+
+#### Probable causes
+
+- Onboarding to OMS Service failed
+- The **Apply the following configuration to my Linux Servers** setting has not been selected
+- omsconfig has not picked up the latest custom log from the portal
+- The `omsagent` use is unable to access the custom log due to a permissions problem or `omsagent` was not found. In this case, you'll see the following output:
+  - `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  - `[DATETIME] [error]: file not accessible by omsagent.`
+- This is a known issue with the Race Condition that was fixed in the OMS Agent for Linux version 1.1.0-217
+
+#### Resolutions
+- Verify that you've successfully onboarded, by determining whether the `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` file exists.
+  - If needed, onboard again using the omsadmin.sh command line. See [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) for more information.
+- In the OMS Portal, under **Settings** on the **Data** tab, ensure that the **Apply the following configuration to my Linux Servers** setting is selected  
+  ![apply configuration](./media/log-analytics-linux-agents/customloglinuxenabled.png)
+
+- Verify that the `omsconfig` agent can communicate with the OMS service
+  - Run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` command
+  - The command above returns the configuration that agent retrieves from the Portal, including Syslog settings, Linux performance counters, and custom Logs
+  - If the command above fails, run the `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` command. This command forces the omsconfig agent to communicate with OMS service and retrieve the latest configuration.
+
+
+Instead of the OMS Agent for Linux user running as a privileged user `root`, the OMS Agent for Linux runs as the `omsagent` user. In most cases, explicit permission must be granted to the user in order to read certain files.
+
+To grant permission to `omsagent` user, run the following commands:
+
+1. Add the `omsagent` user to a specific group with `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. Grant universal read access to the required file with `sudo chmod -R ugo+rw <FILE DIRECTORY>`
+
+There is a known issue with the Race Condition that was fixed in the OMS Agent for Linux version 1.1.0-217. After updating to the latest agent, run the following command to get the latest version of the output plugin:
+
+```
+sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/conf/omsagent.conf
+```
 
 ## Known limitations
 Review the following sections to learn about current limitations of the OMS Agent for Linux.
