@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure a Point-to-Site VPN Gateway connection to an Azure Virtual Network | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection. This configuration is helpful when you need a cross-premises connection from a remote location without using a VPN device and can be used with hybrid network configurations. This article contains PowerShell instructions for VNets that were created using the Resource Manager deployment model."
+   pageTitle="Configure a Point-to-Site VPN connection to virtual network using the Resource Manager deployment model | Microsoft Azure"
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/18/2016"
+   ms.date="08/03/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
