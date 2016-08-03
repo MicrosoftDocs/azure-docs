@@ -34,12 +34,12 @@ Service Fabric is tailored to creating “born in the cloud” services that can
 
 Today's Internet-scale services are built of microservices. Examples of microservices include protocol gateways, user profiles, shopping carts, inventory processing, queues, and caches. Service Fabric is a microservices platform that gives every microservice a unique name that can be either stateless or stateful.
 
-Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications composed of these microservices. It hosts microservices inside containers deployed and activated across the Service Fabric cluster. An order-of-magnitude increase in density is made possible by moving from VMs to containers. Similarily, another order of magnitude in density becomes possible by moving from containers to microservices. For example, a single Azure SQL Database cluster comprises hundreds of machines running tens of thousands of containers hosting a total of hundreds of thousands of databases. Each database is a Service Fabric stateful microservice. The same is true of the other services previously mentioned, which is why the term "hyperscale" is used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
+Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications composed of these microservices. It hosts microservices inside containers deployed and activated across the Service Fabric cluster. Moving from VMs to containers makes possible an order-of-magnitude increase in density. Similarly, another order of magnitude in density becomes possible by moving from containers to microservices. For example, a single Azure SQL Database cluster comprises hundreds of machines running tens of thousands of containers hosting a total of hundreds of thousands of databases. Each database is a Service Fabric stateful microservice. The same is true of the other services previously mentioned, which is why the term "hyperscale" is used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
 
 For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
 ## Create Service Fabric clusters anywhere
-You can create Service Fabric clusters in many environments to deploy your applications to, including Azure or on premises, on Windows Server or on Linux. In addition, the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it deploys to the same cluster in other environments.
+You can create Service Fabric clusters in many environments, including Azure or on premises, on Windows Server or on Linux. In addition, the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it deploys to the same cluster in other environments.
 
 For more information on creating clusters on-premise, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
@@ -53,7 +53,7 @@ Why have stateful microservices along with stateless ones? The two main reasons 
 
 1. The ability to build high-throughput, low-latency, failure-tolerant online transaction processing (OLTP) services by keeping code and data close on the same machine. Some examples are interactive storefronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, and personal record management.
 
-2. Application design simplification. Stateful microservices remove the need for additional queues and caches, which are traditionally required to address the availability and latency requirements of a purely stateless application. Since stateful services are naturally high-availability and low-latency, this means fewer moving parts to manage in your application as a whole.
+2. Application design simplification. Stateful microservices remove the need for additional queues and caches, traditionally required to address the availability and latency requirements of a purely stateless application. Stateful services are naturally high-availability and low-latency, reducing the number of moving parts to manage in your application as a whole.
 
 For more information on application patterns with Service Fabric, read [Application scenarios](service-fabric-application-scenarios.md) and [Choosing a programming model framework](service-fabric-choose-framework.md) for your service
 
@@ -62,7 +62,7 @@ Service Fabric provides first-class support for the full application lifecycle m
 
 The Service Fabric ALM capabilities enable application administrators/IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances.  Each instance is managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make them reliable. For example, Service Fabric deploys ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
+Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make them reliable. For example, Service Fabric deploys ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
 
 For more information on application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md) and on deploying any code see [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 
@@ -97,7 +97,7 @@ By using Service Fabric, you can:
 
 - Scale up or scale down your Service Fabric cluster easily, knowing that the applications scale according to available resources.
 
-- Watch the self-healing resource balancer orchestrate the redistribution of applications across the Service Fabric cluster to recover from failures and optimize the distribution of load based on available resources.
+- Watch the self-healing resource balancer orchestrate the redistribution of applications across the cluster. Service Fabric recovers from failures and optimizes the distribution of load based on available resources.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
