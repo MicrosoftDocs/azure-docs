@@ -21,18 +21,18 @@
 
 The following are best practices for preparing and uploading the Windows VM to Azure:
 
-## VM Configuration
+## Prepare VM configuration for upload
 
 1.	Make sure that the VHD disk is working fine in the local Hyper-V.
-2.	Azure can only accept VHD disk file that created for generation 1 virtual machines. The disk must be in Fixed size. The maximum size allowed for the VHD is 1,023 GB.
+2.	Azure can only accept VHD disk file that created for generation 1 virtual machines. The disk must be in **Fixed size**. The maximum size allowed for the VHD is 1,023 GB.
 
 	If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
 
-	- Hyper-V: Open Hyper-V and select your local computer on the left. Then in the menu above it, click Action > Edit Disk.... Navigate through the screens by clicking Next and entering these options: Path for your VHDX file > Convert > VHD > Fixed size > Path for the new VHD file. Click Finish to close.
+	- Hyper-V: Open Hyper-V and select your local computer on the left. Then in the menu above it, click **Action** > **Edit Disk**. Navigate through the screens by clicking **Next** and entering these options: *Path for your VHDX file* > **Convert** > **VHD** > **Fixed size** > *Path for the new VHD file*. Click **Finish** to close.
 
-	- Convert-VHD PowerShell cmdlet: Read the blog post Converting Hyper-V .vhdx to .vhd file formats for more information.
+	- [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx): Read the blog post [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) for more information.
 
-	If you have a Windows VM image in the VMDK file format, convert it to a VHD by using the Microsoft Virtual Machine Converter. Read the blog How to Convert a VMware VMDK to Hyper-V VHD for more information.
+	If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 3.	Remove the Network adapter from Hyper-V Manager and set to “Not connected” or reset all the network interfaces to default in Windows:
 
@@ -40,23 +40,25 @@ The following are best practices for preparing and uploading the Windows VM to A
 	-	Set the IP setting to “Obtain an IP address automatically”.
 	- Set the DNS setting to “Obtain DNS server address automatically”
 
-## Windows Configuration
+## Prepare Windows configuration for upload
+
+Note You must run the followings commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
-	A.	Run route print to view the route table.
+	A.	Run  `route print` to view the route table.
 
-	B.	Check the “Persistence Routes” sections. If there is a persistent route, use route delete to remove it.
+	B.	Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 
-2. Remove the Winhttp proxy by runing the following cmd: `netsh winhttp reset proxy`
-3. Setup the disk SAN policy: `diskpart san policy=onlineall`
-4. Setup the time service:
+2. Remove the Winhttp proxy: `netsh winhttp reset proxy`
+3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/en-us/library/gg252636.aspx): `diskpart san policy=onlineall`
+4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to automatically:
 
-		REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
+	 - `REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
 
-		 sc config w32time start= auto`
+   - `sc config w32time start= auto`
 
-5. Make sure that the below windows services are set to its windows default values which are all enabled and with the following startup setting:
+5. Make sure that the below windows services are set to its windows default values which are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
 
 		sc config bfe start= auto
 
@@ -100,13 +102,13 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 		sc config RemoteRegistry start= auto
 
-6. Remove any self-signed certificate tied to RDP listener:
+6. Remove any self-signed certificate tied to Remote Desktop Protocol (RDP) listener:
 
-	A. Open MMC, add Certificates snap-in, select “Compute Account” certificates, and then select “Local computer”.
+	A. Open MMC, add Certificates snap-in, select **Compute Account** certificates, and then select **Local computer**.
 
 	B. Navigate to the **Remote Desktop** folder -> **Certificates**, remove the certificates listed in this folder.
 
-7. Setup the KeepAlive values on the RDP listener
+7. Configure the [KeepAlive](https://technet.microsoft.com/en-us/library/cc957549.aspx) values on the RDP listener:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
@@ -114,7 +116,7 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
 
-8. Make sure that NLA is enabled:
+8. Configure authentication mode for the RDP:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
@@ -178,33 +180,32 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
-12. Make sure that the WMI repository is healthy.
+12. Make sure that the [Windows Management Instrumentation (WMI) repository is healthy](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not/).
 13. Ensure the BCD settings are the same as below:
 
-		bcdedit /set {bootmgr} device partition=*Boot Partition*
+		bcdedit /set {bootmgr} device partition=<Boot Partition>
 
 		bcdedit /set {bootmgr} integrityservices enable
 
-		bcdedit /set {default} device partition=*OS Partition*
+		bcdedit /set {default} device partition=<OS Partition>
 
 		bcdedit /set {default} integrityservices enable
 
 		bcdedit /set {default} recoveryenabled Off
 
-		bcdedit /set {default} osdevice partition=*OS Partition*
+		bcdedit /set {default} osdevice partition=<OS Partition>
 
 		bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
-14. Remove any extra TDI filters like any software that analyze TCP packets.
+14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
 15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
-16.	Uninstall all the other 3rd party (Other than Microsoft Hyper-V) physical or Virtualization software/drivers.
-17. Ensure no 3rd Party application is using/tied to Port 3389.
-18.	Ensure the a VM created from the disk in local Hyper-V is running fine.
-19.	If this is a Domain Controller on-prem, follow the extra steps to prepare the disk as specified here https://support.microsoft.com/en-us/kb/2904015
-20.	Before doing any migration, please be so kind as to do a healthy reboot on the VM to ensure the OS is healthy and if it is reachable with RDP
-21.	Before migration, another option that I usually suggest customers in any case: reset the current local administrator password or create a new account and make sure it’s allowed by policies to RDP into the VM:
-22. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
-23.	Ideally, the OS patch level should be at the latest however if that is not possible, please ensure the following KBs are installed:
+16.	Uninstall the other 3rd party (Other than Microsoft Hyper-V) physical or Virtualization software or drivers.
+17. Make sure that there is no 3rd Party application is using Port 3389. This port will be used for the RDP service in Azure.
+18.	If this is a Domain Controller on-prem, follow the extra steps to prepare the disk as specified here https://support.microsoft.com/en-us/kb/2904015
+19.	Before doing any migration, please be so kind as to do a healthy reboot on the VM to ensure the OS is healthy and if it is reachable with RDP
+20.	Before migration, another option that I usually suggest customers in any case: reset the current local administrator password or create a new account and make sure it’s allowed by policies to RDP into the VM:
+21. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
+22. Install the latest updates for Windows. If that is not possible, please make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
 
@@ -226,5 +227,5 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 
-	- [KB3148528](https://support.microsoft.com/kb/3148528) MS16-048: Description of the security update for CSRSS: April 12, 2016
-	System freezes during disk I/O in Windows
+	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
+	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
