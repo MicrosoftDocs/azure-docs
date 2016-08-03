@@ -19,7 +19,7 @@
 
 # Custom Script extension for Windows virtual machines
 
-This article gives an overview of using the Custom Script extension on Windows VMs using Azure PowerShell cmdlets.
+This article gives an overview of using the Custom Script extension on Windows VMs using Azure PowerShell cmdlets with Azure Service Management APIs.
 
 Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see
 [Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
@@ -88,7 +88,7 @@ Custom Script Extension can be uninstalled from the VM using the following comma
 
 ### Using Custom Script extension with templates
 
-To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-windows-classic-extensions-customscript.md).
+To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2016"
+   ms.date="07/28/2016"
    ms.author="alkohli" />
 
 # Install Update 2.2 on your StorSimple device
@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 2.2 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 2.2 includes device software, WMI, and iSCSI updates. If updating from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 2.2 includes device software, WMI, and iSCSI updates. If updating from version 2.1, only the device software update will need to be applied. If updating from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
 
@@ -63,7 +63,7 @@ The software versions that can be upgraded using the hotfix method are:
 
 - Update 0.1, 0.2, 0.3
 - Update 1, 1.1, 1.2
-- Update 2. 2.1 
+- Update 2, 2.1 
 
 > [AZURE.IMPORTANT]
 >
@@ -77,7 +77,7 @@ The hotfix method involves the following three steps:
 
 #### Download updates for a device running Update 2.1 software
 
-**If your device is running Update 2.1**, you must download only the device software update KB3179904. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with `all-cismdsagentupdatebundle`. Failure to do so will result in an error. 
+**If your device is running Update 2.1**, you must download only the device software update KB3179904. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with `all-cismdsagentupdatebundle`. Failure to do so will result in an error. This is a non-disruptive update, IO will not be disrupted and the device will not have any downtime.
 
 
 #### Download updates for a device running Update 2 software
@@ -86,9 +86,9 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3179904 | Software update &#42;  |  Regular     | ~ 45 mins |
-| 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
-| 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
+| 1.      | KB3179904 | Software update &#42;  |  Regular <br></br>Non-disruptive     | ~ 45 mins |
+| 2.      | KB3146621 | iSCSI package | Regular <br></br>Non-disruptive  | ~ 20 mins |
+| 3.      | KB3103616 | WMI package |  Regular <br></br>Non-disruptive      | ~ 12 mins |
 
 
  &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
@@ -99,7 +99,7 @@ The hotfix method involves the following three steps:
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4.      | KB3121900 | LSI driver and firmware             |  Regular     | ~ 20 mins |
+| 4.      | KB3121900 | LSI driver and firmware             |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
 <br></br>
@@ -107,8 +107,8 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
-| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
+| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
 
@@ -118,7 +118,7 @@ You may also need to install disk firmware updates. You can verify whether you n
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7.      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
+| 7.      | KB3121899 | Disk firmware              |  Maintenance <br></br>Disruptive      | ~ 30 mins |
  
 <br></br>
 
