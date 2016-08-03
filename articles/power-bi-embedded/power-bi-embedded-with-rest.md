@@ -367,9 +367,7 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 We can embed the report in our web app using the previous app token.
 If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
 
-> [AZURE.NOTE] You'll need to change the report id value with your own.
-
-> [AZURE.NOTE] Due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
+> [AZURE.NOTE] You'll need to change the report id value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
 
 ```
     <?php
