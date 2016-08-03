@@ -35,7 +35,6 @@ Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerSh
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
-
 	
 3. To establish VNet peering, you need to create two links one for each direction. Following step will create VNet peering link for VNet1 to VNet2 first:
 
@@ -159,7 +158,6 @@ This is not a requirement, peering can be established even if users individually
 
         Add-AzureRmVirtualNetworkPeering -name LinkToVNet5 -VirtualNetwork $vnet3 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-B-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet5" -BlockVirtualNetworkAccess
 
-
 4. Then in UserB’s login session, run cmdlet below:
 
         $vnet5 = Get-AzureRmVirtualNetwork -ResourceGroupName vendor-vnets -Name vnet5
@@ -190,7 +188,6 @@ This is not a requirement, peering can be established even if users individually
         Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet1 -Name subnet-1 -AddressPrefix 10.1.1.0/24 -RouteTable $routeTable
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
-
 
 ## Remove VNet Peering
 
