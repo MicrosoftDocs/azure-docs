@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a standalone Service Fabric cluster with Azure VMs | Microsoft Azure"
-   description="Learn how to create and manage an Azure Service Fabric cluster on Azure IaaS virtual machines running Windows Server."
+   pageTitle="Create a standalone cluster with Azure VMs running Windows| Microsoft Azure"
+   description="Learn how to create and manage an Azure Service Fabric cluster on Azure virtual machines running Windows Server."
    services="service-fabric"
    documentationCenter=".net"
    authors="dsk-2015"
@@ -18,9 +18,9 @@
 
 
 
-# Create a three node standalone Service Fabric cluster with Azure IaaS VMs
+# Create a three node standalone Service Fabric cluster with Azure VMs running Windows Server
 
-This article describe how to create a cluster on Azure IaaS VMs using the standalone Windows Server installer. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure virtual machines running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), however you are not creating an Azure cloud based Service Fabric cluster, either via the [portal](service-fabric-cluster-creation-via-portal.md), the [ARM template](service-fabric-cluster-creation-via-arm.md), or the [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
+This article describe how to create a cluster on Windows-based Azure VMs using the standalone Windows Server installer. This is a special case of [Create and manage a cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md) where the VMs are [Azure virtual machines running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md), however you are not creating an Azure cloud based Service Fabric cluster, either via the [portal](service-fabric-cluster-creation-via-portal.md), the [Resource Manager template](service-fabric-cluster-creation-via-arm.md), or the [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md). The difference is that the standalone Service Fabric cluster created by the following steps is entirely managed by you, while the Azure cloud based Service Fabric clusters are managed and upgraded by the Service Fabric resource provider.
 
 
 ## Steps to create a standalone Service Fabric cluster on Azure VMs
@@ -71,7 +71,7 @@ This article describe how to create a cluster on Azure IaaS VMs using the standa
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
     ```
 
-8. You should see the Powershell run, connect to each machine and create a cluster. After about a minute, you can test if the cluster is operational by connecting to the Service Fabric Explorer on one of the machine IP addresses e.g. http://10.7.0.5:19080/Explorer/index.html. Because this is a standalone cluster on IaaS VMs if you want to make this secure you have to [deploy certs to the VMs](service-fabric-windows-cluster-x509-security.md) or set up one of the machines as a [Windows Server Active Directory (AD) controller for Windows authentication](service-fabric-windows-cluster-windows-security.md) just like you would do on premises.
+8. You should see the Powershell run, connect to each machine and create a cluster. After about a minute, you can test if the cluster is operational by connecting to the Service Fabric Explorer on one of the machine IP addresses e.g. http://10.7.0.5:19080/Explorer/index.html. Because this is a standalone cluster on Azure VMs, if you want to make this secure you have to [deploy certs to the VMs](service-fabric-windows-cluster-x509-security.md) or set up one of the machines as a [Windows Server Active Directory (AD) controller for Windows authentication](service-fabric-windows-cluster-windows-security.md) just like you would do on premises.
 
 
 ## Next steps
