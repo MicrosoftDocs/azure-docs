@@ -222,11 +222,12 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
 
+<!--
 ## Solution components
 
 <!-- The following text is boilerplate, and should be used in all RA docs -->
 
-A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
+<!--A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes Azure Resource Manager templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
@@ -234,11 +235,89 @@ When you edit the templates, create objects that follow the naming conventions d
 
 <!-- End of boilerplate -->
 
-*Specifics for template to be added here when BBs are available*
+<!--*Specifics for template to be added here when BBs are available* -->
 
 ## Deployment
 
-*THIS SECTION TO BE UPDATED WHEN BBs ARE AVAILABLE*
+A sample solution script, [azuredeploy.sh][azuredeploy-script], is available that you can use to implement the architecture that follows the recommendations described in this document.
+
+The solution assumes the following prerequisites:
+
+- You have an existing on-premises infrastructure, including a VPN server that can support IPSec connections.
+
+- You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
+
+- If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [GitHub Desktop][github-desktop].
+
+To run the script that deploys the solution:
+
+1. Download the [azuredeploy.sh][azuredeploy-script] script to your local computer.
+
+2. Open the azuredeploy.sh script using an editor of your choice, and locate the *## Configurations* section:
+
+	``` bash
+	############################################################################
+	##  Configurations
+	############################################################################
+
+	############################################################################
+	## You must fill in the following configuration data
+	############################################################################
+	BASE_NAME=tstad
+	SUBSCRIPTION=
+	LOCATION=
+	OS_TYPE=
+	DOMAIN_NAME=
+	NET_BIOS_DOMAIN_NAME=
+	ADMIN_USER_NAME=
+	ADMIN_PASSWORD=
+	ON_PREMISES_PUBLIC_IP=
+	ON_PREMISES_ADDRESS_SPACE=
+	VPN_IPSEC_SHARED_KEY=
+	ON_PREMISES_DNS_SERVER_ADDRESS=
+	ON_PREMISES_DNS_SUBNET_PREFIX=
+	
+	############################################################################
+	``` 
+3. Specify appropriate values for the configuration data variables. The following table summarizes the purpose of these variables:
+
+	| Variable | Description | Example |
+	|----------|-------------|---------|
+	|BASE_NAME| The name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.| myapp |
+	|SUBSCRIPTION|The subscription ID of the Azure account to use. By default, the script creates 11 VMs that consume 44 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.||
+	|LOCATION| The region in which to create the resource groups hosting the resources created for the architecture.| westus|
+	|OS_TYPE|The operating system to use for the web tier, business tier, and data access tier VMS. Can be *Windows* or *Ubuntu*|Windows|
+	|DOMAIN_NAME| The name of the on-premises domain to which the AD and AD FS servers created in the cloud should be added. | contoso.com |
+	|NET_BIOS_DOMAIN_NAME| The NetBIOS version of the domain name. | CONTOSO |
+	|ADMIN_USER_NAME| The name of the administrator account to create for the VMs.|adminUser|
+	|ADMIN_PASSWORD| The password for the admin user account.||
+	|ON-PREMISES_PUBLIC_IP| The public IP address of the VPN device located in the on-premises network.|192.99.99.99|
+	|ON_PREMISES_ADDRESS_SPACE|The internal address space of the on-premises network. Use CIDR format.| 192.99.0.0/16|
+	|VPN_IPSEC_SHARED_KEY|The shared secret key to be used to connect from the VPN device to the Azure VPN gateway.||
+	|ON_PREMISES_DNS_SERVER_ADDRESS|The IP address of the on-premises DNS server.|192.99.99.99|
+	|ON_PREMISES_DNS_SUBNET_PREFIX|The address mask for the on-premises subnet.|255.255.0.0|
+
+4. Save the script and close the editor.
+
+5. Open a bash shell and move to the folder containing the azuredeploy.sh script.
+
+6. Log in to your Azure account. In the bash shell enter the following command:
+
+	```cli
+    azure login
+	```
+
+	Follow the instructions to connect to Azure.
+
+7. Run the following command:
+
+	```powershell
+	./azuredeploy.sh
+	```
+
+8. Follow the instructions, and verify that the script completes successfully. You can simply re-run the script if an error occurs.
+
+<!-- *THIS SECTION TO BE UPDATED WHEN BBs ARE AVAILABLE*
 
 The solution assumes the following prerequisites:
 
@@ -319,3 +398,9 @@ To run the script that deploys the solution:
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+
+<!-- Remove the following links when the Solution Components and Deployment sections are updated to use the Building Blocks -->
+[azuredeploy-script]: https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks/guidance-iaas-ra-adfs/Templates/azuredeploy.sh
+[cli-install]: ../xplat-cli-install.md
+[github-desktop]: https://desktop.github.com/
+
