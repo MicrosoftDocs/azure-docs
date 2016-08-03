@@ -165,7 +165,7 @@ For example, in this exercise, VNet1 will connect to a local network site that y
 
 ### Add the local network site VNet2Local
 
-Repeat the steps you took to [add a local network](#localnet) to create local network to represent VNet2. Refer to the [example settings](#step1) in Step 1.
+Use the steps above to create the local network site "VNet2Local". You can refer to the values in the [example settings](#step1) in Step 1, if necessary.
 
 ### Configure each VNet to point to a local network
 
@@ -178,6 +178,7 @@ Each VNet must point to the respective local network that you want to route traf
 3. Save your settings.
 
 #### For VNet2
+
 1. Navigate to the **Configure** page for virtual network **VNet2**. 
 2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
 3. Save your settings.
