@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/03/2016"
 	ms.author="jeedes"/>
 
 
@@ -96,14 +96,20 @@ The objective of this section is to outline how to enable users to authenticate 
 
 	![Configuring single sign-on][9]
 
-	a. In the **Sign on URL** textbox, type the URL of your Docusign tenant using the following pattern:  For production environment the URL pattern will be **"https://account.docusign.com/organizations/\<ORGANIZATIONID\>/saml2/login/sp/\<IDPID>"** For demo environment the URL pattern will be **"https://account-d.docusign.com/organizations/\<ORGANIZATIONID\>/saml2/login/sp/\<IDPID>"**
+	a. In the **Sign on URL** textbox, type the URL of your Docusign tenant using the following pattern:  
 
-	b. In the **Identifier** textbox, type the URL of Docusign Issuer using the following pattern: For production environment the URL pattern will be **"https://account.docusign.com/organizations/\<ORGANIZATIONID\>/saml2"** For demo environment this URL pattern will be **"https://account-d.docusign.com/organizations/\<ORGANIZATIONID\>/saml2"**
+    - **Production environment**: `https://account.docusign.com/organizations/\<ORGANIZATIONID\>/saml2/login/sp/\<IDPID>` 
+    - **Demo environment**: `https://account-d.docusign.com/organizations/\<ORGANIZATIONID\>/saml2/login/sp/\<IDPID>`
+
+	b. In the **Identifier** textbox, type the URL of Docusign Issuer using the following pattern: 
+
+    - **Production environment**: `https://account.docusign.com/organizations/\<ORGANIZATIONID\>/saml2`
+    - **Demo environment**: `https://account-d.docusign.com/organizations/\<ORGANIZATIONID\>/saml2`
 
 	c. Click **Next**. 
 
 
-    > [AZURE.TIP] If you don’t know what your app URL for your tenant is, try contacting Docusign via [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com) to get the SP Initiated SSO URL for your tenant.
+    > [AZURE.TIP] If you don’t know what your app URL for your tenant is, contact Docusign via [SSOSetup@Docusign.com](emailTo:SSOSetup@Docusign.com) to get the SP Initiated SSO URL for your tenant.
  
 
 4. On the **Configure single sign-on at DocuSign** page, click **Download certificate**, and then save the certificate file locally on your computer.
@@ -114,71 +120,78 @@ The objective of this section is to outline how to enable users to authenticate 
 5. In a different web browser window, log into your **DocuSign admin portal** as an administrator.
 
 
-6. In the left side navigation menu click on **Domains**
+6. In the navigation menu on the left, click **Domains**.
 
 	![Configuring single sign-on][51]
 
-7. On the right pane now click on **CLAIM DOMAIN** button.
+7. On the right pane, click **Claim Domain**.
 
 	![Configuring single sign-on][52]
 
-8. In the pop up window enter your company domain name and click on claim. Make sure that you verify the domain and it shows the status as active.
+8. On the **Claim a domain** dialog, in the **Domain Name** textbox, type your company domain, and then click **Claim**. Make sure that you verify the domain and the status is active.
 
 	![Configuring single sign-on][53]
 
-9. In the left side navigation menu click on **Identity Providers**  
+9. In menu on the left side, click **Identity Providers**  
 
 	![Configuring single sign-on][54]
 
-10. In the right pane click on the "ADD IDENTITY PROVIDER" button. This will open the SSO Settings page.
+10. In the right pane, click **Add Identity Provider**. 
 	
 	![Configuring single sign-on][55]
 
-11. In the Identity Provider Settings page perform the following actions.
-
-	a. Give the unique name to your configuration. Please do not use space in between the words.
-
-	b. In the **Identity Provider Issuer** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
-
-	c. In the **Identity Provider Login URL** textbox put the value of **Remote Login URL** from Azure AD application configuration wizard.
-
-	d. In the **Identity PRovider Logout URL** textbox put the value of **Remote Logout URL** from Azure AD application configuration wizard.
-
-	e. Chcek the **Sign AuthN Request** check box.
-
-	f. Make sure that **Send AuthN request by:** option is set to **POST**
-
-	g. Make sure that **Send logout request by:** option is set to **POST** 
+11. On the **Identity Provider Settings** page, perform the following steps:
 
 	![Configuring single sign-on][56]
 
-12. In the **Custom Attribute Mapping** section choose the field which you want to map with Azure AD Claim. E.g. we have used the **emailaddress** claim mapped with the value as **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. This is the default claim name from Azure AD for email claim. 
 
-	> [AZURE.NOTE] Use the appropriate User identifier to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
+	a. In the **Name** textbox, type a unique name for your configuration. Please do not use spaces.
+
+	b. In the **Identity Provider Issuer** textbox, type the value of **Issuer URL** from Azure AD classic portal.
+
+	c. In the **Identity Provider Login URL** textbox, type the value of **Remote Login URL** from Azure AD classic portal.
+
+	d. In the **Identity PRovider Logout URL** textbox, type the value of **Remote Logout URL** from Azure AD classic portal.
+
+	e. Select **Sign AuthN Request**.
+
+	f. As **Send AuthN request by**, select **POST**.
+
+	g. As **Send logout request by**, select **POST**. 
+
+
+12. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. This is the default claim name from Azure AD for email claim. 
+
+	> [AZURE.NOTE] Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
 
 	![Configuring single sign-on][57]
 
-13. In the **Identity Provider Certificate** section click on **ADD CERTIFICATE** button and upload the certificate which you have downloaded from Azure AD application configuration wizard.   
+13. In the **Identity Provider Certificate** section, click **Add Certificate**, and then upload the certificate you have downloaded from Azure AD classic portal.   
 
 	![Configuring single sign-on][58]
 
-14. Now click on the **Save** button to save all the settings.
+14. Click **Save**.
 
-15. In the **Identity Providers** section click on the **Actions** button and click on **Endpoints**   
+15. In the **Identity Providers** section, click **Actions**, and then click **Endpoints**.   
 
 	![Configuring single sign-on][59]
 
-16. In the **View SAML 2.0 Endpoints** section perform the following steps.
 
-	a. Copy the **Service Provider Issuer URL** and put it in the **Identifier** textbox of Azure AD Configuration wizard.
 
-	b. Copy the **Service Provider Login URL** and put it in the **Sign On URL** textbox of Azure AD configuration wizard.
+10. On the Azure classic portal, go back to the **Configure App Settings** page. 
+
+16. On **DocuSign admin portal**, in the **View SAML 2.0 Endpoints** section perform, the following steps:
 
 	![Configuring single sign-on][60]
 
+	a. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox on the Azure AD classic portal.
+
+	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on the Azure AD classic portal.
+
+
 	c.  Click **Close**  
 
-15. On the Azure classic portal, select the **single sign-on configuration confirmation**, and then click **Next**.
+15. On the Azure classic portal, select the **Single sign-on configuration confirmation**, and then click **Next**.
 
 	![Applications][14]
 
