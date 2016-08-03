@@ -26,22 +26,22 @@ Why is a microservices approach important? The two main reasons are:
 
 1. They enable you to scale different parts of your application depending on its needs.
 
-2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently.
+2. Development teams are able to be more agile in rolling out changes and thus provide features to your customers faster and more frequently.
 
 Service Fabric powers many Microsoft services today, including Azure SQL Database, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT, Skype for Business, and many core Azure services to name a few.
 
 Service Fabric is tailored to creating “born in the cloud” services that can start small, as needed, and grow to massive scale with hundreds or thousands of machines.
 
-Today's Internet-scale services are built using microservices. Examples of microservices include protocol gateways, user profiles, shopping carts, inventory processing, queues, and caches. Service Fabric is a microservices platform that gives every microservice a unique name that can be either stateless or stateful.
+Today's Internet-scale services are built of microservices. Examples of microservices include protocol gateways, user profiles, shopping carts, inventory processing, queues, and caches. Service Fabric is a microservices platform that gives every microservice a unique name that can be either stateless or stateful.
 
-Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications composed of these microservices. It hosts microservices inside containers that are deployed and activated across the Service Fabric cluster. Just as an order-of-magnitude increase in density is made possible by moving from VMs to containers, a similar order of magnitude in density becomes possible by moving from containers to microservices. For example, a single Azure SQL Database cluster, which is built on Service Fabric, comprises hundreds of machines running tens of thousands of containers hosting a total of hundreds of thousands of databases. (Each database is a Service Fabric stateful microservice.) The same is true of Event Hubs and the other services mentioned above. This is why the term "hyperscale" can be used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
+Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications composed of these microservices. It hosts microservices inside containers deployed and activated across the Service Fabric cluster. Just as an order-of-magnitude increase in density is made possible by moving from VMs to containers, a similar order of magnitude in density becomes possible by moving from containers to microservices. For example, a single Azure SQL Database cluster, which is built on Service Fabric, comprises hundreds of machines running tens of thousands of containers hosting a total of hundreds of thousands of databases. (Each database is a Service Fabric stateful microservice.) The same is true of Event Hubs and the other services previously mentioned, which is why the term "hyperscale" can be used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
 
-For more on the microservices approach read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+For more on the microservices approach, read [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 
 ## Create Service Fabric clusters anywhere
-You can create Service Fabric clusters in many environments to deploy your applications to. This can be in Azure or on premises, on Windows Server or on Linux. In addition the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it will deploy to the same cluster in other environments.
+You can create Service Fabric clusters in many environments to deploy your applications to, including Azure or on premises, on Windows Server or on Linux. In addition, the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it deploys to the same cluster in other environments.
 
-For more information on creating clusters on-premise read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure Portal](service-fabric-cluster-creation-via-portal.md).
+For more information on creating clusters on-premise, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
 ![Service Fabric platform][Image1]
 
@@ -62,7 +62,7 @@ Service Fabric provides first-class support for the full application lifecycle m
 
 The Service Fabric ALM capabilities enable application administrators/IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make these reliable. For example, it can be used to deploy ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
+Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make them reliable. For example, Service Fabric deploys ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
 
 For more information on application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md) and on deploying any code see [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 
@@ -73,7 +73,7 @@ By using Service Fabric, you can:
 
 - Develop applications composed of microservices, using the Service Fabric programming model, or simply host guest executables, and other application frameworks of your choice, such as ASP.NET Core 1, Node.js, etc.
 
-- Develop stateless and stateful microservices and make these highly reliable.
+- Develop highly reliable stateless and stateful microservices.
 
 - Simplify the design of your application by using stateful microservices in place of caches and queues.
 
