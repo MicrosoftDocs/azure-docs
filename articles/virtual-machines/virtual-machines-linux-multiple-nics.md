@@ -19,7 +19,7 @@
 # Creating a VM with multiple NICs
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md).
 
->[AZURE_WARNING] Attaching multiple NICs must be done when the VM is being created - you cannot add NICs to an existing VM.
+>[AZURE_WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM.
 
 ## Quick commands
 Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode (`azure config mode arm`).
@@ -90,14 +90,14 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Typically you would also create a [network security group](../virtual-networks/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The NICs you create will get bound to a network security group or load balancer using `azure network nic set`, such as in the following example:
+Typically you would also create a [network security group](../virtual-networks/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The NICs you create get bound to a network security group or load balancer using `azure network nic set`, such as in the following example:
 
 ```bash
 azure network nic set --resource-group TestRG --name NIC1 \
     --network-security-group-name TestNSG
 ```
 
-When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size since there are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
+When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
 
 ```bash
 azure vm create \            
