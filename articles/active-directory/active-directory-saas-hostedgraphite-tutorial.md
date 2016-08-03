@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. Click **Next**
 
-	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact Hosted Graphite.
+	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, you can go to Access->SAML setup on your application side or contact Hosted Graphite.
 
 5. On the **Configure single sign-on at Hosted Graphite** page, perform the following steps and click **Next**:
 
@@ -147,9 +147,13 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 7. Go to the **SAML Setup page** in the sidebar (**Access -> SAML Setup**).
 
+	![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+
+8. Confirm these URls match your configuration in step 3.
+
 	![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
-8. Copy **Issuer URL** and **SAML SSO URL** from Azure AD to **Entity or Issuer ID** and **SSO Login URL** in Hosted Graphite.
+9. Copy **Issuer URL** and **SAML SSO URL** from Azure AD to **Entity or Issuer ID** and **SSO Login URL** in Hosted Graphite.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
