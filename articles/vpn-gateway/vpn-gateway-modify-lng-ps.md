@@ -31,7 +31,7 @@ Sometimes your local network gateway prefixes change. If you need to change the 
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## Next steps
 
-## Create the VPN connection
+You can verify your VPN connection by using Step 9 in [this article](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-Next, you'll need to re-create your connection. For more information, refer to the article for the connection type that you want to create.
