@@ -1,14 +1,14 @@
 <properties
-	pageTitle="Monitor service metrics"
+	pageTitle="Monitor service metrics in Microsoft Azure | Microsoft Azure"
 	description="Learn how to customize monitoring charts in Azure."
 	authors="stepsic-microsoft-com"
 	manager="ronmart"
 	editor=""
-	services="azure-portal"
-documentationCenter=""/>
+	services="monitoring"
+    documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
