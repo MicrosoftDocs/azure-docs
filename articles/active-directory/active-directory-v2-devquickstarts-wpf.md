@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Azure AD v2.0 .NET Native App | Microsoft Azure"
-	description="How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Azure Active Directory v2.0 .NET Native App | Microsoft Azure"
+description="How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Add sign-in to a Windows Desktop app
 
 With the the v2.0 endpoint, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as [the Microsoft Graph](https://graph.microsoft.io) and a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> [AZURE.NOTE] Not all Azure Active Directory (AD) scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Microsoft Identity Authentication Library, or MSAL.  MSAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List app that:
 
--	Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
--	Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
--	Signs users out.
+- Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+- Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
+- Signs the user out.
 
 ## Download sample code
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) or clone the skeleton:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 The completed app is provided at the end of this tutorial as well.
 
@@ -247,9 +246,10 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-- [Securing the TodoListService Web API with the v2.0 endpoint >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Securing the TodoListService Web API with the v2.0 endpoint](active-directory-v2-devquickstarts-dotnet-api.md)
 
-For additional resources, check out:
+For additional resources, check out:  
+
 - [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "msal" tag >>](http://stackoverflow.com/questions/tagged/msal)
 
