@@ -24,7 +24,7 @@ In this article we will deploy Datadog agents to all the agents in your Azure Co
 
 ## Prerequisites 
 
-[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to https://datadoghq.com to set up a Datadog account. 
+[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [http://datadoghq.com](http://datadoghq.com) to set up a Datadog account. 
 
 ## Datadog 
 
