@@ -13,11 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/15/2016"
+   ms.date="08/02/2016"
    ms.author="elizapo"/>
 
 # OneDrive for Business and Azure RemoteApp
 
-OneDrive for Business is not supported with Azure RemoteApp.
+The OneDrive for Business sync agent is not supported with Azure RemoteApp.
 
-This article previously described different implementation options for using OneDrive for Business with Azure RemoteApp. Please be aware that those implementation options are no longer supported.
+You can include OneDrive for Business inside a collection for use with Office 365. 
