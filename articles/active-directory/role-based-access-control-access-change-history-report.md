@@ -18,7 +18,7 @@
 
 # Create an access change history report
 
-When you're not the sole owner of your Azure subscriptions, or the resources and resource groups within them, you need to be able to keep track of all access changes. Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
+Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
 
 ## Create a report with Azure PowerShell
 To create an access change history report in PowerShell, use the `Get-AzureRMAuthorizationChangeLog` command. More details about this cmdlet are available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
@@ -40,7 +40,7 @@ When you call this command, you can specify which property of the assignments yo
 | **SubscriptionId** | The GUID of the Azure subscription |
 | **SubscriptionName** | The name of the Azure subscription |
 
-This example command lists all access changes in the subscription for the past 7 days:
+This example command lists all access changes in the subscription for the past seven days:
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -49,7 +49,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
 
 ## Create a report with Azure CLI
-To create an access change history report in the Azure command line interface (CLI), use the `azure role assignment changelog list` command.
+To create an access change history report in the Azure command-line interface (CLI), use the `azure role assignment changelog list` command.
 
 ## Export to a spreadsheet
 To save the report, or manipulate the data, export the access changes into a .csv file. You can then view the report in a spreadsheet for review.
