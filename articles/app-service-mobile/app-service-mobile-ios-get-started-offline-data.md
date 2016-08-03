@@ -141,7 +141,9 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 	
 	The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store.) The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
-5. The app syncs when we modify or add data, a user performs the refresh gesture, and on launch. Because the app syncs whenever data is modified, this app assumes that the user is online. In another section, we will update the app so that users can edit even when they are offline.
+5. The Objective-C app syncs when we modify or add data, a user performs the refresh gesture, and on launch. The Swift app syncs when a user performs the refresh gesture and on launch. 
+
+Because the app syncs whenever data is modified (Objective-C) or whenever the app starts (Objective-C & Swift), the app assumes that the user is online. In another section, we will update the app so that users can edit even when they are offline.
 
 ## <a name="review-core-data"></a>Review the Core Data model
 
@@ -230,7 +232,7 @@ In this section, you will modify the app so that it does not sync on app start, 
 
 **Swift**:
 
-1. In `viewDidLoad` in **ToDoTableViewController.swift**, comment out these two lines, to stop syncing on app start. At the time of this article's writing, the Swift Todo app did not update the service when someone added or completed an item, only on app start.
+1. In `viewDidLoad` in **ToDoTableViewController.swift**, comment out these two lines, to stop syncing on app start. At the time of this article's writing, the Swift Todo app does not update the service when someone adds or completes an item, only on app start.
 
 		self.refreshControl?.beginRefreshing()
 		self.onRefresh(self.refreshControl)
