@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/18/2016"
+   ms.date="08/04/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -29,8 +29,6 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
 - Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
-
-> [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -81,13 +79,13 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Server or Azure SQL Data Warehouse at any time.
 - Only an Azure Active Directory administrator can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
-- SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure Active Directory authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication, but **sqlcmd.exe** and **bcp.exe** cannot connect because they use the ODBC provider.
+- SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure Active Directory authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication.
+- [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory however sqlcmd.exe and bcp.exe cannot connect using Azure Active Directory because they use an older ODBC provider.
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=11774) supports Azure Active Directory authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
-- SQL Server Management Studio is not supported for SQL Data Warehouse. Use SQL Server Data Tools.
 - Some tools like BI and Excel are not supported.
-- Multi-factor Authenticaion (MFA/2FA) or other forms of interactive authentication are not supported.
+- Multi-factor Authentication (MFA/2FA) or other forms of interactive authentication are not supported.
 - Azure Active Directory authentication is supported for SQL Database by the Azure Portal **Import Database** and **Export Database** blades. Import and export using Azure Active Directory authentication is also supported from the PowerShell command.
 
 
@@ -96,7 +94,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 Create an Azure Active directory and populate it with users and groups. This includes:
 
 - Create the initial domain Azure AD managed domain.
-- Federate an on-premises Active Directory Domain Services with Azure Active Directory.
+- Federate on-premises Active Directory Domain Services with Azure Active Directory.
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
@@ -152,11 +150,10 @@ When using Azure Active Directory with Geo-Replication, the Azure Active Directo
 2. In the left banner select **SQL servers**, select your **SQL server** or **SQL Data Warehouse**, and then in the **SQL Server** blade, at the top click **Settings**.
 
 	![ad settings][9]
-3. In the **Settings** blade, click **Active Directory admin (preview)**, and accept the preview clause.
-4. In the **Active Directory admin (preview)** blade, click to review, and then click **OK** to accept the preview terms.
-5. In the **Active Directory admin (preview)** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
-6. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
-7. At the top of the **Active Directory admin** blade, click **SAVE**.
+3. In the **Settings** blade, click **Active Directory admin.
+4. In the **Active Directory admin** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
+5. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+6. At the top of the **Active Directory admin** blade, click **SAVE**.
 	![choose admin][10]
 
 	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
@@ -336,7 +333,8 @@ To connect to a database using integrated authentication and an Azure AD identit
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
+Learn more about Azure AD authentication methods using the demo code samples available at [Azure AD Authentication GitHub Demo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth).
+
 
 ### 7.3 Connecting with an Azure AD token
 This authentication method allows middle-tier services to connect to Azure SQL Database or Azure SQL Data Warehouse by obtaining a token from Azure Active Directory (AAD). It enables sophisticated scenarios including certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
