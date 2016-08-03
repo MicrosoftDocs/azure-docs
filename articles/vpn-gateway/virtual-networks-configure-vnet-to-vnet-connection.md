@@ -147,23 +147,23 @@ It’s especially important to select a range that does not overlap with any of 
 
 Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1.
 
-## Step 4 - Add the local networks
+## Step 4 - Add the local network sites
 
 When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you will select the value from a dropdown list.
 
-For example, in this excercise, VNet1 will connect to a local network site that you create called *VNet2Local*. The settings for VNet2Local will contain the address prefixes for VNet2, as well as a public IP address for the gateway.
+For example, in this exercise, VNet1 will connect to a local network site that you create named "VNet2Local". The settings for VNet2Local will contain the address prefixes for VNet2, as well as a public IP address for the VNet2 gateway. VNet2 will connect to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
-### <a name="localnet"></a>Add the VNet1Local local network
+### <a name="localnet"></a>Add the local network site VNet1Local
 
 1. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Add Local Network**.
 
-2. On the **Specify your local network details** page, for **Name**, enter a name that you want to use to represent the network that you want to connect to. In this example, you can use *VNet1Local* to refer to the IP address ranges and gateway for VNet1.
+2. On the **Specify your local network details** page, for **Name**, enter a name that you want to use to represent the network that you want to connect to. In this example, you can use "VNet1Local" to refer to the IP address ranges and gateway for VNet1.
 
 3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you will use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. You will then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
 
 4. On the **Specify the address page**, you will put in the actual IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure will use the IP address range that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
 
-### Add the VNet2Local local network
+### Add the local network site VNet2Local
 
 Repeat the steps you took to [add a local network](#localnet) to create local network to represent VNet2. Refer to the [example settings](#step1) in Step 1.
 
