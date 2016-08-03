@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="08/03/2016"
    ms.author="mfussell"/>
 
 # Overview of Service Fabric
-Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
 
 ## Applications composed of microservices
-Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (referred to as a Service Fabric cluster). It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices. It also provides comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications.
+Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (referred to as a cluster). It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices. It also provides comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications.
 
 Why is a microservices approach important? The two main reasons are:
 
