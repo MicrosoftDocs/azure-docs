@@ -1,4 +1,4 @@
-### Add or remove prefixes if you haven't yet created a VPN gateway connection
+### <a name="noconnection"></a>How to add or remove prefixes without a VPN gateway connection
 
 - **To add** additional address prefixes to a local network gateway that you created, but that doesn't yet have a VPN gateway connection, use the example below.
 
@@ -11,7 +11,7 @@
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Add or remove prefixes if you've already created a VPN gateway connection
+### <a name="withconnection"></a>How to add or remove prefixes with a VPN gateway connection
 
 If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local network gateway, you'll need to do the following steps in order. This will result in some downtime for your VPN connection. When updating your prefixes, you'll first remove the connection, modify the prefixes, and then create a new connection. 
 
