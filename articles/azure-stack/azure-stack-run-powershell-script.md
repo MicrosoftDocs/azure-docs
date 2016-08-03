@@ -60,7 +60,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 11. Verify that **exactly** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
-  - Show as Online, RAW
+  - Show as Online, Unallocated
 
 12. Verify that the host is not joined to a domain.
 
