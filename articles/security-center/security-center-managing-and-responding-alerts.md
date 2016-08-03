@@ -13,23 +13,17 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="08/03/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center to manage and respond to security alerts.
 
 ## What are security alerts?
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. Azure Security Center also aggregates alerts that align to kill chain patterns into [Incidents](security-center-incident.md). 
 
 > [AZURE.NOTE] For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
 
-Microsoft security researchers are constantly analyzing emerging threats across the globe, including new attack patterns and trends seen across its consumer and enterprise products and online services. As a result, Security Center can update its detection algorithms as new vulnerabilities and exploits are discovered – helping customers keep pace with evolving threats. Examples of some of the types of threats Security Center can detect include:
-
-- **Brute force detection over network data**: Uses machine-learning models that understand typical network traffic patterns for your applications, enables more effective detection of access attempts being executed by bad actors instead of legitimate users.
-- **Brute force detection over endpoint data**: Based on analysis of machine logs; enables differentiation between failed and successful attempts.
-- **VMs communicating with malicious IPs**: Compares network traffic to Microsoft global threat intelligence, discovers machines that are compromised and communicating with Command and Control (C&C) servers and vice-versa.
-- **Compromised VMs**: Based on behavioral analysis of machine logs and correlation with other signals, identifies anomalous events that are likely the results of machine compromise and exploitation.
 
 ## Managing security alerts
 
@@ -111,8 +105,15 @@ This alert gives information that enables you to identify the resource that was 
 
 ### Shellcode Discovered 
 
-Shellcode is the payload that is run after malware has exploited a software vulnerability.  This alert indicates that executable code is exhibiting behavior commonly performed by malicious payloads.  Although non-malicious software may perform this behavior, it is not typical of normal software development practices.  
-This alert provides the following additional fields:
+Shellcode is the payload that is run after malware has exploited a software vulnerability.  This alert indicates that crash dump analysis has detected executable code exhibiting behavior commonly performed by malicious payloads.  Although non-malicious software may perform this behavior, it is not typical of normal software development practices. 
+
+The following fields are common to all crash dump alerts:
+
+- DUMPFILE: Name of the crash dump file 
+- PROCESSNAME: Name of the crashing process 
+- PROCESSVERSION: Version of the crashing process 
+
+This alert provides the following additional field:
 
 - ADDRESS: The location in memory of the shellcode
 
@@ -122,11 +123,11 @@ This is an example of this type of alert:
 
 ### Code Injection Discovered
 
-Code injection is the insertion of executable modules into running processes or threads.  This technique is used by malware to access data, hide or prevent its removal (e.g. persistence).  This alert indicates that an injected module is present in the crash dump.
+Code injection is the insertion of executable modules into running processes or threads.  This technique is used by malware to access data, hide or prevent its removal (e.g. persistence).  This alert indicates the crash dump analysis has detected an injected module with the crash dump.
  
-Legitimate software developers occasionally perform code injection for non-malicious reasons, such as modifying or extending an existing application or operating system component.  To help differentiate between malicious and non-malicious injected modules, Azure Security Center checks whether or not the injected module conforms to a profile of suspicious behavior.   The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  
+Legitimate software developers occasionally perform code injection for non-malicious reasons, such as modifying or extending an existing application or operating system component.  To help differentiate between malicious and non-malicious injected modules, Azure Security Center checks whether or not the injected module conforms to a profile of suspicious behavior. The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  
 
-This alert provides the following additional fields:
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following additional fields:
 
 - ADDRESS: The location in memory of the injected module
 - IMAGENAME: The name of the injected module. Note that this can be blank if the image name is not provided within the image.
@@ -146,11 +147,11 @@ This is an example of this type of alert:
 
 ### Module Hijacking Discovered
 
-Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality.  DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
+Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality.  DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates the crash dump analysis has detected a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
 
 Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS or Windows applications.  To help differentiate between malicious and potentially benign changes to the DLL load order, Azure Security Center checks whether or not a loaded module conforms to a suspicious profile.   The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  Analyzing the on disk copy of the hijacking module, such as by verifying the files digital signature or running an anti-virus scan, may provide more information as to the legitimate or malicious nature of the hijacking module.
 
-This alert provides the following fields:
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following fields:
 - SIGNATURE: Indicates if the hijacking module conforms to a profile of suspicious behavior
 - HIJACKEDMODULE: The name of the hijacked Windows system module
 - HIJACKEDMODULEPATH: The path of the hijacked Windows system module
@@ -162,13 +163,13 @@ This is an example of this type of alert:
 
 ### Masquerading Windows Module Detected
 
-Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators.  This alert indicates that the crash dump contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
+Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators.  This alert indicates the crash dump analysis has detected that the crash dump file contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
 
 - Confirm that the file in question is shipped as part of a legitimate software package
 - Verify the file’s digital signature 
 - Run an anti-virus scan on the file
 
-This alert provides the following additional fields:
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following additional fields:
 
 - DETAILS: Describes whether the modules metadata is valid and whether the module was loaded from a system path.
 - NAME: The name of the masquerading Windows module
@@ -182,10 +183,11 @@ This is an example of this type of alert:
 
 ### Modified System Binary Discovered 
 
-Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system.  This alert indicates that core Windows OS binaries have been modified in memory or on disk. 
+Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system.  This alert indicates the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk. 
 
 Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Azure Security Center checks whether or not the modified module conforms to a suspicious profile.   The result of this check is indicated by the severity of the alert, alert description, and alert remediation steps. 
-This alert provides the following additional fields:
+
+In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following additional fields:
 
 - MODULENAME: Name of the modified system binary 
 - MODULEVERSION: Version of the modified system binary
@@ -199,9 +201,8 @@ This is an example of this type of alert:
 
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
+- [Handling Security Incident in Azure Security Center](security-center-incident.md)
+- [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
