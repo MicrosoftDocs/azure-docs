@@ -160,9 +160,6 @@ This command may take a while to complete, depending on your network connection 
 
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
-
-		
-
 1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
     	$rgName = "<resourceGroup>"
