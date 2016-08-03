@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Overview of Service Fabric | Microsoft Azure"
    description="An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud"
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
+   ms.date="07/06/2016"
    ms.author="mfussell"/>
 
 # Overview of Service Fabric
