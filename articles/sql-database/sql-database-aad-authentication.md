@@ -162,7 +162,7 @@ When using Azure Active Directory with Geo-Replication, the Azure Active Directo
 
 	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
 
-> [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication login. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication login is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
+> [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
 
 To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**, and then click **Save**.
 
@@ -258,6 +258,8 @@ Use this method if you are logged into Windows using your Azure Active Directory
 	![Select AD Integrated Authentication][11]
 
 2. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to.
+	![Select the database name][13]
+
 
 #### Connect using Active Directory password authentication
 
@@ -348,6 +350,15 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 3. Create a certificate on the client computer that will run the application.
 4. Add the certificate as a key for your application.
 
+Sample connection string:
+
+```
+string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
+SqlConnection conn = new SqlConnection(ConnectionString);
+connection.AccessToken = "Your JWT token"
+conn.Open();
+```
+
 For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
 
 ## See also
@@ -373,3 +384,5 @@ For more information, see [SQL Server Security Blog](https://blogs.msdn.microsof
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
+[13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+
