@@ -173,4 +173,4 @@ There is no specific limit on the number of VMs that can be created per lab, but
 Refer to the blog post [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) - written by one of our MVPs - to learn how to obtain logs regarding your failed artifact. 
  
 ### Why isn't my existing virtual network saving properly?  
-One possibility is that your virtual network name contains periods. If so, try removing the periods or replacing them with hyphens, and then try saving you virtual network again.
+One possibility is that your virtual network name contains periods. If so, try removing the periods or replacing them with hyphens, and then try saving the virtual network again.
