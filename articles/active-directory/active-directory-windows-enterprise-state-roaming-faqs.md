@@ -120,7 +120,7 @@ When using both Enterprise State Roaming and UE-V, the following rules apply:
 Enterprise State Roaming is supported on Windows 10 client SKUs, but not on Server SKUs. If a client VM is hosted on a hypervisor machine and you remotely sign in to the virtual machine, your data will roam. If multiple users share the same OS and users remotely sign in to a server for a full desktop experience, roaming might not work. The latter session-based scenario is not officially supported.
 
 
-## What happens when my organization purchases Azure RMS after using roaming for a while?
+## What happens when my organization purchases Azure RMS after using roaming?
 If your organization is already using roaming in Windows 10 with the Azure RMS limited-use free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
 
 ## Known issues
