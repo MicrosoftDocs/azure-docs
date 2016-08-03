@@ -17,12 +17,12 @@
    ms.author="iainfou"/>
 
 # Creating a VM with multiple NICs
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to implement this within your own Bash scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md).
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md).
 
 >[AZURE_WARNING] Attaching multiple NICs must be done when the VM is being created - you cannot add NICs to an existing VM.
 
 ## Quick commands
-Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using resource manager mode (`azure config mode arm`).
+Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode (`azure config mode arm`).
 
 First, create a resource group:
 
@@ -79,9 +79,9 @@ azure vm create \
 ```
 
 ## Creating multiple NICs using Azure CLI
-The quick commands should be pretty familiar if you have previously created a VM using the Azure CLI. The process is the same to create one NIC or multiple NICs. You can read more details about [deploying multiple NICs using the Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
+If you have previously created a VM using the Azure CLI, the quick commands should be familiar. The process is the same to create one NIC or multiple NICs. You can read more details about [deploying multiple NICs using the Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
 
-The following example shows two NICs being created, with one NIC being connected to each subnet:
+The following example creates two NICs, with one NIC connecting to each subnet:
 
 ```bash
 azure network nic create --resource-group TestRG --location WestUS \
@@ -90,14 +90,14 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Typically you would also create a [network security group](../virtual-networks/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, this is the same when working with multiple NICs. The NICs you create are then bound to network security group or load balancer using `azure network nic set`, such as in the following example:
+Typically you would also create a [network security group](../virtual-networks/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The NICs you create will get bound to a network security group or load balancer using `azure network nic set`, such as in the following example:
 
 ```bash
 azure network nic set --resource-group TestRG --name NIC1 \
     --network-security-group-name TestNSG
 ```
 
-When creating the VM, multiple NICs now need to be specified. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care as to the VM size since there are limits for total number of NICs that can be added to VMs. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
+When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size since there are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
 
 ```bash
 azure vm create \            
@@ -114,7 +114,7 @@ azure vm create \
 ```
 
 ## Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates uses declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
 ```bash
 "copy": {
@@ -134,4 +134,4 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 You can read a complete example of [creating multiple NICs using Resource Manager templates](,./virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## Next steps
-Make sure to review [Linux VM sizes](virtual-machines-linux-sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when the VM is deployed. Take care when planning your deployments to make sure you have all the required network connectivity from the outset.
+Make sure to review [Linux VM sizes](virtual-machines-linux-sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
