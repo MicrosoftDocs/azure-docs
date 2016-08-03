@@ -28,9 +28,9 @@ Before starting this tutorial, you must first complete our [15 minutes tutorial]
 
 ### Reporting features
 You can add these features:
-1. [Advanced reporting options](mobile-engagement-windows-advanced-reporting.md)
+1. [Advanced reporting options](mobile-engagement-windows-store-advanced-reporting.md)
 
-2. [Advanced configuration options](mobile-engagement-windows-advanced-configuration.md)
+2. [Advanced configuration options](mobile-engagement-windows-store-advanced-configuration.md)
 
 ### Notifications
 
