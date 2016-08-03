@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="femina"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/03/2016"
 	ms.author="jeedes"/>
 
 
@@ -147,7 +147,7 @@ eTouches application expects the SAML assertions in a specific format. Please co
 
 	![Configure Single Sign-On](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your eTouches application using the following pattern: **https://www.eiseverywhere.com/saml/accounts/?sso&accountid=\<accountid\> **.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your eTouches application using the following pattern: **https://www.eiseverywhere.com/saml/accounts/?sso&accountid=\<accountid\>**.
 	
 	b. click **Next**
  
