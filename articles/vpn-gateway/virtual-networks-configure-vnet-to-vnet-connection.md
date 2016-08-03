@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
+   ms.date="08/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -36,7 +36,6 @@ This article will walk you through the steps to create and connect virtual netwo
 A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
-
 
 ## About VNet-to-VNet connections
 
@@ -101,12 +100,11 @@ The table below shows an example of how to define your VNets. Use the ranges bel
   
 ## Step 2 - Create VNet1
 
-In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address range doesn't overlap with the range for your second VNet or with any of the other VNets that you want to connect to.
+In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with the ranges for your second VNet or with any of the other VNets that you want to connect to.
 
 1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
 
-2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard.
-
+2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard. As you navigate through the wizard, add the specified values listed below to each page.
 
 ### Virtual Network Details
 
@@ -141,8 +139,7 @@ It’s especially important to select a range that does not overlap with any of 
 
 ## Step 3 - Create VNet2
 
-Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address range doesn't overlap with any of the other VNets that you want to connect to.
-
+Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with any of the other VNets that you want to connect to.
 
 ## Step 4 - Add the local network sites
 
@@ -179,7 +176,6 @@ Each VNet must point to the respective local network that you want to route traf
 1. Navigate to the **Configure** page for virtual network **VNet2**. 
 2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
 3. Save your settings.
-
 
 ## Step 5 - Configure a gateway for each VNet
 
@@ -234,7 +230,7 @@ When all of the previous steps have been completed, you’ll set the IPsec/IKE p
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
 
 
 
