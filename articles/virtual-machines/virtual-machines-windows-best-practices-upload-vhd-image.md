@@ -52,7 +52,7 @@ The following are best practices for preparing and uploading the Windows VM to A
 3. Setup the disk SAN policy: `diskpart san policy=onlineall`
 4. Setup the time service:
 
-		REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
+		REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
 
 		 sc config w32time start= auto`
 
@@ -104,7 +104,7 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 	A. Open MMC, add Certificates snap-in, select “Compute Account” certificates, and then select “Local computer”.
 
-	B. Navigate to the Remote Desktop folder -> Certificates, remove the certificates listed in this folder.
+	B. Navigate to the **Remote Desktop** folder -> **Certificates**, remove the certificates listed in this folder.
 
 7. Setup the KeepAlive values on the RDP listener
 
@@ -122,62 +122,82 @@ The following are best practices for preparing and uploading the Windows VM to A
 
 			REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
 
-9. Enable RDP：REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f
+9. Enable RDP：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
 
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public), and enable PowerShell Remote service: Enable-PSRemoting -force
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public), and enable PowerShell Remote service: `Enable-PSRemoting -force`
 
 11. Make sure that the following GuestOS firewall rules are in place:
 
 	- Inbound
 
-	netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+		netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
 	- Inbound and outbound
 
-	netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
-	netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+		netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+
+		netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+
 	- Outbound
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+
+		netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
 12. Make sure that the WMI repository is healthy.
 13. Ensure the BCD settings are the same as below:
 
-	bcdedit /set {bootmgr} device partition=*Boot Partition*
+		bcdedit /set {bootmgr} device partition=*Boot Partition*
 
-	bcdedit /set {bootmgr} integrityservices enable
+		bcdedit /set {bootmgr} integrityservices enable
 
-	bcdedit /set {default} device partition=*OS Partition*
+		bcdedit /set {default} device partition=*OS Partition*
 
-	bcdedit /set {default} integrityservices enable
+		bcdedit /set {default} integrityservices enable
 
-	bcdedit /set {default} recoveryenabled Off
+		bcdedit /set {default} recoveryenabled Off
 
-	bcdedit /set {default} osdevice partition=*OS Partition*
+		bcdedit /set {default} osdevice partition=*OS Partition*
 
-	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+		bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
 14. Remove any extra TDI filters like any software that analyze TCP packets.
-15. Run a CHKDSK /f to ensure the disk is healthy and consistent.
-16.	Uninstall all the other 3rd party (Other than Microsoft Hyper-V) physical or Virtualization software/drivers
+15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
+16.	Uninstall all the other 3rd party (Other than Microsoft Hyper-V) physical or Virtualization software/drivers.
 17. Ensure no 3rd Party application is using/tied to Port 3389.
 18.	Ensure the a VM created from the disk in local Hyper-V is running fine.
 19.	If this is a Domain Controller on-prem, follow the extra steps to prepare the disk as specified here https://support.microsoft.com/en-us/kb/2904015
@@ -186,16 +206,25 @@ The following are best practices for preparing and uploading the Windows VM to A
 22. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 23.	Ideally, the OS patch level should be at the latest however if that is not possible, please ensure the following KBs are installed:
 
-KB Windows Azure VMs don't recover from a network outage and data corruption issues occur
-Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
-MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
+	[KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
 
-Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Windows Azure
-Windows Azure VMs don't recover from a network outage and data corruption issues occur
-Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
-Hotfix increases the 64K limit on RIO buffers per process for Azure service in Windows
-You cannot access virtual machines that are hosted on Azure hosting services through a VPN connection in Windows
-Cross-Premises VPN connectivity is lost when Azure site-to-site VPN tunnels use Windows Server 2012 R2 RRAS
-MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
-MS16-048: Description of the security update for CSRSS: April 12, 2016
-System freezes during disk I/O in Windows
+	Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
+
+	MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
+
+	Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Windows Azure
+
+	Windows Azure VMs don't recover from a network outage and data corruption issues occur
+
+	Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
+
+	Hotfix increases the 64K limit on RIO buffers per process for Azure service in Windows
+
+	You cannot access virtual machines that are hosted on Azure hosting services through a VPN connection in Windows
+
+	Cross-Premises VPN connectivity is lost when Azure site-to-site VPN tunnels use Windows Server 2012 R2 RRAS
+
+	MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
+
+	MS16-048: Description of the security update for CSRSS: April 12, 2016
+	System freezes during disk I/O in Windows
