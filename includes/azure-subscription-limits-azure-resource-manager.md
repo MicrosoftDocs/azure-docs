@@ -13,6 +13,6 @@ Resource Manager API request size|4194304 bytes|4194304 bytes
 
 <sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go,  etc.
 
-<sup>2</sup>Limit can be increased by contacting support.
+<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
 
 <sup>3</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
