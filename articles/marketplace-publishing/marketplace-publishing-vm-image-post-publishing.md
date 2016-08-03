@@ -175,7 +175,7 @@ You can update the support information and re-publish your offer by following th
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.7_07.png)
+    ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
 ### 2.7 Update the categories
 
