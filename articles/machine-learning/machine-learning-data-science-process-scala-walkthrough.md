@@ -70,7 +70,7 @@ You can upload the notebook directly from Github to the Jupyter notebook server 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
 
-## Setup: preset Spark and Hive contexts, Spark magics and libraries
+## Setup: preset contexts, Spark magics and libraries
 
 ### Preset Spark and Hive context
 
@@ -354,7 +354,7 @@ Here is the code to plot the data:
 
 
 
-## Creating features, transforming features, and data prep for input into modeling functions 
+## Creating features and data prep for modeling functions 
 
 For using tree-based modeling functions from Spark ML and MLlib, target and features have to be prepared using a variety of appropriate techniques such as binning, indexing, one hot encoding, and vectorization. Here are the procedures we walk through in this section:
 
@@ -564,7 +564,7 @@ Here is the code for these two tasks.
 	val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 
 
-## Binary classification model: Predict whether a tip is paid or not
+## Binary classification: Predict whether a tip is paid or not
 
 In this section we create three types of binary classification models to predict whether or not a tip is paid:
 
@@ -768,7 +768,7 @@ Here we create a gradient boosting tree classification model using MLlib's `Grad
 Area under ROC curve: 0.9846895479241554
 
 
-## Regression model: Predict tip amount 
+## Regression: Predict tip amount 
 
 In this section we create two types of regression models to predict the tip amount:
 
@@ -1164,4 +1164,9 @@ Time taken to run the above cell: 61 seconds.
 
 The procedure using Scala code to automatically load and score new data-sets with ML models built in Spark and saved in Azure blobs has been provided in the [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic. Users can follow the instructions provided there and simply replace the Python code with Scala code provided above to enable automated consumption.
 
+## What's next
+
+For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess). 
+
+For a description of the other end-to-end walkthroughs, each of which demonstrates the steps in the Team Data Science Process for **specific scenarios** and illustrate how to combine cloud, on-premise tools and services into a workflow or pipeline to create an intelligent application, see [Team Data Science Process walkthroughs](data-science-process-walkthorough.md).
 
