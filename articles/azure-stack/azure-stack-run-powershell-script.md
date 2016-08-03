@@ -64,7 +64,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 12. Verify that the host is not joined to a domain.
 
-13. Verify network connectivity to Azure.com.
+13. Using Internet Explorer, verify network connectivity to Azure.com.
 
 > [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
 >
