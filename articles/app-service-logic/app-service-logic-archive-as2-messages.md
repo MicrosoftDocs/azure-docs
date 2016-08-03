@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Archive AS2 Connector messages | Microsoft Azure App Service" 
    description="How to Archive or Store AS2 Connector messages in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

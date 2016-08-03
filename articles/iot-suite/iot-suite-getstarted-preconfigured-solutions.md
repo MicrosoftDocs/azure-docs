@@ -19,20 +19,6 @@
 
 # Tutorial: Get started with the preconfigured solutions
 
-<!--
-To Do
-
-x Extend intro to include picture of dashboard
-x Update level 2 headings to be more useful in relation to what happens in the intro
-x Tidy the two notes in the intro (some redundant links?)
-x Add more context about what a simulated device is (where it runs etc.)
-x Add more context about what happens when you edit the device metadata (synching etc)
-x Add link to Logic App tutorial in Rules section
-x Delete from not on?
-- Overall review of next steps in all Suite articles
-
--->
-
 ## Introduction
 
 Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. This enables you to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
@@ -105,7 +91,7 @@ The solution tracks the status of each command it sends. Initially the result is
 
 ## Add a new simulated device
 
-When you deploy the preconfigured solution, you automatically provision the four sample devices you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution see the [Connect your device to the remote monitoring preconfigured solution][lnk-connecting-devices] tutorial.
+When you deploy the preconfigured solution, you automatically provision the four sample devices you can see in the device list. These devices are *simulated devices* running in an Azure WebJob. Simulated devices make it easy for you to experiment with the preconfigured solution without the need to deploy real, physical devices. If you do want to connect a real device to the solution see the [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm] tutorial.
 
 The following steps show you how to add a new simulated device to the solution:
 
@@ -119,7 +105,7 @@ The following steps show you how to add a new simulated device to the solution:
 
     ![Set new device details in dashboard][img-addnew]
     
-    In addition to creating a new simulated device, you can also add a physical device if you choose to create a **Custom Device**. To learn more about this, see [Connect your device to the IoT Suite remote monitoring preconfigured solution][lnk-connecting-devices].
+    In addition to creating a new simulated device, you can also add a physical device if you choose to create a **Custom Device**. To learn more about this, see [Connect your device to the IoT Suite remote monitoring preconfigured solution][lnk-connect-rm].
 
 4.  Select **Let me define my own Device ID**, and enter a unique device ID name such as **mydevice_01**.
 
@@ -221,10 +207,11 @@ When you are done, you can delete the preconfigured solution from your Azure sub
 
 ## Next Steps
 
-Now that you’ve built a working preconfigured solution, you can move on to the following walkthroughs:
+Now that you’ve deployed a working preconfigured solution, you can continue getting started with IoT Suite by reading the following articles:
 
--   [Guidance on customizing preconfigured solutions][lnk-customize]
--   [Predictive maintenance preconfigured solution overview][lnk-predictive]
+- [Remote monitoring preconfigured solution walkthrough][lnk-rm-walkthrough]
+- [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
+- [Permissions on the azureiotsuite.com site][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -253,11 +240,11 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md

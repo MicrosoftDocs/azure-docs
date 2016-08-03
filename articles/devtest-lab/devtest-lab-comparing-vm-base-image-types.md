@@ -49,3 +49,8 @@ Formulas provide a dynamic way to create VMs from the desired configuration/sett
 
 **Cons**
 - Creating a VM from a formula can take more time than creating a VM from a custom image.
+
+## Related blog posts
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+

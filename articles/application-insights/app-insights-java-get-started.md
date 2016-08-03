@@ -162,6 +162,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
 * Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* The Application Insight key can be passed dynamically from Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure Appsetting. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This helps in managing different InstrumentationKey for different environment dynamically.
 
 ### Alternative ways to set the instrumentation key
 

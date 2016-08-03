@@ -26,7 +26,7 @@ Job collections are the billable entity in Azure Scheduler. Job collections cont
 |**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 |**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
 |**P10 Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P10 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
-|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 500 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
 
 ## Upgrades and Downgrades of Job Collection Plans
 
@@ -49,13 +49,19 @@ A standard billable unit can include up to 10 standard job collections. Since a 
 
 If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit. If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units. If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.
 
-## Premium Billable Units
+## P10 Premium Billable Units
 
-A premium billable unit can include up to 10,000 premium job collections. Since a premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.
+A P10 premium billable unit can include up to 10,000 P10 premium job collections. Since a P10 premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.
 
-If you have between 1 and 10,000 premium job collections, you'll be billed for 1 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 premium billing units, and so on.
+If you have between 1 and 10,000 premium job collections, you'll be billed for 1 P10 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 P10 premium billing units, and so on.
 
-Thus, premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
+Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
+
+## P20 Premium Billable Units
+
+A P20 premium billable unit can include up to 5,000 P20 premium job collections. Since a P20 premium job collection can have up to 1,000 jobs per job collection, one premium billing unit allows a subscription to have up to 5,000,000 jobs – up to almost 220 billion job executions per month.
+
+P20 premium job collections provides the same capabilities as P10 premium job collections but also supports a greater number jobs per job collection and a greater total number of jobs overall than P10 premium allowing you to have more scalability.
 
 ## Billing and Active Status
 

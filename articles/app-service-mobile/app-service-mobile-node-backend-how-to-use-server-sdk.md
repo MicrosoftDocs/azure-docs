@@ -137,7 +137,7 @@ When you create a new Node.js Mobile App backend by using the portal **Quick sta
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system specific distributions and installation guidance.
 
-2. Follow the steps in [Enable the web app repository](../app-service-web/web-sites-publish-source-control.md#Step4) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service-web/web-sites-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 

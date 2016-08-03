@@ -4,7 +4,7 @@
 	keywords="database options,database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -57,6 +57,30 @@ Each database within a pool also adheres to the single-database characteristics 
 ## Understanding DTUs
 
 [AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
+
+## Choosing a service tier
+
+To decide on a service tier, start by determining whether the database will be a standalone database or will be part of an elastic pool. 
+
+### Choosing a service tier for a standalone database
+
+To decide on a service tier for a standalone database, start by determining the database features that you need in order to choose your SQL Database edition:
+
+- Database size (5 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
+- Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
+
+Once you have determined the SQL Database edition, you are ready to determine the performance level for the database (the number of DTUs). You can guess and then [scale up or down dynamically](sql-database-scale-up.md) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
+
+### Choosing a service tier for an elastic database pool.
+
+To decide on the service tier for an elastic database pool, start by determining the database features that you need in order to choose the service tier for your pool.
+
+- Database size (2 GB for Basic, 250 GB for Standard, and 500 GB for Premium)
+- Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
+- Number of databases per pool (400 for Basic, 400 for Standard, and 50 for Premium)
+- Maximum storage per pool (117 GB for Basic, 1200 for Standard, and 750 for Premium)
+
+Once you have determined the service tier for your pool, you are ready to determine the performance level for the pool (eDTUs). You can guess and then [scale up or scale down dynamically](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed for an individual database within the pool to help you set the upper limit for the pool.
 
 ## Next steps
 - Find out more about the pricing for these tiers on [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).

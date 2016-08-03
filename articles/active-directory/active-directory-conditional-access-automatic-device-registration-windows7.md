@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa
+	manager="swadhwa"
 	editor=""/>
 
 <tags

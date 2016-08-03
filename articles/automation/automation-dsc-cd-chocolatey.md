@@ -63,7 +63,7 @@ At an authenticated (Add-AzureRmAccount) PowerShell command line:  (can take a f
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
-You can put your automation account into any of the following regions (aka location):  Japan East, East US 2, West Europe, Southeast Asia, South Central US.
+You can put your automation account into any of the following regions (aka location):  East US 2, South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and Australia Southeast.
 
 ## Step 2: VM extension tweaks to the ARM template
 

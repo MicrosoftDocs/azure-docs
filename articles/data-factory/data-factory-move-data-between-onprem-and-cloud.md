@@ -113,9 +113,9 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 
 	You can also do the following in the **Diagnostics** tab: 
 	
-		- Use *Test Connection** section to an on-premises data source using the gateway.
-		- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
-		- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
+	- Use **Test Connection** section to an on-premises data source using the gateway.
+	- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
+	- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
 10. In the Azure Portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
 6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click on it, you should see the associated JSON. 
 	

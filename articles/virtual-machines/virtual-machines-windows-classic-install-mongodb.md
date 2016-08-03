@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/20/2016"
 	ms.author="iainfou"/>
 
 #Install MongoDB on a Windows VM

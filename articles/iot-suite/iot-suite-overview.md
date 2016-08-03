@@ -53,14 +53,7 @@ IoT Suite includes preconfigured solutions that enable you to quickly get starte
 
 ## Next steps
 
-Now that you have an overview of what IoT Suite can do and what are its main components, you can:
-
-- Learn more about the preconfigured solutions in IoT Suite, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
-
-- Get started using one of the preconfigured solutions, see [Getting started with the IoT preconfigured solutions][lnk-preconfig-start].
-
-- Learn more about the Azure IoT Hub service, see the [IoT Hub documentation][lnk-iot-hub].
-
+Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,5 +64,3 @@ Now that you have an overview of what IoT Suite can do and what are its main com
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/

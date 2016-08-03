@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
