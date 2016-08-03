@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="08/02/2016"
 	ms.author="cynthn"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
 
 
 This article shows you how to create and upload a Windows virtual hard disk (VHD) image so you can quickly create VMs. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-
 
 
 ## Prerequisites
@@ -193,7 +192,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 		
 
-### Create the VM
+## Create the VM
 
 The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
 
