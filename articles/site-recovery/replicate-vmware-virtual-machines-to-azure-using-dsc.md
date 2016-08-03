@@ -18,7 +18,6 @@
 
 # Replicate VMware VMs to Azure using Site Recovery with Azure Automation DSC
 
-## Overview
 In OMS, we provide you with a comprehensive Backup & Disaster Recovery solution that can be leveraged as part of your business continuity plan.
 
 We started this journey together with Hyper-V using Hyper-V Replica, but have expanded to support a heterogeneous setup as we are well aware that customers have multiple hypervisors and platforms in their clouds.
@@ -483,13 +482,17 @@ In this article, we have so far been focusing on how you can create your own DSC
 Once deployed, you can simply refer to Step 4 in this guide to onboard your machines.
 
 The template will do the following:
-- Use an existing or create a new OMS Automation account
-- Take input parameters for your:
-    - ASRRemoteFile – the location where you have stored the Mobility Service setup
-    - ASRPassphrase – the location where you have stored the passphrase.txt file
-    - ASRCSEndpoint – the IP address of your Management server
-- Import xPSDesiredStateConfiguration PowerShell module
-- Create and compile the DSC configuration
+
+· Use an existing or create a new OMS Automation account
+
+· Take input parameters for your:
+
+	· ASRRemoteFile – the location where you have stored the Mobility Service setup
+	· ASRPassphrase – the location where you have stored the passphrase.txt file
+	· ASRCSEndpoint – the IP address of your Management server
+	· Import xPSDesiredStateConfiguration PowerShell module
+	· Create and compile the DSC configuration
+
 
 All the above steps will be taken in the right order, so that you easily get started by onboarding your machines for protection.
 
