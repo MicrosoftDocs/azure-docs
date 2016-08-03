@@ -206,25 +206,25 @@ The following are best practices for preparing and uploading the Windows VM to A
 22. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 23.	Ideally, the OS patch level should be at the latest however if that is not possible, please ensure the following KBs are installed:
 
-	[KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
+	- [KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
 
-	Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
+	- [KB3115224](https://support.microsoft.com/kb/3115224) Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
 
-	MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
+	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 
-	Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Windows Azure
+	- [KB3063075](https://support.microsoft.com/kb/3063075) Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Windows Azure
 
-	Windows Azure VMs don't recover from a network outage and data corruption issues occur
+	- [KB3137061](https://support.microsoft.com/kb/3137061) Windows Azure VMs don't recover from a network outage and data corruption issues occur
 
-	Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
+	- [KB3114025](https://support.microsoft.com/kb/3114025) Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
 
-	Hotfix increases the 64K limit on RIO buffers per process for Azure service in Windows
+	- [KB3033930](https://support.microsoft.com/kb/3033930) Hotfix increases the 64K limit on RIO buffers per process for Azure service in Windows
 
-	You cannot access virtual machines that are hosted on Azure hosting services through a VPN connection in Windows
+	- [KB3004545](https://support.microsoft.com/kb/3004545) You cannot access virtual machines that are hosted on Azure hosting services through a VPN connection in Windows
 
-	Cross-Premises VPN connectivity is lost when Azure site-to-site VPN tunnels use Windows Server 2012 R2 RRAS
+	- [KB3082343](https://support.microsoft.com/kb/3082343) Cross-Premises VPN connectivity is lost when Azure site-to-site VPN tunnels use Windows Server 2012 R2 RRAS
 
-	MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
+	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 
-	MS16-048: Description of the security update for CSRSS: April 12, 2016
+	- [KB3148528](https://support.microsoft.com/kb/3148528) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	System freezes during disk I/O in Windows
