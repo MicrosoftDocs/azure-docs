@@ -24,10 +24,10 @@ To deliver predictable performance at scale SQL Data Warehouse allows users to c
 
 SQL Data Warehouse allows up to 1,024 concurrent connections.  All 1,024 connections can submit queries concurrently.  However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant.  Queuing occurs at query execution time.  By queuing queries when concurrency limits are reached, SQL Data Warehouse is able to increase total throughput by ensuring that active queries get access to critically needed memory resources.  
 
-Concurrency limits are governed by two concepts, **concurrent queries** and **concurrency slots**.  For a query to execute, it must execute under both the query concurrency limit and within the concurrency slot allocation.
+Concurrency limits are governed by two concepts, **concurrent queries** and **concurrency slots**.  For a query to execute, it must execute within both the query concurrency limit and the concurrency slot allocation.
 
-- **Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 **concurrent queries** on the larger DW sizes, DW1000 and above.  However, since the number of concurrent queries varies by the number of DWUs, we have provided a table below to show the limitations by DWU.
-- **Concurrency slots** is a more dynamic concept.  Each query can consume one or more concurrency slots. The exact number of slots a query consumes depends on the size of your SQL Data Warehouse and the [resource class](#resource-classes) of the query.
+- **Concurrent queries** are simply the number of queries executing at the same time. SQL Data Warehouse supports up to 32 concurrent queries.
+- **Concurrency slots** are allocated based on DWU.  Each 100 DWU, provides 4 concurrency slots.  For example a DW100 allocates 4 concurrency slots and and DW1000 allocated 40.  Each query consumes one or more concurrency slots, dependant on the [resource class](#resource-classes) of the query.  Queries running in the smallrc resource class consume one concurrency slot.  Queries running in a higher resource class will consume more concurrency slots.
 
 The below table describes the limits for both concurrent queries and concurrency slots at the various DWU sizes.
 
@@ -48,7 +48,7 @@ The below table describes the limits for both concurrent queries and concurrency
 | DW3000 |           32            |              120            |
 | DW6000 |           32            |              240            |
 
-When one of these thresholds are met, new queries are queued.  Queued queries are executed in on a first in first out basis as other queries complete and the number of queries and slots fall below the limits.  
+When one of these thresholds are met, new queries are queued. Queued queries are executed in on a first in first out basis as other queries complete and the number of queries and slots fall below the limits.  
 
 > [AZURE.NOTE]  SELECT queries executing exclusively on dynamic management views (DMVs) or catalog views are **not** governed by any of the concurrency limits.  This allows users to monitor the system regardless of the number of the number of queries executing on the system.
 
@@ -76,9 +76,9 @@ For a detailed example, see [Changing user resource class example](#changing-use
 
 ## Memory allocation
 
-There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, higher resource classes also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries to run concurrently, which also need memory allocations. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
+There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, higher resource classes also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries, which also need memory allocations, to run concurrently. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
 
-The following table maps the memory allocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions per database.  For example, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB within each of the 60 distributed databases.
+The following table maps the memory allocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions.  For example, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.
 
 ### Memory allocations per distribution (MB)
 
