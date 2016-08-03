@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/02/2016"
 	ms.author="kgremban"/>
 
 # Azure AD and applications: Develop line of business apps
@@ -22,7 +22,7 @@ This guide provides an overview of developing line of business (LoB) application
 
 ## Overview
 
-Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy set for the application. To learn more about conditional access and how to protect apps with multi-factor authentication (MFA) see the following document: [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about conditional access and how to protect apps with multi-factor authentication (MFA) see the following document: [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
 
 Your application needs to be registered in order to use Azure Active Directory. Registering the application allows developers in your organization to authenticate the members of your organization using Azure AD and request access to their user resources such as email, calendar, documents, etc.
 
@@ -38,12 +38,9 @@ Registering an application allows any user to do the following:
   - Azure Active Directory as oAuth authorization server (secure an API exposed by the application)
 
 - Declare required permissions necessary for the application to function as expected, including:
-	  - App permissions (global administrators only). For example:
-	    - Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
-	  - Delegated permissions (any user). For example:
-	    - (Azure AD) Sign-in and Read Profile
-	    - (Exchange) Read Mail, Send Mail
-	    - (SharePoint) Read
+	  - App permissions (global administrators only). For example: Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
+	  - Delegated permissions (any user). For example: Azure AD, Sign-in and Read Profile
+
 
 > [AZURE.NOTE]By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, please refer to the document [How applications are added to Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
