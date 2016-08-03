@@ -108,7 +108,7 @@ We need to log the source (request) of the Patient record from the Dynamics CRM 
 #### Insert error entry designer view
 ![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### Condition--check for create record failure
+#### Check for create record failure
 
 ![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
@@ -120,7 +120,7 @@ We need to log the source (request) of the Patient record from the Dynamics CRM 
 ### Logging
 The following logic app code sample shows how to handle logging.
 
-#### Insert log entry
+#### Log entry
 This is the logic app source code for inserting a log entry.
 
 ``` json
