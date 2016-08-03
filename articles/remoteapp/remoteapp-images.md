@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # What is in the Azure RemoteApp template images?
@@ -61,7 +61,7 @@ This image is an extension of the vanilla image and has the following components
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +94,7 @@ This image is an extension of the vanilla image and has the following components
 - Excel
 - Lync
 - OneNote
-- OneDrive for Business
+- OneDrive for Business (note that the sync agent is not supported for use with Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
