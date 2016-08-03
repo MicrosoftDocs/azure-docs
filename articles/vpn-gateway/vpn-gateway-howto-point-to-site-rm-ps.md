@@ -123,7 +123,7 @@ We'll use the following values for this configuration:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Add a trusted certificate to Azure. You can add up to 20 certificates. For instructions to create a self-signed root certificate using *makecert*, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). When you add a Base64-encoded X.509 (.cer) file to Azure, you are are in effect, telling Azure to trust the root certificate that the file represents.
+10. Add a trusted certificate to Azure. You can add up to 20 certificates. For instructions to create a self-signed root certificate using *makecert*, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents.
 
 	To get the public key, export the certificate as a Base64-encoded X.509 (.CER) file. Make note of the file path where you exported to .cer file. Below is a sample of obtaining the Base64 string representation of your certificate. You'll need to use your own .cer file path for this step.
     
@@ -180,7 +180,7 @@ Each client that connects to Azure by using Point-to-Site must have two things: 
 
 ## To add or remove a trusted root certificate
 
-Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps will walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are are in effect, telling Azure to trust the root certificate that the file represents.
+Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps will walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents.
 
 ### Add a trusted root certificate
 
@@ -204,7 +204,7 @@ You can add up to 20 trusted root certificates to Azure. Follow the steps below 
 
 You can remove trusted root certificate from Azure. When you remove a trusted certificate, client certificates that were generated from the certificate will no longer be able to connect to Azure via Point-to-Site until they install a client certificate that is generated from a certificate that is trusted in Azure.
 
-1. Remove a trusted root certificate.
+1. To remove a trusted root certificate, modify the sample below.
 
 		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
