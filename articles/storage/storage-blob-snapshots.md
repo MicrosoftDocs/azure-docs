@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Create a blob snapshot
@@ -26,9 +26,45 @@ A snapshot of a blob has the same name as the base blob from which the snapshot 
 
 A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted. Note that a snapshot cannot outlive its source blob. You can enumerate the snapshots associated with your blob to track your current snapshots.
 
-When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values.
+When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values. The base blob's metadata is also copied to the snapshot, unless you specify separate metadata for the snapshot when you create it.
 
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
+
+## Create a snapshot
+
+The following code example shows how to create a snapshot in .NET. This example specifies separate metadata for the snapshot when it is created.
+
+    private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+    {
+        // Create a new block blob in the container.
+        CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+
+        // Add blob metadata.
+        baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+
+        try
+        {
+            // Upload the blob to create it, with its metadata.
+            await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
+
+            // Sleep 5 seconds.
+            System.Threading.Thread.Sleep(5000);
+
+            // Create a snapshot of the base blob.
+            // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+            // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+            Dictionary<string, string> metadata = new Dictionary<string, string>();
+            metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
+            await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+            throw;
+        }
+    }
+ 
 
 ## Copy snapshots
 
@@ -50,7 +86,12 @@ You can specify an access condition so that the snapshot is created only if a co
 
 A blob that has snapshots cannot be deleted unless the snapshots are also deleted. You can delete a snapshot individually, or tell the storage service to delete all snapshots when deleting the source blob. If you attempt to delete a blob that still has snapshots, you'll get an error.
 
+The following code example shows how to delete a blob and its snapshots in .NET, where `blockBlob` is a variable of type **CloudBlockBlob**:
+
+	await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+
 ## Snapshots with Azure Premium Storage
+
 Using snapshots with Premium Storage follow these rules:
 
 - The number of snapshots per page blob in a premium storage account is limited to 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (**SnapshotCountExceeded**).
@@ -82,8 +123,6 @@ This C# code example creates a new snapshot and writes out the absolute URI for 
     //Create a snapshot of the blob and write out its primary URI.
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
-
-
 
 ## Understand how snapshots accrue charges
 
@@ -128,3 +167,7 @@ In scenario 3, the base blob has been updated, but the snapshot has not. Block 3
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks. This scenario can occur if you are using an update method such as **UploadFile**, **UploadText**, **UploadFromStream**, or **UploadByteArray**, because these methods replace all of the contents of a blob.
 
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
+
+## Next steps
+
+For additional examples using Blob storage, see [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). You can download a sample application and run it, or browse the code on GitHub. 
