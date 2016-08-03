@@ -47,7 +47,7 @@ For any device failover, keep in mind the following:
 - The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
 - The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
 - Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
-- When performing a failover between devices following a DR, there are two considerations for selecting the snapshots used to recover the data: 
+- When performing a failover between devices following a DR, the snapshots used to recover the data are selected as follows:
 	1.  	Identify the backup policy with the largest number of volumes. 
 	2.  	Pick the latest good known cloud snapshot for that backup policy and use that to restore the data on the recovery device. 
 
