@@ -1168,5 +1168,5 @@ The procedure using Scala code to automatically load and score new data-sets wit
 
 For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess). 
 
-For a description of the other end-to-end walkthroughs, each of which demonstrates the steps in the Team Data Science Process for **specific scenarios** and illustrate how to combine cloud, on-premise tools and services into a workflow or pipeline to create an intelligent application, see [Team Data Science Process walkthroughs](data-science-process-walkthorough.md).
+For a description of the other end-to-end walkthroughs, each of which demonstrates the steps in the Team Data Science Process for **specific scenarios** and illustrate how to combine cloud, on-premise tools and services into a workflow or pipeline to create an intelligent application, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md).
 
