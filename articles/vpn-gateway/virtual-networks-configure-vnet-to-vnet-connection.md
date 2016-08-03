@@ -169,13 +169,19 @@ Repeat the steps you took to [add a local network](#localnet) to create local ne
 
 ### Configure each VNet to point to a local network
 
-Each VNet must point to the respective local network that you want to route traffic to.
+Each VNet must point to the respective local network that you want to route traffic to. 
 
-1. Navigate to the **Configure** page for virtual network **VNet1**. Under site-to-site connectivity, select "Connect to the local network", and then select **VNet2Local** as the local network from the dropdown. Save your settings.
+#### For VNet1
 
-2. Next, go to the **Configure** page for virtual network **VNet2**. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. Save your settings.
+1. Navigate to the **Configure** page for virtual network **VNet1**. 
+2. Under site-to-site connectivity, select "Connect to the local network", and then select **VNet2Local** as the local network from the dropdown. 
+3. Save your settings.
 
- 	 ![Connect to local network](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)  
+#### For VNet2
+1. Navigate to the **Configure** page for virtual network **VNet2**. 
+2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
+3. Save your settings.
+
 
 ## Step 5 - Configure a gateway for each VNet
 
