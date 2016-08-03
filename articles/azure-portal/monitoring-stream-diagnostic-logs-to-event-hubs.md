@@ -18,7 +18,7 @@ documentationCenter=""/>
 
 # Stream Azure Diagnostic Logs to Event Hubs
 
-**[Azure Diagnostic Logs](monitoring-and-diagnostics-overview-of-diagnostic-logs.md)** can be streamed in near real-time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Service Bus Rule Id in a Diagnostic Setting via the Azure PowerShell Cmdlets or Azure CLI.
+**[Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real-time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Service Bus Rule Id in a Diagnostic Setting via the Azure PowerShell Cmdlets or Azure CLI.
 
 ## What You Can Do with Diagnostics Logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
@@ -42,10 +42,10 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 ##Enable Streaming of Diagnostic Logs
 You can enable streaming of Diagnostic Logs programmatically, via the portal, or using the [Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931943.aspx). Either way, you will pick a Service Bus Namespace and an Event Hubs will be created in the namespace for each log category you enable. A Diagnostic **Log Category** is a type of log that a resource may collect. You can select which log categories you’d like to collect for a particular resource in the Azure Portal under the Diagnostics blade.
 
-![Log categories in the Portal](./media/monitoring-and-diagnostics-stream-diagnostic-logs-to-event-hubs/log-categories.png)
+![Log categories in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
 ### Via PowerShell Cmdlets
-To enable streaming via the [Azure PowerShell Cmdlets](../azure-portal/insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
     Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 The Service Bus Rule ID will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
@@ -53,7 +53,7 @@ The Service Bus Rule ID will be a string with this format: `{service bus resourc
 
 
 ### Via Azure CLI
-To enable streaming via the [Azure CLI](../azure-portal/insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
+To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
     azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 
 > [AZURE.TIP] Note: This option will become available in the next Azure CLI update.
@@ -63,7 +63,7 @@ You should use the same format for Service Bus Rule ID as explained for the Powe
 ###Via Azure Portal
 To enable streaming via the Azure Portal, navigate to the diagnostics settings of a resource and select ‘Export to Event Hub.’
 
-![Export to Event Hubs in the Portal](./media/monitoring-and-diagnostics-stream-diagnostic-logs-to-event-hubs/portal-export.png)
+![Export to Event Hubs in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
 In order to configure it, select an existing Service Bus Namespace. The namespace selected will be where the Event Hubs is created (if this is your first time streaming diagnostic logs) or streamed to (if there are already resources that are streaming that log category to this namespace), and the policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires Manage, Read, and Send permissions. You can create or modify Service Bus Namespace shared access policies in the classic portal under the “Configure” tab for your Service Bus Namespace. To update one of these Diagnostic Settings, the client must have the ListKey permission on the Service Bus Authorization Rule.
 
@@ -143,4 +143,4 @@ Here is sample output data from the Event Hubs:
 |properties    | Properties of the event.                               |
 
 
-You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-and-diagnostics-supported-services.md).
+You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-diagnostic-logs-supported-services.md).

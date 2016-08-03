@@ -17,13 +17,13 @@ documentationCenter=""/>
 	ms.author="johnkem"/>
 
 # Overview of Azure Diagnostic Logs
-**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs vary by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from [Audit Logs](../resource-group-audit.md), which provide insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. [This list of Supported Services](monitoring-and-diagnostics-diagnostic-logs-supported-services.md) shows which resource types support the new Diagnostic Logs.
+**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs vary by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from [Audit Logs](../resource-group-audit.md), which provide insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. [This list of Supported Services](monitoring-diagnostic-logs-supported-services.md) shows which resource types support the new Diagnostic Logs.
 
 ## What You Can Do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
 
 - Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
-- [Stream them to **Event Hubs**](monitoring-and-diagnostics-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a 3rd party service or custom analytics solution such as PowerBI.
+- [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a 3rd party service or custom analytics solution such as PowerBI.
 
 ## Diagnostic Settings
 Diagnostic Logs are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
@@ -44,14 +44,14 @@ You can enable Diagnostic Logs in the Azure Portal when you create some resource
 
 1.	Go to **New** and choose the resource you are interested in.
 2.	After configuring the basic settings and selecting a size, in the **Settings** blade, under **Monitoring**, select **Enabled** and choose a storage account where you would like to store the Diagnostic Logs. You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.
-![Enable Diagnostic Logs during resource creation](./media/monitoring-and-diagnostics-overview-of-diagnostic-logs/enable-portal-new.png)
+![Enable Diagnostic Logs during resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Click **OK** and create the resource.
 
 To enable Diagnostic Logs in the Azure Portal after a resource has been created, do the following:
 
 1.	Go to the blade for the resource and open the **Diagnostics** blade.
 2.	Click **On** and pick a Storage Account and/or Event Hub.
-![Enable Diagnostic Logs after resource creation](./media/monitoring-and-diagnostics-overview-of-diagnostic-logs/enable-portal-existing.png)
+![Enable Diagnostic Logs after resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	Under **Logs**, select which **Log Categories** you would like to collect or stream.
 4.	Click **Save**.
 
@@ -89,11 +89,11 @@ To change Diagnostic Settings using the Insights REST API, see [this document](h
 ## Schema for Diagnostic Logs
 The schema for Diagnostic Logs varies depending on the resource and log category. Below are the schemas for some popular resources.
 
-| Service                       | Schema & Docs                                                                                   |
-|-------------------------------|-------------------------------------------------------------------------------------------------|
-|    Software Load Balancer     |    https://azure.microsoft.com/en-us/documentation/articles/load-balancer-monitor-log/          |
-|    Network Security Groups    |    https://azure.microsoft.com/en-us/documentation/articles/virtual-network-nsg-manage-log/     |
-|    Application Gateways       |    https://azure.microsoft.com/en-us/documentation/articles/application-gateway-diagnostics/    |
-|    Key Vault                  |    https://azure.microsoft.com/en-us/documentation/articles/key-vault-logging/                  |
-|    Azure Search               |    https://azure.microsoft.com/en-us/documentation/articles/search-traffic-analytics/           |
-
+| Service                       | Schema & Docs                                                                                                   |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------|
+|    Software Load Balancer     |    [Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md)             |
+|    Network Security Groups    |    [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)     |
+|    Application Gateways       |    [Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md)     |
+|    Key Vault                  |    [Azure Key Vault Logging](../key-vault/key-vault-logging.md)                                                 |
+|    Azure Search               |    [Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md)                         |
+|    Data Lake Store            |    [Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
