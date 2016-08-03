@@ -227,7 +227,16 @@ In this section, you will modify the app so that it does not sync on app start, 
             if (completion != nil) {
                 dispatch_async(dispatch_get_main_queue(), completion);
             }
-            
+
+**Swift**:
+
+1. In `viewDidLoad` in **ToDoTableViewController.swift**, comment out these two lines:
+
+		// self.refreshControl?.beginRefreshing()
+		// self.onRefresh(self.refreshControl)
+
+As a result, we'll no longer sync on app start.
+
 ## <a name="test-app"></a>Test the app
 
 In this section, you will connect to an invalid URL to simulate an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile backend.
@@ -251,7 +260,7 @@ In this section, you will connect to an invalid URL to simulate an offline scena
 
     Verify that the new items have *not* been synced to the server:
 
-4. Change the URL back to the correct on in **QSTodoService.m** and rerun the app. Perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
+4. Change the URL back to the correct on in **QSTodoService.m** and rerun the app. Perform the refresh gesture by pulling down the list of items. You will see a progress spinner.
 
 5. View the TodoItem data again. The new and changed TodoItems should now appear.
 
@@ -263,21 +272,7 @@ When using a Core Data local store, you must define several tables with the [cor
 
 The normal CRUD operations for Azure Mobile Apps work as if the app is still connected but all the operations occur against the local store.
 
-When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion` methods.
-
-*  To push changes to the server, we called `pushWithCompletion`. This method is a member of `MSSyncContext` instead of the sync table because it will push changes across all tables.
-
-    Only records that have been modified in some way locally (through CUD operations) will be sent to the server.
-
-* To pull data from a table on the server to the app, we called `MSSyncTable.pullWithQuery`.
-
-    A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent.
-
-    Note that `pullWithQuery` can by used to filter the data that is stored on the client, by customizing the `query` parameter.
-
-* To enable incremental sync, pass a query ID to `pullWithQuery`. The query ID is used to store the last updated timestamp from the results of the last pull operation. The query ID should be a descriptive string that is unique for each logical query in your app. If the query has a parameter, then the same parameter value has to be part of the query ID.
-
-    If you want to opt out of incremental sync, pass `nil` as the query ID. In this case, all records will be retrieved on every call to `pullWithQuery`, which is potentially inefficient.
+When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery`method.
 
 
 ## Additional Resources
