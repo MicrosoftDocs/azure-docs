@@ -128,7 +128,7 @@ On the DNS Servers and VPN Connectivity page, enter the following information, a
 
 On the Virtual Network Address Spaces page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. 
 
-It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+If you are creating a VNet that will also have a connection to your on-premises network, it's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. In that case, you'll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
@@ -139,7 +139,7 @@ It’s especially important to select a range that does not overlap with any of 
 
 ## Step 3 - Create VNet2
 
-Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with any of the other VNets that you want to connect to.
+Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with any of the other VNets that you want to connect to.
 
 ## Step 4 - Add the local network sites
 
