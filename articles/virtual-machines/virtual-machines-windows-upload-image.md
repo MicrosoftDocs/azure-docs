@@ -14,30 +14,29 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="cynthn"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
 
 
-This article shows you how to upload a virtual hard disk (VHD) with a Windows operating system so that you can use it to create new Windows virtual machines (VMs) by using the Azure Resource Manager deployment model. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-
+This article shows you how to create and upload a Windows virtual hard disk (VHD) image so you can quickly create VMs. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 
 ## Prerequisites
 
 This article assumes that you have:
 
-- **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) and [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F), or [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 - **Azure PowerShell version 1.4 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). To know which Windows operating systems are supported by Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
+- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
 
-## Make sure that the VM has the right file format
+## Make sure that the VM is in the right file format
 
-Azure can accept images only for [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are saved in the VHD file format. The VHD size must be fixed and a whole number of megabytes, i.e. a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
+In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. The VHD must be a fixed size and be a whole number of megabytes, that is, a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
 
 - If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
 
@@ -50,7 +49,7 @@ Azure can accept images only for [generation 1 virtual machines](http://blogs.te
 
 ## Prepare the VHD for upload
 
-This section shows you how to generalize your Windows virtual machine. This removes all your personal account information, among other things. You will typically want to do this when you want to use this VM image to quickly deploy similar virtual machines. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+This section shows you how to generalize your Windows virtual machine. Sysprep removes all your personal account information, among other things. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 1. Sign in to the Windows virtual machine.
 
@@ -67,105 +66,79 @@ This section shows you how to generalize your Windows virtual machine. This remo
 	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
 </br>
-<a id="createstorage"></a>
-## Create or find an Azure storage account
-
-You will need a storage account in Azure to upload the VM image. You can either use an existing storage account or create a new one. You can use either the Azure portal or PowerShell to do this.
-
-### To create or find an Azure storage account by using the Azure portal
-
-1. Sign in to the [portal](https://portal.azure.com).
-
-2. Click **Browse** > **Storage accounts**.
-
-3. Check to see if a storage account exists that you want to use for uploading this image. Note the name of this storage account. You can proceed to the [Upload the VM image](#uploadvm) section if you are using an existing storage account.
-
-4. If you want to create a new storage account, click **Add** and enter the following information:
-
-	1. Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL that you will use to access blobs, files, and other resources from the storage account.
-	
-	2. Select *Resource Manager* as the **Deployment model**. 
-
-	3. Select the appropriate **Account kind**, **Performance**, and **Replication** values. You can hower over the information icons to know more about these values.
-
-	4. Select either *+ New* for the **Resource Group** or an existing one. Enter the name of the new resource group if you want to create a new one.
-
-	5. Choose the **Location** for the storage account and click **Create**. The account now appears under the **Storage accounts** panel.
-
-		![Enter storage account details](./media/virtual-machines-windows-upload-image/portal_create_storage_account.png)
-
-	6. This step and the next steps show you how to create a blob container in this storage account. This is optional because you can also use the PowerShell command that uploads the image to create a new blob container for your image. If you don't want to create it yourself, proceed to the [Upload the VM image](#uploadvm) section. Otherwise, click **Blobs** in the **Services** tile.
-
-		![Blob service](./media/virtual-machines-windows-upload-image/portal_create_blob.png)
-
-	7. When the Blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
-
-		![Create new blob](./media/virtual-machines-windows-upload-image/portal_create_container.png)
-
-  		> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read permission to the blobs in the container, but not to the container properties and metadata, use the **Blob** option. To allow full public read permission for the container and blobs, use the **Container** option.
-
-	8. The **Blob service** panel will list the new blob container. Note the URL of this container--you will need this for the PowerShell command to upload the image. Depending on the length of the URL and your screen resolution, the URL might get partly hidden. If that happens, maximize the panel by clicking the **Maximize** icon in the upper-right corner.
 
 
-### To create or find an Azure storage account by using PowerShell
+## Log in to Azure
 
 1. Open Azure PowerShell and sign in to your Azure account.
 
 		Login-AzureRmAccount
 
-	This command will open a pop-up window for you to enter your Azure credentials.
+	A pop-up window opens for you to enter your Azure account credentials.
 
-2. If the subscription ID that is selected by default is different from the one that you want to work in, use either of the following commands to set the right subscription.
+2. Get the subscription IDs for your available subscriptions.
 
-		Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Get-AzureRmSubscription
 
-	or
+3. Set the correct subscription using the subscription ID.		
 
-		Select-AzureRmSubscription -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 
-	You can find the subscriptions that your Azure account has by using the command `Get-AzureRmSubscription`.
+	
+## Get the storage account
 
-3. Find the storage accounts that are available under this subscription.
+You need a storage account in Azure house the uploaded VM image. You can either use an existing storage account or create a new one. 
+
+Show the available storage accounts.
 
 		Get-AzureRmStorageAccount
 
-	If you want to use an existing storage account, proceed to the [Upload the VM image](#uploadvm) section.
+If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-image-to-your-storage-account) section.
 
-4. If you want to create a new storage account to hold this image, follow these steps:
+If you want to create a storage account, follow these steps:
 
-	1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
+1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
 
-			Get-AzureRmResourceGroup
+		Get-AzureRmResourceGroup
 
-	2. If you want to create a new resource group, use this command:
+2. To create a resource group, use this command:
 
-			New-AzureRmResourceGroup -Name YourResourceGroup -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
 
-	3. Create a new storage account in this resource group by using:
+3. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
-			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -SkuName "Standard_GRS" -Kind "Storage"
+		New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+			
+Valid values for -SkuName are:
+
+- **Standard_LRS** - Locally redundant storage. 
+- **Standard_ZRS** - Zone redundant storage.
+- **Standard_GRS** - Geo redundant storage. 
+- **Standard_RAGRS** - Read access geo redundant storage. 
+- **Premium_LRS** - Premium locally redundant storage. 
 
 
-</br>
-<a id="uploadvm"></a>
 
 ## Upload the VM image to your storage account
 
-Use these steps in Azure PowerShell to upload the VM image to your storage account. Your image will be uploaded to a blob storage container in this account. You can either use an existing container or create a new one.
+Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account:
 
-1. Sign in to Azure PowerShell 1.0.x by using `Login-AzureRmAccount`. Make sure that you are using the right subscription by using `Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"`, as mentioned in the previous section.
+		$rgName = "<resourceGroupName>"
+		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
+		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
 
-2. Add the generalized Azure VHD to the storage account by using the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet:
+Where:
 
-		Add-AzureRmVhd -ResourceGroupName YourResourceGroup -Destination "<StorageAccountURL>/<BlobContainer>/<TargetVHDName>.vhd" -LocalFilePath <LocalPathOfVHDFile>
+- **storageAccount** is the name of the storage account for the image. 
 
-	Where:
-	- **StorageAccountURL** is the URL for the storage account. It will typically be in this format: `https://YourStorageAccountName.blob.core.windows.net`. Note that you will need to use the name of the existing or new storage account in place of *YourStorageAccountName*.
-	- **BlobContainer** is the blob container where you want to store your images. If the cmdlet does not find an existing blob container with this name, it will create a new one for you.
-	- **TargetVHDName** is the name that you want to save the image as.
-	- **LocalPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
+- **blobContainer** is the blob container where you want to store your image. If an existing blob container with this name isn't found, it's created for you.
 
-	A successful `Add-AzureRmVhd` execution will look similar to the following:
+- **targetVHDName** is the name that you want to use for the uploaded VHD file.
+
+- **localPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
+
+
+If successful, you get a response that looks similar to this:
 
 		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
 		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
@@ -178,41 +151,79 @@ Use these steps in Azure PowerShell to upload the VM image to your storage accou
 		-------------           --------------
 		C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
 
-	This command will take some time to complete, depending on your network connection and the size of your VHD file.
+This command may take a while to complete, depending on your network connection and the size of your VHD file.
 
-</br>
-## Deploy a new VM from the uploaded image
 
-Now you can use the uploaded image to create a new Windows VM. These steps show you how to use Azure PowerShell and the VM image that you uploaded in the above steps to create a VM in a new virtual network.
 
->[AZURE.NOTE] The VM image should be present in the same storage account as the actual virtual machine that will be created.
 
-### Create network resources
+## Create a virtual network
 
-Use the following sample PowerShell script to set up a virtual network and NIC for your new VM. Use values for the variables that are represented by **$**, as appropriate to your application.
+Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
+    	$rgName = "<resourceGroup>"
+		$location = "<location>"
+        $subnetName = "<subNetName>"
+        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+        
+2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
 
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
+        $vnetName = "<vnetName>"
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        
+            
+## Create a public IP address and network interface
 
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-### Create a new VM
+1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
+
+        $ipName = "<ipName>"
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        
+2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
+
+        $nicName = "<nicName>"
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+
+		
+
+## Create the VM
 
 The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
+
+>[AZURE.NOTE] The VM needs to be in the same storage account as the uploaded VHD file.
+
 </br>
 
-	#Enter a new user name and password in the pop-up window for the following
+	
+	
+	#Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
 	$cred = Get-Credential
+	
+	# Name of the storage account where the VHD file is and where the OS disk will be created
+	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
+	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
+	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
+	$osDiskName = "<osDiskName>"
 
 	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
 	#Set the VM name and size
 	#Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A4"
+	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
 	#Set the Windows operating system configuration and add the NIC
 	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
@@ -220,41 +231,18 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 	#Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
 	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
-	#You can find this URL in the result of the Add-AzureRmVhd cmdlet above
+	#You set this variable when you uploaded the VHD
 	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-For example, your workflow might look something like this:
 
-		C:\> $pipName = "testpip6"
-		C:\> $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-		C:\> $subnet1Name = "testsub6"
-		C:\> $nicname = "testnic6"
-		C:\> $vnetName = "testvnet6"
-		C:\> $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
-		C:\> $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
-		C:\> $nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-		C:\> $vmName = "testupldvm6"
-		C:\> $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A4"
-		C:\> $computerName = "testupldcomp6"
-		C:\> $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		C:\> $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-		C:\> $osDiskName = "testupos6"
-		C:\> $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-		C:\> $urlOfUploadedImageVhd = "https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd"
-		C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
-		C:\> $result = New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-		C:\> $result
-		RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-		--------- ------------------- ---------- ------------
-		                         True         OK OK
 
-You should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
