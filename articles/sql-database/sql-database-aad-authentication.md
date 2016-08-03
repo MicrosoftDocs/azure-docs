@@ -65,10 +65,14 @@ To create a contained database user in Azure SQL Database or SQL Data Warehouse 
 
 ## Azure AD features and limitations
 
-The following members of Azure Active Directory can be provisioned in Azure SQL Serve ror SQL Data Warehouse:
+The following members of Azure Active Directory can be provisioned in Azure SQL Server or SQL Data Warehouse:
+
 - Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
+
 - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+
 - Imported members from other Azure Active Directories who are native or federated domain members.
+
 - Active Directory groups created as security groups.
 
 Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can login to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
@@ -77,7 +81,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 
 - To enhance manageability we recommended you provision a dedicated Azure Active Directory group as an administrator.
 - Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Server or Azure SQL Data Warehouse at any time.
-- Only an Azure Active Directory administrator can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
+- Only an Azure Active Directory administrator for SQL Server can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure Active Directory authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication.
 - [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory however sqlcmd.exe and bcp.exe cannot connect using Azure Active Directory because they use an older ODBC provider.
