@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2016"
+	ms.date="08/04/2016"
 	ms.author="ninarn" />
 
 # Storage configuration for SQL Server VMs
