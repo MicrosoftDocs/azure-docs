@@ -25,7 +25,7 @@ This article shows you how to use Azure PowerShell to capture an Azure virtual m
 
 ## Prerequisites
 
-- These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. 
+- These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. You will need the VM name and the name of the resource group. You can get a list of all of the resource groups in your subscription by typing the PowerShell cmdlet `Get-AzureRmResourceGroup`. You can get a list of all of the VMs in your subscription by typing `Get-AzureRMVM`.
 
 - You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
@@ -54,7 +54,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
    Sysprep shuts down the virtual machine. Its status changes to **Stopped** in the Azure portal.
 
 
-## Capture the VM
+## Log in to Azure PowerShell
 
 1. Open Azure PowerShell and sign in to your Azure account.
 
@@ -70,23 +70,27 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 
-4. Deallocate the resources that are used by this virtual machine by using this commmand.
 
-		Stop-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM
+## Deallocate the VM and set the state to generalized		
+
+1. Deallocate the resources that are used by this virtual machine by using this commmand.
+
+		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
 	You will see that the *Status* for the VM on the Azure portal has changed from **Stopped** to **Stopped (deallocated)**.
 
-	>[AZURE.TIP] You can also find out the status of your virtual machine in PowerShell by using:</br>
-	`$vm = Get-AzureRmVM -ResourceGroupName YourResourceGroup -Name YourWindowsVM -status`</br>
-	`$vm.Statuses`</br> The **DisplayStatus** field corresponds to the **Status** shown in the Azure portal.
+2. Set the status of the virtual machine to **Generalized**. 
 
-5. Next, you need to set the status of the virtual machine to **Generalized**. 
+		Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
 
-		Set-AzureRmVm -ResourceGroupName YourResourceGroup -Name YourWindowsVM -Generalized
+3. Check the status of the VM. The **OSState/generalized** section for the VM should have the **DisplayStatus** set to **VM generalized**.  
+		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status`</br>
+		$vm.Statuses
 
-	>[AZURE.NOTE] The generalized state as set above will not be shown on the portal. However, you can verify it by using the Get-AzureRmVM command as shown in the tip above.
+		
+## Create the image 
 
-6. Copy the virtual machine image to the destination storage container using this command.
+1. Copy the virtual machine image to the destination storage container using this command.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
