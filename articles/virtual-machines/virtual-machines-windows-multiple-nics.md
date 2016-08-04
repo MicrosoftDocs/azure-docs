@@ -21,8 +21,8 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 
 >[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM.
 
-## Quick commands
-Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode (`azure config mode arm`).
+## Creating multiple NICs using Azure PowerShell
+Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md)
 
 First, create a resource group:
 
@@ -33,57 +33,53 @@ New-AzureRmResourceGroup -Name TestRG -Location WestUS
 Create a storage account to hold your VMs:
 
 ```powershell
-New-AzureRmStorageAccount -Name teststorage `
-    -ResourceGroupName TestRG -King Storage -SkuName Premium_LRS -Location WestUS
+$storageAcc = New-AzureRmStorageAccount -Name teststorageikf `
+    -ResourceGroupName TestRG -Kind Storage -SkuName Premium_LRS -Location WestUS
 ```
 
-Create a virtual network to connect your VMs to:
+Create a virtual network to connect your VMs to, along with two virtual network subnets - one for front-end traffic and one for back-end traffic:
 
 ```powershell
-New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location WestUS
-```
+$frontEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix 192.168.1.0/24
+$backEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "BackEnd" -AddressPrefix 192.168.2.0/24
 
-Create two virtual network subnets - one for front-end traffic and one for back-end traffic:
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+    -AddressPrefix 192.168.0.0/16 -Location WestUS `
+    -Subnet $frontEndSubnet,$backEndSubnet
 ```
 
 Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet:
 
 ```powershell
-$FrontEnd = $vnet.Subnets|?{$_.Name -eq 'FrontEnd'}
+$frontEnd = $vnet.Subnets|?{$_.Name -eq 'FrontEnd'}
 $NIC1 = New-AzureRmNetworkInterface -Name NIC1 -ResourceGroupName TestRG `
-        -Location WestUS -SubnetId $FrontEnd
+        -Location WestUS -SubnetId $FrontEnd.Id
 
-$BackEnd = $vnet.Subnets|?{$_.Name -eq 'BackEnd'}
-$NIC2 = New-AzureRmNetworkInterface -Name NIC1 -ResourceGroupName TestRG `
-        -Location WestUS -SubnetId $BackEnd
+$backEnd = $vnet.Subnets|?{$_.Name -eq 'BackEnd'}
+$NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
+        -Location WestUS -SubnetId $BackEnd.Id
 ```
 
 Finally create your VM, attaching the two NICs you previously created:
 
 ```powershell
-$vmConfig = New-AzureRmVMConfig -VMName TestVM -VMSize $vmSize
+$cred = Get-Credential
+
+$vmConfig = New-AzureRmVMConfig -VMName TestVM -VMSize "Standard_DS2_v2"
 $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName TestVM `
     -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC1.Id -Primary
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $NIC2.Id
-$osDiskName = $vmName + "-" + $osDiskSuffix
-$osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-$vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-New-AzureRmVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
-}
+
+$blobPath = "vhds/WindowsVMosDisk.vhd"
+$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
+$diskName = "windowsvmosdisk"
+$vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
+
+New-AzureRmVM -VM $vmConfig -ResourceGroupName TestRG -Location WestUS
 ```
-
-## Creating multiple NICs using Azure PowerShell
-
 
 ## Creating multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
