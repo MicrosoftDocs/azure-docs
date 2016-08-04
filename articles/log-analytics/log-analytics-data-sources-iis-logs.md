@@ -25,7 +25,7 @@ Log Analytics collects entries from log files created by IIS, so you must [confi
 
 Log Analytics only supports IIS log files stored in W3C format.  It will not collect logs in NCSA or IIS native format.
 
-Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md/configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
+Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
 We recommend that when you enable IIS log collection, you should configure the IIS log rollover setting on each server.
 
