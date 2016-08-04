@@ -1,20 +1,20 @@
 <properties
 	pageTitle="View events and audit logs"
 	description="Learn how to see all of the events that happen in your Azure subscription."
-	authors="HaniKN-MSFT"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
+	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="hanikn"/>
+	ms.author="robb"/>
 
 # View events and audit logs
 
