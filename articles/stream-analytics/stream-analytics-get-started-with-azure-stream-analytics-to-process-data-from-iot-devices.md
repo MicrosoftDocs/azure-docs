@@ -105,7 +105,7 @@ You should now see that the results contain only 245 rows and lists those sensor
 
 ![Temp over 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-## Detecting lack of event conditions
+## Detecting absence of events
 
 How can we write a query to find a lack of input events? It is pretty straightforward to do so. Let’s find the last time a Sensor has sent data and then did not send out any events for the next minute. The query is located in **AbsenseOfEvent.txt** file.
 
