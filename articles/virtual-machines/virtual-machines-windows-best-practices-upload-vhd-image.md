@@ -51,7 +51,7 @@ Note You must run the followings commands with [administrative privileges](https
 	B.	Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 
 2. Remove the Winhttp proxy: `netsh winhttp reset proxy`
-3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/en-us/library/gg252636.aspx): `diskpart san policy=onlineall`
+3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx): `diskpart san policy=onlineall`
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to automatically:
 
 	 - `REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
@@ -108,7 +108,7 @@ Note You must run the followings commands with [administrative privileges](https
 
 	B. Navigate to the **Remote Desktop** folder -> **Certificates**, remove the certificates listed in this folder.
 
-7. Configure the [KeepAlive](https://technet.microsoft.com/en-us/library/cc957549.aspx) values on the RDP listener:
+7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP listener:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
@@ -200,11 +200,11 @@ Note You must run the followings commands with [administrative privileges](https
 14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
 15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
 16.	Uninstall the other 3rd party (Other than Microsoft Hyper-V) physical or Virtualization software or drivers.
-17. Make sure that there is no 3rd Party application is using Port 3389. This port will be used for the RDP service in Azure.
-18.	If this is a Domain Controller on-prem, follow the extra steps to prepare the disk as specified here https://support.microsoft.com/en-us/kb/2904015
-19.	Before doing any migration, please be so kind as to do a healthy reboot on the VM to ensure the OS is healthy and if it is reachable with RDP
-20.	Before migration, another option that I usually suggest customers in any case: reset the current local administrator password or create a new account and make sure it’s allowed by policies to RDP into the VM:
-21. “Allow log on through Remote Desktop Services”, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
+17. Make sure that there is no third-party application is using Port 3389. This port will be used for the RDP service in Azure.
+18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
+19.	Do a healthy reboot on the VM to ensure the Windows is healthy and it can be reached by using RDP.
+20.	Reset the current local administrator password or create a new account and make sure it’s allowed by policies to RDP into the VM:
+  "Allow log on through Remote Desktop Services, GPO_name\Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 22. Install the latest updates for Windows. If that is not possible, please make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
