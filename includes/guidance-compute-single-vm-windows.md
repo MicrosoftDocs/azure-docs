@@ -34,7 +34,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ### VM recommendations
 
-- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
+- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
 
 - When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
 
@@ -46,7 +46,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+- For best disk I/O performance we recommend [Premium Storage][premium-storage] which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
 - One storage account can support 1 to 20 VMs.
 
@@ -66,7 +66,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
     - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
-- All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
+- All NSGs contain a set of [default rules][nsg-default-rules] including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
 
 - To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
@@ -78,17 +78,17 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ## Availability considerations
 
-- As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+- As noted above, there is no SLA for a single VM. To get the SLA you must deploy multiple VMs into an availability set.
 
 - Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-- VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
+- VHDs are backed by [Azure Storage][azure-storage] which is replicated for durability and availability.
 
-- To protect against accidental data loss during normal operations (e.g., because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
+- To protect against accidental data loss during normal operations (e.g., because of user error) you should also implement point-in-time backups using [blob snapshots][blob-snapshot] or another tool.
 
 ## Manageability considerations
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **Resource groups.** Put tightly-coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
 - **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
@@ -98,7 +98,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
     azure vm enable-diag <resource-group> <vm-name>
      ```
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM is de-allocated.
 
     Use the following CLI command to de-allocate a VM:
 
@@ -108,9 +108,9 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
     The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ de-allocated, so you will still be charged.
 
-- **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
+- **Deleting a VM.** If you delete a VM the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD delete the file from [blob storage][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+  To prevent accidental deletion use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
 
 ## Security considerations
 
@@ -118,7 +118,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
     - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
-    - Once data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+    - When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
 - **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
@@ -142,7 +142,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
-The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
+The templates are parameterized with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
 When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
@@ -216,7 +216,7 @@ The script references the following parameter files to build the VM and the surr
 
 	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
 
-	```powershell
+	```text
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
@@ -299,7 +299,7 @@ The solution assumes the following prerequisites:
 
 - You have an existing Azure subscription in which you can create resource groups.
 
-- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+- You have downloaded and installed the most recent build of Azure PowerShell. See [here][azure-powershell-download] for instructions.
 
 To run the script that deploys the solution:
 
@@ -326,11 +326,11 @@ To run the script that deploys the solution:
 	```powershell
 	$resourceGroupName = "app1-dev-rg"
 	```
-6. Edit each of the json files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
+6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
 
-	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as the one you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
-7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+7. Open a PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
@@ -344,7 +344,7 @@ To run the script that deploys the solution:
 
 ## Next steps
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
+In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
