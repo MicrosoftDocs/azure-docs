@@ -53,7 +53,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 
 - [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 - [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-- [Create VM with AKV Integration](C:\Users\ninarn\AppData\Roaming\Microsoft\Word\virtual-machines-windows-configure-sql-server-stor305324952019322905\-	https:\github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
+- [Create VM with AKV Integration](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
 
 ## Existing VMs
 For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
