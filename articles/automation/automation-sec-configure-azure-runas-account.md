@@ -249,7 +249,7 @@ After the script finishes successfully, refer to the [sample code](#sample-code-
 The following PowerShell script will configure:
 
 - An Automation certificate asset in the specified automation account named **AzureClassicRunAsCertificate**. The asset holds the certificate that is used to authenticate your runbooks.
-- An Automation connection asset in the specified automation account named **AzureClassicRunAsConnection**. The asset holds the subscription name, subscriptionId, and certificate asset name.
+- An Automation connection asset in the specified automation account named **AzureClassicRunAsConnection**. The asset holds the subscription name, subscription ID, and certificate asset name.
 
 The script will create a self-signed management certificate and save it to the temporary files folder on your computer under the user profile used to execute the PowerShell session: *%USERPROFILE%\AppData\Local\Temp*. After script execution, you will need to upload the Azure management certificate to the management store for the subscription that the Automation account was created in. The following steps will walk you through the process of executing the script and uploading the certificate.  
 
