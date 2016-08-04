@@ -54,7 +54,7 @@ Before we do that, there are a few things that you should understand and conside
 
 In this section, you will create a new Azure Automation account by using the Azure portal. This creates both the Run As and Classic Run As accounts.  
 
->[AZURE.NOTE] To perform these steps, you *must* be a member of the Subscription Admins role and co-administrator of the subscription that is granting access to the subscription for the user. You must also add the user as a User to that subscription's default Azure Active Directory (Azure AD) instance. The account does not need to be assigned to a privileged role.
+>[AZURE.NOTE] To perform these steps, you *must* be a member of the Subscription Admins role and co-administrator of the subscription that is granting access to the subscription for the user. You must also add the user as a User to that subscription's default Azure Active Directory (Azure AD). The account does not need to be assigned to a privileged role.
 
 1. Sign in to the Azure portal with an account that is a member of the Subscription Admins role and a co-administrator of the subscription.
 2. Select **Automation Accounts**.
