@@ -70,7 +70,7 @@ Typically you would also create a [network security group](../virtual-network/vi
 
 
 ## Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). The following example uses a VM size that supports using multiple NICs (`Standard_DS2_v2`):
+Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). The following example uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
 
 ```powershell
 $cred = Get-Credential
@@ -101,6 +101,7 @@ $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri
 ```
 
 Finally, create a VM:
+
 ```powershell
 New-AzureRmVM -VM $vmConfig -ResourceGroupName TestRG -Location WestUS
 ```
