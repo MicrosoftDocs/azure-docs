@@ -17,31 +17,31 @@
 	ms.author="bradsev;"/>
 
 
-# Data Science using Scala with Spark on Azure
+# Data science by using Scala with Spark on Azure
 
-This topic shows how to use Scala for supervised machine learning tasks with the Spark scalable machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests and gradient boosted trees. We address two common supervised machine learning tasks:
+This article shows you how to use Scala for supervised machine learning tasks with the Apache Spark scalable machine learning library and Spark machine language packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [data science process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees (GBTs). We address two common supervised machine learning tasks:
 
-- Regression problem: Prediction of the tip amount ($)
+- Regression problem: Prediction of the tip amount ($) for a taxi trip
 - Binary classification: Prediction of tip or no-tip (1/0) for a taxi trip
 
-The modeling process requires training and evaluation on a test data sets with relevant accuracy metrics. We also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. A more advanced topic covered is how models can be optimized using cross-validation and hyper-parameter sweeping. The data used is a sample of the 2013 NYC taxi trip and fare dataset.
+The modeling process requires training and evaluation on a test data set with relevant accuracy metrics. In this article, we also show you how to store these models in Azure Blob storage and how to score and evaluate their predictive performance. This article also covers the more advanced topic of how to optimize models by using cross-validation and hyper-parameter sweeping. The data used is a sample of the 2013 NYC taxi trip and fare data set.
 
-[Scala](http://www.scala-lang.org/) is a Java-Virtual-Machine-based language that integrates object-oriented and functional language concepts. It is a scalable language that is well-suited to distributed processing in the cloud and runs on Azure Spark clusters.
+[Scala](http://www.scala-lang.org/), a language based on the Java virtual machine, integrates object-oriented and functional language concepts. It is a scalable language that is well suited to distributed processing in the cloud and runs on Azure Spark clusters.
 
-[Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. The [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) package provides a uniform set of high-level APIs built on top of DataFrames that help users create and tune practical machine learning pipelines. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment. 
+[Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big data analytic applications. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. The [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) package provides a uniform set of high-level APIs built on top of data frames that help users create and tune practical machine learning pipelines. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment.
 
-[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) is the Azure hosted offering of open-source Spark. It also includes support for **Jupyter Scala notebooks** on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). The Scala code snippets that provide the solutions and show the relevant plots to visualize the data here run in Jupyter notebooks installed on the Spark clusters. The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model. 
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) is the Azure hosted offering of open-source Spark. It also includes support for Jupyter Scala notebooks on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering, and visualizing data stored in Azure Blob storage. The Scala code snippets that provide the solutions and show the relevant plots to visualize the data in this article run in Jupyter notebooks installed on the Spark clusters. The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model.
 
-The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark 1.6. However, the code here and in the [Scala Jupyter notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) for this walkthrough is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark.
+The setup steps and code in this walkthrough are for HDInsight 3.4 Spark 1.6. However, the code in this article and in the [Scala Jupyter notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) are generic and should work on any Spark cluster. The cluster setup and management steps might be slightly different from what is shown in this article if you are not using HDInsight Spark.
 
-> [AZURE.NOTE] For a topic that shows how to use Python rather than Scala to complete tasks for an end-to-end data science process, see the [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
+> [AZURE.NOTE] For a topic that shows how to use Python rather than Scala to complete tasks for an end-to-end data science process, see  [Data Science by using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
 
 
 ## Prerequisites
 
-1.Before you begin these topics, you must have an Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+-	You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2.You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. To create one, see the instructions provided in [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). The cluster type and version is specified from the **Select Cluster Type** menu. 
+-	You need an HDInsight 3.4 Spark 1.6 cluster to complete the steps in the following procedures. To create a cluster, see the instructions  in [Get started: Create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Set the cluster type and version in the **Select Cluster Type** menu.
 
 ![](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -52,36 +52,36 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 For a description of the NYC Taxi Trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections of [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
 
-## Execute Scala code from a Jupyter notebook on the Spark cluster 
+## Execute Scala code from a Jupyter notebook on the Spark cluster
 
-You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and click on it to enter management page for your cluster. Then click on the **Cluster Dashboards** -> **Jupyter Notebook** to open the notebook associated with the Spark cluster.
+You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and then click it to enter the management page for your cluster. Next, click **Cluster Dashboards**, and then click **Jupyter Notebook** to open the notebook associated with the Spark cluster.
 
 ![](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
-You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. Just replace the CLUSTERNAME part of this URL with the name of your own cluster. You will need the password for your admin account to access the notebooks.
+You also can access the Jupyter Notebooks at  https://***CLUSTERNAME***.azurehdinsight.net/jupyter . Just replace ***CLUSTERNAME*** with the name of your own cluster. You need the password for your administrator account to access the notebooks.
 
 ![](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
-Select Scala to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples for this suite of Spark topic are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)
+Select Scala to see a directory that contains a few examples of prepackaged notebooks that use the PySpark API. The **Exploration Modeling and Scoring using Scala.ipynb** notebook that contains the code samples for this suite of Spark topic is available on [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
 
-You can upload the notebook directly from Github to the Jupyter notebook server on your Spark cluster. On the home page of your Jupyter, click on the **Upload** button on the right part of the screen. It will open a file explorer. Here you can paste the Github (raw content) URL of the Scala Notebook and click **Open**. The Scala notebook is available at the following URL:
+You can upload the notebook directly from GitHub to the Jupyter notebook server on your Spark cluster. On your Jupyter home page, click the **Upload** button. A file explorer opens. Here you can paste the GitHub (raw content) URL of the Scala Notebook, and then click **Open**. The Scala notebook is available at the following URL:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
 
-## Setup: preset Spark and Hive contexts, Spark magics and libraries
+## Setup: Preset Spark and Hive contexts, Spark magics, and Spark libraries
 
-### Preset Spark and Hive context
+### Preset Spark and Hive contexts
 
 	# SET START TIME
 	import java.util.Calendar
 	val beginningTime = Calendar.getInstance().getTime()
 
 
-The Spark kernels that are provided with Jupyter notebooks have a preset contexts, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+The Spark kernels that are provided with Jupyter notebooks have preset contexts, so you don't need to explicitly set the Spark or Hive contexts before you start working with the application you are developing. They are available to you by default. The contexts are:
 
-- sc - for SparkContext 
+- sc - for SparkContext
 - sqlContext - for HiveContext
 
 
@@ -90,27 +90,27 @@ The Spark kernels that are provided with Jupyter notebooks have a preset context
 The Spark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 - **%%local**  Specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
-- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Scala context as a Spark dataframe.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Scala context as a Spark data frame.
 
-For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information about the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ### Import libraries
 
-Import the Spark, MLlib and other libraries needed with the following code.
+Import the Spark, MLlib, and other libraries needed with the following code.
 
-	# IMPORT SPARK AND JAVA LIBRARIES 
+	# IMPORT SPARK AND JAVA LIBRARIES
 	import org.apache.spark.sql.SQLContext
 	import org.apache.spark.sql.functions._
 	import java.text.SimpleDateFormat
 	import java.util.Calendar
 	import sqlContext.implicits._
 	import org.apache.spark.sql.Row
-	
+
 	# SPARK SQL FUNCTIONS
 	import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType, FloatType, DoubleType}
 	import org.apache.spark.sql.functions.rand
-	
+
 	# SPARK ML FUNCTIONS
 	import org.apache.spark.ml.Pipeline
 	import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer, Binarizer}
@@ -118,7 +118,7 @@ Import the Spark, MLlib and other libraries needed with the following code.
 	import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel, RandomForestRegressor, RandomForestRegressionModel, GBTRegressor, GBTRegressionModel}
 	import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel, RandomForestClassifier, RandomForestClassificationModel, GBTClassifier, GBTClassificationModel}
 	import org.apache.spark.ml.evaluation.{BinaryClassificationEvaluator, RegressionEvaluator, MulticlassClassificationEvaluator}
-	
+
 	# SPARK MLLIB FUNCTIONS
 	import org.apache.spark.mllib.linalg.{Vector, Vectors}
 	import org.apache.spark.mllib.util.MLUtils
@@ -128,53 +128,53 @@ Import the Spark, MLlib and other libraries needed with the following code.
 	import org.apache.spark.mllib.tree.configuration.BoostingStrategy
 	import org.apache.spark.mllib.tree.model.{GradientBoostedTreesModel, RandomForestModel, Predict}
 	import org.apache.spark.mllib.evaluation.{BinaryClassificationMetrics, MulticlassMetrics, RegressionMetrics}
-	
+
 	# SPECIFY SQL CONTEXT
 	val sqlContext = new SQLContext(sc)
 
 
 ## Data ingestion
- 
+
 The first step in the data science process is to ingest the data to be analyzed from external sources or systems where it resides into your data exploration and modeling environment. In this walkthrough, we read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file). The data exploration and modeling environment is Spark. This section contains the code to complete the following series of tasks:
 
-- set directory paths for data and model storage
-- read in the input dataset (stored as a .tsv file)
-- define a schema for the data and clean the data
-- create a cleaned data-frame, cache it in memory
-- register it as a temp-table in SQL-context
-- Query the table and import results into a data-frame.
+- Set directory paths for data and model storage
+- Read in the input data set (stored as a .tsv file)
+- Define a schema for the data and clean the data
+- Create a cleaned data frame, cache it in memory
+- Register it as a temp-table in SQL-context
+- Query the table and import results into a data frame
 
 
-### Set directory paths for storage locations in WASB
+### Set directory paths for storage locations in Azure Blob storage
 
-Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
+Spark can read and write to Azure Blob storage. Any of your existing data stored there can be processed using Spark and the results stored again in Blob storage.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
+To save models or files in Blob storage, the path needs to be specified properly. Reference the default container attached to the Spark cluster by using a path beginning with "wasb:///". Reference other locations are by using “wasb://”.
 
 The following code sample specifies the location of the input data to be read and the path to Azure blob that is attached to the Spark cluster where the model will be saved.
 
-	# SET PATHS TO DATA AND MODEL FILE LOCATIONS: 
-	# INGEST DATA DATA AND SPECIFY HEADERS FOR COLUMNS
+	# SET PATHS TO DATA AND MODEL FILE LOCATIONS:
+	# INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
 	val taxi_train_file = sc.textFile("wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv")
 	val header = taxi_train_file.first;
-	
-	# SET THE MODEL STORAGE DIRECTORY PATH 
-	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+
+	# SET THE MODEL STORAGE DIRECTORY PATH
+	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS REQUIRED.
 	val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### Import data, create RDD and define a data-frame according to schema 
+### Import data, create RDD, and define a data frame according to schema
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# DEFINE SCHEMA BASED ON HEADER OF THE FILE
 	val sqlContext = new SQLContext(sc)
 	val taxi_schema = StructType(
 	    Array(
-	        StructField("medallion", StringType, true), 
+	        StructField("medallion", StringType, true),
 	        StructField("hack_license", StringType, true),
-	        StructField("vendor_id", StringType, true), 
+	        StructField("vendor_id", StringType, true),
 	        StructField("rate_code", DoubleType, true),
 	        StructField("store_and_fwd_flag", StringType, true),
 	        StructField("pickup_datetime", StringType, true),
@@ -201,7 +201,7 @@ The following code sample specifies the location of the input data to be read an
 	        StructField("tip_class", DoubleType, true)
 	        )
 	    )
-	
+
 	# CAST VARIABLES ACCORDING TO SCHEMA
 	val taxi_temp = (taxi_train_file.map(_.split("\t"))
 	                        .filter((r) => r(0) != "medallion")
@@ -210,11 +210,11 @@ The following code sample specifies the location of the input data to be read an
 	                            p(11).toDouble, p(12).toDouble, p(13).toDouble, p(14).toDouble, p(15).toDouble, p(16).toDouble,
 	                            p(17), p(18), p(19).toDouble, p(20).toDouble, p(21).toDouble, p(22).toDouble,
 	                            p(23).toDouble, p(24).toDouble, p(25).toDouble, p(26).toDouble)))
-	
-	
-	# CREATE INITIAL DATA-FRAME, DROP COLUMNS, AND CREATE CLEANED DATA-FRAME BY FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+
+
+	# CREATE INITIAL DATA FRAME AND DROP COLUMNS, AND THEN CREATE CLEANED DATA FRAME BY FILTERING FOR UNWANTED VALUES OR OUTLIERS
 	val taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
-	
+
 	val taxi_df_train_cleaned = (taxi_train_df.drop(taxi_train_df.col("medallion"))
 	        .drop(taxi_train_df.col("hack_license")).drop(taxi_train_df.col("store_and_fwd_flag"))
 	        .drop(taxi_train_df.col("pickup_datetime")).drop(taxi_train_df.col("dropoff_datetime"))
@@ -224,14 +224,14 @@ The following code sample specifies the location of the input data to be read an
 	        .drop(taxi_train_df.col("direct_distance")).drop(taxi_train_df.col("tolls_amount"))
 	        .drop(taxi_train_df.col("total_amount")).drop(taxi_train_df.col("tip_class"))
 	        .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200"));
-	
-	# CACHE AND MATERIALIZE CLEANED DATA-FRAME IN MEMORY
+
+	# CACHE AND MATERIALIZE CLEANED DATA FRAME IN MEMORY
 	taxi_df_train_cleaned.cache()
 	taxi_df_train_cleaned.count()
-	
-	# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+
+	# REGISTER DATA FRAME AS A TEMPORARY TABLE IN SQLCONTEXT
 	taxi_df_train_cleaned.registerTempTable("taxi_train")
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
@@ -240,24 +240,24 @@ The following code sample specifies the location of the input data to be read an
 
 **OUTPUT:**
 
-Time taken to run the above cell: 8 seconds.
+Time to run the preceding cell: 8 seconds.
 
 
-### Query table and import results in a data-frame. 
+### Query table and import results in a data frame
 
-Query the table for fare, passenger and tip data, filter out corrupt and outlying data, ans print several rows.
+Query the table for fare, passenger, and tip data; filter out corrupt and outlying data; and print several rows.
 
 	# QUERY THE DATA
 	val sqlStatement = """
 	    SELECT fare_amount, passenger_count, tip_amount, tipped
-	    FROM taxi_train 
+	    FROM taxi_train
 	    WHERE passenger_count > 0 AND passenger_count < 7
 	    AND fare_amount > 0 AND fare_amount < 200
 	    AND payment_type in ('CSH', 'CRD')
 	    AND tip_amount > 0 AND tip_amount < 25
 	"""
 	val sqlResultsDF = sqlContext.sql(sqlStatement)
-	
+
 	# SHOW ONLY THE TOP THREE ROWS
 	sqlResultsDF.show(3)
 
@@ -270,45 +270,45 @@ fare_amount|passenger_count|tip_amount|tipped
        10.5|            2.0|       1.0|   1.0
 
 
-## Data exploration and visualization 
+## Data exploration and visualization
 
-Once the data has been brought into Spark, the next step in the data science process is to gain deeper understanding of the data through exploration and visualization. In this section we examine the taxi data using SQL queries and then import the results into a data-frame to plot the target variables and prospective features for visual inspection using the auto-visualization feature of Jupyter.
+After you bring the data into Spark, the next step in the data science process is to gain a deeper understanding of the data through exploration and visualization. In this section, you examine the taxi data by using SQL queries. Then, import the results into a data frame to plot the target variables and prospective features for visual inspection by using the auto-visualization feature of Jupyter.
 
 ### Use local and SQL magic to plot data
 
-By default, the output of any code snippet that you run from a Jupyter notebook is available within the context of the session that is persisted on the worker nodes. If you want to save a trip to the worker nodes for every computation and if all the data that you need for your computation is available locally on the Jupyter server node (which is the headnode), you can use the %%local magic to run the code snippet on the Jupyter server.
+By default, the output of any code snippet that you run from a Jupyter notebook is available within the context of the session that persists on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the %%local magic to run the code snippet on the Jupyter server.
 
-- **SQL magic (`%%sql`)** The HDInsight Spark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
-- The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
+- **SQL magic** (`%%sql`) The HDInsight Spark kernel supports easy inline HiveQL queries against the SQLContext. The (`-o` VARIABLE_NAME) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
+- The `%%local` magic is used to run code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
 
-### Query the data using SQL
-This query retrieves the trips by far amount, passenger count,  and tip amount.
+### Query the data by using SQL
+This query retrieves the trips by fare amount, passenger count, and tip amount.
 
 	# SQL QUERY
 	%%sql -q -o sqlResults
 	SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-In the code below, the %%local magic creates a local data-frame, sqlResults, which can be used for plotting using matplotlib. 
+In the following code, the `%%local` magic creates a local data frame, sqlResults, which you can use to plot by using matplotlib.
 
-> [AZURE.TIP] Local magic is used multiple times in this walkthrough. If the amount of your data is large, please sample to create a data-frame that can fit in local memory.
+> [AZURE.TIP] Local magic is used multiple times in this article. If your data set is large, please sample to create a data frame that can fit in local memory.
 
 ### Plot the data
 
-One can plot using Python code once the data-frame is in local context as pandas data-frame.
+You can plot by using Python code after the data frame is in local context as a Pandas data frame.
 
 	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
 	%%local
-	
-	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-	# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+
+	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
+	# CLICK THE TYPE OF PLOT TO BE GENERATED (LINE, AREA, BAR, ETC.)
 	sqlResults
 
 
- The Spark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You are given the option to choose between several different types of visualizations:
+ The Spark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You can choose between several types of visualizations:
 
 - Table
 - Pie
-- Line 
+- Line
 - Area
 - Bar
 
@@ -318,7 +318,7 @@ Here is the code to plot the data:
 	%%local
 	import matplotlib.pyplot as plt
 	%matplotlib inline
-	
+
 	# TIP BY PAYMENT TYPE AND PASSENGER COUNT
 	ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
 	ax1.set_title('Tip amount distribution')
@@ -326,7 +326,7 @@ Here is the code to plot the data:
 	ax1.set_ylabel('Counts')
 	plt.suptitle('')
 	plt.show()
-	
+
 	# TIP BY PASSENGER COUNT
 	ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
 	ax2.set_title('Tip amount by Passenger count')
@@ -334,8 +334,8 @@ Here is the code to plot the data:
 	ax2.set_ylabel('Tip Amount ($)')
 	plt.suptitle('')
 	plt.show()
-	
-	# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
+
+	# TIP AMOUNT BY FARE AMOUNT; POINTS ARE SCALED BY PASSENGER COUNT
 	ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
 	ax.set_title('Tip amount by Fare amount')
 	ax.set_xlabel('Fare Amount ($)')
@@ -354,168 +354,79 @@ Here is the code to plot the data:
 
 
 
-## Creating features, transforming features, and data prep for input into modeling functions 
+## Create features, transform features, and prep data for input into modeling functions
 
-For using tree-based modeling functions from Spark ML and MLlib, target and features have to be prepared using a variety of appropriate techniques such as binning, indexing, one hot encoding, and vectorization. Here are the procedures we walk through in this section:
+For tree-based modeling functions from Spark ML and MLlib, you have to prepare target and features have by using a variety of techniques, such as binning, indexing, one-hot encoding, and vectorization. Here are the procedures to follow in this section:
 
-- Create a new feature by **binning** hours into traffic time buckets 
-- **Indexing and one-hot encoding** of categorical features 
-- **Sample and split dataset** into training and test fractions
-- **Specify training variable and features** and create indexed or one-hot encoded training and testing input labeled point RDDs or Data-Frames
+- Create a new feature by **binning** hours into traffic time buckets
+- **Indexing and one-hot encoding** of categorical features
+- **Sample and split data set** into training and test fractions
+- **Specify training variable and features** and create indexed or one-hot encoded training and testing input labeled point RDDs or data frames
 - Automatically **categorize and vectorize features and targets** for use as inputs for ML models
 
 
-### Create a new feature by binning hours into traffic time buckets 
+### Create a new feature by binning hours into traffic time buckets
 
-This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data-frames at several stages in the walkthrough.
+This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where resilient distributed datasets (RDDs) and data frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data frames at several stages in the following procedures.
 
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	val sqlStatement = """
 	    SELECT *,
 	    CASE
-	     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
-	     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+	     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night"
+	     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush"
 	     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
 	     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
 	    END as TrafficTimeBins
-	    FROM taxi_train 
+	    FROM taxi_train
 	"""
 	val taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
-	
-	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY 
+
+	# CACHE DATA FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 	taxi_df_train_with_newFeatures.cache()
 	taxi_df_train_with_newFeatures.count()
 
 
-### Indexing and one-hot encoding of categorical features 
+### Indexing and one-hot encoding of categorical features
 
-This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. 
+This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use.
 
 Depending on the model, you need to index or encode them in different ways. For example, Logistic and Linear Regression models require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here we only transform four variables to show examples, which are character strings. Other variables, such as week-day, which are represented by numerical values, can also be indexed as categorical variables.
 
-For indexing we used `StringIndexer()`and for one-hot encoding we used `OneHotEncoder()` functions from MLlib. Here is the code to index and encode categorical features:
+For indexing, we used `StringIndexer()` and for one-hot encoding, we used `OneHotEncoder()` functions from MLlib. Here is the code to index and encode categorical features:
 
 
-	# HERE WE CREATE INDEXES, AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
+	# CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# INDEX AND ENCODE VENDOR_ID
 	val stringIndexer = new StringIndexer().setInputCol("vendor_id").setOutputCol("vendorIndex").fit(taxi_df_train_with_newFeatures)
 	val indexed = stringIndexer.transform(taxi_df_train_with_newFeatures)
 	val encoder = new OneHotEncoder().setInputCol("vendorIndex").setOutputCol("vendorVec")
 	val encoded1 = encoder.transform(indexed)
-	
+
 	# INDEX AND ENCODE RATE_CODE
 	val stringIndexer = new StringIndexer().setInputCol("rate_code").setOutputCol("rateIndex").fit(encoded1)
 	val indexed = stringIndexer.transform(encoded1)
 	val encoder = new OneHotEncoder().setInputCol("rateIndex").setOutputCol("rateVec")
 	val encoded2 = encoder.transform(indexed)
-	
+
 	# INDEX AND ENCODE PAYMENT_TYPE
 	val stringIndexer = new StringIndexer().setInputCol("payment_type").setOutputCol("paymentIndex").fit(encoded2)
 	val indexed = stringIndexer.transform(encoded2)
 	val encoder = new OneHotEncoder().setInputCol("paymentIndex").setOutputCol("paymentVec")
 	val encoded3 = encoder.transform(indexed)
-	
+
 	# INDEX AND TRAFFIC TIME BINS
 	val stringIndexer = new StringIndexer().setInputCol("TrafficTimeBins").setOutputCol("TrafficTimeBinsIndex").fit(encoded3)
 	val indexed = stringIndexer.transform(encoded3)
 	val encoder = new OneHotEncoder().setInputCol("TrafficTimeBinsIndex").setOutputCol("TrafficTimeBinsVec")
 	val encodedFinal = encoder.transform(indexed)
-	
-	# GET TIME TO RUN THE CELL 
-	val endtime = Calendar.getInstance().getTime()
-	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
-
-**OUTPUT:**
-
-Time taken to run the above cell: 4 seconds.
-
-
-
-### Sample and split dataset into training and test fractions
-
-This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample here so you know how to use it for your own problem when needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
-
-We add a random number (between 0 and 1) to reach row (in a "rand" column) that can be used to select cross-validation folds during training.
-
-
-	# RECORD START TIME
-	val starttime = Calendar.getInstance().getTime()
-	
-	# SPECIFY SAMPLING AND SPLITTING FRACTIONS
-	val samplingFraction = 0.25;
-	val trainingFraction = 0.75; 
-	val testingFraction = (1-trainingFraction);
-	val seed = 1234;
-	val encodedFinalSampledTmp = encodedFinal.sample(withReplacement = false, fraction = samplingFraction, seed = seed)
-	val sampledDFcount = encodedFinalSampledTmp.count().toInt
-	
-	val generateRandomDouble = udf(() => {
-	    scala.util.Random.nextDouble
-	})
-	
-	# ADD RANDOM NUMBER FOR CV
-	val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
-	
-	# SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CV (SHOWN LATER)
-	# INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS
-	val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
-	val trainData = splits(0)
-	val testData = splits(1)
-	
-	# GET TIME TO RUN THE CELL 
-	val endtime = Calendar.getInstance().getTime()
-	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-
-
-**OUTPUT:**
-
-Time taken to run the above cell: 2 seconds.
-
-
-### Specify training variable and features and create indexed or one-hot encoded training and testing input labeled point RDDs or Data-Frames. 
-
-This section contains code that shows how to index categorical text data as a labeled point data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
-
-In this code, we specify the target (dependant) variable and features to be used training and create indexed or one-hot encoded training and testing input labeled point RDDs or Data-Frames. 
-
-
-	# RECORD START TIME
-	val starttime = Calendar.getInstance().getTime()
-	
-	# MAP NAMES OF FEATURES AND TARGETS FOR CLASSIFICATION AND REGRESSION PROBLEMS.
-	val featuresIndOneHot = List("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
-	val featuresIndIndex = List("paymentIndex", "vendorIndex", "rateIndex", "TrafficTimeBinsIndex", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
-	
-	# SPECIFY THE TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
-	val targetIndBinary = List("tipped").map(encodedFinalSampled.columns.indexOf(_))
-	val targetIndRegression = List("tip_amount").map(encodedFinalSampled.columns.indexOf(_))
-	
-	# INDEXED LAELEDPOINT RDD OBJECTS
-	val indexedTRAINbinary = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-	val indexedTESTbinary = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-	val indexedTRAINreg = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-	val indexedTESTreg = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
-	
-	# Indexed DFs that can be used for training using Spark ML functions
-	val indexedTRAINbinaryDF = indexedTRAINbinary.toDF()
-	val indexedTESTbinaryDF = indexedTESTbinary.toDF()
-	val indexedTRAINregDF = indexedTRAINreg.toDF()
-	val indexedTESTregDF = indexedTESTreg.toDF()
-	
-	# One-hot encoded (vectorized) DFs that can be used for training using Spark ML functions
-	val assemblerOneHot = new VectorAssembler().setInputCols(Array("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount")).setOutputCol("features")
-	val OneHotTRAIN = assemblerOneHot.transform(trainData) 
-	val OneHotTEST = assemblerOneHot.transform(testData)
-	
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
@@ -524,19 +435,108 @@ In this code, we specify the target (dependant) variable and features to be used
 
 **OUTPUT:**
 
-Time taken to run the above cell: 4 seconds.
+Time to run the above cell: 4 seconds.
 
 
-### Automatically categorize and vectorize features and targets for use as inputs for ML models
 
-Properly categorize target and features for use in tree-based modeling functions in Spark ML. The code complete two tasks:
+### Sample and split data set into training and test fractions
 
-1. Creates a binary target for classification by assigning a value of 0 or 1 to each data point between 0 and 1 using a threshold value of 0.5.
-2. Automatically categorizes features. If the number of distinct numerical values for any of the features is < 32, that feature is that features is categorized.
+This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the data set, we demonstrate how you can sample here so you know how to use it for your own problem when needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
-Here is the code for these two tasks.
+We add a random number (between 0 and 1) to reach row (in a "rand" column) that can be used to select cross-validation folds during training.
 
-	# CATEGORIZE FEATURES AND BINARIZE TARGET FOR BINARY CLASSIFICATION PROBLEM
+
+	# RECORD START TIME
+	val starttime = Calendar.getInstance().getTime()
+
+	# SPECIFY SAMPLING AND SPLITTING FRACTIONS
+	val samplingFraction = 0.25;
+	val trainingFraction = 0.75;
+	val testingFraction = (1-trainingFraction);
+	val seed = 1234;
+	val encodedFinalSampledTmp = encodedFinal.sample(withReplacement = false, fraction = samplingFraction, seed = seed)
+	val sampledDFcount = encodedFinalSampledTmp.count().toInt
+
+	val generateRandomDouble = udf(() => {
+	    scala.util.Random.nextDouble
+	})
+
+	# ADD RANDOM NUMBER FOR CROSS
+	val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
+
+	# SPLIT SAMPLED DATA FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CV (SHOWN LATER)
+	# INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS
+	val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
+	val trainData = splits(0)
+	val testData = splits(1)
+
+	# GET TIME TO RUN THE CELL
+	val endtime = Calendar.getInstance().getTime()
+	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+
+
+**OUTPUT:**
+
+Time to run the cell: 2 seconds.
+
+
+### Specify training variable and features, and create indexed or one-hot encoded training and testing input labeled point RDDs or data frames
+
+This section contains code that shows you how to index categorical text data as a labeled point data type, and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are RDDs formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
+
+In this code, you specify the target (dependent) variable and features to be used to train models. Then, you create indexed or one-hot encoded training and testing input labeled point RDDs or data frames.
+
+
+	# RECORD THE START TIME
+	val starttime = Calendar.getInstance().getTime()
+
+	# MAP NAMES OF FEATURES AND TARGETS FOR CLASSIFICATION AND REGRESSION PROBLEMS
+	val featuresIndOneHot = List("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
+	val featuresIndIndex = List("paymentIndex", "vendorIndex", "rateIndex", "TrafficTimeBinsIndex", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
+
+	# SPECIFY THE TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
+	val targetIndBinary = List("tipped").map(encodedFinalSampled.columns.indexOf(_))
+	val targetIndRegression = List("tip_amount").map(encodedFinalSampled.columns.indexOf(_))
+
+	# INDEXED LABELED POINT RDD OBJECTS
+	val indexedTRAINbinary = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+	val indexedTESTbinary = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndBinary(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+	val indexedTRAINreg = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+	val indexedTESTreg = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
+
+	# Indexed data framess that you can use to train by using Spark ML functions
+	val indexedTRAINbinaryDF = indexedTRAINbinary.toDF()
+	val indexedTESTbinaryDF = indexedTESTbinary.toDF()
+	val indexedTRAINregDF = indexedTRAINreg.toDF()
+	val indexedTESTregDF = indexedTESTreg.toDF()
+
+	# One-hot encoded (vectorized) data frames that you can use to train by using Spark ML functions
+	val assemblerOneHot = new VectorAssembler().setInputCols(Array("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount")).setOutputCol("features")
+	val OneHotTRAIN = assemblerOneHot.transform(trainData)
+	val OneHotTEST = assemblerOneHot.transform(testData)
+
+	# GET TIME TO RUN THE CELL
+	val endtime = Calendar.getInstance().getTime()
+	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
+	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+
+
+**OUTPUT:**
+
+Time to run the cell: 4 seconds.
+
+
+### Automatically categorize and vectorize features and targets to use as inputs for machine learning models
+
+Use Spark ML to categorize the target and features to use in tree-based modeling functions. The code complete two tasks:
+
+-	Creates a binary target for classification by assigning a value of 0 or 1 to each data point between 0 and 1 by using a threshold value of 0.5.
+- Automatically categorizes features. If the number of distinct numerical values for any feature is < 32, that feature is categorized.
+
+Here's the code for these two tasks.
+
+	# CATEGORIZE FEATURES AND BINARIZE THE TARGET FOR THE BINARY CLASSIFICATION PROBLEM
 
 	# TRAIN DATA
 	val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
@@ -544,86 +544,86 @@ Here is the code for these two tasks.
 	val indexedTrainwithCatFeat = indexerModel.transform(indexedTRAINbinaryDF)
 	val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
 	val indexedTRAINwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
-	
+
 	# TEST DATA
 	val indexerModel = indexer.fit(indexedTESTbinaryDF)
 	val indexedTrainwithCatFeat = indexerModel.transform(indexedTESTbinaryDF)
 	val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
 	val indexedTESTwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
-	
-	# CATEGORIZE FEATURES FOR REGRESSION PROBLEM
-	# CREATE PROPERLY INDEXED AND CATEGORIED DFS FOR TREE-BASED MODELS
+
+	# CATEGORIZE FEATURES FOR THE REGRESSION PROBLEM
+	# CREATE PROPERLY INDEXED AND CATEGORIZED DFS FOR TREE-BASED MODELS
 
 	# TRAIN DATA
 	val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
 	val indexerModel = indexer.fit(indexedTRAINregDF)
 	val indexedTRAINwithCatFeat = indexerModel.transform(indexedTRAINregDF)
-	
+
 	# TEST DATA
 	val indexerModel = indexer.fit(indexedTESTbinaryDF)
 	val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 
 
-## Binary classification model: Predict whether a tip is paid or not
+## Binary classification model: Predict whether a tip should be paid
 
-In this section we create three types of binary classification models to predict whether or not a tip is paid:
+In this section, you create three types of binary classification models to predict whether or not a tip should be paid:
 
-- a **logistic regression model** using SparkML's `LogisticRession()` function
-- a **random forest classification model** using Spark ML `RandomForestClassifier()` function
-- a **gradient boosting tree classification model** using MLlib's `GradientBoostedTrees()` function
+- A **logistic regression model** by using the Spark ML `LogisticRession()` function
+- A **random forest classification model** using the Spark ML `RandomForestClassifier()` function
+- A **gradient boosting tree classification model** using the MLlib `GradientBoostedTrees()` function
 
-### Create a Logistic regression model
+### Create a logistic regression model
 
-Here we create a Logistic regression model using SparkML's `LogisticRession()` function. The model building code in this section consists of a series of steps: 
+Next, create a logistic regression model by using the Spark ML `LogisticRession()` function. You create the model building code in a series of steps:
 
-1. **Model training** data with one parameter set
-2. **Model evaluation** on a test data set with metrics
-3. **Saving model** in blob for future consumption
+1. **Train the model** data with one parameter set
+2. **Evaluate the model** on a test data set with metrics
+3. **Save the model** in Blob storage for future consumption
 4. **Score the model** against test data
-5. **Plot results** - the ROC curves
+5. **Plot the results** with ROC curves
 
-Here is the code for these procedures.
+Here's the code for these procedures:
 
-	# CREATE LOGISTIC REGRESSION MODEL 
+	# CREATE A LOGISTIC REGRESSION MODEL
 	val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
 	val lrModel = lr.fit(OneHotTRAIN)
-	
-	# PREDICT ON TEST DATA SET
+
+	# PREDICT ON THE TEST DATA SET
 	val predictions = lrModel.transform(OneHotTEST)
-	
+
 	# SELECT BinaryClassificationEvaluator() TO COMPUTE TEST ERROR
 	val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
 	val ROC = evaluator.evaluate(predictions)
 	println("ROC on test data = " + ROC)
-	
+
 	# SAVE THE MODEL
 	val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
 	val modelName = "LogisticRegression__"
 	val filename = modelDir.concat(modelName).concat(datestamp)
 	lrModel.save(filename);
 
-Then load, score and save the results.
+Then load, score, and save the results.
 
-	# RECORD START TIME 
+	# RECORD THE START TIME
 	val starttime = Calendar.getInstance().getTime()
 
-	# LOAD SAVED MODEL AND SCORE THE TEST DATA SET
+	# LOAD THE SAVED MODEL AND SCORE THE TEST DATA SET
 	val savedModel = org.apache.spark.ml.classification.LogisticRegressionModel.load(filename)
 	println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
-	
+
 	# SCORE THE MODEL ON THE TEST DATA
 	val predictions = savedModel.transform(OneHotTEST).select("tipped","probability","rawPrediction")
 	predictions.registerTempTable("testResults")
-	
-	# SELECT BinaryClassificationEvaluator() TO COMPUTE TEST ERROR
+
+	# SELECT BinaryClassificationEvaluator() TO COMPUTE THE TEST ERROR
 	val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
 	val ROC = evaluator.evaluate(predictions)
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
+
 	# PRINT THE ROC RESULTS
 	println("ROC on test data = " + ROC)
 
@@ -633,7 +633,7 @@ Then load, score and save the results.
 ROC on test data = 0.9827381497557599
 
 
-Use Python on local pandas data-frames to plot ROC curve.
+Use Python on local Pandas data frames to plot the ROC curve.
 
 
 	# QUERY RESULTS
@@ -645,16 +645,16 @@ Use Python on local pandas data-frames to plot ROC curve.
 	%%local
 	%matplotlib inline
 	from sklearn.metrics import roc_curve,auc
-	
+
 	sqlResults['probFloat'] = sqlResults.apply(lambda row: row['probability'].values()[0][1], axis=1)
 	predictions_pddf = sqlResults[["tipped","probFloat"]]
-	
+
 	# ROC CURVE
 	# predictions_pddf = sqlResults.rename(columns={'_1': 'probability', 'tipped': 'label'})
-	prob = predictions_pddf["probFloat"] 
+	prob = predictions_pddf["probFloat"]
 	fpr, tpr, thresholds = roc_curve(predictions_pddf['tipped'], prob, pos_label=1);
 	roc_auc = auc(fpr, tpr)
-	
+
 	#PLOT
 	plt.figure(figsize=(5,5))
 	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
@@ -675,30 +675,30 @@ Use Python on local pandas data-frames to plot ROC curve.
 
 ### Create a random forest classification model
 
-Here we create a random forest classification model using Spark ML `RandomForestClassifier()` function and evaluate model on test-data. 
+Next, create a random forest classification model by using the Spark ML `RandomForestClassifier()` function, and then evaluate the model on test data.
 
 
-	# RECORD START TIME 
+	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# CREATE THE RANDOM FOREST CLASSIFIER MODEL
 	val rf = new RandomForestClassifier().setLabelCol("labelBin").setFeaturesCol("featuresCat").setNumTrees(10).setSeed(1234)
-	
+
 	# FIT THE MODEL
 	val rfModel = rf.fit(indexedTRAINwithCatFeatBinTarget)
 	val predictions = rfModel.transform(indexedTESTwithCatFeatBinTarget)
-	
+
 	# EVALUATE THE MODEL
 	val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
 	val Test_f1Score = evaluator.evaluate(predictions)
 	println("F1 score on test data: " + Test_f1Score);
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
-	# CALCULATE BINARY CLASSIFICATION EVALUATION METRICSS
+
+	# CALCULATE BINARY CLASSIFICATION EVALUATION METRICS
 	val evaluator = new BinaryClassificationEvaluator().setLabelCol("label").setRawPredictionCol("probability").setMetricName("areaUnderROC")
 	val ROC = evaluator.evaluate(predictions)
 	println("ROC on test data = " + ROC)
@@ -709,32 +709,32 @@ Here we create a random forest classification model using Spark ML `RandomForest
 ROC on test data = 0.9847103571552683
 
 
-### Create a gradient boosting tree classification model
+### Create a GBT classification model
 
-Here we create a gradient boosting tree classification model using MLlib's `GradientBoostedTrees()` function and  evaluate the model on test-data.
+Here we create a GBT classification model by using MLlib's `GradientBoostedTrees()` function, and then evaluate the model on test data.
 
 
-	# TRAIN A GBT CLASSIFICATION MODEL USING MLIB AND LABELEDPOINT
+	# TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# DEFINE THE GBT CLASSIFICATION MODEL
 	val boostingStrategy = BoostingStrategy.defaultParams("Classification")
 	boostingStrategy.numIterations = 20
 	boostingStrategy.treeStrategy.numClasses = 2
 	boostingStrategy.treeStrategy.maxDepth = 5
 	boostingStrategy.treeStrategy.categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
-	
+
 	# TRAIN THE MODEL
 	val gbtModel = GradientBoostedTrees.train(indexedTRAINbinary, boostingStrategy)
-	
+
 	# SAVE THE MODEL IN BLOB STORAGE
 	val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
 	val modelName = "GBT_Classification__"
 	val filename = modelDir.concat(modelName).concat(datestamp)
 	gbtModel.save(sc, filename);
-	
+
 	# EVALUATE THE MODEL ON TEST INSTANCES AND THE COMPUTE TEST ERROR
 	val labelAndPreds = indexedTESTbinary.map { point =>
 	  val prediction = gbtModel.predict(point.features)
@@ -743,22 +743,22 @@ Here we create a gradient boosting tree classification model using MLlib's `Grad
 	val testErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / indexedTRAINbinary.count()
 	//println("Learned classification GBT model:\n" + gbtModel.toDebugString)
 	println("Test Error = " + testErr)
-	
+
 	# USE BINARY AND MULTICLASS METRICS TO EVALUATE THE MODEL ON THE TEST DATA
 	val metrics = new MulticlassMetrics(labelAndPreds)
 	println(s"Precision: ${metrics.precision}")
 	println(s"Recall: ${metrics.recall}")
 	println(s"F1 Score: ${metrics.fMeasure}")
-	
+
 	val metrics = new BinaryClassificationMetrics(labelAndPreds)
 	println(s"Area under PR curve: ${metrics.areaUnderPR}")
 	println(s"Area under ROC curve: ${metrics.areaUnderROC}")
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
+
 	# PRINT THE ROC METRIC
 	println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
@@ -768,51 +768,51 @@ Here we create a gradient boosting tree classification model using MLlib's `Grad
 Area under ROC curve: 0.9846895479241554
 
 
-## Regression model: Predict tip amount 
+## Regression model: Predict tip amount
 
-In this section we create two types of regression models to predict the tip amount:
+In this section, you create two types of regression models to predict the tip amount:
 
-- a **regularized linear regression model** using the Spark ML `LinearRegression()` function, save model and evaluate model on test-data.
-- a **gradient boosting tree regression model** using Spark ML `GBTRegressor() `function
+- A **regularized linear regression model** by using the Spark ML `LinearRegression()` function; you'll save the model and evaluate the model on test data
+- A **gradient boosting tree regression model** by using Spark ML `GBTRegressor() `function
 
 
 ### Create a regularized linear regression model
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
-	# CREATE REGULARIZED LINEAR REGRESSION MODEL USING SPARK ML FUNCTION AND DATA-FRAME
+
+	# CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING SPARK ML FUNCTION AND DATAFRAME
 	val lr = new LinearRegression().setLabelCol("tip_amount").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
-	
-	# FIT THE MODEL USING DATA-FRAME
+
+	# FIT THE MODEL BY USING DATAFRAME
 	val lrModel = lr.fit(OneHotTRAIN)
 	println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
-	
-	# SUMMARIZE THE MODEL OVER THE TRAIINNG SET AND PRINT OUT SOME METRICS
+
+	# SUMMARIZE THE MODEL OVER THE TRAINING SET AND PRINT METRICS
 	val trainingSummary = lrModel.summary
 	println(s"numIterations: ${trainingSummary.totalIterations}")
 	println(s"objectiveHistory: ${trainingSummary.objectiveHistory.toList}")
 	trainingSummary.residuals.show()
 	println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
 	println(s"r2: ${trainingSummary.r2}")
-	
-	# SAVE THE MODEL IN BLOB STORAGE
+
+	# SAVE THE MODEL IN AZURE BLOB STORAGE
 	val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
 	val modelName = "LinearRegression__"
 	val filename = modelDir.concat(modelName).concat(datestamp)
 	lrModel.save(filename);
-	
+
 	# PRINT COEFFICIENTS
 	println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
-	
+
 	# SCORE THE MODEL ON TEST DATA
 	val predictions = lrModel.transform(OneHotTEST)
-	
+
 	# EVALUATE THE MODEL ON TEST DATA
 	val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
 	val r2 = evaluator.evaluate(predictions)
 	println("R-sqr on test data = " + r2)
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
@@ -821,32 +821,32 @@ In this section we create two types of regression models to predict the tip amou
 
 **OUTPUT:**
 
-Time taken to run the above cell: 13 seconds.
+Time to run the cell: 13 seconds.
 
 
-	# LOAD A SAVED LINEARREGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET. 
+	# LOAD A SAVED LINEAR REGRESSION MODEL FROM AZURE BLOB STORAGE AND SCORE A TEST DATA SET
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
-	# LOAD A SAVED LINEARREGRESSION MODEL FROM BLOB STORAGE
+
+	# LOAD A SAVED LINEAR REGRESSION MODEL FROM AZURE BLOB STORAGE
 	val savedModel = org.apache.spark.ml.regression.LinearRegressionModel.load(filename)
 	println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
-	
+
 	# SCORE THE MODEL ON TEST DATA
 	val predictions = savedModel.transform(OneHotTEST).select("tip_amount","prediction")
 	predictions.registerTempTable("testResults")
-	
+
 	# EVALUATE THE MODEL ON TEST DATA
 	val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
 	val r2 = evaluator.evaluate(predictions)
 	println("R-sqr on test data = " + r2)
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
+
 	# PRINT RESULTS
 	println("R-sqr on test data = " + r2)
 
@@ -856,7 +856,7 @@ Time taken to run the above cell: 13 seconds.
 R-sqr on test data = 0.5960320470835743
 
 
-Next, query the test results as data-frame and visualize using Jupyter autoviz & Python matplotlib.
+Next, query the test results as a data frame and use Jupyter autoviz and Python matplotlib to visualize it.
 
 
 	# SQL QUERY
@@ -866,22 +866,22 @@ Next, query the test results as data-frame and visualize using Jupyter autoviz &
 	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
 	%%local
 
-	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-	# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
+	# CLICK THE TYPE OF PLOT TO BE GENERATED (LINE, AREA, BAR, ETC.)
 	sqlResults
 
-The code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
+The code creates a local data frame from the query output and plots the data. The `%%local` magic creates a local data frame, `sqlResults`, which you can use to plot with matplotlib.
 
->[AZURE.NOTE] This Spark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
+>[AZURE.NOTE] This Spark magic is used multiple times in this article. If the amount of data is large, you should sample to create a data frame that can fit in local memory.
 
-Create plots using Python matplotlib. 
+Create plots by using Python matplotlib.
 
 	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 	%%local
 	sqlResults
 	%matplotlib inline
 	import numpy as np
-	
+
 	# PLOT THE RESULTS
 	ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='tip_amount', y='prediction', color='blue', alpha = 0.25, label='Actual vs. predicted');
 	fit = np.polyfit(sqlResults['tip_amount'], sqlResults['prediction'], deg=1)
@@ -897,33 +897,33 @@ Create plots using Python matplotlib.
 ![Tip amount: actual-vs-predicted](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 
-### Create a gradient boosting tree regression model
+### Create a GBT regression model
 
-Here we create a gradient boosting tree regression model using the Spark `ML GBTRegressor()` function and evaluate model on test-data.
+Create a GBT regression model by using the Spark `ML GBTRegressor()` function, and evaluate the model on test data.
 
-[Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+[Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. You can use GBTs for regression and classification. They can handle categorical features, do not require feature scaling, and can capture non-linearities and feature interactions. You also can use them in a multiclass-classification setting.
 
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# TRAIN A GBT REGRESSION MODEL
 	val gbt = new GBTRegressor().setLabelCol("label").setFeaturesCol("featuresCat").setMaxIter(10)
 	val gbtModel = gbt.fit(indexedTRAINwithCatFeat)
-	
+
 	# MAKE PREDICTIONS
 	val predictions = gbtModel.transform(indexedTESTwithCatFeat)
-	
+
 	# COMPUTE TEST SET R2
 	val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
 	val Test_R2 = evaluator.evaluate(predictions)
-	
-	
+
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
+
 	# PRINT RESULTS
 	println("Test R-sqr is: " + Test_R2);
 
@@ -936,59 +936,57 @@ Test R-sqr is: 0.7655383534596654
 
 ## Advanced modeling utilities for optimization
 
-In this section we show how to use ML utilities that are frequently employed for model optimization. Specifically, we show three different ways to optimize ML models using parameter sweeping and cross-validation:
+In this section, you use machine learning utilities that frequently are employed for model optimization. Specifically, you can optimize machine learning models three different ways by using parameter sweeping and cross-validation:
 
-1.Split the data into train & validation sets, optimize the model using hyper-parameter sweeping on a training set and evaluation on a validation set (Linear Regression)
-
-2.Optimize the model using cross-validation and hyper-parameter sweeping, using Spark ML's CrossValidator function (Binary Classification)
-
-3.Optimize model using custom cross-validation and parameter-sweeping code to to utilize any ML function and parameter-set (Linear Regression)
+-	Split the data into train and validation sets, optimize the model by using hyper-parameter sweeping on a training set, and evaluate on a validation set (linear regression)
+-	Optimize the model by using cross-validation and hyper-parameter sweeping by using Spark ML's CrossValidator function (binary classification)
+-	Optimize the model by using custom cross-validation and parameter-sweeping code to utilize any machine learning function and parameter set (linear regression)
 
 
-**Cross-validation (CV)** is a technique that assesses how well a model trained on a known set of data will generalize to predicting the features of datasets on which it has not been trained. The general idea behind this technique is that a model is trained on a dataset of known data on and then the accuracy of its predictions is tested against an independent dataset. A common implementation used here is to divide a dataset into K folds and then train the model in a round-robin fashion on all but one of the folds. 
+**Cross-validation** is a technique that assesses how well a model trained on a known set of data will generalize to predict the features of data sets on which it has not been trained. The general idea behind this technique is that a model is trained on a data set of known data on, and then the accuracy of its predictions is tested against an independent data set. A common implementation is to divide a data set into K folds and then train the model in a round-robin fashion on all but one of the folds.
 
-**Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term. 
+**Hyper-parameter optimization** is the problem of choosing a set of hyper-parameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. A hyper-parameter is a value that you must specify outside the model training procedure. Assumptions about hyper-parameter values can affect the flexibility and accuracy of the model. Decision trees have hyper-parameters, for example, such as the desired depth and number of leaves in the tree. You must set a misclassification penalty term for a support vector machine (SVM).
 
-A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This consist of performing an exhaustive search through the values a specified subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that  the model retains the capacity to apply to the general set of data from which the training data was extracted.
+A common way to perform hyper-parameter optimization is to use a grid search, also called a **parameter sweep**. This consists of performing an exhaustive search through the values a specified subset of the hyper-parameter space for a learning algorithm. Cross-validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. If you use cross-validation hyper-parameter sweeping, you can help limit problems like overfitting a model to training data. This way, the model retains the capacity to apply to the general set of data from which the training data was extracted.
 
 ### Optimize linear regression model with hyper-parameter sweeping
 
-Split data into train & validation sets, optimize model using hyper-parameter sweeping on training set and evaluation on validation set (Linear Regression) 
+Split data into train and validation sets, use hyper-parameter sweeping on a training set to optimize the model, and evaluate on a validation set (linear regression)
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# RENAME tip_amount AS LABEL
-	val OneHotTRAINLabeled = OneHotTRAIN.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label") 
+	val OneHotTRAINLabeled = OneHotTRAIN.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
 	val OneHotTESTLabeled = OneHotTEST.select("tip_amount","features").withColumnRenamed(existingName="tip_amount",newName="label")
 	OneHotTRAINLabeled.cache()
 	OneHotTESTLabeled.cache()
-	
+
 	# DEFINE THE ESTIMATOR FUNCTION: THE LinearRegression() FUNCTION
 	val lr = new LinearRegression().setLabelCol("label").setFeaturesCol("features").setMaxIter(10)
-	
+
 	# DEFINE THE PARAMETER GRID
 	val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
-	
-	# DEFINE PIPELINE WITH TRAIN-TEST VALIDATION SPLIT, WITH 75% IN THE TRAIING SET, SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
+
+	# DEFINE THE PIPELINE WITH A TRAIN-TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
 	val trainPct = 0.75
 	val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
-	
+
 	# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
 	val model = trainValidationSplit.fit(OneHotTRAINLabeled)
-	
-	# MAKE PREDICTIONS ON THE TEST DATA USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORM THE BEST
+
+	# MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORM THE BEST
 	val testResults = model.transform(OneHotTESTLabeled).select("label", "prediction")
-	
+
 	# COMPUTE TEST SET R2
 	val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
 	val Test_R2 = evaluator.evaluate(testResults)
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-	
+
 	println("Test R-sqr is: " + Test_R2);
 
 
@@ -997,41 +995,41 @@ Split data into train & validation sets, optimize model using hyper-parameter sw
 Test R-sqr is: 0.6226484708501209
 
 
-### Optimize binary classification model using cross-validation and hyper-parameter sweeping
+### Optimize binary classification model by using cross-validation and hyper-parameter sweeping
 
-Here we show how to optimize a binary classification model using cross-validation and hyper-parameter sweeping. This uses Spark ML's CrossValidator function.
+Here we show how to optimize a binary classification model by using cross-validation and hyper-parameter sweeping. This uses Spark ML's CrossValidator function.
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
-	# CREATE DATA-FRAMES WITH PROPERLY LABELED COLUMNS FOR USE WITH TRAIN/TEST SPLIT
+
+	# CREATE DATA FRAMES WITH PROPERLY LABELED COLUMNS TO USE WITH THE TRAIN/TEST SPLIT
 	val indexedTRAINwithCatFeatBinTargetRF = indexedTRAINwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
 	val indexedTESTwithCatFeatBinTargetRF = indexedTESTwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
 	indexedTRAINwithCatFeatBinTargetRF.cache()
 	indexedTESTwithCatFeatBinTargetRF.cache()
-	
+
 	# DEFINE THE ESTIMATOR FUNCTION
 	val rf = new RandomForestClassifier().setLabelCol("label").setFeaturesCol("features").setImpurity("gini").setSeed(1234).setFeatureSubsetStrategy("auto").setMaxBins(32)
-	
+
 	# DEFINE THE PARAMETER GRID
 	val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(4,8)).addGrid(rf.numTrees, Array(5,10)).addGrid(rf.minInstancesPerNode, Array(100,300)).build()
-	
+
 	# SPECIFY THE NUMBER OF FOLDS
 	val numFolds = 3
-	
-	# DEFINE THE TRAIN-TEST VALIDATION SPLIT WITH 75% IN THE TRAIING SET
+
+	# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
 	val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
-	
+
 	# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
 	val model = CrossValidator.fit(indexedTRAINwithCatFeatBinTargetRF)
-	
-	# MAKE PREDICTIONS ON THE TEST DATA USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORM THE BEST
+
+	# MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
 	val testResults = model.transform(indexedTESTwithCatFeatBinTargetRF).select("label", "prediction")
-	
+
 	# COMPUTE TEST F1 SCORE
 	val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
 	val Test_f1Score = evaluator.evaluate(testResults)
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
@@ -1040,26 +1038,26 @@ Here we show how to optimize a binary classification model using cross-validatio
 
 **OUTPUT:**
 
-Time taken to run the above cell: 33 seconds.
+Time to run the cell: 33 seconds.
 
 
-### Optimize linear regression model using custom cross-validation and parameter-sweeping code
+### Optimize the linear regression model by using custom cross-validation and parameter-sweeping code
 
-Here we optimize the model using custom code and identify the best model parameters using the criterion of highest accuracy. Then we create the final model, evaluate the model on test data, and save model in blob storage. Finally we load the model, score test-data and evaluate  its accuracy. 
+Next, optimize the model by using custom code, and identify the best model parameters by using the criterion of highest accuracy. Then, create the final model, evaluate the model on test data, and save the model in Blob storage. Finally, load the model, score test data, and evaluate accuracy.
 
 	# RECORD START TIME
 	val starttime = Calendar.getInstance().getTime()
-	
+
 	# DEFINE PARAMETER GRID AND THE NUMBER OF FOLDS
 	val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(5,10)).addGrid(rf.numTrees, Array(10,25,50)).build()
-	
+
 	val nFolds = 3
 	val numModels = paramGrid.size
 	val numParamsinGrid = 2
-	
-	# SPECIFY THE NUMBER OF CATEGORIES FOR THE CATEGORIAL VARIBLES
+
+	# SPECIFY THE NUMBER OF CATEGORIES FOR CATEGORICAL VARIABLES
 	val categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
-	
+
 	var maxDepth = -1
 	var numTrees = -1
 	var param = ""
@@ -1068,12 +1066,12 @@ Here we optimize the model using custom code and identify the best model paramet
 	var validateUB = -1.0
 	val h = 1.0 / nFolds;
 	val RMSE  = Array.fill(numModels)(0.0)
-	
+
 	# CREATE K FOLDS
 	val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
-	
-	
-	# LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY ACCURACY
+
+
+	# LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
 	for (i <- 0 to (nFolds-1)) {
 	    validateLB = i * h
 	    validateUB = (i + 1) * h
@@ -1083,7 +1081,7 @@ Here we optimize the model using custom code and identify the best model paramet
 	    val trainCVLabPt = trainCV.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)));
 	    validationLabPt.cache()
 	    trainCVLabPt.cache()
-	
+
 	    for (nParamSets <- 0 to (numModels-1)) {
 	        for (nParams <- 0 to (numParamsinGrid-1)) {
 	            param = paramGrid(nParamSets).toSeq(nParams).param.toString.split("__")(1)
@@ -1106,8 +1104,8 @@ Here we optimize the model using custom code and identify the best model paramet
 	    trainCVLabPt.unpersist();
 	}
 	val minRMSEindex = RMSE.indexOf(RMSE.min)
-	
-	# GET BEST PARAMETERS FROM CV AND PARAMETER SWEEP 
+
+	# GET THE BEST PARAMETERS FROM A CROSS-VALIDATION AND PARAMETER SWEEP
 	var best_maxDepth = -1
 	var best_numTrees = -1
 	for (nParams <- 0 to (numParamsinGrid-1)) {
@@ -1116,27 +1114,27 @@ Here we optimize the model using custom code and identify the best model paramet
 	    if (param == "maxDepth") {best_maxDepth = paramval}
 	    if (param == "numTrees") {best_numTrees = paramval}
 	}
-	
-	# CREATE BEST MODEL WITH BEST PARAMETERS AND FULL TRAIING DATASET
+
+	# CREATE THE BEST MODEL WITH THE BEST PARAMETERS AND A FULL TRAINING DATA SET
 	val best_rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
 	                                                  numTrees=best_numTrees, maxDepth=best_maxDepth,
 	                                                  featureSubsetStrategy="auto",impurity="variance", maxBins=32)
-	
-	# SAVE BEST RF MODEL IN BLOB STORAGE
+
+	# SAVE THE BEST RF MODEL IN BLOB STORAGE
 	val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
 	val modelName = "BestCV_RF_Regression__"
 	val filename = modelDir.concat(modelName).concat(datestamp)
 	best_rfModel.save(sc, filename);
-	
-	# PREDICT ON TRAINING SET WITH BEST MODEL AND EVALUATE
+
+	# PREDICT ON TRAINING SET WITH BEST MODEL AND THEN EVALUATE
 	val labelAndPreds = indexedTESTreg.map { point =>
 	                                        val prediction = best_rfModel.predict(point.features)
 	                                        ( prediction, point.label )
 	                                       }
-	
+
 	val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
 	val test_rsqr = new RegressionMetrics(labelAndPreds).r2
-	
+
 	# GET TIME TO RUN THE CELL
 	val endtime = Calendar.getInstance().getTime()
 	val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
@@ -1145,7 +1143,7 @@ Here we optimize the model using custom code and identify the best model paramet
 
 	# LOAD THE MODEL
 	val savedRFModel = RandomForestModel.load(sc, filename)
-	
+
 	val labelAndPreds = indexedTESTreg.map { point =>
 	                                        val prediction = savedRFModel.predict(point.features)
 	                                        ( prediction, point.label )
@@ -1157,11 +1155,9 @@ Here we optimize the model using custom code and identify the best model paramet
 
 **OUTPUT:**
 
-Time taken to run the above cell: 61 seconds.
+Time to run the cell: 61 seconds.
 
 
-## Consume Spark-built ML models automatically with Scala
+## Consume Spark-built machine learning models automatically with Scala
 
-The procedure using Scala code to automatically load and score new data-sets with ML models built in Spark and saved in Azure blobs has been provided in the [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) topic. Users can follow the instructions provided there and simply replace the Python code with Scala code provided above to enable automated consumption.
-
-
+[Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) shows you how to use Scala code to automatically load and score new data sets with machine learning models built in Spark and saved in Azure Blobs. You can follow the instructions provided there, and simply replace the Python code with Scala code in this article for automated consumption.
