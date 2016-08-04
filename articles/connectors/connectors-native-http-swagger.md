@@ -52,7 +52,7 @@ Here's an example of how to use the HTTP + Swagger operation as an action in a w
 
 ### Host Swagger from Azure Storage
 
-You might want to reference a Swagger document that's either not hosted, or that doesn't meet the security and cross-origin requirements for the designer. To resolve this issue, you can store the Swagger document in Azure Storage and enable CORS to reference the document.  
+You might want to reference a Swagger document that's not hosted, or that doesn't meet the security and cross-origin requirements for the designer. To resolve this issue, you can store the Swagger document in Azure Storage and enable CORS to reference the document.  
 
 Here are the steps to create, configure, and store Swagger documents in Azure Storage:
 
