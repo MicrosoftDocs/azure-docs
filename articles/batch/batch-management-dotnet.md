@@ -40,7 +40,7 @@ The following code snippet creates an account, obtains the newly created account
 
 ```csharp
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
@@ -50,7 +50,7 @@ AccountResource account = await batchManagementClient.Account.GetAsync(
 	"mynewaccount");
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
 > [AZURE.NOTE] Applications that use the Batch Management .NET library and its BatchManagementClient class require **service administrator** or **coadministrator** access to the subscription that owns the Batch account to be managed. See the [Azure Active Directory](#azure-active-directory) section below and the [AccountManagement][acct_mgmt_sample] code sample for more information.
@@ -70,7 +70,7 @@ Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
 BatchAccountRegenerateKeyResponse newKeys =
-	await batchManagementClient.Accounts.RegenerateKeyAsync(
+	await batchManagementClient.Account.RegenerateKeyAsync(
 		"MyResourceGroup",
 		"mybatchaccount",
 		new BatchAccountRegenerateKeyParameters() {
@@ -93,7 +93,7 @@ In the code snippet below, we first use [BatchManagementClient.Accounts.ListAsyn
 ```csharp
 // Get a collection of all Batch accounts within the subscription
 BatchAccountListResponse listResponse =
-		await batchManagementClient.Accounts.ListAsync(new AccountListParameters());
+		await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
 Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
 	creds.SubscriptionId,
@@ -121,7 +121,7 @@ Prior to increasing compute resources within your Batch solution, you can check 
 ```csharp
 // First obtain the Batch account
 BatchAccountGetResponse getResponse =
-	await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
+	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
