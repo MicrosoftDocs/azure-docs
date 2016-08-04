@@ -1,5 +1,5 @@
 <properties
- pageTitle="About A8, A9, A10, A11 VM sizes with Windows | Microsoft Azure"
+ pageTitle="About A8, A9, A10, A11 VM sizes and Windows | Microsoft Azure"
  description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Windows VMs and cloud services"
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
