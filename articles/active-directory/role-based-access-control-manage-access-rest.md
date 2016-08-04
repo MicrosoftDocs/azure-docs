@@ -154,7 +154,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-assignment-id}* with a new GUID which becomes the GUID identifier of the new role assignment.
+2. Replace *{role-assignment-id}* with a new GUID, which becomes the GUID identifier of the new role assignment.
 
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -173,7 +173,7 @@ For the request body, provide the values in the following format:
 | Element Name     | Required | Type   | Description |
 |------------------|----------|--------|-------------|
 | roleDefinitionId | Yes      | String | The identifier of the role. The format of the identifier is: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId      | Yes      | String | objectId of the Azure AD principal (user, group, or service principal) to which the role will be assigned. |
+| principalId      | Yes      | String | objectId of the Azure AD principal (user, group, or service principal) to which the role is assigned. |
 
 ### Response
 
@@ -445,7 +445,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-definition-id}* with a new GUID which becomes the GUID identifier of the new custom role.
+2. Replace *{role-definition-id}* with a new GUID, which becomes the GUID identifier of the new custom role.
 
 3. Replace *{api-version}* with 2015-07-01.
 

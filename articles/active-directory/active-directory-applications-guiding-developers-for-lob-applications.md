@@ -42,7 +42,7 @@ Registering an application allows any user to do the following:
 	  - Delegated permissions (any user). For example: Azure AD, Sign-in, and Read Profile
 
 
-> [AZURE.NOTE]By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, take a look at [How applications are added to Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> [AZURE.NOTE]By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 Here’s what you, the global administrator, need to do to help developers make their application ready for production:
 
@@ -56,7 +56,7 @@ Configure per-application access rules to your SaaS apps. For example, you can r
 
 ## Configure the app to require user assignment and assign users
 
-By default, users don't need to be assigned to access an application. However, if the application exposes roles or if you want the application to appear on a user’s access panel, you should require user assignment, and assign users and or groups.
+By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s access panel, you should require user assignment.
 
 [Requiring user assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
