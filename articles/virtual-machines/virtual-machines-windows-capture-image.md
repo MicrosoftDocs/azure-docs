@@ -20,7 +20,7 @@
 # How to create a VM image from an existing Azure VM
 
 
-This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create a new VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set those up when you create a VM using the image. This image will be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
+This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create another VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create a VM using the image. This process creates a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ This article shows you how to use Azure PowerShell create a generalized image of
 
 This section shows you how to generalize your Windows virtual machine so that it can be used as an image.
 
-> [AZURE.WARNING] The source VM cannot be logged into via RDP once it is generalized, because the process removes all user accounts. The changes are irreversible. 
+> [AZURE.WARNING] You cannot log in to the VM via RDP once it is generalized, because the process removes all user accounts. The changes are irreversible. 
 
 1. Sign in to your Windows virtual machine. In the [Azure portal](https://portal.azure.com), navigate through **Browse** > **Virtual machines** > Your Windows virtual machine > **Connect**.
 
@@ -77,7 +77,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
-	You will see that the *Status* for the VM on the Azure portal has changed from **Stopped** to **Stopped (deallocated)**.
+	The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
 2. Set the status of the virtual machine to **Generalized**. 
 
@@ -97,7 +97,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	You can also verify the URI in the portal; it is copied to a blob named **system** in your storage account. 
+	You can also verify the URI in the portal. The image is copied to a blob named **system** in your storage account. 
 
 2. Create a variable for the path to the image. 
 
