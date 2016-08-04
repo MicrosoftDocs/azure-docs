@@ -106,6 +106,7 @@ Examples include:
 
 ## Methods of Use
 In general, you can manipulate what's tracked, where it goes and retrieving data using one of the following methods. Not all methods are available for all actions.
+
 - [Azure portal](https://portal.azure.com)
 - [PowerShell](insights-powershell-samples.md)  
 - [Common Library Interface (CLI)](insights-cli-samples.md)
