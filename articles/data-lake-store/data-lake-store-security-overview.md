@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Overview of security in Data Lake Store | Microsoft Azure" 
-   description="Understand how Azure Data Lake Store is a secure big data store" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   pageTitle="Overview of security in Data Lake Store | Microsoft Azure"
+   description="Understand how Azure Data Lake Store is a secure big data store"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
@@ -26,7 +26,7 @@ Large number of enterprises are leveraging Big Data analytics to gain business i
 * Data protection
 * Auditing
 
- 
+
 ## Authentication and identity management
 
 Authentication is the process by which users prove their identity when interacting with Data Lake Store , or any services connecting to Data Lake Store. For Identity management and authentication, Data Lake Store uses [Azure Active Directory](../active-directory/active-directory-whatis.md) (AAD), a comprehensive identity and access management cloud solution that simplifies the management of users and groups.
@@ -43,7 +43,7 @@ Today every Azure subscription can be associated with an Azure Active Directory.
 
 ## Authorization and access control
 
-Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner. 
+Once a user is authenticated by AAD to access Azure Data Lake Store, authorization controls access permissions for the Data Lake Store. Data Lake Store separates authorization for account-related and data-related activities in the following manner.
 
 * [Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management
 * POSIX ACL for accessing data in the store.
@@ -59,7 +59,7 @@ Note that while the purpose of assigning these roles is for account management, 
 | Roles                    | Management rights               | Data access rights | Explanation |
 |--------------------------|---------------------------------|--------------------|-------------|
 | No role assigned         | None                            | Governed by ACL    | In such cases, users cannot use the Azure Portal or the Azure PowerShell Cmdlets to browse Data Lake Store. Such users will have to rely solely on command line tools. |
-| Owner  | All  | All  | Owner is a superuser, thus the Owner role lets you manage everything and has full access to data | 
+| Owner  | All  | All  | Owner is a superuser, thus the Owner role lets you manage everything and has full access to data |
 | Reader   | Read-only  | Governed by ACL    | Reader can view everything regarding account management, such as which user is assigned to which role, but can't make any changes   |
 | Contributor              | All except add and remove roles | Governed by ACL    | Contributor can manage other aspects of an account such as creating/managing alerts, deployment, etc. A contributor cannot add or remove roles |
 | User access administrator | Add and remove roles            | Governed by ACL    | User access administrator lets you manage user access to accounts. |
@@ -82,7 +82,7 @@ Azure Data Lake Store enables you to further lock down access to your data store
 
 ## Data protection
 
-Organizations want to ensure that their business critical data is secured throughout its life cycle. For data in transit, Data Lake Store uses industry-standard TLS (Transport Layer Security protocol) to secure data between client and Data Lake Security. 
+Organizations want to ensure that their business critical data is secured throughout its life cycle. For data in transit, Data Lake Store uses industry-standard TLS (Transport Layer Security protocol) to secure data between client and Data Lake Security.
 
 Data protection for data at rest will also be available in the future releases.
 
@@ -113,7 +113,7 @@ For more information on working with diagnostic logs with Azure Data Lake Store,
 
 ## Summary
 
-Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Azure Data Lake Store has been designed to address these requirements with identity management and authentication via Azure Active Direction integration, ALCs based authorization, network isolation, data encryption in transit and at rest (coming in the future), and auditing. 
+Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Azure Data Lake Store has been designed to address these requirements with identity management and authentication via Azure Active Direction integration, ALCs based authorization, network isolation, data encryption in transit and at rest (coming in the future), and auditing.
 
 If you want to see new features included in Data Lake Store, send us your feedback at [Uservoice forum](https://feedback.azure.com/forums/327234-data-lake).
 
@@ -122,4 +122,3 @@ If you want to see new features included in Data Lake Store, send us your feedba
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 - [Get Started with Data Lake Store](data-lake-store-get-started-portal.md)
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-
