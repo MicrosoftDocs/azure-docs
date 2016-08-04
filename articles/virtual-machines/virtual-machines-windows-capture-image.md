@@ -25,15 +25,15 @@ This article shows you how to use Azure PowerShell create a generalized image of
 
 ## Prerequisites
 
-- These steps assume that you already have an Azure virtual machine in the Resource Manager deployment model that you want to use to create the image. You will need the VM name and the name of the resource group. You can get a list of all of the resource groups in your subscription by typing the PowerShell cmdlet `Get-AzureRmResourceGroup`. You can get a list of all of the VMs in your subscription by typing `Get-AzureRMVM`.
+- These steps assume that you already have an Azure virtual machine in the Resource Manager deployment model that you want to use to create the image. You need the VM name and the name of the resource group. You can get a list of the resource groups in your subscription by typing the PowerShell cmdlet `Get-AzureRmResourceGroup`. You can get a list of the VMs in your subscription by typing `Get-AzureRMVM`.
 
 - You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
 ## Prepare the source VM 
 
-This section shows you how to generalize your Windows virtual machine. This removes all your personal account information, among other things. You will typically want to do this when you want to use this VM image to quickly deploy similar virtual machines.
+This section shows you how to generalize your Windows virtual machine so that it can be used as an image.
 
-> [AZURE.WARNING] Please note that the source virtual machine cannot be logged in via RDP once it is generalized, because the process removes all user accounts. This is an irreversible change. 
+> [AZURE.WARNING] The source VM cannot be logged into via RDP once it is generalized, because the process removes all user accounts. The changes are irreversible. 
 
 1. Sign in to your Windows virtual machine. In the [Azure portal](https://portal.azure.com), navigate through **Browse** > **Virtual machines** > Your Windows virtual machine > **Connect**.
 
@@ -73,7 +73,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 ## Deallocate the VM and set the state to generalized		
 
-1. Deallocate the resources that are used by this virtual machine by using this command.
+1. Deallocate the VM resources.
 
 		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
@@ -91,13 +91,13 @@ This section shows you how to generalize your Windows virtual machine. This remo
 		
 ## Create the image 
 
-1. Copy the virtual machine image to the destination storage container using this command. The image will be created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it will be created for you.
+1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image that is stored will be similar to `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	You can also verify the URI in the portal; it will be copied to a blob named **system** in your storage account. 
+	You can also verify the URI in the portal; it is copied to a blob named **system** in your storage account. 
 
 2. Create a variable for the path to the image. 
 
