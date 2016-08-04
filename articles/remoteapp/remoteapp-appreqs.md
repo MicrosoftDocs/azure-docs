@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # App requirements
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+
 Azure RemoteApp supports streaming 32-bit or 64-bit Windows-based applications from a Windows Server 2012 R2 image. Most existing 32-bit or 64-bit Windows-based applications run "as is" in Azure RemoteApp (Remote Desktop Services or formerly known as Terminal Services) environment. However, there is a difference between running and running well - some applications function correctly and perform well, while others do not. The following information provides guidance for developing applications in a Remote Desktop Services environment and testing to ensure compatibility.
 
 Tip: We're working on creating some working examples of apps for you. You'll see new topics that discuss using Microsoft Access, QuickBooks, and App-V in RemoteApp.

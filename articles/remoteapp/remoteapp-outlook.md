@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/20/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Using Microsoft Outlook in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 Azure RemoteApp supports Microsoft Outlook O365. Read more about how [Office works in Azure RemoteApp](remoteapp-officesubscription.md). There are a few recommended settings for Outlook when used in Azure RemoteApp.
 
