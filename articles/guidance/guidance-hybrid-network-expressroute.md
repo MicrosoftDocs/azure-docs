@@ -393,7 +393,11 @@ To run the script that deploys the solution:
 
 	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-7. When the script has completed, initiate the ExpressRoute circuit provisioning process with your service provider. 
+7. When the script has completed, contact your service provider with the ServiceKey of the circuit and wait for the circuit to be provisioned.
+
+	You can find the ServiceKey by using the Azure portal:
+
+	![[4]][4]
 
 8. After the circuit has been provisioned, run the script again as follows to create a VNet and a virtual network gateway connection to the VNet:
 
@@ -436,3 +440,4 @@ To run the script that deploys the solution:
 [1]: ./media/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ./media/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ./media/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
+[4]: ./media/guidance-hybrid-network-expressroute/figure5.png "Locating the ServiceKey of an ExpressRoute circuit"
