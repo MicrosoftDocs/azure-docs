@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -118,15 +118,17 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your vxMaintain application using the following pattern: **https://\<company name-pricing\>.predictix.com/sso/request**.
+    a. In the **Identifier URL** textbox, type the URL using the following pattern: **https://\<company name\>.verisae.com**
 	
-	b. click **Next**
+	b. In the **Reply URL** textbox, type the URL using the following pattern: **https://\<company name\>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true** 
+
+	c. click **Next**
  
 4. On the **Configure single sign-on at vxMaintain** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Click **Download metadata**, and then save the file on your computer.
 
     b. Click **Next**.
 
