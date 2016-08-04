@@ -117,7 +117,7 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | Contains			| "contains" : "&lt;value&gt;"|
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
-| Exists	 | "exits" : "&lt;bool&gt;" |
+| Exists	 | "exists" : "&lt;bool&gt;" |
 
 ### Fields
 
