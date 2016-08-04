@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Automate mobile services with command-line tools

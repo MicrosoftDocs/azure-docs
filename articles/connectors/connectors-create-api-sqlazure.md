@@ -9,63 +9,44 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="07/14/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
 # Get started with the Azure SQL Database connector
-Using the Azure SQL Database connector, you can create workflows for your organization that manage data in your tables. You can:
+Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
+
+With SQL Database, you:
 
 - Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
-- Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), you can insert a row in an Azure SQL Database (an action). 
+- Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
 
 This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
 
->[AZURE.NOTE] This version of the article applies to logic apps general availability (GA). 
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-To learn more about logic apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
->[AZURE.INCLUDE [What you need to get started](../../includes/connectors-create-api-sqlazure.md)]
+## Connect to Azure SQL Database
 
-## Create the connection
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
 
-When you add this connector to your logic apps, you create a connection to SQL Database. The first time you add this connector, you are prompted for the connection information: 
+#### Create the connection
 
-![](./media/connectors-create-api-sqlazure/connection-details.png)  
-
-> [AZURE.NOTE] Once the connection is created, you can reuse this same connection with other logic apps.
-
-#### To create the connection
-
-1. Enter the SQL Database details. Properties with an asterisk are required.
-
-	| Property | Details |
-|---|---|
-| Connect via Gateway | Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-| Connection Name * | Enter any name for your connection. | 
-| SQL Server Name * | Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. | 
-| SQL Database Name * | Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. | 
-| Username * | Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. | 
-| Password * | Enter the password you created when the SQL Database was created. | 
-
-	These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
-
-	![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-
-2. Select **Create**. 
+>[AZURE.INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Use a trigger
 
-This connector does not have any triggers. You can use other triggers to start the logic app, including a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
 ## Use an action
 	
-An action is an operation carried out by the workflow defined in a Logic app.
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
@@ -83,14 +64,14 @@ An action is an operation carried out by the workflow defined in a Logic app.
 
 	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this topic describes these properties. 
 
-	> [AZURE.NOTE] In this example, we return a row from a table. To see the data in this row, you can add another action that creates a file using the fields from the table. For example, you can add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
+	> [AZURE.NOTE] In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and automatically enabled.
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
 ## Technical Details
 
-## Actions
+## SQL Database actions
 An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
 
 |Action|Description|
@@ -105,19 +86,20 @@ An action is an operation carried out by the workflow defined in a logic app. Th
 
 ### Action Details
 
-In this section, you can see specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
 #### Execute stored procedure
 Executes a stored procedure in SQL.  
-An asterisk (*) means the property is required.
 
 | Property Name| Display Name |Description|
 | ---|---|---|
 |procedure * | Procedure name | The name of the stored procedure you want to execute |
-|parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, you can choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
+|parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
 
-**Output Details**  
+An asterisk (*) means the property is required.
+
+##### Output Details
 ProcedureResult: Carries result of stored procedure execution
 
 | Property Name | Data Type | Description |
@@ -129,14 +111,15 @@ ProcedureResult: Carries result of stored procedure execution
 
 #### Get row 
 Retrieves a single row from a SQL table.  
-An asterisk (*) means the property is required.
 
 | Property Name| Display Name |Description|
 | ---|---|---|
 |table * | Table name |Name of SQL table|
 |id * | Row id |Unique identifier of the row to retrieve|
 
-**Output Details**  
+An asterisk (*) means the property is required.
+
+##### Output Details
 Item
 
 | Property Name | Data Type |
@@ -146,18 +129,18 @@ Item
 
 #### Get rows 
 Retrieves rows from a SQL table.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+
 An asterisk (*) means the property is required.
 
-| Property Name| Display Name |Description|
-| ---|---|---|
-|dataset * | Dataset name| dataset name |
-|table * |Table name |Name of SQL table|
-|$skip| Skip Count|Number of entries to skip (default = 0)|
-|$top| Maximum Get Count |Maximum number of entries to retrieve (default = 256)|
-|$filter| Filter Query|An ODATA filter query to restrict the number of entries|
-|$orderby|Order By |An ODATA orderBy query for specifying the order of entries|
-
-**Output Details**  
+##### Output Details
 ItemsList
 
 | Property Name | Data Type |
@@ -167,15 +150,15 @@ ItemsList
 
 #### Insert row 
 Inserts a new row into a SQL table.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|item*|Row|Row to insert into the specified table in SQL|
+
 An asterisk (*) means the property is required.
 
-| Property Name| Display Name |Description|
-| ---|---|---|
-|dataset * | Dataset name |Name of SQL dataset |
-|table * | Table name |Name of SQL table|
-|item *|Row|Row to insert into the specified table in SQL|
-
-**Output Details**  
+##### Output Details
 Item
 
 | Property Name | Data Type |
@@ -185,15 +168,15 @@ Item
 
 #### Delete row 
 Deletes a row from a SQL table.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to delete|
+
 An asterisk (*) means the property is required.
 
-| Property Name| Display Name |Description|
-| ---|---|---|
-|dataset * | Dataset name |Name of SQL dataset |
-|table * |Table name |Name of SQL table|
-|id * |Row id |Unique identifier of the row to delete|
-
-**Output Details**  
+##### Output Details
 None.
 
 #### Get tables 
@@ -201,7 +184,7 @@ Retrieves tables from a SQL database.
 
 There are no parameters for this call. 
 
-**Output Details**  
+##### Output Details 
 TablesList
 
 | Property Name | Data Type |
@@ -210,16 +193,16 @@ TablesList
 
 #### Update row 
 Updates an existing row in a SQL table.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to update|
+|item*|Row|Row with updated values|
+
 An asterisk (*) means the property is required.
 
-| Property Name| Display Name |Description|
-| ---|---|---|
-|dataset * | Dataset name |Name of SQL dataset |
-|table * |Table name |Name of SQL table|
-|id * |Row id |Unique identifier of the row to delete|
-|item * |Row|item to be updated|
-
-**Output Details**  
+##### Output Details  
 Item
 
 | Property Name | Data Type |
@@ -245,4 +228,4 @@ When making calls to the different actions, you may get certain responses. The f
 
 ## Next steps
 
-Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).

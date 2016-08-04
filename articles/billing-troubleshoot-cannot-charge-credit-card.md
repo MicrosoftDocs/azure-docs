@@ -1,11 +1,11 @@
 <properties
 	pageTitle="I received an email that my services might be interrupted | Microsoft Azure"
 	description="Describes how to resolve the issue where your credit card cannot be charged for your subscription"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 

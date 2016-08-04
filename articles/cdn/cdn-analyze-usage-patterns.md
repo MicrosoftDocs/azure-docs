@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Analyze CDN usage patterns "
+	pageTitle="Analyze Azure CDN usage patterns | Microsoft Azure"
 	description="You can view usage patterns for your CDN using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
-# Analyze CDN usage patterns
+# Analyze Azure CDN usage patterns
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
@@ -28,6 +28,19 @@ You can view usage patterns for your CDN using the following reports:
 - Cache Statuses
 - Cache Hit Ratio
 - IPV4/IPV6 Data Transferred
+
+## Accessing advanced HTTP reports
+
+1. From the CDN profile blade, click the **Manage** button.
+
+	![CDN profile blade manage button](./media/cdn-reports/cdn-manage-btn.png)
+
+	The CDN management portal opens.
+
+2. Hover over the **Analytics** tab, then hover over the **Core Reports** flyout.  Click on the desired report in the menu.
+
+	![CDN management portal - Core Reports menu](./media/cdn-reports/cdn-core-reports.png)
+
 
 ## Bandwidth
 

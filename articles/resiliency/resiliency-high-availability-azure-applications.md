@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #High availability for applications built on Microsoft Azure
 
@@ -28,7 +28,7 @@ Azure has many built-in platform features that support highly available applicat
 
 The Azure fabric controller provisions and monitors the condition of the Azure compute instances. The fabric controller checks the status of the hardware and software of the host and guest machine instances. When it detects a failure, it enforces SLAs by automatically relocating the VM instances. The concept of fault and upgrade domains further supports the compute SLA.
 
-When multiple role instances are deployed, Azure deploys these instances to different fault domains. A fault domain boundary is basically a different hardware rack in the same region. Fault domains reduce the probability that a localized hardware failure will interrupt the service of an application. You cannot manage the number of fault domains that are allocated to your worker or web roles. The fabric controller uses dedicated resources that are separate from Azure-hosted applications. It has 100 percent uptime because it serves as the nucleus of the Azure system. It monitors and manages role instances across fault domains.
+When multiple Cloud Service role instances are deployed, Azure deploys these instances to different fault domains. A fault domain boundary is basically a different hardware rack in the same region. Fault domains reduce the probability that a localized hardware failure will interrupt the service of an application. You cannot manage the number of fault domains that are allocated to your worker or web roles. The fabric controller uses dedicated resources that are separate from Azure-hosted applications. It has 100 percent uptime because it serves as the nucleus of the Azure system. It monitors and manages role instances across fault domains.
 
 The following diagram shows Azure shared resources that the fabric controller deploys and manages across different fault domains.
 

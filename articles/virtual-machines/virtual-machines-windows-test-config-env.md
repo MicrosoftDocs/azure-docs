@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment
 
-This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager.
+This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure virtual network, using virtual machines created in Resource Manager.
 
 You can use the resulting test environment:
 
@@ -92,7 +92,7 @@ Create a new storage account for your new test environment with these commands.
 	$saName="<storage account name>"
 	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
-Next, you create the TestLab Azure Virtual Network that will host the Corpnet subnet of the base configuration and protect it with a network security group.
+Next, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration and protect it with a network security group.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
@@ -167,7 +167,7 @@ Note that these commands can take a few minutes to complete.
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
 1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
-2.	In the **DC1** pane, click** Connect**.
+2.	In the **DC1** pane, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use the following:

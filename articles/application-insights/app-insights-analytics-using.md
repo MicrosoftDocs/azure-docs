@@ -4,7 +4,7 @@
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/15/2016" 
-	ms.author="awills"/>
+	ms.author="danha"/>
 
 
 # Using Analytics in Application Insights
@@ -24,11 +24,13 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
 ## Open Analytics
 
 From your app's home resource in Application Insights, click Analytics.
-
+p
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
 The inline tutorial will give you some ideas about what you can do.
@@ -41,7 +43,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 
 ![](./media/app-insights-analytics-using/150.png)
 
-Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). Intellisense will prompt you with the operators and some of the expression elements that you can use.
+Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense will prompt you with the operators and some of the expression elements that you can use.
 
 See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
 
@@ -87,6 +89,8 @@ Pick the columns you'd like to see, drag column headers to rearrange them, and r
 
 Sort your results by clicking the head of a column. Click again to sort the other way, and click a third time to revert to the original ordering returned by your query.
 
+Use the filter icon to narrow your search.
+
 ![Sort and filter columns](./media/app-insights-analytics-using/040.png)
 
 
@@ -121,6 +125,8 @@ Select the type of diagram you'd like:
 If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
+
+You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (Only available for apps in a paid-for pricing tier.) 
 
 ## Export to Excel
 
