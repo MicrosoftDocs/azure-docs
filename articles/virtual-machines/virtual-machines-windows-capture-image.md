@@ -20,12 +20,12 @@
 # How to create a VM image from an existing Azure VM
 
 
-This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create a new VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources that you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine using the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
+This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create a new VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set those up when you create a VM using the image. This image will be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Prerequisites
 
-- These steps assume that you've already created an Azure virtual machine in the Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. You will need the VM name and the name of the resource group. You can get a list of all of the resource groups in your subscription by typing the PowerShell cmdlet `Get-AzureRmResourceGroup`. You can get a list of all of the VMs in your subscription by typing `Get-AzureRMVM`.
+- These steps assume that you already have an Azure virtual machine in the Resource Manager deployment model that you want to use to create the image. You will need the VM name and the name of the resource group. You can get a list of all of the resource groups in your subscription by typing the PowerShell cmdlet `Get-AzureRmResourceGroup`. You can get a list of all of the VMs in your subscription by typing `Get-AzureRMVM`.
 
 - You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
@@ -73,7 +73,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 ## Deallocate the VM and set the state to generalized		
 
-1. Deallocate the resources that are used by this virtual machine by using this commmand.
+1. Deallocate the resources that are used by this virtual machine by using this command.
 
 		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
@@ -84,7 +84,8 @@ This section shows you how to generalize your Windows virtual machine. This remo
 		Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
 
 3. Check the status of the VM. The **OSState/generalized** section for the VM should have the **DisplayStatus** set to **VM generalized**.  
-		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status`</br>
+		
+		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status
 		$vm.Statuses
 
 		
