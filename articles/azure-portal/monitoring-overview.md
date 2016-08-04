@@ -115,15 +115,16 @@ In general, you can manipulate what's tracked, where it goes and retrieving data
 ## Azure’s Monitoring Offerings
 Azure has offerings available for monitoring your services from bare-metal infrastructure to application telemetry. The best monitoring strategy combines use of all three to gain comprehensive, detailed insight into the health of your services.
 
-- **Azure Insights (Platform) Monitoring** – Offers visualization, query, routing, and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation.
+- [Azure Insights (Platform) Monitoring](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation.
 - **[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)** – Provides rich detection and diagnostics for issues at the application layer of your service, well integrated on top of data from Azure Monitoring.
 - **[Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
 
 
 ## Next steps
 Learn more about
-- **Azure Insights** by exploring the links in the TOC to the left.
-- [Windows Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine or Service Fabric application.
+
+- [Azure Insights](http://aka.ms/azmondocs) by exploring the links in the TOC to the left and the videos at this link.
+- [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine or Service Fabric application.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
 - [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) if you are using Storage Blobs, Tables or Queues
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
