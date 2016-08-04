@@ -2,7 +2,7 @@ Resource|Default Limit|Maximum Limit
 ---|---|---
 Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup>|20|10,000
 [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription|200|200
-[Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription<sup>2</sup>|200|200
+[Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription<sup>2</sup>|200|250
 [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription|20|200
 [Local networks](http://msdn.microsoft.com/library/jj157100.aspx) per subscription|10|500
 SQL Database servers per subscription|6|150
