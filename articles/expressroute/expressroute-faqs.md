@@ -184,23 +184,10 @@ ExpressRoute premium is a collection of features listed below.
  - Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
+The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
+
 
 [AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
-
-**Limits for circuits**
-
-| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps      | 10                                     | 10                                            |
-| 100 Mbps     | 10                                     | 20                                            |
-| 200 Mbps     | 10                                     | 25                                            |
-| 500 Mbps     | 10                                     | 40                                            |
-| 1 Gbps       | 10                                     | 50											|
-| 2 Gbps	   | 10										| 60											|
-| 5 Gbps       | 10                                		| 75											|
-| 10 Gbps      | 10                                		| 100                                          |
-
 
 
 ### How do I enable ExpressRoute premium?
