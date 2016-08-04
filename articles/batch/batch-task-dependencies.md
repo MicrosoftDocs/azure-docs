@@ -20,9 +20,9 @@
 
 The task dependencies feature of Azure Batch is a good fit if you want to process:
 
-- MapReduce-style workloads in the cloud
-- Jobs whose data processing tasks can be expressed as a directed acyclic graph (DAG)
-- Any other job in which downstream tasks depend on the output of upstream tasks
+- MapReduce-style workloads in the cloud.
+- Jobs whose data processing tasks can be expressed as a directed acyclic graph (DAG).
+- Any other job in which downstream tasks depend on the output of upstream tasks.
 
 With this feature, you can create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all of the frames have been successfully rendered.
 
