@@ -41,21 +41,21 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
 
-  | Level | *{Scope}* |
-  |-------|-----------|
-  | Subscription   | /subscriptions/{subscription-id} |
-  | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
-  | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+	| Level | *{Scope}* |  
+	|-------|-----------|  
+	| Subscription   | /subscriptions/{subscription-id} |  
+	| Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
+	| Resource       |   /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |  
 
 2. Replace *{api-version}* with 2015-07-01.
 
 3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list:
 
-  | Condition | *{Filter}* | Replace |
-  |-----------|------------|---------|
-  | List role assignments for only the specified scope, not including the role assignments at subscopes. | `atScope()` | |
-  | List role assignments for only specific user, group, or application                                          | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-  | List role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+	| Condition | *{Filter}* | Replace |  
+	|-----------|------------|---------|  
+	| List role assignments for only the specified scope, not including the role assignments at subscopes. | `atScope()` | |  
+	| List role assignments for only specific user, group, or application | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |  
+	| List role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |  
 
 ### Response
 
