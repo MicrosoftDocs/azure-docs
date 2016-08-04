@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Best Practices for preparing and uploading Windows VHD to Azure | Microsoft Azure"
-	description="Best practices for preparing and uploading the Windows VHD to Azure"
+	pageTitle="Best Practices for preparing Windows VHD before uploading to Azure | Microsoft Azure"
+	description="Best Practices for preparing Windows VHD before uploading to Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="genlin"
@@ -17,9 +17,9 @@
 	ms.date="08/04/2016"
 	ms.author="genli"/>
 
-# Best Practices for preparing and uploading Windows VHD to Azure
+# Best Practices for preparing Windows VHD before uploading to Azure
 
-The following are best practices for preparing and uploading the Windows VHD to Azure:
+The following are best practices for preparing Windows VHD for Azure:
 
 ## Prepare VM configuration for upload
 
@@ -228,3 +228,8 @@ Note You must run the followings commands with [administrative privileges](https
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
+
+	## Next steps
+
+	- [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md)
+	-
