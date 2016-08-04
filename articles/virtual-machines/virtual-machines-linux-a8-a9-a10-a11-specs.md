@@ -32,7 +32,7 @@ Within a single cloud service or an availability set, clusters of size A8 and A9
 
 * **MPI** - Intel MPI Library 5.x
 
-    >[AZURE.NOTE] Intel MPI 5.1.3.181 is already installed on the CentOS-based HPC images in the Marketplace. To use Intel MPI on SLES 12 HPC VMs, you must separately install it.
+    >[AZURE.NOTE] Intel MPI 5.1 is already installed on the CentOS-based HPC images in the Marketplace. To use Intel MPI on SLES 12 HPC VMs, you must separately install it.
 
 Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SLES 12 HPC and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
 
