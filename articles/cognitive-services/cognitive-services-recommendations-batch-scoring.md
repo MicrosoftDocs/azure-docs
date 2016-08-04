@@ -1,7 +1,7 @@
 
 <properties
 	pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
-	description="Azure machine learning recommendations--getting recommendations IN batches"
+	description="Azure machine learning recommendations--getting recommendations in batches"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -108,11 +108,11 @@ This is an example of what the request body should look like:
 
 Here a few important things to note:
 
--	Currently, authenticationType should always be set to PublicOrSas.
+-	Currently, **authenticationType** should always be set to **PublicOrSas**.
 
 -	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	The only *apiName* that's currently supported is ItemRecommend, which is used for Item-to-Item  recommendations. User-to-Item recommendations are not currently supported by batching.
+-	The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. User-to-Item recommendations are not currently supported by batching.
 
 ## Wait for the asynchronous operation to complete
 
