@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Best Practices for preparing and uploading Windows VM image to Azure | Microsoft Azure"
-	description="Best practices for preparing and uploading the Windows VM image to Azure"
+	pageTitle="Best Practices for preparing and uploading Windows VHD to Azure | Microsoft Azure"
+	description="Best practices for preparing and uploading the Windows VHD to Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="genlin"
@@ -19,11 +19,11 @@
 
 # Best Practices for preparing and uploading Windows VHD to Azure
 
-The following are best practices for preparing and uploading the Windows VM to Azure:
+The following are best practices for preparing and uploading the Windows VHD to Azure:
 
 ## Prepare VM configuration for upload
 
-1.	Make sure that the VHD disk is working fine in the local Hyper-V server.
+1.	Make sure that the Windows VHD is working fine in the local Hyper-V server.
 2.	Azure can only accept VHD disk file that created for generation 1 virtual machines. The disk must be in **Fixed size**. The maximum size allowed for the VHD is 1,023 GB.
 
 	If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
