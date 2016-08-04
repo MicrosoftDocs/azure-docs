@@ -33,15 +33,18 @@ You can use the [REST API](https://msdn.microsoft.com/library/azure/dn931945.asp
 2. Click on the  **Alert rules** tile in the **Operations** lens.
 
 3. Click the **Add alert** command.
-    ![Add alert](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+
+	![Add alert](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. You can name your alert rule, and choose a description that will show up in the notification email.
 
 5. When you select **Metrics** you'll choose a condition and threshold Value for the metric. This is the period of time that Azure uses to monitor and plot alert activity.
-    ![Condition and threshold](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+
+	![Condition and threshold](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. You can also choose **Events**, and get a notification when a certain event happens.
-    ![Events](./media/insights-receive-alert-notifications/Insights_Events.png)
+
+	![Events](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Finally, you can choose to send email notification to responsible administrators.
 
