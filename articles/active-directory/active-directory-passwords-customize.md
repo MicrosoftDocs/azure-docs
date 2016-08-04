@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
@@ -851,7 +851,7 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
                   <li class="unordered">
-												This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
+												This notification is sent via an email to the user’s User Principal Name, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
                 </ul>
               </td>
             </tr>

@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/15/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Prepare your development environment
- In order to build and run [Azure Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+ To build and run [Azure Service Fabric applications][1] on your development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
 ## Prerequisites
 ### Supported operating system versions
@@ -28,7 +28,7 @@ The following operating system versions are supported for development:
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] Windows 7 only includes Windows PowerShell 2.0 by default. You will need to install PowerShell 3.0 or higher to use Service Fabric PowerShell cmdlets. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
+>[AZURE.NOTE] Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
 
 ## Install the runtime, SDK, and tools
 
@@ -41,14 +41,14 @@ The Web Platform Installer offers three configurations for Service Fabric develo
 
 ## Enable PowerShell script execution
 
-Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
+Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
 ## Next steps
-Now that your development environment is set up, you can start building and running apps.
+Now that you've finished setting up your development environment, start building and running apps.
 
 - [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
