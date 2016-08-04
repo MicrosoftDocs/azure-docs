@@ -25,34 +25,34 @@ ms.author="adegeo"/>
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. 
+This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell utilizes the Remote Desktop Extension so you can enable Remote Desktop even after the application is deployed. 
 
 
 ## Configure Remote Desktop from PowerShell
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter which accepts a PSCredential object.
+The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
 
-If you are using PowerShell interactively you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet. 
+If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet. 
 
 ```
 $remoteusercredentials = Get-Credential
 ```
 
-This will display a dialog box allowing you to enter the username and password for the remote user in a secure manner. 
+This command displays a dialog box allowing you to enter the username and password for the remote user in a secure manner. 
 
-Since PowerShell will mostly be used for automation scenarios you can also setup the PSCredential object in a way that doesn't require user interaction. To do this first you need to setup a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Now you can save this encrypted standard string to a file using [Set-Content](https://technet.microsoft.com/library/ee176959.aspx). When creating the PSCredential object you can read from this file to set the password in a secure way without having to specify the password on a prompt or storing the password as plain text. 
+Since PowerShell will mostly be used for automation scenarios, you can also set up the **PSCredential** object in a way that doesn't require user interaction. First, you need to set up a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Now you can save this encrypted standard string to a file using [Set-Content](https://technet.microsoft.com/library/ee176959.aspx). 
 
-Use the following PowerShell to create a secure password file:  
+You can also create a secure password file so that you don't have to read the password from a plain text file or type in the password. Use the following PowerShell to create a secure password file:  
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
-Once the password file (password.txt) is created you will only be using this file and will not have to specify the password in plain text. If you need to update the password then you can run the above powershell again with the new password to generate a new password.txt file. 
+>[AZURE.IMPORTANT] When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/library/cc786468.aspx).
 
->[AZURE.IMPORTANT] When setting the password make sure you meet the [complexity requirements](https://technet.microsoft.com/library/cc786468.aspx). 
+To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). 
 
-To create the credential object from the secure password file you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). In addition to credentials the [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet also accepts an *Expiration* parameter which specifies a DateTime at which the user account will expire. You get set it by specifying a static date and time or you could simply choose to expire the account a few days from the current date.
+The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet also accepts an *Expiration* parameter, which specifies a **DateTime** at which the user account expires. You get set it by specifying a static date and time or you could simply choose to expire the account a few days from the current date.
 
 This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:   
 
@@ -64,12 +64,12 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
-You can also optionally specify the deployment slot and roles that you want to enable remote desktop on. If these parameters are not specified the cmdlet will default to using the Production deployment slot and enable remote desktop on all roles in the production deployment. 
+You can also optionally specify the deployment slot and roles that you want to enable remote desktop on. If these parameters are not specified, the cmdlet enables remote desktop on all roles in the **Production** deployment slot.
 
 The Remote Desktop extension is associated with a deployment. If you were to create a new deployment for the service then you will have to enable remote desktop on the new deployment again. If you want to always have remote desktop enabled on your deployments then you should consider integrating the PowerShell scripts to enable remote desktop into your deployment workflow.
 
 
-## Remote Desktop into an role instance
+## Remote Desktop into a role instance
 The [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet can be used to remote desktop into a specific role instance of your cloud service. You can use the *LocalPath* parameter on the cmdlet to download the RDP file locally or you can use the *Launch* parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.
 
 ```
