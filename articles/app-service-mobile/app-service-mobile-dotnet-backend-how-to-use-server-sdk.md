@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/18/2016"
+	ms.date="08/02/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -41,9 +41,7 @@ You can create a new mobile application right in the [Azure portal]. You can eit
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;9. Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**.
-
-&nbsp;&nbsp;10. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 

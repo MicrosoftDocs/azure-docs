@@ -93,6 +93,6 @@ To remove the static private IP address from the VM created above, follow the st
 
 ## Next steps
 
-- Learn about [reserved public IP](../virtual-networks-reserved-public-ip) addresses.
-- Learn about [instance-level public IP (ILPIP)](../virtual-networks-instance-level-public-ip) addresses.
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 - Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
