@@ -56,10 +56,10 @@ You might want to reference a Swagger document that's either not hosted, or that
 
 Here are the steps to create, configure, and store Swagger documents in Azure Storage:
 
-1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md) (to do this, set permissions to **Public Access**).
+1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md). (To do this, set permissions to **Public Access**.)
 2. Enable CORS on the blob. You can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) to configure that setting automatically.
 3. Upload the Swagger file into the blob. You can do this from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
-1. Reference an HTTPS link to the document in Azure Blob storage (the link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`).
+1. Reference an HTTPS link to the document in Azure Blob storage. (The link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`.)
 
 
 
