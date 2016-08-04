@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/01/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # Modify the IP address prefixes for your local network gateway using PowerShell
@@ -33,5 +33,5 @@ Sometimes your local network gateway prefixes change. If you need to change the 
 
 ## Next steps
 
-You can verify your VPN connection by using Step 9 in [this article](vpn-gateway-create-site-to-site-rm-powershell.md).
+You can verify your VPN connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
 
