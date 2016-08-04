@@ -78,7 +78,7 @@ The passphrase you got when deploying the management server can be saved to a tx
 
 I have placed both the zipped folder and the passphrase in a dedicated container in my Azure storage account
 
-![folder location](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/folder-and-passphrase-location.png)
+![folder location](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
 If you prefer to keep these files on a share within your network, you can perfectly do so. You just need to ensure that the DSC resource we will be using later actually has access and can get the setup and passphrase.
 
@@ -204,7 +204,7 @@ Login to your automation account and navigate to AssetsàModules and click on Br
 
 Here you can search for the module and import it to your account.
 
-![import module](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/search-and-import-module.png)
+![import module](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 Once this is done, head over to your machine where you have the Azure RM modules installed and proceed to import the newly created DSC configuration.
 
@@ -240,7 +240,7 @@ This can take a few minutes, as we are basically deploying the configuration to 
 
 Once completed, you can either retrieve the job information by using PowerShell (Get-AzureRmAutomationDscCompilationJob) or use portal.azure.com
 
-![Retrieve job](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/retrieve-job.png)
+![Retrieve job](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
 We have now successfully published and uploaded our DSC configuration to OMS Automation DSC.
 
@@ -251,7 +251,7 @@ We will now create a metaconfig for DSC that we will apply to our nodes. To succ
 
 These values can be located under ‘Keys’ on the Automation account ‘All settings’ blade.
 
-![Key values](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/key-values.png)
+![Key values](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 In my environment, I have a Windows Server 2012 R2 physical server that I want to protect with OMS Site Recovery.
 
@@ -313,11 +313,11 @@ This configuration will configure the local configuration manager to register it
 
 Once you run this, the node should start to register with Automation DSC
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/register-node.png)
+![Register node](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
 If we go back to portal.azure.com, we can see that the newly registered node has now appeared in the portal.
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/registered-node.png)
+![Register node](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
 On the server, we can run the following PowerShell cmdlet to verify it has been registered correctly:
 
@@ -333,13 +333,13 @@ Get-DscConfigurationStatus
 
 The output shows that the server has successfully pulled its configuration:
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/successful-config.png)
+![Register node](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 In addition, the Mobility Service setup has its own log that can be found at ‘<SystemDrive>\ProgramData\ASRSetupLogs’.
 
 That’s it – we have now successfully deployed and registered the Mobility Service on our machine we want to protect with Site Recovery, and we can rely on DSC that the required services will always be running.
 
-![Register node](./media/replicate-vmware-virtual-machines-to-azure-using-dsc/successful-install.png)
+![Register node](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
 Once this has been detected by the management server, you can proceed to configure protection and enable replication on the machine with Site Recovery.
 
