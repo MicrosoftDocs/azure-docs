@@ -28,6 +28,8 @@ The following diagram shows a logical view of Azure monitoring. The underlying i
 
 Figure 1: Logical Model for monitoring and diagnostics for non-compute resources
 
+<br/>
+
 ![Logical Model for monitoring and diagnostics for compute resources](./media/monitoring-overview/monitoring-azure-resources-compute.png)
 
 Figure 2: Logical Model for monitoring and diagnostics for compute resources
