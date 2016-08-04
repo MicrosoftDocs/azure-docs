@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Receive alert notifications for Azure services | Microsoft Azure"
 	description="Be notified when alert rules conditions are met."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
+	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Receive alert notifications
 
