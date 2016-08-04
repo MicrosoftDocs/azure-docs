@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Learn how to configure multiple NICs on a Linux VM | Microsoft Azure"
-   description="Learn how to create a VM with multiple NICs attached to it using the Azure CLI or resource manager templates."
+   pageTitle="Configure multiple NICs on a Linux VM | Microsoft Azure"
+   description="Learn how to create a VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"

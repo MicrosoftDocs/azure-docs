@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="08/03/2016"
+   ms.date="08/04/2016"
    ms.author="iainfou"/>
 
 # Creating a VM with multiple NICs
@@ -22,7 +22,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 >[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM.
 
 ## Creating multiple NICs using Azure PowerShell
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md)
+Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md).
 
 First, create a resource group:
 
@@ -37,7 +37,7 @@ $storageAcc = New-AzureRmStorageAccount -Name teststorageikf `
     -ResourceGroupName TestRG -Kind Storage -SkuName Premium_LRS -Location WestUS
 ```
 
-Create a virtual network to connect your VMs to, along with two virtual network subnets - one for front-end traffic and one for back-end traffic:
+Define two virtual network subnets - one for front-end traffic and one for back-end traffic. Create your virtual network with these subnets:
 
 ```powershell
 $frontEndSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix 192.168.1.0/24
@@ -61,7 +61,9 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
         -Location WestUS -SubnetId $BackEnd.Id
 ```
 
-Finally create your VM, attaching the two NICs you previously created:
+Typically you would also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a Network Security Group and assigning NICs.
+
+Finally create your VM, attaching the two NICs you previously created. Take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](virtual-machines-windows-sizes.md). The following example uses a VM size that supports using multiple NICs (`Standard_DS2_v2`):
 
 ```powershell
 $cred = Get-Credential
