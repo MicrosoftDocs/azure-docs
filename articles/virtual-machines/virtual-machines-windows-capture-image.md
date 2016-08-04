@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capture a Windows VM in Resource Manager | Microsoft Azure"
-	description="Learn how to capture an image of a Windows-based Azure virtual machine (VM) created with the Resource Manager deployment model."
+	pageTitle="Create a VM image from an Azure VM | Microsoft Azure"
+	description="Learn how to create a generalized VM image from an existing Azure VM created in the Resource Manager deployment model
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/03/2016"
 	ms.author="cynthn"/>
 
-# How to capture a Windows virtual machine in the Resource Manager deployment model
+# How to create a VM image from an existing Azure VM
 
 
-This article shows you how to use Azure PowerShell to capture an Azure virtual machine (VM) that is running Windows so you can use it to create other virtual machines. This image includes the OS disk and the data disks that are attached to the virtual machine. It doesn't include the virtual network resources that you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
+This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create a new VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources that you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine using the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Prerequisites
@@ -90,13 +90,17 @@ This section shows you how to generalize your Windows virtual machine. This remo
 		
 ## Create the image 
 
-1. Copy the virtual machine image to the destination storage container using this command.
+1. Copy the virtual machine image to the destination storage container using this command. The image will be created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it will be created for you.
 
 		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
-	The `-Path` variable is optional. You can use it to save the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. The URL of the image that is stored will be similar to `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. It will be created in the same storage account as that of the original virtual machine.
+	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image that is stored will be similar to `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+	
+	You can also verify the URI in the portal; it will be copied to a blob named **system** in your storage account. 
 
-	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. You can also verify the URI in the portal; it will be copied to a blob named **system** in your storage account. 
+2. Create a variable for the path to the image. 
+
+		$imageURI = 
 
 
 ## Create a virtual network
@@ -136,17 +140,18 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
 
->[AZURE.NOTE] The VM needs to be in the same storage account as the uploaded VHD file.
+>[AZURE.NOTE] The VM needs to be created in the same storage account as the original VHD.
 
 </br>
 
+	
 	
 	
 	#Create variables
 	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
 	$cred = Get-Credential
 	
-	# Name of the storage account where the VHD file is and where the OS disk will be created
+	# Name of the storage account 
 	$storageAccName = "<storageAccountName>"
 	
 	# Name of the virtual machine
@@ -160,6 +165,13 @@ The following PowerShell script shows how to set up the virtual machine configur
 	
 	# Name of the disk that holds the OS
 	$osDiskName = "<osDiskName>"
+	
+	# Assign a SKU name
+	# Valid values for -SkuName are: **Standard_LRS** - locally redundant storage, **Standard_ZRS** - zone redundant storage, **Standard_GRS** - geo redundant storage, **Standard_RAGRS** - read access geo redundant storage, **Premium_LRS** - premium locally redundant storage. 
+	$skuName = "<skuName>"
+	
+	# Create a new storage account for the VM
+	New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $storageAccName -Location $location -SkuName $skuName -Kind "Storage"
 
 	#Get the storage account where the uploaded image is stored
 	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
@@ -178,7 +190,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 
 	#Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
 	#You set this variable when you uploaded the VHD
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
