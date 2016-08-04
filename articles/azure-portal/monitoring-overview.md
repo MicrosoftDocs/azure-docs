@@ -18,7 +18,7 @@
 
 # Overview of Monitoring in Microsoft Azure
 
-This article provides a conceptual overview of monitoring resource in Azure and  pointers to more information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](https://azure.microsoft.com/en-us/documentation/articles/best-practices-monitoring/#related-patterns-and-guidance).
+This article provides a conceptual overview of monitoring resource in Azure and  pointers to more information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
 
 Cloud applications are complex with many moving parts. Monitoring provides the ability to insure that your application stays up and running in a healthy state, while also tracking vital metrics to stave off potential problems or troubleshoots past ones. In addition, you can use monitoring data to automate some actions that would require manual intervention and gain deep insights about your application which may help you to improve its performance or maintainability.
 
@@ -108,15 +108,15 @@ Examples include:
 In general, you can manipulate what's tracked, where it goes and retrieving data using one of the following methods. Not all methods are available for all actions.
 - [Azure portal](https://portal.azure.com)
 - [PowerShell](insights-powershell-samples.md)  
-- [Common Library Interface (CLI)](insights-cli-samples)
+- [Common Library Interface (CLI)](insights-cli-samples.md)
 - [REST API](https://msdn.microsoft.com/library/dn931943.aspx)
 - [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
 
 ## Azure’s Monitoring Offerings
 Azure has offerings available for monitoring your services from bare-metal infrastructure to application telemetry. The best monitoring strategy combines use of all three to gain comprehensive, detailed insight into the health of your services.
 
-- **Azure Insights (Platform) Monitoring** – Offers visualization, query, routing, and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation. 
-- **[Application Insights](https://azure.microsoft.com/en-us/documentation/services/application-insights/)** – Provides rich detection and diagnostics for issues at the application layer of your service, well integrated on top of data from Azure Monitoring.
+- **Azure Insights (Platform) Monitoring** – Offers visualization, query, routing, and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation.
+- **[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)** – Provides rich detection and diagnostics for issues at the application layer of your service, well integrated on top of data from Azure Monitoring.
 - **[Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
 
 
@@ -124,6 +124,6 @@ Azure has offerings available for monitoring your services from bare-metal infra
 Learn more about
 - **Azure Insights** by exploring the links in the TOC to the left.
 - [Windows Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine or Service Fabric application.
-- [Application Insights](https://azure.microsoft.com/en-us/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
-- [Troubleshooting Azure Storage](https://azure.microsoft.com/en-us/documentation/articles/storage-e2e-troubleshooting/) if you are using Storage Blobs, Tables or Queues
-- [Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite)
+- [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
+- [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) if you are using Storage Blobs, Tables or Queues
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
