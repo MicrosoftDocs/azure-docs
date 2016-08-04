@@ -19,7 +19,7 @@
 # Move data From a OData source using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from an OData source to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-> [AZURE.NOTE] This OData connector support copying data from both cloud OData and on-premises OData. For the latter, you need to install the Data Management Gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
+> [AZURE.NOTE] This OData connector support copying data from both cloud OData and on-premises OData sources. For the latter, you need to install the Data Management Gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
 
 ## Sample: Copy data from OData source to Azure Blob
 
@@ -214,7 +214,7 @@ The following table provides description for JSON elements specific to OData lin
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **OData** | Yes |
 | url| Url of the OData service. | Yes |
-| authenticationType | Type of authentication used to connect to the OData source. <br> For cloud OData, possible values are Anonymous and Basic; for on-premises OData, possible values are Anonymous, Basic and Windows. | Yes | 
+| authenticationType | Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous and Basic; for on-premises OData, possible values are Anonymous, Basic and Windows. | Yes | 
 | username | Specify user name if you are using Basic authentication. | Yes (only if you are using Basic authentication) | 
 | password | Specify password for the user account you specified for the username. | Yes (only if you are using Basic authentication) | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. | No |
@@ -260,7 +260,7 @@ The following table provides description for JSON elements specific to OData lin
             "type": "OData",
            	"typeProperties": 
             {
-               "url": "<OData endpoint of on-premises Dynamics CRM>",
+               "url": "<OData endpoint of on-premises OData source e.g. Dynamics CRM>",
                "authenticationType": "Windows",
                 "username": "domain\\user",
                "password": "password",
