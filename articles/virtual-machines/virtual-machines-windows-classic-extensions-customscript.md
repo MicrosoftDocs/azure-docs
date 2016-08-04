@@ -33,7 +33,6 @@ Custom Script extension for Windows allows you to run PowerShell scripts on a re
 ### Prerequistes for running Custom Script Extension
 
 1. Install Azure PowerShell cmdlets version 0.8.0 or later from <a href="http://azure.microsoft.com/downloads" target="_blank">here</a>.
-2. If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> to install one. (If you are provisioning the VM from Azure gallery then VM agents are enabled by default , you don’t have to enable them)
 3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single container or multiple storage containers.
 4. The script should be authored in such a way that the entry script, which is started by the extension, starts other scripts.
 
