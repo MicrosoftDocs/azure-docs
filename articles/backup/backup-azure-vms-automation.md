@@ -372,7 +372,6 @@ After you have restored the disks, use these steps to create and configure the v
     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
     }
    ```
-   
 5. Set the Network settings.
 
     ```
