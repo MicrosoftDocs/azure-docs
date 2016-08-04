@@ -23,13 +23,13 @@
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
-Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API helps you manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 ## List all role assignments
 
-Lists all of the role assignments at the specified scope and sub-scopes.
+Lists all the role assignments at the specified scope and subscopes.
 
-To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -49,13 +49,13 @@ Within the URI, make the following substitutions to customize your request:
 
 2. Replace *{api-version}* with 2015-07-01.
 
-3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list. The following conditions are supported.
+3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list:
 
   | Condition | *{Filter}* | Replace |
   |-----------|------------|---------|
-  | To list role assignments for only the specified scope, not including the role assignments at sub-scopes. | `atScope()` | |
-  | To list role assignments for only specific user, group, or application                                          | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-  | To list role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+  | List role assignments for only the specified scope, not including the role assignments at subscopes. | `atScope()` | |
+  | List role assignments for only specific user, group, or application                                          | `principalId%20eq%20'{objectId}'` | Replace *{objectId}* with the Azure AD objectId of the user, group, or service principal. For instance, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+  | List role assignments for only specific user including ones assigned to groups of which the user is a member | `assignedTo('{objectId}')` | Replace *{objectId}* with the Azure AD objectId of the user. For instance, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 ### Response
 
@@ -88,7 +88,7 @@ Status code: 200
 
 Gets information about a single role assignment specified by the role assignment identifier.
 
-To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -154,7 +154,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-assignment-id}* with a new GUID. This will be used as the GUID identifier of the new role assignment.
+2. Replace *{role-assignment-id}* with a new GUID which becomes the GUID identifier of the new role assignment.
 
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -172,8 +172,8 @@ For the request body, provide the values in the following format:
 
 | Element Name     | Required | Type   | Description |
 |------------------|----------|--------|-------------|
-| roleDefinitionId | Yes      | String | The identifier of the role that is to be assigned. The format of the identifier is: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId      | Yes      | String | objectId of the Azure AD principal (user, group, or service principal) to which the role is to be assigned. |
+| roleDefinitionId | Yes      | String | The identifier of the role. The format of the identifier is: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId      | Yes      | String | objectId of the Azure AD principal (user, group, or service principal) to which the role will be assigned. |
 
 ### Response
 
@@ -247,9 +247,9 @@ Status code: 200
 
 ## List all Roles
 
-Lists all of the role that are available for assignment at the specified scope.
+Lists all the roles that are available for assignment at the specified scope.
 
-To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -269,12 +269,12 @@ Within the URI, make the following substitutions to customize your request:
 
 2. Replace *{api-version}* with 2015-07-01.
 
-3. Replace *{filter}* with the condition that you wish to apply to filter the list of roles. The following conditions are supported.
+3. Replace *{filter}* with the condition that you wish to apply to filter the list of roles:
 
   | Condition | *{Filter}* | Replace |
   |-----------|------------|---------|
-  | To list roles available for assignment at the specified scope and any of its child scopes. | `atScopeAndBelow()` | |
-  | To search for a role using exact display name.                                             | `roleName%20eq%20'{role-display-name}'` | Replace *{role-display-name}* by the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+  | List roles available for assignment at the specified scope and any of its child scopes. | `atScopeAndBelow()` | |
+  | Search for a role using exact display name.                                             | `roleName%20eq%20'{role-display-name}'` | Replace *{role-display-name}* by the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### Response
 
@@ -339,9 +339,9 @@ Status code: 200
 
 ## Get information about a Role
 
-Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see List all roles and roleName filter.
+Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see [List all roles](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -427,7 +427,7 @@ Status code: 200
 ## Create a Custom Role
 Create a custom role.
 
-To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all of its `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -445,7 +445,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-definition-id}* with a new GUID. This will be used as the GUID identifier of the new custom role.
+2. Replace *{role-definition-id}* with a new GUID which becomes the GUID identifier of the new custom role.
 
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -484,13 +484,13 @@ For the request body, provide the values in the following format:
 
 | Element Name | Required | Type | Description |
 |--------------|----------|------|-------------|
-| name                              | Yes | String   | GUID identifier of the custom role.                                                                                                      |
-| properties.roleName               | Yes | String   | Display name of the custom role. Maximum size 128 characters.                                                                            |
-| properties.description            | No  | String   | Description of the custom role. Maximum size 1024 characters.                                                                            |
-| properties.type                   | Yes | String   | Set this to "CustomRole".                                                                                                                |
-| properties.permissions.actions    | Yes | String[] | An array of action strings specifying the operations to which the custom role grants access.                                             |
-| properties.permissions.notActions | No  | String[] | An array of action strings specifying the operations that are to be excluded from the operations to which the custom role grants access. |
-| properties.assignableScopes       | Yes | String[] | An array of scopes in which the custom role can be used for access management.                                                           |
+| name         | Yes | String   | GUID identifier of the custom role.    |
+| properties.roleName               | Yes | String   | Display name of the custom role. Maximum size 128 characters.                        |
+| properties.description            | No  | String   | Description of the custom role. Maximum size 1024 characters.                                               |
+| properties.type                   | Yes | String   | Set to "CustomRole."                                         |
+| properties.permissions.actions    | Yes | String[] | An array of action strings specifying the operations granted by the custom role.             |
+| properties.permissions.notActions | No  | String[] | An array of action strings specifying the operations to exclude from the operations granted by the custom role. |
+| properties.assignableScopes       | Yes | String[] | An array of scopes in which the custom role can be used.   |
 
 ### Response
 
@@ -537,7 +537,7 @@ Status code: 201
 
 Modify a custom role.
 
-To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all of its `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -555,7 +555,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-definition-id}* with the GUID identifier of the custom role that is to be updated.
+2. Replace *{role-definition-id}* with the GUID identifier of the custom role.
 
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -594,13 +594,13 @@ For the request body, provide the values in the following format:
 
 | Element Name | Required | Type | Description |
 |--------------|----------|------|-------------|
-| name         | Yes      | String | GUID identifier of the custom role to be updated. |
+| name         | Yes      | String | GUID identifier of the custom role. |
 | properties.roleName | Yes | String | Display name of the updated custom role. |
 | properties.description | No | String | Description of the updated custom role. |
-| properties.type | Yes | String | Set this to "CustomRole". |
+| properties.type | Yes | String | Set to "CustomRole." |
 | properties.permissions.actions | Yes | String[] | An array of action strings specifying the operations to which the updated custom role grants access. |
-| properties.permissions.notActions | No | String[] | An array of action strings specifying the operations that are to be excluded from the operations to which the updated custom role grants access. |
-| properties.assignableScopes | Yes | String[] | An array of scopes in which the updated custom role can be used for access management. |
+| properties.permissions.notActions | No | String[] | An array of action strings specifying the operations to exclude from the operations which the updated custom role grants. |
+| properties.assignableScopes | Yes | String[] | An array of scopes in which the updated custom role can be used. |
 
 ### Response
 
@@ -647,7 +647,7 @@ Status code: 201
 
 Delete a custom role.
 
-To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all of its `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -665,7 +665,7 @@ Within the URI, make the following substitutions to customize your request:
   | Resource Group | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  |
   | Resource       | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-2. Replace *{role-definition-id}* with the GUID role definition id of the custom role that is to be deleted.
+2. Replace *{role-definition-id}* with the GUID role definition id of the custom role.
 
 3. Replace *{api-version}* with 2015-07-01.
 
