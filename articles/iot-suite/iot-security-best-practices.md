@@ -1,5 +1,5 @@
 <properties
- pageTitle="IoT Security Best Practices | Microsoft Azure"
+ pageTitle="IoT security best practices | Microsoft Azure"
  description="Security best practices for securing your IoT infrastructure"
  services=""
  suite="iot-suite"
@@ -23,13 +23,13 @@
 
 To learn more about securing your IoT solution, see:
 
-- [IoT Security Architecture][lnk-security-architecture]
+- [IoT security architecture][lnk-security-architecture]
 - [Secure your IoT deployment][lnk-security-deployment]
 
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 - [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-- [Frequently asked questions for IoT Suite][lnk-faq]
+- [Frequently asked questions for Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
