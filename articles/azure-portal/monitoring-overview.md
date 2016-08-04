@@ -50,7 +50,7 @@ For other Azure services, there is not necessarily a 1:1 mapping between your re
 ### Resource - Metrics and Diagnostics Logs
 Collectable metrics vary based on the resource type. For example, Virtual Machines will provide statistics on the Disk IO and Percent CPU whereas that doesn’t make sense for a Service Bus queue, which provides metrics like queue size and message throughput.
 
-For compute resources you can obtain metrics on the Guest OS as well as diagnostics modules like Windows Azure Diagnostics. Windows Azure Diagnostics (WAD) assists in gathering and routing gather diagnostic data to other locations, including Azure storage.
+For compute resources you can obtain metrics on the Guest OS as well as diagnostics modules like Azure Diagnostics. Azure Diagnostics assists in gathering and routing gather diagnostic data to other locations, including Azure storage.
 
 ### Application - Diagnostics Logs, Application Logs and Metrics
 **COMPUTE ONLY**
@@ -127,7 +127,7 @@ Azure has offerings available for monitoring your services from bare-metal infra
 
 - [Azure Insights (Platform) Monitoring](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation.
 - **[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)** – Provides rich detection and diagnostics for issues at the application layer of your service, well integrated on top of data from Azure Monitoring.
-- **[Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
+- **[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
 
 
 ## Next steps
