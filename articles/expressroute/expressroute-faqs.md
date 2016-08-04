@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -185,6 +185,8 @@ ExpressRoute premium is a collection of features listed below.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
+
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 **Limits for circuits**
 
