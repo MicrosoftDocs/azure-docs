@@ -141,7 +141,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
 
->[AZURE.NOTE] The VM needs to be created in the same storage account as the original VHD.
+>[AZURE.NOTE] The VM needs to be in the same storage account as the original VHD.
 
 </br>
 
