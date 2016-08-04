@@ -14,11 +14,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="08/03/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 08/01/2016 release of HDInsight
+
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build   |Ambari Build |
+|----|----------------------|----|------------|-------------|
+|3.2 |3.2.1000.0.8028416	|2.2 |2.2.9.1-19  |2.2.1.12-4   |
+|3.3 |3.3.1000.0.8028416	|2.3 |2.3.3.1-25  |2.2.1.12-4   |
+|3.4 |3.4.1000.0.8053402	|2.4 |2.4.2.4-5   |2.2.1.12-4   |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build     |
+|----|----------------------|----|--------------|
+|2.1 |2.1.10.1005.2488842   |1.3 |1.3.12.0-01795|
+|3.0 |3.0.6.1005.2488842 	|2.0 |2.0.13.0-2117 |
+|3.1 |3.1.4.1005.2488842	|2.1 |2.1.16.0-2374 |
+|3.2 |3.2.7.1005.2488842	|2.2 |2.2.9.1-11    |
+|3.3 |3.3.0.1005.2488842	|2.3 |2.3.3.1-25    |
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Changes to HDInsight 3.4 clusters | The default value for following hive configurations are changed for better performance <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul>| Service    | All| N/A|
+| Following fixes are included in this release | HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933| Service    | All| N/A
 
 ## Notes for 07/14/2016 release of HDInsight
 

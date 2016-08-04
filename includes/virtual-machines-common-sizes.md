@@ -219,8 +219,33 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
 |Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
 
+## N-series
+
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute intensive and network intensive applications, algorithms, including CUDA and OpenCL based applications and simulations. 
 
 
+### NV instances
+The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264.
+
+
+| Size | Cores | GPU            | Memory | Disk        |
+|------|-------|----------------|--------|-------------|
+| NV6  | 6     | 1 x NVIDIA M60 | 56 GB  | 380 GB SSD  |
+| NV12 | 12    | 2 x NVIDIA M60 | 112 GB | 680 GB SSD  |
+| NV24 | 24    | 4 x NVIDIA M60 | 224 GB | 1440 GB SSD | 
+
+
+
+### NC instances
+
+The NC instances are powered by NVIDIA’s Tesla K80. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance. 
+
+
+| Size | Cores | GPU            | Memory | Disk        |
+|------|-------|----------------|--------|-------------|
+| NC6  | 6     | 1 x NVIDIA K80 | 56 GB  | 380 GB SSD  |
+| NC12 | 12    | 2 x NVIDIA K80 | 112 GB | 680 GB SSD  |
+| NC24 | 24    | 4 x NVIDIA K80 | 224 GB | 1440 GB SSD |
 
 ## Notes: Standard A0 - A4 using CLI and PowerShell 
 
