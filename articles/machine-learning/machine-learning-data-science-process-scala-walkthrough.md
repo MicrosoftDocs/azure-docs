@@ -69,7 +69,6 @@ You can upload the notebook directly from GitHub to the Jupyter notebook server 
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-
 ## Setup: Preset Spark and Hive contexts, Spark magics, and Spark libraries
 
 ### Preset Spark and Hive contexts
@@ -353,7 +352,6 @@ Here is the code to plot the data:
 ![Tip amount by fare amount](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
 
-
 ## Create features, transform features, and prep data for input into modeling functions
 
 For tree-based modeling functions from Spark ML and MLlib, you have to prepare target and features have by using a variety of techniques, such as binning, indexing, one-hot encoding, and vectorization. Here are the procedures to follow in this section:
@@ -562,6 +560,7 @@ Here's the code for these two tasks.
 	# TEST DATA
 	val indexerModel = indexer.fit(indexedTESTbinaryDF)
 	val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
+
 
 
 ## Binary classification model: Predict whether a tip should be paid
@@ -1157,7 +1156,11 @@ Next, optimize the model by using custom code, and identify the best model param
 
 Time to run the cell: 61 seconds.
 
-
 ## Consume Spark-built machine learning models automatically with Scala
+
+For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+
+For a description of the other end-to-end walkthroughs, each of which demonstrates the steps in the Team Data Science Process for **specific scenarios** and illustrate how to combine cloud, on-premise tools and services into a workflow or pipeline to create an intelligent application, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md).
+>>>>>>> 3c00a252a431507486d03c88a8eea8bb3d0c8a63
 
 [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) shows you how to use Scala code to automatically load and score new data sets with machine learning models built in Spark and saved in Azure Blobs. You can follow the instructions provided there, and simply replace the Python code with Scala code in this article for automated consumption.

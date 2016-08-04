@@ -63,13 +63,13 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 ### Step 2
 
 Check the subscriptions for the account.
 
-		PS C:\> get-AzureRmSubscription
+		get-AzureRmSubscription
 
 You will be prompted to authenticate with your credentials.<BR>
 
@@ -78,7 +78,7 @@ You will be prompted to authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4
