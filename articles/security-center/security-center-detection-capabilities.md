@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/04/2016"
    ms.author="yurid"/>
 
 # Azure Security Center detection capabilities
@@ -49,12 +49,12 @@ Microsoft has an immense amount of global threat intelligence. Telemetry flows i
 
 ## Behavioral analytics
 
-Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, and other sources. 
+Behavioral analytics is a technique that analyzes and compares data to a collection of known patterns. However, these patterns are not simple signatures. They are determined through complex machine learning algorithms that are applied to massive datasets. They are also determined through careful analysis of malicious behaviors by expert analysts. Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine logs, virtual network device logs, fabric logs, crash dumps and other sources. 
 
 In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign. This helps to identify events that are consistent with established indicators of compromise. Some examples include:
 
 - **Suspicious process execution**: Attackers employ a number of techniques to execute malicious software without detection. For example, an attacker might give malware the same names as legitimate system files but will place these files in an alternate locations, use a name that is very similar to a benign file, or mask the file’s true extension. Security Center models processes behaviors and monitors process executions to detect outliers such as these.  
-- **Hidden malware and failed exploitations**: Sophisticated malware is able to evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk.  However, such malware can be detected using memory analysis, as the malware must leave traces in memory in order to function. When software crashes, a crash dump captures a portion of memory at the time of the crash.  By analyzing the memory in the crash dump, Azure Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist with-in a compromised machine without impacting the performance of your machine.
+- **Hidden malware and attempted exploitations**: Sophisticated malware is able to evade traditional antimalware products by either never writing to disk or encrypting software components stored on disk.  However, such malware can be detected using memory analysis, as the malware must leave traces in memory in order to function. When software crashes, a crash dump captures a portion of memory at the time of the crash.  By analyzing the memory in the crash dump, Azure Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data, and surreptitiously persist with-in a compromised machine without impacting the performance of your machine.
 - **Lateral movement and internal reconnaissance**: In order to persist in a compromised network and locate/harvest valuable data, attackers will often attempt to move laterally from the compromised machine to others within the same network. Security Center monitors process and login activities in order to discover attempts to expand an attacker’s foothold within the network, such as remote command execution network probing, and account enumeration.
 - **Malicious PowerShell Scripts**: PowerShell is being used by attackers to execute malicious code on target virtual machines for a variety of purposes. Security Center inspects PowerShell activity for evidence of suspicious activity. 
 - **Outgoing attacks**: Attackers will often target cloud resources with the goal of using those resources to mount additional attacks. Compromised virtual machines, for example, might be used to launch brute force attacks against other virtual machines, send SPAM, or scan open ports and other devices on the internet. By applying machine learning to network traffic, Security Center can detect when outbound network communications exceed the norm. In the case of SPAM, Security Center also correlates unusual email traffic with intelligence from Office 365 to determine whether the mail is likely nefarious or the result of a legitimate email campaign.  
@@ -76,7 +76,7 @@ Azure Security Center operates security research and data science teams that con
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly – there’s no action for you to take.
 
-## Next steps
+## See also
 In this document, you learned how to Azure Security Center detection capabilities work. To learn more about Security Center, see the following:
 
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
