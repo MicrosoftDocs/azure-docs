@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
-	description="How to manage RBAC with Azure PowerShell including listing roles, assigning roles, and deleting role assignments."
+	description="How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -24,7 +24,7 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 
-You can use Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 Before you can use PowerShell to manage RBAC, you must have the following:
 
