@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Send your job status and job streams from Automation to Log Analytics (OMS) | Microsoft Azure"
+    pageTitle="Forward job status and job streams from Automation to Log Analytics (OMS) | Microsoft Azure"
     description="This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management."
     services="automation"
     documentationCenter=""
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="07/29/2016"
+    ms.date="08/05/2016"
     ms.author="magoedte" />
 
-# Azure Automation scenario - Forward job status and job streams from Automation to Log Analytics (OMS)
+# Forward job status and job streams from Automation to Log Analytics (OMS)
 
 Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  While you can view this information in the Azure portal or with PowerShell by individual job status or all jobs for a particular Automation account, anything advanced to support your operational requirements requires you to create custom PowerShell scripts.  Now with Log Anaytics you can:
 
@@ -30,41 +30,40 @@ Automation can send runbook job status and job streams to your Microsoft Operati
 To start sending your Automation logs to Log Analytics, you must have the following:
 
 1. An OMS subscription. For additional information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
-3. An [Azure Storage account](../storage/storage-create-storage-account.md).  Please note this Storage account must be in the same region as the Automation account.  
-4. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-5. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
-6. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the PowerShell Gallery <URL to Gallery Item>.  
+2. An [Azure Storage account](../storage/storage-create-storage-account.md).  
+   
+    >[AZURE.NOTE]The Storage account *must* be in the same region as the Automation account. 
+ 
+3. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+4. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
+5. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). This script will configure the following:
+ - A storage account to hold the runbook job status and stream data for an Automation account that you specify.
+ - Enable the collection of this data from your Automation account to store it in an Azure Blob storage account.
+ - Configure collecting the data from your Blob storage account to OMS Log Analytics.
+ - Enable the Automation Log Analytics solution your OMS workspace.   
 
-The script requires the following parameters during execution:
+The **Enable-AzureDiagnostics.ps1** script requires the following parameters during execution:
 
-- *AutomationResourceGroup* - the Resource Group your Automation account is located in
 - *AutomationAccountName* - the name of your Automation account
 - *LogAnalyticsWorkspaceName* - the name of your OMS workspace
-- *StorageAccountName* - the name of the storage account that you want to store your Automation logs in
-- *StorageResourceGroup* - the name of the Resource Group the storage account is located in
 
-To find the values for *AutomationResourceGroup* and *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-scenario-send-joblogs-oms-loganalytics/automation-account-properties.png).
-
-To find the value for *StorageAccountName* and *StorageResourceGroup*, in the Azure portal navigate to the storage account and on the **Storage accounts** blade note for a standard storage account, the name and resource group it is defined in.<br> ![Azure Storage Accounts](media/automation-scenario-send-joblogs-oms-loganalytics/azure-storage-accounts.png)<br>
-
->[AZURE.NOTE] This Storage account must be in the same region as the Automation account.  
+To find the values for *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-scenario-send-joblogs-oms-loganalytics/automation-account-properties.png).
 
 
 ## Setup integration with Log Analytics
 
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. From the PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *–AutomationResourceGroup*, *-AutomationAccountName*, *-LogAnalyticsWorkspaceName*,and *-StorageAccountName*, -*StorageResourceGroup*.
+2. From the PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName* and *-LogAnalyticsWorkspaceName*.
 
     >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script.  You **must** log in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.   
     
-        .\Enable-AzureDiagnostics -AutomationResourceGroup <ResourceGroupName> 
-        -AutomationAccountName <NameofAutomationAccount> `
+        .\Enable-AzureDiagnostics -AutomationAccountName <NameofAutomationAccount> `
         -LogAnalyticsWorkspaceName <NameofOMSWorkspace> `
-        -StorageAccountName <NameofStorageAccount> ` 
-        -StorageResourceGroup <ResourceGroupName>
 
-3. Once it completes successfully, your logs will start flowing to the Storage account you have specified.   
- 
+3. Once it completes successfully, your logs will start writing data using Azure diagnostics to Blob storage. 
+
+To confirm the script configured your Automation account successfully, you can go to Storage Accounts and look for the newly created storage account following the naming convention *<AutomationAccountName>omsstorage* and after a few runbook jobs complete, you should see shortly thereafter two Blob containers - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
+
 
 ## Viewing Automation Logs in Log Analytics 
 
@@ -113,3 +112,4 @@ By sending your Automation job status and stream data to Log Analytics, you can 
 - To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
 - To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md) 
 - To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
+- To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
