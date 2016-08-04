@@ -60,9 +60,9 @@ To find the values for *AutomationAccountName*, in the Azure portal select your 
         .\Enable-AzureDiagnostics -AutomationAccountName <NameofAutomationAccount> `
         -LogAnalyticsWorkspaceName <NameofOMSWorkspace> `
 
-3. Once it completes successfully, your logs will start writing data using Azure diagnostics to Blob storage. 
+3. After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage. 
 
-To confirm the script configured your Automation account successfully, you can go to Storage Accounts and look for the newly created storage account following the naming convention *<AutomationAccountName>omsstorage* and after a few runbook jobs complete, you should see shortly thereafter two Blob containers - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
+To confirm the script configured your Automation account successfully, you can go to Storage Accounts and search for the storage account, which uses the following naming convention - *AutomationAccountNameomsstorage* and after a few runbook jobs complete, you should see several minutes later two Blob containers - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
 
 
 ## Viewing Automation Logs in Log Analytics 
@@ -105,7 +105,8 @@ Finally, you may want to visualize your job history over time.  You can use this
 
 ## Summary
 
-By sending your Automation job status and stream data to Log Analytics, you can get insight on your Automation jobs and set up alerts so you no longer need to sign into the portal to monitor job status.  You can also now write advanced queries in Log Analytics to better monitor and investigate your Automation jobs. 
+By sending your Automation job status and stream data to Log Analytics, you can get better insight into the status of your Automation jobs by setting up alerts to notify you when there is an issue, and custom dashboards using advanced queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.   
+
 
 ## Next steps
 
