@@ -260,7 +260,7 @@ The following table provides description for JSON elements specific to OData lin
             "type": "OData",
            	"typeProperties": 
             {
-               "url": "<OData endpoint of on-premises OData source e.g. Dynamics CRM>",
+               "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
                "authenticationType": "Windows",
                 "username": "domain\\user",
                "password": "password",
