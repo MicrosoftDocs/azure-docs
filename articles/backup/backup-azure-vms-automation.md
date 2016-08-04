@@ -354,7 +354,6 @@ After you have restored the disks, use these steps to create and configure the v
     ```
 
 4. Attach the OS disk and data disks.
-
    For non-encrypted VMs,
 
     ```
@@ -375,7 +374,6 @@ After you have restored the disks, use these steps to create and configure the v
     }
    ```
    
-
 5. Set the Network settings.
 
     ```
