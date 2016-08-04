@@ -127,7 +127,7 @@ Azure has offerings available for monitoring your services from bare-metal infra
 
 - [Azure Insights (Platform) Monitoring](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale and automation on data both from the Azure infrastructure (Audit Logs) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Insights documentation.
 - **[Application Insights](https://azure.microsoft.com/documentation/services/application-insights/)** – Provides rich detection and diagnostics for issues at the application layer of your service, well integrated on top of data from Azure Monitoring.
-- **[Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
+- **[Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics/)** part of **[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)** – Provides a holistic IT management solution for both on premise and cloud-based infrastructure, including log search and analytics from your Azure resources.  
 
 
 ## Next steps
