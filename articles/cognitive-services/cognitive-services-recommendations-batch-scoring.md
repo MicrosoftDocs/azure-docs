@@ -21,15 +21,15 @@
 
 >[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
 
-> [Item-to-Item Recoomendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
-> [User-to-Item Recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> Batch scoring only works for builds that were created after July 21, 2016
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even doing an analysis on the types of recommendations that you are getting.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to complete, and then gather your results.  
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
 
 To be more precise, these are the steps to follow:
 
@@ -47,7 +47,7 @@ Go to the [Azure portal](https://portal.azure.com) and create a new storage acco
 
 Once you have a storage account, you need to create the blob container(s) where you will store the input and output of the batch execution.
 
-Upload an input file that describes each of your recommendation requests to Blob storage--let's call it input.json here.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
 Once you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
 A given batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
@@ -108,7 +108,7 @@ This is an example of what the request body should look like:
 
 Here a few important things to note:
 
--	Currently, AuthenticationType should always be set to PublicOrSas.
+-	Currently, authenticationType should always be set to PublicOrSas.
 
 -	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -121,9 +121,9 @@ You track the operation by using the [Retrieve Operation Status API]( https://we
 
 ## Get the results
 
-Once the operation has finished, and assuming that there were no errors in the operation, you can gather the results from your output Blob storage.
+Once the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-The example below show what the output might look like. In this example, we show results for a batch with two requests for brevity.
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
