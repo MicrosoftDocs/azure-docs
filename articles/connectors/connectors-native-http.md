@@ -76,7 +76,7 @@ An action is an operation that is carried out by the workflow that is defined in
 
 1. Select the **New Step** button.
 2. Choose **Add an action**.
-3. In the action search box, type "HTTP" to list the HTTP action.
+3. In the action search box, type **http** to list the HTTP action.
 
 	![Select the HTTP action](./media/connectors-native-http/using-action-1.png)
 
