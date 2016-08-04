@@ -63,7 +63,7 @@ Click **Browse** > **choose Virtual Networks**
 
 10. NOTE: VNET peering is only established if both links are connected. 
 
-There are a few configurable properties for each Link:
+There are a few configurable properties for each link:
 
 |Option|Description|Default|
 |:-----|:----------|:------|
@@ -85,14 +85,14 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 4. On the Add access blade, click select a role and choose Network Contributor, click Add Users, type the UserB sign in name, and click OK.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-   This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding privileged user of the other VNet as users in the local VNet makes it easier to do setup in portal. 
+
+    This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding privileged user of the other VNet as users in the local VNet makes it easier to do setup in portal. 
 
 5. Then login to Azure portal with UserB who is the privilege user for SubscriptionB. Follow above steps to add UserA as Network Contributor.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-   NOTE:  you can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
+    NOTE: You can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
 
 6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
 
