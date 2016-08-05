@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a VM image from an Azure VM | Microsoft Azure"
-	description="Learn how to create a generalized VM image from an existing Azure VM created in the Resource Manager deployment model
+	description="Learn how to create a generalized VM image from an existing Azure VM created in the Resource Manager deployment model"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/04/2016"
 	ms.author="cynthn"/>
 
 # How to create a VM image from an existing Azure VM
