@@ -141,6 +141,10 @@ In addition to the common fields described in the “Shellcode Discovered” sec
 | Suspicious injected debugger exploit | Signifies maliciousness that often correlates to detection or circumvention of a debugger                         |
 | Suspicious injected remote exploit   | Signifies maliciousness that often correlates to command n control (C2) scenarios                                 |
 
+This is an example of this type of alert:
+
+![Code Injection Discovered](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig11-ga.png)
+
 ### Module Hijacking Discovered
 
 Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality.  DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates the crash dump analysis has detected a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
