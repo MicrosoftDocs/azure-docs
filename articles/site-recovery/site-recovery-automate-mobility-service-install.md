@@ -83,7 +83,7 @@ I have placed both the zipped folder and the passphrase in a dedicated container
 If you prefer to keep these files on a share within your network, you can perfectly do so. You just need to ensure that the DSC resource we will be using later actually has access and can get the setup and passphrase.
 
 ## Step 2 – Creating the DSC configuration
-My setup depends on WMF 5.0, so that means that in order for the machine to successfully apply the configuration through OMS Automation DSC, WMF 5.0 needs to be present.
+The setup depends on WMF 5.0, so that means that in order for the machine to successfully apply the configuration through OMS Automation DSC, WMF 5.0 needs to be present.
 
 The following DSC configuration is used in my environment:
 
