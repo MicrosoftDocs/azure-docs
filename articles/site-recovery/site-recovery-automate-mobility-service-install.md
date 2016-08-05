@@ -63,7 +63,7 @@ That’s why we need to have the binaries (after extracting them from our setup)
 
     **Microsoft-ASR_UA_<version>_Windows_GA_<date>_Release.exe**
 
-    Use the following cmdlet to extract the installer:
+    Use the following command to extract the installer:
 
     .\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract
 
@@ -87,7 +87,7 @@ My setup depends on WMF 5.0, so that means that in order for the machine to succ
 
 The following DSC configuration is used in my environment:
 
-```
+```powershell
 configuration ASRMobilityService {
 
     $RemoteFile = 'https://knrecstor01.blob.core.windows.net/asr/ASR.zip'
@@ -99,86 +99,86 @@ configuration ASRMobilityService {
     $Role = 'Agent'
     $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
-    $Arguments = '/Role ' + '"' + $Role + '"' + ' /InstallLocation ' + '"' + $Install + '"' + ' /CSEndpoint ' + '"' + $CSEndpoint + '"' + ' /PassphraseFilePath ' +  '"' +$LocalPassphrase + '"'  
+    $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
     node localhost {
 
+        File Directory {
+            DestinationPath = 'C:\Temp\ASRSetup\'
+            Type = 'Directory'            
+        }
+
         xRemoteFile Setup {
-           URI = $RemoteFile
-           DestinationPath = $TempDestination
-           DependsOn = "[File]Directory"
-            }
+            URI = $RemoteFile
+            DestinationPath = $TempDestination
+            DependsOn = '[File]Directory'
+        }
 
         xRemoteFile Passphrase {
             URI = $RemotePassphrase
             DestinationPath = $LocalPassphrase
-            DependsOn = "[File]Directory"
-            }
+            DependsOn = '[File]Directory'
+        }
 
         xRemoteFile AzureAgent {
             URI = $RemoteAzureAgent
             DestinationPath = $LocalAzureAgent
-            DependsOn = "[File]Directory"
-            }
-
-        File Directory {
-            DestinationPath = "C:\Temp\ASRSetup\"
-            Type = "Directory"            
-            }
+            DependsOn = '[File]Directory'
+        }
 
         Archive ASRzip {
-           Path = $TempDestination
-           Destination = "C:\Temp\ASRSetup"
-           DependsOn = "[xRemotefile]Setup"
-           }
+            Path = $TempDestination
+            Destination = 'C:\Temp\ASRSetup'
+            DependsOn = '[xRemotefile]Setup'
+        }
 
         Package Install {
-            Path = "C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE"
-            Ensure = "Present"
-            Name = "Microsoft Azure Site Recovery mobility Service/Master Target Server"
-            ProductId = "275197FC-14FD-4560-A5EB-38217F80CBD1"
+            Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
+            Ensure = 'Present'
+            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
+            ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
-            DependsOn = "[Archive]ASRzip"
-            }
+            DependsOn = '[Archive]ASRzip'
+        }
 
         Package AzureAgent {
-            Path = "C:\Temp\AzureVmAgent.msi"
-            Ensure = "Present"
-            Name = "Windows Azure VM Agent - 2.7.1198.735"
-            ProductId = "5CF4D04A-F16C-4892-9196-6025EA61F964"
+            Path = 'C:\Temp\AzureVmAgent.msi'
+            Ensure = 'Present'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
-            DependsOn = "[Package]Install"
-            }
+            DependsOn = '[Package]Install'
+        }
 
         Service ASRvx {
-            Name = "svagents"
-            Ensure = "Present"
-            State = "Running"
-            DependsOn = "[Package]Install"
-            }
+            Name = 'svagents'
+            Ensure = 'Present'
+            State = 'Running'
+            DependsOn = '[Package]Install'
+        }
 
         Service ASR {
-            Name = "InMage Scout Application Service"
-            Ensure = "Present"
-            State = "Running"
-            DependsOn = "[Package]Install"
-            }
+            Name = 'InMage Scout Application Service'
+            Ensure = 'Present'
+            State = 'Running'
+            DependsOn = '[Package]Install'
+        }
 
         Service AzureAgentService {
-            Name = "WindowsAzureGuestAgent"
-            Ensure = "Present"
-            State = "Running"
-            DependsOn = "[Package]AzureAgent"
-            }
+            Name = 'WindowsAzureGuestAgent'
+            Ensure = 'Present'
+            State = 'Running'
+            DependsOn = '[Package]AzureAgent'
+        }
 
         Service AzureTelemetry {
-            Name = "WindowsAzureTelemetryService"
-            Ensure = "Present"
-            State = "Running"
-            DependsOn = "[Package]AzureAgent"
-            }
+            Name = 'WindowsAzureTelemetryService'
+            Ensure = 'Present'
+            State = 'Running'
+            DependsOn = '[Package]AzureAgent'
+        }
     }
 }
 ```
@@ -210,17 +210,20 @@ Once this is done, head over to your machine where you have the Azure RM modules
 
 ### Import cmdlets
 
-In PowerShell, logon to your Azure subscription and modify the cmdlets to reflect your environment.
+In PowerShell, logon to your Azure subscription and modify the cmdlets to reflect your environment and capture your Automation Account information into a variable:
+```powershell
+$AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
+```
 
 First I want to upload the configuration to OMS Automation DSC using the following cmdlet:
 
-```
-Import-AzureRmAutomationDscConfiguration `
-                                        -AutomationAccountName KNOMSAA `
-                                        -ResourceGroupName KNOMS `
-                                        -SourcePath C:\ASR\ASRMobilityService.ps1 `
-                                        -Published `
-                                        -Description "DSC Config for Mobility Service"
+```powershell
+$ImportArgs = @{
+    SourcePath = 'C:\ASR\ASRMobilityService.ps1'
+    Published = $true
+    Description = 'DSC Config for Mobility Service'
+}
+$AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
 Next, we need to compile the configuration in OMS Automation DSC, so that we can start to register nodes to it.
@@ -229,11 +232,8 @@ Next, we need to compile the configuration in OMS Automation DSC, so that we can
 
 We achieve that by running the following cmdlet:
 
-```
-Start-AzureRmAutomationDscCompilationJob `
-                                        -AutomationAccountName KNOMSAA `
-                                        -ResourceGroupName KNOMS `
-                                        -ConfigurationName ASRMobilityService
+```powershell
+$AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
 This can take a few minutes, as we are basically deploying the configuration to the hosted DSC Pull service.
@@ -261,23 +261,22 @@ Before we start to associate the server with the Automation DSC endpoint, it is 
 
 Run the following cmdlet to verify that there’s no pending reboot on the server:
 
-```
-Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\" | select PendingFileRenameOperations
+```powershell
+Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
 If this shows empty, you are ok to proceed. If not, you should address this by rebooting the server during a maintenance window.
 
 To apply the configuration on the server, I start PowerShell ISE and runs the following script. This is essentially a DSC Local Configuration configuration that will instruct the local configuration manager engine to register with the OMS Automation DSC service and retrieve the specific configuration (ASRMobilityService.localhost)
 
-```
+```powershell
 [DSCLocalConfigurationManager()]
-
-Configuration metaconfig
-{
-    node localhost
-    {
-
-        Settings
-        {
+configuration metaconfig {
+    param (
+        $URL,
+        $Key
+    )
+    node localhost {
+        Settings {
             RefreshFrequencyMins = '30'
             RebootNodeIfNeeded = $true
             RefreshMode = 'PULL'
@@ -285,26 +284,25 @@ Configuration metaconfig
             ConfigurationMode = 'ApplyAndMonitor'
             AllowModuleOverwrite = $true
         }
-                ResourceRepositoryWeb AzureAutomationDSC
-            {
-                ServerURL = 'https://we-agentservice-prod-1.azure-automation.net/accounts/4d54e439-8540-4c8f-8e0f-3d7afdda6746'
-                RegistrationKey = 'KaTg5zTtI/gf8OGiN28L9FT2gMbowzOv3P9rouQfhxcR+42Mac80QKxOFXYLMdKxRdz8QtJiXLb7noG1U4zJ6g=='
-            }
-                ConfigurationRepositoryWeb AzureAutomationDSC
-            {
-                ServerURL = 'https://we-agentservice-prod-1.azure-automation.net/accounts/4d54e439-8540-4c8f-8e0f-3d7afdda6746'
-                RegistrationKey = 'KaTg5zTtI/gf8OGiN28L9FT2gMbowzOv3P9rouQfhxcR+42Mac80QKxOFXYLMdKxRdz8QtJiXLb7noG1U4zJ6g=='
-                ConfigurationNames = 'ASRMobilityService.localhost'
-            }
-                ReportServerWeb AzureAutomationDSC
-            {
-                ServerURL = 'https://we-agentservice-prod-1.azure-automation.net/accounts/4d54e439-8540-4c8f-8e0f-3d7afdda6746'
-                RegistrationKey = 'KaTg5zTtI/gf8OGiN28L9FT2gMbowzOv3P9rouQfhxcR+42Mac80QKxOFXYLMdKxRdz8QtJiXLb7noG1U4zJ6g=='
-            }
-
+        
+        ResourceRepositoryWeb AzureAutomationDSC {
+            ServerURL = $URL
+            RegistrationKey = $Key
+        }
+        
+        ConfigurationRepositoryWeb AzureAutomationDSC {
+            ServerURL = $URL
+            RegistrationKey = $Key
+            ConfigurationNames = 'ASRMobilityService.localhost'
+        }
+        
+        ReportServerWeb AzureAutomationDSC {
+            ServerURL = $URL
+            RegistrationKey = $Key
+        }
     }
 }
-metaconfig
+metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<YOURAAAccountID>' -Key '<YOURAAAccountKey>'
 
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
@@ -321,13 +319,13 @@ If we go back to portal.azure.com, we can see that the newly registered node has
 
 On the server, we can run the following PowerShell cmdlet to verify it has been registered correctly:
 
-```
+```powershell
 Get-DscLocalConfigurationManager
 ```
 
 Once the configuration has been pulled and applied to the server, you can verify this by running:
 
-```
+```powershell
 Get-DscConfigurationStatus
 ```
 
@@ -357,13 +355,13 @@ Note that in this example, we have added a parameter for computername and the re
 
 For Windows machines where WMF 5.0 is installed, you can simply install xPSDesiredStateConfiguration module by running the following cmdlet on the target machine(s):
 
-```
+```powershell
 Find-Module -Name xPSDesiredStateConfiguration | Install-Module
 ```
 
 You can also download and save the module in case you need to distribute it to Windows machines using WMF 4.0, by running this cmdlet on a machine where PowerShellGet (WMF 5.0) is present:
 
-```
+```powershell
 Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 ```
 
@@ -373,12 +371,12 @@ https://www.microsoft.com/download/details.aspx?id=40749
 
 The following configuration can be pushed towards both Windows machines with WMF 5.0 and 4.0
 
-```
+```powershell
 configuration ASRMobilityService {
-
     param (
-    [Parameter(Mandatory=$true)]
-    $computername
+        [Parameter(Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [System.String] $ComputerName
     )
 
     $RemoteFile = '\\myfileserver\share\asr.zip'
@@ -386,91 +384,90 @@ configuration ASRMobilityService {
     $RemoteAzureAgent = '\\myfileserver\share\AzureVmAgent.msi'
     $LocalAzureAgent = 'C:\Temp\AzureVmAgent.msi'
     $TempDestination = 'C:\Temp\asr.zip'
-    $LocalPassphrase = "C:\Temp\Mobility_service\passphrase.txt"
+    $LocalPassphrase = 'C:\Temp\Mobility_service\passphrase.txt'
     $Role = 'Agent'
     $Install = 'C:\Program Files (x86)\Microsoft Azure Site Recovery'
     $CSEndpoint = '10.0.0.115'
-    $Arguments = '/Role ' + '"' + $Role + '"' + ' /InstallLocation ' + '"' + $Install + '"' + ' /CSEndpoint ' + '"' + $CSEndpoint + '"' + ' /PassphraseFilePath ' +  '"' +$LocalPassphrase + '"'  
-
+    $Arguments = '/Role "{0}" /InstallLocation "{1}" /CSEndpoint "{2}" /PassphraseFilePath "{3}"' -f $Role,$Install,$CSEndpoint,$LocalPassphrase
+    
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-    node $computername {      
-
+    node $ComputerName {      
+        File Directory {
+            DestinationPath = 'C:\Temp\ASRSetup\'
+            Type = 'Directory'            
+        }
+        
         xRemoteFile Setup {
-           URI = $RemoteFile
-           DestinationPath = $TempDestination
-           DependsOn = "[File]Directory"
-            }
+            URI = $RemoteFile
+            DestinationPath = $TempDestination
+            DependsOn = '[File]Directory'
+        }
 
         xRemoteFile Passphrase {
             URI = $RemotePassphrase
             DestinationPath = $LocalPassphrase
-            DependsOn = "[File]Directory"
-            }
+            DependsOn = '[File]Directory'
+        }
 
         xRemoteFile AzureAgent {
             URI = $RemoteAzureAgent
             DestinationPath = $LocalAzureAgent
-            DependsOn = "[File]Directory"
-            }
-
-        File Directory {
-            DestinationPath = "C:\Temp\ASRSetup\"
-            Type = "Directory"            
-            }
+            DependsOn = '[File]Directory'
+        }
 
         Archive ASRzip {
-           Path = $TempDestination
-           Destination = "C:\Temp\ASRSetup"
-           DependsOn = "[xRemotefile]Setup"
-           }
+            Path = $TempDestination
+            Destination = 'C:\Temp\ASRSetup'
+            DependsOn = '[xRemotefile]Setup'
+        }
 
         Package Install {
-            Path = "C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE"
-            Ensure = "Present"
-            Name = "Microsoft Azure Site Recovery mobility Service/Master Target Server"
-            ProductId = "275197FC-14FD-4560-A5EB-38217F80CBD1"
+            Path = 'C:\temp\ASRSetup\ASR\UNIFIEDAGENT.EXE'
+            Ensure = 'Present'
+            Name = 'Microsoft Azure Site Recovery mobility Service/Master Target Server'
+            ProductId = '275197FC-14FD-4560-A5EB-38217F80CBD1'
             Arguments = $Arguments
-            DependsOn = "[Archive]ASRzip"
-            }
+            DependsOn = '[Archive]ASRzip'
+        }
 
         Package AzureAgent {
-            Path = "C:\Temp\AzureVmAgent.msi"
-            Ensure = "Present"
-            Name = "Windows Azure VM Agent - 2.7.1198.735"
-            ProductId = "5CF4D04A-F16C-4892-9196-6025EA61F964"
+            Path = 'C:\Temp\AzureVmAgent.msi'
+            Ensure = 'Present'
+            Name = 'Windows Azure VM Agent - 2.7.1198.735'
+            ProductId = '5CF4D04A-F16C-4892-9196-6025EA61F964'
             Arguments = '/q /l "c:\temp\agentlog.txt'
-            DependsOn = "[Package]Install"
-            }
+            DependsOn = '[Package]Install'
+        }
 
         Service ASRvx {
-            Name = "svagents"
-            State = "Running"
-            DependsOn = "[Package]Install"
-            }
+            Name = 'svagents'
+            State = 'Running'
+            DependsOn = '[Package]Install'
+        }
 
         Service ASR {
-            Name = "InMage Scout Application Service"
-            State = "Running"
-            DependsOn = "[Package]Install"
-            }
+            Name = 'InMage Scout Application Service'
+            State = 'Running'
+            DependsOn = '[Package]Install'
+        }
 
         Service AzureAgentService {
-            Name = "WindowsAzureGuestAgent"
-            State = "Running"
-            DependsOn = "[Package]AzureAgent"
-            }
+            Name = 'WindowsAzureGuestAgent'
+            State = 'Running'
+            DependsOn = '[Package]AzureAgent'
+        }
 
         Service AzureTelemetry {
-            Name = "WindowsAzureTelemetryService"
-            State = "Running"
-            DependsOn = "[Package]AzureAgent"
-            }
+            Name = 'WindowsAzureTelemetryService'
+            State = 'Running'
+            DependsOn = '[Package]AzureAgent'
+        }
     }
 }
-ASRMobilityService
+ASRMobilityService -ComputerName 'MyTargetComputerName'
 
-Start-DscConfiguration -ComputerName $computername .\ASRMobilityService -wait -force -Verbose
+Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
 If you want to instantiate your own DSC pull server within your corporate network, to mimic the same capabilities you can get from OMS Automation DSC, see the following guide: https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396
@@ -502,21 +499,18 @@ https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC
 
 Deploy using PowerShell:
 
-```
-$OMSAutomationRGname = 'KNOMS'
-
-$DSCJobGuid = (New-Guid).Guid
-
-New-AzureRmResourceGroupDeployment `
-                                  -Name "DSC3" `
-                                  -ResourceGroupName $OMSAutomationRGname `
-                                  -TemplateFile https://raw.githubusercontent.com/krnese/AzureDeploy/master/OMS/MSOMS/DSC/azuredeploy.json `
-                                  -OMSAutomationAccountName KNOMSAA `
-                                  -ASRRemoteFile "https://knrecstor01.blob.core.windows.net/asr/ASR.zip" `
-                                  -ASRRemotePassphrase "https://knrecstor01.blob.core.windows.net/asr/passphrase.txt" `
-                                  -ASRCSEndpoint '10.0.0.115' `
-                                  -DSCJobGuid $DSCJobGuid `
-                                  -Verbose
+```powershell
+$RGDeployArgs = @{
+    Name = 'DSC3'
+    ResourceGroupName = 'KNOMS'
+    TemplateFile = 'https://raw.githubusercontent.com/krnese/AzureDeploy/master/OMS/MSOMS/DSC/azuredeploy.json'
+    OMSAutomationAccountName = 'KNOMSAA'
+    ASRRemoteFile = 'https://knrecstor01.blob.core.windows.net/asr/ASR.zip'
+    ASRRemotePassphrase = 'https://knrecstor01.blob.core.windows.net/asr/passphrase.txt'
+    ASRCSEndpoint = '10.0.0.115'
+    DSCJobGuid = [System.Guid]::NewGuid().ToString()
+}
+New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## Next steps:
