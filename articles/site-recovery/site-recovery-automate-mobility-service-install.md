@@ -200,7 +200,7 @@ I have saved the configuration as **ASRMobilityService** in a folder on my compu
 
 Since the DSC configuration we made will import a required DSC resource module (xPSDesiredStateConfiguration), you need to import that module in OMS Automation prior to uploading the DSC configuration.
 
-Login to your automation account and navigate to AssetsàModules and click on Browse Gallery.
+Login to your automation account and navigate to Assets > Modules and click on Browse Gallery.
 
 Here you can search for the module and import it to your account.
 
@@ -351,7 +351,7 @@ You can either instantiate your own DSC Pull Server in your environment that wil
 
 Note that in this example, we have added a parameter for computername and the remote files are now located on a remote share that should be accessible by the machines you want to protect, and in the end of the script we enact the configuration, and then start to apply the DSC configuration to the target computer.
 
-### Prerequesites
+### Prerequisites
 
 · xPSDesiredStateConfiguration PowerShell module installed
 
