@@ -477,7 +477,7 @@ If you want to instantiate your own DSC pull server within your corporate networ
 
 ## Optional: Deploy DSC Configuration using Azure Resource Manager Template
 
-In this article, the focus has been on how you can create your own DSC configuration to automatically deploy the Mobility Service and the Azure VM Agent – and ensure they are running on the machines you would like to protect. As a bonus, we have also an **Azure Resource Manager** template that will deploy this DSC configuration to a new or existing Azure Automation account, creating automation assets that will contain the variables for your environment through input parameters in the template.
+In this article, the focus has been on how you can create your own DSC configuration to automatically deploy the Mobility Service and the Azure VM Agent – and ensure they are running on the machines you would like to protect. As a bonus, we have also an Azure Resource Manager##  ## template that will deploy this DSC configuration to a new or existing Azure Automation account, creating automation assets that will contain the variables for your environment through input parameters in the template.
 
 Once deployed, you can simply refer to Step 4 in this guide to onboard your machines.
 
