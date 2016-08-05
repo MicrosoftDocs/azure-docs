@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to sign up for, purchase, upgrade or activate an Azure subscription | Microsoft Azure"
 	description="Describes How to buy or sign up for an Azure subscription"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
