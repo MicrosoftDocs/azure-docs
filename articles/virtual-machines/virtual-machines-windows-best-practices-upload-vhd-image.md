@@ -34,15 +34,17 @@ The following are best practices for preparing Windows VHD for Azure:
 
 	If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
-3.	Remove the Network adapter from Hyper-V Manager and set to “Not connected” or reset all the network interfaces to default in Windows:
+3.	Remove the Network adapter from Hyper-V Manager and set to **Not connected** or reset all the network interfaces to default in Windows:
 
-	-	Remove all static IP address, gateway and DNS settings.
-	-	Set the IP setting to “Obtain an IP address automatically”.
-	- Set the DNS setting to “Obtain DNS server address automatically”
+	 A. Remove all static IP address, gateway and DNS settings.
+
+	 B.	Set the IP setting to **Obtain an IP address automatically**.
+
+	 C. Set the DNS setting to **Obtain DNS server address automatically**.
 
 ## Prepare Windows configuration for upload
 
-> [AZURE.NOTE] You must run the followings commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
+> [AZURE.NOTE] You must run the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
@@ -102,13 +104,13 @@ The following are best practices for preparing Windows VHD for Azure:
 
 		sc config RemoteRegistry start= auto
 
-6. Remove any self-signed certificate tied to Remote Desktop Protocol (RDP) listener:
+6. Remove any self-signed certificate tied to the Remote Desktop Protocol (RDP) service:
 
 	A. Open MMC, add Certificates snap-in, select **Compute Account** certificates, and then select **Local computer**.
 
 	B. Navigate to the **Remote Desktop** folder -> **Certificates**, remove the certificates listed in this folder.
 
-7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP listener:
+7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP service:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
@@ -116,7 +118,7 @@ The following are best practices for preparing Windows VHD for Azure:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
 
-8. Configure authentication mode for the RDP:
+8. Configure authentication mode for the RDP service:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
@@ -124,7 +126,7 @@ The following are best practices for preparing Windows VHD for Azure:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
 
-9. Enable RDP：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
+9. Enable RDP service：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
 
 10. Allow WinRM through the three firewall profiles (Domain, Private and Public), and enable PowerShell Remote service: `Enable-PSRemoting -force`
 
@@ -202,8 +204,8 @@ The following are best practices for preparing Windows VHD for Azure:
 16.	Uninstall the other 3rd party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
 17. Make sure that there is no third-party application is using Port 3389. This port will be used for the RDP service in Azure.
 18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
-19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP.
-20.	Reset the current local administrator password and make sure you can use this account to login Windows through RDP.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment".
+19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP connection.
+20.	Reset the current local administrator password and make sure you can use this account to login Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment".
 22. Install the latest updates for Windows. If that is not possible, please make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
