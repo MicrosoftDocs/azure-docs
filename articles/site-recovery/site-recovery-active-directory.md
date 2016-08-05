@@ -58,7 +58,7 @@ Enable protection of the domain controller/DNS virtual machine in Site Recovery.
 
 ###Configure virtual machine network settings
 
-For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example if you're replicating Hyper-V VMs to Azure you can select the the VM in the VMM cloud or in the protect group to configure the network settings as shown below
+For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example, if you're replicating Hyper-V VMs to Azure you can select the the VM in the VMM cloud or in the protect group to configure the network settings as shown below
 
 ![VM Network Settings](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
