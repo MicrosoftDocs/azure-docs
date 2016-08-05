@@ -171,7 +171,16 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
 
-## Troubleshoot
+## Reference
+[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
+
+[Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+
+[Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
+
+[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+
+## Troubleshooting
 
 [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -183,13 +192,6 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-## Reference
-[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
 
-[Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
-[Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
-
-[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 
