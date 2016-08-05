@@ -48,7 +48,7 @@ This configuration requires an Azure subscription. If you have an MSDN or Visual
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/en-us/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 
