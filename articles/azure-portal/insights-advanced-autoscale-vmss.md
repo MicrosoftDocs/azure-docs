@@ -21,7 +21,7 @@
 You can scale out and in Virtual Machine Scale Sets (VMSS) based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough will show an example of configuring all of the above using a Resource Manager template on a VM Scale Set.
 
 >[AZURE.NOTE] While this walkthrough explains the steps for VM Scale Sets, you can apply the same for autoscaling Cloud Services and Web Apps.
-If you want to have a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, please refer to the [Linux](../virtual-machines/ virtual-machine-scale-sets-linux-autoscale.md) and [Windows]../virtual-machines/virtual-machine-scale-sets-windows-autoscale/) documents
+If you want to have a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, please refer to the [Linux](../virtual-machines/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../virtual-machines/virtual-machine-scale-sets-windows-autoscale.md) documents
 
 
 ## Walkthrough
