@@ -28,6 +28,11 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 **Q: I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?**  
 With the builds from February 2016, this is supported.
 
+**Q: Does the AD DS health agent work on server core?**  
+Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
 All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
