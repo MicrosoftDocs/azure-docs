@@ -93,7 +93,7 @@ Setting “external”: ”true” informs the Data Factory service that the tab
 	{
 	     "name":  "MongoDbInputDataset",
 	    "properties": { 
-	        "type": "MongoDbCollection ", 
+	        "type": "MongoDbCollection", 
 	        "linkedServiceName": "OnPremisesMongoDbLinkedService", 
 	        "typeProperties": { 
 	            "collectionName": "<Collection name>"	
@@ -318,7 +318,7 @@ _id | Customer Name | Service Level
 The following tables show the virtual tables that represent the original arrays in the example. Each of these tables contain the following
 
 - A reference back to the original primary key column corresponding to the row of the original array (via the _id column)
-- An indication of the position of the data within the original array (using the ExampleTable_Invoices_dim1_idx and ExampleTable_Ratings_dim1_idx columns)
+- An indication of the position of the data within the original array 
 - The expanded data for each element within the array
 
 Table “ExampleTable_Invoices”:
@@ -331,7 +331,7 @@ _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount
 
 Table “ExampleTable_Ratings”:
 
-_id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratingse
+_id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings
 --- | ------------- | -------------
 1111 | 0 | 5
 1111 | 1 | 6
