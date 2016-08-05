@@ -116,7 +116,7 @@ When you are debugging a job, you may also want to look into the job streams.  T
 Finally, you may want to visualize your job history over time.  You can use this query to search for the status of your jobs over time. 
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day`  
-<br> ![OMS Historical Job Status Chart](media/automation-scenario-send-joblogs-oms-loganalytics/historical-job-status-chart.png)<br>
+<br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-oms-loganalytics/historical-job-status-chart.png)<br>
 
 ## Summary
 
