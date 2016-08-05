@@ -55,7 +55,7 @@ Here’s an example to illustrate this mechanism. Let’s take an organization w
 New York | VMM-NewYork| VMNetwork1-NewYork | Mapped to VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Not mapped
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapped to VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Not mapped
+ | | VMNetwork2-Chicago | Not mapped
 
 With this example:
 
