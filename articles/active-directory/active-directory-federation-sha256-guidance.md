@@ -46,5 +46,5 @@ Once you have set the signature algorithm as directed in the steps below, AD FS 
 
 ##Also Read
 
-* Repair O365 trust with AAD Connect (https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-federation-management/#repairing-the-trust) 
+* [Repair O365 trust with AAD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust) 
 
