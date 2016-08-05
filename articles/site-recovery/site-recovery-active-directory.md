@@ -80,7 +80,7 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 
 Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
+Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
 
 1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
