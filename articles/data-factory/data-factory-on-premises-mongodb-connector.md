@@ -22,7 +22,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data Factory service supports connecting to on-premises MongoDB sources using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data. 
 
-**Note:** You need to leverage the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE] You need to leverage the gateway to connect to MongoDB even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MongoDB hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
 Data Factory currently supports only moving data from MongoDB to other data stores, but not for moving data from other data stores to MongoDB.
 
