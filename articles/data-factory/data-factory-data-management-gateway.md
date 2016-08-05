@@ -110,6 +110,13 @@ Follow steps from walkthrough in the [Move data between on-premises and cloud](d
 	
 	![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png) 
 
+### System tray icons/ notifications
+The following image shows some of the tray icons that you will see. 
+
+![system tray icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+
+If you move cursor over the system tray icon/notification message, you will see details about the state of the gateway/update operation in a popup window.
+
 ### Ports and firewall
 There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.  
 
@@ -179,14 +186,7 @@ In case of using a third party firewall, you can manually open the port 8050. If
 
 If you choose not to open the port 8050 on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#set-credentials-and-securityy) section on how data store credentials can be set.
 
-## System tray icons/ notifications
-The following image shows some of the tray icons that you will see. 
-
-![system tray icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
-
-If you move cursor over the system tray icon/notification message, you will see details about the state of the gateway/update operation in a popup window.
-
-## Update Data Management Gateway
+## Update 
 By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version. 
 
 You will see the scheduled update time in the portal in the gateway properties blade, in the home page of the Data Management Gateway Configuration Manager, and in the system tray notification message. 
@@ -254,7 +254,7 @@ The Help page displays the following:
 - Version number
 - Links to online help, privacy statement, and license agreement.  
 
-## Troubleshoot gateway issues
+## Troubleshooting
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
 - If the gateway stops working after you **change the certificate**, restart (stop and start) the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
