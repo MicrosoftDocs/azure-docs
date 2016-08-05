@@ -51,7 +51,7 @@ The design pattern that a multitenant application developer chooses typically is
 -	**Tenant isolation**. The developer needs to ensure that no tenant has unwanted access to other tenants’ data. The isolation requirement extends to other properties, such as providing protection from noisy neighbors, being able to restore a tenant’s data, and implementing tenant-specific customizations.
 -	**Cloud resource cost**. An SaaS application needs to be cost-competitive. A multitenant application developer might choose to optimize for lower cost in the use of cloud resources, such as storage and compute costs.
 -	**Ease of DevOps**. A multitenant application developer needs to incorporate isolation protection, maintain and monitor the health of their application and database schema, and troubleshoot tenant issues. Complexity in application development and operation translates directly to increased cost and challenges with tenant satisfaction.
--	**Scalability**. Being able to incrementally add more tenants and capacity for tenants who require it is imperative to a successful SaaS operation.
+-	**Scalability**. The ability to incrementally add more tenants and capacity for tenants who require it is imperative to a successful SaaS operation.
 
 Each of these factors has trade-offs compared to another. The lowest-cost cloud offering might not offer the most convenient development experience. It’s important for a developer to make informed choices about these options and their trade-offs during the application design process.
 
@@ -102,7 +102,7 @@ Given the design trade-offs shown in Figure 2, an ideal multitenant model needs 
 
 ## Multitenancy support in Azure SQL Database
 
-Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic database pools, it now also supports a new application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database can help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3 below). These tools can help you build and manage applications that use any of the multi-database patterns.
+Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic database pools, it now also supports a new application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database can help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
 
 ![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 Figure 3: Multitenant application patterns in Azure SQL Database
