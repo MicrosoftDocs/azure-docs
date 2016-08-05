@@ -429,7 +429,7 @@ To run the script that deploys the solution:
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [forced-tuneling]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./guidance-hybrid-network-expressroute-vpn-failover.md
-[arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
+[arm-templates]: ../resource-group-authoring-templates.md
 [naming-conventions]: ./guidance-naming-conventions.md
 [solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-er/Scripts/Deploy-ReferenceArchitecture.ps1
 [er-gateway-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-hybrid-network-er/Templates/er-gateway-er-connection-settings.parameters.json
