@@ -147,7 +147,7 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 ## Remove nodes from your cluster
 
 1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
-2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to the VM/machine you are planning to add to the cluster.
+2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to the VM/machine.
 3. Open up a Powershell admin prompt and navigate to the location of the unzipped package.
 4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. You can choose *any* node IP address for this in the cluster.
 
