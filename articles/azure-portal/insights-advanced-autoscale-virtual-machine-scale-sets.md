@@ -196,7 +196,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	        }
 	      }
 	```
-	For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx)
+	For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx).
 
 	Now your autoscale setting contains the 3 profiles explained above.
 
