@@ -105,7 +105,7 @@ You can use a fresh DNS server and create all the required zones. For example, i
 	- The zone must be enabled for secure and non-secure updates.
 	- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
 
-2. Run the following command on domain controller virtual machine directory:
+2. Run the following command on domain controller virtual machine:
 
 	`nltest /dsregdns`
 
