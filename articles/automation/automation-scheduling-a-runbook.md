@@ -32,7 +32,7 @@ You can create a new schedule for runbooks in the Azure portal, in the classic p
 1. Select the **Assets** tab.
 1. At the bottom of the window, click **Add Setting**.
 1. Click **Add Schedule**.
-1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**, or **Daily**.
+1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**,  **Daily**, **Weekly**, or **Monthly**.
 1. Specify a **Start Time** and other options depending on the type of schedule that you selected.
 
 ### To create a new schedule in the Azure portal
