@@ -18,14 +18,14 @@
 	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
-# Always Encrypted--Protect sensitive data in a SQL Database and store your encryption keys in the Windows certificate store
+# Always Encrypted--Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 - [Windows certificate store](sql-database-always-encrypted.md)
 
 
-This article shows you how to secure sensitive data in a SQL database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+This article shows you how to secure sensitive data in SQL Database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -52,14 +52,14 @@ For this tutorial you'll need:
 
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to **New** > **Data + Storage** > **SQL Database**.
+2. Click **New** > **Data + Storage** > **SQL Database**.
 3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
 
 	![create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
 You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
-1. Go to **SQL databases** > **Clinic** > **Show database connection strings**.
+1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
 
 	![copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
@@ -70,7 +70,7 @@ You will need the connection string later in the tutorial. After the database is
 Open SSMS and connect to the server with the Clinic database.
 
 
-1. Open SSMS (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
+1. Open SSMS (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
 	![copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
@@ -106,7 +106,7 @@ In this section, you will create a table to hold patient data. This will be a no
 
 SSMS provides a wizard to easily configure Always Encrypted by setting up the CMK, CEK, and encrypted columns for you.
 
-1. Go to **Databases** > **Clinic** > **Tables**.
+1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
     ![encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
@@ -125,7 +125,7 @@ Set the **Encryption Type** for the **SSN** column to **Deterministic** and the 
 
 ### Master Key Configuration###
 
-The **Master Key Configuration** page is where you set up your CMK and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, the Azure Key Vault, or a hardware security module (HSM). This tutorial shows how to store your keys in the Windows certificate store.
+The **Master Key Configuration** page is where you set up your CMK and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, Azure Key Vault, or a hardware security module (HSM). This tutorial shows how to store your keys in the Windows certificate store.
 
 Verify that **Windows certificate store** is selected and click **Next**.
 
@@ -134,7 +134,7 @@ Verify that **Windows certificate store** is selected and click **Next**.
 
 ### Validation###
 
-You can encrypt the columns now or save a PowerShell script to run later. For this tutorial, select **Proceed to finish now** and click **Next**.
+You can encrypt the columns now or save a PowerShell script to run later. For this tutorial select **Proceed to finish now** and click **Next**.
 
 ### Summary###
 
@@ -509,7 +509,7 @@ You can see that the encrypted columns do not contain any plaintext data.
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 
 1. In SSMS, right-click your server in **Object Explorer**, then click **Disconnect**.
-2. Go to **Connect** > **Database Engine** to open the **Connect to Server** window, then click **Options**.
+2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
 	![new console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
@@ -534,9 +534,8 @@ After you create a database that uses Always Encrypted, you may want to do the f
 
 - Run this sample from a different computer. It won't have access to the encryption keys, so it will not have access to the plaintext data and will not run successfully.
 - [Rotate and cleanup your Keys](https://msdn.microsoft.com/library/mt607048.aspx).
-- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
-- Deploy Always Encrypted certificates to other client machines.
-
+- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
+- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the section titled *Making Certificates Available to Applications and Users*).
 
 ## Related Information
 
