@@ -45,10 +45,10 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 	| **Profile** | **Product Launch day (no rules)**       |
 
 4. Here is a hypothetical scaling scenario that we will use for the purpose of this walkthrough.
-	- _**Load based** - I'd like to scale out or in based on the load on my application hosted on my VMSS. _
+	- _**Load based** - I'd like to scale out or in based on the load on my application hosted on my VMSS._
 	- _**Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold._
-	- _**Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time. _
-	- _**Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application. _
+	- _**Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time._
+	- _**Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application._
 	- _The last two profiles can also have other performance metric based rules within them, but in my case I decided not to have one and rely on the default performance metric based rules. Rules are optional for the recurring and date based profiles._
 
 	Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](insights-autoscale-best-practices.md) article.
