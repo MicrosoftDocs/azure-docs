@@ -48,14 +48,10 @@ Follow this procedure to add a new Linux performance counter to collect.
 
 ## Data collection
 
-Log Analytics will collect all specified performance counters at their specified sample interval on all agents that have that counter installed.  Raw data will be available for 14 days in the expanded graph view in the OMS console.  
-
-All collected performance data is aggregated at 30 minute intervals.  The aggregated data is available in all log search views for the duration specified by your OMS subscription.
+Log Analytics will collect all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your OMS subscription.
 
 
 ## Performance record properties
-
-Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter over the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
 
 Performance records have a type of **Perf** and have the properties in the following table.
 
@@ -64,7 +60,7 @@ Performance records have a type of **Perf** and have the properties in the follo
 | Computer         | Computer that the event was collected from. |
 | CounterName      | Name of the performance counter |
 | CounterPath      | Full path of the counter in the form \\\\\<Computer>\\object(instance)\\counter. |
-| CounterValue     | Numeric value of the counter aggregated over 30 minutes.  |
+| CounterValue     | Numeric value of the counter.  |
 | InstanceName     | Name of the event instance.  Empty if no instance. |
 | ObjectName       | Name of the performance object |
 | SourceSystem  | Type of agent the data was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |
@@ -96,14 +92,15 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Viewing performance data
 
-When you run a log search for performance data, the **Log** view is displayed by default.  This view includes aggregated performance records.  To view the data in graphical form, click **Metrics**.  Click the **+** next to the particular counter that you want to view.
+When you run a log search for performance data, the **Log** view is displayed by default.  To view the data in graphical form, click **Metrics**.  
 
 ![Metrics view collapsed](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-
-If the time range you have selected is 6 hours or less, then the graph will display NRT data and will updated every few seconds.  The live data will be displayed on the right side of the graph in light blue.  If you have a time range greater than 6 hours then the graph uses aggregate data.
+For a detailed graphical view, click the **+** next to a counter.
 
 ![Metrics view expanded with live data](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
+
+To aggregate performance data in a log search, see [On-demand metric aggregation and visualization in OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 ## Next steps
 
