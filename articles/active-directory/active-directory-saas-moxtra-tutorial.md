@@ -107,7 +107,6 @@ Your Moxtra application expects the SAML assertions in a specific format, which 
 ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) 
 
 
-
 **To configure Azure AD single sign-on with Moxtra, perform the following steps:**
 
 1. In the Azure classic portal, on the **Moxtra** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
@@ -160,7 +159,8 @@ Your Moxtra application expects the SAML assertions in a specific format, which 
     f. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox.    
 
     g. In the SAML email domain textbox, type your SAML email domain.    
-    > [AZURE.NOTE] To see the steps to verify the domain, click the "**i**" below.
+   
+	 > [AZURE.NOTE] To see the steps to verify the domain, click the "**i**" below.
 
 
     h. Click **Update**.
@@ -254,7 +254,8 @@ The objective of this section is to create a test user in the Azure classic port
     c. In the **Display Name** textbox, type **Britta Simon**.
 
     d. In the **Role** list, select **User**.
-    e. Click **Next**.
+  
+	e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
 
