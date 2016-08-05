@@ -97,7 +97,7 @@ You need to install a process server in Azure so that the Azure VMs can send the
 
 If you have protected your machines as classic resources (that is the VM recovered in Azure is a classic VM), then you will need a classic process server in Azure. If you have recovered the machines as resources manager as deployment type, you will need a process server of a resource manager deployment type. The type is selected by the Azure virtual network you deploy the process server into.
 
-1.  In the Vault > Settings > Site Recovery Infrastructure (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines heading) select the configuration server. Click on "+ Process server", highlighted with yellow on the example screenshow below.
+1.  In the Vault > Settings > Site Recovery Infrastructure (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading) select the configuration server. Click on "+ Process server", highlighted with yellow on the example screenshow below.
 
 	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
 
