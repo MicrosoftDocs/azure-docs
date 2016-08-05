@@ -126,7 +126,7 @@ When a VM is created in DevTest Labs, permission is given to access that VM, and
 A custom image is a VHD (virtual hard disk), whereas a formula is an image that you can configure with additional settings that you can save and reproduce. A custom image may be preferable if you want to quickly create several environments with the same basic, immutable image. A formula may be better if you want to reproduce the configuration of your VM with the latest bits, a virtual network/subnet, or a specific size. For a more in depth explanation, see the article, [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md). 
  
 ### How do I create multiple VMs from the same template at once? 
-You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md/#save-arm-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../resource-group-template-deploy.md). 
+You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md#save-arm-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../resource-group-template-deploy.md). 
  
 ### How do I move my existing Azure VMs into my DevTest Labs lab? 
 We are designing a solution to directly move VMs to DevTest Labs, but currently you can copy your existing VMs to DevTest Labs as follows: 
@@ -141,7 +141,7 @@ Attaching multiple disks to VMs is supported.
 ### How do I automate the process of uploading VHD files to create custom images? 
 There are two options:
 
-- [Azure AzCopy](../storage/storage-use-azcopy.md/#blob-upload) can be used to copy or upload VHD files to the storage account associated with the lab.
+- [Azure AzCopy](../storage/storage-use-azcopy.md#blob-upload) can be used to copy or upload VHD files to the storage account associated with the lab.
 - [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that runs on Windows, OSX, and Linux.   
  
 To find the destination storage account associated with your lab: 
