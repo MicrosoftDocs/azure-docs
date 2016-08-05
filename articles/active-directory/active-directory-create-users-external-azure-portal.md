@@ -22,11 +22,19 @@
 - [Azure portal](active-directory-create-users-external-azure-portal.md)
 - [Azure classic portal](active-directory-create-users-external.md)
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users either from other directories in Azure Active Directory (Azure AD) or from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users-azure-portal.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+
+2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+
+    ![Opening user management](./media/active-directory-create-users-azure-portal/create-users-user-management.png)
+
+3.  On the User Management blade, select **Users**, and then select **Add**.
+
+    ![Selecting the Add command](./media/active-directory-create-users-azure-portal/create-users-add-command.png)
 
 2. Select **Active Directory**, and then open your directory.
 
