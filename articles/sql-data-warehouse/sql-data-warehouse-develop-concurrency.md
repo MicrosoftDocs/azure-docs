@@ -48,37 +48,37 @@ The following table describes the limits for both concurrent queries and concurr
 | DW3000 |           32            |              120            |
 | DW6000 |           32            |              240            |
 
-When one of these thresholds are met, new queries are queued. Queued queries are executed in on a first in first out basis as other queries complete and the number of queries and slots fall below the limits.  
+When one of these thresholds is met, new queries are queued. Queued queries are executed on a first in, first out basis as other queries complete and the number of queries and slots fall below the limits.  
 
-> [AZURE.NOTE]  SELECT queries executing exclusively on dynamic management views (DMVs) or catalog views are **not** governed by any of the concurrency limits.  This allows users to monitor the system regardless of the number of the number of queries executing on the system.
+> [AZURE.NOTE]  **Select** queries executing exclusively on dynamic management views (DMVs) or catalog views are *not* governed by any of the concurrency limits. This allows users to monitor the system regardless of the number of queries executing on the system.
 
 ## Resource classes
 
-Resource classes are the way in which you control memory allocation and CPU cycles given to a query.  There are four resource classes which can be assigned to a user in the form of a **database role**.  The four resource classes are **smallrc, mediumrc, largerc and xlargerc**.  Users in smallrc are given a smaller amount of memory and thus allow for higher concurrency.  In contrast, users assigned to xlargerc are given large amounts of memory and therefore less of these queries are allowed to run concurrently.
+Resource classes are the way in which you control memory allocation and CPU cycles given to a query. There are four resource classes that can be assigned to a user in the form of a *database role*.  The four resource classes are **smallrc**, **mediumrc**, **largerc**, and **xlargerc**. Users in smallrc are given a smaller amount of memory and thus allow for higher concurrency.  In contrast, users assigned to xlargerc are given large amounts of memory, and therefore fewer of these queries are allowed to run concurrently.
 
-By default, each user is a member of the small resource class, smallrc.  The procedure `sp_addrolemember` is used to increase the resource class and `sp_droprolemember` is used to decrease the resource class.  For example, this command would increase the resource class of the loaduser to largerc:
+By default, each user is a member of the small resource class, smallrc. The procedure `sp_addrolemember` is used to increase the resource class and `sp_droprolemember` is used to decrease the resource class.  For example, this command would increase the resource class of loaduser to largerc:
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
-A good practice is to create users which are permanently assigned to a resource class rather than changing the resource class of a user.  For example, loads to clustered columnstore tables create higher quality indexes when allocated more memory.  To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
+A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data, and permanently assign this user to a higher resource class.
 
-There are a few types of queries that do not benefit from a larger memory allocation and the system will ignore their resource class allocation and always run these queries in the small resource class instead.  Forcing these queries to always run in the small resource class allow for these queries to run when concurrency slots are under pressure and prevents these queres from consuming more slots than needed.  These [Resource class exceptions](#query-exceptions-to-concurrency-limits) are covered later in this article.
+There are a few types of queries that do not benefit from a larger memory allocation. The system will ignore their resource class allocation and always run these queries in the small resource class instead. If these queries always run in the small resource class, they can run when concurrency slots are under pressure and they won't consume more slots than needed. These [Resource class exceptions](#query-exceptions-to-concurrency-limits) are covered later in this article.
 
 A few more details on resource class:
 
-- `ALTER ROLE` permission is required to change the resource class of a user.  
-- While a user can be added to one or more of the higher resource classes, users will take on the attributes of the highest resource class to which they are assigned.  That is, if a user is assigned to both mediumrc and largerc, the higher resource class, largerc is the resource class that will be honored.  
+- *Alter role* permission is required to change the resource class of a user.  
+- While a user can be added to one or more of the higher resource classes, users will take on the attributes of the highest resource class to which they are assigned.  That is, if a user is assigned to both mediumrc and largerc, the higher resource class (largerc) is the resource class that will be honored.  
 - The resource class of the system administrative user cannot be changed.
 
-For a detailed example, see [Changing user resource class example](#changing-user-resource-class-example) at the end of this article
+For a detailed example, see [Changing user resource class example](#changing-user-resource-class-example).
 
 ## Memory allocation
 
-There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean their queries have access to more memory and may execute faster, higher resource classes also reduces the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries, which also need memory allocations, to run concurrently. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
+There are pros and cons to increasing a user's resource class. While increasing a resource class for a user may mean that their queries have access to more memory and may execute faster, higher resource classes also reduce the number of concurrent queries that can run. This is the trade-off between allocating large amounts of memory to a single query and allowing other queries (which also need memory allocations) to run concurrently. If one user is given high allocations of memory for a query, other users will not have access to that same memory in order to run a query.
 
-The following table maps the memory allocated to each distribution by DWU and resource class.  In SQL Data Warehouse there are 60 distributions.  For example, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.
+The following table maps the memory allocated to each distribution by DWU and resource class. In SQL Data Warehouse, there are 60 distributions. For example, a query running on a DW2000 in the xlarge resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.
 
 ### Memory allocations per distribution (MB)
 
@@ -119,11 +119,11 @@ Using the preceding example, a query running on a DW2000 in the xlarge resource 
 
 ## Concurrency slot consumption
 
-Queries running in a higher the resource class are granted more memory.  Since memory is a fixed resource, the more memory allocated per query, the less concurrency which can be supported.  The following table reiterates all of the previous concepts in to a single view showing the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
+Queries running in higher resource classes are granted more memory. Since memory is a fixed resource, the more memory allocated per query, the less concurrency can be supported. The following table reiterates all of the previous concepts in a single view showing the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
 
 ### Allocation and consumption of concurrency slots
 
-|  DWU   | Max Concurrent Queries  | Concurrency Slots Allocated | Slots used by smallrc |  Slots used by mediumrc |  Slots used by largerc |  Slots used by xlargerc |
+|  DWU   | Max concurrent queries  | Concurrency slots allocated | Slots used by smallrc |  Slots used by mediumrc |  Slots used by largerc |  Slots used by xlargerc |
 | :----  | :---------------------: | :-------------------------: | :-----: | :------: | :-----: | :------: |
 | DW100  |           32            |                4            |    1    |     1    |    2    |    4     |
 | DW200  |           32            |                8            |    1    |     2    |    4    |    8     |
@@ -139,17 +139,17 @@ Queries running in a higher the resource class are granted more memory.  Since m
 | DW6000 |           32            |              240            |    1    |    32    |   64    |  128     |
 
 
-From this table you can see that a SQL Data Warehouse running as DW1000 allocates a maximum of 32 concurrent queries and a total of 40 concurrency slots.  If all users are running in the small resource class, 32 concurrent queries would be allowed as each query would consume 1 concurrency slot.  If all users on a DW1000 were running in medium resource class, each query would be allocated 800 MB per distribution for a total memory allocation of 47 GB per query and concurrency would be limited to 5 users (40 concurrency slots / 8 slots per mediumrc user).
+From this table, you can see that SQL Data Warehouse running as DW1000 allocates a maximum of 32 concurrent queries and a total of 40 concurrency slots. If all users are running in smallrc, 32 concurrent queries would be allowed because each query would consume 1 concurrency slot. If all users on a DW1000 were running in mediumrc, each query would be allocated 800 MB per distribution for a total memory allocation of 47 GB per query, and concurrency would be limited to 5 users (40 concurrency slots / 8 slots per mediumrc user).
 
 ## Query importance
 
-Under the covers, resource classes are implemented using workload groups.  There are a total of eight workload groups which control the behavior of the resource classes across the various DWU sizes.  For any given DWU, only four of the eight workload groups are utilized.  This makes sense since each workload group is assigned to one of four resource classes; smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding the workload groups is that some of these workload groups are set to higher **IMPORTANCE**.  Importance is used for CPU scheduling.  Queries run with **high** importance will get 3X more CPU cycles than those with **medium** importance.  Therefore, concurrency slot mappings also determine CPU priority.  When a query consumes 16 or more slots, it runs as high importance.
+Resource classes are implemented using workload groups.  There are a total of eight workload groups that control the behavior of the resource classes across the various DWU sizes. For any given DWU, only four of the eight workload groups are utilized. This makes sense since each workload group is assigned to one of four resource classes; smallrc, mediumrc, largerc, or xlargerc.  The importance of understanding the workload groups is that some of these workload groups are set to higher *importance*. Importance is used for CPU scheduling. Queries run with high importance will get three times more CPU cycles than those with medium importance. Therefore, concurrency slot mappings also determine CPU priority. When a query consumes 16 or more slots, it runs as high importance.
 
 The following table shows the importance mappings for each workload group.
 
-### Workload group mappings to concurency slots and importance
+### Workload group mappings to concurrency slots and importance
 
-| Workload groups | Concurrency Slot Mapping | Importance Mapping |
+| Workload groups | Concurrency slot mapping | Importance mapping |
 | :-------------- | :----------------------: | :----------------- |
 | SloDWGroupC00   |            1             | Medium             |
 | SloDWGroupC01   |            2             | Medium             |
@@ -160,11 +160,11 @@ The following table shows the importance mappings for each workload group.
 | SloDWGroupC06   |           64             | High               |
 | SloDWGroupC07   |          128             | High               |
 
-From the **Allocation and consumption of concurrency slots** chart, we can see that a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc respectively.  We can look those values up in the preceding chart to get each resource classes important.
+From the **Allocation and consumption of concurrency slots** chart, we can see that a DW500 uses 1, 4, 8 or 16 concurrency slots for smallrc, mediumrc, largerc, and xlargerc respectively. We can look those values up in the preceding chart to find the importance for each resource class.
 
 ### DW500 mapping of resource classes to importance
 
-| Resource class | Workload Group | Concurrency Slots Used | Importance |
+| Resource class | Workload group | Concurrency slots used | Importance |
 | :------------- | :------------- | :--------------------: | :--------- |
 | smallrc        | SloDWGroupC00  |           1            | Medium     |
 | mediumrc       | SloDWGroupC02  |           4            | Medium     |
@@ -172,7 +172,7 @@ From the **Allocation and consumption of concurrency slots** chart, we can see t
 | xlargerc       | SloDWGroupC04  |          16            | High       |
 
 
-The following DMV query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or to analyze active and historic usage of the workload groups when troubleshooting:
+The following DMV query can be used to look at the differences in memory resource allocation in detail from the perspective of the resource governor, or to analyze active and historic usage of the workload groups when troubleshooting.
 
 ```sql
 WITH rg
@@ -222,9 +222,9 @@ ORDER BY
 
 ## Queries that honor concurrency limits
 
-Most queries are governed by resource classes. These queries must fit inside both the concurrent query and concurrency slot thresholds. An end user cannot choose to exclude a query from the concurrency slot model.
+Most queries are governed by resource classes. These queries must fit inside both the concurrent query and concurrency slot thresholds. A user cannot choose to exclude a query from the concurrency slot model.
 
-To reiterate, the following statements do **honor** resource classes:
+To reiterate, the following statements honor resource classes:
 
 - INSERT-SELECT
 - UPDATE
@@ -241,15 +241,15 @@ To reiterate, the following statements do **honor** resource classes:
 
 ## Query exceptions to concurrency limits
 
-There are some queries which do not honor the resource class to which the user is assigned.  These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation.  By having these exceptions larger memory allocations to queries that will never need them is avoided.  In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model SQL Data Warehouse can be much more efficient.  
+There are some queries that do not honor the resource class to which the user is assigned. These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation. The goal of these exceptions is to avoid larger memory allocations for queries that will never need them. In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in the smallrc. The resources required to fulfil this operation are very low, so it would not make sense to include the query in the concurrency slot model. It would be wasteful to pre-allocate large amounts of memory for this action. By excluding `CREATE LOGIN` from the concurrency slot model, SQL Data Warehouse can be much more efficient.  
 
-The following statements **do not** honor resource classes:
+The following statements do not honor resource classes:
 
 - CREATE or DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT or MERGE PARTITION
+- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
 - ALTER INDEX DISABLE
 - DROP INDEX
-- CREATE, UPDATE or DROP STATISTICS
+- CREATE, UPDATE, or DROP STATISTICS
 - TRUNCATE TABLE
 - ALTER AUTHORIZATION
 - CREATE LOGIN
@@ -270,14 +270,14 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Changing a user resource class example
 
-1. **Create login:** Open a connection to the **master** database for your SQL Data Warehouse and execute the following commands.
+1. **Create login:** Open a connection to your **master** database in SQL Data Warehouse and execute the following commands.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases. This is different to SQL Server. For more details, please refer to the [Managing Databases and Logins in Azure SQL Database][] article for more details.
+	> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in master in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse, these roles grant rights to manage logins and to create databases. This is different from SQL Server. For more details, please refer to [Managing Databases and Logins in Azure SQL Database][].
 
 2. **Create user account:** Open a connection to the **SQL Data Warehouse database** and execute the following command.
 
