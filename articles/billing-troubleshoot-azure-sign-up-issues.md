@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Troubleshoot Azure sign-up issues | Microsoft Azure"
 	description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"

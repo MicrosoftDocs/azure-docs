@@ -1,6 +1,6 @@
 <properties
    pageTitle="Getting started with Operations Management Suite Security and Audit Solution | Microsoft Azure"
-   description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities."
+   description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,11 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
-This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option and linking you to next steps.
+This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
 
 ## What is OMS?
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
@@ -30,7 +30,7 @@ The OMS Security and Audit solution provides a comprehensive view into your orga
 2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
 3. The **Security and Audit** dashboard will appear as shown below:
 
-	![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1.png)
+	![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case it will be normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
@@ -65,11 +65,11 @@ The search result is divided in two panes: the left pane gives you a breakdown o
 
 > [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
-### Malware assessment
+### Antimalware assessment
 
-This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Malware Assessment** tile. 
+This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
 
-![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4.png)
+![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
 Just like any other live tile available in OMS Dashboard  , when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
@@ -87,17 +87,17 @@ This option enables you to quickly determine the overall exposure to potential s
 
 > [AZURE.NOTE] for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
 
-### Identity and Access (Preview)
+### Identity and Access
 
 Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
 
 > [AZURE.NOTE] currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
 
-By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access (Preview)** dashboard provides you an overview of your identity state, including the amount of failed attempts to logon, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently amount of accounts that are logged in. 
+By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the amount of failed attempts to logon, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently amount of accounts that are logged in. 
 
-When you click in the **Identity and Access (Preview)** tile you will see the following dashboard:
+When you click in the **Identity and Access** tile you will see the following dashboard:
 
-![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7.JPG)
+![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
 The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to logon as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
 
@@ -125,13 +125,13 @@ The main intent of this group of options is to provide a quick view of the issue
 
 You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place. 
 
-## Threat Intelligence (Preview)
+## Threat Intelligence
 
 The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from  . You can interact with the map and click on the IPs for more information.
 
 Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
 
-![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11.JPG)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
 ## Common security queries
 
@@ -148,7 +148,7 @@ The list of common security queries available can be useful for you to rapidly a
 - Logon Activity by Account
 - Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
-## Next steps
+## See also
 
 In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 

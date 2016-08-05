@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/029/2016"
+   ms.date="07/29/2016"
    ms.author="vturecek"/>
 
 # Get started: Service Fabric Web API services with OWIN self-hosting

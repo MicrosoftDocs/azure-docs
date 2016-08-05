@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/18/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Security in Azure Data Lake Store
@@ -68,7 +68,7 @@ For instructions, see [Assign users or security groups to Azure Data Lake Store 
 
 ### Using ACLs for operations on file systems
 
-Azure Data Lake Store is a hierarchical file system like HDFS and supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) - allowing read (r), write (w), and execute (x) access rights to resources granted to owner, owing group and other users/groups. In the Data Lake Store Public Preview (current release), ACLs are enabled only on the root folder, which means the  ACLs you apply to the root folder is also applicable to all the child folders/files as well. In the future releases, you will be able to set ACLs on any file or folder.
+Azure Data Lake Store is a hierarchical file system like HDFS and supports [POSIX ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists) - allowing read (r), write (w), and execute (x) access rights to resources granted to owner, owing group and other users/groups. In the Data Lake Store Public Preview (current release), ACLs can be enabled on the root folder, sub-folders, as well as individual files. The ACLs you apply to the root folder will also applicable to all the child folders/files as well.
 
 It is a recommended practice to define ACLs for many users by using [security groups](../active-directory/active-directory-accessmanagement-manage-groups.md). Group the users into a security group, then assign the ACLs for the file and folder to that security group. This is useful when providing custom access since there is a limit where you can only add a maximum of nine entries as part of custom access. See [Assign users or security group as ACLs to the Azure Data Lake Store file system](data-lake-store-secure-data.md#filepermissions) for more information on securing data stored in Data Lake Store using AAD security groups.
 
