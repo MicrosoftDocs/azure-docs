@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/05/2016"
 	ms.author="tarcher"/>
 
 # DevTest Labs FAQ
@@ -49,7 +49,7 @@ This article answers some of the most common questions about DevTest Labs.
  
 ## Lab configuration 
  
-- [How do I create a lab from an ARM template?](#how-do-i-create-a-lab-from-an-arm-template) 
+- [How do I create a lab from an Azure Resource Manager template?](#how-do-i-create-a-lab-from-an-arm-template) 
 - [Why are all of my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups?](#why-are-all-of-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups) 
 - [How many labs can I create under the same subscription?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [How many VMs can I create per lab?](#how-many-vms-can-i-create-per-lab)
@@ -117,7 +117,7 @@ The following blog posts provide guidance and information about using the VSTS e
 - [Deploying a new VM in an existing AzureDevTestLab from VSTS](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) 
 - [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) 
  
-For other CI/CD toolchains, all of the aforementioned scenarios that can be achieved through the VSTS tasks extension can be similarly achieved through deploying [ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) using [Azure PowerShell cmdlets](../resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You can also use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
+For other CI/CD toolchains, all of the aforementioned scenarios that can be achieved through the VSTS tasks extension can be similarly achieved through deploying [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) using [Azure PowerShell cmdlets](../resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You can also use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
 ### Why can't I see certain VMs in the Azure Virtual Machines blade that I see within DevTest Labs?
 When a VM is created in DevTest Labs, permission is given to access that VM, and you will be able to view it both in the labs blade and the **Virtual Machines** blade. If you are a DevTest Labs user, this enables you to see all virtual machines created in the lab through the lab's **All Virtual Machines** blade. However, as a DevTest Labs user, you are not automatically granted read-access to VM resources that others have created, so they will not be displayed in the **Virtual Machines** blade. 
@@ -126,7 +126,7 @@ When a VM is created in DevTest Labs, permission is given to access that VM, and
 A custom image is a VHD (virtual hard disk), whereas a formula is an image that you can configure with additional settings that you can save and reproduce. A custom image may be preferable if you want to quickly create several environments with the same basic, immutable image. A formula may be better if you want to reproduce the configuration of your VM with the latest bits, a virtual network/subnet, or a specific size. For a more in depth explanation, see the article, [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md). 
  
 ### How do I create multiple VMs from the same template at once? 
-You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an ARM template](devtest-lab-add-vm-with-artifacts.md/#save-arm-template) while creating a VM and [deploy the ARM template from Windows PowerShell](../resource-group-template-deploy.md). 
+You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md/#save-arm-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../resource-group-template-deploy.md). 
  
 ### How do I move my existing Azure VMs into my DevTest Labs lab? 
 We are designing a solution to directly move VMs to DevTest Labs, but currently you can copy your existing VMs to DevTest Labs as follows: 
@@ -157,8 +157,8 @@ To find the destination storage account associated with your lab:
 ### What are artifacts? 
 Artifacts are customizable elements that can used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are a number of preexisting artifacts in our [public Github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md). 
 
-### How do I create a lab from an ARM template? 
-We have a [Github repository of lab ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Each of these templates has a link that you can click to deploy the DevTest Labs lab under your own Azure subscription. 
+### How do I create a lab from an Azure Resource Manager template? 
+We have a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Each of these templates has a link that you can click to deploy the DevTest Labs lab under your own Azure subscription. 
  
 ### Why are all of my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups? 
 Resource groups are created this way in order for DevTest Labs to manage the user permissions and access to virtual machines. We are working on improving this experience to allow more flexibility, but you can rename these resource groups as needed. It is advised that you do not move VMs into different resource groups to avoid unintentionally modifying permissions. 
