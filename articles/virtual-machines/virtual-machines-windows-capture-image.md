@@ -49,7 +49,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 	- Click **OK**.
 
-	![Run Sysprep](./media/virtual-machines-windows-capture-image/SysprepGeneral.png)
+	![Run Sysprep](./media/virtual-machines-windows-capture-image/sysprepgeneral.png)
 
    Sysprep shuts down the virtual machine. Its status changes to **Stopped** in the Azure portal.
 
@@ -101,7 +101,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 2. Create a variable for the path to the image. 
 
-		$imageURI = 
+		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
 
 
 ## Create a virtual network
