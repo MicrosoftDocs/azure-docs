@@ -4,11 +4,11 @@
 	authors="rboucher"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -40,7 +40,7 @@ Figure 2: Logical Model for monitoring and diagnostics for compute resources
 You can obtain Audit logs (sometimes called Operational or Activity Logs) about your resource as seen by the Azure infrastructure. These logs contain information such as times when resources are created or destroyed.  
 
 ### Host VM
-**COMPUTE ONLY**
+**Compute Only**
 
 You cannot currently collect metrics on the Host VM, but it is listed here for completeness.
 
@@ -55,7 +55,7 @@ Collectable metrics vary based on the resource type. For example, Virtual Machin
 For compute resources you can obtain metrics on the Guest OS as well as diagnostics modules like Azure Diagnostics. Azure Diagnostics assists in gathering and routing gather diagnostic data to other locations, including Azure storage.
 
 ### Application - Diagnostics Logs, Application Logs and Metrics
-**COMPUTE ONLY**
+**Compute Only**
 
 Applications can run on top of the Guest OS in the compute model. They emit their own set of logs and metrics.
 
@@ -76,42 +76,42 @@ Types of metrics include
 ### Visualize
 Visualizing your monitoring data in graphics and charts helps you find trends far more quickly than looking through the data itself.  A few ways to do this include:
 
-1.	Using the Azure portal
-2.	Routing data to Azure Application Insights
-3.	Routing data to PowerBI
-4.	Routing the data to a 3rd party visualization tool using either live streaming or having the tool read from an archive in Azure storage
+- Using the Azure portal
+- Routing data to Azure Application Insights
+- Routing data to PowerBI
+- Routing the data to a 3rd party visualization tool using either live streaming or having the tool read from an archive in Azure storage
 
 ### Archive
 Monitoring data is typically written to Azure storage and kept there until you delete it.
 
 A few ways to use this data:
 
-1.	Once written, you can have other tools within or outside of Azure read it and process it.
-2.	You download the data locally for a local archive or change your retention policy in the cloud to keep data for extended periods of time.  
-3.	You leave the data in Azure storage indefinitely. (Note that you do have to pay for Azure storage based on the amount of data you keep.)
+- Once written, you can have other tools within or outside of Azure read it and process it.
+- You download the data locally for a local archive or change your retention policy in the cloud to keep data for extended periods of time.  
+- You leave the data in Azure storage indefinitely. (Note that you do have to pay for Azure storage based on the amount of data you keep.)
 
 ### Query
 You can use the Insights REST API, Common Language Interface (CLI) commands, PowerShell cmdlets, or the .NET SDK to access the data in the system or Azure storage
 Examples include:
 
-1.	Getting data for a custom monitoring application you have written
-2.  Creating custom queries and sending that data to a 3rd party application.
+-  Getting data for a custom monitoring application you have written
+-  Creating custom queries and sending that data to a 3rd party application.
 
 ### Route
 You can stream monitoring data to other locations in real-time.
 Examples include:
 
-1.	Send to Application Insights so you can use the visualization tools there.
-2.	Send to Event Hubs so you can route to 3rd party tools to perform real-time analysis.
+- Send to Application Insights so you can use the visualization tools there.
+- Send to Event Hubs so you can route to 3rd party tools to perform real-time analysis.
 
 ### Automate
 You can use monitoring data to trigger events or even whole processes
 Examples include:
 
-1.	Use data to autoscale compute instances up or down based on application load.
-2.	Send emails when a metric crosses a predetermined threshold.
-3.	Call a web URL (webhook) to execute an action in a system outside of Azure
-4.	Start a runbook in Azure automation to perform any variety of tasks
+- Use data to autoscale compute instances up or down based on application load.
+- Send emails when a metric crosses a predetermined threshold.
+- Call a web URL (webhook) to execute an action in a system outside of Azure
+- Start a runbook in Azure automation to perform any variety of tasks
 
 
 
