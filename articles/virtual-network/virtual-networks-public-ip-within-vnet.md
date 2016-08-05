@@ -3,7 +3,7 @@
    description="Learn how to configure a virtual network to use public IP addresses"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Public IP address space in a Virtual Network (VNet)
 
@@ -45,4 +45,4 @@ There are a few IP address ranges that are not allowed:
 
 ## Next Steps
 
-[How to manage DNS servers used by a VNet](../virtual-networks-manage-dns-in-vnet)
+[How to manage DNS servers used by a VNet](virtual-networks-manage-dns-in-vnet.md)

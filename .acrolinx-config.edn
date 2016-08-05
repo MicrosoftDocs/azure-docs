@@ -1,9 +1,8 @@
 {:template-header
    "
-## Acrolinx Scorecards
+## Acrolinx Scorecards (Beta)
 
-Acrolinx checked the .md files in this pull request for grammar, spelling, punctuation, writing style, and terminology. Review the scorecards for each article and make the
-recommended improvements.
+Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
 
 "
 
@@ -11,7 +10,7 @@ recommended improvements.
    ;; linebreak
    :template-change
    "
-* Article: ${github/filename}<br>
+* **Article: ${github/filename}**<br>
   [Scorecard link](${acrolinx/scorecard})<br>
   Number of issues: ${acrolinx/flags/total}<br>
   Score: ${acrolinx/qualityscore}
@@ -20,9 +19,14 @@ recommended improvements.
 
  :template-footer
 "
-**Note:** The scorecard links are good for one hour. If you are prompted to authenticate because the links expired, use these credentials or close and reopen the pull request:
+**More info about Acrolinx**
 
->Account: report-viewer
->Password: kermit$
+- The scorecard links are good for one hour. If you're prompted to authenticate, you can close and reopen the PR to get new links. Or, use these credentials:
+  Account: report-viewer
+  Password: kermit$
+
+- [Want more info about Acrolinx?](https://microsoft.sharepoint.com/teams/azurecontentguidance/CrossAzure Projects/Acrolinx-Kickoff.pptx?d=w7f94b3850fce4fb4ae214e466e6b4d3b)
+
+- [Report false positive results or other issues](http://vstfcsd:8080/tfs/CSI/OneView/_workItems/create/Task?%5BSystem.Title%5D=Acrolinx%3A+%3Cissue+title%3E&%5BSystem.Description%5D=%3CUL%3E%3CLI%3ELink+to+Acrolinx+report+that+contains+the+issue.%3C%2FLI%3E%3CLI%3EDetailed+description%3C%2FLI%3E%3CLI%3EAttach+screenshot%3C%2FLI%3E%3C%2FUL%3E&%5BSystem.History%5D=Copied+from+%3Ca+href%3D'x-mvwit%3Aworkitem%2F66442'%3ETask+66442%3C%2Fa%3E&%5BSystem.Tags%5D=Acrolinx)
 
 "}
