@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/05/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -33,6 +33,16 @@ The guidance in this tutorial applies to StorSimple physical and virtual devices
 
 In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. During the failover, the volume containers from the source device change ownership and are transferred to the target device.
 
+Typically following a DR, the most recent backup is used to restore the data to the replacement device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the recovery device.
+
+As an example, if there are two backup policies *Pol1*, *Pol2* with the following details:
+
+- *Pol1* : Two volumes, *vol1*, *vol2*, runs daily starting at 10:30 PM.
+- *Pol2* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
+
+In this case, *Pol2* will be used as it has more volumes and the most recent backup from this policy is used to restore data.
+
+
 ## Considerations for device failover
 
 In the event of a disaster, you may choose to fail over your StorSimple device:
@@ -47,9 +57,6 @@ For any device failover, keep in mind the following:
 - The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
 - The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
 - Following a DR, for a limited duration, the data access performance can be affected significantly, as the device will need to access the data from the cloud and store it locally.
-- When performing a failover between devices following a DR, the snapshots used to recover the data are selected as follows:
-	1.  	Identify the backup policy with the largest number of volumes. 
-	2.  	Pick the latest good known cloud snapshot for that backup policy and use that to restore the data on the recovery device. 
 
 #### Device failover across software versions
 
