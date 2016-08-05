@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
-   ms.author="chackdan"/>
+   ms.date="08/05/2016"
+   ms.author="dkshir;chackdan"/>
 
 
 # Create and manage a cluster running on Windows Server
