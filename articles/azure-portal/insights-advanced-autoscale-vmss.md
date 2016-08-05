@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure Insights: Advanced Autoscale configuration using ARM templates for VM Scale Sets. | Microsoft Azure"
+	pageTitle="Azure Insights: Advanced Autoscale configuration using ARM templates for VM Scale Sets | Microsoft Azure"
 	description="Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions."
 	authors="kamathashwin"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="na"/>
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
 	ms.service="monitoring-and-diagnostics"
@@ -202,7 +202,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 	2. Email a set of users
 
-	3. Trigger a webhook call. When fired, this webhook will send metadata about the autoscaling condition and the VMSS resource. To learn more about the payload of autoscale webhook, please review this article.
+	3. Trigger a webhook call. When fired, this webhook will send metadata about the autoscaling condition and the VMSS resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](./insights-autoscale-to-webhook-email.md).
 
 	Add the following  to the Autoscale setting replacing your **notification** element whose value is null
 
