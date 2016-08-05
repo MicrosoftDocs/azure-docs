@@ -86,11 +86,11 @@ Most applications also require the presence of a domain controller and a DNS ser
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
 3. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during an planned or unplanned failover, if the IP address is available in the test failover network. If it isn't then the virtual machine  receive a different IP address that is available in the test failover network.
+>[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't then the virtual machine  receives a different IP address that is available in the test failover network.
 
 4. On the domain controller virtual machine run a test failover of it in the isolated network.
 5. Run a test failover for the application recovery plan.
-6. After testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete'on the **Jobs** tab in the Site Recovery portal.
+6. After testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
 
 ### DNS and domain controller on different machines
 
