@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/04/2016"
+   ms.date="08/05/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -140,10 +140,6 @@ In addition to the common fields described in the “Shellcode Discovered” sec
 | Suspicious injecting exploit         | Signifies maliciousness that often correlates to use of injected code in memory                                   |
 | Suspicious injected debugger exploit | Signifies maliciousness that often correlates to detection or circumvention of a debugger                         |
 | Suspicious injected remote exploit   | Signifies maliciousness that often correlates to command n control (C2) scenarios                                 |
-
-This is an example of this type of alert:
-
-[screenshot placeholder]
 
 ### Module Hijacking Discovered
 
