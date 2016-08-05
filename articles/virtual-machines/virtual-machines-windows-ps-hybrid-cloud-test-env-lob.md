@@ -14,46 +14,44 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/05/2016" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
 
-This topic steps you through creating a hybrid cloud environment for testing a web-based line-of-business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
+This topic steps you through creating a simulated hybrid cloud environment for testing a web-based line of business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
 
 For an example of a production LOB application hosted in Azure, see the **Line of business applications** architecture blueprint at [Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664).
 
-This configuration simulates an LOB application in Azure production environment from your location on the Internet. It consists of:
+This configuration consists of:
 
-- A simplified on-premises network (the Corpnet subnet).
+- A simulated on-premises network hosted in Azure (the TestLab VNet).
 - A cross-premises virtual network hosted in Azure (TestVNET).
-- A site-to-site VPN connection.
-- A line of business server, SQL server, and secondary domain controller in the TestVNET virtual network.
+- A VNet-to-VNet VPN connection.
+- A web-based LOB server, SQL server, and secondary domain controller in the TestVNET virtual network.
 
 This configuration provides a basis and common starting point from which you can:
 
 - Develop and test LOB applications hosted on Internet Information Services (IIS) with a SQL Server 2014 database backend in Azure.
-- Perform testing of this hybrid cloud-based IT workload.
+- Perform testing of this simulated hybrid cloud-based IT workload.
 
 There are three major phases to setting up this hybrid cloud test environment:
 
-1.	Set up the hybrid cloud environment for testing.
+1.	Set up the simulated hybrid cloud environment for testing.
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
 This workload requires an Azure subscription. If you have an MSDN or Visual Studio subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-## Phase 1: Set up the hybrid cloud environment
+## Phase 1: Set up the simulated hybrid cloud environment
 
-Use the instructions in the [Set up a hybrid cloud environment for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
+Use the instructions in the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
 
 This is your current configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph1.png)
-
-> [AZURE.NOTE] For Phase 1, you can also set up the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
  
 ## Phase 2: Configure the SQL server computer (SQL1)
 
@@ -84,15 +82,6 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure P
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Use the Azure portal to connect to SQL1 using the local administrator account.
-
-1.	In the left pane of the Azure Management Portal, click **Virtual Machines**, and then click **Running** in the Status column for SQL1.
-2.	In the task bar, click **Connect**. 
-3.	When prompted to open SQL1.rdp, click **Open**.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use these:
-	- Name: **SQL1\\**[Local administrator account name]
-	- Password: [Local administrator account password]
-6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
 
@@ -188,7 +177,7 @@ Next, join LOB1 to the CORP Active Directory domain with these commands at the W
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer command**.
+Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer** command.
 
 After restarting, use the Azure portal to connect to LOB1 with the CORP\User1 account and password.
 
@@ -205,15 +194,15 @@ Next, configure LOB1 for IIS and test access from CLIENT1.
 9.	On the Select role services page, select or clear the check boxes for the services you need for testing your LOB application, and then click **Next**.
 10.	On the Confirm installation selections page, click **Install**.
 11.	Wait until the installation of components has completed and then click **Close**.
-12.	Log on to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
+12.	Connect to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
 13.	In the Address bar, type **http://lob1/** and then press ENTER. You should see the default IIS 8 web page.
 
 This is your current configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
  
-This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.
+This environment is now ready for you to deploy your web-based application on LOB1 and test functionality from CLIENT1 on the Corpnet subnet.
 
 ## Next step
 
-- Deploy other [workloads](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) in this environment.
+- Add a new virtual machine using the [Azure portal](virtual-machines-windows-hero-tutorial.md).

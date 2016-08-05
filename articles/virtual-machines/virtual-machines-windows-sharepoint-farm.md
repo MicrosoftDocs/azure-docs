@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/05/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
@@ -59,7 +59,7 @@ The Azure portal creates both of these farms in a cloud-only virtual network wit
 
 ## SharePoint 2016 farms
 
-See [this topic](https://technet.microsoft.com/library/mt723354.aspx) for instructions on how to build the following single-server SharePoint 2016 farm.
+See [this article](https://technet.microsoft.com/library/mt723354.aspx) for instructions on how to build the following single-server SharePoint 2016 farm.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
