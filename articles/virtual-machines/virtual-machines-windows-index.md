@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # Technical articles for Windows VMs in the classic deployment model
 
 
-Find all the documentation you need to create and manage Windows-based virtual machines in the classic deployment model.
+Find all the documentation you need to create and manage Windows-based Azure virtual machines in the classic deployment model.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -89,8 +89,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 ## Manage
 
 [Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Equivalent Resource Manager and Service Management commands for VM tasks with the Azure command-line interface](virtual-machines-windows-cli-manage.md)
 	
 [Connect classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,17 +170,8 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
-## Reference
-[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
 
-[Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
-[Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
-
-[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
-
-## Troubleshooting
+## Troubleshoot
 
 [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -191,3 +182,14 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
 [Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+
+## Reference
+[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
+
+[Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+
+[Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
+
+[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+
+
