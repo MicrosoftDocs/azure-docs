@@ -22,7 +22,7 @@
 Enterprise integration uses maps to transform XML data from one format to another format. 
 
 ## What is a map?
-A map is an XML document that defines who data in a document should be transformed into another format. 
+A map is an XML document that defines which data in a document should be transformed into another format. 
 
 ## Why use maps?
 Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.

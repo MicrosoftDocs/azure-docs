@@ -144,9 +144,11 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 |**Connectivity provider**|**Exchange**|**Locations**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Seattle|
-|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapore|
+|**Alaska Communications**|Equinix|Seattle|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure )**|Equinix|New York, Washington DC|
+|**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
+
 
 ## ExpressRoute system integrators
 

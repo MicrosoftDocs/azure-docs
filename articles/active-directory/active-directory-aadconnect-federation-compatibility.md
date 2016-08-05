@@ -37,7 +37,7 @@ For information on how you can get your third-party identity provider listed her
 - [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
 - [PingFederate 6.11](#pingfederate-611) 
 - [PingFederate 7.2](#pingfederate-72) 
-- [PingFederate 8.x](#pingfederate-8.x)
+- [PingFederate 8.x](#pingfederate-8x)
 - [Centrify](#centrify) 
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
