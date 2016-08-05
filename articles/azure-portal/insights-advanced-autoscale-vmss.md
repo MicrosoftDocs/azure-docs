@@ -23,6 +23,8 @@ You can scale out and in Virtual Machine Scale Sets (VMSS) based on performance 
 >[AZURE.NOTE] While this walkthrough explains the steps for VM Scale Sets, you can apply the same for autoscaling Cloud Services and Web Apps.
 If you want to have a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, please refer to the [Linux](../virtual-machines/ virtual-machine-scale-sets-linux-autoscale.md) and [Windows]../virtual-machines/virtual-machine-scale-sets-windows-autoscale/) documents
 
+
+## Walkthrough
 In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.com/) to configure and update the autoscale setting for a VMSS. Azure Resource Explorer is an easy way to manage Azure resources via Resource Manager templates. If you are new to Azure Resource Explorer, tool, please read [this introduction](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
 1. Deploy a new VMSS with basic autoscale setting. This article uses the one from the Azure QuickStart Gallery which has a Windows VMSS with basic autoscale template. This works the same way for Linux VMSS instances too.
@@ -35,8 +37,9 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with 3 profiles. To understand profiles and rules in autoscale, please review [Autoscale Best Practices](./insights-autoscale-best-practices.md). 
 
-	| **Profile** | **Performance/metric based**            |
+    | Profiles & Rules | Description |
 	|---------|-------------------------------------|
+	| **Profile** | **Performance/metric based**    |
 	| Rule    | Service Bus Queue Message Count > x |
 	| Rule    | Service Bus Queue Message Count < y |
 	| Rule    | CPU%,< n                            |
