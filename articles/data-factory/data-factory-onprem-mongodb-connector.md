@@ -18,7 +18,7 @@
 
 # Move data From MongoDB using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and the source/sink data store combinations that the copy activity supports.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from an on-premises MongoDB database to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and the source/sink data store combinations that the copy activity supports.
 
 Data Factory service supports connecting to on-premises MongoDB sources using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data. 
 
@@ -56,7 +56,7 @@ As a first step, please setup the data management gateway as per the instruction
 **MongoDB linked service**
 
 	{ 
-	    "name": " OnPremisesMongoDbLinkedService", 
+	    "name": "OnPremisesMongoDbLinkedService", 
 	    "properties": 
 	    { 
 	        "type": "OnPremisesMongoDb", 
@@ -93,7 +93,7 @@ Setting “external”: ”true” informs the Data Factory service that the tab
 	{
 	     "name":  "MongoDbInputDataset",
 	    "properties": { 
-	        "type": " MongoDbCollection ", 
+	        "type": "MongoDbCollection ", 
 	        "linkedServiceName": "OnPremisesMongoDbLinkedService", 
 	        "typeProperties": { 
 	            "collectionName": "<Collection name>"	
@@ -182,7 +182,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "MongoDbSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -241,7 +241,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection**has the following properties:
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -282,7 +282,7 @@ When moving data to MongoDB the following mappings will be used from MongoDB typ
 | ObjectID | String |
 | String | String |
 | UUID | Guid | 
-| Object | Renormalized into flatten columns |
+| Object | Renormalized into flatten columns with “_” as nested separator |
 
 > [AZURE.NOTE]  
 > To learn about support for arrays using virtual tables, refer to [Support for complex types using virtual tables](#support-for-complex-types-using-virtual-tables) section below. 
@@ -318,12 +318,12 @@ _id | Customer Name | Service Level
 The following tables show the virtual tables that represent the original arrays in the example. Each of these tables contain the following
 
 - A reference back to the original primary key column corresponding to the row of the original array (via the _id column)
-- An indication of the position of the data within the original array (using the Invoices_index and Ratings_index columns)
+- An indication of the position of the data within the original array (using the ExampleTable_Invoices_dim1_idx and ExampleTable_Ratings_dim1_idx columns)
 - The expanded data for each element within the array
 
 Table “ExampleTable_Invoices”:
 
-_id | Invoices_index | invoice_id | item | price | Discount
+_id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount
 --- | -------------- | ---------- | ---- | ----- | --------
 1111 | 0 | 123 | toaster | 456 | 0.2
 1111 | 1 | 124 | oven | 1235 | 0.2
@@ -331,7 +331,7 @@ _id | Invoices_index | invoice_id | item | price | Discount
 
 Table “ExampleTable_Ratings”:
 
-_id | Ratings_index | Ratings_value
+_id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratingse
 --- | ------------- | -------------
 1111 | 0 | 5
 1111 | 1 | 6
