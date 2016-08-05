@@ -45,9 +45,9 @@ You will need the account name and account key of your Azure storage account to 
 1. Login to the [Azure Portal][azure-portal].
 2. Click **BROWSE** hub on the left and select **Storage Accounts**.
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
-4. In the **STORAGE** blade, click **KEYS** tile.
-5. In the **Manage Keys** blade, click **copy** (image) button next to **STORAGE ACCOUNT NAME** text box and save/paste it somewhere (for example: in a text file).  
-6. Repeat the previous step to copy or note down the **PRIMARY ACCESS KEY**.
+4. Select **Access keys** link under **SETTINGS**.
+5.  Click **copy** (image) button next to **Storage account name** text box and save/paste it somewhere (for example: in a text file).  
+6. Repeat the previous step to copy or note down the **key1**.
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names

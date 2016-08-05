@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="07/28/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -70,6 +70,8 @@ To create a new scoring endpoint with an update-able model, visit the Azure Clas
 You can also add scoring endpoints using the sample code provided [here](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
 
 5. *Retrain the model with new data and BES*  
+	To retrain the model, we need to call the BES function of the Web Service we created in step 3 above.
+
 	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
 
 	We then copy the sample C# code from the Training Web Service's API help page for batch execution (created in Step 3 above) and paste it into the Program.cs file, making sure the namespace remains intact.  
@@ -100,16 +102,19 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 		![][6]
 
 6. *Evaluate the Retraining Results*  
+	From the output of the above call, we can get the URL and SAS token to access the evluation results.
+
 	Using the combination of the BaseLocation, RelativeLocation and SasBlobToken from the above output results for “output2” we can see the performance results of the retrained model by pasting the complete URL in the browser address bar.  
 
 	This will tell us if the newly trained model performs well enough to replace the existing one.
 
 7. *Update the added endpoint’s Trained Model*  
-	To complete the process, we need to update the trained model of the predictive (scoring) endpoint we created in Step 4 above.  
+	To complete the process, we need to update the trained model of the new endpoint we added in Step 4 above.  
 
-	(If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name, then the UpdateResource link to get the URL you would need to update the endpoint's model. If you added the endpoint using code, the output of that call will have the endpoint URL.)
+	- If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name in the Azure Portal, then the UpdateResource link to get the URL you would need to update the endpoint's model. 
+	- If you added the endpoint using the sample code, the output of that call will have the HelpLocationURL. Copy and paste that URL into the browser. Then click on the Update Resrouce link. Copy the POST URL of the PATCH request (e.g. for my "newendpoint2, this is the PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2)
 
-	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
+	The BES function output from step 5.a above shows retraining restults in “output1” which contains the retrained model location. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
 
 	```C#
 	private async Task OverwriteModel()
@@ -155,7 +160,7 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 	
 	Note that the SAS token expires after 1 hour (55 minutes). You would need to do a GET with the Job Id to get a fresh token.
 
-	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
+	With the success of this call, the new endpoint will start using a retrained model approximately within 15 - 30 seconds.  
 
 ##Summary  
 Using the Retraining APIs, we can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  
