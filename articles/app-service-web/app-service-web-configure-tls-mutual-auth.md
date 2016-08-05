@@ -43,9 +43,9 @@ replacing everything in {} with information for your web app and creating a file
 >   }
 > }  
 
-
 Make sure to change the value of "location" to wherever your web app is located e.g. North Central US or West US etc.
 
+> **Note:** If you run ARMClient from Powershell, you will need to escape the @ symbol for the JSON file with a back tick `.
 
 ## Accessing the Client Certificate From Your Web App ##
 If you are using ASP.NET and configure your app to use client certificate authentication, the certificate will be available through the **HttpRequest.ClientCertificate** property. For other application stacks, the client cert will be available in your app through a base64 encoded value in the "X-ARR-ClientCert" request header. Your application can create a certificate from this value and then use it for authentication and authorization purposes in your application.
