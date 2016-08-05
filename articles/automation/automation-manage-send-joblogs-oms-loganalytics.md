@@ -67,18 +67,18 @@ To find the values for *AutomationAccountName*, in the Azure portal select your 
 
 ### Verify configuration
 
-To confirm the script configured your Automation account and OMS wokspace successfully, you can perform the following steps in PowerShell.  Before you do that, to find the values for your OMS workspace name and resource group name, from the Azure portal, navigate to Log Analytics (OMS) and in the Log Analytics (OMS) blade, note the value for **Name** and **Resource Group**.<br> ![OMS Log Analytics Workspace List](media/automation-manage-send-joblogs-oms-loganalytics/oms-la-workspaces-list-blade.png).  We will use these two values when we verify the configuration in your OMS workspace using the PowerShell cmdlet [get-AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
+To confirm the script configured your Automation account and OMS wokspace successfully, you can perform the following steps in PowerShell.  Before you do that, to find the values for your OMS workspace name and resource group name, from the Azure portal, navigate to Log Analytics (OMS) and in the Log Analytics (OMS) blade, note the value for **Name** and **Resource Group**.<br> ![OMS Log Analytics Workspace List](media/automation-manage-send-joblogs-oms-loganalytics/oms-la-workspaces-list-blade.png)  We will use these two values when we verify the configuration in your OMS workspace using the PowerShell cmdlet [Get-AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
 
-From the Azure portal, navigate to Storage Accounts and search for the following storage account, which uses the naming convention - *AutomationAccountNameomsstorage*.  After a runbook job completes, shortly afterwards you should see two Blob containers created - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
+1.  From the Azure portal, navigate to Storage Accounts and search for the following storage account, which uses the naming convention - *AutomationAccountNameomsstorage*.  After a runbook job completes, shortly afterwards you should see two Blob containers created - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
 
-From PowerShell, run the following PowerShell code, changing the values for the parameters **ResourceGroupName** and **WorkspaceName** that you copied or noted earlier.  
+2.  From PowerShell, run the following PowerShell code, changing the values for the parameters **ResourceGroupName** and **WorkspaceName** that you copied or noted earlier.  
 
     Login-AzureRmAccount
     Get-AzureRmSubscription -SubscriptionName 'SubscriptionName' | Set-AzureRmContext
     Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName "OMSResourceGroupName" `
     -Workspace "OMSWorkspaceName" 
 
-This will return the storage insight for the specified OMS workspace.  We want to confirm the storage insight for the  Automation account we specified earlier exists and the **State** object shows a value of **OK**.<br> ![Results from Get-AzureRmOperationalInsightsStorageInsights cmdlet](media/automation-manage-send-joblogs-oms-loganalytics/automation-posh-getstorageinsights-results.png).
+    This will return the storage insight for the specified OMS workspace.  We want to confirm the storage insight for the  Automation account we specified earlier exists and the **State** object shows a value of **OK**.<br> ![Results from Get-AzureRmOperationalInsightsStorageInsights cmdlet](media/automation-manage-send-joblogs-oms-loganalytics/automation-posh-getstorageinsights-results.png).
 
 ## Viewing Automation Logs in Log Analytics 
 
