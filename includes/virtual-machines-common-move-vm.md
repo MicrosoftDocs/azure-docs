@@ -1,7 +1,6 @@
 
-This article walks you through how to move a VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+## Use the portal to move a VM
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
@@ -19,6 +18,4 @@ This article walks you through how to move a VM between subscriptions. This can 
 
 
 
-## Next steps
 
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).	
