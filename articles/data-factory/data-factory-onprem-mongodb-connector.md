@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2016" 
+	ms.date="08/04/2016" 
 	ms.author="spelluru"/>
 
 # Move data From MongoDB using Azure Data Factory
@@ -259,6 +259,8 @@ In case of Copy Activity when source is of type **MongoDbSource** the following 
 | -------- | ----------- | -------------- | -------- |
 | query | Use the custom query to read data. | SQL-92 query string. For example: select * from MyTable. | No (if **collectionName** of **dataset** is specified) | 
 
+## Schema by Data Factory
+Azure Data Factory service infers schema from a MongoDB collection by using the latest 100 documents in the collection. If these 100 documents do not contain full schema, some columns may be ignored during the copy operation. 
 
 ## Type mapping for MongoDB
 
