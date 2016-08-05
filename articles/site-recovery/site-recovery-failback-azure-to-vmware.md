@@ -57,9 +57,9 @@ Here’s how failback works:
 If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. Note that:
 
 - If you failed over physical servers then failback is always to a new VMware VM.
-	- Before failing back a Physical machine note that
-	- Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
-	- Ensure that you discover at least one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
+	- Before failing back a Physical machine note that:
+		- Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
+		- Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
 - If you fail back to the original VM the following is required:
 	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
 	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
@@ -73,13 +73,13 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 
 - You'll need a VMware environment in order to fail back VMware VMs and physical servers. Failing back to a physical server isn’t supported.
 - In order to fail back you should have created an Azure network when you initially set up protection. Failback needs a VPN or ExpressRoute connection from the Azure network in which the Azure VMs are located to the on-premises site.
-- If the VMs you want to fail back to are managed by a vCenter server you'll need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+- If the VMs you want to fail back to are managed by a vCenter server, you'll need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 - If snapshots are present on a VM then reprotection will fail. You can delete the snapshots or the disks. 
 - Before you fail back you’ll need to create a number of components:
 	- **Create a process server in Azure**. This is an Azure VM that you’ll need to create and keep running during failback. You can delete the machine after failback is complete.
 	- **Create a master target server**: The master target server sends and receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
 	- if you want to create an additional master target server running on Linux, you’ll need to set up the Linux VM before you install the master target server, as described below.
-- Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback wont be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
+- Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
 - Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 - **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 
@@ -97,11 +97,11 @@ You need to install a process server in Azure so that the Azure VMs can send the
 
 If you have protected your machines as classic resources (that is the VM recovered in Azure is a classic VM), then you will need a classic process server in Azure. If you have recovered the machines as resources manager as deployment type, you will need a process server of a resource manager deployment type. The type is selected by the Azure virtual network you deploy the process server into.
 
-1.  In the Vault > Settings > Manage Site Recovery Infrastructure > **Configuration Servers** under the For VMware and Physical Machines heading, select the configuration server. Click on + Process server
+1.  In the Vault > Settings > Site Recovery Infrastructure (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines heading) select the configuration server. Click on "+ Process server", highlighted with yellow on the example screenshow below.
 
 	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
 
-2. Choose to deploy the process server as "Deploy a failback process server in Azure"
+2. Choose to deploy the process server as "Deploy a failback process server in Azure".
 
 3. Select the subscription in which you have recovered the machines. 
 
@@ -168,8 +168,8 @@ To set up the management server running the master target server as a Linux VM y
 
 1. After installation retrieve the SCSI IDs for each SCSI hard disk in the VM. To do this shut down the management server VM, in the VM properties in VMware right-click the VM entry > **Edit Settings** > **Options**.
 2. Select **Advanced** > **General item** and click **Configuration Parameters**. This option will be de-active when the machine is running. To make it active the machine must be shut down.
-3. If the row **disk.EnableUUID** exists make sure the value is set to **True** (case sensitive). If it already is you can cancel and test the SCSI command inside a guest operating system after it’s booted. 
-4.	If the row doesn’t existing click **Add Row** – and add it with the **True** value. Don’t use double-quotes.
+3. If the row **disk.EnableUUID** exists, make sure the value is set to **True** (case sensitive). If it already is you can cancel and test the SCSI command inside a guest operating system after it’s booted. 
+4. If the row doesn’t exist, click **Add Row** – and add it with the **True** value. Don’t use double-quotes.
 
 #### Install additional packages
 
@@ -177,7 +177,7 @@ You’ll need to download and install some additional packages.
 
 1.	Make sure the master target server is connected to the internet.
 2.	Run this command to download and install 15 packages from the CentOS repository: **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
-3.	If the source machines you’re protecting are running Linux wit Reiser or XFS file system for the root or boot device, then you should download and install additional packages as follows:
+3.	If the source machines you’re protecting are running Linux with Reiser or XFS file system for the root or boot device, then you should download and install additional packages as follows:
 
 	- # cd /usr/local
 	- # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
@@ -204,9 +204,9 @@ Do the following to apply custom changes after you’ve complete the post-instal
 3.  In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
 4.  Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value. 
 5.	Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
-	a. Volume shouldn't be in use for any other purpose(target of replication etc.)
+	a. Volume shouldn't be in use for any other purpose (target of replication etc.)
 	b. Volume shouldn't be in lock mode.
-	c. Volume shouldn't be cache volume. ( MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT. )
+	c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
 	d. The Volume File system type shouldn't be FAT and FAT32.
 	e. The volume capacity should be non-zero.
 	e. Default retention volume for Windows is R volume. 
