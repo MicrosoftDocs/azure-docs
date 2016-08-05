@@ -18,10 +18,6 @@
 
 # Add users from other directories or partner companies in Azure Active Directory
 
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-create-users-external-azure-portal.md)
-- [Azure classic portal](active-directory-create-users-external.md)
-
 This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
