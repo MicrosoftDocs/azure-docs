@@ -132,6 +132,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  If you encounter any performance issues, we recommend that you rebuild your Clustered Columnstore Indexes using the script below.  This will force some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
 
 **Pre-requisites:**
+
 1.	Data Warehouse should run with 1,000 DWUs or higher (see [scale compute power][])
 2.	User executing the script should be in the [mediumrc role][] or higher
 	1.	To add a user to this role, execute the following: 
