@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Troubleshoot Remote Desktop connection to an Azure VM | Microsoft Azure"
 	description="Troubleshoot Remote Desktop connection errors for a Windows VM. Get quick mitigation steps, help by error message and detailed network troubleshooting."
-	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting"
+	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting, unable to connect to azure vm, cannot rdp to azure vm"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
