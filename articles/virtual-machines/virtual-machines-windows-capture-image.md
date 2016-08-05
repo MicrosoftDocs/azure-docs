@@ -49,7 +49,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 	- Click **OK**.
 
-	![Run Sysprep](./media/virtual-machines-windows-capture-image/sysprepgeneral.png)
+	![Run Sysprep](./media/virtual-machines-windows-capture-image/SysprepGeneral.png)
 
    Sysprep shuts down the virtual machine. Its status changes to **Stopped** in the Azure portal.
 
