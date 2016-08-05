@@ -122,7 +122,7 @@ While you're editing your collection, you can also change the order of the items
 - While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.
 - Not all readers will be familiar with the Cortana Intelligence Suite, given that it is relatively new; therefore, provide enough information and step-by-step explanations to help such readers navigate through your work.
 - Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See [this collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
-- If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/en-us/support/legal/website-terms-of-use/).
+- If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 ## Process for Publishing Azure ML Experiments
 
