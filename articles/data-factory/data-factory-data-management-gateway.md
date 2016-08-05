@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="08/05/2016" 
 	ms.author="spelluru"/>
 
 # Data Management Gateway
@@ -122,9 +122,6 @@ There are two firewalls you need to consider: **corporate firewall** running on 
 
 ![firewalls](./media/data-factory-data-management-gateway/firewalls.png)
 
-To maintain gateway’s connectivity with Azure Data Factory and other cloud services, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are configured. And optionally enable ports **9350** to **9354**, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
-
-#### Connect gateway with cloud services
 At corporate firewall level,  you need configure the following domains and outbound ports:
 
 | Domain names | Ports | Description |
