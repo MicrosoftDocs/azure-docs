@@ -42,7 +42,7 @@ The following are best practices for preparing Windows VHD for Azure:
 
 ## Prepare Windows configuration for upload
 
-Note You must run the followings commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
+> [AZURE.NOTE] You must run the followings commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
@@ -245,7 +245,7 @@ The following settings will not affect VHD uploading. However, it is good to hav
 
 		REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
 
-	  sc config wer start= auto
+		sc config wer start= auto
 
 - After the VM is created in Azure, setup the system defined size pagefile on D:
 
