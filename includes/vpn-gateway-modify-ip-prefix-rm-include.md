@@ -22,7 +22,7 @@ If you have created your gateway connection and want to add or remove the IP add
 
 2. Modify the address prefixes for your local network gateway.
 
-	Set the variable for the LocalNetworkGateway
+	Set the variable for the LocalNetworkGateway.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
@@ -38,7 +38,10 @@ If you have created your gateway connection and want to add or remove the IP add
 		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 	Create the connection. Note that this sample uses the variable $local that you set in the preceding step.
-	
-		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
-		-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec `
+
+
+		New-AzureRmVirtualNetworkGatewayConnection -Name rm-to-localtovon `
+		-ResourceGroupName testrg -Location 'West US' `
+		-VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+		-ConnectionType IPsec `
 		-RoutingWeight 10 -SharedKey 'abc123'
