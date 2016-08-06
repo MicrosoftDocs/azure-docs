@@ -3,12 +3,14 @@
 - **To add** additional address prefixes to a local network gateway that you created, but that doesn't yet have a gateway connection, use the example below. Be sure to change the values to your own.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+		-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 - **To remove** an address prefix from a local network gateway that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local network gateway and exclude that prefix.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+		-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 ### <a name="withconnection"></a>How to add or remove prefixes with a gateway connection
 
