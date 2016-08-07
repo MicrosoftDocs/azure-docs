@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2016"
+   ms.date="08/07/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -152,6 +152,7 @@ Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize com
 Legitimate software developers occasionally change the DLL load order for non-malicious reasons, such as instrumenting, extending the Windows OS or Windows applications.  To help differentiate between malicious and potentially benign changes to the DLL load order, Azure Security Center checks whether or not a loaded module conforms to a suspicious profile.   The result of this check is indicated by the “SIGNATURE” field of the alert and is reflected in the severity of the alert, alert description, and alert remediation steps.  Analyzing the on disk copy of the hijacking module, such as by verifying the files digital signature or running an anti-virus scan, may provide more information as to the legitimate or malicious nature of the hijacking module.
 
 In addition to the common fields described in the “Shellcode Discovered” section above, this alert provides the following fields:
+
 - SIGNATURE: Indicates if the hijacking module conforms to a profile of suspicious behavior
 - HIJACKEDMODULE: The name of the hijacked Windows system module
 - HIJACKEDMODULEPATH: The path of the hijacked Windows system module
