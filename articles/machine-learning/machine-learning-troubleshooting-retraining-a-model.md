@@ -66,7 +66,7 @@ Options 2: using the Azure Portal
 2.	Open the Machine Learning tab. 
      ![][image4]
 3.	Click on your workspace name, then **Web Services**.
-4.	Click on the scoring web service you are working with. (If you did not modify the the default name of the web service, it will typically end in [Scoring Exp.].)
+4.	Click on the scoring web service you are working with. (If you did not modify the default name of the web service, it will typically end in [Scoring Exp.].)
 5.	Click Add Endpoint
 6.	After the endpoint is added, click on the endpoint name. Then click on **Update Resource** to open the patching help page.
 
