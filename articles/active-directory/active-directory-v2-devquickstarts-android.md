@@ -32,7 +32,7 @@ The v2.0 endpoint does not support all Azure Active Directory scenarios and feat
 
 
 ## Download the code from GitHub
-The code for this tutorial is maintained [on GitHub](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git).  To follow along, you can  [download the app's skeleton as a .zip](git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub]https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).  To follow along, you can  [download the app's skeleton as a .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) or clone the skeleton:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
