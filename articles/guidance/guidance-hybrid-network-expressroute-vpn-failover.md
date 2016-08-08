@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="08/04/2016"
    ms.author="telmos"/>
 
 # Implementing a highly available hybrid network architecture
@@ -37,9 +37,12 @@ Typical use cases for this architecture include:
 
 - Using Azure as a disaster-recovery site.
 
-Keep in mind that if the ExpressRoute circuit is unavailable, the VPN gateway will only handle private peering connections. Public peering and Microsoft peering connections use the Internet.
+Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet.
 
 ## Architecture diagram
+
+>[AZURE.NOTE] The [Azure VPN Gateway service][azure-vpn-gateway] implements two types of virtual network gateways; VPN virtual network gateways and ExpressRoute virtual network gateways. Throughout this document, the term *VPN Gateway* refers to the Azure service, while the phrases *VPN virtual network gateway* and *ExpressRoute virtual network gateway* are used to refer to the VPN and ExpressRoute implementations of the gateway respectively.
+
 
 The following diagram highlights the important components in this architecture:
 
@@ -53,19 +56,15 @@ The following diagram highlights the important components in this architecture:
 
     > [AZURE.NOTE] For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
 
-- **[Azure VPN gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+- **VPN virtual network gateway.** The VPN virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
-- **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements.
+- **ExpressRoute virtual network gateway.** The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
-- **Virtual network gateway.** This is a resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
-
-- **Local network gateway.** This is an abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
+- **Gateway subnet.** The virtual network gateways are held in the same subnet.
 
 - **VPN connection.** The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
 - **ExpressRoute circuit.** This is a layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
-
-- **Azure ExpressRoute gateway.** The ExpressRoute gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
 
@@ -73,7 +72,7 @@ The following diagram highlights the important components in this architecture:
 
 ### VNet and GatewaySubnet
 
-- Create the ExpressRoute gateway and the VPN gateway in the same VNet. This means that they should share the same subnet named **GatewaySubnet**
+- Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named **GatewaySubnet**
 
 - If the VNet already includes a subnet named **GatewaySubnet**, ensure that it has a /27 or larger address space. If the existing subnet is too small, then remove it as follows and create a new one as shown in the next bullet:
 
@@ -94,7 +93,7 @@ The following diagram highlights the important components in this architecture:
 
 - Verify that your organization meets the [ExpressRoute prerequisite requirements][expressroute-prereq] for connecting to Azure.
 
-- If you already have a VPN gateway in your Azure VNet, remove it, as shown below.
+- If you already have a VPN virtual network gateway in your Azure VNet, remove it, as shown below.
 
 	```powershell
 	Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
@@ -102,19 +101,19 @@ The following diagram highlights the important components in this architecture:
 
 - Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
 
-- Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN gateway connection.
+- Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN virtual network gateway connection.
 
-- After you have established the gateway connections, test the environment as following:
+- After you have established the virtual network gateway connections, test the environment as following:
 
 	1. Make sure you can connect from your on-premises network to your Azure VNet.
 
-	2. Temporarily remove the ExpressRoute connection.
+	2. Temporarily remove the ExpressRoute virtual network gateway connection.
 
 		```powershell
 		Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
 		```
 
-	3. Verify that the you can still connect from your on-premises network to your Azure VNet using the VPN connection.
+	3. Verify that the you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 
 	4. Reestablish the ExpressRoute connection.
 
@@ -134,7 +133,7 @@ For general Azure security recommendations, see [Microsoft cloud services and ne
 
 <!-- This section to be updated when the new ARM templates are available -->
 
-The Azure PowerShell commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection, and a VPN gateway. This script assumes that you're using a layer 3 ExpressRoute connection.
+The Azure PowerShell commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection, and a VPN virtual network gateway. This script assumes that you're using a layer 3 ExpressRoute connection.
 
 To use the script below, execute the following steps:
 
@@ -165,10 +164,11 @@ To use the script below, execute the following steps:
 
 	```powershell
 	.\<<scriptfilename>>.ps1 -SubscriptionId <<subscription-id>> -BaseName <<prefix-for-resources>> -Location <<azure-location>> -CreateVNetGateway -OnPremisesPublicIpAddress <<onpremvpnapplianceipaddress>> -OnPremisesAddressPrefix <<azurevnetaddressprefix>>
+	```
 
 ## Sample solution script
 
-The deployment steps above use the following sample script.
+The deployment steps above use the following PowerShell script.
 
 ```powershell
 param(
