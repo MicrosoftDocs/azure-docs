@@ -44,8 +44,8 @@ click **Get Support**.
 
 <a name="bkmk_domainname"></a>
 ## What you need
-To secure your custom domain name with HTTPS, you bind a custom SSL certificate to that custom domain in Azure. Before 
-you do this, you need to do the following:
+To secure your custom domain name with HTTPS, you bind a custom SSL certificate to that custom domain in Azure. Before binding
+a custom certificate, you need to do the following:
 
 - **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already 
 configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
@@ -478,7 +478,7 @@ in a working directory:
 
 		openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
 
-	This creates two files: **myserver.crt** (the self-signed certificate) and **myserver.key** (the private key), based on the settings in **serverauth.cnf**.
+	This command creates two files: **myserver.crt** (the self-signed certificate) and **myserver.key** (the private key), based on the settings in **serverauth.cnf**.
 
 3. Export the certificate to a .pfx file by running the following command:
 
@@ -529,10 +529,12 @@ You may also select whether to use SNI SSL or IP based SSL.
 If you use **SNI SSL** bindings only, skip this section. Multiple **SNI SSL** 
 bindings can work together on the existing shared IP address assigned to your app. However, if you create an 
 **IP based SSL** binding, App Service creates a dedicated IP address for the binding because the 
-**IP based SSL** requires one. This affects you if:
+**IP based SSL** requires one. Because of this dedicated IP address, you will need to configure your app
+further if:
 
 - You [used an A record to map your custom domain](web-sites-custom-domain-name.md#a) to your Azure app, and
-you just added an **IP based SSL** binding. In this scenario, follow these steps:
+you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point 
+to the dedicated IP address by following these steps:
 
 	1. After you have configured an IP based SSL binding, find the new IP address in the **Settings** > 
 	**Properties** blade of your app (the virtual IP address shown in the **Bring External Domains** blade
@@ -543,8 +545,8 @@ you just added an **IP based SSL** binding. In this scenario, follow these steps
 	2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
 
 - You already have one or more **SNI SSL** bindings in your app, and you just added an **IP based SSL** binding. 
-Once the binding is complete, your *&lt;appname>*.azurewebsites.net domain name is remapped to the new IP address. 
-This means that any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to
+Once the binding is complete, your *&lt;appname>*.azurewebsites.net domain name points to the new IP address. 
+Therefore, any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to
 *&lt;appname>*.azurewebsites.net, including the ones that the **SNI SSL** secure, also receives traffic
 on the new address, which is created for the **IP based SSL** only. In this scenario, you need to send the
 **SNI SSL** traffic back to the original shared IP address by following these steps:
@@ -568,14 +570,13 @@ to [What you need](#bkmk_domainname) to verify that your CSR meets all the requi
 <a name="bkmk_enforce"></a>
 ## Enforce HTTPS on your app
 
-You don't need this step if you still want people to access your app through HTTP. App Service does *not* 
+If you still want to allow HTTP access to your app, skip this step. App Service does *not* 
 enforce HTTPS, so visitors can still access your app using HTTP. If you want to enforce HTTPS for your app, 
 you can define a rewrite rule in the `web.config` file for your app. Every App Service app has this file,
 regardless of the language framework of your app.
 
-> [AZURE.NOTE] There is language-specific redirection of requests. For example, it's much easier for .NET MVC 
-applications to use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)
-filter instead of the rewrite rule in `web.config` (see 
+> [AZURE.NOTE] There is language-specific redirection of requests. ASP.NET MVC can use the 
+[RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see 
 [Deploy a secure ASP.NET MVC 5 app to a web app](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 
 Follow these steps:
