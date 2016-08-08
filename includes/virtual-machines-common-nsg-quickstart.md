@@ -1,4 +1,4 @@
-You open a port, or create an endpoint, in Azure by creating a network filter that allows traffic to your chosen port on a subnet or virtual machine (VM) network interface. These filters, which control both inbound and outbound traffic, are placed in a Network Security Group and attached to the resource that will receive the traffic.
+You open a port, or create an endpoint, in Azure by creating a network filter that allows traffic to your chosen port on a subnet or virtual machine (VM) network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
 
 Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you will:
 
