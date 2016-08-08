@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="genlin"
    manager="stevenpo"
-   editor="n/a"
+   editor=""
    tags="billing,top-support-issue"/>
 
 <tags

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="08/01/2016" 
 	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with DocumentDB
@@ -39,7 +39,7 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 Before following the instructions in this article, you should ensure that you have the following:
 
 - An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
+- [Visual Studio 2015](http://www.visualstudio.com/) or Visual Studio 2013 Update 4 or higher. If using Visual Studio 2013, you will need to install the [Microsoft.Net.Compilers nuget package](https://www.nuget.org/packages/Microsoft.Net.Compilers/) to add support for C# 6.0. 
 - Azure SDK for .NET version 2.5.1 or higher, available through the [Microsoft Web Platform Installer][].
 
 All the screen shots in this article have been taken using Visual Studio 2013 with Update 4 applied and the Azure SDK for .NET version 2.5.1. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
@@ -547,7 +547,7 @@ To test the application on your local machine, do the following:
 
 	![Screen shot of the todo list web application created by this database tutorial](./media/documentdb-dotnet-application/image24.png)
 
-	If you run into errors at this point, you can compare your code against the sample project on [GitHub][]
+	If you are using Visual Studio 2013 and receive the error "Cannot await in the body of a catch clause." you need to install the [Microsoft.Net.Compilers nuget package](https://www.nuget.org/packages/Microsoft.Net.Compilers/). You can also compare your code against the sample project on [GitHub][]. 
 
 2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new **Item** will be added in a completed state and will not appear on the initial list.
 
@@ -565,7 +565,7 @@ To test the application on your local machine, do the following:
 
 4. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
-##<a name="_Toc395637774"></a>Step 7: Deploy the application to Azure Websites
+## <a name="_Toc395637774"></a>Step 7: Deploy the application to Azure Websites
 
 Now that you have the complete application working correctly with DocumentDB we're going to deploy this web app to Azure Websites. If you selected **Host in the cloud** when you created the empty ASP.NET MVC project then Visual Studio makes this really easy and does most of the work for you. 
 
@@ -579,7 +579,7 @@ Now that you have the complete application working correctly with DocumentDB we'
 
 In a few seconds, Visual Studio will finish publishing your web application and launch a browser where you can see your handy work running in Azure!
 
-##<a name="_Toc395637775"></a>Next steps
+## <a name="_Toc395637775"></a>Next steps
 
 Congratulations! You just built your first ASP.NET MVC web application using Azure DocumentDB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][]. So if you're interested in adding that to your app, grab the code and add it to this app.
 

@@ -48,6 +48,8 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 - For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
+- One storage account can support 1 to 20 VMs.
+
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
 - If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
@@ -122,7 +124,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 - **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure Portal.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contrubutor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
     > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
@@ -138,38 +140,35 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ## Solution components
 
-<!-- The following text is boilerplate, and should be used in all RA docs -->
-
 A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
 When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-<!-- End of boilerplate -->
-
 The script references the following parameter files to build the VM and the surrounding infrastructure:
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "addressPrefixes": [
-            "172.17.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-subnet",
-              "addressPrefix": "172.17.0.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg",
+        "addressPrefixes": [
+          "172.17.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-subnet",
+            "addressPrefix": "172.17.0.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
-	}
+    }
+  }
 	```
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
@@ -177,17 +176,19 @@ The script references the following parameter files to build the VM and the surr
 	Note that the default security rule shown in the example enables a user to connect to the VM through a remote desktop (RDP) connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
       },
-      "networkSecurityGroupSettings": {
-        "value": {
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "networkSecurityGroupSettings": {
+      "value": [
+        {
           "name": "app1-nsg",
           "subnets": [
             "app1-subnet"
@@ -206,11 +207,12 @@ The script references the following parameter files to build the VM and the surr
             }
           ]
         }
-      }
-	}
+      ]
+    }
+  }
 	```
 
-- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disk.
+- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disks.
 
 	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
 
@@ -218,76 +220,77 @@ The script references the following parameter files to build the VM and the surr
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
-	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use, These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
+	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
 
 	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
 
 	```json
-	"parameters": {
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "app1",
-          "computerNamePrefix": "",
-          "size": "Standard_DS1",
-          "osType": "windows",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osAuthenticationType": "password",
-          "nics": [
-            {
-              "isPublic": "true",
-              "subnetName": "app1-subnet",
-              "privateIPAllocationMethod": "dynamic",
-              "publicIPAllocationMethod": "dynamic",
-              "isPrimary": "true"
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "dataDisks": {
-            "count": 2,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": ""
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "app1",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "osType": "windows",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "sshPublicKey": "",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "app1-subnet",
+            "privateIPAllocationMethod": "dynamic",
+            "publicIPAllocationMethod": "dynamic",
+            "isPrimary": "true"
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 2,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
           }
         },
-        "metadata": {
-          "description": "Settings for Virtual Machines"
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": ""
         }
       },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "resourceGroup": "app1-dev-rg"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 1,
-          "vmStartIndex": 0
-        },
-        "metadata": {
-          "description": "Settings specific to the building block"
-        }
+      "metadata": {
+        "description": "Settings for Virtual Machines"
       }
-	}
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
+      },
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 0
+      },
+      "metadata": {
+        "description": "Settings specific to the building block"
+      }
+    }
+  }
 	```
 
 ## Deployment
@@ -330,10 +333,12 @@ To run the script that deploys the solution:
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 "Your Subscription Name" <location> Windows
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
 	```
 
-	The location should be a valid Azure region, such as `eastus` or `westus`.
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
 8. When the script has completed, use the Azure portal to verify that the network, NSG, and VM have been created successfully.
 
@@ -384,9 +389,9 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json 
-[nsg-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json 
-[vm-parameters]: https://github.com/mspnp/arm-building-blocks/tree/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"

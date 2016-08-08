@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="08/08/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -28,14 +28,18 @@ In this step of the publishing process, you will need to provide certain marketi
 
   > [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
 
-### Details
-1. Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
-2. Enter SKU title (maximum 50 characters), SKU summary (maximum 100 characters), SKU description (maximum 2000 characters) under the **Plans** tab
-3. Do not enter duplicate text under offer and SKU description.
-4. Do not enter duplicate text under SKU's title and offer long summary.
-5. Do not enter duplicate text under SKU Title and Offer Summary.
-6. Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
-7. Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
+### Details and plans
+1.	Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
+2.	Enter plan title (maximum 50 characters), plan summary (maximum 100 characters), plan description (maximum 2000 characters) under the **Plans** tab.
+
+    >[AZURE.NOTE] You can use the following HTML tags to format the summary, long summary and description of the offer and plans. The allowed HTML tags are h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], strong, em, b, i.
+
+3.	Do not enter duplicate text under offer and plan description.
+4.	Do not enter duplicate text under plan’s title and offer long summary.
+5.	Do not enter duplicate text under plan title and offer summary.
+6.  Do not enter identical plan titles for an offer with multiple plans.
+7.	Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
+8.	Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
@@ -43,11 +47,10 @@ In this step of the publishing process, you will need to provide certain marketi
 
 All the logos uploaded in the Publishing Portal should follow the below guidelines:
 
-- The Azure design has a simple color palette. Please keep the number of primary and secondary colors on the logos low.
-- Logos should not be placed on a white background. We recommend simple primary colors or transparent backgrounds.
+- The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
+- The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black.**
 - Do not use a gradient background on the logo.
-- Avoid placing text, even your company or brand name, on the logo.
-- The look and feel of your logo should be 'flat' and should avoid gradients.
+- Avoid placing text, even your company or brand name, on the logo. The look and feel of your logo should be 'flat' and should avoid gradients.
 - The logo should not be stretched.
 - Small logo should be of size 40 X 40 px
 - Medium logo should be of size 90 X 90 px
@@ -55,14 +58,15 @@ All the logos uploaded in the Publishing Portal should follow the below guidelin
 - Wide logo should be of size 255 X 115 px
 - Hero logo should be of size 815 X 290 px
 
+>[AZURE.NOTE] The Hero logo is optional. The publisher can choose not to upload a Hero logo. However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons.
+
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
-**Additional guidelines for the Hero logo banner:**
+**Additional guidelines for the Hero logo icon (optional)**
 
-- The Hero logo is optional. You can choose not to upload a Hero logo.
-- The publisher display name, SKU title, the offer long summary and the create button are embedded automatically inside the Hero logo once the offer goes live. So you do not have to enter them while you are designing the Hero logo.
-- As the Publisher Display Name, SKU title and the offer long summary are displayed in white font color, you should avoid keeping the background of the Hero Icon as white, or any light color.
-- You should leave space for the above text on the top of the Hero Icon. The space for the text is 415x100 and it is offset by 370px from the left.
+- The Hero logo is optional. The publisher can choose not to upload a Hero logo. **However once uploaded the hero icon cannot be deleted from the Publishing portal. At that time, the partner must follow the Azure Marketplace guidelines for Hero icons else the offer will not be approved to production.**
+- The Publisher Display Name, plan title and the offer long summary are displayed in white font color. Hence you should avoid keeping any light color in the background of the Hero Icon. Black, white and transparent background is not allowed for Hero icons.
+- The publisher display name, plan title, the offer long summary and the create button are embedded programmatically inside the Hero logo once the offer goes listed. So you should not enter any text while you are designing the Hero logo. Just leave empty space on the right because the text (i.e. publisher display name, plan title, the offer long summary) will be included programmatically by us over there. The empty space for the text should be 415x100 on the right (and it is offset by 370px from the left).
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -72,7 +76,8 @@ On the **Links** tab on the left bar, enter any links with information that may 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Sample images (optional)
-> [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for the push to staging.
+> [AZURE.NOTE] Including a sample image is an optional step.
+> Even though you can upload multiple sample images in the Publishing portal, only one image (randomly selected by the system) gets displayed in the Azure portal. For this reason, we recommend uploading at most one sample image.
 
 On the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
@@ -83,7 +88,24 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 
 ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
+**Note:**
+For Virtual Machine offers, once an offer/SKU is staged in the Azure Portal, you cannot change the fields given below:
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under “Step 2 Register Your Company”) -> Publisher Namespace ->Namespace]
+
+For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplace, you cannot change the fields given below:
+
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> select your Offer -> VM Images -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace ->Namespace]
+- **Ports:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
+- **Pricing Change of listed SKU(s)**
+- **Billing Model Change of listed SKU(s)**
+- **Removal of billing regions of listed SKU(s)**
+- **Changing the data disk count of listed SKU(s)**
+
 
 ## Step 2: Set your prices
 ### Pricing models
@@ -103,22 +125,87 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 |---|---|---|---|
 | Virtual machine image | No | Yes | No|
 | Developer service | Yes | Yes | Yes |
-| Data service | Yes | No | No |
 
 ### 2.1. Set your VM prices
-> [AZURE.NOTE] BYOL is supported only for virtual machines.
+Presently for virtual machines, we have the following **3 types of billing models:**
 
-1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
-2.	The provided link in the publishing portal will show pricing information to help you in determining the prices of your SKU(s).
-3.	If your SKU is BYOL, select the check box for externally licensed (BYOL) SKU availability.
-4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
+- **Hourly:** Customers get charged on a per-hour basis based on the rates set by the publishers on the VM sizes. In case of **hourly billing** model of the SKUs, the total price will be the summation of the software cost charged by the publisher and the infrastructure cost charged by Microsoft. This total cost will be displayed to the customer as an hourly and monthly price when they are considering the purchase (see the screenshot below). **Publisher receives 80% of the software cost charged by them.** Hence please make the calculation accordingly before setting prices for your SKUs.
 
-  > [AZURE.NOTE] If you have both BYOL and hourly SKUs, then make sure both the requisites are covered: BYOL check box and price values for hourly.
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 
-5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
-6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
+- **Free Trial:** This is another flavor of the Hourly model. Here the customer doesn’t get charged for software cost for the first 30 days(Free) after deploying the VM. After 30days they get charged on a per-hour basis based on the rates set by the publishers in the hourly model.
+- **Bring-Your-Own-License (BYOL):** The publishers manage the licensing of the software running on the VM.
 
-  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers: **Pricing change**, **Billing model change**, and **Removal of billing regions**.
+**Important:** Once the offer/SKU is listed in the Azure Marketplace, you cannot change the fields given below.
+
+- **Pricing Change of listed SKU(s)**
+- **Billing Model Change of listed SKU(s)**
+- **Removal of billing regions of listed SKU(s)**
+- **Changing the data disk count of listed SKU(s)**
+- **Offer Identifier:** [Publishing portal -> Virtual Machines -> select your Offer -> VM Images -> Offer Identifier]
+- **SKU Identifier:** [Publishing portal -> Virtual Machines -> Select your Offer -> SKUs tab -> Add a SKU]
+- **Publisher Namespace:** [Publishing portal -> Virtual Machines -> Walkthrough tab -> Tell Us About Your Company (Found Under Step 2 Register) Publisher Namespace -> Namespace]
+- **Ports:** [Publishing portal -> Virtual Machines -> your Offer -> VM Images tab -> Open Ports]
+
+### “Sell-to” countries of the SKU
+You need to carefully consider where you make your SKUs available. Some countries are classified as “Microsoft remit” and others are classified as “ISV remit.”
+
+- In “Microsoft remit” countries, Microsoft collects taxes from customers and pays (remits) taxes to the government.
+- In “ISV remit” countries, partners are responsible for collecting taxes customers and paying taxes to the government. If you choose to sell in “ISV remit” countries, you must have the capability to calculate and pay taxes in the countries you select.
+
+>[AZURE.NOTE] Your SKU will not be available in the countries unless you set their pricing in the [Publishing portal](https://publish.windowsazure.com). Guidance to get set the pricing of Hourly and BYOL SKUs is given below.
+
+### 2.1.1 How to setup hourly pricing model for a SKU
+Please follow the steps given below to setup Hourly pricing model for a SKU:
+
+1.	Login to the [Publishing portal](https://publish.windowsazure.com).
+2.	Navigate to the **VIRTUAL MACHINES** tab and select your offer.
+3.	From the left hand side menu, click the **SKUS** tab.
+4.	Ensure that the SKU is marked as “Hourly Billing Model”. If not, then click on the **EDIT** button to revert the billing model. A window will open. Uncheck the checkbox ‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’ and save the changes.
+5.	If you want to enable Free trial for the first 30days of SKU deployment, then select the option “One Month” for the question “Is a free trial available?” Otherwise, select the option “No Trial”. Now follow the steps given below.
+6.	From the left hand side menu, click the **PRICING** tab.
+7.	Select your base region.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
+
+8. Set the prices for all cores. **You must provide price for all the cores of a SKU even if your SKU does not support it.**
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
+
+9.	Set the prices for the other regions manually or you can use the AUTOPRICE wizard to set the prices of other regions based on the base region. To use the AUTOPRICE wizard click on the button **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES.** **Note:** The button’s label may be different depending on the region which you have selected. Since we have selected United States while creating this document, so the button is labeled as “Auto price other markets based on prices in United States” in the screenshot below.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
+
+10.	The auto price wizard will open. The first page displays the selection for base market. Make your section and move to the next page by clicking on the “->” button.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
+
+11.	Option for selecting the cores and plans will be displayed on the page 2. Select the desired plans and click “->” button. Click the **Toggle All** button to select all the **Service plans** and **Meters** or you can manually check the checkboxes. **You must provide price for all the cores of a SKU even if your SKU does not support it.** Hence ensure that all the core sizes are selected.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
+
+12.	Page 3 displays the markets/regions. Click the **Toggle All** button to select all regions or manually check the boxes for region. Click on the “->” button to move to the next page. **Note:** Microsoft Tax Remitted Countries are denoted by a house like symbol. For more details please refer to the section “Sell-to” countries of the SKU of this page.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
+
+13.	Page 4 displays the exchange rates. Click on the finish button to complete the steps.
+
+### 2.1.2 How to setup BYOL pricing model for a SKU
+Please follow the steps given below to setup BYOL pricing model for a SKU:
+
+1.	Login to the [Publishing portal](https://publish.windowsazure.com).
+2.	Navigate to the **VIRTUAL MACHINES** tab and select your offer.
+3.	From the left hand side menu, click the **SKUS** tab.
+4.	Ensure that the SKU is marked as “Bring your own license SKU”. If not, then click on the EDIT button to revert the billing model. A window will open. Check the checkbox ‘Billing and licensing is done externally from Azure (aka Bring Your Own License)’ and save the changes.
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
+
+5.	From the left hand side menu, click the **PRICING** tab.
+6.	Select your base region and make the SKU available in the region by checking the checkbox against the SKU under the section EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY (see the screenshot below).
+
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
+
+7.	Make the SKU available in the other regions manually or you can use the AUTOPRICE wizard for this purpose. Refer to the points #9 to #13 (which explains the use of the AUTOPRICE wizard) in the section **“2.1.1 How to setup Hourly pricing model for a SKU”** of this page.
 
 ### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
@@ -175,10 +262,12 @@ Below is a detailed view of how the offer marketing information is used on the [
 
 ## Next steps
 Now that your Marketplace content is loaded, let's move forward with testing your offer in staging. However, you must select the appropriate offer type from the list below, as steps vary by offer type.
+
 - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
 - [Test your Solution template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## See also
+
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg

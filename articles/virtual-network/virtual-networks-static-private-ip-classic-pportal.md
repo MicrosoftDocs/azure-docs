@@ -3,7 +3,7 @@
    description="Understanding static private IPs and how to manage them in classic mode using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # How to set a static private IP address (classic) in the Azure portal
 
@@ -77,6 +77,6 @@ To add a static private IP address to the VM created using the steps above, foll
 
 ## Next steps
 
-- Learn about [reserved public IP](../virtual-networks-reserved-public-ip) addresses.
-- Learn about [instance-level public IP (ILPIP)](../virtual-networks-instance-level-public-ip) addresses.
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 - Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

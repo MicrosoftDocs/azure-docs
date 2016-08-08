@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Get started by running the Enable Database for Stretch Wizard
@@ -21,6 +21,8 @@
 To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
 
 To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-database-overview.md).
+
+ >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually. 
 
 ## Launch the wizard
 
@@ -31,7 +33,8 @@ To learn more about Stretch Database, see [Stretch Database](sql-server-stretch-
 ## <a name="Intro"></a>Introduction
 Review the purpose of the wizard and the prerequisites.
 
-The important prerequisites include the following.
+The important prerequisites include the following:
+
 -   You have to be an administrator to change database settings.
 -   You have to have a Microsoft Azure subscription.
 -   Your SQL Server has to be able to communicate with the remote Azure server.

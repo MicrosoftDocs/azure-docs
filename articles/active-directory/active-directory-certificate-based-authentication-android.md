@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/20/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -61,10 +61,11 @@ For all scenarios in this topic, the following tasks are required:
 
 | Apps                      | Support      |
 | ---                       | ---          |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | Coming soon  |
 | OneDrive                  | ![Check][1]  |
 | Outlook                   | ![Check][1]  |
-| OneNote                   | Coming soon  |
-| Word / Excel / PowerPoint | ![Check][1]  |
+| Yammer                    | ![Check][1]  |
 | Skype for Business        | ![Check][1]  |
 
 

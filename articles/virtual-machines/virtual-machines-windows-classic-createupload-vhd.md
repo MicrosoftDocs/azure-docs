@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and upload a Windows Server image using Powershell | Microsoft Azure"
+	pageTitle="Create and upload a VM image using Powershell | Microsoft Azure"
 	description="Learn to create and upload a generalized Windows Server image (VHD) using the classic deployment model and Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/21/2016"
 	ms.author="cynthn"/>
 
 # Create and upload a Windows Server VHD to Azure

@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016"
+	ms.date="08/04/2016"
 	ms.author="jeffstok"
 />
 
@@ -29,7 +29,7 @@ In this tutorial you will learn to create stream processing logic to gather data
 
 ## Scenario
 
-Contoso is a manufacturing company in the industrial automation space and they have completely automated their manufacturing process. The machinery in this plant has sensors emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find out interesting patterns over the incoming stream of data.
+Contoso is a company in the industrial automation space and they have completely automated their manufacturing process. The machinery in this plant has sensors capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find out interesting patterns over the incoming stream of data.
 
 Here data is being generated from a Texas Instrument Sensor Tag device.
 
@@ -45,15 +45,15 @@ The Payload of the data is in JSON format and looks like the following:
 	    "hmdt": 34  
 	}  
     
-In a real world scenario, you will have 100’s of these sensors generating events as a stream. There would ideally be a gateway device running some code to push these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Your Stream Analytics job would consume these events from Event Hubs and run real-time analytics expressed as queries and send the results to the desired outputs.
+In a real world scenario, you could have 100’s of these sensors generating events as a stream. There would ideally be a gateway device running some code to push these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) or [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then you could send the results to one of the [supported outputs](stream-analytics-define-outputs.md).
 
-In this Getting Started guide, we have provided you with a sample data file, captured from real SensorTag devices, on which you can run different queries and see their results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
+For ease of use, in this Getting Started guide, we have provided you with a sample data file, captured from real SensorTag devices, on which you can run different queries and see their results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
 
 ## Create Stream Analytics job
 
-In [Azure portal](http://manage.windowsazure.com) open Stream Analytics and click **“New”** in the bottom left hand corner of the page to create a new analytics job.
+In the [Azure portal](http://manage.windowsazure.com) select Stream Analytics and click **“New”** in the bottom left hand corner of the page to create a new analytics job.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 Click "**Quick Create**".
 
@@ -63,58 +63,58 @@ For **“Regional Monitoring Storage Account”** setting, select **“Create ne
 
 Click "**Create Stream Analytics Job**" at the bottom of the page.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
+![Storage account configuration](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
 
 ## Azure Stream Analytics query
 
-Click on the Query tab to go to the Query Editor. The Query tab contains a SQL query that performs the transformation over the incoming data.
+Click on the Query tab to go to the Query Editor. The Query tab contains a T-SQL query that performs the transformation over the incoming event data.
 
 ## Archiving your raw data
 
 The simplest form of query is a pass-through which will archive all input data to its designated output.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Archive job query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-Now download the sample data file from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) to a location in your computer. Copy and paste the query from the **PassThrough.txt** file. Click on the Test button below and select the data file named **HelloWorldASA-InputStream.json** from youtr downloaded location.
+Now download the sample data file from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) to a location in your computer. Copy and paste the query from the **PassThrough.txt** file. Click on the Test button below and select the data file named **HelloWorldASA-InputStream.json** from your downloaded location.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Test button in Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+![Test input stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 
-You can see the results of the query in the browser below.
+You can see the results of the query in the browser, as shown below.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-## Cleansing the data based on a condition
+## Filtering the data based on a condition
 
-Let’s try to filter the results based on a condition. We would like to shows results for only those events which are coming from “SensorA”. Query is located in **Filtering.txt** file.
+Let’s try to filter the results based on a condition. We would like to shows results for only those events which are coming from “SensorA”. The query is located in **Filtering.txt** file.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
+![filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-Note that the here we are comparing a string value and its case-sensitive. Click on the **Rerun** button to execute the query. The query should only return 389 rows out of 1860 events.
+Note that the here we are comparing a string value and it is case-sensitive. Click on the **Rerun** button to execute the query. The query should only return 389 rows out of 1860 events.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
+![Second output results from query test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
 ## Alerting to trigger business workflow
 
-Let’s now make our query a bit more interesting. For every type of sensor, if we want to monitor average temperature per 30 second window and display results only if the average temperature is above 100 degrees, we will write the Query below and then click on Rerun to see the results. The Query is located in **ThresholdAlerting.txt** file.
+Now we will make our query more detailed. For every type of sensor, if we want to monitor average temperature per 30 second window and display results only if the average temperature is above 100 degrees, we will write the query below and then click on **Rerun** to see the results. The query is located in **ThresholdAlerting.txt** file.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![30 second filter query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-You can see, now the results contain only 245 rows with those sensors where the average temperate is greater than 100. In this query we have grouped the stream of events by dspl, which is the Sensor Name and over a **Tumbling Window** of 30 seconds. When we do such temporal queries, its essential to state how we want to progress time. By using the **TIMESTAMP BY** clause, we have specified the “time” column as a way to progress time for all temporal calculations. For detailed information please read our MSDN topics on [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+You should now see that the results contain only 245 rows and lists those sensors where the average temperate is greater than 100. In this query we have grouped the stream of events by **dspl**, which is the Sensor Name and over a **Tumbling Window** of 30 seconds. When we do such temporal queries, it is essential to state how we want to time to progress. By using the **TIMESTAMP BY** clause, we have specified the “time” column as a way to progress time for all temporal calculations. For detailed information please read the MSDN topics on [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing functions](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
+![Temp over 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-## Finding lack of patterns
+## Detecting absence of events
 
-How can I write a query to find lack of patterns? For example, let’s find out the last time a Sensor has send data and then did not send out any events for next one minute. The Query is located in **AbsenseOfEvent.txt** file.
+How can we write a query to find a lack of input events? It is pretty straightforward to do so. Let’s find the last time a Sensor has sent data and then did not send out any events for the next minute. The query is located in **AbsenseOfEvent.txt** file.
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
+![Detect absence of events](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
 
-Here we are using a **LEFT OUTER JOIN** on to the same data stream (self-join). For an inner join, a result is only returned when a match is found.  But for a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row with NULL for all the columns of the right row is returned. This technique is very useful to find absence of events. For more details on [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) please see our MSDN documentation.
+Here we are using a **LEFT OUTER JOIN** on to the same data stream (self-join). For an inner join, a result is only returned when a match is found.  But for a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row with NULL for all the columns of the right row is returned. This technique is very useful to find an absence of events. Please see our MSDN documentation for more information on [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx).
 
-![](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
+![join results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
 
 ## Conclusion
 
-This tutorial basically gets you started to write different SAQL queries and see results in the browser on different patterns over the data. However, this is just getting started. There is so much more you can do with Stream Analytics. Next you will learn about connecting the Stream Analytics job to inputs and outputs and deploying it to Azure. You can start exploring more about Stream Analytics using our [Learning Map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) Guide and for more information on writing queries, read the article on [Common Query Patterns](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events).
+The purpose of this tutorial is to demonstrate how to write different Stream Analytics query language queries and see results in the browser. However, this is just getting started. There is so much more you can do with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even leverage functions in Azure Machine Learning, making it a robust tool for analyzing data streams. You can start exploring more about Stream Analytics using our [Learning Map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) and for more information on writing queries, read the article on [Common Query Patterns](./stream-analytics-stream-analytics-query-patterns.md).

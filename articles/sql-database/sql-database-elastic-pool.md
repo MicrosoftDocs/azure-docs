@@ -22,7 +22,7 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, West India, and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
 
 ## How it works
 

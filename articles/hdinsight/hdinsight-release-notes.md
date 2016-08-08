@@ -14,11 +14,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="08/03/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 08/01/2016 release of HDInsight
+
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build   |Ambari Build |
+|----|----------------------|----|------------|-------------|
+|3.2 |3.2.1000.0.8028416	|2.2 |2.2.9.1-19  |2.2.1.12-4   |
+|3.3 |3.3.1000.0.8028416	|2.3 |2.3.3.1-25  |2.2.1.12-4   |
+|3.4 |3.4.1000.0.8053402	|2.4 |2.4.2.4-5   |2.2.1.12-4   |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build     |
+|----|----------------------|----|--------------|
+|2.1 |2.1.10.1005.2488842   |1.3 |1.3.12.0-01795|
+|3.0 |3.0.6.1005.2488842 	|2.0 |2.0.13.0-2117 |
+|3.1 |3.1.4.1005.2488842	|2.1 |2.1.16.0-2374 |
+|3.2 |3.2.7.1005.2488842	|2.2 |2.2.9.1-11    |
+|3.3 |3.3.0.1005.2488842	|2.3 |2.3.3.1-25    |
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Changes to HDInsight 3.4 clusters | The default value for following hive configurations are changed for better performance <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul>| Service    | All| N/A|
+| Following fixes are included in this release | HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933| Service    | All| N/A
+
+## Notes for 07/14/2016 release of HDInsight
+
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build   |Ambari Build |
+|----|----------------------|----|------------|-------------|
+|3.2 |3.2.1000.0.7932505	|2.2 |2.2.9.1-11  |2.2.1.12-2   |
+|3.3 |3.3.1000.0.7932505	|2.3 |2.3.3.1-18  |2.2.1.12-2   |
+|3.4 |3.4.1000.0.7933003	|2.4 |2.4.2.0     |2.2.1.12-2   |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build     |
+|----|----------------------|----|--------------|
+|2.1 |2.1.10.989.2441725    |1.3 |1.3.12.0-01795|
+|3.0 |3.0.6.989.2441725 	|2.0 |2.0.13.0-2117 |
+|3.1 |3.1.4.989.2441725		|2.1 |2.1.16.0-2374 |
+|3.2 |3.2.7.989.2441725		|2.2 |2.2.9.1-11    |
+|3.3 |3.3.0.989.2441725		|2.3 |2.3.3.1-21    |
 
 ## Notes for 07/07/2016 release of HDInsight
 
@@ -1484,7 +1531,7 @@ Oozie metastores are attached to specific clusters, and they cannot be shared ac
 ###Breaking changes
 
 **Prefix syntax**:
-Only the "wasb://" syntax is supported in HDInsight 3.1 and 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.1 or 3.0 clusters. This means that any jobs submitted to an HDInsight 3.1  or 3.0 cluster that explicitly use the "asv://" syntax will fail. The "wasb://" syntax should be used instead. Also, jobs submitted to any HDInsight 3.1 or 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the "asv://" syntax will fail. These metastores need to be re-created using the "wasb://" syntax to address resources.
+Only the "wasbs://" syntax is supported in HDInsight 3.1 and 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.1 or 3.0 clusters. This means that any jobs submitted to an HDInsight 3.1  or 3.0 cluster that explicitly use the "asv://" syntax will fail. The "wasbs://" syntax should be used instead. Also, jobs submitted to any HDInsight 3.1 or 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the "asv://" syntax will fail. These metastores need to be re-created using the "wasbs://" syntax to address resources.
 
 
 **Ports**: The ports used by the HDInsight service have changed. The port numbers that were being used were within the ephemeral port range of the Windows operating system. Ports are allocated automatically from a predefined ephemeral range for short-lived Internet protocol-based communications. The new set of allowed Hortonworks Data Platform (HDP) service port numbers are outside this range to avoid encountering conflicts that could arise with the ports used by services running on the head node. The new port numbers should not cause any breaking changes. The numbers used are as follows:

@@ -76,6 +76,5 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 [How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli-install.md
 [build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
