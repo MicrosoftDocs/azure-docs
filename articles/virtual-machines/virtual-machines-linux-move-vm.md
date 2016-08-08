@@ -40,7 +40,6 @@ You will be asked to confirm that you want to move the specified resource.
     info:    resource move command OK
 
 
-
 [AZURE.INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
 ## Next steps
