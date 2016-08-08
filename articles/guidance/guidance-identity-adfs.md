@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="08/08/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -35,7 +35,7 @@ AD FS can run on-premises, but in a hybrid scenario where elements of an applica
 
 - Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
 
-For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview].
+For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview]. Additionally, the article [AD FS deployment in Azure][adfs-intro] contains a detailed step-by-step introduction to implementing AD FS in Azure.
 
 ## Architecture diagram
 
@@ -106,11 +106,15 @@ Set the IP address of the preferred and secondary DNS servers for the network in
 
 ### Availability recommendations
 
-Create an AD FS farm with at least two servers to increase availability of the AD FS service. 
+Create an AD FS farm with at least two servers to increase availability of the AD FS service.
 
-Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. 
+Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account does not make the entire farm inaccessible.
+
+Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. Each availability set must have at least 2 update domains and 2 fault domains.
 
 Configure the load balancers for the AD FS VMs and WAP VMs as follows:
+
+- Use an Azure load balancer to provide external access to the WAP VMs, and an internal load balancer to distribute the load across the AD FS servers in the AD FS farm.
 
 - Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
 
@@ -398,6 +402,8 @@ To run the script that deploys the solution:
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [0]: ./media/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+[adfs-intro]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-azure-adfs/
+
 
 <!-- Remove the following links when the Solution Components and Deployment sections are updated to use the Building Blocks -->
 [azuredeploy-script]: https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks/guidance-iaas-ra-adfs/Templates/azuredeploy.sh
