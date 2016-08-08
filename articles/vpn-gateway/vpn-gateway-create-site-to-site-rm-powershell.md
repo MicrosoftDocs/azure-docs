@@ -197,10 +197,7 @@ If you need to change the prefixes for your local network gateway, use the instr
 
 ## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
 
-If you need to change the gateway IP address for your local network gateway, use the instructions below. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection.
-
 [AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
-
 
 ## Next steps
 
