@@ -131,7 +131,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
-### Create a .NET backend using the Azure portal
+### <a name="create-node-backend-portal"></a>How to: Create a Node.js backend using the Azure portal
 
 You can create a new Mobile App backend right in the [Azure portal]. 
 
