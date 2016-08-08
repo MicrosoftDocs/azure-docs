@@ -83,7 +83,7 @@ The sample application we'll be exploring creates a new index named "hotels", po
         Console.WriteLine("{0}", "Creating index...\n");
         CreateHotelsIndex(serviceClient);
 
-        SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
@@ -121,7 +121,7 @@ The next few lines call methods to create an index named "hotels", deleting it f
 
 Next, the index needs to be populated. To do this, we will need a `SearchIndexClient`. There are two ways to obtain one: by constructing it, or by calling `Indexes.GetClient` on the `SearchServiceClient`. We use the latter for convenience.
 
-        SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 > [AZURE.NOTE] In a typical search application, index management and population is handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing another `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -210,7 +210,7 @@ This method creates a new `Index` object with a list of `Field` objects that def
 
 The next step in `Main` is to populate the newly-created index. This is done in the following method:
 
-    private static void UploadDocuments(SearchIndexClient indexClient)
+    private static void UploadDocuments(ISearchIndexClient indexClient)
     {
         var documents =
             new Hotel[]
@@ -362,7 +362,7 @@ For this reason, we recommend that you use nullable types in your model classes 
 
 The last step in the sample application is to search for some documents in the index. The following method does this:
 
-    private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
+    private static void SearchDocuments(ISearchIndexClient indexClient, string searchText, string filter = null)
     {
         // Execute search based on search text and optional filter
         var sp = new SearchParameters();
