@@ -196,7 +196,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 		azure config mode arm
 
-Here is the expected output for the command above:
+	Here is the expected output for the command above:
 
 		info:	New mode is arm
 
@@ -204,9 +204,9 @@ Here is the expected output for the command above:
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
+	**-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
 
-**-l (or --location)**. Azure region where the new resource group will be created. For our scenario, it's *eastus*.
+	**-l (or --location)**. Azure region where the new resource group will be created. For our scenario, it's *eastus*.
 
 1. Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
