@@ -5,10 +5,10 @@
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring"/>
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring-and-diagnostics"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
