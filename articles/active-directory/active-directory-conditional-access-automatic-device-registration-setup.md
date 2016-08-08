@@ -263,7 +263,7 @@ To set the policy, perform the following steps:
 
 To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download under the following location: [FWLink: Download location of msi] 
 
-You should deploy this package using a software distribution system such as System Center Configuration Manager. The package supports the standard silent install options using the /quiet parameter. If you use System Center Configuration Manager 2016 you will enjoy additional benefits like the ability to track completed registrations. For more information, please see [FWLink: SCCM 2016 features – particular to this functionality]. 
+You should deploy this package using a software distribution system such as System Center Configuration Manager. The package supports the standard silent install options using the /quiet parameter. If you use System Center Configuration Manager 2016 you will enjoy additional benefits like the ability to track completed registrations. For more information, please see [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-2016). 
 
 The installer creates a Scheduled Task on the system that runs in the user’s context and is triggered on user sign-in to Windows. The task silently registers the device with Azure AD with the user credentials after authenticating using Windows Integrated authentication. The Scheduled Task can be found in the Task Scheduler Library under **Microsoft > Workplace Join**. 
 
