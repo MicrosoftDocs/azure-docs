@@ -130,7 +130,7 @@ Replace the `<your-domain>` placeholder with the custom domain name of your app.
 5. Submit **myrequest.csr** to a CA to obtain an SSL certificate. You either upload the file, or copy its 
 content from a text editor into a web form.
 
-	For a list of CAs, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+	For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
 
 6. Once the CA has responded to you with a certificate (.CER) file, save it in your working directory. Then,
 run the following command to complete the pending CSR.
@@ -179,8 +179,8 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 1. Generate a CSR with IIS Manager to send to the CA. For more information on generating a CSR, see 
 [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs, see 
-[Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+
 
 3. Complete the CSR with the certificate that the CA sends back to you. For more information on completing the CSR, see 
 [Install an Internet Server Certificate (IIS 7)][installcertiis].
@@ -231,8 +231,8 @@ following command:
 	When finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
 	The **server.csr** contains the CSR, and you need **myserver.key** later.
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs, see 
-[Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+
 
 4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt** in your working 
 directory. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text 
@@ -328,8 +328,8 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 	Once finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
 	The **server.csr** contains the CSR, and you need **myserver.key** later.
 
-3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs, see 
-[Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+3. Submit your CSR to a CA to get an SSL certificate. For a list of CAs trusted by Microsoft, see [Microsoft Trusted Root Certificate Program: Participants][cas].
+
 
 4. Once the CA sends you the requested certificate, save it to a file named **myserver.crt**. If your CA provides it
 in a text format, simply copy the content into **myserver.crt** in a text editor and save it. The file 
@@ -638,7 +638,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 [customdomain]: web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
-[cas]: http://go.microsoft.com/fwlink/?LinkID=269988
+[cas]: http://social.technet.microsoft.com/wiki/contents/articles/31634.microsoft-trusted-root-certificate-program-participants-v-2016-april.aspx
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
 [exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
