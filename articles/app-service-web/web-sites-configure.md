@@ -183,7 +183,6 @@ For more information, see [How to: Monitor web endpoint status].
 [Scale a web app in Azure App Service]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Using Git to deploy Web Apps in Azure App Service]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 

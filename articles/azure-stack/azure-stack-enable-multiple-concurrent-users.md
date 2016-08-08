@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="08/01/2016"
 	ms.author="erikje"/>
 
 # Enable multiple concurrent user connections in Azure Stack

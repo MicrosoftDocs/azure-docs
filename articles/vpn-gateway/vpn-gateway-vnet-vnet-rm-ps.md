@@ -25,6 +25,8 @@
 
 This article will walk you through the steps to create a connection between virtual networks using the Resource Manager deployment model and PowerShell. The virtual networks can be in the same or different regions, from the same or different subscriptions.
 
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
+
 
 **About Azure deployment models**
 

@@ -5,7 +5,9 @@
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor=""
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
@@ -13,8 +15,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="jroth"/>
+	ms.date="08/03/2016"
+	ms.author="btardif"/>
 
 # Azure subscription and service limits, quotas, and constraints
 
