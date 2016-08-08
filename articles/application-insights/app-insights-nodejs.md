@@ -63,7 +63,7 @@ This will enable request monitoring, unhandled exception tracking, and system pe
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 

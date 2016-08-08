@@ -291,7 +291,7 @@ Removed as these two are not confirmed / supported under SQLDW
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **Increase resource class:** Use the following query to add a user to an increase workload management role.
+4. **Increase resource class:** Use the following query to add a user to a higher workload management role.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
