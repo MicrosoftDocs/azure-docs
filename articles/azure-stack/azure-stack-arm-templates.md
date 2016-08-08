@@ -98,7 +98,7 @@ This process allows you to find ARM templates in Azure Stack once they have been
 
     dir “C:\\inetpub\\AzureStack-Gallery\\App\_Data\\Gallery\\\*\\manifest.json” -recurse | Select-String -pattern "\`"name\`":" -SimpleMatch -List | ft -Property Line,Path
 
-> ![](media/azure-stack-arm-templates/TemplateRetreiveScript.png){width="6.5in" height="1.725in"}
+> ![](media/azure-stack-arm-templates/TemplateRetreiveScript.png)
 
 4.  Once you have found the correct template, on the ClientVM, navigate
     to the
@@ -106,7 +106,7 @@ This process allows you to find ARM templates in Azure Stack once they have been
 
 Example: Web App Template
 
-![](media/azure-stack-arm-templates/TemplateExample.png){width="6.291666666666667in" height="1.7288637357830272in"}
+![](media/azure-stack-arm-templates/TemplateExample.png)
 
 5.  Copy the JSON file to a location on the ClientVM where you can work with it with the tool of your choice.
 
