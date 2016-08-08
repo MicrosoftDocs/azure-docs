@@ -12,8 +12,7 @@ You can verify that your connection succeeded by using the `Get-AzureRmVirtualNe
 		{
 		  "name": "MyGWConnection",
 		  "id":
-		"/subscriptions/086cfaa0-0d1d-4b1c-94544-f8e3da2a0c7789/resourceGroups/MyRG/providers/Microsoft.Network/connections/loca
-		ltovon",
+		"/subscriptions/086cfaa0-0d1d-4b1c-94544-f8e3da2a0c7789/resourceGroups/MyRG/providers/Microsoft.Network/connections/MyGWConnection",
 		  "properties": {
 		    "provisioningState": "Succeeded",
 		    "resourceGuid": "1c484f82-23ec-47e2-8cd8-231107450446b",
