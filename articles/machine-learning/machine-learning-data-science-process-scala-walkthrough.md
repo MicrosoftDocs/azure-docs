@@ -140,7 +140,7 @@ The first step in the data science process is to ingest the data that you want t
 - Read in the input data set (stored as a .tsv file)
 - Define a schema for the data and clean the data
 - Create a cleaned data frame and cache it in memory
-- Register the data as a temporary table in SQL Context
+- Register the data as a temporary table in SQLContext
 - Query the table and import the results into a data frame
 
 
@@ -278,7 +278,7 @@ After you bring the data into Spark, the next step in the data science process i
 By default, the output of any code snippet that you run from a Jupyter Notebook is available within the context of the session that persists on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the `%%local` magic to run the code snippet on the Jupyter server.
 
 - **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against the SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
-- **`%%local` magic.** The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
+- `%%local` **magic**. The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
 
 ### Query the data by using SQL
 This query retrieves the taxi trips by fare amount, passenger count, and tip amount.
@@ -574,11 +574,11 @@ In this section, you create three types of binary classification models to predi
 
 Next, create a logistic regression model by using the Spark ML `LogisticRegression()` function. You create the model building code in a series of steps:
 
-1. **Train the model** data with one parameter set.
-2. **Evaluate the model** on a test data set with metrics.
-3. **Save the model** in Blob storage for future consumption.
-4. **Score the model** against test data.
-5. **Plot the results** with receiver operating characteristic (ROC) curves.
+- **Train the model** data with one parameter set
+- **Evaluate the model** on a test data set with metrics
+- **Save the model** in Blob storage for future consumption
+- **Score the model** against test data
+- **Plot the results** with receiver operating characteristic (ROC) curves
 
 Here's the code for these procedures:
 
