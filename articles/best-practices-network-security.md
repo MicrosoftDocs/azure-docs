@@ -306,6 +306,10 @@ In this example, two routing tables are created, one each for the front-end and 
 2. Virtual network traffic with a Next Hop defined as firewall; this overrides the default rule that allows local virtual network traffic to route directly.
 3. All remaining traffic (0/0) with a Next Hop defined as the firewall.
 
+>[AZURE.TIP] Not having the local subnet entry in the UDR will break local subnet communications. 
+> - In our example, 10.0.1.0/24 pointing to VNETLocal is a critical as otherwise, packet leaving the Web Server (10.0.1.4) destined to another local server (for example) 10.0.1.25 will fail as they will sent over to the NVA, which will send it to the subnet, and the subnet will re-send it to the NVA and so on.
+> - Chances of a routing loop are typically higher on multi-nic appliances that are directly connected to each subnet they are communicating with, which is often of traditional, on-premise, appliances. 
+
 Once the routing tables are created, they are bound to their subnets. The front-end subnet routing table, once created and bound to the subnet, would look like this:
 
         Effective routes : 
