@@ -3,7 +3,7 @@
    description="How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="joaoma" />
+   ms.author="jdial" />
 
 # Viewing and modifying hostnames
 

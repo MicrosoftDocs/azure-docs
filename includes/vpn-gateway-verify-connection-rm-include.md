@@ -1,8 +1,8 @@
 ### To verify your connection by using PowerShell
 
-You can verify that your connection succeeded by using the 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet, with or without -Debug. 
+You can verify that your connection succeeded by using the `Get-AzureRmVirtualNetworkGatewayConnection` cmdlet, with or without `-Debug`. 
 
-1. Use the following cmdlet example, configuring the values to match your own. If prompted, select 'A' in order to run 'All'. In the example, -Name refers to the name of the connection that you created and want to test.
+1. Use the following cmdlet example, configuring the values to match your own. If prompted, select 'A' in order to run 'All'. In the example, `-Name` refers to the name of the connection that you created and want to test.
 
 		Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
