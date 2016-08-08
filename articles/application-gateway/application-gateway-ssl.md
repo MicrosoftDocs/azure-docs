@@ -3,7 +3,7 @@
    description="This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using the classic deployment model
 
