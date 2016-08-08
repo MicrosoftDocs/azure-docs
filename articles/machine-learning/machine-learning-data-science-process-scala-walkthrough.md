@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Data science with Scala and Spark on Azure | Microsoft Azure"
-	description="How to use Scala for supervised machine learning tasks with Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster."  
+	pageTitle="Data science using Scala and Spark on Azure | Microsoft Azure"
+	description="How to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster."  
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath"
@@ -17,7 +17,7 @@
 	ms.author="bradsev;"/>
 
 
-# Data science with Scala and Spark on Azure
+# Data science using Scala and Spark on Azure
 
 This article shows you how to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [data science process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models in the article include logistic and linear regression, random forests, and gradient-boosted trees (GBTs), in addition to two common supervised machine learning tasks:
 
@@ -34,7 +34,7 @@ The modeling process requires training and evaluation on a test data set and rel
 
 The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. However, the code in this article and in the [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) are generic and should work on any Spark cluster. The cluster setup and management steps might be slightly different from what is shown in this article if you are not using HDInsight Spark.
 
-> [AZURE.NOTE] For a topic that shows how to use Python rather than Scala to complete tasks for an end-to-end data science process, see [Data Science by using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
+> [AZURE.NOTE] For a topic that shows you how to use Python rather than Scala to complete tasks for an end-to-end data science process, see [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of data science by using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
+For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of data science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
 
 ## Execute Scala code from a Jupyter notebook on the Spark cluster
@@ -58,9 +58,9 @@ You can launch a Jupyter notebook from the Azure portal. Find the Spark cluster 
 
 ![Cluster dashboard and Jupyter notebooks](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
-You also can access Jupyter notebooks at https://*CLUSTERNAME*.azurehdinsight.net/jupyter. Replace *CLUSTERNAME* with the name of your cluster. You need the password for your administrator account to access the Jupyter notebooks.
+You also can access Jupyter notebooks at https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Replace *clustername* with the name of your cluster. You need the password for your administrator account to access the Jupyter notebooks.
 
-![Browse to Jupyter notebooks by using the cluster name](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
+![Go to Jupyter notebooks by using the cluster name](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
 Select **Scala** to see a directory that has a few examples of prepackaged notebooks that use the PySpark API. The Exploration Modeling and Scoring using Scala.ipynb notebook that contains the code samples for this suite of Spark topic is available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
@@ -88,10 +88,10 @@ The Spark kernels that are provided with Jupyter notebooks have preset contexts,
 
 The Spark kernel provides some predefined “magics,” which are special commands that you can call with `%%`. Two of these commands are used in the following code samples.
 
-- **`%%local`** specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
-- **`%%sql -o <*variable name*>`** executes a Hive query against `sqlContext`. If the `-o` parameter is passed, the result of the query is persisted in the `%%local` Scala context as a Spark data frame.
+- `%%local` specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
+- `%%sql -o <variable name>` executes a Hive query against `sqlContext`. If the `-o` parameter is passed, the result of the query is persisted in the `%%local` Scala context as a Spark data frame.
 
-For more information about the kernels for Jupyter Nnotebooks and their predefined "magics" that you call with `%%` (for example, `%%local`), see [Kernels available for Jupyter Notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information about the kernels for Jupyter notebooks and their predefined "magics" that you call with `%%` (for example, `%%local`), see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ### Import libraries
@@ -277,13 +277,13 @@ After you bring the data into Spark, the next step in the data science process i
 
 By default, the output of any code snippet that you run from a Jupyter Notebook is available within the context of the session that persists on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the `%%local` magic to run the code snippet on the Jupyter server.
 
-- **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against the `SQLContext`. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
-- The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
+- **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against the SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
+- **`%%local` magic.** The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
 
 ### Query the data by using SQL
 This query retrieves the taxi trips by fare amount, passenger count, and tip amount.
 
-	# SQL QUERY
+	# RUN THE SQL QUERY
 	%%sql -q -o sqlResults
 	SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
@@ -299,7 +299,7 @@ You can plot by using Python code after the data frame is in local context as a 
 	%%local
 
 	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
-	# CLICK THE TYPE OF PLOT TO BE GENERATED (LINE, AREA, BAR, ETC.)
+	# CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, ETC.)
 	sqlResults
 
 
@@ -438,7 +438,7 @@ Time to run the cell: 4 seconds.
 
 ### Sample and split data set into training and test fractions
 
-This code creates a random sampling of the data (25% in this example). Although sampling is not required for this example due to the size of the data set, the article shows you how you can sample so that you know how to use it for your own problems when needed. When samples are large, this can save significant time while you train models. Next, split the sample into a training part (75% in this example) and a testing part (25% in this example) to use in classification and regression modeling.
+This code creates a random sampling of the data (25%, in this example). Although sampling is not required for this example due to the size of the data set, the article shows you how you can sample so that you know how to use it for your own problems when needed. When samples are large, this can save significant time while you train models. Next, split the sample into a training part (75%, in this example) and a testing part (25%, in this example) to use in classification and regression modeling.
 
 Add a random number (between 0 and 1) to each row (in a "rand" column) that can be used to select cross-validation folds during training.
 
@@ -574,11 +574,11 @@ In this section, you create three types of binary classification models to predi
 
 Next, create a logistic regression model by using the Spark ML `LogisticRegression()` function. You create the model building code in a series of steps:
 
-1. **Train the model** data with one parameter set
-2. **Evaluate the model** on a test data set with metrics
-3. **Save the model** in Blob storage for future consumption
-4. **Score the model** against test data
-5. **Plot the results** with receiver operating characteristic (ROC) curves
+1. **Train the model** data with one parameter set.
+2. **Evaluate the model** on a test data set with metrics.
+3. **Save the model** in Blob storage for future consumption.
+4. **Score the model** against test data.
+5. **Plot the results** with receiver operating characteristic (ROC) curves.
 
 Here's the code for these procedures:
 
@@ -771,7 +771,7 @@ Area under ROC curve: 0.9846895479241554
 In this section, you create two types of regression models to predict the tip amount:
 
 - A **regularized linear regression model** by using the Spark ML `LinearRegression()` function; you'll save the model and evaluate the model on test data
-- A **gradient boosting tree regression model** by using Spark ML `GBTRegressor() `function
+- A **gradient-boosting tree regression model** by using Spark ML `GBTRegressor() `function
 
 
 ### Create a regularized linear regression model
@@ -779,10 +779,10 @@ In this section, you create two types of regression models to predict the tip am
 	# RECORD THE START TIME
 	val starttime = Calendar.getInstance().getTime()
 
-	# CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING THE SPARK ML FUNCTION AND DATA FRAME
+	# CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING THE SPARK ML FUNCTION AND DATA FRAMES
 	val lr = new LinearRegression().setLabelCol("tip_amount").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
 
-	# FIT THE MODEL BY USING DATA FRAME
+	# FIT THE MODEL BY USING DATA FRAMES
 	val lrModel = lr.fit(OneHotTRAIN)
 	println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
 
@@ -897,7 +897,7 @@ Create plots by using Python matplotlib.
 
 ### Create a GBT regression model
 
-Create a GBT regression model by using the Spark `ML GBTRegressor()` function, and then evaluate the model on test data.
+Create a GBT regression model by using the Spark ML `GBTRegressor()` function, and then evaluate the model on test data.
 
 [Gradient-boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. You can use GBTs for regression and classification. They can handle categorical features, do not require feature scaling, and can capture nonlinearities and feature interactions. You also can use them in a multiclass-classification setting.
 
@@ -966,7 +966,7 @@ Next, split data into train and validation sets, use hyper-parameter sweeping on
 	# DEFINE THE PARAMETER GRID
 	val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
 
-	# DEFINE THE PIPELINE WITH A TRAIN AND TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
+	# DEFINE THE PIPELINE WITH A TRAIN AND TEST VALIDATION SPLIT (75%, IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
 	val trainPct = 0.75
 	val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
 
@@ -995,7 +995,7 @@ Test R-sqr is: 0.6226484708501209
 
 ### Optimize the binary classification model by using cross-validation and hyper-parameter sweeping
 
-This section shows you how to optimize a binary classification model by using cross-validation and hyper-parameter sweeping. This uses Spark ML's `CrossValidator` function.
+This section shows you how to optimize a binary classification model by using cross-validation and hyper-parameter sweeping. This uses the Spark ML `CrossValidator` function.
 
 	# RECORD THE START TIME
 	val starttime = Calendar.getInstance().getTime()
@@ -1015,7 +1015,7 @@ This section shows you how to optimize a binary classification model by using cr
 	# SPECIFY THE NUMBER OF FOLDS
 	val numFolds = 3
 
-	# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
+	# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75%, IN THE TRAINING SET)
 	val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
 
 	# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
@@ -1065,11 +1065,11 @@ Next, optimize the model by using custom code, and identify the best model param
 	val h = 1.0 / nFolds;
 	val RMSE  = Array.fill(numModels)(0.0)
 
-	# CREATE *k*-FOLDS
+	# CREATE K-FOLDS
 	val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
 
 
-	# LOOP THROUGH *k*-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
+	# LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
 	for (i <- 0 to (nFolds-1)) {
 	    validateLB = i * h
 	    validateUB = (i + 1) * h
@@ -1159,6 +1159,6 @@ Time to run the cell: 61 seconds.
 
 For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
 
-For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for *specific scenarios*, and which illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md).
+[Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 
 [Score Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md) shows you how to use Scala code to automatically load and score new data sets with machine learning models built in Spark and saved in Azure Blob storage. You can follow the instructions provided there, and simply replace the Python code with Scala code in this article for automated consumption.
