@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
-- [Add SSL cert purchased elsewhere](web-sites-configure-ssl-certificate.md)
+- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 
 
 This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in 
