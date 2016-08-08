@@ -207,7 +207,7 @@ Configure your CNAME record as follows (@ typically represents the root domain):
 <a name="enable"></a>
 ## Step 3. Enable the custom domain name for your app
 
-Back in the **Bring External Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully qualified
+Back in the **Bring External Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
 1.	If you haven't done so, log in to the [Azure portal](https://portal.azure.com).
@@ -238,12 +238,13 @@ After you finish the configuration steps, it can take some time for the changes 
 > [AZURE.NOTE] The propagation of the DNS entries can take up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 
 ## Next steps
+Learn how to secure your custom domain name with HTTPS by [buying an SSL certificate in Azure](web-sites-purchase-ssl-web-site.md) or [using an SSL certificate from elsewhere](web-sites-configure-ssl-certificate.md).
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone.md)  
 [Create DNS records for a web app in a custom domain](../dns/dns-web-sites-custom-domain.md)  
 [Delegate Domain to Azure DNS](../dns/dns-domain-delegation.md)
-
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 
 <!-- Images -->
