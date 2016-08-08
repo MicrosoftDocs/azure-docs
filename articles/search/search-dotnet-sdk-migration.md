@@ -32,8 +32,8 @@ Version 2.0-preview of the Azure Search .NET SDK contains several breaking chang
 Version 2.0-preview is the first version of the Azure Search .NET SDK to target a preview version of the Azure Search REST API, specifically 2015-02-28-preview. This makes it possible to use many preview features of Azure Search from a .NET application, including the following:
 
 - [Custom analyzers](https://aka.ms/customanalyzers)
-- [Azure Blob Storage](https://azure.microsoft.com/documentation/articles/search-howto-indexing-azure-blob-storage/) and [Azure Table Storage](https://azure.microsoft.com/documentation/articles/search-howto-indexing-azure-tables/) indexer support
-- Indexer customization via [field mappings](https://azure.microsoft.com/documentation/articles/search-indexers-customization/)
+- [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) and [Azure Table Storage](search-howto-indexing-azure-tables.md) indexer support
+- Indexer customization via [field mappings](search-indexers-customization.md)
 - ETags support to enable safe concurrent updating of index definitions, indexers, and data sources
 - Support for .NET Core and .NET Portable Profile 111
 
