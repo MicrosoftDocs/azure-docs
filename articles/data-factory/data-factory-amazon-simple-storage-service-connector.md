@@ -23,7 +23,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
 
 ## Sample: Copy data from Amazon S3 to Azure Blob
-This sample shows how to copy data from a Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
  
 The sample has the following data factory entities:
 
@@ -33,7 +33,7 @@ The sample has the following data factory entities:
 - An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 - A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a query result in Amazon S3 to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data from Amazon S3 to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Amazon S3 linked service**
 
@@ -116,7 +116,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -124,7 +124,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -132,7 +132,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -148,7 +148,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
 	
 	{
 	    "name": "CopyAmazonS3ToBlob",
@@ -189,8 +189,8 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                "name": "AmazonS3ToBlob"
 	            }
 	        ],
-	        "start": "2014-06-01T18:00:00Z",
-	        "end": "2014-06-01T19:00:00Z"
+	        "start": "2014-08-08T18:00:00Z",
+	        "end": "2014-08-08T19:00:00Z"
 	    }
 	}
 
@@ -202,7 +202,7 @@ The following table provides description for JSON elements specific to Amazon S3
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | ------- |  
-| accessKeyID | The id of the secret access key, just like storage account name. | string | Yes |
+| accessKeyID | ID of the secret access key. | string | Yes |
 | secretAccessKey | The secret access key itself. | Encrypted secret string | Yes | 
 
 
@@ -216,10 +216,55 @@ The **typeProperties** section is different for each type of dataset and provide
 | -------- | ----------- | -------- | ------ | 
 | bucketName | The S3 bucket name. | String | Yes |
 | key | The S3 object key. | String | No | 
-| prefix | Prefix of the S3 object to match objects whose key start with this prefix. Applies only when key is empty. | String | No | 
+| prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. | String | No | 
 | version | The version of S3 object if S3 versioning is enabled. | String | No |  
 
-> [AZURE.NOTE] Bucket + Key is the location of a S3 object. Bucket is the Root container for S3 objects and key is the full path to S3 object, start without Bucket.
+> [AZURE.NOTE] bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
+
+### Sample dataset with prefix
+
+	{
+	    "name": "dataset-s3",
+	    "properties": {
+	        "type": "AmazonS3",
+	        "linkedServiceName": "link- testS3",
+	        "typeProperties": {
+	            "prefix": "testFolder/test",
+	            "bucketName": "testbucket",
+	            "format": {
+	                "type": "OrcFormat"
+	            }
+	        },
+			"availability": {
+		    	"frequency": "Hour",
+			    "interval": 1
+		    },
+			"external": true
+	    }
+	}
+
+### Sample data set (with version)
+
+	{
+	    "name": "dataset-s3",
+	    "properties": {
+	        "type": "AmazonS3",
+	        "linkedServiceName": "link- testS3",
+	        "typeProperties": {
+	            "key": "testFolder/test.orc",
+	            "bucketName": "testbucket",
+	            "version": "WBeMIxQkJczm0CJajYkHf0_k6LhBmkcL",
+	            "format": {
+	                "type": "OrcFormat"
+	            }
+	        },
+			"availability": {
+		    	"frequency": "Hour",
+			    "interval": 1
+		    },
+			"external": true
+	    }
+	}
 
 ## Copy activity type properties
 
@@ -231,7 +276,7 @@ In case of Copy Activity when source is of type **FileSystemSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| recursive | Specifies whether to recursively list S3 objects under the directory | true/false | No | 
+| recursive | Specifies whether to recursively list S3 objects under the directory. | true/false | No | 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
