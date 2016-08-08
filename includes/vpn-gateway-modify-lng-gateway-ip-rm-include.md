@@ -1,6 +1,6 @@
 To modify the gateway IP address, use the `New-AzureRmVirtualNetworkGatewayConnection` cmdlet. As long as you keep the name of the local network gateway exactly the same as the existing name, the settings will overwrite. At this time, the "Set" cmdlet does not support modifying the gateway IP address.
 
-### <a name="gwipnoconnection"></a>How to modify the gatewayipaddress - no gateway connection
+### <a name="gwipnoconnection"></a>How to modify the gateway IP address - no gateway connection
 
 To update the gateway IP address for your local network gateway that doesn't yet have a connection, use the example below. You can also update the address prefixes at the same time. The settings you specify will overwrite the existing settings. Be sure to use the existing name of your local network gateway. If you don't, you'll be creating a new local network gateway, not overwriting the existing one.
 

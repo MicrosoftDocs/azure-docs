@@ -23,12 +23,9 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 
 ## Before you begin
 	
-- You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
 ## To modify IP address prefixes
-
-If you need to change the prefixes for your Resource Manager local network gateway, use the instructions below. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your VPN gateway connection.
-
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
