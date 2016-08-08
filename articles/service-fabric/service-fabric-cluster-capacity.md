@@ -39,7 +39,7 @@ Establish the number of node types your cluster needs to start out with.  Each n
 
  In this example, although you can decide to put all the services on one node type, we recommended that you place them in a cluster with two node types.  This allows for each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.  
 
-- Since you cannot the predict future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types at a later time. A Service Fabric cluster must have at least one node type.
+- Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types at a later time. A Service Fabric cluster must have at least one node type.
 
 ## The properties of each node type
 
