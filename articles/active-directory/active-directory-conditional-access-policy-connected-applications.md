@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to set Device-based Conditional Access policy for access control to Azure Active Directory connected applications| Microsoft Azure"
+	pageTitle="How to set Azure Active Directory device-based conditional access policy for access control to Azure Active Directory connected applications"
 	description="Explains how IT admins can set device-based conditional access policies for Azure AD connected applications."
 	services="active-directory"
 	documentationCenter=""
@@ -17,12 +17,17 @@
 	ms.author="markvi"/>
 
 
-# How to set Device-based Conditional Access policy for access control to Azure Active Directory connected applications 
+# How to set Azure Active Directory device-based conditional access policy for access control to Azure Active Directory connected applications 
 
 
-Device-based Conditional Access (CA) is the ability you have to protect organizational resources from access made from unknown / unmanaged devices or from devices that don’t meet security policies as defined by the organization. For an overview on Conditional Access, see [Azure Active Directory Conditional Access](active-directory-conditional-access.md). 
+Azure Active Directory device-based conditional access is the ability you have to protect organizational resources from:
 
-You can set device-based CA policy to protect the following: 
+- Access made from unknown / unmanaged devices 
+- From devices that don’t meet security policies as defined by your organization. 
+
+For an overview on conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access.md). 
+
+You can set device-based conditional access policies to protect the following: 
 
 - Office 365 SharePoint Online to protect organizational sites and documents. 
 
@@ -33,7 +38,7 @@ You can set device-based CA policy to protect the following:
 - On-premises applications published through the Azure AD Application Proxy. 
 
 
-In the Azure Management Portal, you can set this policy by going to the specific application in the directory. 
+In the Azure management portal, you can set this policy by going to the specific application in the directory. 
 
  
   ![Applications](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
@@ -47,7 +52,7 @@ After selecting the application, click the **Configure** tab to set the Conditio
 
  
 
-To enable Device-based Conditional Access policy, in the **Device based access rules** section, for **Enable Access Rules**, select **On**. 
+To enable a device-based conditional access policy, in the **Device based access rules** section, for **Enable Access Rules**, select **On**. 
 
 This policy consist of three components:
 

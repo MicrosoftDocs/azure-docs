@@ -61,7 +61,7 @@ With conditional access control, Azure Active Directory checks the specific cond
 
 - **Block**: Access may be applied under conditions like user location. For example, blocking access when a user is not on a trusted network. 
 
-- **Enrolled / Compliant devices**: At the device level, you can set policies that enforce that only Mobile Device Management (MDM) enrolled and compliant devices are allowed access. Microsoft Intune is used to validate the device is enrolled and compliant. The device level conditional access then ensures that only devices that are compliant with MDM policy are allowed access.  
+- **Compliant devices**: At the device level, you can set policies that enforce that only computers that are domain joined or mobile devices that are enrolled into the Mobile Device Management (MDM) and meet compliance, are allowed access. Microsoft Intune is used to check compliance on devices and report it back to Azure Active Directory for enforcement during application access.  
  
 
 ## Applications
