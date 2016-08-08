@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2016" 
+	ms.date="08/08/2016" 
 	ms.author="josephd"/>
 
 # Set up a web-based LOB application in a hybrid cloud for testing
@@ -22,8 +22,6 @@
 This topic steps you through creating a simulated hybrid cloud environment for testing a web-based line of business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
-
-For an example of a production LOB application hosted in Azure, see the **Line of business applications** architecture blueprint at [Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664).
 
 This configuration consists of:
 
@@ -39,15 +37,17 @@ This configuration provides a basis and common starting point from which you can
 
 There are three major phases to setting up this hybrid cloud test environment:
 
-1.	Set up the simulated hybrid cloud environment for testing.
+1.	Set up the simulated hybrid cloud environment.
 2.	Configure the SQL server computer (SQL1).
 3.	Configure the LOB server (LOB1).
 
 This workload requires an Azure subscription. If you have an MSDN or Visual Studio subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
+For an example of a production LOB application hosted in Azure, see the **Line of business applications** architecture blueprint at [Microsoft Software Architecture Diagrams and Blueprints](http://msdn.microsoft.com/dn630664).
+
 ## Phase 1: Set up the simulated hybrid cloud environment
 
-Use the instructions in the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md) topic. Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.
+Create the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, you can shut it down for now.
 
 This is your current configuration.
 
@@ -57,7 +57,7 @@ This is your current configuration.
 
 From the Azure portal, start the DC2 computer if needed.
 
-Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
+Next, create a virtual machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -81,9 +81,9 @@ Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure P
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Use the Azure portal to connect to SQL1 using the local administrator account.
+Use the Azure portal to connect to SQL1 using the local administrator account of SQL1.
 
-Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
+Next, configure Windows Firewall rules to allow basic connectivity testing and SQL Server traffic. From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.
 
 	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
@@ -91,7 +91,7 @@ Next, configure Windows Firewall rules to allow traffic for basic connectivity t
 
 The ping command should result in four successful replies from IP address 192.168.0.4.
 
-Next, add the extra data disk as a new volume with the drive letter F:.
+Next, add the extra data disk on SQL1 as a new volume with the drive letter F:.
 
 1.	In the left pane of Server Manager, click **File and Storage Services**, and then click **Disks**.
 2.	In the contents pane, in the **Disks** group, click **disk 2** (with the **Partition** set to **Unknown**).
@@ -110,14 +110,14 @@ Run these commands at the Windows PowerShell command prompt on SQL1:
 	md f:\Log
 	md f:\Backup
 
-Next, join SQL1 to the CORP Active Directory domain with these commands at the Windows PowerShell prompt.
+Next, join SQL1 to the CORP Windows Server Active Directory domain with these commands at the Windows PowerShell prompt on SQL1.
 
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
 Use the CORP\User1 account when prompted to supply domain account credentials for the **Add-Computer** command.
 
-After restarting, use the Azure portal to connect to SQL1 *using the local administrator account*.
+After restarting, use the Azure portal to connect to SQL1 *with the local administrator account of SQL1*.
 
 Next, configure SQL Server 2014 to use the F: drive for new databases and for user account permissions.
 
@@ -143,7 +143,7 @@ This is your current configuration.
  
 ## Phase 3: Configure the LOB server (LOB1)
 
-First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
+First, create a virtual machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
@@ -163,7 +163,7 @@ First, create an Azure Virtual Machine for LOB1 with these commands at the Azure
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name LOB1-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Next, use the Azure portal to connect to LOB1 with the credentials of the local administrator account.
+Next, use the Azure portal to connect to LOB1 with the credentials of the local administrator account of LOB1.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on LOB1, run these commands.
 
@@ -183,18 +183,18 @@ After restarting, use the Azure portal to connect to LOB1 with the CORP\User1 ac
 
 Next, configure LOB1 for IIS and test access from CLIENT1.
 
-1.	Run Server Manager, and then click **Add roles and features**.
-2.	On the Before you begin page, click **Next**.
-3.	On the Select installation type page, click **Next**.
-4.	On the Select destination server page, click **Next**.
-5.	On the Server roles page, click **Web Server (IIS)** in the list of **Roles**.
+1.	From Server Manager, click **Add roles and features**.
+2.	On the **Before you begin** page, click **Next**.
+3.	On the **Select installation type** page, click **Next**.
+4.	On the **Select destination server** page, click **Next**.
+5.	On the **Server roles** page, click **Web Server (IIS)** in the list of **Roles**.
 6.	When prompted, click **Add Features**, and then click **Next**.
-7.	On the Select features page, click **Next**.
-8.	On the Web Server (IIS) page, click **Next**.
-9.	On the Select role services page, select or clear the check boxes for the services you need for testing your LOB application, and then click **Next**.
-10.	On the Confirm installation selections page, click **Install**.
+7.	On the **Select features** page, click **Next**.
+8.	On the **Web Server (IIS)** page, click **Next**.
+9.	On the **Select role services** page, select or clear the check boxes for the services you need for testing your LOB application, and then click **Next**.
+10.	On the **Confirm installation selections** page, click **Install**.
 11.	Wait until the installation of components has completed and then click **Close**.
-12.	Connect to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
+12.	From the Azure portal, connect to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.
 13.	In the Address bar, type **http://lob1/** and then press ENTER. You should see the default IIS 8 web page.
 
 This is your current configuration.

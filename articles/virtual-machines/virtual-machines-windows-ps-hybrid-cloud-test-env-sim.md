@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2016" 
+	ms.date="08/08/2016" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
@@ -23,7 +23,7 @@ This article steps you through creating a simulated hybrid cloud environment wit
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
-This simulates a hybrid cloud production environment. It consists of:
+This simulates a hybrid cloud production environment and consists of:
 
 - A simulated and simplified on-premises network hosted in an Azure virtual network (the TestLab virtual network).
 - A simulated cross-premises virtual network hosted in Azure (TestVNET).
@@ -44,17 +44,17 @@ There are four major phases to setting up this hybrid cloud test environment:
 
 This configuration requires an Azure subscription. If you have an MSDN or Visual Studio subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. An Azure VPN gateway is implemented as a set of two Azure virtual machines. To minimize the costs, create the test environment and perform your needed testing and demonstration as quickly as possible.
+>[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your MSDN or paid subscription. An Azure VPN gateway is implemented as a set of two Azure virtual machines. To minimize the costs, create the test environment and perform your needed testing and demonstration as quickly as possible.
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration test environment](https://technet.microsoft.com/library/mt771177.aspx) topic to configure the DC1, APP1, and CLIENT1 computers in the Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 
 > [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later.
 
-Login to your account.
+Sign in to your account.
 
 	Login-AzureRMAccount
 
@@ -62,7 +62,7 @@ Get your subscription name using the following command.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription. Use the same subscription that you used to build your base configuration. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription. Use the same subscription that you used to build your base configuration in Phase 1. Replace everything within the quotes, including the < and > characters, with the correct name.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -131,7 +131,7 @@ This is your current configuration.
 
 First, obtain a random, cryptographically strong, 32-character pre-shared key from your network or security administrator. Alternately, use the information at [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) to obtain a pre-shared key.
 
-Next, use these commands to create the site-to-site VPN connection, which can take some time to complete.
+Next, use these commands to create the VNet-to-VNet VPN connection, which can take some time to complete.
 
 	$sharedKey="<pre-shared key value>"
 	$gwTestLab=Get-AzureRmVirtualNetworkGateway -Name TestLab_GW -ResourceGroupName $rgName
@@ -147,7 +147,7 @@ This is your current configuration.
  
 ## Phase 4: Configure DC2
 
-First, create an Azure Virtual Machine for DC2. Run these commands at the Azure PowerShell command prompt on your local computer.
+First, create a virtual machine for DC2. Run these commands at the Azure PowerShell command prompt on your local computer.
 
 	$rgName="<your resource group name>"
 	$locName="<your Azure location, such as West US>"
@@ -167,16 +167,16 @@ First, create an Azure Virtual Machine for DC2. Run these commands at the Azure 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC2-TestVNET-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Next, log on to the new DC2 virtual machine from the Azure portal.
+Next, connect to the new DC2 virtual machine from the Azure portal.
 
 Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing. From an administrator-level Windows PowerShell command prompt on DC2, run these commands.
 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-The ping command should result in four successful replies from IP address 10.0.0.4. This is a test of traffic across the Vnet-to-Vnet connection.
+The ping command should result in four successful replies from IP address 10.0.0.4. This is a test of traffic across the VNet-to-VNet connection.
 
-Next, add the extra data disk as a new volume with the drive letter F:.
+Next, add the extra data disk on DC2 as a new volume with the drive letter F:.
 
 1.	In the left pane of Server Manager, click **File and Storage Services**, and then click **Disks**.
 2.	In the contents pane, in the **Disks** group, click **disk 2** (with the **Partition** set to **Unknown**).
