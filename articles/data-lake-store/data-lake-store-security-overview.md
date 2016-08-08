@@ -97,13 +97,13 @@ You can use auditing or diagnostic logs, depending on whether you are looking fo
 
 To comply with regulations, an organization might require adequate audit trails if it needs to dig into specific incidents. Data Lake Store has built-in monitoring and auditing, and it logs all account management activities.
 
-For account management audit trails, view and choose the columns you want to log. You also can export audit logs to Azure Storage.
+For account management audit trails, view and choose the columns that you want to log. You also can export audit logs to Azure Storage.
 
 ![Audit logs](./media/data-lake-store-security-overview/audit-logs.png "Audit logs")
 
 ### Diagnostic logs
 
-You can set data access audit trails in the Azure portal (in Diagnostic Settings), and create an Azure Blob storage account in which the logs are stored.
+You can set data access audit trails in the Azure portal (in Diagnostic Settings) and create an Azure Blob storage account where the logs are stored.
 
 ![Diagnostic logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostic logs")
 
