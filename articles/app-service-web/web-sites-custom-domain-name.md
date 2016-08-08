@@ -207,7 +207,7 @@ Configure your CNAME record as follows (@ typically represents the root domain):
 <a name="enable"></a>
 ## Step 3. Enable the custom domain name for your app
 
-Back in the **Bring External Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully qualified
+Back in the **Bring External Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
 1.	If you haven't done so, log in to the [Azure portal](https://portal.azure.com).
