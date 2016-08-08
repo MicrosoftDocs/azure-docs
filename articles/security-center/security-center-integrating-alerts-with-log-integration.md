@@ -82,8 +82,6 @@ To learn more about Azure Audit Logs and property definitions, see:
 - [Audit operations with Resource Manager](../resource-group-audit.md)
 - [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) - To retrieve audit log events.
 
-To learn more about security alerts in Security Center, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
-
 To learn more about Security Center, see the following:
 
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
