@@ -55,7 +55,7 @@ When an end user requests the page https://partners.contoso.com/login.aspx (as d
 
 1.	The client (PC, phone, etc) make a DNS query for ‘partners.contoso.com’ to its configured recursive DNS service.  (A recursive DNS service, sometimes called a ‘local DNS’ service, does not host DNS domains directly.  Rather, it is used by the client to off-load the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.)
 2.	The recursive DNS service now resolves the ‘partners.contoso.com’ DNS name. Firstly, the recursive DNS service finds the name servers for the ‘contoso.com’ domain.  It then contacts those name servers to request the ‘partners.contoso.com’ DNS record.  The CNAME to contoso.trafficmanager.net is returned.
-3.	The recursive DNS service now finds the name servers for the ‘trafficmanager,net’ domain, which are provided by the Azure Traffic Manager service.  It contacts those name servers to request the ‘contoso.trafficmanager.net’ DNS record.
+3.	The recursive DNS service now finds the name servers for the ‘trafficmanager.net’ domain, which are provided by the Azure Traffic Manager service.  It contacts those name servers to request the ‘contoso.trafficmanager.net’ DNS record.
 4.	The Traffic Manager name servers receive the request.  They then choose which endpoint should be returned, based on:
 a.	The enabled/disabled state of each endpoint (disabled endpoints are not returned)
 b.	The current health of each endpoint, as determined by the Traffic Manager health checks.  For more information, see Traffic Manager Endpoint Monitoring.
