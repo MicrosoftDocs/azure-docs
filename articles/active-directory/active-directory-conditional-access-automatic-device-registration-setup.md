@@ -18,15 +18,15 @@
 
 
 
-# How to setup automatic Registration of Windows domain joined devices with Azure Active Directory 
+# How to setup automatic registration of Windows domain joined devices with Azure Active Directory 
 
 Registration of Windows domain joined computers with Azure AD is required to enable Device-based Conditional Access (link: Securing access to Office 365 and other apps connected to Azure AD) and additional user experiences in Windows 10 Anniversary.
 
 Update like allowing the use of the work or school account to get an enhanced SSO experience to Azure AD apps, enterprise roaming of settings across devices, use of the Windows Store for Business and have a stronger authentication and convenient sign-in with Windows Hello. 
 
 > [AZURE.NOTE] Windows 10 November 2015 Update supports some of the enhanced user experiences, however it is the Anniversary Update which has full support for Device-based Conditional Access.  
-For more information on Conditional Access please see [FWLink: Securing access to Office 365 and other apps connected to Azure AD].  
-For more information on Windows 10 devices in the workplace and the  experiences users get when registered with Azure AD please see: https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/. 
+For more information on Conditional Access please see [Azure Active Directory Conditional Access](active-directory-conditional-access.md).  
+For more information on Windows 10 devices in the workplace and the  experiences users get when registered with Azure AD please see [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md). 
 
 
 Registration is supported in previous versions of Windows including: 
@@ -37,7 +37,7 @@ Registration is supported in previous versions of Windows including:
 
 - Windows 7 
 
-For the use case of Windows Server computers used as a desktop (for example, a developer using a Windows Server as the primary computer) the following platforms are supported: 
+For the use case of Windows Server computers used as a desktop (for example, a developer using a Windows Server as the primary computer) the following platforms can be registered: 
 
 - Windows Server 2016 
 
@@ -77,7 +77,7 @@ If you have non-Windows 10 domain joined computers in your organization, you nee
 
  
 
-## Service Connection Point in on-premises Active Directory for discovery of Azure AD tenant information by computers registering to Azure AD 
+## Service Connection Point for discovery of Azure AD tenant 
 
 An SCP object that holds discovery information about the Azure AD tenant where computers will register, must exist in the Configuration Naming Context partition of the forest of the domain where computers are joined to. In a multi-forest configuration of Active Directory, the SCP must exist in all forests where computers have joined. 
 
@@ -114,7 +114,7 @@ If the SCP doesn’t exist, you can create it by running the following PowerShel
 > When running the cmdlet Initialize-ADSyncDomainJoinedComputerSync, replace [connector account name] with the domain account that's used as the Active Directory connector account.  
 > The cmdlet above uses the Active Directory PowerShell module which relies on Active Directory Web Services (ADWS) in domain controllers (DCs). ADWS is supported in Windows Server 2008 R2 or above DCs. If you only have Windows Server 2008 DCs or below you can use System.DirectoryServices API via PowerShell to create the SCP and assign the appropriate Keywords values. 
 
-## AD FS Issuance Transform Rules for instant computer registration (applicable to federated configurations) 
+## AD FS rules for instant computer registration (federated orgs) 
 
 On a federated configuration of Azure AD, computers will rely on AD FS (or the on-premises federation server) to authenticate to Azure AD for registration against the Azure Device Registration Service (Azure DRS). 
 
@@ -187,15 +187,37 @@ To create these rules manually, in AD FS you can use the following PowerShell sc
 
  
 
-Ensure that the policy for allowing users to register devices is enabled in Azure AD 
+## Ensure AD FS is set up to support authentication of device for registration
 
-TBD 
+You need to make sure that Windows Integrated authentication (WIA) is set as a valid alternative to multi-factor authentication (MFA) in AD FS for device registration.
 
- 
+For this you need to have an issuance transform rule that passes on the auth method.
 
-Ensure Windows Integrated authentication (WIA) is set as a valid alternative to Multifactor authentication (MFA) in AD FS 
+1. Open the AD FS management console and navigate to **AD FS > Trust Relationships > Relying Party Trusts**. 
 
-TBD 
+2. Right-click on the Microsoft Office 365 Identity Platform relying party trust object, and then select **Edit Claim Rules**.
+
+2.	On the **Issuance Transform Rules** tab, select **Add Rule**.
+
+3.	Select **Send Claims Using a Custom Rule** from the **Claim rule** template list. 
+
+4.	Select **Next**.
+
+4.	In the **Claim rule name** textbox, type **Auth Method Claim Rule**.
+
+5.	In the **Claim rule** textbox, type `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
+=> issue(claim = c);`
+
+6. On your federation server, open Windows PowerShell.
+
+7. Type the following command:
+
+	`Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
+
+The **\<RPObjectName>\** is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.`
+
+
+
 
  
 
@@ -237,7 +259,7 @@ To set the policy, perform the following steps:
 
 7. Link the group policy object to a location of your choice. For example, a specific organizational unit (OU) were computers are located or a specific security group containing computers that will automatically register with Azure AD. To enable this policy for all of the domain joined Windows 10 and Windows Server 2016 computers at your organization, link the Group Policy object to the domain. 
 
-## Windows Installer package for registration of non-Windows 10 / Windows Server 2016 domain joined computers 
+## MSI package for non-Windows 10 computers  
 
 To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download under the following location: [FWLink: Download location of msi] 
 
