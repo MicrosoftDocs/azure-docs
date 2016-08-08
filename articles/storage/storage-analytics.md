@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Storage Analytics
@@ -84,11 +84,11 @@ The following table describes each attribute in the log name.
 | Attribute      	| Description                                                                                                                                                                                	|
 |----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | <service-name> 	| The name of the storage service. For example: blob, table, or queue.                                                                                                                        	|
-| YYYY           	| The four digit year for the log. For example: 2011.                                                                                                                                         	|
-| MM             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
-| DD             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
-| hh             	| The two digit hour that indicates the starting hour for the logs, in 24 hour UTC format. For example: 18.                                                                                   	|
-| mm             	| The two digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00. 	|
+| YYYY           	| The four-digit year for the log. For example: 2011.                                                                                                                                         	|
+| MM             	| The two-digit month for the log. For example: 07.                                                                                                                                           	|
+| DD             	| The two-digit month for the log. For example: 07.                                                                                                                                           	|
+| hh             	| The two-digit hour that indicates the starting hour for the logs, in 24-hour UTC format. For example: 18.                                                                                   	|
+| mm             	| The two-digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00. 	|
 | <counter>      	| A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001.   	|
 
 The following is a complete sample log name that combines the previous examples.
@@ -106,7 +106,7 @@ All log blobs are stored with metadata that can be used to identify what logging
 
 | Attribute  	| Description                                                                                                                                                                                                                                               	|
 |------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType    	| Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.   Example 1: write Example 2: read,write Example 3: read,write,delete. 	|
+| LogType    	| Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas. Example 1: write; Example 2: read,write; Example 3: read,write,delete. 	|
 | StartTime  	| The earliest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:21:46Z.                                                                                                                                          	|
 | EndTime    	| The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z.                                                                                                                                           	|
 | LogVersion 	| The version of the log format. Currently the only supported value is 1.0.                                                                                                                                                                                 	|
@@ -157,7 +157,7 @@ For more information about the capacity metrics, see [Storage Analytics Metrics 
 
 ### How metrics are stored
 
-All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service is can be accessed in tables that are named as described in the following table.
+All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service can be accessed in tables that are named as described in the following table.
 
 | Metrics level                      	| Table names                                                                                                                 	| Supported versions                                                                                                                       	|
 |------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|

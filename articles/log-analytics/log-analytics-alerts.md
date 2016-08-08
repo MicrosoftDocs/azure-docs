@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2016"
+   ms.date="08/03/2016"
    ms.author="bwren" />
 
 # Alerts in Log Analytics

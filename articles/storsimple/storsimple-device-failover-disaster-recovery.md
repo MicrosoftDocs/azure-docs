@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/25/2016"
+   ms.date="08/05/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -32,6 +32,16 @@ The guidance in this tutorial applies to StorSimple physical and virtual devices
 ## Disaster recovery (DR) and device failover
 
 In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. During the failover, the volume containers from the source device change ownership and are transferred to the target device.
+
+Typically following a DR, the most recent backup is used to restore the data to the target device. However, if there are multiple backup policies for the same volume, then the backup policy with the largest number of volumes gets picked and the most recent backup from that policy is used to restore the data on the target device.
+
+As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
+
+- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
+- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
+
+In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The  most recent backup from this policy is used to restore data.
+
 
 ## Considerations for device failover
 

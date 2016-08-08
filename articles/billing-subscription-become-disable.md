@@ -1,11 +1,11 @@
 <properties
 	pageTitle="What do I do if my Azure subscription is disabled? | Microsoft Azure"
 	description="Describes the reasons and resolution for Azure subscription becomes disabled"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
