@@ -175,7 +175,7 @@ Next, you'll set the application gateway. You can use the `Set-AzureApplicationG
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
 
-**Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
+> [AZURE.NOTE] The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -189,7 +189,7 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gatway is running, and is ready to take traffic. 
 
-**Note:** The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
+> [AZURE.NOTE] The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
