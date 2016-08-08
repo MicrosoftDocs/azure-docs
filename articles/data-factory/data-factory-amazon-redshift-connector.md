@@ -24,8 +24,7 @@ Data factory currently supports only moving data from Amazon Redshift to other d
 
 ## Prerequisites
 
-- Grant Azure or Data Management Gateway the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.  
-- 
+- If you are moving data to an on-premises data store, grant Azure or Data Management Gateway the access to Amazon Redshift cluster. See [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions.  
 
 ## Sample: Copy data from Amazon Redshift to Azure Blob
 This sample shows how to copy data from a Amazon Redshift database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -215,7 +214,6 @@ The following table provides description for JSON elements specific to Amazon Re
 | username | Name of user who has access to the database.| Yes |
 | password | Password for the user account.| Yes |
 
-See [Setting Credentials and Security](data-factory-data-management-gateway.md#set-credentials-and-security) for details about setting credentials for an on-premises Amazon Redshift data source.
 
 ## Dataset type properties
 
