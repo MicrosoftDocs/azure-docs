@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,9 @@
 
 ## Overview
 
-You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is https://<*mystorageaccount*>.blob.core.windows.net. If you map a custom domain and subdomain such as **www.contoso.com** to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain.
+You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. If you map a custom domain and subdomain such as **www.contoso.com** to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain.
+
+>[AZURE.IMPORTANT] Azure Storage does not yet support HTTPS with custom domains. We are aware that customers are interested in this feature, and it will be available in a future release.
 
 There are two ways to point your custom domain to the blob endpoint for your storage account. The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required. The destination domain is your Blob service endpoint.
 

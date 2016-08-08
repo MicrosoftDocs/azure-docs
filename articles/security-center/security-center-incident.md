@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="08/03/2016"
    ms.author="yurid"/>
 
 # Handling Security Incident in Azure Security Center 
@@ -56,9 +56,9 @@ The information on this blade will vary according to the alert. Read [Managing a
 
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
 
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+- [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 - [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.
