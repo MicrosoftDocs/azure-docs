@@ -3,7 +3,7 @@
    description="Learn about Azure SQL Database Solutions"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

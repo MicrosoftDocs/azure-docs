@@ -231,6 +231,7 @@ for that node.
     ![Screenshot of the Report blade](./media/automation-dsc-getting-started/NodeReport.png)
 
 On the blade for an individual report, you can see the following status information for the corresponding consistency check:
+
 - The report status — whether the node is "Compliant", the configuration "Failed", or the node is "Not Compliant" (when the node is in **applyandmonitor** mode and the machine is not in the desired state).
 - The start time for the consistency check.
 - The total runtime for the consistency check.
