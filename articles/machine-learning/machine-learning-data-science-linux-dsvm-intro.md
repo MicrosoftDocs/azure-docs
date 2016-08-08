@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/08/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
@@ -65,6 +65,8 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
+>[AZURE.NOTE] The current VM setup is incompatible with the monitoring agent installation. It should be disabled during creation. If you don't, the set up will take much longer and Azure will report that the deployment failed. (If you do not disable the monitoring agent VM will, in fact, be usable.)
+
   **a. Basics**: 
 
    - **Name**: Name of your data science server you are creating.
@@ -83,6 +85,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Monitoring**: disable **Diagnostics**. 
 
   **d. Summary**: 
 
@@ -118,21 +121,6 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
 
 Once you login to the VM using either the SSH client OR XFCE graphical desktop through X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE you can see applications menu shortcuts and desktop icons for many of the tools. 
 
-## How to create a strong password on the Jupyter notebook server 
-
-Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-Enter a strong password when prompted.
-
-You will see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **/usr/local/etc/jupyter/jupyter_notebook_config.py** with a parameter name ***c.NotebookApp.password***. You will need to edit this file as the **root user**. 
-
-You should only replace the existing hash value that is within the quotes. The quotes and the ***sha1:*** prefix for the parameter value need to be retained.
-
-Finally, you need to stop and restart the Jupyter service that is installed in /etc/init.d/jupyter folder. 
-
->[AZURE.NOTE] If your new password is not accepted after restarting jupyter or you have issues stopping jupyter, try restarting the virtual machine.
 
 ## Tools installed on the Linux Data Science Virtual Machine
 
@@ -163,12 +151,25 @@ Python 3.5 is installed at */anaconda/envs/py35/bin*
 
 Now to invoke python interactive session just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding setup, you can type ***spyder*** command to launch the Python IDE. 
 
-### Jupyter Notebook
-The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server.
+### Jupyter Notebook 
+
+The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. The Jupyter Notebook is accessed through JupyterHub. You log in using your local Linux username and password. The JypyterHub needs to be configured. The VM expects the user '*adminuser*' to be present on the system, so you need to add it. At a command prompt, type:
+ 
+	> sudo useradd adminuser
+ 
+You will then need to restart the JupyterHub service with the cmd:
+ 
+	> sudo systemctl start jupyterhub
+
+The Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
 
 >[AZURE.NOTE] Continue if you get any certificate warnings. 
 
-You can access the Jupyter notebook server from any host. Just type in "https://\<VM DNS name or IP Address\>:9999/". We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created earlier. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
+You can access the Jupyter notebook server from any host. Just type in "https://\<VM DNS name or IP Address\>:8000/". 
+
+>[AZURE.NOTE] Port 8000 is opened in the firewall by default when the VM is provisioned.
+
+We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using your local Linux username and password. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
 
 
 ### IDEs and Editors 
