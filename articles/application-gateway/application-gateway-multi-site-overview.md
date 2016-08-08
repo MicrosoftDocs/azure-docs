@@ -121,4 +121,4 @@ There is no change required in routing rule. Routing rule 'Basic' should continu
 	
 ## Next steps 
 
-After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multi-site-arm-ps.md) to create an application gateway with ability to support more than one web application.
+After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.
