@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="08/07/2016" 
 	ms.author="byvinyal"/>
 
-#High Density Hosting on Azure App Service#
+# High Density Hosting on Azure App Service#
 
-##Understanding app scaling##
+## Understanding app scaling##
 
 When using App Service, your application will be decoupled from the capacity 
 allocated to it by 2 concepts:
@@ -42,7 +42,7 @@ However, when multiple apps share an **App Service Plan**, there will be an
 instance of that app running on each and every instance of that 
 **App Service Plan**.
 
-##Per App scaling##
+## Per App scaling##
 **Per App scaling** is a features that can be enabled at the 
 **App Service Plan** level and then leveraged per application.
 
@@ -55,9 +55,8 @@ The ARM template below will create an **App Service Plan** scaled out to 10
 instances and an app configured to use **Per App scaling** and only scale to 
 5 instances.
 
-To do this, the App Service Plan is setting the per site scaling property is 
-set to true ( `"perSiteScaling": true`) and the App is setting the number of 
-workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
+To do this, the App Service plan is setting the **per site scaling** property to true ( `"perSiteScaling": true`) and the App is setting the **number of 
+workers** to use to 1 `"properties": { "numberOfWorkers": "1" }`
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -105,7 +104,7 @@ workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
     }
 
 
-##Recommended configuration for High Density Hosting##
+## Recommended configuration for High Density Hosting
 
 **Per App scaling** is a feature that is enabled in both public Azure regions 
 as well as in App Service Environments, however the recommended strategy is to 

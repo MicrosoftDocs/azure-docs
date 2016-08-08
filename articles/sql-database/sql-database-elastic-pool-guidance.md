@@ -22,7 +22,7 @@ Assess whether using an elastic database pool is cost efficient based on databas
 
 - For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, West India and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
 
 ## Elastic database pools
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Move data using Copy Activity
@@ -55,7 +55,7 @@ Copy Activity copies data from a **source** data store to a **sink** data store.
 Category | Data store | Supported as source | Supported as sink
 :------- | :--------- | :------------------ | :-----------------
 Azure | [Azure Blob](data-factory-azure-blob-connector.md) <br/> [Azure Data Lake Store](data-factory-azure-datalake-connector.md) <br/> [Azure SQL Database](data-factory-azure-sql-connector.md) <br/> [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) <br/> [Azure Table](data-factory-azure-table-connector.md) <br/> [Azure DocumentDB](data-factory-azure-documentdb-connector.md) <br/> | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ 
-Databases | [SQL Server](data-factory-sqlserver-connector.md)\* <br/> [Oracle](data-factory-onprem-oracle-connector.md)\* <br/> [MySQL](data-factory-onprem-mysql-connector.md)\* <br/> [DB2](data-factory-onprem-db2-connector.md)\* <br/> [Teradata](data-factory-onprem-teradata-connector.md)\* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)\* <br/> [Sybase](data-factory-onprem-sybase-connector.md)\* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)\* <br/>  | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓| ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp; 
+Databases | [SQL Server](data-factory-sqlserver-connector.md)\* <br/> [Oracle](data-factory-onprem-oracle-connector.md)\* <br/> [MySQL](data-factory-onprem-mysql-connector.md)\* <br/> [DB2](data-factory-onprem-db2-connector.md)\* <br/> [Teradata](data-factory-onprem-teradata-connector.md)\* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)\* <br/> [Sybase](data-factory-onprem-sybase-connector.md)\* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)\* <br/>[MongoDB](data-factory-on-premises-mongodb-connector.md)\* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓| ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp; 
 File | [File System](data-factory-onprem-file-system-connector.md)\* <br/> [Hadoop Distributed File System (HDFS)](data-factory-hdfs-connector.md)\* | ✓ <br/> ✓ <br/> | ✓ <br/> &nbsp; 
 Others | [Salesforce](data-factory-salesforce-connector.md)<br/> [Generic ODBC](data-factory-odbc-connector.md)\* <br/> [Generic OData](data-factory-odata-connector.md) <br/> [Web Table (table from HTML)](data-factory-web-table-connector.md) <br/> [GE Historian](data-factory-odbc-connector.md#ge-historian-store)* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓  | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
 
