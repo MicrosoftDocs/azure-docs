@@ -289,7 +289,7 @@ To reiterate, the following statements do **honor** resource classes:
 	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
 	```
 
-4. **Increase resource class:** To add a user to a workload management role use the following query.
+4. **Increase resource class:** To add a user to a higher workload management role use the following query.
 
 	```sql
 	EXEC sp_addrolemember 'largerc', 'newperson'
