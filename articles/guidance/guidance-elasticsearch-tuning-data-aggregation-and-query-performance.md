@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
    
 # Tuning data aggregation and query performance with Elasticsearch on Azure

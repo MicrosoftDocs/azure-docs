@@ -1,5 +1,5 @@
 <properties
- pageTitle="How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)"
+ pageTitle="How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN) | Microsoft Azure"
  description="Learn about the options for controlling time-to-live for blobs in Azure CDN caching."
  services="cdn"
  documentationCenter=".NET"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="05/11/2016"
+ ms.date="07/28/2016"
  ms.author="casoper"/>
 
 
@@ -37,7 +37,7 @@ The following code example is a console application that uses the Azure Storage 
 
 Assuming you have enabled the CDN as shown above, the blob that is created will be cached by the CDN. Be sure to specify your account credentials using your own storage account and access key:  
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;

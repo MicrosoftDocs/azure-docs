@@ -13,18 +13,11 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
 # Azure Security Center planning and operations guide
 This guide is for information technology (IT) professionals, IT architects, information security analysts and cloud administrators whose organizations are planning to use Azure Security Center.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
-## Azure Security Center overview
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
-
-Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Planning guide
 This guide covers a set of steps and tasks that you can follow to optimize your use of Security Center based on your organization’s security requirements and cloud management model. In order to take full advantage of Security Center, it is important to understand how different individuals or teams in your organization will use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Security Center are:
@@ -37,6 +30,9 @@ This guide covers a set of steps and tasks that you can follow to optimize your 
 
 In the next section you will learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
+> [AZURE.NOTE] Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
+
+
 ## Security roles and access controls
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. Below you have an example of fictitious personas and their respective roles and security responsibilities:
 
@@ -47,7 +43,7 @@ Security Center enables these individuals to meet these various responsibilities
 **Jeff (Cloud Workload Owner)**
 
 - Views and Completes Security Center Recommendations in the Azure Portal
-- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Rex (CISO/CIO)**
 
@@ -61,12 +57,12 @@ Security Center enables these individuals to meet these various responsibilities
 **Sam (Security Operations)**
 
 - Views and Triages Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 
 **Sherlock (Security Analyst)**
 
 - Views Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx))
+- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
 - Analyzes Alert Trends in Power BI
 - Reviews Event Logs from Storage
 
@@ -105,7 +101,7 @@ A security policy defines the set of controls which are recommended for resource
 
 Policies that are enabled in the subscription level will automatically propagate to all resources groups within the subscription as shown in the diagram below:
 
-![Security Policies](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2.png)
+![Security Policies](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
 As shown in the above figure, security policies for resource groups can be inherited from the subscription level.
 
@@ -123,7 +119,7 @@ Before configuring security policies, you should review each of the [security re
 
 **Endpoint Protection**: If a virtual machine does not have an endpoint protection solution enabled, Security Center will recommend that you install one. If you have a preferred endpoint protection solution that you’ve already adopted on-premises, you will need to decide if you will use the same antimalware for your Azure VMs. Azure Security Center provides you with several endpoint protection options.  You can use the free Microsoft Antimalware or choose among a list of endpoint protection solutions from integrated partners. For more information on how to deploy antimalware using Azure Security Center, read [Install Endpoint Protection in Azure Security Center](security-center-install-endpoint-protection.md).
 
-**System Updates**: Azure Security Center will identify find virtual machines that are missing security or critical operating system updates for IaaS and Cloud Services (PaaS). Consider who will be responsible for applying updates when needed and how they will be applied. Many organizations use WSUS, Windows Update, or another tool.
+**System Updates**: Azure Security Center will identify virtual machines that are missing security or critical operating system updates for IaaS and Cloud Services (PaaS). Consider who will be responsible for applying updates when needed and how they will be applied. Many organizations use WSUS, Windows Update, or another tool.
 
 **Baseline Configurations**: If virtual machine operating system configurations do not match the recommended baselines, a recommendation will be surfaced. You should review the set of baselines [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) and consider how operating system configurations will be applied.
 
@@ -194,7 +190,7 @@ Most Azure environments are dynamic, with new resources being spun up and down o
 
 When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Center will automatically discover these resources and begin to monitor their security. This also includes PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](security-center-policies.md), additional monitoring capabilities will be enabled automatically for your virtual machines.
 
-![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3.png)
+![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-ga.png)
 
 1.	For virtual machines, access the **Resource security health** tile, click **Virtual Machines**. Any issues with enabling data collection or related recommendations will be surfaced in the **Monitoring Recommendations** section.
 2.	View the **Recommendations** to see what, if any, security risks were identified for the new resource.
@@ -225,20 +221,20 @@ You can use Security Center Alerts during the following stages:
 - **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
 - **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue.
 
-Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided, to inform further research and to begin mitigation.
+Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation.
 
 The example below shows a suspicious RDP activity taking place:
 
-![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5.png)
+![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 As you can see, this blade shows details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
 
-## Next steps
+## See also
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:
 
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Protect Resource Manager-deployed VMs with Azure Backup | Microsoft Azure"
-	description="Protect Resource Manager-deployed VMs with Azure Backup service. Use backups of Resource Manager-deployed VMs and Premium Storage VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
+	pageTitle="First look: Protect Azure VMs with a recovery services vault | Microsoft Azure"
+	description="Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -18,18 +18,19 @@
 	ms.author="markgal; jimpark"/>
 
 
-# First look: Back up Resource Manager-deployed VMs to a Recovery Services vault
+# First look: Protect Azure VMs with a recovery services vault
 
 > [AZURE.SELECTOR]
-- [Back up Resource Manager-deployed VMs](backup-azure-vms-first-look-arm.md)
-- [Back up Classic mode VMs](backup-azure-vms-first-look.md)
+- [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [First Look: Protect Azure VMs with a backup vault](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). Recovery Services vaults protect:
+This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
 
 - Azure Resource Manager-deployed VMs
 - Classic VMs
 - Standard storage VMs
 - Premium storage VMs
+- VMs encrypted using Azure Disk Encryption, with BEK and KEK (supported using Powershell)
 
 For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
@@ -37,20 +38,20 @@ For additional information on protecting Premium storage VMs, see [Back up and R
 
 At a high level, here are the steps that you will complete.  
 
-1. Create a Recovery Services vault for a VM.
+1. Create a recovery services vault for a VM.
 2. Use the Azure portal to select a Scenario, set Policy, and identify items to protect.
 3. Run the initial backup.
 
 
 
-## Step 1 - Create a Recovery Services vault for a VM
+## Step 1 - Create a recovery services vault for a VM
 
-A Recovery Services vault is an entity that stores all the backups and recovery points that have been created over time. The Recovery Services vault also contains the backup policy applied to the protected VMs.
+A recovery services vault is an entity that stores all the backups and recovery points that have been created over time. The recovery services vault also contains the backup policy applied to the protected VMs.
 
->[AZURE.NOTE] Backing up VMs is a local process. You cannot back up VMs from one location to a Recovery Services vault in another location. So, for every Azure location that has VMs to be backed up, at least one Recovery Services vault must exist in that location.
+>[AZURE.NOTE] Backing up VMs is a local process. You cannot back up VMs from one location to a recovery services vault in another location. So, for every Azure location that has VMs to be backed up, at least one recovery services vault must exist in that location.
 
 
-To create a Recovery Services vault:
+To create a recovery services vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -58,7 +59,7 @@ To create a Recovery Services vault:
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults are displayed.
+    The list of recovery services vaults are displayed.
 
 3. On the **Recovery Services vaults** menu, click **Add**.
 
@@ -76,9 +77,9 @@ To create a Recovery Services vault:
 
 7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 
-    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the Recovery Services vault and the Azure Backup service handle this automatically.
+    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
+8. Click **Create**. It can take a while for the recovery services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of recovery services vaults.
 
     ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -102,7 +103,7 @@ To edit the storage replication setting:
 
 Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
-1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal,
+1. If you already have a recovery services vault open, proceed to step 2. If you do not have a recovery services vault open, but are in the Azure portal,
 on the Hub menu, click **Browse**.
 
   - In the list of resources, type **Recovery Services**.
@@ -110,8 +111,8 @@ on the Hub menu, click **Browse**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults appears.
-  - From the list of Recovery Services vaults, select a vault.
+    The list of recovery services vaults appears.
+  - From the list of recovery services vaults, select a vault.
 
     The selected vault dashboard opens.
 

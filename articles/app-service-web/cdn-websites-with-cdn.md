@@ -23,7 +23,7 @@
 
 Integrating Web Apps with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](web-sites-publish-source-control.md) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](app-service-continuous-deployment.md) process
 - Easily upgrade the NuGet packages in your web app in Azure App Service, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 - Integrate ASP.NET bundling and minification with Azure CDN

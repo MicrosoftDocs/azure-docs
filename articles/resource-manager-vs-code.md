@@ -134,3 +134,4 @@ When your template is ready, you can deploy the new resources following the inst
 
 - To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - To learn about template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+- For more examples of working with Visual Studio Code, see [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).

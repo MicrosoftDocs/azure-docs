@@ -60,7 +60,7 @@ The tutorial instructions work with either of the following products:
 * Visual Studio 2013
 * Visual Studio 2015
 
-If you don't have one of these, Visual Studio 2015 will be installed automatically when you install the Azure SDK. 
+If you don't have one of these, Visual Studio 2015 will be installed automatically when you install the Azure SDK.
 
 ## Application architecture
 
@@ -229,7 +229,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Leave the file open for editing.
 
 2. In the [Azure classic portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
@@ -314,10 +314,10 @@ And the *ServiceConfiguration.Cloud.cscfg* file includes the values you entered 
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -443,7 +443,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	If you're using Visual Studio 2015, replace "v11.0" with "MSSQLLocalDB".
 
 2. Save your changes.
@@ -869,3 +869,4 @@ For more information, see the following resources:
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [How to manage Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

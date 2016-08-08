@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic Apps install on-premises data gateway  | Microsoft Azure"
    description="Information on how to install the on-premises data gateway for use in a logic app."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

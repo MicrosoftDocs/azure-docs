@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
 # Always Encrypted - Protect sensitive data in SQL Database with database encryption and store your encryption keys in the Windows certificate store
@@ -39,8 +39,6 @@ Follow the steps in this article and learn how to setup Always Encrypted for an 
     - Create a [Column Encryption Key (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
 - Create a database table and encrypt some columns.
 - Create an application that inserts, selects, and displays data from the encrypted columns.
-
-> [AZURE.NOTE] Always Encrypted for Azure SQL Database is currently in preview.
 
 
 ## Prerequisites
@@ -539,7 +537,7 @@ After creating a database that uses Always Encrypted you may want to do the foll
 - Run this sample from a different computer. It won't have access to the encryption keys so it will not have access to the plaintext data and it will not run successfully. 
 - [Rotate and cleanup your Keys](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
-- Deploy Always Encrypted certificates to other client machines.
+- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the section titled *Making Certificates Available to Applications and Users*).
 
 
 ## Related Information

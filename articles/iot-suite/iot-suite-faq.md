@@ -62,8 +62,18 @@ At this time, you cannot create a preconfigured solution with a [Microsoft Azure
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
+## Next steps
+
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [IoT security from the ground up][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
-[link-azuresublimits]: https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com

@@ -12,428 +12,123 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/28/2016"
+   ms.date="08/01/2016"
    ms.author="mthalman" />
 
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
 
-This article describes the steps to set up continuous integration for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion. Note that these instructions re-create the cluster from scratch every time.
+This article describes the steps to set up continuous integration for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion.
 
 This document reflects the current procedure and is expected to change over time.
 
 ## Prerequisites
 
-To get started, set up your project on Visual Studio Team Services:
+To get started, follow these steps:
 
-1. If you haven't already created a Team Services account, set it up by using your [Microsoft account](http://www.microsoft.com/account).
+1. Ensure that you have access to a Team Services account or [create one](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) yourself.
 
-2. Create a new project on Team Services by using the Microsoft account.
+2. Ensure that you have access to a Team Services team project or [create one](https://www.visualstudio.com/docs/setup-admin/create-team-project) yourself.
 
-3. Push the source for your new or existing Service Fabric app to this project.
+3. Ensure that you have a Service Fabric cluster to which you can deploy your application or create one using the [Azure Portal](service-fabric-cluster-creation-via-portal.md), an [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md), or [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-For more information about working with Team Services projects, see [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+4. Ensure that you have already created a Service Fabric Application (.sfproj) project. You must have a project that was created or upgraded with Service Fabric SDK 2.1 or higher (the .sfproj file should contain a ProjectVersion property value of 1.1 or higher).
 
-## Set up your service principal
+>[AZURE.NOTE] Custom build agents are no longer required. Team Services hosted agents now come pre-installed with Service Fabric cluster management software, allowing for deployment of your applications directly from those agents.
 
-### Set up authentication for automation
+## Configure and share your source files
 
-Before you can set up the build machine, you need to create a [service principal](../resource-group-create-service-principal-portal.md) that the build agent will use to authenticate to Azure. You also need to create a certificate and upload it to Azure Key Vault, because Key Vault does not support service principal authentication. You can perform these steps from any machine. Your dev machine is a good choice.
+The first thing you'll want to do is prepare a publish profile for use by the deployment process that will execute within Team Services.  The publish profile should be configured to target the cluster that you've previously prepared:
 
-### Install Azure PowerShell and sign in
+1.	Choose a publish profile within your Application project that you want to use for your continuous integration workflow and follow the [publish instructions](service-fabric-publish-app-remote-cluster.md) on how to publish an application to a remote cluster. You don't actually need to publish your application though. You can simply click the **Save** hyperlink in the publish dialog once you've configured things appropriately.
+2.	If you want your application to be upgraded for each deployment that occurs within Team Services, you'll want to configure the publish profile to enable upgrade. In the same publish dialog used in step 1, ensure that the **Upgrade the Application** checkbox is checked.  Learn more about [configuring additional upgrade settings](service-fabric-visualstudio-configure-upgrade.md). Click the **Save** hyperlink to save the settings to the publish profile.
+3.	Ensure that you've saved your changes to the publish profile and cancel the publish dialog.
+4.	Now it's time to [share your Application project source files](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) with Team Services. Once your source files are accessible in Team Services, you can now move on to the next step of generating builds. 
 
-1.  Install PowerShellGet.
+## Create a build definition
 
-    a. If you are running Windows 10 with the latest updates, you can skip this step (PowerShellGet is already installed).
+A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. The goal of the build definition that you'll be creating is to produce a Service Fabric application package, as well as including some other supplemental files, that can be used to eventually deploy the application to a cluster. Learn more about Team Services [build definitions](https://www.visualstudio.com/docs/build/define/create).
 
-    b. If not, install [Windows Management Framework 5.0](https://aka.ms/wmf5download), which includes PowerShellGet.
+### Create a definition from the build template
 
-2.	Install and update the AzureRM module.
-If you have any previous version of Azure PowerShell installed, remove it:
+1.	Open your team project in Visual Studio Team Services.
+2.	Select the **Build** tab.
+3.	Select the green **+** sign to create a new build definition.
+4.	In the dialog that opens, select **Azure Service Fabric Application** within the **Build** template category.
+5.	Select **Next**.
+6.	Select the repository and branch associated with your Service Fabric application.
+7.	Select the agent queue you wish to use. Hosted agents are supported.
+8.	Select **Create**.
+9. Save the build definition and provide a name.
+10. The following is a description of the build steps generated by the template:
 
-    a. Right-click the Start button, and then select **Add/Remove Programs**.
-
-    b. Search for "Azure PowerShell" and uninstall it.
-
-    c. Open a PowerShell command prompt as an administrator.
-
-    d. Install the AzureRM module by using the command `Install-Module AzureRM`.
-
-3.	Disable (or enable) Azure data collection.
-
-    Azure cmdlets will prompt you to opt in or out of data collection until you make a choice. These prompts will block automation while waiting for user input. To suppress these prompts, make a choice ahead of time by running one of the following commands:
-
-    - Enable-AzureRmDataCollection
-
-    - Disable-AzureRmDataCollection
-
-4.	Sign in to Azure PowerShell:
-
-    a. Run the command `Login-AzureRmAccount`.
-
-    b. In the dialog box that appears, enter your Azure credentials.
-
-    c. Run the command `Get-AzureRmSubscription`.
-
-    d. Find the subscription you want to use.
-
-    e. Run the command `Select-AzureRmSubscription -SubscriptionId <ID for your subscription>`.
-
-### Create a service principal
-
-1. Follow [these instructions](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) to create a service principal and service endpoint for your project.
-
-2. Note the values that are printed at the end of the script's output. You will need them to set up your build definition.
-
-### Create a certificate and upload it to a new Azure Key Vault
-
->[AZURE.NOTE] This example script generates a self-signed certificate, which is not a secure practice and is only acceptable for experimentation. Follow your organization's guidelines to obtain a legitimate certificate instead. These instructions also use a single certificate for both the server and the client. In production, you should use separate server and client certificates.
-
-1. Download and extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to a folder on this machine.
-
-2. In an admin PowerShell prompt, change to the directory `<extracted zip>/Manual`.
-
-3. Run the PowerShell script `CreateAndUpload-Certificate.ps1` with the following parameters:
-
-| Parameter | Value |
+| Build step | Description |
 | --- | --- |
-| KeyVaultLocation | Any value. This parameter must match the location in which you plan to create the cluster. |
-| CertificateSecretName | Any value. |
-| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.cloudapp.azure.com` |
-| SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
-| KeyVaultName | Any value. |
-| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
-| PfxFileOutputPath| Any value. This file is used to import the certificate onto your build machine. |
-
-When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
-
- - `ServiceFabricCertificateThumbprint`
- - `ServiceFabricKeyVaultId`
- - `ServiceFabricCertificateSecretId`
-
-## Set up your build machine
-
-### Install Visual Studio 2015
-
-If you have already provisioned a machine (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on the selected machine.
-
-If you don't yet have a machine, you can quickly provision an Azure virtual machine (VM) with Visual Studio 2015 preinstalled. To do this:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Select the **New** command in the upper-left corner of the screen.
-
-3. Select **Marketplace**.
-
-4. Search for **Visual Studio 2015**.
-
-5. Select **Compute** > **Virtual Machine** > **From Gallery**.
-
-6. Select the image **Visual Studio Enterprise 2015 Update 2 with Universal Windows Tools and Azure SDK 2.9 on Windows Server 2012 R2**.
-
-    >[AZURE.NOTE] Azure SDK isn't a required component, but there currently aren't any images available that have only Visual Studio 2015 installed.
-
-7.	Follow the instructions in the dialog box to create your VM.
-
-### Install the Service Fabric SDK
-
-Install the [Service Fabric SDK](service-fabric-get-started.md#install-the-runtime-sdk-and-tools) on your machine.
-
-### Install Azure PowerShell
-
-To install Azure PowerShell, follow the steps in the previous section "Install Azure PowerShell and sign in". Skip the "Sign in to Azure PowerShell" step.
-
-### Register the Azure PowerShell modules with the Network Service account
-
->[AZURE.NOTE] Do this *before* you start the build agent. Otherwise, it will not pick up the new environment variable.
-
-1. Press the Windows logo key + R, type **regedit** and press Enter.
-
-2. Right-click the node `HKEY_Users\.Default\Environment`, and then select **New** > **Expandable String Value**.
-
-3. Enter `PSModulePath` for the name and `%PROGRAMFILES%\WindowsPowerShell\Modules` for the value. Replace `%PROGRAMFILES%` with the value of the `PROGRAMFILES` environment variable.
-
-### Import your automation certificate
-
-1.	Import the certificate onto your build machine. To do this:
-
-    a. Copy the PFX file created by the script CreateAndUpload-Certificate.ps1 to your build machine.
-
-    b. Open an admin PowerShell prompt and run the following commands, by using the password that you passed to `CreateAndUpload-Certificate.ps1` earlier.
-
-    ```powershell
-    $password = Read-Host -AsSecureString
-    Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
-    ```
-
-2.	Run the certificate manager:
-
-    a. Open Control Panel in Windows. Right-click the Start button, and then select **Control Panel**.
-
-    b. Search for **certificate**.
-
-    c. Select **Administrative Tools** > **Manage computer certificates**.
-
-3.	Grant the Network Service account permission to use your automation certificate:
-
-    a.	Under **Certificates - Local Computer**, expand **Personal**, and then select **Certificates**.
-
-    b.	Find your certificate in the list.
-
-    c.	Right-click your certificate, and then select **All Tasks** > **Manage Private Keys**.
-
-    d.	Select the **Add** button, enter **Network Service**, and then select **Check Names**.
-
-    e.	Select **OK**.
-
-    ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
-
-4.  Copy the certificate to the `Trusted People` folder.
-
-    a. Your certificate was imported to **Personal/Certificates**, but we need to add it to **Trusted People**. Right-click on the certificate and select **Copy**. Then right-click on the **Trusted People** folder and select **Paste**.
-
-### Register your build agent
-
-1.	Download agent.zip. To do this:
-
-    a.	Sign in to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
-
-    b.	Select the gear icon in the upper-right corner of your screen.
-
-    c.	Select the **Agent pools** tab.
-
-    d.	Select **Download agent** to download the agent.zip file.
-
-    >[AZURE.NOTE] If the download doesn't start, check your popup blocker.
-
-    e.	Copy agent.zip to the build machine that you created earlier.
-
-    f.	Unzip agent.zip to `C:\agent` (or any location that has a short path) on your build machine.
-
-    >[AZURE.NOTE] If you plan to use ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment. When ASP.NET Core is released, it will mitigate this issue.
-
-2.	From an admin command prompt, run `C:\agent\ConfigureAgent.cmd`. The script prompts you for the following parameters:
-
-|Parameter|Value|
-|---|---|
-|Agent Name|Accept the default value, `Agent-[machine name]`.|
-|TFS Url|Enter the URL to your team project, such as `https://[your-VSTS-account-name].visualstudio.com`.|
-|Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
-|Work folder|Accept the default value. This is the folder where the build agent will actually build your application. If you plan to use ASP.NET 5 Web Services, we recommend that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
-|Install as Windows Service?|Default value is N. Change the value to **Y**.|
-|User account to run the service|Default value is `NT AUTHORITY\LOCAL SERVICE`. Change the default value to `NT AUTHORITY\NetworkService`.|
-|Password for `NT AUTHORITY\Network Service`|The network service account does not have a password, but will refuse blank passwords. Enter any non-empty string for the password (whatever you enter will be ignored).|
-|Un-configure existing agent?|Accept the default value, **N**.|
-
-3.  When you're prompted for credentials, enter the credentials for your Microsoft account that has rights to your team project.
-
-4.  Verify that your build agent was registered and configure its capabilities. To do this:
-
-    a. Go back to your web browser, (`https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`), and refresh the page.
-
-    b. Select the agent pool that you selected when you ran ConfigureAgent.ps1 earlier.
-
-    c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
-
-    ![Screenshot that shows the status of the build agent](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
-
-    d. Select the build agent, then select the **Capabilities** tab.
-
-    e. Add a capability named **azureps** with any value. This indicates to VSTS that this machine has Azure PowerShell installed on it, which is required to use some of the VSTS-provided build tasks.
-
-
-## Create your build definition
-
->[AZURE.NOTE] The build definition that you create from these instructions will not support multiple concurrent builds, even on separate machines. This is because each build would compete for the same resource group/cluster. If you want to run multiple build agents, you will need to modify the following instructions/scripts to prevent this interference.
-
-### Add a Service Fabric Azure Resource Manager template to your application
-
-1. Download `azuredeploy.json` and `azuredeploy.parameters.json` from [this sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
-
-2. Open `azuredeploy.parameters.json` and edit the following parameters:
-
-    |Parameter|Value|
-    |---|---|
-    |clusterLocation|Must match the location of your key vault. Example: `westus`|
-    |clusterName|Must match the DNS name of your certificate. For example, if the cert's DNS name is `mycluster.westus.cloudapp.net`, then `clusterName` must be `mycluster`.|
-    |adminPassword|8-123 characters, with at least 3 of the following types of characters: Upper-case, lower-case, numeric, special character.|
-    |certificateThumbprint|From the output of `CreateAndUpload-Certificate.ps1`|
-    |sourceVaultValue|From the output of `CreateAndUpload-Certificate.ps1`|
-    |certificateUrlvalue|From the output of `CreateAndUpload-Certificate.ps1`|
-
-3. Add the new files to source control, and push to VSTS.
-
->[AZURE.NOTE] If you used a different certificate for managing your Service Fabric cluster, repeat the steps in 'Import your automation certificate', using that certificate.
-
-### Create the build definition
-
-1.	Create an empty build definition. To do this:
-
-    a.	Open your project in Visual Studio Team Services.
-
-    b.	Select the **Build** tab.
-
-    c.	Select the green **+** sign to create a new build definition.
-
-    d.	Select **Empty**, and then select **Next**.
-
-    e.  Verify that the right repository and branch are selected.
-
-    f.  Check the **Continuous integration** check box to ensure this build is triggered whenever the branch is updated.
-
-    g.  Select the agent queue to which you registered your build agent.
-
-2.	On the **Variables** tab, create the following variables with these values.
-
-    |Variable|Value|Secret|Allow at queue time|
-    |---|---|---|---|
-    |BuildConfiguration|Release||X|
-    |BuildPlatform|x64||||
-
-3.  Save the build definition and give it a name. You can change this name later if you want.
-
-### Add a "Restore NuGet packages" step
-
-1. On the **Build** tab, choose the **Add build step…** command.
-
-2. Choose **Package** > **NuGet Installer**
-
-3. Choose the pencil icon by the build step's name and rename it to **Restore NuGet packages**.
-
-4. Choose the **…** button next to the **Solution** field and then choose your .sln file.
-
-5. Save the build definition.
-
-### Add a "Build" step
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Build** > **MSBuild**.
-
-3.	Select the pencil icon by the build step's name, and then rename it to **Build**.
-
-4. Select these values:
-
-    |Setting Name|Value|
-    |---|---|
-    |Solution|Click the **…** button and select the `.sln` file for your solution.|
-    |Platform|`$(BuildPlatform)`|
-    |Configuration|`$(BuildConfiguration)`|
-
-5.	Save the build definition.
-
-### Add a "Package" step
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Build** > **MSBuild**.
-
-3.	Select the pencil icon next to the build step's name, and then rename it to **Package**.
-
-4. Select these values:
-
-    |Setting Name|Value|
-    |---|---|
-    |Solution|Click the **…** button and select your application project's `.sfproj` file.|
-    |Platform|`$(BuildPlatform)`|
-    |Configuration|`$(BuildConfiguration)`|
-    |MSBuild Arguments|`/t:Package`|
-
-5.	Save the build definition.
-
-### <a name="RemoveClusterResourceGroup"></a> Add a "Remove cluster resource group" step
-
-If a previous build did not clean up after itself (for example, if the build was canceled before it could clean up), there might be an existing resource group that might conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before you create a new one. 
-
->[AZURE.NOTE] Skip this step if you want to create and reuse the same cluster for every build.
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Deploy** > **Azure Resource Group Deployment**.
-
-3.	Select the pencil icon next to the build step's name, and then rename it to **Remove cluster resource group**.
-
-4. Select these values:
-
-    |Setting Name|Value|
-    |---|---|
-    |AzureConnectionType|**Azure Resource Manager**|
-    |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
-    |Action|**Delete Resource Group**|
-    |Resource Group|Enter any unused name. You must use the same name in the next step.|
-    |Continue on error|This step will fail if the resource group does not exist. Enable **Continue on error** in the **Control Options** section to avoid this.|
-
-5.	Save the build definition.
-
-### Add a "Provision secure cluster" step
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Deploy** > **Azure Resource Group Deployment**.
-
-3.	Select the pencil icon next to the build step's name, and then rename it to **Provision secure cluster**.
-
-4. Select these values:
-
-    |Setting Name|Value|
-    |---|---|
-    |AzureConnectionType|**Azure Resource Manager**|
-    |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
-    |Action|**Create or Update Resource Group**|
-    |Resource Group|Must match the name that you used in the previous step.|
-    |Location|Must match the location of your key vault.|
-    |Template|Click the **…** button and select `azuredeploy.json`|
-    |Template Parameters|Click the **…** button and select `azuredeploy.parameters.json`|
-
-5.	Save the build definition.
-
-### Add a "Deploy" step
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Utility** > **PowerShell**.
-
-3.	Select the pencil icon next to the build step's name, and then rename it to **Deploy**.
-
-4. Select these values (replace the values of -PublishProfile and -ApplicationPackagePath with your actual paths):
-
-    |Setting Name|Value|
-    |---|---|
-    |Type|**File Path**|
-    |Script filename|Click the **…** button and navigate to the **Scripts** directory inside your application project. Select `Deploy-FabricApplication.ps1`.|
-    |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
-
->[AZURE.NOTE] An easy way to create a working publish profile xml file, is to create it in Visual Studio, as shown here: https://azure.microsoft.com/en-us/documentation/articles/service-fabric-publish-app-remote-cluster
-
->[AZURE.NOTE] If you want to support deployment of the application to a cluster by overwriting the existing application instead of upgrading it, add this Powershell Argument: '-OverwriteBehavior SameAppTypeAndVersion'. In addition, be sure that the selected publish profile is not configured to enable an upgrade. This will first remove any existing ApplicationType before installing the newer build.
-
-5.	Save the build definition.
-
-### Add a "Verify" step
-
-1. This step is optional when you are first getting this build definition configured.  But once you've successfully run a build and ensured the correctness of the other build steps, you can insert your own verification build step here.  This would be specific to your application and is intended to verify the correctness of the application that has been deployed to the cluster.
-  
-### Add a final "Clean-Up" step
-
-1. Follow the same instructions from the [Add a "Remove cluster resource group" step](#RemoveClusterResourceGroup).  This will clean up all the provisioned Azure resources that were made during the build.
+| Nuget restore | Restores the NuGet packages for the solution. |
+| Build solution \*.sln | Builds the entire solution. |
+| Build solution \*.sfproj | Generates the Service Fabric application package that will be used to deploy the application. Note that the application package location is specified to be within the build's artifact directory. |
+| Update Service Fabric App Versions | Updates the version values contained in the application package's manifest files to allow for upgrade support. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. |
+| Copy Files | Copies the publish profile and application parameters files to the build's artifacts in order to be consumed for deployment. |
+| Publish Artifact | Publishes the build's artifacts. This allows a release definition to consume the build's artifacts. |
+
+### Verify the default set of tasks
+
+1.	Verify the **Solution** input field for the **NuGet restore** and **Build solution** build steps.  By default, these build steps will execute upon all solution files that are contained in the associated repository.  If you only want the build definition to operate on one of those solution files, you need to explicitly update the path to that file.
+2.	Verify the **Solution** input field for the **Package application** build step.  By default, this build step assumes only one Service Fabric Application project (.sfproj) exists in the repository.  If you have multiple such files in your repository and want to target only one of them for this build definition, you need to explicitly update the path to that file.  If you want to package multiple Application projects in your repository, you need to create additional **Visual Studio Build** steps in the build definition that each target an Application project.  You would then also need to update the **MSBuild Arguments** field for each of those build steps so that the package location is unique for each of them.
+3.	Verify the versioning behavior defined in the **Update Service Fabric App Versions** build step.  By default, this build step appends the build number to all version values in the application package's manifest files. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. This is useful for supporting upgrade of your application since each upgrade deployment requires different version values from the previous deployment. If you're not intending to use application upgrade in your workflow, you may consider disabling this build step. In fact, it must be disabled if your intention is to produce a build that can be used to overwrite an existing Service Fabric application because deployment will fail if the version of the application produced by the build does not match the version of the application in the cluster.
+4.	If your solution contains a .NET Core project, you must ensure that your build definition contains a build step that restores the dependencies defined by any project.json files.  To do this, follow these steps:
+   1. Select **Add build step...**.
+   2. Locate the **Command Line** task within the Utility tab and click its Add button.
+   3. For the task's input fields, use the following values:
+      1. Tool: dotnet
+      2. Arguments: restore
+   4. Drag the task so that it is immediately after the **NuGet restore** step.
+5.	Save any changes you've made to the build definition.
 
 ### Try it
 
-Select **Queue Build** to start a build. Builds will also be triggered upon push or check-in.
+Select **Queue Build** to manually start a build. Builds will also be triggered upon push or check-in. Once you've verified that the build is executing successfully, you can now move on to defining a release definition that will deploy your application to a cluster.
 
-## Alternative solutions
+## Create a release definition
 
-The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, use the following steps:
+A Team Services release definition describes a workflow that is composed of a set of tasks that are executed sequentially. The goal of the release definition that you'll be creating is to take an application package and deploy it to a cluster. When used together, the build definition and release definition can execute the entire workflow from starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
-1.	Manually create a test cluster through the Azure portal or Azure PowerShell by following [these instructions](service-fabric-cluster-creation-via-portal.md).
+### Create a definition from the release template
 
-2.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
+1.	Open your project in Visual Studio Team Services.
+2.	Select the **Release** tab.
+3.	Select the green **+** sign to create a new release definition and select **Create release definition** in the menu.
+4.	In the dialog that opens, select **Azure Service Fabric Deployment** within the **Deployment** template category.
+5.	Select **Next**.
+6.	Select the build definition you want to use as the source of this release definition.  The release definition will reference the artifacts that were produced by the selected build definition.
+7.	Check the **Continuous deployment** check box if you wish to have Team Services automatically create a new release and deploy the Service Fabric application whenever a build completes.
+8.	Select the agent queue you wish to use. Hosted agents are supported.
+9.	Select **Create**.
+10.	Edit the definition name by clicking the pencil icon at the top of the page.
+11.	Select the cluster to which your application should be deployed from the **Cluster Connection** input field of the task. The cluster connection provides the necessary information that allows the deployment task to connect to the cluster. If you do not yet have a cluster connection for your cluster, select the **Manage** hyperlink next to the field to add one. On the page that opens, perform the following steps:
+    1. Select **New Service Endpoint** and then select **Azure Service Fabric** from the menu.
+    2. Select the type of authentication being used by the cluster targeted by this endpoint.
+    2. Define a name for your connection in the **Connection Name** field.  Typically, you would use the name of your cluster.
+    3. Define the client connection endpoint URL in the **Cluster Endpoint** field.  Example: https://contoso.westus.cloudapp.azure.com:19000.
+    4. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
+    5. For Certificate Based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.
+    6. Confirm your changes by clicking **OK**. After navigating back to your release definition, click the refresh icon on the **Cluster Connection** field to see the endpoint you just added.
+12.	Save the release definition.
 
-4.	Remove the **Remove Cluster Resource Group** and **Provision Cluster** build steps from your build definition.
+The definition that is created consists of one task of type **Service Fabric Application Deployment**. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820528) for more information about this task.
+
+### Verify the template defaults
+
+1.	Verify the **Publish Profile** input field for the **Deploy Service Fabric Application** task. By default, this field references a publish profile named Cloud.xml contained in the build's artifacts. If you want to reference a different publish profile or if the build contains multiple application packages in its artifacts, you need to update the path appropriately.
+2.	Verify the **Application Package** input field for the **Deploy Service Fabric Application** task. By default, this references the default application package path used in the build definition template.  If you've modified the default application package path in the build definition, you need to update the path appropriately here as well.
+
+### Try it
+
+Select **Create Release** from the **Release** button menu to manually create a release. In the dialog that opens, select the build that you want to base the release on and then click **Create**. If you enabled continuous deployment, releases will also be created automatically when the associated build definition completes a build.
 
 ## Next steps
 
 To learn more about continuous integration with Service Fabric applications, read the following articles:
 
- - [Build documentation home](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
- - [Deploy a build agent](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
- - [Create and configure a build definition](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+ - [Team Services documentation home](https://www.visualstudio.com/docs/overview)
+ - [Build management in Team Services](https://www.visualstudio.com/docs/build/overview)
+ - [Release management in Team Services](https://www.visualstudio.com/docs/release/overview)

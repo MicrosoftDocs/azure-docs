@@ -32,7 +32,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 
 There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis.
 
-For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
+For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## Step 3: Set your subscription and sign up for migration
 
@@ -132,7 +132,7 @@ Check the configuration for the prepared resources by using either PowerShell or
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
-	Move-AzureService -Commit -ServiceName docmigtest1 -DeploymentName docmigtest1
+	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 
 ### Migrate virtual machines in a virtual network
 

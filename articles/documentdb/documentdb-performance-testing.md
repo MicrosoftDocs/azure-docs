@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/>
 
 # Performance and scale testing with Azure DocumentDB
@@ -24,26 +24,16 @@ This article is a reference for developers implementing performance test suites 
 
 After reading this article, you will be able to answer the following questions:   
 
-- Where can I find a sample .NET client application for performance testing of Azure DocumentDB?
-- What are the key factors that affect end-to-end performance of requests made to Azure DocumentDB? 
+- Where can I find a sample .NET client application for performance testing of Azure DocumentDB? 
 - How do I achieve high throughput levels with Azure DocumentDB from my client application?
 
 To get started with code, please download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
-## Key client configuration options
-DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database tier with DocumentDB. Scaling up and down is as easy as making a single API call or SDK method call. However, when testing at scale, it is important to note that DocumentDB is accessed via network calls. If you are writing a stanadalone client application to performance test DocumentDB, you must configure it appropriate to counter the impact of network latency on your performance measurements.
+> [AZURE.NOTE] The goal of this application is to demonstrate best practices for extracting better performance out of DocumentDB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
 
-In order to get the best end-to-end performance with DocumentDB, consider the following client configuration options:
+If you're looking for client-side configuration options to improve DocumentDB performance, see [DocumentDB performance tips](documentdb-performance-tips.md).
 
-- **Increase number of threads/tasks**: Since calls to DocumentDB are over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), please create in the order of 100s of Tasks reading or writing to DocumentDB.
-- **Test within the same Azure region**: When possible, test from a Virtual Machine or App Service deployed in the same Azure Region. For a ballpark comparison, calls to DocumentDB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms.
-- **Increase System.Net MaxConnections per host**: DocumentDB requests are made over HTTPS/REST by default and subject to the default connection limits per hostname or IP address. You may need to set this to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to DocumentDB. In .NET, this is [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
-- **Turn server-side GC on**: Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.
-- **Use Direct Connectivity**: Use [Direct connectivity](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) for the best performance. 
-- **Implement backoff at RetryAfter intervals**: During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. This ensures that you  spend minimal amount of time waiting between retries. See [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
-- **Scale out your client-workload**: If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the DocumentDB account further by scaling out your client applications across multiple servers.
-
-## Get started
+## Run the performance testing application
 The quickest way to get started is to compile and run the .NET sample below, as described in the steps below. You can also review the source code and implement similar configurations to your own client applications.
 
 **Step 1:** Download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), or fork the Github repository.
@@ -100,12 +90,13 @@ The quickest way to get started is to compile and run the .NET sample below, as 
 
 **Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If not, increasing the DegreeOfParallelism in small increments may help you reach the limit. If the throughput from your client app plateaus, launching multiple instances of the app on the same or different machines will help you reach the provisioned limit across the different instances. If you need help with this step, please reach out to us via [Ask DocumentDB](askdocdb@microsoft.com) or by filing a support ticket.
 
-Once you have the app running, you can try different [Indexing policies](documentdb-indexing-policies.md) and [Consistency levels](documentdb-consistency-levels.md) to understan their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
+Once you have the app running, you can try different [Indexing policies](documentdb-indexing-policies.md) and [Consistency levels](documentdb-consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 
-## Summary
-In this article, we looked at how you can perform performance and scale testing with DocumentDB using a .NET console app and reviewed key configuration options to get the best performance from Azure DocumentDB. Please refer to the links below for additional information on working with DocumentDB.
+## Next steps
+In this article, we looked at how you can perform performance and scale testing with DocumentDB using a .NET console app. Please refer to the links below for additional information on working with DocumentDB.
 
 * [DocumentDB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Client configuration options to improve DocumentDB performance](documentdb-performance-tips.md)
 * [Server-side partitioning in DocumentDB](documentdb-partition-data.md)
 * [DocumentDB collections and performance levels](documentdb-performance-levels.md)
 * [DocumentDB .NET SDK documentation on MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)

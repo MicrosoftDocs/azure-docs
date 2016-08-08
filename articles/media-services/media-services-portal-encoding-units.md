@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="07/23/2016"
 	ms.author="juliako"/>
 
 
@@ -53,7 +53,9 @@ Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://w
 
 - If using the shared pool, i.e. without any reserved units, then your encode tasks will have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most one Task will be running.
 
-- The following data centers do not offer the **S3** reserved unit type: Brazil South, India West, India Central, and India South.
+- The following data centers do not offer the **S2** reserved unit type: Brazil South, India West, India Central, and India South.
+
+- The following data centers do not offer the **S3** reserved unit type: Brazil South, India West, India Central.
 
 - The highest number of units specified for the 24-hour period is used in calculating the cost.
 
