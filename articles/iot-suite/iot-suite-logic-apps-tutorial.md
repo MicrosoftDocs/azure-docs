@@ -161,12 +161,16 @@ In addition to receiving emails, you can also see when the Logic App runs in the
 
 ## Next steps
 
-Now that you've used a Logic App to connect the proconfigured solution to a business process, you might want to learn more about [customizing preconfigured solutions][lnk-customize] or [how to add a physical device to your solution][lnk-connect].
+Now that you've used a Logic App to connect the preconfigured solution to a business process, you can learn more about the options for customizing the preconfigured solutions:
+
+- [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
+- [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
+
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [lnk-internetofthings]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-getstarted]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connect]: iot-suite-connecting-devices.md
 [lnk-azureportal]: https://portal.azure.com
 [lnk-logic-apps-actions]: ../connectors/apis-list.md
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring

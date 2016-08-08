@@ -2,7 +2,7 @@
 	pageTitle="Performance levels in DocumentDB | Microsoft Azure" 
 	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
-	authors="johnfmacintyre" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
-	ms.author="johnmac"/>
+	ms.date="07/27/2016" 
+	ms.author="mimig"/>
 
 # Performance levels in DocumentDB
 
@@ -95,9 +95,9 @@ DocumentDB collections allow you to group your data based on both the query patt
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-## Changing performance levels using the Azure Portal
+## <a id="changing-performance-levels-using-the-azure-portal"></a>Change from S1, S2, S3 to user-defined performance
 
-The Azure Portal is one option available to you when managing the performance levels of your collections. Follow these steps to change from using pre-defined throughput levels to user-defined throughput levels in the Azure portal. By using user-defined throughput levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks.
+Follow these steps to change from using pre-defined throughput levels to user-defined throughput levels in the Azure portal. By using user-defined throughput levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks.
 
 For more information about the pricing changes related to user-defined and pre-defined throughput, see the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
 
@@ -161,6 +161,20 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 - [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
 - [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 - [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
+
+## <a id="change-throughput"></a>Changing the throughput of a collection
+
+If you are already using user-defined performance, you can change the throughput of your collection by doing the following. If you need to change from an S1, S2 or S3 performance level (pre-defined performance) to user-defined performance, see [Change from S1, S2, S3 to user-defined performance](#changing-performance-levels-using-the-azure-portal).
+
+1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
+2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
+3. On the **DocumentDB account** blade, in the **Databases** lens, select the database to modify, and then in the **Database** blade, select the collection to modify. 
+4. In the **Collections** blade, click **Settings** on the top bar.   
+5. In the **Settings** blade, increase the value in the **Throughput (RU/s)** box, and then click **OK** to save your change. The **Pricing Summary** at the bottom of the blade updates to show you the new estimated monthly cost of that collection in a single region.
+
+    ![Screen shot of the Settings blade, highlighting the Throughput box and the Pricing Summary](./media/documentdb-performance-levels/documentdb-change-throughput.png)
+ 
+If you're not sure how much to increase your throughput, see [Estimating throughput needs](documentdb-request-units.md#estimating-throughput-needs) and the [Request unit calculator](https://www.documentdb.com/capacityplanner).
 
 ## Next steps
 

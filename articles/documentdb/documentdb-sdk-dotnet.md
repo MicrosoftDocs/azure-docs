@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/25/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -24,7 +24,7 @@
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
-##DocumentDB .NET SDK
+## DocumentDB .NET SDK
 
 <table>
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -36,16 +36,19 @@
 
 ## Release Notes
 
-There is a known issue when attempting to extract partition routing information when the query spans multiple partitions in a 32 bit process for .NET SDK version 1.9.0. This issue results in the following exception: System.BadImageFormatException: Could not load file or assembly Microsoft.Azure.Documents.ServiceInterop.dll or one of its dependencies. The module was expected to contain an assembly manifest, set the platform to x64 and rebuild your application to resolve this issue.
+### <a name="1.9.2"/>[1.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
 
-### <a name="1.9.0"/>[1.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
-  - Changed the default connection mode for the .NET client to ConnectionMode.Direct to improve performance by using Direct connectivity with TCP. Deprecated the ConnectionPolicy.ConnectionProtocol property and added a DirectHttps value to the ConnectionMode enumeration.
-  - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
-  - Added methods to the IDocumentClient interface that were missing which include: UpsertAttachmentAsync method that takes mediaStream and options as parameters, CreateAttachmentAsync method that takes options as a parameter, and CreateOfferQuery method that takes querySpec as a parameter.
-  - Unsealed public classes that are exposed in the IDocumentClient interface.
   - Added support for parallel queries for partitioned collections.
-  - Added cross partition Order By support for partitioned collections.
-  
+  - Added support for cross partition ORDER BY and TOP queries for partitioned collections.
+  - Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+  - Fixed the ability to use parameters of different types when using user defined functions in LINQ. 
+  - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
+  - Added methods to the IDocumentClient interface that were missing: 
+      - UpsertAttachmentAsync method that takes mediaStream and options as parameters
+      - CreateAttachmentAsync method that takes options as a parameter
+      - CreateOfferQuery method that takes querySpec as a parameter.
+  - Unsealed public classes that are exposed in the IDocumentClient interface.
 
 ### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Added the support for multi-region database accounts.
@@ -153,7 +156,9 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
-| [1.9.0](#1.9.0) | July 9, 2016 |---
+| [1.9.2](#1.9.2) | July 23, 2016 |---
+| 1.9.1 | Deprecated |---
+| 1.9.0 | Deprecated |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | May 06, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---

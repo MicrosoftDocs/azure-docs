@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -165,12 +165,12 @@ This article provides step-by-step guidance on developing Spark applications wri
 		    val conf = new SparkConf().setAppName("MyClusterApp")
 		    val sc = new SparkContext(conf)
 		
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 		
-		    rdd1.saveAsTextFile("wasb:///HVACOut")
+		    rdd1.saveAsTextFile("wasbs:///HVACOut")
 		  }		
 		}
 

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center quick start guide
 
 This document helps you get started quickly with Azure Security Center by guiding you through the security monitoring and policy management components and linking you to next steps.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment. This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
 
 ## Data collection
 
@@ -54,7 +54,7 @@ You can configure security policies for your Azure subscriptions and resource gr
 2. On the **Security policy-Define policy per subscription or resource group** blade, select a subscription.
 ![The security policy blade in Azure Security Center][4]
 
-3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt-out of data collection by setting **Data collection** to Off but this will prevent Security Center from providing you with security alerts and recommendations.)
+3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt-out of data collection by setting **Data collection** to **Off** but this will prevent Security Center from providing you with security alerts and recommendations.)
 4. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be created for you. The data that's collected is logically isolated from other customers’ data for security reasons.
 
      > [AZURE.NOTE] We recommend that you enable data collection and choose a storage account at the subscription level first.  Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
@@ -100,13 +100,13 @@ View the health of your **Partner solutions**:
 ## See also
 In this document, you were introduced to the security monitoring and policy management components in Security Center. To learn more, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/security-tile.png

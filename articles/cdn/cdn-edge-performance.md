@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Analyze Edge Performance"
+	pageTitle="Analyze Edge Performance in Azure CDN | Microsoft Azure"
 	description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Analyze edge node performance in Microsoft Azure CDN

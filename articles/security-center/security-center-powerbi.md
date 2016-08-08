@@ -110,9 +110,8 @@ Connect to the [Power BI Content Pack Services](https://msit.powerbi.com/groups/
 ## See also
 In this document, you learned how to use Power BI in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) - Learn how to plan Azure Security Center adoption.
-- [Setting security policies in Azure Security Center](security-center-policies.md)
-– Learn how to configure security settings in Azure Security Center
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
-- [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
+- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan Azure Security Center adoption.
+- [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security settings in Azure Security Center
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance

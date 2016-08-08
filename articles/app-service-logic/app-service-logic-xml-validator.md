@@ -1,14 +1,14 @@
 <properties
    pageTitle="Using the BizTalk XML Validator in logic apps in Azure App Service | Microsoft Azure"
    description="Validate schemas using the BizTalk XML Validator in your  logic app"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

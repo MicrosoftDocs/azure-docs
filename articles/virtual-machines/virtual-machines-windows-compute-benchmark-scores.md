@@ -1,5 +1,5 @@
 <properties
- pageTitle="Compute benchark scores for Windows VMs | Microsoft Azure"
+ pageTitle="Compute benchmark scores for Windows VMs | Microsoft Azure"
  description="Compare SPECint compute benchmark scores for Azure VMs running Windows Server"
  services="virtual-machines-windows"
  documentationCenter=""

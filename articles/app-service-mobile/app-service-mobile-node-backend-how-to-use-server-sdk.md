@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -131,13 +131,24 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
+### <a name="create-node-backend-portal"></a>How to: Create a Node.js backend using the Azure portal
+
+You can create a new Mobile App backend right in the [Azure portal]. 
+
+You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial. The tutorial contains a simplified version of these instructions and is best for proof of concept projects.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+Back in the _Get started_ blade, under **Create a table API**, choose **Node.js** as your **Backend language**. Check the box that says **I acknowledge that this will overwrite all site contents.** and click **Create TodoItem table**.
+
+
 ### <a name="download-quickstart"></a>How to: Download the Node.js backend quickstart code project using Git
 
 When you create a new Node.js Mobile App backend by using the portal **Quick start** blade, a new Node.js project is created for you and deployed to your site. You can add tables and APIs and edit code files for the Node.js backend in the portal. You can also use one of a variety of deployment tools to download the backend project so that you can add or modify tables and APIs, then republish the project. For more information, see the [Azure App Service Deployment Guide]. the following procedure uses a Git repository to download the quickstart project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system specific distributions and installation guidance.
 
-2. Follow the steps in [Enable the web app repository](../app-service-web/web-sites-publish-source-control.md#Step4) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service-web/web-sites-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 

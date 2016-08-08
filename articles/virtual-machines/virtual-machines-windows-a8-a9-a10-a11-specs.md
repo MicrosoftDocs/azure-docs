@@ -1,5 +1,5 @@
 <properties
- pageTitle="About the A8 - A11 instances with Windows | Microsoft Azure"
+ pageTitle="About A8, A9, A10, A11 VM sizes and Windows | Microsoft Azure"
  description="Get background information and considerations for using the Azure A8, A9, A10, and A11 compute-intensive sizes for Windows VMs and cloud services"
  services="virtual-machines-windows, cloud-services"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/26/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances
@@ -28,7 +28,7 @@ Here is background information and some considerations for using the Azure A8, A
 
 Within a single cloud service, availability set, or Azure Batch pool, the A8 and A9 instances can access the RDMA network in Azure to run Windows MPI applications that use the Microsoft Network Direct interface to communicate between instances.
 
-See the following table for prerequisites for MPI applications to access the RDMA network in Windows virtual machines, cloud services, and Azure Batch pools of the A8 or A9 instances. For typical deployment scenarios, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) and [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../batch/batch-mpi.md).
+Following are prerequisites for MPI applications to access the RDMA network in Windows virtual machines, cloud services, and Azure Batch pools of the A8 or A9 instances. For typical deployment scenarios, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-classic-hpcpack-rdma-cluster.md) and [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../batch/batch-mpi.md).
 
 
 Prerequisite | Virtual machines | Cloud services or Batch pool 

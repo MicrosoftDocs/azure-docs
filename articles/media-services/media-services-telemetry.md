@@ -1,27 +1,44 @@
 <properties pageTitle="Azure Media Services Telemetry with .NET | Microsoft Azure" 
 	description="This article shows you how to use the Azure Media Services telemetry." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/27/2016"   
+	ms.author="juliako"/>
 
 # Azure Media Services Telemetry with .NET
-
+ 
 ## Overview
 
-Media Services telemetry/monitoring allows Media Services customers to access metrics data for its services. Current version supports telemetry data for "Channel" and "StreamingEndpoint" entities. You can configure telemetry on component level granularity. There are two detail levels "Normal" and "Verbose". The current version only supports "Normal".
+Media Services telemetry/monitoring allows Media Services customers to access metrics data for its services. The current version supports telemetry data for "Channel" and "StreamingEndpoint" entities. You can configure telemetry on a component level granularity. There are two detail levels "Normal" and "Verbose". The current version only supports "Normal".
 
-Telemetry is written to an Azure Storage Account provided by the customer (a storage account must be attached to the Media Services account). Telemetry is written to an Azure Storage Table in the specified storage account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
+Telemetry is written to a storage table in an Azure Storage account provided by the customer (the storage account must be attached to the Media Services account). Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be a separate table.
 
-Telemetry system doesn’t provide data retention nor auto delete of old records. For that reason, you need to manage and delete old records. Having separate tables for each day makes it easy to delete old records. You can just delete old tables.  
+Note that the telemetry system does not manage data retention. You can remove the old telemetry data by deleting the storage tables.
 
-This topic shows how to enable telemetry for the specified AMS services and how to query the metrics using .NET.  
+You can consume telemetry data in one of the following ways:
+
+- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.
+
+Or
+
+- Use the support in the Media Services .NET SDK for reading storage data. This topic shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
 
 ## Configuring telemetry for a Media Services account
 
 The following steps are needed to enable telemetry:
 
 - Get the credentials of the storage account attached to the Media Services account. 
-- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPontAddress pointing to the storage table.
+- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPointAddress pointing to the storage table.
 
 	    INotificationEndPoint notificationEndPoint = 
 	                  _context.NotificationEndPoints.Create("monitoring", 
@@ -37,57 +54,56 @@ The following steps are needed to enable telemetry:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Consuming telemetry information
 
-## StreamingEndpoint log
+Telemetry is written to an Azure Storage Table in the storage account specified when configuring telemetry for the Media Services account. Telemetry system will create a separate table for each new day based at 00:00 UTC. As an example "TelemetryMetrics20160321" where "20160321" is date of table created. For each day there will be separate table.
 
-###Available metrics
+You can query telemetry tables for the following metrics information. The example, shown later in this topic, demonstrates how to use the Media Services .NET SDK to query metrics. 
+
+### StreamingEndpoint log
 
 You can query for the following StreamingEndPoint metrics. 
 
-- **PartitionKey** gets the partition key of the record.
-- **RowKey** gets the row key of the record.
-- **AccountId** gets the Media Services account ID.
-- **AccountId** gets the Media Services Streaming Endpoint ID.
-- **ObservedTime** gets the observed time of the metric.
-- **HostName** gets the Streaming Endpoint host name.
-- **StatusCode** gets the status code.
-- **ResultCode** gets the result code.
-- **RequestCount** gets the request count.
-- **BytesSent** gets the bytes sent.
-- **ServerLatency** gets the server latency.
-- **EndToEndLatency** gets the end to end request time.
-
-###Streaming Endpoint query result example
-
-![Streaming Endpoint query](media/media-services-telemetry/media-services-telemetry01.png)
+Property|Description|Sample value
+---|---|---
+**PartitionKey**|Gets the partition key of the record.|60b71b0f6a0e4d869eb0645c16d708e1_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|Gets the row key of the record.|00959_00000
+**AccountId**|Gets the Media Services account ID.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|Gets the Media Services Streaming Endpoint ID.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|Gets the observed time of the metric.|1/20/16 23:44:01
+**HostName**|Gets the Streaming Endpoint host name.|builddemoserver.origin.mediaservices.windows.net
+**StatusCode**|Gets the status code.|200
+**ResultCode**|Gets the result code.|S_OK
+**RequestCount**|Gets the request count.|3
+**BytesSent**|Gets the bytes sent.|2987358
+**ServerLatency**|Gets the server latency (including storage).|129
+**EndToEndLatency**|Gets the end to end request time.|250
 
 
-## Live channel heartbeat
-
-###Available metrics
+### Live channel heartbeat
 
 You can query for the following live channel metrics. 
 
-- **PartitionKey** gets the partition key of the record.
-- **RowKey** gets the row key of the record.
-- **AccountId** gets the Media Services account ID.
-- **ChannelId** gets the Media Services Channel ID.
-- **ObservedTime** gets the observed time of the metric.
-- **CustomAttributes** gets the custom attributes.
-- **TrackType** gets the track type.
-- **TrackName** gets the track name.
-- **Bitrate** gets the bitrate.
-- **IncomingBitrate** gets the incoming bitrate.
-- **OverlapCount** gets the overlap count.
-- **DiscontinuityCount** gets the discontinuity count.
-- **LastTimestamp** gets the last time stamp.
+Property|Description|Sample value
+---|---|---
+**PartitionKey**|Gets the partition key of the record.|60b71b0f6a0e4d869eb0645c16d708e1_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|Gets the row key of the record.|13872_00005
+**AccountId**|Gets the Media Services account ID.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|Gets the Media Services channel ID.|
+**ObservedTime**|Gets the observed time of the metric.|1/21/2016 20:08:49
+**CustomAttributes**|Gets the custom attributes.|
+**TrackType**|Gets the track type.|video
+**TrackName**|Gets the track name.|video
+**Bitrate**|Gets the bitrate.|785000
+**IncomingBitrate**|Gets the incoming bitrate.|784548
+**OverlapCount**|Gets the overlap count.|0
+**DiscontinuityCount**|Gets the discontinuity count.|0
+**LastTimestamp**|Gets the last time stamp.|1800488800
  
-###Live Channel query result example
+## Example  
+	
+The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  	
 
-![Streaming Endpoint query](media/media-services-telemetry/media-services-telemetry01.png)
-
-## StreamingEndpoint metrics example
-		
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -125,8 +141,7 @@ You can query for the following live channel metrics.
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -138,6 +153,10 @@ You can query for the following live channel metrics.
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {

@@ -169,7 +169,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](app-service-continous-deployment.md)
+* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
 * [How to use PowerShell for Azure](../powershell-install-configure.md)
 * [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
 
