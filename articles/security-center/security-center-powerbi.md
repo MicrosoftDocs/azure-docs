@@ -13,14 +13,11 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/08/2016"
    ms.author="yurid"/>
 
 # Get insights from Azure Security Center data with Power BI
 The [Power BI Dashboard](http://aka.ms/azure-security-center-power-bi) for Azure Security Center enables you to visualize, analyze, and filter recommendations and security alerts from anywhere, including your mobile device. Use the Power BI dashboard to reveal trends and attack patterns - view security alerts by resource or source IP address and unaddressed security risks by resource or age. You can also mash up Security Center recommendations and security alerts with other data in interesting ways, for example with [Azure Audit Logs](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) and [Azure SQL Database Auditing](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/), which both offer Power BI Dashboards, or you can export this data to Excel for easy reporting on the security state of your cloud resources.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
-
 
 ##Using Azure Security Center dashboard to access Power BI
 You can also use the Azure Security Center dashboard to access Power BI reports. Follow the steps below to perform this task: 
