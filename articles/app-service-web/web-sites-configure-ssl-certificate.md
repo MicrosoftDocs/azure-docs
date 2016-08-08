@@ -85,19 +85,19 @@ Once you know which SSL certificate to buy, you submit a Certificate Signing Req
 certificate back from the CA, you then generate a .pfx file from the certificate. You can perform these steps using the tool 
 of your choice. Here are instructions for the common tools:
 
-- [Certreq.exe](#bkmk_certreq) - the Windows utility for creating certificate requests. 
+- [Certreq.exe steps](#bkmk_certreq) - the Windows utility for creating certificate requests. 
 It has been part of Windows since Windows XP/Windows Server 2000.
-- [IIS Manager](#bkmk_iismgr) - The tool of choice if you're already familiar with it.
-- [OpenSSL](#bkmk_openssl) - an [open-source, cross-platform tool](https://www.openssl.org). Use it 
+- [IIS Manager steps](#bkmk_iismgr) - The tool of choice if you're already familiar with it.
+- [OpenSSL steps](#bkmk_openssl) - an [open-source, cross-platform tool](https://www.openssl.org). Use it 
 to help you get an SSL certificate from any platform.
-- [subjectAltName using OpenSSL](#bkmk_subjectaltname) - steps for getting `subjectAltName` certificates.
+- [subjectAltName steps using OpenSSL](#bkmk_subjectaltname) - steps for getting `subjectAltName` certificates.
 
 If you want to test the setup in App Service before buying a certificate, you can generate a 
 [self-signed certificate](https://en.wikipedia.org/wiki/Self-signed_certificate). This tutorial gives you two ways 
 to generate it:
 
-- [Self-signed certificate with Certreq.exe](#bkmk_sscertreq)
-- [Self-signed certificate with OpenSSL](#bkmk_ssopenssl)
+- [Self-signed certificate, Certreq.exe steps](#bkmk_sscertreq)
+- [Self-signed certificate, OpenSSL steps](#bkmk_ssopenssl)
 
 <a name="bkmk_certreq"></a>
 ### Get a certificate using Certreq.exe
