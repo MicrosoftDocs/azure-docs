@@ -127,7 +127,7 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
 |Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
 |Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| extremely high |
-|Standard_D15_v2 |20|140 GB|10|Temporary (SSD) =1 TB |40|40x500| extremely high |
+|Standard_D15_v2 |20|140 GB|8|Temporary (SSD) =1 TB |40|40x500| extremely high |
 
 
 ## DS-series*
@@ -159,7 +159,7 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
 |Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
 |Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  768 MB per second | extremely high |
-|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | extremely high |
+|Standard_DS15_v2 |20|140 GB|8|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | extremely high |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
