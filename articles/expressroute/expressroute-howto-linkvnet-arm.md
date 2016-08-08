@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2016"
+   ms.date="08/08/2016"
    ms.author="ganesr" />
 
 # Link a virtual network to an ExpressRoute circuit
