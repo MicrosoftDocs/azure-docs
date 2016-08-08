@@ -30,6 +30,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 - Classic VMs
 - Standard storage VMs
 - Premium storage VMs
+- VMs encrypted using Azure Disk Encryption, with BEK and KEK (supported using Powershell)
 
 For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 

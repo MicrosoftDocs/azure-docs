@@ -98,6 +98,7 @@ To find anomalies in your data, choose one of the anomaly options under the "Vie
 
 ![Trends](./media/app-insights-visual-studio/51.png)
 
+[More about Trends](app-insights-visual-studio-trends.md).
 
 ## What's next?
 

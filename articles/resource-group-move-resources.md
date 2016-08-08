@@ -57,6 +57,7 @@ For now, the services that support moving to both a new resource group and subsc
 - DocumentDB
 - HDInsight clusters
 - Key Vault
+- Media Services
 - Mobile Engagement
 - Notification Hubs
 - Operational Insights

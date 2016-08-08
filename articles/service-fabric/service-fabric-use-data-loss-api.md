@@ -50,7 +50,7 @@ In order to start a command, call the Start API with the expected arguments.  Al
 After successfully calling the Start API, the GetProgress API should be called in a loop until the returned progress object’s State property is Completed.  All [FabricTransientException’s] [fte] and OperationCanceledException’s should be retried.
 When the command has reached a terminal state (Completed, Faulted, or Cancelled), the returned progress object’s Result property will have additional information.  If the state is Completed, Result.SelectedPartition.PartitionId will contain the partition id that was selected.  Result.Exception will be null.  If the state is Faulted, Result.Exception will have the reason the Fault Injection and Analysis Service faulted the command.  Result.SelectedPartition.PartitionId will have the partition id that was selected.  In some situations, the command may not have proceeded far enough to choose a partition.  In that case, the PartitionId will be 0.  If the state is Cancelled, Result.Exception will be null.  Like the Faulted case, Result.SelectedPartition.PartitionId will have the partition id that was chosen, but if the command has not proceeded far enough to do so, it will be 0.  Please also refer to the sample below.
 
-The sample code below shows how to start then check progress on a command to restart a specific partition.
+The sample code below shows how to start then check progress on a command to cause data loss on a specific partition.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -224,12 +224,12 @@ The sample below shows how to use the PartitionSelector to choose a random parti
 
 After a command has reached a terminal state, its metadata will remain in the Fault Injection and Analysis Service for a certain time, before it will be removed to save space.  If “GetProgress” is called using the operationId of a command after it has been removed, it will return a FabricException with an ErrorCode of KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/en-us/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/en-us/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/en-us/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/en-us/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/en-us/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/en-us/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/en-us/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/en-us/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/en-us/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx

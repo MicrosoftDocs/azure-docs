@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -72,9 +72,9 @@ For more details on the infrastructure of Azure Storage geo replication, please 
 
 ##Best Practices for protecting your data
 
-There are some recommended approaches to back up your the storage data on a regular basis.
+There are some recommended approaches to back up your storage data on a regular basis.
 
--   VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/services/backup/)  to back up the VM disks used by your Azure virtual machines.
+-   VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines.
 
 -   Block blobs –Create a [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 

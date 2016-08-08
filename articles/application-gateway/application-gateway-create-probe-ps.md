@@ -3,7 +3,7 @@
    description="Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager"
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.author="gwallace" />
 
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
