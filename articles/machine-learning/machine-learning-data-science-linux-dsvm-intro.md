@@ -65,7 +65,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
->[AZURE.NOTE] The current VM setup is incompatible with the monitoring agent installation. It should be disabled during creation. If you don't, the set up will take much longer and Azure will report that the deployment failed. (If you do not disable the monitoring agent VM will, in fact, be usable.)
+>[AZURE.NOTE] The current VM setup is incompatible with the monitoring agent installation. The agent should be disabled during creation. If you don't, the set up will take much longer and Azure will report that the deployment has failed. (If you do not disable the monitoring agent, the VM will in fact be usable, regardless of the reported failure.)
 
   **a. Basics**: 
 
