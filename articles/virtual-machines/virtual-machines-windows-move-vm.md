@@ -58,17 +58,9 @@ To move the resources to different subscription, include the **-DestinationSubsc
 
 
 
-You will be asked to confirm that you want to move the specified resources.
+You will be asked to confirm that you want to move the specified resources. Type **Y** to confirm that you want to move the resources.
 
-    Confirm
-    Are you sure you want to move these resources to the resource group
-    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
-
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
-    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-
-
+  
 	## Next steps
 
 You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).	
