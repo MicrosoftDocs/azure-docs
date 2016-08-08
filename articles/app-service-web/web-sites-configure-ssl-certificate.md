@@ -577,7 +577,7 @@ regardless of the language framework of your app.
 
 > [AZURE.NOTE] There is language-specific redirection of requests. ASP.NET MVC can use the 
 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see 
-[Deploy a secure ASP.NET MVC 5 app to a web app](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+[Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 
 Follow these steps:
 
