@@ -39,7 +39,7 @@ If you are adding mobile capabilities to an existing project, see the [Download 
 
 You can create a new mobile application right in the [Azure portal]. You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial.
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
