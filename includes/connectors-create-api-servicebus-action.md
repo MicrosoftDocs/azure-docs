@@ -8,9 +8,9 @@ Follow these steps to create the send message action:
 - Enter *service bus*.  
 - Select **Service Bus - Send message** as the action to take.  
 ![Service Bus action image 2](./media/connectors-create-api-servicebus/action-2.png)    
-- Enter the content for the message. (required)  
-- Enter the queue or topic name to which the message will be sent. (required)   
-- Provide other details about the message. (optional)     
+- Enter the content for the message. This is required.  
+- Enter the queue or topic name to which the message will be sent. This is also required.   
+- Provide other details about the message. This is optional.     
 ![Service Bus action image 3](./media/connectors-create-api-servicebus/action-3.png)    
 - Save the changes to your workflow.   
 ![Service Bus action image 4](./media/connectors-create-api-servicebus/action-4.png)     

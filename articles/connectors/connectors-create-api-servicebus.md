@@ -27,8 +27,6 @@ To use [any connector](./apis-list.md), you first need to create a logic app. Yo
 
 Before your logic app can access any service, you first need to create a connection to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-### Create a connection to Service Bus
-
 >[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
 
 ## Use a Service Bus trigger
@@ -84,19 +82,19 @@ These advanced parameters are also available:
 
 |Property name| Display name|Description|
 | ---|---|---|
-|MessageId|Message Id|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|To|Send to address|
+|MessageId|Message Id|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|To|To|Address to send to.|
 |ReplyTo|Reply To|Address of the queue to reply to.|
 |ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
 |Label|Label|Application-specific label.|
 |ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|Session Id|Identifier of the session.|
 |CorrelationId|Correlation Id|Identifier of the correlation.|
-|TimeToLive|Time To Live|This is the duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
 
 
 
-An * indicates that a property is required
+An * indicates that a property is required.
 
 
 #### When a message is received in a queue
@@ -119,16 +117,15 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |ContentData|string|Content of the message.|
 |ContentType|string|Content type of the message content.|
 |Properties|object|Key-value pairs for each brokered property.|
-
-|MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address.|
 |ReplyTo|string|Address of the queue to reply to.|
 |ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application specific label.|
+|Label|string|Application-specific label.|
 |ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|string|Identifier of the session.|
 |CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|This is the duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
 
 
 
@@ -141,7 +138,7 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |subscriptionName*|Topic subscription name|Name of the topic subscription.|
 
 
-An * indicates that a property is required
+An * indicates that a property is required.
 
 
 ##### Output details
@@ -154,8 +151,7 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |ContentData|string|Content of the message.|
 |ContentType|string|Content type of the message content.|
 |Properties|object|Key-value pairs for each brokered property.|
-
-|MessageId|string|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |To|string|Send to address.|
 |ReplyTo|string|Address of the queue to reply to.|
 |ReplyToSessionId|string|Identifier of the session to reply to.|
@@ -163,7 +159,7 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|string|Identifier of the session.|
 |CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|This is the duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
 
 
 
