@@ -72,7 +72,7 @@ Follow the steps below to change your work or school account password from the [
  2. Click on the **profile** tab.
  3. Click on the **change my password** tile on the right hand side of the screen.
  4. Type your old password, and then type a new password and confirm it.
- 5. Click **Save**.
+ 5. Click **Submit**.
 
  Run into a problem changing your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 

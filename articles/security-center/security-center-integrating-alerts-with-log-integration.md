@@ -20,7 +20,7 @@
 
 Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Azure Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real-time.
 
-Azure log integration works with HP ArcSight, Splunk, IBM Qradar, and others.
+Azure log integration works with HP ArcSight, Splunk, IBM QRadar, and others.
 
 ## What logs can I integrate?
 
@@ -86,5 +86,6 @@ To learn more about security alerts in Security Center, see [Managing and respon
 
 To learn more about Security Center, see the following:
 
-- [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) - Get the latest Azure security news and information.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
