@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Secure your custom-domain-enabled app with HTTPS | Microsoft Azure"
-	description="Learn how to enable SSL with an Azure App Service."
+	pageTitle="Secure your app's custom domain with HTTPS | Microsoft Azure"
+	description="Learn how secure the custom domain name for your app in Azure App Service by configuring an SSL certificate binding. You will also learn how to get an SSL certificate from multiple tools."
 	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/08/2016"
 	ms.author="cephalin"/>
 
-# Secure your custom-domain-enabled app with HTTPS
+# Secure your app's custom domain with HTTPS
 
 
 > [AZURE.SELECTOR]
-- [Buy SSL Certificate for Web Apps](web-sites-purchase-ssl-web-site.md)
-- [Enable SSL for your custom domain](web-sites-configure-ssl-certificate.md)
+- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+- [Add SSL cert purchased elsewhere](web-sites-configure-ssl-certificate.md)
 
 
 This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in 
