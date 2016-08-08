@@ -85,4 +85,4 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 
 ## Next steps
 
-- Create [alerts](log-analytics-alerts) in Log Analytics to generate notifications and to remediate problems.
+- Create [alerts](log-analytics-alerts.md) in Log Analytics to generate notifications and to remediate problems.
