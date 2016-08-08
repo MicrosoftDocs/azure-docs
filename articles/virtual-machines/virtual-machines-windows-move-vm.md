@@ -36,7 +36,7 @@ To move a VM to another resource group or subscription, use the [Move-AzureRmRes
 
 Move all of the resources in a resource group 
 
-$resourceList = 
+$resourceList = Find-AzureRmResource | Where–Object {$_.ResourceGroupName –eq iisvmrg}
 
 
 The first example shows how to move one resource to a new resource group.
