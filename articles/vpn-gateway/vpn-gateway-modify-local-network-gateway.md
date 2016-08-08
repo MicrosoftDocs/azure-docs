@@ -31,8 +31,6 @@ You'll need to install the latest version of the Azure Resource Manager PowerShe
 
 ## To modify the gateway IP address
 
-If you need to change the gateway IP address that your local network gateway specifies as a connection point, use the instructions below. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your VPN gateway connection. 
-
 [AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
