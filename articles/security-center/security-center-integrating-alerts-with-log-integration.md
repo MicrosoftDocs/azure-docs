@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2016"
+   ms.date="08/08/2016"
    ms.author="terrylan"/>
 
 # Integrating Security Center alerts with Azure log integration (Preview)
@@ -26,7 +26,7 @@ Azure log integration works with HP ArcSight, Splunk, IBM Qradar, and others.
 
 Azure produces extensive logging for every service. These logs are categorized as:
 
-- **Control/Management logs** which give visibility into the Azure Resource Manager (ARM) CREATE, UPDATE, and DELETE operations.
+- **Control/Management logs** which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations.
 - **Data Plane logs** which give visibility into the events raised when using an Azure resource. An example is the Windows Event log - security and application logs in a virtual machine.
 
 Azure log integration currently supports the integration of:
