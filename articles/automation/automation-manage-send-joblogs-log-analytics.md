@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="08/06/2016"
+    ms.date="08/08/2016"
     ms.author="magoedte" />
 
 # Forward job status and job streams from Automation to Log Analytics (OMS)
@@ -50,7 +50,7 @@ The **Enable-AzureDiagnostics.ps1** script requires the following parameters dur
 - *AutomationAccountName* - the name of your Automation account
 - *LogAnalyticsWorkspaceName* - the name of your OMS workspace
 
-To find the values for *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-manage-send-joblogs-oms-loganalytics/automation-account-properties.png).
+To find the values for *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 
 ## Setup integration with Log Analytics
@@ -67,7 +67,7 @@ To find the values for *AutomationAccountName*, in the Azure portal select your 
 
 ### Verify configuration
 
-To confirm the script configured your Automation account and OMS wokspace successfully, you can perform the following steps in PowerShell.  Before you do that, to find the values for your OMS workspace name and resource group name, from the Azure portal, navigate to Log Analytics (OMS) and in the Log Analytics (OMS) blade, note the value for **Name** and **Resource Group**.<br> ![OMS Log Analytics Workspace List](media/automation-manage-send-joblogs-oms-loganalytics/oms-la-workspaces-list-blade.png)  We will use these two values when we verify the configuration in your OMS workspace using the PowerShell cmdlet [Get-AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
+To confirm the script configured your Automation account and OMS wokspace successfully, you can perform the following steps in PowerShell.  Before you do that, to find the values for your OMS workspace name and resource group name, from the Azure portal, navigate to Log Analytics (OMS) and in the Log Analytics (OMS) blade, note the value for **Name** and **Resource Group**.<br> ![OMS Log Analytics Workspace List](media/automation-manage-send-joblogs-log-analytics/oms-la-workspaces-list-blade.png)  We will use these two values when we verify the configuration in your OMS workspace using the PowerShell cmdlet [Get-AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
 
 1.  From the Azure portal, navigate to Storage Accounts and search for the following storage account, which uses the naming convention - *AutomationAccountNameomsstorage*.  After a runbook job completes, shortly afterwards you should see two Blob containers created - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
 
@@ -95,7 +95,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
   
     If you have set up logs from more than one Automation account or subscription to your workspace, you may also be interested in grouping your alerts by the subscription or Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
 
-3.	Click **Alert** at the top of the page to open the **Add Alert Rule** screen.  For further details on the options to configure the alert, please see [Alerts in Log Analytics](../log-analytics/log-analytics-lerts.md#creating-an-alert-rule).
+3.	Click **Alert** at the top of the page to open the **Add Alert Rule** screen.  For further details on the options to configure the alert, please see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
 
 ### Find all jobs that have completed with errors 
 
@@ -116,7 +116,7 @@ When you are debugging a job, you may also want to look into the job streams.  T
 Finally, you may want to visualize your job history over time.  You can use this query to search for the status of your jobs over time. 
 
 `Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1day`  
-<br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-oms-loganalytics/historical-job-status-chart.png)<br>
+<br> ![OMS Historical Job Status Chart](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## Summary
 
