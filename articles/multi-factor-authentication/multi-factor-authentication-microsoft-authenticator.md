@@ -16,17 +16,27 @@
 	ms.date="08/09/2016" 
 	ms.author="billmath"/>
 
+## Microsoft Authenticator app
+The Microsoft Authenticator app provides an additional level of security that can be used in with either your Azure account (e.x. bsimon@contoso.onmicrosoft.com), your on-premises work account (e.x. bsimon@contoso.com), or your Microsoft account(e.x. bsimon@outlook.com).
 
-# Download the Microsoft Authenticator app
+## Download the Microsoft Authenticator app
 
 The Microsoft Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)
 
-# How the Microsoft Authenticator app works
-The Microsoft Authenticator app provides an additional level of security that can be used in with either your Azure account (e.x. bsimon@contoso.onmicrosoft.com), your on-premises work account (e.x. bsimon@contoso.com), or your Microsoft account(e.x. bsimon@outlook.com). 
+## How the Microsoft Authenticator app works
+The app works by pushing a notification to the Microsoft Authenticator app on your smartphone or tablet. You simply tap “Verify” in the app to authenticate. 
 
-# Add an account to the Microsoft Authenticator app
+Alternately, the app can also be used with a verification code.  You simply enter the code provided by the app into the sign-in screen when prompted.
 
-# Moving to the new Microsoft Authenticator app
+These 2 different modes are the following:
+
+**Notification** - In this mode, the Microsoft Authenticator app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate select Authenticate. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.
+
+**One-Time Password** - In this mode, the Microsoft Authenticator app can be used as a software token to generate an OATH verification code. This verification code can then be entered along with the username and password to provide the second form of authentication.
+
+## Add an account to the Microsoft Authenticator app
+
+## Moving to the new Microsoft Authenticator app
 
 With the release of , the old Azure Authenticator app is being replaced.  The Azure Authenticator app will continue to work but should you decide to move to the new Microsoft Authenticator app then this article can assist you.  
 
