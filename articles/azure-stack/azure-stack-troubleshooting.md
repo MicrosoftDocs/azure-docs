@@ -118,7 +118,7 @@ If you deployed Azure Stack using Windows Server 2016 TP 4 ISO you may receive n
 1. Install the following updates on the Azure Stack POC host:
 	- [KB3163018](https://support.microsoft.com/en-us/kb/3163018) 
 	- [KB3149135](https://support.microsoft.com/en-us/kb/3149135) 
-2. Reboot Azure Stack POC Host to complete update installation
+2. Reboot Azure Stack POC Host to complete update installation.
 3. If you experience a license expiration notice after following the steps 1-2, run the following commands from an elevated command prompt:
 
     `slmgr /rilc`
