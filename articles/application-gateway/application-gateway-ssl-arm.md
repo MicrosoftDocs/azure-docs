@@ -12,14 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using Azure Resource Manager
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure Portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
  Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -67,7 +68,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -75,7 +76,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 Check the subscriptions for the account.
 
-		PS C:\> get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 You will be prompted to authenticate with your credentials.<BR>
 
