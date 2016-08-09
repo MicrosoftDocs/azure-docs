@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/8/2016"
+   ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
 # Monitor an Azure Container Service with Elk Stack and Dockerbeat
