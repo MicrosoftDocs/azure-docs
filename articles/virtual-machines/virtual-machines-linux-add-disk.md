@@ -20,7 +20,7 @@
 
 # Add a disk to a Linux VM
 
-This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is re-provisioned due to maintenance or resizing. To add a disk you need [the Azure CLI](../xplat-cli-install.md) configured in Resource Manager mode (`azure config mode arm`).  
+This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. To add a disk, you need [the Azure CLI](../xplat-cli-install.md) configured in Resource Manager mode (`azure config mode arm`).  
 
 ## Quick Commands
 
@@ -32,7 +32,7 @@ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 
 ## Attach a disk
 
-Attaching a new disk is quick. Type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides.  It should look something like this:
+Attaching a new disk is quick. Type `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides.  It should look something like the following:
 
 ```bash
 azure vm disk attach-new myuniquegroupname myuniquevmname 5
@@ -52,7 +52,7 @@ info:    vm disk attach-new command OK
 
 > [AZURE.NOTE] This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
 
-You need to SSH into your Azure VM in order to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
+You need to SSH into your Azure VM to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
 
 ```bash
 ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
@@ -216,7 +216,7 @@ bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the **blkid** utility:
+To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the **blkid** utility:
 
 ```bash
 sudo -i blkid
@@ -238,19 +238,19 @@ Next, open the **/etc/fstab** file in a text editor:
 sudo vi /etc/fstab
 ```
 
-In this example, we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
+In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 ```
 
->[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. This can save cost if you create large files and then delete them.
 
-There are two ways to enable TRIM support in your Linux VM. As usual, please consult your distribution for the recommended approach:
+There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
 - Use the `discard` mount option in `/etc/fstab`, for example:
 
