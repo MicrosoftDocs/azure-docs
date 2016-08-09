@@ -30,21 +30,26 @@ This article explains how to add users either from other directories in Azure Ac
 
 2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
 
-    ![Opening user management](./media/active-directory-create-users-azure-portal/create-users-user-management.png)
+    ![Opening user management](./media/active-directory-create-users-external-azure-portal/create-users-user-management.png)
 
 3.  On the **User Management** blade, select **Users**, and then select **Add**.
 
-    ![Selecting the Add command](./media/active-directory-create-users-azure-portal/create-users-add-command.png)
+    ![Selecting the Add command](./media/active-directory-create-users-external-azure-portal/create-users-add-command.png)
 
-
-4. On the user **User** blade:
+4. On the **User** blade:
 	- Provide a display name in **Name** and the user's sign-in name in **User name**.
 
-	- Select **Profile** to add the users first and last name, a job title, and a department name. 
+	- Select **Profile** to add the users first and last name, a job title, and a department name.
 
-6. On the user **User** blade, click **Groups** to add the user to one or more groups.
+	 ![Opening the user profile](./media/active-directory-create-users-external-azure-portal/create-users-user-profile.png)
 
-7. On the user **User** blade, click **Organizational role** to assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
+	- Select **Groups** to add the user to one or more groups.
+
+    ![Adding a user to groups](./media/active-directory-create-users-external-azure-portal/create-users-user-groups.png)
+
+  - Select **Organizational role** to assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
+
+	    ![Assigning a user to a role](./media/active-directory-create-users-external-azure-portal/create-users-assign-role.png)
 
 7. Select **Create**.
 
@@ -55,42 +60,12 @@ This article explains how to add users either from other directories in Azure Ac
 
 If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
 
-## Add external users
-
-You can also add users from another Azure AD directory to which you belong, or from partner companies by uploading a CSV file. To add an external user, for **Type of User**, specify **User in another Microsoft Azure AD directory** or **Users in partner companies**.
-
-Users of either type are sourced from another directory and are added as **external users**. External users can collaborate with other users in a directory without any requirement to add new accounts and credentials. External users authenticate with their home directory when they sign in, and that authentication works for any other directories to which they have been added.
-
-## External user management and limitations
-
-When you add a user from another directory to your directory, that user is an external user in your directory. The display name and user name are copied from their home directory and used for the external user in your directory. From then on, properties of the external user account are entirely independent. If property changes are made to the user in their home directory, those changes aren't propagated to the external user account in your directory.
-
-The only linkage between the two accounts is that the user always authenticates against their home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user. Currently, the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
-
-> [AZURE.NOTE]
-> You can still disable the external user in the directory, which blocks access to your directory.
-
-If a user is deleted in their home directory or they cancel their Microsoft account, the external user still exists in your directory. However, the user in your directory can't access resources because they can't authenticate with a home directory or Microsoft account.
-
-### Services that currently support access by Azure AD external users
-
-- **Azure classic portal**: allows an external user who's an administrator of multiple directories to manage each of those directories.
-- **SharePoint Online**: if external sharing is enabled, allows an external user to access SharePoint Online authorized resources.
-- **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
-- **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) and [Guest users](#guest-user-management-and-limitations) apply to external users in Dynamics AX as well.
-
-### Known limitations of Azure AD external users
-
-- External users who are admins can't add users from partner companies to directories (B2B collaboration) outside their home directory
-- External users can't consent to multi-tenant applications in directories outside of their home directory
-- PowerBI doesn't currently support access by external users
-- Office Portal doesn't support licensing external users
-- With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
-
 
 ## What's next
 
-- [Add new users to Azure Active Directory](active-directory-create-users.md)
-- [Administering Azure AD](active-directory-administer.md)
-- [Manage passwords in Azure AD](active-directory-manage-passwords.md)
-- [Manage groups in Azure AD](active-directory-manage-groups.md)
+- [Add a user](active-directory-create-users-azure-portal.md)
+- Reset a user's password in the new Azure portal
+- Assign a user to a role in your Azure AD
+- Change a user's work information
+- Manage user properties
+- Delete a user in your Azure AD

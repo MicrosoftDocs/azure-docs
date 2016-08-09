@@ -51,7 +51,7 @@ This article explains how to add new users in your organization. Added users don
 
 ## What's next
 
-- Add external user
+- [Add an external user](active-directory-create-users-external-azure-portal.md)
 - Configure user properties while adding a user
 - Resetting a user's password in the new Azure portal
 - Assigning a user to a role in your Azure AD
