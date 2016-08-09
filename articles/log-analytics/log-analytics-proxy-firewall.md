@@ -91,27 +91,27 @@ The following tables list the ports related to these tasks.
 
 >[AZURE.NOTE] Some of the following resources mention Advisor and Operational Insights, both were previous versions of OMS. However, the listed resources will change in the future.
 
-Here's a list of agent resources and ports:
+Here's a list of agent resources and ports:<br>
 
-|**Agent Resource**|**Ports**|
+|**Agent resource**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|*.oms.opinsights.azure.com|Port 443|
-|*.blob.core.windows.net/|Port 443|
-|ods.systemcenteradvisor.com|Port 443|
-
-Here's a list of management server resources and ports:
+|*.ods.opinsights.azure.com|443|
+|*.oms.opinsights.azure.com|443|
+|*.blob.core.windows.net/|443|
+|ods.systemcenteradvisor.com|443|
+<br>
+Here's a list of management server resources and ports:<br>
 
 |**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
 |--------------|-----|--------------|
-|service.systemcenteradvisor.com|Port 443| |
-|*.service.opinsights.azure.com|Port 443| |
-|*.blob.core.windows.net|Port 443|Yes| 
-|data.systemcenteradvisor.com|Port 443| | 
-|ods.systemcenteradvisor.com|Port 443| | 
-|*.ods.opinsights.azure.com|Port 443|Yes| 
-
-Here's a list of OMS and Operations Manager console resources and ports.
+|service.systemcenteradvisor.com|443| |
+|*.service.opinsights.azure.com|443| |
+|*.blob.core.windows.net|443|Yes| 
+|data.systemcenteradvisor.com|443| | 
+|ods.systemcenteradvisor.com|443| | 
+|*.ods.opinsights.azure.com|443|Yes| 
+<br>
+Here's a list of OMS and Operations Manager console resources and ports.<br>
 
 |**OMS and Operations Manager console resource**|**Ports**|
 |----|----|
@@ -122,6 +122,7 @@ Here's a list of OMS and Operations Manager console resources and ports.
 |*.microsoftonline.com|Port 80 and 443|
 |*.mmms.microsoft.com|Port 80 and 443|
 |login.windows.net|Port 80 and 443|
+<br>
 
 Use the following procedures to register your Operations Manager management group with the OMS service. If you are having communication problems between the management group and the OMS service, use the validation procedures to troubleshoot data transmission to the OMS service.
 
@@ -135,11 +136,11 @@ Use the following procedures to register your Operations Manager management grou
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 
-2. Expand **Operational Insights**, and then select **Operational Insights Connection**.  
+2. Expand **Operational Insights**, and then select **Operational Insights Connection**.<br>  
     ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. In the OMS Connection view, click **Configure Proxy Server**.  
+3. In the OMS Connection view, click **Configure Proxy Server**.<br>  
     ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.  
+4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.<br>  
     ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
