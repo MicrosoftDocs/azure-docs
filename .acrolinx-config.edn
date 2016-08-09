@@ -1,7 +1,7 @@
 {:allowed-branch-names ["master" "acrolinx-test"]
- :allowed-filename-matches ["azure/articles/" "azure/includes/"]
+ :allowed-filename-matches ["articles" "includes"]
 
-  :template-header
+ :template-header
    "
 ## Acrolinx Scorecards (Beta)
 
