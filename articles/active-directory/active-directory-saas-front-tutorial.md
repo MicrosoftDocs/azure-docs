@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
+	ms.date="08/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. Click **Next**
 
-	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, you can go to Settings (cog icon at the bottom of the left sidebar) > Preferences > Single Sign-On on your application side or contact Front via [support@frontapp.com](emailTo:support@frontapp.com).
+	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, you can refer **step 12** for details or contact Front via [support@frontapp.com](emailTo:support@frontapp.com).
 
 5. On the **Configure single sign-on at Front** page, perform the following steps and click **Next**:
 
