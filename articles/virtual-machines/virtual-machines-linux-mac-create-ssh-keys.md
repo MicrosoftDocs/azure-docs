@@ -227,6 +227,17 @@ ssh fedora22
 
 When `ssh fedora22` is executed SSH first locates and loads any settings from the `Host fedora22` block, and then loads all the remaining settings from the last block, `Host *`.
 
+### Using PEM keys
+
+If you are using the Azure Classic Portal or the Azure Service Management CLI `asm`, you might need to use PEM formatted SSH keys to access your Linux VMs.  Here is how to create a PEM key from an existing SSH Public key and an existing x509 certificate.
+
+To create a PEM formatted key from an existing SSH public key:
+
+```bash
+ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+```
+
+
 ## Next Steps
 
 Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with a SSH public key as the login are better secured than those created with the default login method passwords.  Azure VMs using SSH keys for logins are by default configured to disable password logins, avoiding brute-forced break in attempts.
