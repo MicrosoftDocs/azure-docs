@@ -24,12 +24,12 @@
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article walks you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection.
 
-You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, provided that the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, as long as the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Before beginning
 
-The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. Note that this configuration does not support static or policy-based gateways.
+The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways.
 
 Before beginning, verify the following:
 
@@ -69,7 +69,7 @@ Gateway IP addressing configuration = gwipconfig
 
 ### Part 1 - Download your network configuration file
 
-1. Log in to your Azure account in the PowerShell console. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. Note that you will be using the SM PowerShell cmdlets to complete this part of the configuration.
+1. Log in to your Azure account in the PowerShell console. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell. You will be using the SM PowerShell cmdlets to complete this part of the configuration.
 
 		Add-AzureAccount
 
@@ -102,7 +102,7 @@ In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one
        
 ### Part 3 - Add the local network site
 
-The local network site you add represents the RM VNet to which you want to connect. You may have to add a **LocalNetworkSites** element to the file if one doesn't already exist. At this point in the configuration, the VPNGatewayAddress can be any valid public IP address because we haven't yet created the gateway for the Resource Manager VNet. Once we create the gateway, we'll replace this placeholder IP address with the correct public IP address that has been assigned to the RM gateway.
+The local network site you add represents the RM VNet to which you want to connect. You may have to add a **LocalNetworkSites** element to the file if one doesn't already exist. At this point in the configuration, the VPNGatewayAddress can be any valid public IP address because we haven't yet created the gateway for the Resource Manager VNet. Once we create the gateway, we replace this placeholder IP address with the correct public IP address that has been assigned to the RM gateway.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -143,7 +143,7 @@ You can create your virtual network gateway either by using the classic portal, 
 
 #### To create your gateway in the classic portal
 
-1. In the [classic portal](https://manage.windowsazure.com), go to **Networks** and click the classic VNet for which you want to create a virtual network gateway. This will open the main page for your VNet.
+1. In the [classic portal](https://manage.windowsazure.com), go to **Networks** and click the classic VNet for which you want to create a virtual network gateway. This opens the main page for your VNet.
 2. Click **Dashboard** at the top of the page to change to the Dashboard page. 
 3. On the bottom of the Dashboard page, click **Create Gateway**, then click **Dynamic Routing**. 
 4. Click **Yes** to begin creating your gateway. 
@@ -162,7 +162,7 @@ To create your gateway by using PowerShell, use the following example.
 
 To create a VPN gateway for the RM VNet, follow the following instructions. Don't start the steps until after you have retrieved the public IP address for the classic VNet's gateway. 
 
-1. **Log in to your Azure account** in the PowerShell console. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
+1. **Log in to your Azure account** in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in,  your account settings are downloaded so that they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -175,7 +175,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
 		Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
 
-2.  **Create a local network gateway**. In a virtual network, the local network gateway typically refers to your on-premises location. In this case, the local network gateway will refer to your Classic VNet. Give it a name by which Azure can refer to it, and also specify the address space prefix. Azure uses the IP address prefix you specify to identify which traffic to send to your on-premises location. If you need to adjust the information here later, before creating your gateway, you can modify the values and run the sample again.<br><br>
+2.  **Create a local network gateway**. In a virtual network, the local network gateway typically refers to your on-premises location. In this case, the local network gateway refers to your Classic VNet. Give it a name by which Azure can refer to it, and also specify the address space prefix. Azure uses the IP address prefix you specify to identify which traffic to send to your on-premises location. If you need to adjust the information here later, before creating your gateway, you can modify the values and run the sample again.<br><br>
 	- `-Name` is the name you want to assign to refer to the local network gateway.<br>
 	- `-AddressPrefix` is the Address Space for your classic VNet.<br>
 	- `-GatewayIpAddress` is the public IP address of the classic VNet's gateway. Be sure to change the following sample to reflect the correct IP address.
@@ -184,7 +184,7 @@ To create a VPN gateway for the RM VNet, follow the following instructions. Don'
 			-Location "West US" -AddressPrefix "10.0.0.0/24" `
 			-GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
 
-3. **Request a public IP address** to be allocated to your Azure Resource Manager VNet VPN gateway. You cannot specify the IP address that you want to use. It is dynamically allocated to your gateway. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.<br>In this step, we also set a variable that will be used in a later step.
+3. **Request a public IP address** to be allocated to your Azure Resource Manager VNet VPN gateway. You cannot specify the IP address that you want to use. It is dynamically allocated to your gateway. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.<br>In this step, we also set a variable that is used in a later step.
 
 
 		$ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
@@ -230,7 +230,7 @@ You can do this step either by exporting the network configuration file, editing
 
 3. On the **Local Networks** page, click to select the local network that you configured in Part 1, and then go to the bottom of the page and click **Edit**.
 
-4. On the **Specify your local network details** page, replace the placeholder IP address that you used in the earlier section with the public IP address for the Resource Manager gateway that you created and retrieved in the previous section. Click the arrow to move to the next section. Verify that the **Address Space** is correct, and then click the checkmark to accept the changes.
+4. On the **Specify your local network details** page, replace the placeholder IP address with the public IP address for the Resource Manager gateway that you created in the previous section. Click the arrow to move to the next section. Verify that the **Address Space** is correct, and then click the checkmark to accept the changes.
 
 ### To modify using the network configuration file
 

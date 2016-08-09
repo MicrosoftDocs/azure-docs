@@ -31,7 +31,7 @@ You can create a connection between VNets that are in different subscriptions, i
 
 ## Before beginning
 
-The the following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways. In the following steps, we will use the classic portal, the Azure portal, and PowerShell. Currently, it is not possible to create this configuration using only the Azure portal.
+The following steps walk you through the settings necessary to configure a dynamic or route-based gateway for each VNet and create a VPN connection between the gateways. This configuration does not support static or policy-based gateways. We will use the classic portal, the Azure portal, and PowerShell. Currently, it's not possible to create this configuration using only the Azure portal.
 
 Before beginning, verify the following:
 
@@ -68,7 +68,7 @@ Local network gateway = ClassicVNetLocal <br>
 
 ## <a name="createsmgw"></a>Section 1: Configure classic VNet settings
 
-In this section, we create the local network and the gateway for your classic VNet. The instructions in this section use the classic portal. Currently, the Azure portal does not offer all of the settings that pertain to a classic VNet.
+In this section, we create the local network and the gateway for your classic VNet. The instructions in this section use the classic portal. Currently, the Azure portal does not offer all the settings that pertain to a classic VNet.
 
 ### Part 1 - Create a new local network
 
@@ -86,7 +86,7 @@ Open the [classic portal](https://manage.windowsazure.com) and sign in with your
 
 2. Under the **site-to-site connectivity** connection section, select the **Connect to the local network** checkbox. Then select the local network that you created. If you have multiple local networks that you created, be sure to select the one that you created to represent your Resource Manager VNet from the dropdown.
 
-3. Click **Save** at the bottom of the page to save your settings.
+3. Click **Save** at the bottom of the page.
 
 ### Part 3 - Create the gateway
 
@@ -142,14 +142,14 @@ Open the [classic portal](https://manage.windowsazure.com).
 
 3. Click to select the local network that you configured in Part 1. At the bottom of the page, click **Edit**.
 
-4. On the **Specify your local network details** page, replace the placeholder IP address that you used in the earlier section with the public IP address for the Resource Manager gateway that you retrieved in the previous section. Click the arrow to move to the next page. Verify that the **Address Space** is correct, and then click the checkmark to accept the changes.
+4. On the **Specify your local network details** page, replace the placeholder IP address with the public IP address for the Resource Manager gateway that you created in the previous section. Click the arrow to move to the next section. Verify that the **Address Space** is correct, and then click the checkmark to accept the changes.
 
 ## <a name="connect"></a>Section 4: Create the connection
 
 In this section, we create the connection between the VNets. The steps for this require PowerShell. You cannot create this connection in either of the portals. Make sure you have downloaded and installed both the classic (SM) and Resource Manager (RM) PowerShell cmdlets.
 
 
-1. Log in to your Azure account in the PowerShell console. You will be prompted for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
+1. Log in to your Azure account in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in,  your account settings are downloaded so that they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
