@@ -35,7 +35,7 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 
 
 ## Manage server-level firewall rules through REST API
-1. Managing firewall rules through REST API must be authenticated. For information, see [Developer's guide to authorization with the Azure Resource Manager API](../articles/resource-manager-api-authentication.md).
+1. Managing firewall rules through REST API must be authenticated. For information, see [Developer's guide to authorization with the Azure Resource Manager API](../resource-manager-api-authentication.md).
 2. Server-level rules can be created, updated, or deleted using REST API
 
 	To create or update a server-level firewall rule, execute the PUT method using the following:
