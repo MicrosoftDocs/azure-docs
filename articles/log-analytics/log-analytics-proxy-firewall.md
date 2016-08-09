@@ -40,7 +40,7 @@ You can use the following procedure to configure proxy settings for the Microsof
 
 2. Open **Microsoft Monitoring Agent**.
 
-3. Click the **Proxy Settings** tab.  
+3. Click the **Proxy Settings** tab.<br>  
   ![proxy settings tab](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
@@ -49,33 +49,31 @@ Use the following procedure to create a PowerShell script that you can run to se
 
 ### To configure proxy settings for the Microsoft Monitoring Agent using a script
 
+Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
 
-- Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
+        
+    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
 
+    # First we get the Health Service configuration object.  We need to determine if we
+    #have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 
-```
-param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
 
-# First we get the Health Service configuration object.  We need to determine if we
-# have the right update rollup with the API we need.  If not, no need to run the rest of the script.
-$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+    if (!$proxyMethod)
+    {
+         Write-Output 'Health Service proxy API not present, will not update settings.'
+         return
+    }
 
-$proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+    Write-Output "Clearing proxy settings."
+    $healthServiceSettings.SetProxyInfo('', '', '')
 
-if (!$proxyMethod)
-{
-    Write-Output 'Health Service proxy API not present, will not update settings.'
-    return
-}
+    $ProxyUserName = $cred.username
 
-Write-Output "Clearing proxy settings."
-$healthServiceSettings.SetProxyInfo('', '', '')
-
-$ProxyUserName = $cred.username
-
-Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
-$healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
-```
+    Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
+    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+        
 
 ## Configure proxy and firewall settings with Operations Manager
 
@@ -165,9 +163,9 @@ Use the following procedures to register your Operations Manager management grou
 
 ### To validate that OMS management packs are downloaded
 
-- If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
+If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
     ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
-- Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
+Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
     ```
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
