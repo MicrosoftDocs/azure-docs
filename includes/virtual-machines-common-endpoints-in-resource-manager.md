@@ -25,7 +25,7 @@ Network Security Groups are a new feature that provides a layer of security for 
 ## Load Balancers overview
 In the Classic deployment model, Azure would perform all the Network Address Translation (NAT) and port forwarding on a Cloud Service for you. When creating an endpoint, you would specify the external port to expose along with the internal port to direct traffic to. Network Security Groups by themselves do not perform this same NAT and port forwarding. 
 
-Create an Azure load balancer in your resource group to allow you to create NAT rules for such port forwarding. Again, the load balancer is granular enough to only apply to specific VMs if needed. The Azure load balancer NAT rules work alongside Network Security Group ACL rules to provide much more flexibility and control than was achievable using Cloud Service endpoints. You can read more about [load balancer overview](../articles/load-balancer/load-balancer-overview.md).
+In order to allow you to create NAT rules for such port forwarding, create an Azure load balancer in your resource group . Again, the load balancer is granular enough to only apply to specific VMs if needed. The Azure load balancer NAT rules work alongside Network Security Group ACL rules to provide much more flexibility and control than was achievable using Cloud Service endpoints. You can read more about [load balancer overview](../articles/load-balancer/load-balancer-overview.md).
 
 
 ## Network Security Group ACL rules
@@ -41,22 +41,22 @@ You assign a Network Security Group to a subnet or a network interface. This app
 
 ![Apply NSGs to network interfaces or subnets](./media/virtual-machines-common-endpoints-in-resource-manager/apply-nsg-to-resources.png)
 
-The behavior of the Network Security Group doesn't change depending on being assigned to a subnet or a network interface. A common deployment scenario has the Network Security Group assigned to a subnet in order to ensure compliance of all VMs attached to that subnet. You can read more about [applying Network Security groups to resources](../virtual-nework/virtual-networks-nsg.md#associating-nsgs).
+The behavior of the Network Security Group doesn't change depending on being assigned to a subnet or a network interface. A common deployment scenario has the Network Security Group assigned to a subnet to ensure compliance of all VMs attached to that subnet. You can read more about [applying Network Security groups to resources](../virtual-nework/virtual-networks-nsg.md#associating-nsgs).
 
 
 ## Default behavior of Network Security Groups
-Depending on how and when you create your network security group, default rules may be created to permit RDP access on TCP port 3389. Linux VMs permit TCP port 22. These automatic ACL rules will be created under the following conditions:
+Depending on how and when you create your network security group, default rules may be created to permit RDP access on TCP port 3389. Linux VMs permit TCP port 22. These automatic ACL rules are created under the following conditions:
 
 - If you create a Windows VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 3389 (RDP) is created.
 - If you create a Linux VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 22 (SSH) is created.
 
-Under all other conditions, these default ACL rules are not created. You will be unable to connect to your VM with creating the appropriate ACL rules. This would include the following common actions:
+Under all other conditions, these default ACL rules are not created. You will be unable to connect to your VM without creating the appropriate ACL rules. This would include the following common actions:
 
 - Creating a Network Security Group through the portal as a separate action to creating the VM.
 - Creating a Network Security Group programmatically through PowerShell, Azure CLI, Rest APIs, etc.
 - Creating a VM and assigning it to an existing Network Security Group that does not already have the appropriate ACL rule defined.
 
-In all the above cases, you need to create ACL rules for your VM to allow the appropriate remote management connections.
+In all the preceding cases, you need to create ACL rules for your VM to allow the appropriate remote management connections.
 
 
 ## Default behavior of a VM without a Network Security Group
