@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure Stack Adding more Web Worker Roles | Microsoft Azure"
+	description="Detailed guidance for scaling Azure Stack Web App"
+	services="azure-stack"
+	documentationCenter=""
+	authors="kathm"
+	manager="slinehan"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="app-service"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/09/2016"
+	ms.author="kathm"/>
+
 #    Web Apps:
 
 ##  Adding more web worker roles
