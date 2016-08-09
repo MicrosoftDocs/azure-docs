@@ -28,7 +28,7 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 - **View service health by streaming “hot path” data to PowerBI** – Using Event Hubs, Stream Analytics, and PowerBI, you can easily transform your diagnostics data into near real-time insights on your Azure services. [This documentation article gives a great overview of how to set up an Event Hubs, process data with Stream Analytics, and use PowerBI as an output](../stream-analytics/stream-analytics-power-bi-dashboard.md). Here’s a few tips for getting set up with Diagnostic Logs:
 	- The Event Hubs for a category of Diagnostic Logs is created automatically when you check the option in the portal or enable it through PowerShell, so you want to select the Event Hubs in the Service Bus namespace with the name that starts with “insights-”
 	- Here’s a sample Stream Analytics query you can use to simply parse all the log data in to a PowerBI table:
-	
+```
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
@@ -36,7 +36,7 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
-
+```
 - **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ##Enable streaming of Diagnostic Logs
@@ -46,13 +46,13 @@ You can enable streaming of Diagnostic Logs programmatically, via the portal, or
 
 ### Via PowerShell Cmdlets
 To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+ ```Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true```
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 
 ### Via Azure CLI
 To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
-    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+```azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true```
 
 Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet.
 
@@ -65,6 +65,7 @@ To configure it, select an existing Service Bus Namespace. The namespace selecte
 
 ##How do I consume the log data from Event Hubs?
 Here is sample output data from the Event Hubs:
+```
     {
     	"records": 
     	[
@@ -127,6 +128,7 @@ Here is sample output data from the Event Hubs:
     		}
     	] 
     }
+```
 
 | Element Name | Description                                            |
 |--------------|--------------------------------------------------------|
