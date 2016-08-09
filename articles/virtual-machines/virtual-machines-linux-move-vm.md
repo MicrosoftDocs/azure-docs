@@ -22,12 +22,12 @@
 
 # Move a Linux VM to another subscription or resource group
 
-This article walks you through how to move a Linux VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
 > [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 
 
-## Use the CLI to move a VM 
+## Use the Azure CLI to move a VM 
 
 In order to successfully move a VM, you need to move the VM and all of it's supporting resources. Use the **azure group show** command to list all of the resources in a resource group.
 
