@@ -24,7 +24,7 @@ This document provides instructions about how to scale Web Apps web worker roles
 
 Azure Stack supports free and shared web app deployments. To add other types, you'll need to add more web worker roles.
 
-If you are not sure what was deployed with the default Web Apps installation, you can review additional information [here](/azure-stack-webapps-overview.md).
+If you are not sure what was deployed with the default Web Apps installation, you can review additional information [here](https://azure.microsoft.com/documentation/articles/azure-stack-webapps-overview/).
 
 The following steps are required to scale web worker roles:
 
@@ -39,7 +39,7 @@ The following steps are required to scale web worker roles:
 Step 1: Create a new VM to support the new instance size
 ========================================================
 
-Create a virtual machine as described in [this article](azure-stack-webapps-overview.md),
+Create a virtual machine as described in [this article](https://azure.microsoft.com/documentation/articles/azure-stack-provision-vm/),
 ensuring that the following selections are made:
 
 -   User name and password: Provide the same user name and password you provided when you installed Web Apps.
@@ -58,8 +58,7 @@ Once the deployment has completed, the following configuration is required to su
 
 1.  Open Server Manager on the host machine, and click **Tools** &gt; **HyperV Manager**.
 
-2.  Connect by using Remote Desktop Protocol (RDP) to the new virtual machine you created in Step 1. The name of the server is located in
-    the summary pane when each VM is selected.
+2.  Connect by using Remote Desktop Protocol (RDP) to the new virtual machine you created in Step 1. The name of the server is located in the summary pane when each VM is selected.
 
 3.  Open PowerShell by clicking on the **Start** button and typing PowerShell. Right-click **PowerShell.exe**, and select **Run
     as administrator** to open PowerShell in administrator mode.
@@ -70,7 +69,7 @@ Once the deployment has completed, the following configuration is required to su
 
  netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes
 
-reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f
+ reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f
 
 5.  Reboot the virtual machine.
 
