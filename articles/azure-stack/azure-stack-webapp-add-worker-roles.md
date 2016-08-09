@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Stack Adding more Web Worker Roles | Microsoft Azure"
+	pageTitle="Azure Stack Adding More Web Worker Roles | Microsoft Azure"
 	description="Detailed guidance for scaling Azure Stack Web App"
 	services="azure-stack"
 	documentationCenter=""
