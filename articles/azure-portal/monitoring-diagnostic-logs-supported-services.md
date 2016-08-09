@@ -18,6 +18,7 @@
 
 # Supported services for Diagnostic Logs
 The following services support Diagnostic Logs:
+
 - Application Gateways
 - Azure Search
 - Data Lake Store
