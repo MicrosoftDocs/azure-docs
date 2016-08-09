@@ -158,12 +158,12 @@ The Microsoft.Diagnostic.Listeners library is part of PartyCluster sample Servic
 
     ![Project references to Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric libraries][1]
 
-### Service Fabric General Availability release and Microsoft.Diagnostics.Tracing NuGet package
-Applications built with Service Fabric General Availability release (2.0.135, released March 31st, 2016) target **.NET Framework 4.5.2**. This is the highest version of the .NET Framework supported by Azure at the time of the GA release. Unfortunately, this version of the framework lacks certain EventListener APIs that the Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses the Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource. This is provided by the **Microsoft.Diagnostics.Tracing NuGet package** authored by Microsoft. The package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
+### Service Fabric General Availability release and Microsoft.Diagnostics.Tracing Nuget package
+Applications built with Service Fabric General Availability release (2.0.135, released March 31st, 2016) target **.NET Framework 4.5.2**. This is the highest version of the .NET Framework supported by Azure at the time of the GA release. Unfortunately, this version of the framework lacks certain EventListener APIs that the Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses the Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource. This is provided by the **Microsoft.Diagnostics.Tracing Nuget package** authored by Microsoft. The package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
 
 To start using the Microsoft.Diagnostics.Tracing implementation of the EventSource class, follow these steps for each service project that needs to send data to Elasticsearch:
 
-1. Right-click on the service project and choose **Manage NuGet Packages**.
+1. Right-click on the service project and choose **Manage Nuget Packages**.
 
 2. Switch to the nuget.org package source (if it is not already selected) and search for "**Microsoft.Diagnostics.Tracing**".
 
