@@ -52,12 +52,12 @@ When users configure peering they can either open or close the network security 
 Azure-provided internal DNS name resolution for virtual machines doesn't work across peered virtual networks. Virtual machines have internal DNS names that are resolvable only within the local virtual network. However, users can configure virtual machines that are running in peered virtual networks as DNS servers for a virtual network.
 
 ## Service chaining
-Users can configure user-defined route tables that point to peered virtual networks as the "next hop", as shown in the diagram later in this article. This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
+Users can configure user-defined route tables that point to virtual machines in peered virtual networks as the "next hop" IP address, as shown in the diagram later in this article." This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
 
 Users can also effectively build hub-and-spoke type environments where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with it, as well as a subset of traffic to appliances that are running in the hub virtual network. In short, VNet peering enables the next hop IP address on the ‘User defined route table’ to be the IP address of a virtual machine in the peered virtual network.
 
 ## Gateways and on-premises connectivity
-Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/) by using gateways, even though the virtual networks are peered.
+Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](..vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
 
 When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
 
