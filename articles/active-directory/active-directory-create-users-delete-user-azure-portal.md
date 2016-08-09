@@ -36,7 +36,7 @@ This article explains how to delete a user from a directory in Azure Active Dire
 
 5. On the blade for the selected user, in the command bar, select **Delete**.
 
-    ![Selecting the Delete command](./media/active-directory-create-users-delete-user-azure-portal/create-users-delete-user.png)
+    ![Selecting the Delete command](./media/active-directory-create-users-delete-user-azure-portal/create-users-delete-command.png)
 
 
 ## What's next

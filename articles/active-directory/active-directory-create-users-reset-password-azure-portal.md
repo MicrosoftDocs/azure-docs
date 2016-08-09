@@ -34,7 +34,7 @@ This article explains how to delete a user from a directory in Azure Active Dire
 
 4. On the **User Management - Users** blade, select a user from the list.
 
-5. On the blade for the selected user, in the command bar, select **Delete**.
+5. On the blade for the selected user, in the command bar, select **Reset password**.
 
     ![Selecting the Reset password command](./media/active-directory-create-users-reset-password-azure-portal/create-users-reset-password-command.png)
 
