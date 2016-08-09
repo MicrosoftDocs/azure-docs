@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="08/08/2016"
+   ms.date="08/09/2016"
    ms.author="brjohnst"/>
 
 # Upgrading to the Azure Search .NET SDK version 2.0-preview
@@ -24,7 +24,7 @@ For a more general walkthrough of the SDK including examples, see [How to use Az
 
 Version 2.0-preview of the Azure Search .NET SDK contains some changes from earlier versions. These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
-> [AZURE.NOTE] If you're using version 0.13-preview or older, you should try upgrading to version 1.1 first, and then upgrade to 2.0-preview. See [Appendix: Steps to upgrade to version 1.1](#UpgradeStepsV1) for instructions.
+> [AZURE.NOTE] If you're using version 0.13-preview or older, you should upgrade to version 1.1 first, and then upgrade to 2.0-preview. See [Appendix: Steps to upgrade to version 1.1](#UpgradeStepsV1) for instructions.
 
 <a name="WhatsNew"></a>
 ## What's new in version 2.0-preview
@@ -57,7 +57,7 @@ Once you've fixed any build errors, you can make changes to your application to 
 <a name="ListOfChanges"></a>
 ## Breaking changes in version 2.0-preview
 
-There is only one breaking change in version 2.0-preview that cannot always be resolved by rebuilding your application.
+There is only one breaking change in version 2.0-preview that may require code changes in addition to rebuilding your application.
 
 ### Indexes.GetClient return type
 
