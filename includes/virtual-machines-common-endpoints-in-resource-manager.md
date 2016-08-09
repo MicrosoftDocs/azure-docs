@@ -1,4 +1,4 @@
-The approach to Azure endpoints works a little differently between the Classic and Resource Manager deployment models. You now have the flexibility to create network filters that control the flow of traffic in and out of your VMs, allowing you to create very complex networking environments beyond a simple endpoint as in the Classic deployment model. This article provides an overview of network security groups and how they differ from using Classic endpoints, creating there filtering rules, and sample deployment scenarios.
+The approach to Azure endpoints works a little differently between the Classic and Resource Manager deployment models. You now have the flexibility to create network filters that control the flow of traffic in and out of your VMs, allowing you to create complex networking environments beyond a simple endpoint as in the Classic deployment model. This article provides an overview of network security groups and how they differ from using Classic endpoints, creating there filtering rules, and sample deployment scenarios.
 
 
 ## Overview of Resource Manager deployments
