@@ -25,15 +25,15 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 Configure  Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
 
-When you first configure Windows or Linux Performance counters for a new OMS workspace, you will be given the option to quickly create several common counters.  They will be listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
+When you first configure Windows or Linux Performance counters for a new OMS workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
 ![Configure Windows Performance counters](media/log-analytics-data-sources-performance-counters/configure-windows.png)
 
 Follow this procedure to add a new Windows performance counter to collect.
 
-1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you will be presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*. 
+1. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  You can also return all instances for a particular counter by specifying *object\counter*. 
 2. Click **+** or press **Enter** to add the counter to the list.
-3. When you add a counter, it will use the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
+3. When you add a counter, it uses the default of 10 seconds for its **Sample Interval**.  You can change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
 ![Configure Linux Performance counters](media/log-analytics-data-sources-performance-counters/configure-linux.png)
@@ -41,14 +41,14 @@ Follow this procedure to add a new Windows performance counter to collect.
 Follow this procedure to add a new Linux performance counter to collect.
 
 1. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
-2. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you will be presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  
+2. Type the name of the counter in the text box in the format *object(instance)\counter*.  When you start typing, you are presented with a matching list of common counters.  You can either select a counter from the list or type in one of your own.  
 2. Click **+** or press **Enter** to add the counter to the list of other counters for the object.
-3. All counters for an object will use the same **Sample Interval**.  The default is 10 seconds, and you change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
+3. All counters for an object use the same **Sample Interval**.  The default is 10 seconds.  You change this to a higher value of up to 1800 seconds (30 minutes) if you want to reduce the storage requirements of the collected performance data.
 4. When you're done adding counters, click the **Save** button at the top of the screen to save the configuration.
 
 ## Data collection
 
-Log Analytics will collect all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your OMS subscription.
+Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your OMS subscription.
 
 
 ## Performance record properties
@@ -69,7 +69,7 @@ Performance records have a type of **Perf** and have the properties in the follo
 
 ## Sizing estimates
 
- A rough estimate for collection of a particular counter at 10 second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
+ A rough estimate for collection of a particular counter at 10-second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
 
 	1 MB x (number of counters) x (number of agents) x (number of instances)
 
@@ -96,7 +96,7 @@ When you run a log search for performance data, the **Log** view is displayed by
 
 ![Metrics view collapsed](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-If the time range you have selected is 6 hours or less, then the graph will be updated every few seconds.  The live data will be displayed on the right side of the graph in light blue.
+If the time range you have selected is 6 hours or less, then the graph is updated every few seconds.  The live data is displayed on the right side of the graph in light blue.
 
 ![Metrics view expanded with live data](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
 
