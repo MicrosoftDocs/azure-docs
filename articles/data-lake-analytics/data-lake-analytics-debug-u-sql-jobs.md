@@ -36,7 +36,7 @@ When you open a failed job in Data Lake Visual Studio tool, you will get an aler
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-**To download vertet and create a debug solution**
+**To download vertex and create a debug solution**
 
 1.	Open a failed U-SQL job in Visual Studio.
 2.	Click **Download** to download all the required resources and input streams. Click **Retry** if the download failed.
