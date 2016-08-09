@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Operations Management Suite Security and Audit Solution Data Security
@@ -21,6 +21,7 @@
 To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
 
 - Security event log
+- Event Tracing for Windows (ETW) events
 - AppLocker auditing events
 - Windows Firewall log
 - Advanced Threat Analytics events
@@ -29,13 +30,14 @@ To help customers prevent, detect, and respond to threats, [Operations Managemen
 - Results of update/patch assessment
 - Syslogs streams that are explicitly enabled on the agent
 
+> [AZURE.NOTE] OMS alsot collects process creation events, which may contain sensitive data. 
+
 We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
 
-
 ## Data Sources
 
-OMS Security and Audit Solution analyzes data from your Virtual Machines and physical computers. OMS Security and Audit Solution can collect configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files   from your virtual machines and physical computers where the OMS Agent is installed.  
+OMS Security and Audit Solution analyzes data from your Virtual Machines and physical computers. OMS Security and Audit Solution can collect configuration information and information about security events, such as Windows event and audit logs, IIS logs and syslog messages from your virtual machines and physical computers where the OMS Agent is installed.  
 
 ## Data Protection
 
