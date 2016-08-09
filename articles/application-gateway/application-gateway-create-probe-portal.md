@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using the Azure Portal"
+   description="Learn how to create a custom probe for Application Gateway by using the Azure portal"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -30,12 +30,12 @@
 
 ## Scenario
 
-The following scenario will go through creating a custom health probe in an existing application gateway.
+The following scenario goes through creating a custom health probe in an existing application gateway.
 The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
 ## <a name="createprobe"></a>Create the probe
 
-Probes are configured in a two-step process through the portal. The first step is to create the probe, next you will add the probe to the backend http settings of the application gateway.
+Probes are configured in a two-step process through the portal. The first step is to create the probe, next you add the probe to the backend http settings of the application gateway.
 
 ### Step 1
 
@@ -54,10 +54,10 @@ Click **Probes** and click the **Add** button to add a new probe.
 Fill out the required information for the probe and when complete click **OK**.
 
 - **Name** - This is a friendly name to the probe that will be accessible in the portal.
-- **Host** - This is the host name that will put used for the probe.
+- **Host** - This is the host name that is used for the probe.
 - **Path** - The remainder of the full url for the custom probe.
-- **Interval (secs)** - How often the probe will be run to check for health.
-- **Timeout (secs)** - The amount of time the probe will wait before timing out.
+- **Interval (secs)** - How often the probe is run to check for health.
+- **Timeout (secs)** - The amount of time the probe waits before timing out.
 - **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
 
 > [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
@@ -70,14 +70,14 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 
 ### Step 1
 
-Click on the **HTTP settings** of the application gateway, and then click on the current backend http settings in the window to bring up the configuration blade.
+Click on the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
 
 ![https settings window][4]
 
 ### Step 2
 
 On the **appGatewayBackEndHttp** settings blade, click **Use custom probe** and choose the probe created in the [Create the probe](#createprobe) section.
-When complete, click **OK** and the settings will be applied.
+When complete, click **OK** and the settings are applied.
 
 ![appgatewaybackend settings blade][5]
 

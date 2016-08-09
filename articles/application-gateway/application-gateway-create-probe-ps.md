@@ -19,6 +19,13 @@
 
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
+> [AZURE.SELECTOR]
+- [Azure Portal](application-gateway-create-probe-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+
+<BR>
+
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 
