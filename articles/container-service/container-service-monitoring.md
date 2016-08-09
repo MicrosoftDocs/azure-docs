@@ -46,4 +46,6 @@ Now to complete the configuration you will need a Datadog account or a free tria
 
 Next enter your API key into the Datadog configuration within the DC/OS Universe. 
 
-![Datadog configuration in the DC/OS Universe](./media/container-service-monitoring/datadog3.png) In the above configration instances are set to 10,000,000 and this is unfortunately a hack to make sure Datadog will deploy to new agents in the cluster. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 
+![Datadog configuration in the DC/OS Universe](./media/container-service-monitoring/datadog3.png) 
+
+In the above configration instances are set to 10,000,000 and this is unfortunately a hack to make sure Datadog will deploy to new agents in the cluster. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 

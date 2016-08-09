@@ -36,7 +36,7 @@ Sysdig is a monitoring service that allows you to monitor your containers within
 
 These steps will show you how to configure and deploy Sysdig applications to your cluster with Marathon. 
 
-Access your DC/OS UI via http://localhost:80/. Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Sysdig."
+Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Sysdig."
 
 ![Sysdig in DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig1.png)
 
