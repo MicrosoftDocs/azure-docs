@@ -20,12 +20,11 @@
 
 ##  Adding more web worker roles
 
-This document provides instructions about how to scale Web Apps web worker roles. It contains steps for creating additional web worker roles
-to support web apps offerings of any size.
+This document provides instructions about how to scale Web Apps web worker roles. It contains steps for creating additional web worker roles to support web apps offerings of any size.
 
-Azure Stack supports free and shared web app deployments. To add other types, youâ€™ll need to add more web worker roles.
+Azure Stack supports free and shared web app deployments. To add other types, you'll need to add more web worker roles.
 
-If youâ€™re not sure what was deployed with the default Web Apps installation, you can review additional information [here](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-webapps-overview/).
+If you are not sure what was deployed with the default Web Apps installation, you can review additional information [here](/azure-stack-webapps-overview.md).
 
 The following steps are required to scale web worker roles:
 
@@ -40,7 +39,7 @@ The following steps are required to scale web worker roles:
 Step 1: Create a new VM to support the new instance size
 ========================================================
 
-Create a virtual machine as described in [this article](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-provision-vm/),
+Create a virtual machine as described in [this article](azure-stack-webapps-overview.md),
 ensuring that the following selections are made:
 
 -   User name and password: Provide the same user name and password you provided when you installed Web Apps.
@@ -55,7 +54,7 @@ recommended for this release.)
 Step 2: Configure the Virtual Machine
 =====================================
 
-> Once the deployment has completed, the following configuration is required to support the web worker role:
+Once the deployment has completed, the following configuration is required to support the web worker role:
 
 1.  Open Server Manager on the host machine, and click **Tools** &gt; **HyperV Manager**.
 
@@ -67,16 +66,15 @@ Step 2: Configure the Virtual Machine
 
 4.  Copy and paste each of the following commands (one at a time) into the PowerShell window, and press enter:
 
-> netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
->
-> netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes
->
-> reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f
+ netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+
+ netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes
+
+reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f
 
 5.  Reboot the virtual machine.
 
-> Note: These are minimum requirements for Web Apps. They are the default settings of the Windows 2012 R2 image included with Azure
-> Stack. The instructions have been provided for future reference, and for those using a different image.
+ Note: These are minimum requirements for Web Apps. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
 
 Step 3: Configure the web worker role in the Azure Stack portal
 ===============================================================
@@ -86,7 +84,7 @@ Step 3: Configure the web worker role in the Azure Stack portal
 
 2.  Navigate to **Resource Providers** &gt; **WEBAPPS-LOCAL**.
 
-> ![](media/azure-stack-webapp-add-worker-roles/WebApp-ResourceMgmt.png)
+ ![](media/azure-stack-webapp-add-worker-roles/WebApp-ResourceMgmt.png)
 
 3.  Click **Go to Resource Provider Management**.
 
@@ -115,15 +113,14 @@ Step 3: Configure the web worker role in the Azure Stack portal
 10.  Navigate to **Web Cloud** &gt; **Managed Servers**.
 
 11.  Click the server name that you just deployed. Review the status column, and wait to move to the next step until the status
-    is â€œReadyâ€.
+    is "Ready".
 
-> ![](media/azure-stack-webapp-add-worker-roles/webappmgmtconsole.png)
+ ![](media/azure-stack-webapp-add-worker-roles/webappmgmtconsole.png)
 
 Step 4: Configure app service plans
 ===================================
 
-**Note:** In the current release of Web Apps, app service plans must be stored in separate resource groups. Build a resource group for each size
-of web app, and place the application plans in their appropriate resource groups.
+**Note:** In the current release of Web Apps, app service plans must be stored in separate resource groups. Build a resource group for each size of web app, and place the application plans in their appropriate resource groups.
 
 1.  Sign in to the portal on the ClientVM.
 
@@ -139,8 +136,8 @@ of web app, and place the application plans in their appropriate resource groups
 
 **Note:** You can create multiple plans while on this blade. Before you deploy, however, ensure you have selected the appropriate plan.
 
-> The following shows an example of the multiple plans available:
->
+The following shows an example of the multiple plans available:
+
  ![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
 
 Final Web App service VM configuration
