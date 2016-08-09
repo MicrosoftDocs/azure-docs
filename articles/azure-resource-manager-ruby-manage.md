@@ -25,7 +25,7 @@ in Azure using the Azure Ruby SDK.
 
 1. If you don't already have it, [install Ruby and the Ruby DevKit](https://www.ruby-lang.org/en/documentation/installation/).
 
-1. If you don't have *bundler*, install it.
+1. If you don't have 'bundler', install it.
 
     ```
     gem install bundler
