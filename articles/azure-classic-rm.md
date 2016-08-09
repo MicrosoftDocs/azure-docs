@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Resource Manager and Service Management (classic) deployment modes | Azure"
+   pageTitle="Resource Manager and Service Management (classic) deployment modes | Microsoft Azure"
    description="Learn the differences between Resource Manager and classic deployment models."
    services="virtual-network"
    documentationCenter=""
