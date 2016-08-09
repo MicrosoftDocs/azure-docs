@@ -89,13 +89,13 @@ Step 3: Configure the web worker role in the Azure Stack portal
 
 4.  Click **Roles**.
 
-![](media/azure-stack-webapp-add-worker-roles/WebApp-Roles.png)
+ ![](media/azure-stack-webapp-add-worker-roles/WebApp-Roles.png)
 
 5.  Click **Add Role Instance**.
 
 6.  Click the **Tier** you would like to deploy the new instance to (small, medium, large, or shared).
 
-![](media/azure-stack-webapp-add-worker-roles/WebApp-Tiers.png)
+ ![](media/azure-stack-webapp-add-worker-roles/WebApp-Tiers.png)
 
 7.  Configure the following:
 
