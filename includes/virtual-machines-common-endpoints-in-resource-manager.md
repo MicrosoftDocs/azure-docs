@@ -1,4 +1,4 @@
-The approach to Azure endpoints works a little differently between the Classic and Resource Manager deployment models. You now have the flexibility to create network filters that control the flow of traffic in and out of your VMs, allowing you to create complex networking environments beyond a simple endpoint as in the Classic deployment model. This article provides an overview of network security groups and how they differ from using Classic endpoints, creating there filtering rules, and sample deployment scenarios.
+The approach to Azure endpoints works a little differently between the Classic and Resource Manager deployment models. You now have the flexibility to create network filters that control the flow of traffic in and out of your VMs, allowing you to create complex networking environments beyond a simple endpoint as in the Classic deployment model. This article provides an overview of network security groups and how they differ from using Classic endpoints, creating these filtering rules, and sample deployment scenarios.
 
 
 ## Overview of Resource Manager deployments
@@ -45,7 +45,7 @@ The behavior of the Network Security Group doesn't change depending on being ass
 
 
 ## Default behavior of Network Security Groups
-Depending on how and when you create your network security group, default rules may be created to permit RDP access on TCP port 3389. Linux VMs permit TCP port 22. These automatic ACL rules are created under the following conditions:
+Depending on how and when you create your network security group, default rules may be created to permit RDP access on TCP port 3389. Linux VMs permit SSH access on TCP port 22. These automatic ACL rules are created under the following conditions:
 
 - If you create a Windows VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 3389 (RDP) is created.
 - If you create a Linux VM through the portal and accept the default action to create a Network Security Group, an ACL rule to allow TCP port 22 (SSH) is created.
