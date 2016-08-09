@@ -18,13 +18,13 @@
 
 # Microsoft Trust Center
 
-While the Azure Security Information site on Azure.com strives to give you the information you need to make sure you plan, design, deploy, configure, and manage your cloud solutions securely, the Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure.
+The Azure Security Information site on Azure.com gives you the information you need to plan, design, deploy, configure, and manage your cloud solutions securely. With the Microsoft Trust center, you also have the information you need to be confident that the Azure platform on which you run your services is secure.
 
 We know that when you entrust your applications and data to Azure, you’re going to have questions. Where is it? Who can access it? What is Microsoft doing to protect it? How can you verify that Microsoft is doing what it says?
 
-And we have answers. Because it’s your data, you decide who has access, and you work with us to decide where it is located. To safeguard your data, we use state-of-the art security technology and world-class cryptography. Our compliance is independently audited, and we’re transparent on many levels—from how we handle legal demands for your customer data to the security of our code.
+And we have answers. Because it’s your data, you decide who has access, and you work with us to decide where it is located. To safeguard your data, we use state-of-the-art security technology and world-class cryptography. Our compliance is independently audited, and we’re transparent on many levels—from how we handle legal demands for your customer data to the security of our code.
 
-Here's what you’ll find at the Microsoft Trust Center:
+Here's what you find at the Microsoft Trust Center:
 
 - [Security](https://aka.ms/tcsecurity) – Learn how all the Microsoft Cloud services are secured.
 - [Privacy](https://aka.ms/tcprivacy) – Understand how Microsoft ensures privacy of your Data in the Microsoft cloud.
