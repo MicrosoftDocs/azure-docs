@@ -139,7 +139,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 	- **Auto Format**
 
-		Users can change the indentation of the Scope script based on the code structure under Edit->Advanced:
+		Users can change the indentation of the U-SQL script based on the code structure under Edit->Advanced:
 
 		- Format Document (Ctrl+E, D) : Formats the whole document   
 		- Format Selection (Ctrl+K, Ctrl+F): Formats the selection. If no selection has been made, this shortcut formats the line the cursor is in.  
