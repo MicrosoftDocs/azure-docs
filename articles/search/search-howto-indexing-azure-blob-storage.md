@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="07/12/2016"
+ms.date="08/08/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -25,19 +25,25 @@ This article shows how to use Azure Search to index documents (such as PDFs, Mic
 
 To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for blob indexing will be added to the Azure Search .NET SDK and the Azure Portal.
 
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). A data source is defined as an independent resource so that it can be used by multiple indexers.
+Setting up the indexer is a 3-part construction: define the data source, specify the index, and configure the indexer.
 
-An indexer is a resource that connects data sources with target search indexes.
+### Step 1: Create the data source
 
-To set up blob indexing, do the following:
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source is defined as an independent resource so that it can be used by multiple indexers in the same subscription.
 
-1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account.
-	- Pass in a storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from Azure Portal: navigate to the desired storage account blade / Keys and use the "Primary Connection String" or "Secondary Connection String" value. 
-	- Specify a container name. You can also optionally include a folder using the `query` parameter.
-2. Create a search index with a searchable `content` field. 
-3. Create the indexer by connecting your data source to the target index.
+For blob indexing, the data source must have a name, type, credentials, and container:
 
-### Create data source
+- **name** is the unique name of the data source within your search service.
+
+- **type** must be `azureblob`. 
+
+- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure Portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value. Since the connection string is bound to a storage account, specifying the connection string implicitly identifies the storage account providing the data.
+
+- **container** is a group of blobs, and the container name forms part of the blob name. By default, all blobs within the container are retrievable. 
+
+  If you added path information to the blob naming structure to include a virtual directory component, you can specify the optional `query` parameter to set the folder name in your data source definition. This allows you to restrict indexing to just those blobs having the same virtual directory as part of the blob name. Note that you can specify only one virtual directory in each data source definition. Furthermore, the virtual directory is just the name of the folder, not the full path. It's assumed the directory is a child of the specified container.
+
+The following example illustrates a data source definition:
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -52,7 +58,11 @@ To set up blob indexing, do the following:
 
 For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Create index 
+### Step 2: Create index 
+
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience.  
+
+For blob indexing, be sure that your index has a searchable `content` field for storing the blob.
 
 	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
 	Content-Type: application/json
@@ -68,9 +78,9 @@ For more on the Create Datasource API, see [Create Datasource](search-api-indexe
 
 For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
 
-### Create indexer 
+### Step 3: Create indexer 
 
-Finally, create an indexer that references the data source and a target index. For example:
+An indexer is a resource that connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source are defined, its relatively simple to create an indexer that references the data source and a target index. For example:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
