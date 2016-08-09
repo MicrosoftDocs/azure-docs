@@ -163,3 +163,7 @@ client.resource_groups.export_template(GROUP_NAME, export_params)
 ```ruby
 client.resource_groups.delete('azure-sample-group')
 ```
+
+## More information
+
+[AZURE.INCLUDE [azure-code-samples-closer](../includes/azure-code-samples-closer.md)]

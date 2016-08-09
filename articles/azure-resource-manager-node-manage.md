@@ -29,7 +29,7 @@ using the Azure SDK for Node.js.
 2. Clone the repository.
 
     ```
-    git clone git@github.com:Azure-Samples/resource-manager-node-resources-and-groups.git
+    git clone http://github.com/Azure-Samples/resource-manager-node-resources-and-groups.git
     ```
 
 3. Install the dependencies.
@@ -191,3 +191,5 @@ resourceClient.resources.deleteMethod(resourceGroupName,
 ## More information
 
 [Azure SDK for Node.js](https://github.com/Azure/azure-sdk-for-node)
+
+[AZURE.INCLUDE [azure-code-samples-closer](../includes/azure-code-samples-closer.md)]

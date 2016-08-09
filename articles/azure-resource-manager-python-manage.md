@@ -17,3 +17,7 @@
    ms.author="allclark"/>
 
 # Manage resources using the Python SDK
+
+## More information
+
+[AZURE.INCLUDE [azure-code-samples-closer](../includes/azure-code-samples-closer.md)]
