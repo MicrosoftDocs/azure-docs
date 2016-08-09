@@ -62,7 +62,7 @@ For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
 
 ### How to connect to Azure Government Cloud or Azure China Cloud
 
-By default the Azure environment is `AzureCloud` which represents the global Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
+By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
 
 To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
 
@@ -112,7 +112,7 @@ The following table contains properties and descriptions for commonly used param
 | Size               | The size of the cache. Valid values are: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB                                                                     | 1GB      |
 | ShardCount         | The number of shards to create when creating a premium cache with clustering enabled. Valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10                                                                                                      |          |
 | SKU                | Specifies the SKU of the cache. Valid values are: Basic, Standard, Premium                                                                                                                                         | Standard |
-| RedisConfiguration | Specifies Redis configuration settings. For details on each setting see the following [RedisConfiguration properties](#redisconfiguration-properties) table. |          |
+| RedisConfiguration | Specifies Redis configuration settings. For details on each setting, see the following [RedisConfiguration properties](#redisconfiguration-properties) table. |          |
 | EnableNonSslPort   | Indicates whether the non-SSL port is enabled.                                                                                                                                                                     | False    |
 | MaxMemoryPolicy    | This parameter has been deprecated - use RedisConfiguration instead.                                                                                                                                              |          |
 | StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet.                                                                                                                     |          |
@@ -142,7 +142,7 @@ The following table contains properties and descriptions for commonly used param
 
 New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
->[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` will fail.
+>[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` fail.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -230,7 +230,7 @@ To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-To specify values for the `RedisConfiguration` parameter, enclose the values inside `{}` as a key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1 GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Maxmemory-policy and maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+To specify values for the `RedisConfiguration` parameter, enclose the values inside `{}` as key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1 GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information, see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Maxmemory-policy and maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
@@ -301,7 +301,7 @@ To see a list of available parameters and their descriptions for `Set-AzureRmRed
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-The `Set-AzureRmRedisCache` can be used to update properties such as `Size`, `Sku`, `EnableNonSslPort` and the `RedisConfiguration` values. 
+The `Set-AzureRmRedisCache` cmdlet can be used to update properties such as `Size`, `Sku`, `EnableNonSslPort`, and the `RedisConfiguration` values. 
 
 The following command updates the maxmemory-policy for the Redis Cache named myCache.
 
@@ -323,7 +323,7 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 >
 >For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
-The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. Note that this command will work for both a Basic or a Standard cache.
+The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. Note that this command works for both a Basic or a Standard cache.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -356,7 +356,7 @@ After this command is issued, the status of the cache is returned (similar to ca
 	TenantSettings     : {}
 	ShardCount         :
 
-When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete or you will receive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete or you receive an error similar to the following.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
