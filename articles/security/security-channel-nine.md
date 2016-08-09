@@ -18,7 +18,7 @@
 
 # Azure security videos on Channel 9
 
-[Channel 9](https://channel9.msdn.com/) is a community. They bring forward the people behind our products and connect them with those who use them.
+[Channel 9](https://channel9.msdn.com/) is a community that brings forward the people behind our products and connects them with customers.
 
 They think there is a great future in software and they’re excited about it. Channel 9 is a community to participate in the ongoing conversation.
 
@@ -56,7 +56,7 @@ As an owner of your lab, you can secure lab access by via two lab roles: Owner a
 
 [Managing Secrets for Azure Apps](https://channel9.msdn.com/events/Build/2016/P456)
 
-Every serious app you deploy on Azure has critical secrets – connection strings, certificates, keys. Silly mistakes in managing these lead to fatal consequences – leaks, outages, compliance violations. As multiple recent surveys point out, silly mistakes cause four times more data breaches than adversaries. In this session, we go over some best practices to manage your important app secrets. These may seem like common sense, yet many developers neglect them. We will also go over how to use Azure Key Vault to implement those best practices. As an added benefit, following these practices will also help you demonstrate compliance with standards such as SOC. The first 10 minutes of the session are level 100 and they apply to any cloud app you develop on any platform. The remainder is level 200-300 and focuses on apps you build on the Azure platform.
+Every serious app you deploy on Azure has critical secrets – connection strings, certificates, keys. Silly mistakes in managing these secrets leads to fatal consequences – leaks, outages, compliance violations. As multiple recent surveys point out, silly mistakes cause four times more data breaches than adversaries. In this session, we go over some best practices to manage your important app secrets. These best practices may seem like common sense, yet many developers neglect them. We also go over how to use Azure Key Vault to implement those best practices. As an added benefit, following these practices helps you demonstrate compliance with standards such as SOC. The first 10 minutes of the session are level 100 and they apply to any cloud app you develop on any platform. The remainder is level 200-300 and focuses on apps you build on the Azure platform.
 
 [Securing your Azure Virtual Network using Network Security Groups with Narayan Annamalai](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
 
@@ -64,7 +64,13 @@ Senior Program Manager Narayan Annamalai teaches Scott how to use Network Securi
 
 [Azure AD Privileged Identity Management: Security Wizard, Alerts, Reviews](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
-Azure Active Directory (AD) Privileged Identity Management is a premium functionality that allows you to discover, restrict, and monitor privileged identities and their access to resources but also enforce on-demand, just in time administrative access when needed. Learn about: Managing protection for Office 365 workload-specific administrative roles; Configuring Azure Multi-Factor Authentication(MFA) for privileged role activations; Measuring and improving your tenant security posture; Monitoring and fixing security findings; Reviewing who needs to remain in privileged roles for periodic recertification workflows.
+Azure Active Directory (AD) Privileged Identity Management is a premium functionality that allows you to discover, restrict, and monitor privileged identities and their access to resources. It also enforces on-demand, just in time administrative access when needed. Learn about:
+
+- Managing protection for Office 365 workload-specific administrative roles
+- Configuring Azure Multi-Factor Authentication(MFA) for privileged role activations
+- Measuring and improving your tenant security posture
+- Monitoring and fixing security findings
+- Reviewing who needs to remain in privileged roles for periodic recertification workflows
 
 [Azure Key Vault with Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

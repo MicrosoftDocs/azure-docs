@@ -20,7 +20,7 @@
 
 Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers.
 
-On this page you will find a curated collection of Azure security related courses. Visit the [Microsoft Virtual Academy](https://mva.microsoft.com/) to see all the courses they have available.
+On this page, you find a curated collection of Azure security-related courses. Visit the [Microsoft Virtual Academy](https://mva.microsoft.com/) to see all the courses they have available.
 
 [Dev/Test in the Cloud](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
@@ -32,32 +32,32 @@ If you have questions about using Linux on the Microsoft Azure platform, this de
 
 [Secure the Cloud](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
 
-In this session, learn how Microsoft can help you meet global compliance requirements, such as ISO 27001 / 27018, FedRAMP, PCI, and HIPAA, with new security controls ranging from at-rest data encryption, key management, virtual machine protection, logging and monitoring, to anti-malware services, identity management, access controls, and much more.
+In this session, learn how Microsoft can help you meet global compliance requirements, such as ISO 27001 / 27018, FedRAMP, PCI, and HIPAA, with new security controls. These controls range from at-rest data encryption, key management, VM protection, logging and monitoring, to anti-malware services, identity management, access controls, and more.
 
 [Design and Implement Cloud Data Platform Solutions](https://mva.microsoft.com/en-us/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
 
-Learn the features and capabilities of Microsoft cloud data platform solutions. Get a platform overview, and hear about security features, options for high availability, techniques for monitoring and managing cloud data, and more. Plus, get guidance on how to identify tradeoffs and make decisions for designing public and hybrid cloud solutions using Microsoft cloud data platform features.
+Learn the features and capabilities of Microsoft cloud data platform solutions. Get a platform overview and hear about security features, options for high availability, techniques for monitoring and managing cloud data, and more. Plus, get guidance on how to identify tradeoffs and make decisions for designing public and hybrid cloud solutions using Microsoft cloud data platform features.
 
 [Manage and Secure Identities in a Cloud and Mobile World](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
 
-In this session, learn how Azure Active Directory and Microsoft Advanced Threat Analytics can help you secure and manage user identity in your business, identify security breaches before they cause damage, and provide your users a single identity for accessing all corporate resources. Explore the technologies used to discover Shadow IT, manage application access, and monitor suspicious activity through advanced security reporting, user behavioral analytics, auditing, and alerting.
+In this session, learn how Azure Active Directory and Microsoft Advanced Threat Analytics helps you secure and manage user identity, identify security breaches before they cause damage, and provide your users a single identity for accessing all corporate resources. Explore the technologies used to discover Shadow IT, manage application access, and monitor suspicious activity through advanced security reporting, user behavioral analytics, auditing, and alerting.
 
 [Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Experts lead you through the customer responsibility roadmap in the [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) poster and provide recommendations for modernizing each part of your security posture, including governance, containment strategies, security operations, high-value asset protection, information protection, and user and device security, with a particular emphasis on protecting administrative control. Learn from the same framework that the Microsoft cybersecurity team uses to assess customers' cloud security and to build them a security roadmap.
+Experts lead you through the customer responsibility roadmap in the [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) poster. The experts also provide recommendations for modernizing each part of your security posture, including governance, containment strategies, security operations, high-value asset protection, information protection, and user and device security, with a particular emphasis on protecting administrative control. Learn from the same framework that the Microsoft cybersecurity team uses to assess customers' cloud security and to build them a security roadmap.
 
 [Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 
-Learn how to leverage Microsoft Azure infrastructure capabilities. If you are an IT Pro, no need to have a previous experience with Azure. The course walkthrough creating and configuring Azure Virtual Machines, Azure Virtual Networks and cross-premises connectivity to get things up and running on the cloud. Security features and considerations are included throughout the course.
+Learn how to use Microsoft Azure infrastructure capabilities. If you are an IT Pro, no need to have previous experience with Azure. This course walks you through creating and configuring Azure VMs, Azure Virtual Networks, and cross-premises connectivity to get things up and running on the cloud. Security features and considerations are included throughout the course.
 
 [Getting Started with Azure Security for the IT Professional](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
 
-In this demo-filled course, explore these and other hot topics, as a team of security experts and Azure engineers takes you beyond the basic certifications and explores what's possible inside Azure. See how to design and use various technologies to ensure that you have the security and architecture you need to successfully launch your projects in the cloud. Dive into datacenter operations, virtual machine (VM) configuration, network architecture, and storage infrastructure.
+In this demo-filled course, a team of security experts and Azure engineers takes you beyond the basic certifications and explores what's possible inside Azure. See how to design and use various technologies to ensure that you have the security and architecture you need to successfully launch your projects in the cloud. Dive into datacenter operations, VM configuration, network architecture, and storage infrastructure.
 
 [Deep Dive into Azure Resource Manager Scenarios and Patterns](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
 
-Find out how you can use Azure Resource Manager (ARM) as a tool help you manage those Resource Groups. Explore ARM with an international team of experts, who show you scripts and tools that make it easy to spin up or spin down elements of your application infrastructure in dev, test, or production. Explore the use of role-based access control (RBAC) to implement security with ARM.
+Explore Azure Resource Manager with a team of experts, who show you scripts and tools that make it easy to spin up or spin down elements of your application infrastructure. Explore the use of role-based access control (RBAC) to implement security with Azure Resource Manager.
 
 [Azure Rights Management Services Core Skills](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
-Find out why information protection is a 100-percent "must have" requirement in your organization and how rights management protects your organization's intellectual property, wherever it travels across devices and the cloud. Get hands-on experience and technical know-how from Microsoft experts.
+Find out why information protection is a "must have" requirement in your organization and how rights management protects your organization's intellectual property, wherever it travels across devices and the cloud. Get hands-on experience and technical know-how from Microsoft experts.
