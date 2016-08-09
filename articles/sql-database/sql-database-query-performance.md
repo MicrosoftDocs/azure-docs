@@ -46,7 +46,7 @@ The following [role-based access control](../active-directory/role-based-access-
 Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
-- In order to view its details, select an individual query.
+- To view its details, select an individual query.
 - Open [SQL Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
 - Zoom in for detailed information.
 
@@ -111,7 +111,7 @@ During your use of Query Performance Insight, you might encounter the following 
 - "Query Store for this database is in read-only mode and not collecting performance insights data."
 - "Query Store parameters are not optimally set for Query Performance Insight."
 
-These messages usually appear when Query Store is not able to collect new data. To fix this, you have couple of options:
+These messages usually appear when Query Store is not able to collect new data. To resolve these issues, you have a couple of options:
 
 -	Change the Retention and Capture policy of Query Store
 -	Increase size of Query Store 
@@ -146,7 +146,7 @@ Increase size of Query Store by connecting to a database and issuing following q
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Clear Query Store. This deletes all current information in the Query Store:
+Clear Query Store. Deletes all current information in the Query Store:
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
