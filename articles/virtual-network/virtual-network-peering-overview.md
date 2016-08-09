@@ -77,7 +77,7 @@ A user who is either an admin or a privileged user of the peering ability can in
 Refer to the articles in the Next steps section to learn more about how to establish VNet peering between two virtual networks.
 
 ## Limits
-There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure Networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
+There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure Networking limits](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.virtualnetworks(v=azure.11).aspx) for more information.
 
 ## Pricing
 VNet peering will be free of charge during the review period. Once it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
