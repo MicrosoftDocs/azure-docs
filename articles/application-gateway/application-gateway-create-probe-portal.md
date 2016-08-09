@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a custom probe for an application gateway by using the portal | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using the Azure portal"
+   description="Learn how to create a custom probe for Application Gateway by using the portal"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -20,7 +20,7 @@
 # Create a custom probe for Application Gateway by using the portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](application-gateway-create-probe-portal.md)
+- [Azure portal](application-gateway-create-probe-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -53,7 +53,7 @@ Click **Probes** and click the **Add** button to add a new probe.
 
 Fill out the required information for the probe and when complete click **OK**.
 
-- **Name** - This is a friendly name to the probe that will be accessible in the portal.
+- **Name** - This is a friendly name to the probe that is accessible in the portal.
 - **Host** - This is the host name that is used for the probe.
 - **Path** - The remainder of the full url for the custom probe.
 - **Interval (secs)** - How often the probe is run to check for health.
@@ -70,7 +70,7 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 
 ### Step 1
 
-Click on the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
+Click the **HTTP settings** of the application gateway, and then click the current backend http settings in the window to bring up the configuration blade.
 
 ![https settings window][4]
 
@@ -81,8 +81,8 @@ When complete, click **OK** and the settings are applied.
 
 ![appgatewaybackend settings blade][5]
 
-The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway will use the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway will check the file
-specified in the probe. If the call to host:Port/path does not return a Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again, once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway uses the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway checks the file
+specified in the probe. If the call to host:Port/path does not return an Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again. Once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
 
 
 ## Next steps

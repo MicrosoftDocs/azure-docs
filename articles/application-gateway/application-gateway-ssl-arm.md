@@ -42,7 +42,7 @@
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element needs to be added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
 
 **To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
@@ -94,7 +94,7 @@ Create a resource group (skip this step if you're using an existing resource gro
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This setting is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This setting is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 

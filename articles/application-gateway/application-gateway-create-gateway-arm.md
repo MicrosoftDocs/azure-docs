@@ -22,7 +22,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](application-gateway-create-gateway-portal.md)
+- [Azure portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -34,15 +34,15 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 This article walks you through the steps to create, configure, start, and delete an application gateway.
 
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document will cover creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document covers creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
 
 
 
 ## Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
-2. If you have an existing virtual network, either select an existing empty subnet or create a new subnet in your existing virtual network solely for use by the application gateway. You cannot deploy the application gateway to a different virtual network than the resources you intend to deploy behind the application gateway. 
-3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+2. If you have an existing virtual network, either select an existing empty subnet or create a subnet in your existing virtual network solely for use by the application gateway. You cannot deploy the application gateway to a different virtual network than the resources you intend to deploy behind the application gateway. 
+3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## What is required to create an application gateway?
 
@@ -55,11 +55,11 @@ This article walks you through the steps to create, configure, start, and delete
 
 
 
-## Create a new application gateway
+## Create an application gateway
 
-The difference between using Azure Classic and Azure Resource Manager is the order in which you will create the application gateway and the items that need to be configured.
+The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
 
-With Resource Manager, all items that will make an application gateway will be configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 
 Here are the steps that are needed to create an application gateway:
@@ -75,10 +75,10 @@ Here are the steps that are needed to create an application gateway:
 Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
-Login to Azure
+Log in to Azure
 		Login-AzureRmAccount
 
-You will be prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.<BR>
 ### Step 2
 Check the subscriptions for the account.
 
@@ -94,7 +94,7 @@ Create a new resource group (skip this step if you're using an existing resource
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 
@@ -139,7 +139,7 @@ You need to set up all configuration items before creating the application gatew
 
 ### Step 1
 
-Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance will take one IP address.
+Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -147,7 +147,7 @@ Create an application gateway IP configuration named "gatewayIP01". When Applica
 
 ### Step 2
 
-Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
+Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 

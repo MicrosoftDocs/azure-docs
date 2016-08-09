@@ -22,14 +22,14 @@
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload.
 
 > [AZURE.SELECTOR]
-- [Azure Portal](application-gateway-create-gateway-portal.md)
+- [Azure portal](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
-You will learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
+You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
 If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
@@ -41,9 +41,9 @@ In this scenario you will:
 - Create an application gateway with two instances.
 - Create a virtual network named VirtualNetwork1 with a reserved CIDR block of 10.0.0.0/16.
 - Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-- Set up two previously configured back-end IPs for the web servers you want to load balance the traffic. In this template example, the back-end IPs will be 10.0.1.10 and 10.0.1.11.
+- Set up two previously configured back-end IPs for the web servers you want to load balance the traffic. In this template example, the back-end IPs are 10.0.1.10 and 10.0.1.11.
 
->[AZURE.NOTE] Those are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
+>[AZURE.NOTE] Those settings are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
 
 
 
@@ -59,11 +59,11 @@ You can download the existing Azure Resource Manager template to create a virtua
 2. Click **azuredeploy.json**, and then click **RAW**.
 3. Save the file to a local folder on your computer.
 4. If you are familiar with Azure Resource Manager templates, skip to step 7.
-5. Open the file that you just saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
+5. Open the file that you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
 	| Parameter | Description |
 	|---|---|
-	| **location** | Azure region where the application gateway will be created |
+	| **location** | Azure region where the application gateway is created |
 	| **VirtualNetwork1** | Name for the new virtual network |
 	| **addressPrefix** | Address space for the virtual network, in CIDR format |
 	| **ApplicationGatewaysubnet** | Name for the application gateway subnet |
@@ -79,13 +79,13 @@ You can download the existing Azure Resource Manager template to create a virtua
 6. Check the content under **resources** and notice the following:
 
 	- **type**. Type of resource being created by the template. In this case, the type is **Microsoft.Network/applicationGateways**, which represents an application gateway.
-	- **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name will be provided as input by the user or by a parameter file during deployment.
+	- **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name is provided as input by the you or by a parameter file during deployment.
 	- **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
 7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
-9. Save the file to a a local folder on your computer.
-10. Open the file that you just saved and edit the values for the parameters. Use the values below to deploy the application gateway described in our scenario.
+9. Save the file to a local folder on your computer.
+10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
 		{
 		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -117,7 +117,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
-If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions to sign into Azure and select your subscription.
 
 ### Step 1
 
@@ -131,7 +131,7 @@ Check the subscriptions for the account.
 
 		get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.<BR>
 
 ### Step 3
 
@@ -144,7 +144,7 @@ Choose which of your Azure subscriptions to use. <BR>
 ### Step 4
 
 
-If needed, create a new resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you will create a new resource group called AppgatewayRG in East US location.
+If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you create a new resource group called AppgatewayRG in East US location.
 
 	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -161,12 +161,12 @@ If needed, create a new resource group by using the **New-AzureResourceGroup** c
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above.
+Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
 
 		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
-The output generated by the command line will be the following:
+The output generated by the command line is the following:
 
 		DeploymentName    : testappgatewaydeployment
 		ResourceGroupName : appgatewayRG
@@ -213,7 +213,7 @@ If necessary, run the **azure group create** command to create a new resource gr
 
 **-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
 
-**-l (or --location)**. Azure region where the new resource group will be created. For our scenario, it's *eastus*.
+**-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *eastus*.
 
 ### Step 4
 
@@ -245,7 +245,7 @@ Here is the expected output for the command above:
 	data:    backendIpAddress2  String  10.0.1.11
 	info:    group deployment create command OK
 
-**-g (or --resource-group)**. Name of the resource group the new virtual network will be created in.
+**-g (or --resource-group)**. Name of the resource group the new virtual network is created in.
 
 **-f (or --template-file)**. Path to your Azure Resource Manager template file.
 

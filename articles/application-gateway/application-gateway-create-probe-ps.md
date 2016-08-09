@@ -20,7 +20,7 @@
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Portal](application-gateway-create-probe-portal.md)
+- [Azure portal](application-gateway-create-probe-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -47,7 +47,7 @@ Check the subscriptions for the account.
 
 		get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.<BR>
 
 ### Step 3
 
@@ -63,7 +63,7 @@ Create a new resource group (skip this step if you're using an existing resource
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 
@@ -107,7 +107,7 @@ application gateway. The following steps create the configuration items that are
 
 ### Step 1
 
-Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance will take one IP address.
+Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -115,7 +115,7 @@ Create an application gateway IP configuration named "gatewayIP01". When Applica
 ### Step 2
 
 
-Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
+Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -139,7 +139,7 @@ The parameters used are:
 
 ### Step 4
 
-Configure application gateway setting "poolsetting01" for the traffic in the back-end pool. This step also has a time-out configuration that is for the back-end pool response to an application gateway request. When a back-end response hits a time-out limit, Application Gateway will cancel the request. This is different from a probe time-out that is only for the back-end response to probe checks.
+Configure application gateway setting "poolsetting01" for the traffic in the back-end pool. This step also has a time-out configuration that is for the back-end pool response to an application gateway request. When a back-end response hits a time-out limit, Application Gateway cancels the request. This is different from a probe time-out that is only for the back-end response to probe checks.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 

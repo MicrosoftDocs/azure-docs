@@ -18,7 +18,7 @@
 # Configure an application gateway for SSL offload by using the classic deployment model
 
 > [AZURE.SELECTOR]
--[Azure Portal](application-gateway-ssl-portal.md)
+-[Azure portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 -[Azure Classic PowerShell](application-gateway-ssl.md)
 
@@ -29,7 +29,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
-3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+3. The servers that you =configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
@@ -41,9 +41,9 @@ To configure SSL offload on an application gateway, do the following steps in th
 6. [Verify the gateway status](#verify-the-gateway-status)
 
 
-## Create a new application gateway
+## Create an application gateway
 
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 This sample shows the cmdlet on the first line, followed by the output.
 
@@ -57,7 +57,7 @@ This sample shows the cmdlet on the first line, followed by the output.
 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
-In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
+In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
 
 This sample shows the cmdlet on the first line, followed by the output.
 
@@ -105,7 +105,7 @@ This sample shows the cmdlet on the first line, followed by the output.
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
->[AZURE.NOTE] The certificate password has to be in between 4 to 12 characters, letters or numbers. Special characters are not accepted.
+>[AZURE.NOTE] The certificate password has to be in between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
 
 ## Configure the gateway
 
@@ -115,20 +115,20 @@ The values are:
 
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
+- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 - **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element needs to be added to **HttpListener** with the value set to the same name as used in the upload of SSL certificates section above. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element is added to **HttpListener** with the value set to the same name as used in the upload of SSL certificates section above. The front-end port should be updated to 443.
 
-**To enable cookie based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 
 
 You can construct your configuration either by creating a configuration object or by using a configuration XML file.
-To construct your configuration by using a configuration XML file, use the sample below.
+To construct your configuration by using a configuration XML file, use the following sample.
 
 **Configuration XML sample**
 
