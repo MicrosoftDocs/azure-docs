@@ -26,24 +26,24 @@ For a complete walkthrough of the retraining process of a classic web service, s
 
 ## Retraining process
 
-When you need to retrain the web service you need to add some additional pieces:
+When you need to retrain the web service, you must add some additional pieces:
 
 * A web service deployed from the training experiment. The experiment must have a **Web service output** module attached to the output of the **Train Model** module.  
 
-	![Attach the web service out put to the train model model.][image1]
+	![Attach the web service output to the train model.][image1]
 
-* A new endpoint added to your scoring web service.  You can add the endpoint programmatically using the sample code referenced in the Retrain Machine Learning models programmatically topic or through the classic Azure Management Portal.
+* A new endpoint added to your scoring web service.  You can add the endpoint programmatically using the sample code referenced in the Retrain Machine Learning models programmatically topic or through the Azure classic portal.
 
 You can then use the sample C# code from the Training Web Service's API help page to retrain model. Once you have evaluated the results and are satisfied with them, you update the trained model scoring web service using the new endpoint that you added.
 
-With all the pieces in place, these are the major steps you must take to retrain the model:
+With all the pieces in place, the major steps you must take to retrain the model are as follows:
 
 1.	Call the Training Web Service:  The call is to the Batch Execution Service (BES), not the Request Response Service (RRS). You can use the sample C# code on the API help page to make the call. 
-2.	Find the values for the *BaseLocation*, *RelativeLocation*, and *SasBlobToken*: These are returned in the output from your call to the Training Web Service. 
-      ![showing the output of the retraining sample and the BaseLocation ,  RelativeLocation , and  SasBlobToken values.][image6]
+2.	Find the values for the *BaseLocation*, *RelativeLocation*, and *SasBlobToken*: These values are returned in the output from your call to the Training Web Service. 
+      ![showing the output of the retraining sample and the BaseLocation,  RelativeLocation, and  SasBlobToken values.][image6]
 3.	Update the added endpoint from the scoring web service with the new trained model: Using the sample code provided in the Retrain Machine Learning models programmatically, update the new endpoint you added to the scoring model with the newly trained model from the Training Web Service.
 
-## Common 0bstacles
+## Common obstacles
 ### Check to see if you have the correct PATCH URL
 
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service.  There are two ways to obtain the PATCH URL:
@@ -83,7 +83,7 @@ The PATCH help page contains the PATCH URL you must use and provides sample code
 
 Check to see that you have added the endpoint to the correct web service
 
-The endpoint you use to retrain the model must be on the scoring web service, not the training web service. You can verify which web service the endpoint is on by visiting the classic Azure Management Portal.
+The endpoint you use to retrain the model must be on the scoring web service, not the training web service. You can verify which web service the endpoint is on by visiting the Azure classic portal.
 
 1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
