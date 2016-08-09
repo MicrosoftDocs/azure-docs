@@ -52,6 +52,6 @@ For a more in-depth use case, see this article on using the PowerShell module to
 
 To get started with Machine Learning PowerShell, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). You'll need to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment. Most of the cmdlets require that you supply the workspace ID, the workspace authorization token, and the Azure region that the workspace is in. The simplest way to provide these is through a default config.json file, which is covered in detail in the installation instructions. Of course, you can also clone the git tree and modify/compile the code locally using Visual Studio.
 
-## What's next?
+## Next steps
 
 The PowerShell module will continue to be improved and expanded during this preview period. Keep an eye on the [Cortana Intelligence and Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) for more news and information.
