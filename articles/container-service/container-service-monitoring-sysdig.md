@@ -30,7 +30,7 @@ In this article we will deploy Sysdig agents to all the agent nodes in your Azur
 
 Sysdig is a monitoring service that allows you to monitor your containers within your cluster. Sysdig is known to help with troubleshooting but it also has your basic monitoring metrics for CPU, Networking, Memory and I/O. Sysdig makes it easy to see which containers are working the hardest or essentially using the most memory and CPU. This view is in the “Overview” section which is currently in beta. 
 
-![Sysdig UI](./media/container-service-monitoring-sysdig/sysdig5.png =432x635) 
+![Sysdig UI](./media/container-service-monitoring-sysdig/sysdig6.png) 
 
 ## Configure a Sysdig deployment with Marathon
 
