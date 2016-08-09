@@ -18,5 +18,8 @@
    ms.date="08/8/2016"
    ms.author="t-ribhat"/>
 
-   # Monitor an Azure Container Servicw with Elk Stack and Dockerbeat
+# Monitor an Azure Container Service with Elk Stack and Dockerbeat
+
+In this article we will deploy a containerized Elk Stack and configure and install Dockerbeat. 
+
 

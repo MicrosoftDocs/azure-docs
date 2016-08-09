@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/8/2016"
+   ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
 # Monitor an Azure Container Service cluster with Sysdig
@@ -48,7 +48,7 @@ Next enter your Access Key into the Sysdig configuration within the DC/OS Univer
 
 ![Sysdig configuration in the DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig3.png)
 
-Now set the instances to 10000000 so whenever a new node is added to the cluster Sysdig will automatically deploy an agent to that new node. This is unfortunetly a hack to make sure Sysdig will deploy to all new agents within the cluster. 
+Now set the instances to 10000000 so whenever a new node is added to the cluster Sysdig will automatically deploy an agent to that new node. This is an interm solution to make sure Sysdig will deploy to all new agents within the cluster. 
 
 ![Sysdig configuration in the DC/OS Universe-instances](./media/container-service-monitoring-sysdig/sysdig4.png)
 

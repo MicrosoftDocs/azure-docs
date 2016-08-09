@@ -36,7 +36,7 @@ Datadog is a monitoring service that gathers monitoring data from your container
 
 These steps will show you how to configure and deploy Datadog applications to your cluster with Marathon. 
 
-Access your DC/OS UI via http://localhost:80/. Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Datadog" and 
+Access your DC/OS UI via [http://localhost:80/](http://localhost:80/). Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Datadog" and 
 
 ![Datadog package within the DC/OS Universe](./media/container-service-monitoring/datadog1.png)
 
@@ -48,4 +48,4 @@ Next enter your API key into the Datadog configuration within the DC/OS Universe
 
 ![Datadog configuration in the DC/OS Universe](./media/container-service-monitoring/datadog3.png) 
 
-In the above configration instances are set to 10,000,000 and this is unfortunately a hack to make sure Datadog will deploy to new agents in the cluster. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 
+In the above configration instances are set to 10000000 so whenever a new node is added to the cluster Datadog will automatically deploy an agent to that node. This is an interm solution. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 
