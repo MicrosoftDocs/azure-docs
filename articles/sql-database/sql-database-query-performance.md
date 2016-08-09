@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/05/2016"
+   ms.date="08/09/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -60,7 +60,7 @@ Query Performance Insight is easy to use:
 
 In the [portal](http://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **All settings** > **Performance** > **Queries**. 
+1. Browse to a SQL database and click **Settings** > **Performance** > **Queries**. 
 
     ![Query Performance Insight][1]
 
@@ -160,7 +160,7 @@ Query Performance Insight helps you understand the impact of your query workload
 
 ## Next steps
 
-For additional recommendations for improving the performance of your SQL database click [SQL Database Advisor](sql-database-advisor.md) on the **Query Performance Insight** blade.
+For additional recommendations for improving the performance of your SQL database click [Database Advisor](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
