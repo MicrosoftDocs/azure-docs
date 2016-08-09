@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/08/2016"
-   ms.author="shigu;barbkess;sonyama"/>
+   ms.author="kevin;barbkess;sonyama"/>
 
 # Use Azure Stream Analytics with SQL Data Warehouse
 
