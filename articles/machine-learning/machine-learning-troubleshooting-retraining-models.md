@@ -20,7 +20,7 @@
 
 ## Retraining overview
 
-When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model will need to be retrained. 
+When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model needs to be retrained. 
 
 For a complete walkthrough of the retraining process of a classic web service, see [Retrain Machine Learning Models Programmatically](machine-learning-retrain-models-programmatically.md).
 
@@ -40,7 +40,7 @@ With all the pieces in place, the major steps you must take to retrain the model
 
 1.	Call the Training Web Service:  The call is to the Batch Execution Service (BES), not the Request Response Service (RRS). You can use the sample C# code on the API help page to make the call. 
 2.	Find the values for the *BaseLocation*, *RelativeLocation*, and *SasBlobToken*: These values are returned in the output from your call to the Training Web Service. 
-      ![showing the output of the retraining sample and the BaseLocation,  RelativeLocation, and  SasBlobToken values.][image6]
+      ![showing the output of the retraining sample and the BaseLocation, RelativeLocation, and  SasBlobToken values.][image6]
 3.	Update the added endpoint from the scoring web service with the new trained model: Using the sample code provided in the Retrain Machine Learning models programmatically, update the new endpoint you added to the scoring model with the newly trained model from the Training Web Service.
 
 ## Common obstacles
