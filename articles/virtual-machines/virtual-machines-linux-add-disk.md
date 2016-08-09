@@ -216,13 +216,13 @@ bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr
 boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 ```
 
-To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the **blkid** utility:
+To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (such as, `/dev/sdc1`). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location . Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the **blkid** utility:
 
 ```bash
 sudo -i blkid
 ```
 
-The output will look similar to the following:
+The output looks similar to the following:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -244,7 +244,7 @@ In this example, we use the UUID value for the new **/dev/sdc1** device that was
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 ```
 
->[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+>[AZURE.NOTE] Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the `nofail` and/or `nobootwait` fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 
 
 ### TRIM/UNMAP support for Linux in Azure
@@ -273,6 +273,6 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 ## Next Steps
 
-- Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
+- Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
 - Review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md) recommendations to ensure your Linux VM is configured correctly.
 - Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md) for additional performance.
