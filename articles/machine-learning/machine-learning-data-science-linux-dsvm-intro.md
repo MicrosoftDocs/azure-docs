@@ -155,11 +155,11 @@ Now to invoke python interactive session just type ***python*** in the shell. If
 
 The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. The Jupyter Notebook is accessed through JupyterHub. You log in using your local Linux username and password. The JypyterHub needs to be configured. The VM expects the user '*adminuser*' to be present on the system, so you need to add it. At a command prompt, type:
  
-	> sudo useradd adminuser
+	sudo useradd adminuser
  
 You will then need to restart the JupyterHub service with the cmd:
  
-	> sudo systemctl start jupyterhub
+	sudo systemctl start jupyterhub
 
 The Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
 

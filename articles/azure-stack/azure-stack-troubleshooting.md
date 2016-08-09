@@ -1,9 +1,9 @@
-﻿<properties
+<properties
 	pageTitle="Microsoft Azure Stack troubleshooting | Microsoft Azure"
 	description="Azure Stack troubleshooting."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,18 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="erikje"/>
+	ms.date="08/08/2016"
+	ms.author="helaw"/>
 
 # Microsoft Azure Stack troubleshooting
 
 If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements and this note:
 
 >[AZURE.IMPORTANT] Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
-
-Installing on a new fresh installation of Windows Server 2016 Technical Preview 4 (TP4) is also recommended instead of using an existing server where other tests may already have been made.
-
-If you install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure that you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
 
 The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
@@ -113,6 +109,21 @@ Note: TP1 doesn’t support scenarios where the proxy requires authentication.
 Repair actions: If you hit this error, ensure NATVM and PortalVM can connect to the Internet and re-run the deployment script, for example, assign proper IP / Gateway on the NATVM, and configure HTTP Proxy on PortalVM and ClientVM. If this does not succeed, you may try to redeploy POC on a clean machine with the correct parameters.
 
 Information about the NATVMStaticIP,  NATVMStaticGateway, and ProxyServer parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
+
+## Operational
+
+### License expiration on Windows Server 2016 Technical Preview 4
+If you deployed Azure Stack using Windows Server 2016 TP 4 ISO you may receive notice of license expiration.
+
+1. Install the following updates on the Azure Stack POC host:
+	- [KB3163018](https://support.microsoft.com/en-us/kb/3163018) 
+	- [KB3149135](https://support.microsoft.com/en-us/kb/3149135) 
+2. Reboot Azure Stack POC Host to complete update installation
+3. If you experience expiration notice after following the steps 1-2, run the following commands from an elevated :
+
+    `slmgr /rilc`
+
+    `slmgr /ato` 
 
 
 ## PaaS resource providers
