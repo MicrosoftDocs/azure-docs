@@ -1,6 +1,6 @@
 <properties
    pageTitle="Manage Azure Resources and Resource Groups using the Node.js SDK for Azure | Microsoft Azure"
-   description="Describes how to use the Node.js SDK for Azure to manage resources and resource groups on Azure."
+   description="Code sample that demonstrates how to use the Node.js SDK for Azure to manage resources and resource groups on Azure."
    services="azure-resource-manager"
    documentationCenter="nodejs"
    authors="allclark"
@@ -18,19 +18,10 @@
 
 # Manage resources using the Node.js SDK
 
-This sample explains how to manage your
-[resources and resource groups in Azure](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#resource-groups)
+This sample demonstrates how to manage your
+[resources and resource groups in Azure](resource-group-overview.md#resource-groups)
 using the Azure SDK for Node.js.
 
-## Tasks done in this sample
-  1. Create a resource group 
-  2. List a resource group
-  3. Update a resource group
-  4. Create a key vault resource in the resource group
-  5. Get details for a given resource
-  6. Export the resource group template
-
-<a id="run"/>
 ## Run this sample
 
 1. If you don't already have it, [get node.js](https://nodejs.org).
@@ -49,9 +40,9 @@ using the Azure SDK for Node.js.
     ```
 
 4. Create an Azure service principal either through
-    [Azure CLI](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-    [PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-    or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+    [Azure CLI](resource-group-authenticate-service-principal-cli.md),
+    [PowerShell](resource-group-authenticate-service-principal.md),
+    or [the portal](resource-group-create-service-principal-portal.md).
 
 5. Set the following environment variables using the information from the service principle that you created.
 
@@ -76,10 +67,9 @@ using the Azure SDK for Node.js.
     node cleanup.js <resourceGroupName> <resourceName>
     ```
 
-<a id="example"></a>
 ## What is index.js doing?
 
-The sample creates, lists and updates a website.
+The sample creates, lists, and updates a website.
 It starts by logging in using your service principal.
 
 ```
@@ -111,7 +101,6 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
 
 With that set up, the sample performs these operations.
 
-<a id="create-group"></a>
 ### Create a resource group
 
 ```
@@ -119,16 +108,14 @@ var groupParameters = { location: location, tags: { sampletag: 'sampleValue' } }
 resourceClient.resourceGroups.createOrUpdate(resourceGroupName, groupParameters, callback);
 ```
 
-<a id="list-groups"></a>
 ### List resource groups
 
-List the resource groups in your subscription.
+This code lists the resource groups in your subscription.
 
 ```
 resourceClient.resourceGroups.list(callback);
 ```
 
-<a id="update-group"></a>
 ### Update a resource group
 
 The sample adds a tag to the resource group.
@@ -138,7 +125,6 @@ var groupParameters = { location: location, tags: { sampletag: 'helloworld' } };
 resourceClient.resourceGroups.createOrUpdate(resourceGroupName, groupParameters, callback);
 ```
 
-<a id="create-resource"></a>
 ### Create a key vault in the resource group
 
 ```
@@ -166,7 +152,6 @@ resourceClient.resources.createOrUpdate(resourceGroupName,
                                         callback);
 ```
 
-<a id="get-resources"></a>
 ### Get a resource
 
 ```
@@ -179,10 +164,9 @@ resourceClient.resources.get(resourceGroupName,
                              callback);
 ```
 
-<a id="export"></a>
 ### Export the resource group template
 
-You can export the resource group as a template and then use that
+Export the resource group as a template and then you can use that
 to [deploy your resources to Azure](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/).
 
 ```
@@ -192,7 +176,6 @@ var rgParameter = {
 resourceClient.resourceGroups.exportTemplate(resourceGroupName, rgParameter, callback);
 ```
 
-<a id="delete-resource"></a>
 ### Delete a resource
 
 ```
@@ -207,4 +190,4 @@ resourceClient.resources.deleteMethod(resourceGroupName,
 
 ## More information
 
-Please refer to [Azure SDK for Node](https://github.com/Azure/azure-sdk-for-node) for more information.
+[Azure SDK for Node.js](https://github.com/Azure/azure-sdk-for-node)

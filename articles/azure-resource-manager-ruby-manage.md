@@ -18,14 +18,14 @@
 
 # Manage resources using the Ruby SDK
 
-Use this code sample to learn how to manage your [resources and resource groups](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#resource-groups)
+Use this code sample to learn how to manage your [resources and resource groups](resource-group-overview.md#resource-groups)
 in Azure using the Azure Ruby SDK.
 
 ## Run the sample
 
 1. If you don't already have it, [install Ruby and the Ruby DevKit](https://www.ruby-lang.org/en/documentation/installation/).
 
-1. If you don't have bundler, install it.
+1. If you don't have *bundler*, install it.
 
     ```
     gem install bundler
@@ -45,9 +45,9 @@ in Azure using the Azure Ruby SDK.
     ```
 
 1. Create an Azure service principal either through
-    [Azure CLI](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-    [PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-    or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+    [Azure CLI](resource-group-authenticate-service-principal-cli.md),
+    [PowerShell](resource-group-authenticate-service-principal.md),
+    or [the portal]resource-group-create-service-principal-portal.md).
 
 1. Set the following environment variables using the information from the service principle that you created.
 
@@ -91,7 +91,7 @@ resource_group_params = Azure::ARM::Resources::Models::ResourceGroup.new.tap do 
 end
 ```
 
-There are a couple of supporting functions (`print_item` and `print_properties`) that print a resource group and it's properties.
+There are a couple of supporting functions (`print_item` and `print_properties`) that print a resource group and its properties.
 With that set up, the sample lists all resource groups for your subscription, it performs these operations.
 
 ### List resource groups
