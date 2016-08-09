@@ -16,7 +16,7 @@
 	ms.date="08/05/2016"
 	ms.author="v-donglo"/>
 
-#Troubleshooting the Retraining of an Azure Machine Learning Classic Web Service
+#Troubleshooting the retraining of an Azure Machine Learning classic web service
 
 ## Retraining overview
 
@@ -24,13 +24,13 @@ When you deploy a predictive experiment as a scoring web service it is a static 
 
 For a complete walkthrough of the retraining process of a classic web service, see [Retrain Machine Learning Models Programmatically](machine-learning-retrain-models-programmatically.md).
 
-## Retraining Process
+## Retraining process
 
 When you need to retrain the web service you need to add some additional pieces:
 
 * A web service deployed from the training experiment. The experiment must have a **Web service output** module attached to the output of the **Train Model** module.  
 
-	![][image1]
+	![Attach the web service out put to the train model model.][image1]
 
 * A new endpoint added to your scoring web service.  You can add the endpoint programmatically using the sample code referenced in the Retrain Machine Learning models programmatically topic or through the classic Azure Management Portal.
 
@@ -40,10 +40,10 @@ With all the pieces in place, these are the major steps you must take to retrain
 
 1.	Call the Training Web Service:  The call is to the Batch Execution Service (BES), not the Request Response Service (RRS). You can use the sample C# code on the API help page to make the call. 
 2.	Find the values for the *BaseLocation*, *RelativeLocation*, and *SasBlobToken*: These are returned in the output from your call to the Training Web Service. 
-      ![][image6]
+      ![showing the output of the retraining sample and the BaseLocation ,  RelativeLocation , and  SasBlobToken values.][image6]
 3.	Update the added endpoint from the scoring web service with the new trained model: Using the sample code provided in the Retrain Machine Learning models programmatically, update the new endpoint you added to the scoring model with the newly trained model from the Training Web Service.
 
-## Common Obstacles
+## Common 0bstacles
 ### Check to see if you have the correct PATCH URL
 
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service.  There are two ways to obtain the PATCH URL:
@@ -55,7 +55,7 @@ To get the correct PATCH URL:
 1.	Run the [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) sample code.
 2.	From the output of AddEndpoint, find the *HelpLocation* value and copy the URL.
 
-	![][image2]
+	![HelpLocation in the output of the addEndpoint sample.][image2]
 
 3.	Paste the URL into a browser to navigate to a page that provides help links for the web service.
 4.	Click the **Update Resource** link to open the patching help page.
@@ -64,17 +64,17 @@ Options 2: using the Azure Portal
 
 1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
-     ![][image4]
+     ![Machine leaning tab.][image4]
 3.	Click on your workspace name, then **Web Services**.
 4.	Click on the scoring web service you are working with. (If you did not modify the default name of the web service, it will typically end in [Scoring Exp.].)
 5.	Click Add Endpoint
 6.	After the endpoint is added, click on the endpoint name. Then click on **Update Resource** to open the patching help page.
 
-![][image3]
+![New endpoint dashboard.][image3]
 
 The PATCH help page contains the PATCH URL you must use and provides sample code you can use to call it.
 
-![][image5]
+![Patch URL.][image5]
 
 
 ### Check to see that you are updating the correct scoring endpoint
@@ -87,7 +87,7 @@ The endpoint you use to retrain the model must be on the scoring web service, no
 
 1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
-     ![][image4]
+     ![Machine learning workspace UI.][image4]
 3.	Select your workspace.
 4.	Click **Web Services**.
 5.	Select your predictive web service.
@@ -97,7 +97,7 @@ The endpoint you use to retrain the model must be on the scoring web service, no
 
 1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
 2.	Select Machine Learning from the menu.
-      ![][image4]
+      ![Machine learning region UI.][image4]
 3.	Verify the location of your workspace.
 
 
