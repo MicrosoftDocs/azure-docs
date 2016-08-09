@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Azure Virtual Network Peering | Microsoft Azure"
+   pageTitle="Azure virtual network peering | Microsoft Azure"
    description="Learn about VNet peering in Azure."
    services="virtual-network"
    documentationCenter="na"
