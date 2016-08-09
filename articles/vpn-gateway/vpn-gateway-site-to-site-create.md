@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a virtual network with a site-to-site VPN Gateway connection using the Azure Classic Portal | Microsoft Azure"
+   pageTitle="Create a virtual network with a site-to-site VPN Gateway connection using the Azure classic portal | Microsoft Azure"
    description="Create a VNet with a S2S VPN Gateway connection for cross-premises and hybrid configurations using the classic deployment model."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a Site-to-Site VPN connection using the Azure classic portal
@@ -25,7 +25,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. Site-to-site connections can be used for cross-premises and hybrid configurations. This article applies to the classic deployment model and uses the Azure classic portal. 
+This article walks you through creating a virtual network and a site-to-site VPN connection to your on-premises network. Site-to-site connections can be used for cross-premises and hybrid configurations. This article applies to the classic deployment model and uses the Azure classic portal. Currently, you cannot create an end-to-end Site-to-Site configuration for the classic deployment model using the Azure portal.
 
 
 **About Azure deployment models**
