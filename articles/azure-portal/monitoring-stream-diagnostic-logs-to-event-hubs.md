@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Stream Diagnostic Logs to Event Hubs"
+	pageTitle="Stream Azure Diagnostic Logs to Event Hubs | Microsoft Azure"
 	description="Learn how to stream Azure Diagnostic Logs to Event Hubs."
 	authors="johnkemnetz"
-	manager="robb"
+	manager="rboucher"
 	editor=""
-	services="monitoring"
-documentationCenter=""/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2016"
+	ms.date="08/08/2016"
 	ms.author="johnkem"/>
 
 # Stream Azure Diagnostic Logs to Event Hubs

@@ -2,18 +2,18 @@
 	pageTitle="Supported Services for Diagnostic Logs"
 	description="List of all services that suppport Diagnostic Logs."
 	authors="johnkemnetz"
-	manager="robb"
+	manager="rboucher"
 	editor=""
-	services="monitoring"
-documentationCenter=""/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="08/08/2016"
 	ms.author="johnkem"/>
 
 # Supported Services for Diagnostic Logs
