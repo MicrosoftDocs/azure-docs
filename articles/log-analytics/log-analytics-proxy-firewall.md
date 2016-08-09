@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/06/2016"
-	ms.author="banders"/>
+	ms.date="08/09/2016"
+	ms.author="banders;magoedte"/>
 
 # Configure proxy and firewall settings in Log Analytics
 
@@ -25,11 +25,12 @@ Actions needed to configure proxy and firewall settings for Log Analytics in OMS
 
 For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
 
-|**Agent Resource**|**Ports**|
-|--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|*.oms.opinsights.azure.com|Port 443|
-|*.blob.core.windows.net|Port 443|
+|**Agent Resource**|**Ports**|**Bypass HTTPS inspection**|
+|--------------|-----||--------------|
+|*.ods.opinsights.azure.com|Port 443|Yes|
+|*.oms.opinsights.azure.com|Port 443|Yes|
+|*.blob.core.windows.net|Port 443|Yes|
+|ods.systemcenteradvisor.com|Port 443| |
 
 You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -97,29 +98,30 @@ Here's a list of agent resources and ports:
 |*.ods.opinsights.azure.com|Port 443|
 |*.oms.opinsights.azure.com|Port 443|
 |*.blob.core.windows.net/|Port 443|
+|ods.systemcenteradvisor.com|Port 443|
 
 Here's a list of management server resources and ports:
 
-|**Management server resource**|**Ports**|
-|--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|service.systemcenteradvisor.com|Port 443|
-|scadvisor.accesscontrol.windows.net|Port 443|
-|scadvisorservice.accesscontrol.windows.net|Port 443|
-|*.blob.core.windows.net|Port 443|
-|data.systemcenteradvisor.com|Port 443|
-|*.systemcenteradvisor.com|Port 443|
+|**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
+|--------------|-----||--------------|
+|service.systemcenteradvisor.com|Port 443| |
+|*.service.opinsights.azure.com|Port 443| |
+|*.blob.core.windows.net|Port 443|Yes| 
+|data.systemcenteradvisor.com|Port 443| | 
+|ods.systemcenteradvisor.com|Port 443| | 
+|*.ods.opinsights.azure.com|Port 443|Yes| 
 
 Here's a list of OMS and Operations Manager console resources and ports.
 
 |**OMS and Operations Manager console resource**|**Ports**|
 |----|----|
-|*.systemcenteradvisor.com|Port 80 and 443|
+|service.systemcenteradvisor.com|443|
+|*.service.opinsights.azure.com|443|
 |*.live.com|Port 80 and 443|
+|*.microsoft.com|Port 80 and 443|
 |*.microsoftonline.com|Port 80 and 443|
+|*.mmms.microsoft.com|Port 80 and 443|
 |login.windows.net|Port 80 and 443|
-
-
 
 Use the following procedures to register your Operations Manager management group with the OMS service. If you are having communication problems between the management group and the OMS service, use the validation procedures to troubleshoot data transmission to the OMS service.
 
@@ -186,7 +188,7 @@ There are no inbound firewall requirements to support Hybrid Runbook Workers.
 
 For the on-premises machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
 
-## Next Steps
+## Next steps
 
 - [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
 - Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
