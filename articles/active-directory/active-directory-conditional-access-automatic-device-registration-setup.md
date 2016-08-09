@@ -261,7 +261,10 @@ To set the policy, perform the following steps:
 
 ## MSI package for non-Windows 10 computers  
 
-To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download under the following location. 
+To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download:
+
+- [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
+- [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
 
 You should deploy this package using a software distribution system such as System Center Configuration Manager. The package supports the standard silent install options using the /quiet parameter. If you use System Center Configuration Manager 2016 you will enjoy additional benefits like the ability to track completed registrations. For more information, please see [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-2016). 
 
