@@ -20,7 +20,7 @@
 
 **[Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real-time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Service Bus Rule Id in a Diagnostic Setting via the Azure PowerShell Cmdlets or Azure CLI.
 
-## What You Can Do with Diagnostics Logs and Event Hubs
+## What you can do with Diagnostics Logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Diagnostic Logs:
 
 - **Stream logs to 3rd party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Diagnostic Logs into 3rd party SIEMs and log analytics solutions.
@@ -39,7 +39,7 @@ Here are just a few ways you might use the streaming capability for Diagnostic L
 
 - **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest diagnostic logs. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here](https://azure.microsoft.com/en-us/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-##Enable Streaming of Diagnostic Logs
+##Enable streaming of Diagnostic Logs
 You can enable streaming of Diagnostic Logs programmatically, via the portal, or using the [Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931943.aspx). Either way, you will pick a Service Bus Namespace and an Event Hubs will be created in the namespace for each log category you enable. A Diagnostic **Log Category** is a type of log that a resource may collect. You can select which log categories you’d like to collect for a particular resource in the Azure Portal under the Diagnostics blade.
 
 ![Log categories in the Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
@@ -144,3 +144,6 @@ Here is sample output data from the Event Hubs:
 
 
 You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-diagnostic-logs-supported-services.md).
+
+##Next Steps
+- [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

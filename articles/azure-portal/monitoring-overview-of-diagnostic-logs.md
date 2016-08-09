@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview of Azure Diagnostic Logs"
+	pageTitle="Overview of Azure Diagnostic Logs | Microsoft Azure"
 	description="Learn what Azure Diagnostic Logs are and how you can use them to understand events occurring within an Azure resource."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -21,7 +21,7 @@
 
 ![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
 
-## What You Can Do with Diagnostic Logs
+## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
 
 - Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
@@ -36,12 +36,12 @@ Diagnostic Logs are configured using Diagnostic Settings. **Diagnostic Settings*
 
 These settings are easily configured via the Diagnostics blade for a resource in the Azure Portal, via Azure PowerShell and CLI commands, or via the [Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931943.aspx).
 
-##How to Enable Collection of Diagnostic Logs
+##How to enable collection of Diagnostic Logs
 Collection of Diagnostic Logs can be enabled as part of creating a resource or after a resource is created via the resource’s blade in the Portal. You can also enable Diagnostic Logs at any point using Azure PowerShell or CLI commands, or using the Insights REST API.
 
 > [AZURE.TIP] These instructions may not apply directly to every resource. See links at the bottom of this page for special steps required for some resource types.
 
-###Enable Diagnostic Logs in the Portal
+###Enable Diagnostic Logs in the portal
 You can enable Diagnostic Logs in the Azure Portal when you create some resource types by doing the following:
 
 1.	Go to **New** and choose the resource you are interested in.
@@ -57,7 +57,7 @@ To enable Diagnostic Logs in the Azure Portal after a resource has been created,
 3.	Under **Logs**, select which **Log Categories** you would like to collect or stream.
 4.	Click **Save**.
 
-###Enable Diagnostic Logs Programmatically
+###Enable Diagnostic Logs programmatically
 To enable Diagnostic Logs via the Azure PowerShell Cmdlets, use the following commands.
 
 To enable storage of Diagnostic Logs in a Storage Account, use this command:
@@ -99,3 +99,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Key Vault                  |    [Azure Key Vault Logging](../key-vault/key-vault-logging.md)                                                 |
 |    Azure Search               |    [Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md)                         |
 |    Data Lake Store            |    [Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+
+##Next Steps
+- [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+- [Change Diagnostic Settings using the Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931931.aspx)

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Supported Services for Diagnostic Logs"
+	pageTitle="Supported Services for Diagnostic Logs | Microsoft Azure"
 	description="List of all services that suppport Diagnostic Logs."
 	authors="johnkemnetz"
 	manager="rboucher"
@@ -16,7 +16,7 @@
 	ms.date="08/08/2016"
 	ms.author="johnkem"/>
 
-# Supported Services for Diagnostic Logs
+# Supported services for Diagnostic Logs
 The following services support Diagnostic Logs:
 - Application Gateways
 - Azure Search
