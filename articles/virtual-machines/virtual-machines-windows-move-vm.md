@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Move a Windows VM to another subscription | Microsoft Azure"
-	description="Move a Windows VM to another Azure subscription in the Resource Manager deployment model."
+	pageTitle="Move a Windows VM | Microsoft Azure"
+	description="Move a Windows VM to another Azure subscription or resource group in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/08/2016"
 	ms.author="cynthn"/>
 
 	
 
 
-# Move a Windows VM to another Azure subscription 
+# Move a Windows VM to another Azure subscription or resource group 
 
 This article walks you through how to move a Windows VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 

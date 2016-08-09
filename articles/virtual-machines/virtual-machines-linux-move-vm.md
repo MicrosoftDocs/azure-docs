@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Move a Linux VM to another subscription | Microsoft Azure"
-	description="Move a Linux VM to another Azure subscription in the Resource Manager deployment model."
+	pageTitle="Move a Linux VM | Microsoft Azure"
+	description="Move a Linux VM to another Azure subscription or resource group in the Resource Manager deployment model."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,63 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/08/2016"
 	ms.author="cynthn"/>
 
 	
 
 
-# Move a Linux VM to another subscription 
+# Move a Linux VM to another subscription or resource group
 
 This article walks you through how to move a Linux VM between subscriptions. This can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
 > [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 
-## Login and set your subscription
-
-1. Login to the CLI.
-		
-		azure login
-
-2. Make sure you are in Resource Manager mode.
-	
-		azure config mode arm
-
-3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
-
-		azure account set <SubscriptionId>
-
-## stuff
-
-Subscription = Microsoft Azure Internal Consumption
-
-Resource group = (new) LinuxHeroRG
-
-Location = West US
-
-Computer name = LinuxHero
-
-Disk type = SSD
-
-User name = azureuser
-
-Size = Standard DS1 v2
-
-Storage account = (new) linuxherodisk
-
-Virtual network = (new) LinuxHeroRG-vnet
-
-Subnet = (new) LinuxHeroSubNet (172.17.0.0/24)
-
-Public IP address = (new) LinuxHero-ip
-
-Network security group (firewall) = (new) LinuxHero-nsg
-
-Availability set = None
-
-Diagnostics = Enabled
-
-Diagnostics storage account = (new) linuxherodiag
 
 ## Use the CLI to move a VM 
 
