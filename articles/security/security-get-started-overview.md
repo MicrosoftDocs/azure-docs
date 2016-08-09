@@ -20,9 +20,9 @@
 
 The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
-We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities we put into your hands. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
+We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
-This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site on a regular basis and see what’s new!
+This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site regularly and see what’s new!
 
 ## Using the Azure Security Information Site
 When you look on the left side of the page, you see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
