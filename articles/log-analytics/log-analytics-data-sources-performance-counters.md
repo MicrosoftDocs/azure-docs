@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/25/2016"
+   ms.date="08/09/2016"
    ms.author="bwren" />
 
 # Windows and Linux performance data sources in Log Analytics 
@@ -92,11 +92,11 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Viewing performance data
 
-When you run a log search for performance data, the **Log** view is displayed by default.  To view the data in graphical form, click **Metrics**.  
+When you run a log search for performance data, the **Log** view is displayed by default.  To view the data in graphical form, click **Metrics**.  For a detailed graphical view, click the **+** next to a counter.  
 
 ![Metrics view collapsed](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-For a detailed graphical view, click the **+** next to a counter.
+If the time range you have selected is 6 hours or less, then the graph will be updated every few seconds.  The live data will be displayed on the right side of the graph in light blue.
 
 ![Metrics view expanded with live data](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
 
