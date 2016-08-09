@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="08/02/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -131,13 +131,24 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
+### <a name="create-node-backend-portal"></a>How to: Create a Node.js backend using the Azure portal
+
+You can create a new Mobile App backend right in the [Azure portal]. 
+
+You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial. The tutorial contains a simplified version of these instructions and is best for proof of concept projects.
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
+
+Back in the _Get started_ blade, under **Create a table API**, choose **Node.js** as your **Backend language**. Check the box that says **I acknowledge that this will overwrite all site contents.** and click **Create TodoItem table**.
+
+
 ### <a name="download-quickstart"></a>How to: Download the Node.js backend quickstart code project using Git
 
 When you create a new Node.js Mobile App backend by using the portal **Quick start** blade, a new Node.js project is created for you and deployed to your site. You can add tables and APIs and edit code files for the Node.js backend in the portal. You can also use one of a variety of deployment tools to download the backend project so that you can add or modify tables and APIs, then republish the project. For more information, see the [Azure App Service Deployment Guide]. the following procedure uses a Git repository to download the quickstart project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system specific distributions and installation guidance.
 
-2. Follow the steps in [Enable the web app repository](../app-service-web/web-sites-publish-source-control.md#Step4) to enable the Git repository for your backend site, making a note of the deployment username and password.
+2. Follow the steps in [Enable the App Service app repository](../app-service-web/web-sites-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 
@@ -654,7 +665,7 @@ You can also add the Swagger option to your `azureMobile.js` file if you only wa
 
 ## <a name="push">Push notifications
 
-Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](./notification-hubs/notification-hubs-push-notification-overview.md).
+Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>How to: Send push notifications
 
@@ -858,13 +869,13 @@ Refer to the following articles to get started in troubleshooting your Node.js M
 
 - [Monitoring an Azure App Service]
 - [Enable Diagnostic Logging in Azure App Service]
-- [Toubleshoot an Azure App Service in Visual Studio]
+- [Troubleshoot an Azure App Service in Visual Studio]
 
 Node.js applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated will appear in the Diagnostic Logs on the [Azure Portal].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
 
-Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the Visual Studio online editor.
+Easy Tables in the portal let you create and work with tables right in the portal. You can even edit table operations using the App Service Editor.
 
 When you click **Easy tables** in your backend site settings, you can add a new table or modify or delete an existing table. You can also see data in the table.
 
@@ -873,7 +884,7 @@ When you click **Easy tables** in your backend site settings, you can add a new 
 The following commands are available on the command bar for a table:
 
 + **Change permissions** - modify the the permission for read, insert, update and delete operations on the table. Options are to allow anonymous access, to require authentication, or to disable all access to the operation. This modifies the table.json project code file.
-+ **Edit script** - the script file for the table is opened in the Visual Studio Team Services editor.
++ **Edit script** - the script file for the table is opened in the App Service Editor.
 + **Manage schema** - add or delete columns or change the table index.
 + **Clear table** - truncates an existing table be deleting all data rows but leaving the schema unchanged.
 + **Delete rows** - delete individual rows of data.
@@ -881,21 +892,21 @@ The following commands are available on the command bar for a table:
 
 ###<a name="work-easy-apis"></a>How to: Work with Easy APIs in the Azure portal
 
-Easy APIs in the portal let you create and work with custom APIs right in the portal. You can even edit API scripts using the Visual Studio online editor.
+Easy APIs in the portal let you create and work with custom APIs right in the portal. You can even edit API scripts using the App Service Editor.
 
 When you click **Easy APIs** in your backend site settings, you can add a new custom API endpoint or modify or delete an existing API endpoint.
 
 ![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Team Services editor, or view the streaming logs.
+In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the App Service Editor or view the streaming logs.
 
-###<a name="online-editor"></a>How to: Edit code in Visual Studio Team Services
+###<a name="online-editor"></a>How to: Edit code in the App Service Editor
 
-The Azure portal lets you edit your Node.js backend script files in Visual Studio Team Services without having to download the project to your local computer. To edit script files in the online editor:
+The Azure portal lets you edit your Node.js backend script files in the App Service Editor without having to download the project to your local computer. To edit script files in the online editor:
 
-1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the Visual Studio Team Services editor.
+1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the App Service Editor.
 
-	![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
@@ -927,7 +938,7 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 [Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/

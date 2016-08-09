@@ -207,22 +207,24 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
 
 3. Copy the file **iotdm-edison-sample.bb** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample** folder.
 
-4. Copy the file **iotdm_edison_sample.service** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** folder.
+4. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** and replace `-Duse_http:BOOL=OFF` with `-Duse_http:BOOL=ON`.
 
-5. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
+5. Copy the file **iotdm_edison_sample.service** from the **~/azure-iot-sdks/c/iotdm_client/samples/iotdm_edison_sample/bitbake/** folder to the **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files** folder.
+
+6. Edit the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** to add an entry for your new recipe. Add the following line at the end of the file:
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
+7. Because the Gateway SDK and device management client share some libraries, you need to edit the **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass** file. Add the following lines at the end of this file. Be sure to replace `<your user>` with your current user name:
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Configure WiFi to start automatically on the Edison board by editing the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa_supplicant/wpa-supplicant/wpa_supplicant.conf-sane** and adding the following lines at the end of the file. Be sure to replace `<your wifi ssid>` and `<your wifi password>` with the correct values for your WiFi network:
+8. Configure WiFi to start automatically on the Edison board by editing the file **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa_supplicant/wpa-supplicant/wpa_supplicant.conf-sane** and adding the following lines at the end of the file. Be sure to replace `<your wifi ssid>` and `<your wifi password>` with the correct values for your WiFi network:
     
     ```
     network={
@@ -235,7 +237,7 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
     }
     ```
 
-8. You can now build the image for your Edison board that contains the Gateway SDK and device management client. The **bitbake** command will run much faster than previously because it only needs to build the new recipe and add it to the image:
+9. You can now build the image for your Edison board that contains the Gateway SDK and device management client. The **bitbake** command will run much faster than previously because it only needs to build the new recipe and add it to the image:
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@ Complete the following steps on the same Ubuntu 14.04 machine you used in the pr
     bitbake edison-image
     ```
 
-9. Finalize the build by running the following commands:
+10. Finalize the build by running the following commands:
   
     ```
     cd ~/edison-src/
@@ -379,7 +381,14 @@ You have now completed the tutorial that shows you how to use the IoT Hub gatewa
 
 To learn more about device management with IoT Hub and the sample UI, see the [Overview of Azure IoT Hub device management][lnk-device-management] article.
 
-To learn how to connect physical devices to your IoT Hub, see the [IoT Gateway SDK – send device-to-cloud messages with a real device using Linux][lnk-gateway-physical] article.
+If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the [Azure IoT Gateway SDK][lnk-gateway-sdk].
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 
 
@@ -410,3 +419,8 @@ To learn how to connect physical devices to your IoT Hub, see the [IoT Gateway S
 [lnk-gateway-physical]: iot-hub-gateway-sdk-physical-device.md
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md

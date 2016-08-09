@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -24,6 +24,10 @@ The links below take you to an overview of each listed feature area and a simple
 ## Using SQL Server Management Studio
 
 In the following tutorials, you will learn about using SQL Server Management Studio to administer and query Azure SQL Database.
+
+
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 | Tutorial  | Description  |
 |---|---|---|

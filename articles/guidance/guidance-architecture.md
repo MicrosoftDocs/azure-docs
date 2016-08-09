@@ -36,8 +36,10 @@ This series begins with recommended practices for optimal VM configuration and c
 - [Running a Linux VM on Azure](guidance-compute-single-vm-linux.md)
 - [Running multiple VMs for scalability and availability](guidance-compute-multi-vm.md)
 - [Running VMs for an N-tier architecture](guidance-compute-3-tier-vm.md)
-- [Adding reliability to an N-tier architecture](guidance-compute-n-tier-vm.md)
-- [Running VMs in multiple datacenters for high availability](guidance-compute-multiple-datacenters.md)
+- [Adding reliability to an N-tier architecture (Windows)](guidance-compute-n-tier-vm.md)
+- [Adding reliability to an N-tier architecture (Linux)](guidance-compute-n-tier-vm-linux.md)
+- [Running VMs in multiple regions for high availability (Windows)](guidance-compute-multiple-datacenters.md)
+- [Running VMs in multiple regions for high availability (Linux)](guidance-compute-multiple-datacenters-linux.md)
 
 ## Connecting your on-premises network to Azure
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="07/05/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
@@ -73,9 +73,6 @@ Some steps are shared between the different types of solutions. This article pro
 - [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 - [Understanding your payout reporting](marketplace-publishing-report-payout.md)
 - [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
-
-### Virtual Machine Image specific ###
-
 
 ## Additional Resources
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)

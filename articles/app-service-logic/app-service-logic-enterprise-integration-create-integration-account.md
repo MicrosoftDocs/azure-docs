@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Overview of integration accounts and the Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of integration accounts and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn all about Integration accounts, the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Overview of integration accounts
@@ -33,7 +33,31 @@ An integration account is an Azure account that allows Enterprise Integration ap
   At this point the integration account will be provisioned in the location you selected. This should complete within 1 minute.    
 ![](./media/app-service-logic-enterprise-integration-accounts/account-4.png)  
 5. Refresh the page. You will see your new integration account listed. Congratulations!  
-![](./media/app-service-logic-enterprise-integration-accounts/account-5.png)  
+![](./media/app-service-logic-enterprise-integration-accounts/account-5.png) 
+
+## How to link an integration account to a Logic app
+In order for your Logic apps to access to maps, schemas, agreements and other artifacts that are located in your integration account, you must first link the integration account to your Logic app.
+
+### Here are the steps to link an integration account to a Logic app 
+
+#### Prerequisites
+- An integration account
+- A Logic app
+
+>[AZURE.NOTE]Be sure your integration account and Logic app are in the **same Azure location** before you begin
+
+1. Select **Settings** link from the menu of your Logic app  
+![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-1.png)   
+2. Select the **Integration Account** item from the Settings blade  
+![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-2.png)   
+3. Select the integration account you wish to link to your Logic app from the **Select an Integration account** drop down list box  
+![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-3.png)   
+4. Save your work  
+![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-4.png)   
+5. You will see a notification that indicates that your integration account has been linked to your Logic app and that all artifacts in your integration account are now available to your Logic app.  
+![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-5.png)   
+
+Now that your integration account is linked to your Logic app, you can you go to your Logic app and use B2B connectors such as the XML Validation, Flat file encode/decode or Transform to create apps with B2B features.  
     
 ## How to delete an integration account?
 1. Select **Browse**  
@@ -62,7 +86,7 @@ You can easily move an integration account to a new subscription and a new resou
 5. Confirm your choice    
 
 ## Next Steps
-- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 
 
  

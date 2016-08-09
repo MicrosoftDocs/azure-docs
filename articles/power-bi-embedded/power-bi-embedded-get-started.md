@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started with Microsoft Power BI Embedded Preview"
+   pageTitle="Get started with Microsoft Power BI Embedded"
    description="Power BI Embedded, add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Get started with Microsoft Power BI Embedded Preview
+# Get started with Microsoft Power BI Embedded
 
-**Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without the need to redesign those applications or change the way their users log in.
+**Power BI Embedded** is an Azure service that enables application developers to add interactive Power BI reports into their own applications. **Power BI Embedded** works with existing applications without needing redesign or changing the way users sign in.
 
-To learn more about Power BI Embedded, see [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md).
-
-As described in [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md), resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**. The next section shows you how to create a workspace collection.
+Resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
@@ -47,28 +45,26 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
 
    5. Click **Create**.
 
-The **Workspace Collection** will take a few moments to provision. When it is completed you will be taken to the **Workspace Collection Blade**.
+The **Workspace Collection** will take a few moments to provision. When completed, you'll be taken to the **Workspace Collection Blade**.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
-This **Creation Blade** contains the information you  need to call the APIs that create workspaces and deploy content to them.
-
-The next section describes how **Access Keys** are used to generate **app tokens** which are used to authenticate your API requests..
+The **Creation Blade** contains the information you need to call the APIs that create workspaces and deploy content to them.
 
 <a name="view-access-keys"/>
 ## View Power BI API Access Keys
 
-One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [How does app token flow work](power-bi-embedded-app-token-flow.md).
+One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
-You will notice that you have two keys.
+You'll'notice that you have two keys.
 
    ![](media\power-bi-embedded-get-started\access-keys-2.png)
 
-Copy these keys and store them securely in your application. It is very important that you treat these keys as you would a password, because they will provide access to all the content in your **Workspace Collection**.
+Copy these keys and store them securely in your application. It's very important that you treat these keys as you would a password, because they'll provide access to all the content in your **Workspace Collection**.
 
-While two keys are listed, only one key is needed at a time. The second key is provided so you can periodically regenerate keys without interrupting access to the service.
+While two keys are listed, only one key is needed at a particular time. The second key is provided so you can periodically regenerate keys without interrupting access to the service.
 
 Now that you have an instance of Power BI for your application, and **Access Keys**, you can import a report into your own app. Before you learn how to import a report, the next section describes creating Power BI datasets and reports to embed into an app.
 
@@ -102,7 +98,5 @@ In the previous steps, you created a workspace collection and your first report 
 
 ## See Also
 - [Get started with sample](power-bi-embedded-get-started-sample.md)
-- [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527)

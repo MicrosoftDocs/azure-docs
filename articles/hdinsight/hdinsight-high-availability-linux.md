@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/05/2016"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight

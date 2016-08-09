@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Troubleshoot a web app in Azure App Service using Visual Studio
 
@@ -104,7 +104,7 @@ Frequently the easiest way to find the cause of the error is to enable detailed 
 
 3. Add the following line to the `system.web` element:
 
-	`<customErrors mode="off"></customErrors>`
+	`<customErrors mode="Off"></customErrors>`
 
 	![Edit Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 

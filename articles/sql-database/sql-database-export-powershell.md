@@ -1,6 +1,6 @@
-<properties 
-    pageTitle="Archive an Azure SQL database to a BACPAC file using PowerShell" 
-    description="Archive an Azure SQL database to a BACPAC file using PowerShell" 
+<properties
+    pageTitle="Archive an Azure SQL database to a BACPAC file by using PowerShell"
+    description="Archive an Azure SQL database to a BACPAC file by using PowerShell"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,143 +10,118 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="08/01/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Archive an Azure SQL database to a BACPAC file using PowerShell
+# Archive an Azure SQL database to a BACPAC file by using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
-This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azure blob storage using PowerShell.
+This article provides directions for archiving your Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file stored in Azure Blob storage. This article shows how you can do this by using PowerShell.
 
-When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later inmported back into Azure SQL Database or into a SQL Server on-premises installation. 
+When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of .bacpac. A BACPAC file can later be stored in Azure Blob storage or in local storage in an on-premises location. It can also be imported back into Azure SQL Database or into a SQL Server installation on-premises.
 
-***Considerations***
+**Considerations**
 
-- For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
-- The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
-- Archiving to Azure premium storage using a BACPAC file is not supported.
-- If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
- - Temporarily increase your service level 
- - Cease all read and write activity during the export
- - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
- 
-> [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+- For an archive to be transactionally consistent, you must ensure either that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
+- The maximum size of a BACPAC file archived to Azure Blob storage is 200 GB. To archive a larger BACPAC file to local storage, use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+- Archiving to Azure premium storage by using a BACPAC file is not supported.
+- If the export operation exceeds 20 hours, it may be canceled. To increase performance during export, you can:
+ - Temporarily increase your service level.
+ - Cease all read and write activity during the export.
+ - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export service needs to complete a table scan to try to export the entire table.
 
-To complete this article you need the following:
+> [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
 
-- An Azure subscription. 
-- An Azure SQL Database. 
-- An [Azure Standard Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC in standard storage.
-- Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To complete this article, you need the following:
 
-
-## Configure your credentials and select your subscription
-
-First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
-
-	Add-AzureAccount
-
-After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
+- An Azure subscription.
+- An Azure SQL database.
+- An [Azure Standard Storage account](../storage/storage-create-storage-account.md), with a blob container to store the BACPAC in standard storage.
 
 
-### Select your Azure subscription
-
-To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy the subscription Id from the information displayed from previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
-## Setup the variables for for your specific environment
-
-There are a few variables where you need to replace the example values with the specific values for your database and storage account.
-
-Replace the server and database names with the server and database that currently exists in your account. For the blob name enter the BACPAC filename that will be created. Enter whatever you want to name the BACPAC file but you must include the .bacpac extension.
-
-    $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetoexport"
-    $BlobName = "filename.bacpac"
-
-In the [Azure portal](https://portal.azure.com) browse to your storage account to get these values. You can find the primary access key by clicking **All settings** and then **Keys** from your storage account's blade.
-
-    $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
-    $StorageKey = "primaryaccesskey"
-
-## Create pointer to your server and storage account
-
-Running the **Get-Credential** cmdlet opens a window asking for your username and password. Enter the admin login and password for your SQL server (NOT the username and password for your Azure account).
-
-    $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
 
 
 ## Export your database
 
-This command submits an export database request to the service. Depending on the size of your database the export operation may take some time to complete.
+The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx) cmdlet submits an export database request to the service. Depending on the size of your database, the export operation may take some time to complete.
 
-> [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy-powershell.md) and then export the database copy. 
+> [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy-powershell.md), and then export the database copy.
 
 
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
-    
+     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
+       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
+       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+
 
 ## Monitor the progress of the export operation
 
-After running **Start-AzureSqlDatabaseExport** you can check the status of the request. Running this immediately after the request will usually return **Status : Pending** or **Status : Running** so you can run this multiple times until you see **Status : Completed** in the output. 
-
-Running this command will prompt you for a password. Enter the admin password for your SQL server.
+After running **New-AzureRmSqlDatabaseExport**, you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status : Succeeded** the export is complete.
 
 
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $exportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
-    
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
 
-## Export SQL database PowerShell script
+
+## Export SQL database example
+
+The following example exports an existing SQL database to a BACPAC and then shows how to check the status of the export operation.
+
+To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure portal](https://portal.azure.com), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
+
+Replace the following `VARIABLE-VALUES` with values for your specific Azure resources. The database name is the existing database you want to export.
 
 
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    
-    $ServerName = "servername"
-    $DatabaseName = "databasename"
-    $BlobName = "bacpacfilename"
-    
-    $StorageName = "storageaccountname"
-    $ContainerName = "blobcontainername"
-    $StorageKey = "primaryaccesskey"
-    
-    $credential = Get-Credential
-    $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
-    
-    $StorageCtx = New-AzureStorageContext -StorageAccountName $StorageName -StorageAccountKey $StorageKey
-    $Container = Get-AzureStorageContainer -Name $ContainerName -Context $StorageCtx
-    
-    $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
-    
-    Get-AzureSqlDatabaseImportExportStatus -RequestId $exportRequest.RequestGuid -ServerName $ServerName -Username $credential.UserName
-    
+
+    $subscriptionId = "YOUR AZURE SUBSCRIPTION ID"
+
+    Login-AzureRmAccount
+    Set-AzureRmContext -SubscriptionId $subscriptionId
+
+    # Database to export
+    $DatabaseName = "DATABASE-NAME"
+    $ResourceGroupName = "RESOURCE-GROUP-NAME"
+    $ServerName = "SERVER-NAME"
+    $serverAdmin = "ADMIN-NAME"
+    $serverPassword = "ADMIN-PASSWORD" 
+    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+
+    # Generate a unique filename for the BACPAC
+    $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
+
+    # Storage account info for the BACPAC
+    $BaseStorageUri = "https://STORAGE-NAME.blob.core.windows.net/BLOB-CONTAINER-NAME/"
+    $BacpacUri = $BaseStorageUri + $bacpacFilename
+    $StorageKeytype = "StorageAccessKey"
+    $StorageKey = "YOUR STORAGE KEY"
+
+    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
+       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
+       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest
+
+    # Check status of the export
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
+
 
 
 ## Next steps
 
-- [Import an Azure SQL database](sql-database-import-powershell.md)
+- To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](sql-database-import-powershell.md).
 
 
 ## Additional resources
 
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/mt707796.aspx)
+- [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/mt707794.aspx)

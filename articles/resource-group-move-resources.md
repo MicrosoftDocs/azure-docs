@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/21/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -27,7 +27,7 @@ When moving resources, both the source group and the target group are locked for
 
 You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
 
-> [AZURE.NOTE] This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switching to a different Azure offer](billing-how-to-switch-azure-offer.md). 
+> [AZURE.NOTE] This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). 
 
 ## Checklist before moving resources
 
@@ -47,7 +47,7 @@ new version is available. For more information, see [How to install and configur
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
-- App Service apps - see [App Service limitations](#app-service-limitations)
+- App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 - Automation
 - Batch
 - CDN
@@ -57,6 +57,7 @@ For now, the services that support moving to both a new resource group and subsc
 - DocumentDB
 - HDInsight clusters
 - Key Vault
+- Media Services
 - Mobile Engagement
 - Notification Hubs
 - Operational Insights
@@ -137,11 +138,11 @@ When moving resources to a **new subscription**, the following restrictions appl
 
 ## Using portal to move resources
 
-You can move some resources through the portal; however, not all resource providers that support the move operation provide that functionality through the portal. 
-
 To move a resource, select the resource and then select the **Move** button.
 
 ![move resource](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] Not all resources currently support being moved through the portal. If you do not see the **Move** button for the resource you want to move, use PowerShell, CLI, or REST API to move the resource. 
 
 You specify the destination subscription and resource group when moving the resource. If other resources must be moved with the resource, they are listed.
 

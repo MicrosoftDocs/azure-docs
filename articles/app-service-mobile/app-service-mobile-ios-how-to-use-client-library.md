@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ## Reference documentation
 
@@ -394,18 +394,18 @@ To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` 
 
 **Objective-C**:
 ```
-    [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"contents": @"Hello world!" }
-                HTTPMethod:@"POST"
-                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
-                   headers:nil
-                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
-                    if(error) {
-                        NSLog(@"ERROR %@", error);
-                    } else {
-                        // Do something with result
-                    }
-                }];
+[self.client invokeAPI:@"sendEmail"
+                  body:@{ @"contents": @"Hello world!" }
+            HTTPMethod:@"POST"
+            parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+               headers:nil
+            completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"ERROR %@", error);
+                } else {
+                    // Do something with result
+                }
+            }];
 ```
 
 **Swift**:
@@ -540,7 +540,7 @@ and the Pod:
 	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
 	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
 	    ADAuthenticationError *error;
-	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
 	    authContext.parentController = parent;
 	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
 	    [authContext acquireTokenWithResource:resourceId

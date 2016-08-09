@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Create a Service Bus namespace with Event Hub and consumer group using an Azure Resource Manager template | Microsoft Azure"
-    description="Create a Service Bus namespace with Event Hub and consumer group using Azure Resource Manager template"
+    pageTitle="Create an Event Hub namespace with Event Hub and consumer group using an Azure Resource Manager template | Microsoft Azure"
+    description="Create an Event Hub namespace with Event Hub and consumer group using Azure Resource Manager template"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
-# Create a Service Bus namespace with Event Hub and consumer group using an Azure Resource Manager template
+# Create an Event Hub namespace with Event Hub and consumer group using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with an Event Hub and a consumer group. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Event Hub namespace with an Event Hub and a consumer group. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
+For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
 
 For the complete template, see the [Service Bus Event Hub and consumer group template][] on GitHub.
 
@@ -31,15 +31,13 @@ For the complete template, see the [Service Bus Event Hub and consumer group tem
 >-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
 >
->To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
+>To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with an Event Hub and a consumer group.
+With this template, you will deploy an Event Hub namespace with an Event Hub and a consumer group.
 
-Event Hubs is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
-
-Learn more about [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability.
 
 To run the deployment automatically, click the following button:
 
@@ -49,34 +47,34 @@ To run the deployment automatically, click the following button:
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-We will describe each parameter in the template.
+The template defines the following parameters.
 
-### serviceBusNamespaceName
+### eventHubNamespaceName
 
-The name of the Service Bus namespace to create.
+The name of the Event Hub namespace to create.
 
 ```
-"serviceBusNamespaceName": {
+"eventHubNamespaceName": {
 "type": "string"
 }
 ```
 
-### serviceBusEventHubName
+### eventHubName
 
-The name of the Event Hub created in the Service Bus namespace.
+The name of the Event Hub created in the Event Hub namespace.
 
 ```
-"serviceBusEventHubName": {
+"eventHubName": {
 "type": "string"
 }
 ```
 
-### serviceBusConsumerGroupName
+### eventHubConsumerGroupName
 
 The name of the consumer group created for the Event Hub in the Service Bus namespace.
 
 ```
-"serviceBusConsumerGroupName": {
+"eventHubConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -99,8 +97,8 @@ Creates a Service Bus namespace of type **Event Hub**, with an Event Hub and a c
 "resources": [
         {
             "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
+            "name": "[parameters('eventHubNamespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
             "kind": "EventHub",
             "sku": {
@@ -110,21 +108,21 @@ Creates a Service Bus namespace of type **Event Hub**, with an Event Hub and a c
             "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('serviceBusEventHubName')]",
+                    "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
                     ],
                     "properties": {
-                        "path": "[parameters('serviceBusEventHubName')]"
+                        "path": "[parameters('eventHubName')]"
                     },
                     "resources": [
                         {
                             "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('serviceBusConsumerGroupName')]",
+                            "name": "[parameters('eventHubConsumerGroupName')]",
                             "type": "ConsumerGroups",
                             "dependsOn": [
-                                "[parameters('serviceBusEventHubName')]"
+                                "[parameters('eventHubName')]"
                             ],
                             "properties": {
                             }
@@ -162,8 +160,8 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 - [Manage Event Hubs with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
-  [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
-  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
+  [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
+  [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Service Bus Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/

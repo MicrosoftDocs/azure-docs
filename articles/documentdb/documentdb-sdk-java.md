@@ -3,7 +3,7 @@
 	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="andrl"/>
+	ms.date="06/30/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -36,10 +36,14 @@
 
 ## Release Notes
 
+### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
+  - Fixed a bug to not retry when an incorrect partition key value is provided.
+
 ### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
   - Added the support for multi-region database accounts.
   - Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions(). 
-  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput. 
+  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
 - Added retry policy support for throttling.  
@@ -88,6 +92,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.1](#1.8.1) | June 30, 2016 |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | April 30, 2016 |---
 | [1.7.0](#1.7.0) | April 27, 2016 |---

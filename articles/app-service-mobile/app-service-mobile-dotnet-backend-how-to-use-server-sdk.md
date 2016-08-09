@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/02/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -29,7 +29,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
-## <a name="create-app"></a>How to: Create a .NET backend for your mobile application
+## <a name="create-app"></a>How to: Create a .NET Mobile App backend
 
 If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish the project to your cloud-based App Service mobile app.
 
@@ -37,13 +37,13 @@ If you are adding mobile capabilities to an existing project, see the [Download 
 
 ### Create a .NET backend using the Azure portal
 
-You can create a new mobile application right in the [Azure portal]. You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial.
+You can create a new Mobile App backend right in the [Azure portal]. 
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial. The tutorial contains a simplified version of these instructions and is best for proof of concept projects; the tutorial can create only a Node.js backend.
 
-&nbsp;&nbsp;9. Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-&nbsp;&nbsp;10. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
@@ -97,7 +97,7 @@ To enable individual features, you must call extension methods on the **MobileAp
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`.
+Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`. To map other controllers, use the [MapHttpAttributeRoutes] method. 
 
 Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below.
 
@@ -142,7 +142,7 @@ The following NuGet-based extension packages provide various mobile features tha
 	Creates a controller that serves data to legacy web browsers from your Mobile App. Add to the configuration by calling the **MapLegacyCrossDomainController** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Login]
-	 Provides preview support for custom authentication via the AppServiceLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
+	 Provides support for custom authentication via the AppServiceLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
 
@@ -198,7 +198,7 @@ Ensure the PageSize is the same or bigger than the size that will be requested b
 
 ## How to: Define a custom API controller
 
-The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route and also sets up the Mobile Apps JSON serializer.
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route, sets up the Mobile Apps JSON serializer, and turns on [client version checking](app-service-mobile-client-and-server-versioning.md).
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
@@ -258,6 +258,8 @@ You can choose to provide your own login system if you do not wish to use one of
 You will need to provide your own logic for determining if a user should be signed in. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` method is responsible for these checks and is defined elsewhere.
 
 The custom authentication is exposed by creating a new ApiController and exposing register and login actions like the one below. The client can attempt login by collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once the server validates the assertion, a token can be issued using the `AppServiceLoginHandler.CreateToken()` method.
+
+Note that this ApiController **should not** use the `[MobileAppController]` attribute, as that will cause client login requests to fail. The `[MobileAppController]` attribute requires the request header [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) and this header is **not** sent by the client SDK for login routes. 
 
 An example login action might be:
 
@@ -486,3 +488,4 @@ Your locally-running server is now equipped to validate tokens which the client 
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx

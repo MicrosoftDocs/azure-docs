@@ -69,7 +69,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure** (created by Henry Robalino)
+**Figure 1: VMware/physical to Azure** 
 
 ## Azure prerequisites
 
@@ -78,7 +78,7 @@ Here's what you'll need in Azure to deploy this scenario.
 **Prerequisite** | **Details**
 --- | ---
 **Azure account**| You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
-**Azure storage** | Replicated data is stored in Azure storage and Azure VMs are created when failover occurs. <br/><br/>To store data you'll need a standard or premium storage account in the same region as the Recovery Services vault.<br/><br/>You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md).<br/><br/> [Premium storage](../storage/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance and low latency to host IO intensive workloads.<br/><br/> If you want to use a premium account to store replicated data, you'll also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/> Note that storage accounts created in the Azure portal can't be moved across resource groups.<br/><br/> [Read about](../storage/storage-introduction.md) Azure storage.
+**Azure storage** | Replicated data is stored in Azure storage and Azure VMs are created when failover occurs. <br/><br/>To store data you'll need a standard or premium storage account in the same region as the Recovery Services vault.<br/><br/>You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md).<br/><br/> [Premium storage](../storage/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance and low latency to host IO intensive workloads.<br/><br/> If you want to use a premium account to store replicated data, you'll also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.<br/><br/> Note that storage accounts created in the Azure portal can't be moved across resource groups. Also protection to premium storage accounts in Central India and South India is currently not supported.<br/><br/> [Read about](../storage/storage-introduction.md) Azure storage.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault.
 **Failback from Azure** | You’ll need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back and delete it after fail back is complete.<br/><br/> To fail back you’ll need a VPN connection (or Azure ExpressRoute) from the Azure network to the on-premises site.
 
@@ -159,7 +159,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-portal.md#create-resource-group) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. If you want to quickly access the vault from the Dashboard click **Pin to dashboard** and then click **Create**.
 
 	![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
@@ -214,11 +214,15 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
-3. In **Third-Party Software License** click **I Accept** to download and install MySQL.
+3. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
 
-	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz2.png)
+	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
 
-4. In **Internet Settings** specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
+4. In **Registration** browse and select the registration key you downloaded from the vault.
+
+	![Registration](./media/site-recovery-vmware-to-azure/combined-wiz3.png)
+
+5. In **Internet Settings** specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
 
 	- If you want to connect with the proxy that's currently set up on the machine select **Connect with existing proxy settings**.
 	- If you want the Provider to connect directly select **Connect directly without a proxy**.
@@ -226,32 +230,30 @@ Set up the configuration server and register it in the Recovery Services vault. 
 		- If you use a custom proxy you'll need to specify the address, port, and credentials
 		- If you're using a proxy you should have already allowed the URLs described in [prerequisites](#configuration-server-prerequisites).
 
-	![Firewall](./media/site-recovery-vmware-to-azure/combined-wiz3.png)
+	![Firewall](./media/site-recovery-vmware-to-azure/combined-wiz4.png)
 
-5. In **Prerequisites Check** setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+6. In **Prerequisites Check** setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
 
-	![Prerequisites](./media/site-recovery-vmware-to-azure/combined-wiz4.png)
+	![Prerequisites](./media/site-recovery-vmware-to-azure/combined-wiz5.png)
 
-6. In **MySQL Configuration** create credentials for logging onto the MySQL server instance that will be installed.
-
-	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz5.png)
-
-7. In **Environment Details** select whether you're going to replicate VMware VMs. If you are then setup checks that PowerCLI 6.0 is installed.
+7. In **MySQL Configuration** create credentials for logging onto the MySQL server instance that will be installed.
 
 	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz6.png)
 
-8. In **Install Location** select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
+8. In **Environment Details** select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
 
-	![Install location](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
+	![MySQL](./media/site-recovery-vmware-to-azure/combined-wiz7.png)
 
-9. In **Network Selection** specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be opened to send and receive information about replication orchestration. 443 shouldn't be used for receiving replication traffic.
+9. In **Install Location** select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
+
+	![Install location](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
+
+10. In **Network Selection** specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be used by a web server which orchestrates replication operations. 443 shouldn't be used for receiving replication traffic.
 
 
-	![Network selection](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
+	![Network selection](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
 
-10. In **Registration** browse and select the registration key you downloaded from the vault.
 
-	![Registration](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
 
 11.  In **Summary** review the information and click **Install**. When installation finishes a passphrase is generated. You'll need it when you enable replication so copy it and keep it in a secure location.
 
@@ -346,6 +348,8 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	- If you want to create a storage account using the classic model you'll do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
 	- If you’re using a premium storage account for replicated data you'll need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
+	
+	> [AZURE.NOTE] Protection to premium storage accounts in Central India and South India is currently not supported.
 
 4.	Select an Azure network. If you haven't created a network and you want to do that using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 

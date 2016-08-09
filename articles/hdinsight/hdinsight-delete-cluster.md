@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/20/2016"
+ms.date="08/09/2016"
 ms.author="larryfr"/>
 
 #How to delete an HDInsight cluster

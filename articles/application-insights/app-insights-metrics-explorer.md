@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="02/06/2016" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -114,9 +114,13 @@ If you coded [custom metrics][track] into your app (calls to TrackMetric and Tra
 
 ## Segment your data
 
+You can split a metric by property - for example, to compare page views on clients with different operating systems. 
+
 Select a chart or grid, switch on grouping and pick a property to group by:
 
 ![Select Grouping On, then set select a property in Group By](./media/app-insights-metrics-explorer/15-segment.png)
+
+> [AZURE.NOTE] When you use grouping, the Area and Bar chart types provide a stacked display. This is suitable where the Aggregation method is Sum. But where the aggregation type is Average, choose the Line or Grid display types. 
 
 If you coded [custom metrics][track] into your app and they include property values, you'll be able to select the property in the list.
 

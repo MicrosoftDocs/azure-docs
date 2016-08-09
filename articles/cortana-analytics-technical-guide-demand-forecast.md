@@ -22,6 +22,8 @@
 
 Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Intelligence Suite. A deployed template will provision your subscription with necessary Cortana Intelligence component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
 
+The solution template can be found [here](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1) 
+
 The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
 
 The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
@@ -286,7 +288,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
-	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
+	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
 
 	- Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
     you have added the output, click **"Start"** at the bottom of the page to start the Stream
@@ -334,7 +336,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 
     -   Once **"Azure SQL Database"** on your solution template diagram turns green, click it and then click **"Open"**. You will be guided to Azure management portal and your database information page will be opened as well.
 
-    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Soution Name + Random Number + 'db'"** (e.g. "mytest12345db").
+    -   On the page, you can find a "Database" section. It lists out the database you have created. The name of your database should be **"Your Solution Name + Random Number + 'db'"** (e.g. "mytest12345db").
 
 	-	Click your database, in the new pop out pannel, you can find your database server name on the top. Your database server name name shoud be **"Your Solution Name + Random Number + 'database.windows.net,1433'"** (e.g. "mytest12345.database.windows.net,1433").
 
@@ -352,7 +354,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 	-   In the pop out window, replace **"Server"** and **"Database"** with
 	your own server and database names, and then click **"OK"**. For server
 	name, make sure you specify the port 1433
-	(**YourSoutionName.database.windows.net, 1433**). Ignore the warning
+	(**YourSolutionName.database.windows.net, 1433**). Ignore the warning
 	messages that appear on the screen.
 
 	-   In the next pop out window, you'll see two options on the left pane

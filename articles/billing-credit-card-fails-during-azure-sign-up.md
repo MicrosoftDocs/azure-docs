@@ -1,12 +1,13 @@
 <properties
-	pageTitle="My credit card doesn't go through when I try to sign up for Azure | Microsoft Azure"
-	description="Discusses common causes of Microsoft Azure sign-up issues using a credit or debit card"
-	services="billing"
+	pageTitle="Credit or debit card declined at sign-up | Microsoft Azure"
+	description="Discusses common causes of Microsoft Azure sign-up issues like your credit or debit card was declined."
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"
+	keywords="credit card declined, debit card declined, your credit card was declined, do not honor credit card"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# My credit card doesn’t go through when I try to sign up for Azure
-Currently only credit cards and debit cards that are not virtual or prepaid are accepted as valid payment options. The accepted credit card and debit card providers vary based on your country.
+# My credit card or debit card is declined when I try to sign up for Azure
+If your credit card or debit card was declined, it might be because you’re using a virtual or prepaid card. Currently, we honor most credit cards and debit cards, but not those that are virtual or prepaid. The latter are not accepted as valid payment options. The accepted credit card and debit card providers vary based on your country. In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected.
 
-Also make sure that the payment method is active and your bank is not blocking online transactions due to its security policies.
+If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 

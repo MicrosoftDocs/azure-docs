@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/31/2016"
-	ms.author="tdykstra"/>
+	ms.date="05/27/2016"
+	ms.author="rachelap"/>
 
 # Consume an API app from JavaScript using CORS
 
@@ -80,8 +80,7 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 
 		angular.module('todoApp')
 		.factory('todoListSvc', ['$http', function ($http) {
-		    var apiEndpoint = "http://localhost:46439";
-		
+
 		    $http.defaults.useXDomain = true;
 		    delete $http.defaults.headers.common['X-Requested-With']; 
 		

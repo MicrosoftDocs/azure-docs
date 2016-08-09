@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="banders"/>
 
 
@@ -222,6 +222,15 @@ The following table describes the properties that are available.
 |properties.category|**Required**. The user defined category of the query. If modeled as an Azure resource this would be a Tag.|
 
 >[AZURE.NOTE] The Log Analytics search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions at this time. This functionality will be added at a later date.
+
+### Create saved searches
+
+**Request:**
+
+```
+	$savedSearchParametersJson = "{'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
+```
 
 ### Delete saved searches
 
