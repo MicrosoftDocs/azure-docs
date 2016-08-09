@@ -26,7 +26,7 @@ Actions needed to configure proxy and firewall settings for Log Analytics in OMS
 For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
 
 |**Agent Resource**|**Ports**|**Bypass HTTPS inspection**|
-|--------------|-----||--------------|
+|--------------|-----|--------------|
 |*.ods.opinsights.azure.com|Port 443|Yes|
 |*.oms.opinsights.azure.com|Port 443|Yes|
 |*.blob.core.windows.net|Port 443|Yes|
@@ -103,7 +103,7 @@ Here's a list of agent resources and ports:
 Here's a list of management server resources and ports:
 
 |**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
-|--------------|-----||--------------|
+|--------------|-----|--------------|
 |service.systemcenteradvisor.com|Port 443| |
 |*.service.opinsights.azure.com|Port 443| |
 |*.blob.core.windows.net|Port 443|Yes| 
