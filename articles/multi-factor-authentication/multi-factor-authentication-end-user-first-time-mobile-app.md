@@ -20,7 +20,7 @@
 
 If you want to use the mobile app as your primary contact method you can use this article.  It will walk you through setting up multi-factor authentication to use your mobile app as your primary contact method.
 
-The Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+The Microsoft Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## To use a mobile app as your contact method
 
@@ -31,7 +31,7 @@ The Azure Authenticator app is available for [Windows Phone](http://www.windowsp
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Select either Notification or One-time password and click Set up.
-- On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](#adding-an-account-manually).
+- On the phone that has the Microsoft Authenticator app installed, launch the app and click scan barcode.  To add an account that already has Azure MFA or a 3rd party account see [Adding an account manually](#adding-an-account-manually).
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -70,5 +70,5 @@ If you are using a 3rd party account with the mobile app, enter the account name
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
->[AZURE.NOTE]If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.  You can disregard this.
+
  

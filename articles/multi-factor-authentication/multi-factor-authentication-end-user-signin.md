@@ -29,8 +29,8 @@ Depending on how you sign in and use multi-factor authentication, your experienc
 What are you doing?|Description
 :------------- | :------------- | 
 [Signing in with mobile or office phone](#signing-in-with-mobile-or-office-phone) | This is what you can expect from signing in using your mobile or office phone.
-[Signing in with the mobile app using notification](#signing-in-with-the-mobile-app-using-notification) | This is what you can expect from signing in the mobile app with notifications.
-[Signing in with the mobile app using verification code](#signing-in-with-the-mobile-app-using-verification-code)|This is what you can expect from signing in the mobile app with a verification code.
+[Signing in with the Microsoft Authenticator app using notification](#signing-in-with-the-microsoft-authenticator-app-using-notification) | This is what you can expect using the Microsoft Authenticator app with notifications.
+[Signing in with the Microsoft Authenticator app using verification code](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|This is what you can expect using the Microsoft Authenticator thapp with a verification code.
 [Signing in with an alternate method](#signing-in-with-an-alternate-method)|This will show you what to expect if you want to use an alternate method.
 
 ## Signing in with mobile or office phone
@@ -50,11 +50,11 @@ The following information will describe the experience of using multi-factor aut
 
 - You should now be signed in.</li>
 
-## Signing in with the mobile app using notification
+## Signing in with the Microsoft Authenticator app using notification
 
-The following information will describe the experience of using multi-factor authentication with your mobile app when you are sent a notification.
+The following information will describe the experience of using multi-factor authentication with the Microsoft Authenticator app when you are sent a notification.
 
-### To sign in with a notification sent to your mobile app
+### To sign in with a notification sent the Microsoft Authenticator app
 
 - Sign in to an application or service such as Office 365 using your user name and password.
 - Microsoft will send a notification.
@@ -70,18 +70,18 @@ The following information will describe the experience of using multi-factor aut
 - You should now be signed in.
 
 
-## Signing in with the mobile app using verification code
+## Signing in with the Microsoft Authenticator app using verification code
 
-The following information will describe the experience of using multi-factor authentication with your mobile app when you are using it with a verification code.
+The following information will describe the experience of using multi-factor authentication with the Microsoft Authenticator app when you are using it with a verification code.
 
-### To sign in using a verification code with your mobile app
+### To sign in using a verification code with the Microsoft Authenticator app
 
 - Sign in to an application or service such as Office 365 using your user name and password.
 - Microsoft will prompt you for a verification code.
 
 ![Enter verification code](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
 
-- Open the Azure Authenticator app on your phone and enter the code in the box where you are signing in.
+- Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
 
 ![Get code](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
 

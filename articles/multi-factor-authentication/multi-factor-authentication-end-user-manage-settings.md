@@ -30,7 +30,7 @@ The following information is provided to help you with some of the common issues
 - [I have a new phone and need to change my phone number](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [I am not receiving a code on my phone](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [App passwords are not working](#app-passwords-are-not-working)
-- [How do I clean up Azure Authenticator from my old device and move to a new one?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [How do I clean up Microsoft Authenticator from my old device and move to a new one?](#how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one)
 - [I didn't find an answer to my problem](#i-didnt-find-an-answer-to-my-problem)
 
 ##Correlation ID Errors
@@ -173,8 +173,8 @@ If you previously configured a backup phone, it is recommended that you try agai
 ##App passwords are not working
 First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and then create a new one and use that one.
 
-##How do I clean up Azure Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+##How do I clean up Microsoft Authenticator from my old device and move to a new one?
+When you uninstall the app from your device or reflash the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device.](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
 ##I didn't find an answer to my problem
 If didn't find an answer to your problem on this page, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) or [contact support](https://support.microsoft.com/en-us).

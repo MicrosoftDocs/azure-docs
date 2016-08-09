@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Authenticator app for mobile phones" 
+	pageTitle="Microsoft Authenticator app for mobile phones" 
 	description="Learn how to upgrade to the latest version of Azure Authenticatior." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
 <tags 
@@ -13,19 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/09/2016" 
 	ms.author="billmath"/>
 
 
+# Download the Microsoft Authenticator app
 
-# Moving to the new Azure Authenticator app
+The Microsoft Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)
 
-With the release of the Azure Authenticator app, available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458), the old Multi-Factor Authentication app is being replaced.  The Multi-Factor Authentication app will continue to work but should you decide to move to the new Azure Authenticator app then this article can assist you.  
+# How the Microsoft Authenticator app works
+The Microsoft Authenticator app provides an additional level of security that can be used in with either your Azure account (e.x. bsimon@contoso.onmicrosoft.com), your on-premises work account (e.x. bsimon@contoso.com), or your Microsoft account(e.x. bsimon@outlook.com). 
+
+# Add an account to the Microsoft Authenticator app
+
+# Moving to the new Microsoft Authenticator app
+
+With the release of , the old Azure Authenticator app is being replaced.  The Azure Authenticator app will continue to work but should you decide to move to the new Microsoft Authenticator app then this article can assist you.  
 
 
-## How to move to the new Azure Authenticator app 
+## How to move to the new Microsoft Authenticator app 
 
-**Step 1:** Install Azure Authenticator.
+**Step 1:** Install Microsoft Authenticator.
 
 ![Cloud](./media/multi-factor-authentication-azure-authenticator/home.png)
 
@@ -73,7 +81,7 @@ Once you have added all the accounts to the new app uninstall the old app from y
   
 ![Scan barcode](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Now open the Azure Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
+- Now open the Microsoft Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -102,7 +110,7 @@ If you want to add an account manually, you can do it by doing the following:
   
 ![Scan barcode](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Now open the Azure Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
+- Now open the Microsoft Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -131,7 +139,7 @@ If you want to add an non-Azure account manually, for example, your Microsoft ac
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
-- Open the Azure Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
+- Open the Microsoft Authenticator app, you should be taken to the accounts page.  Here you will see a list of accounts that you have setup.  If you want to add a new account click the + sign.  This will open the scanner.
 
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -152,9 +160,9 @@ If you want to add an non-Azure account manually, for example, your Microsoft ac
 ![Add Account](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
 ## How to add an account using TouchID
-The Azure Authenticator mobile app on iOS supports Touch ID.  Azure Multi-Factor Authentication allows organizations to require a PIN in addition to having possession of their registered device. With this new feature, iOS users with Touch ID-enabled devices won’t need to enter the PIN anymore. Once set up, users just scan their fingerprint instead of entering PIN and tapping Approve.
+The Microsoft Authenticator mobile app on iOS supports Touch ID.  Azure Multi-Factor Authentication allows organizations to require a PIN in addition to having possession of their registered device. With this new feature, iOS users with Touch ID-enabled devices won’t need to enter the PIN anymore. Once set up, users just scan their fingerprint instead of entering PIN and tapping Approve.
 
-Setting up Touch ID with Azure Authenticator is really simple. You just complete a normal verification challenge with PIN, and if your device supports Touch ID, we’ll automatically set it up for you. 
+Setting up Touch ID with Microsoft Authenticator is really simple. You just complete a normal verification challenge with PIN, and if your device supports Touch ID, we’ll automatically set it up for you. 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
@@ -164,6 +172,6 @@ From that point forward, when you are required to verify your sign-in, you tap o
 
 ## How to delete an account
 
-To remove individual accounts from the Azure Authenticator App simply tap on the account. You’ll get an option to “Delete”. 
+To remove individual accounts from the Microsoft Authenticator App simply tap on the account. You’ll get an option to “Delete”. 
 
 ![Remove account](./media/multi-factor-authentication-azure-authenticator/remove.png)
