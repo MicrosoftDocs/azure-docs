@@ -19,9 +19,9 @@
 
 ## Overview
 
-Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is particularly well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
+Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-This article covers the best practices implemented during the initial setup, deployment and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators responsible for deploying and managing the virtual arrays in their datacenters.
+This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who will for deploy and manage the virtual arrays in their datacenters.
 
 We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
@@ -40,19 +40,19 @@ Implement the following best practices when provisioning the virtual array:
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | **Virtual machine type**   | **Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image.                                                                                                              | Use virtual machine version 8 - 11 when using *.vmdk* image.                                                                      |
 | **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
-| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** will take a long time. <br></br> Do not use the  **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
-| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so will result in the loss of all the local data on   device.                       | Expansion or shrinking is not allowed. An attempt to do so will result in the loss of all the local data on device. |
+| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device.                       | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
 
 ### Sizing
 
-When sizing your StorSimple Virtual Array, you will need to consider the following factors:
+When sizing your StorSimple Virtual Array, consider the following factors:
 
-- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share.Roughly 10% of the space is also reserved for a locally pinned volume for file system.
-- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
-- Need for restores. Sizing should account for space needed for restore if doing restore as a new operation. Note that restore is done to a share or volume of the same size or larger.
+- Local reservation for volumes or shares. Approximately 12 % of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10 % of the space is also reserved for a locally pinned volume for file system.
+- Snapshot overhead. Roughly 15 % space on the local tier is reserved for snapshots.
+- Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
 - Some buffer should be allocated for any unexpected growth.
 
-Based on the above factors, the sizing requirements can be represented by the following equation:
+Based on the preceding factors, the sizing requirements can be represented by the following equation:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
@@ -69,24 +69,24 @@ On your virtual array, you want to be able to
 - provision a 300 GB of locally pinned volume or share.
 
 
-For the above volumes or shares, let us calculate the space requirements on the local tier. 
+For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
 
-First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10% of the volume/share size. In this example, you will need
+First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
 
 - 240 GB local reservation (for a 2 TB tiered volume/share)
 - 120 GB local reservation (for a 1 TB tiered volume/share)
 - 330 GB for locally pinned volume or share
 
-The total space required on the local tier so far will be: 240 GB + 120 GB + 330 GB = 690 GB.
+The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Second, we will need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
+Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
 If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
-Third, we will need 15% of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
+Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
 Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
-> [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without requiring the extra space for restore.
+> [AZURE.NOTE] We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
 
 #### Example 2: 
 On your virtual array, you want to be able to 
@@ -94,16 +94,16 @@ On your virtual array, you want to be able to
 - provision a 2 TB tiered volume
 - provision a 300 GB locally pinned volume
 
-Based on 12 % of local space reservation for tiered volumes/shares and 10% for locally pinned volumes/shares, we will need
+Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
 - 240 GB local reservation (for 2 TB tiered volume/share)
 - 330 GB for locally pinned volume or share
 
-Total space required on the local tier will be: 240 GB + 330 GB = 570 GB
+Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
-The minimum local space needed for restore would be 330 GB. 
+The minimum local space needed for restore is 330 GB. 
 
-15% of your total disk would be used to store snapshots so that only 0.85 will be available. So, the disk size would be (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
+15 % of your total disk is used to store snapshots so that only 0.85 will be available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
 
 Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
@@ -118,7 +118,7 @@ Therefore, we recommend that you:
 
 -   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
 
--   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
 
 ### Networking
@@ -127,23 +127,23 @@ The network configuration for your virtual array is done through the local web U
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
--   Ensure that the network in which the virtual array is deployed has the capacity to dedicate 5 Mbps Internet bandwidth (or more) at all times. 
+-   Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
 
-    -   Internet bandwidth need will vary depending on your workload characteristics and the rate of data change.
+    -   Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
 
     -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
 
--   Ensure connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
+-   Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
 
 -   If you plan to deploy your device as an iSCSI server: 
 	-   We recommend that you disable the **Get IP address automatically** option (DHCP). 
-	-   Configure static IP addresses. You must also configure a primary and a secondary DNS server.
+	-   Configure static IP addresses. You must configure a primary and a secondary DNS server.
 
-	-   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
+	-   If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
 
 -   To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
 
--   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services** and ensure that the **Time synchronization** is checked.
+-   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
 
 ### Storage accounts
 
@@ -151,7 +151,7 @@ StorSimple Virtual Array can be associated with a single storage account. This s
 
 Use the following recommendations for storage accounts associated with your virtual array.
 
--   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array  and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
+-   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
 
 -   When creating a new storage account
 	-   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
@@ -163,7 +163,7 @@ Use the following recommendations for storage accounts associated with your virt
 
 ### Shares and volumes
 
-For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size as well as the type configured.
+For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
 
 #### Volume/Share size
 
@@ -173,13 +173,13 @@ Keep in mind the following best practices when provisioning shares or volumes on
 
 -   The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file be smaller than 3% of the share size.
 
--   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB in size. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
+-   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
 
--   When creating a volume, factor in the expected data consumption as well as future growth. Note that while the volume cannot be expanded later, you can always restore to a larger volume.
+-   When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
 
 -   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
    
--   When writing to a tiered volume on StorSimple, note that when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume will slow down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you will see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
+-   When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
 
 -   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
 
@@ -196,13 +196,13 @@ We recommend that you implement the following best practices when configuring St
 
 #### Volume format
 
-After you create StorSimple volumes on your iSCSI server, you will need to initialize, mount and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
+After you create StorSimple volumes on your iSCSI server, you will need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
 
 -   Perform a quick format on all StorSimple volumes.
 
--   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads as well as other workloads.
+-   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads and other workloads.
 
--   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these are not supported by StorSimple.
+-   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these volumes or disks are not supported by StorSimple.
 
 #### Share access
 
@@ -214,15 +214,15 @@ When creating shares on your virtual array file server, follow these guidelines:
 
 #### Volume access
 
-When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. Create and associate access control records (ACRs) with StorSimple volumes to determine which host servers can access volume(s).
+When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create and associate access control records (ACRs) with StorSimple volumes.
 
 Use the following best practices when configuring ACRs for StorSimple volumes:
 
 -   Always associate at least one ACR with a volume.
 
--   Multiple ACRs should only be defined in a clustered environment.
+-   Define multiple ACRs only in a clustered environment.
 
--   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message will pop-up for you to review your configuration.
+-   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message will pop up for you to review your configuration.
 
 ### Data security and encryption
 
@@ -273,7 +273,7 @@ For your StorSimple Virtual Array, you can only fail over to another virtual arr
 
 When performing a fail over for your virtual array, keep the following in mind:
 
--   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
+-   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
 
 -   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
