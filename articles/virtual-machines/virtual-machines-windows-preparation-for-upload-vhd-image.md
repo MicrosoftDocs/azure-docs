@@ -223,7 +223,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
-## Additional configuration
+## Suggested extra configuration
 
 The following settings will not affect VHD uploading. However, it is good to have them configured.
 
