@@ -21,13 +21,13 @@
 
 Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who will for deploy and manage the virtual arrays in their datacenters.
+This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
 
 We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
 ## Configuration best practices 
 
-These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These include best practices related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
+These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
 ### Provisioning 
 
@@ -47,8 +47,8 @@ Implement the following best practices when provisioning the virtual array:
 
 When sizing your StorSimple Virtual Array, consider the following factors:
 
-- Local reservation for volumes or shares. Approximately 12 % of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10 % of the space is also reserved for a locally pinned volume for file system.
-- Snapshot overhead. Roughly 15 % space on the local tier is reserved for snapshots.
+- Local reservation for volumes or shares. Approximately 12 % of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
+- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
 - Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
 - Some buffer should be allocated for any unexpected growth.
 
@@ -82,7 +82,7 @@ The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB =
 Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
 If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
-Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it will be available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
+Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
 Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
@@ -103,7 +103,7 @@ Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
 The minimum local space needed for restore is 330 GB. 
 
-15 % of your total disk is used to store snapshots so that only 0.85 will be available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
+15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
 
 Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
@@ -214,7 +214,7 @@ When creating shares on your virtual array file server, follow these guidelines:
 
 #### Volume access
 
-When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create and associate access control records (ACRs) with StorSimple volumes.
+When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create, and associate access control records (ACRs) with StorSimple volumes.
 
 Use the following best practices when configuring ACRs for StorSimple volumes:
 
@@ -222,7 +222,7 @@ Use the following best practices when configuring ACRs for StorSimple volumes:
 
 -   Define multiple ACRs only in a clustered environment.
 
--   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message will pop up for you to review your configuration.
+-   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
 
 ### Data security and encryption
 
@@ -239,7 +239,7 @@ Your StorSimple Virtual Array has data security and encryption features that ens
 
 ## Operational best practices
 
-The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These will cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
+The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
 
 ### Backups
 
@@ -247,7 +247,7 @@ The data on your virtual array is backed up to the cloud in two ways, a default 
 
 The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
--   Schedule your backups for off-peak hours. Backup start time should not coincide with a lot of host IO.
+-   Schedule your backups for off-peak hours. Backup start time should not coincide with numerous host IO.
 
 -   Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
 
@@ -259,7 +259,7 @@ When performing a restore, keep the following guidelines in mind:
 
 -   Your StorSimple Virtual Array does not support in-place restore. This can however be readily achieved by a two-step process: make space on the virtual array and then restore to another volume/share.
 
--   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data will continue to be hydrated in the background.
+-   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data continues to be hydrated in the background.
 
 -   The volume type remains the same during the restore process. A tiered volume is restored to another tiered volume and a locally pinned volume to another locally pinned volume.
 
@@ -275,7 +275,7 @@ When performing a fail over for your virtual array, keep the following in mind:
 
 -   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
 
--   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+-   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
 -   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
 
@@ -283,9 +283,9 @@ When performing a fail over for your virtual array, keep the following in mind:
 
     -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
 
-    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You will need to provision and configure another target virtual array and use that for failover.
+    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You must provision and configure another target virtual array and use that for failover.
 
-    -   The failover was complete following which the source device was deleted but the target device has issues and the user cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
+    -   The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
 
 ### Deactivate
 
@@ -293,7 +293,7 @@ When you deactivate a StorSimple Virtual Array, you sever the connection between
 
 Keep the following best practices in mind when deactivating your virtual array:
 
--   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data will be lost. Taking a cloud snapshot will allow you to recover data at a later stage.
+-   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data is lost. Taking a cloud snapshot will allow you to recover data at a later stage.
 
 -   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
 
@@ -321,28 +321,28 @@ We recommend that you implement the following best practices when configuring th
 
 If using Windows indexing process, follow these guidelines:
 
--   Do not use the Windows Indexer for tiered volumes as this will recall large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
+-   Do not use the Windows Indexer for tiered volumes as it recalls large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
 
 -   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
 
 ### Byte range locking
 
-Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering won't work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
+Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering does not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
 
-Recommended measures to alleviate this include:
+Recommended measures to alleviate byte range locking include:
 
 -   Turn off byte range locking in your application logic.
 
 -   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
 
--   When using locally pinned volumes with byte range locking enabled, note that the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
+-   When using locally pinned volumes with byte range locking enabled, the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
 
 ## Multiple arrays
 
-Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This will require one or more devices to be added in the on-premises data center. When adding the devices, you could:
+Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This requires one or more devices to be added in the on-premises data center. When adding the devices, you could:
 
 -   Split the current set of data.
--   Deploy new workloads to the new appliance(s).
+-   Deploy new workloads to new device(s).
 -   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
 
 -  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
