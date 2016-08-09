@@ -122,7 +122,7 @@ These messages usually appear when Query Store is not able to collect new data. 
 There are two types of retention policies:
 
 - Size based – if set to AUTO it cleans data automatically when near max size is reached.
-- Time based - by default we set it to 30 days, which means, if Query Store runs out of space, it deletes query information older than 30 days. 
+- Time based - if Query Store runs out of space, it deletes query information older than the default setting of 30 days.
 
 Capture policy could be set to:
 
