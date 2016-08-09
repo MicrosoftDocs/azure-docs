@@ -48,17 +48,21 @@ You can enable streaming of Diagnostic Logs programmatically, via the portal, or
 
 ### Via PowerShell Cmdlets
 To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+
 ```
 Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 ```
+
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 
 ### Via Azure CLI
 To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the `insights diagnostic set` command like this:
+
 ```
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
+
 Use the same format for Service Bus Rule ID as explained for the PowerShell Cmdlet.
 
 ###Via Azure Portal
