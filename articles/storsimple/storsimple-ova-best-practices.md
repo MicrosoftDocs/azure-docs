@@ -47,7 +47,7 @@ Implement the following best practices when provisioning the virtual array:
 
 When sizing your StorSimple Virtual Array, consider the following factors:
 
-- Local reservation for volumes or shares. Approximately 12 % of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
+- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
 - Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
 - Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
 - Some buffer should be allocated for any unexpected growth.
