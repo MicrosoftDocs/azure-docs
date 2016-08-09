@@ -162,7 +162,7 @@ To create your gateway by using PowerShell, use the following example.
 
 To create a VPN gateway for the RM VNet, follow the following instructions. Don't start the steps until after you have retrieved the public IP address for the classic VNet's gateway. 
 
-1. **Log in to your Azure account** in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in,  your account settings are downloaded so that they are available to Azure PowerShell.
+1. **Log in to your Azure account** in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
