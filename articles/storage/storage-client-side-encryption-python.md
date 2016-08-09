@@ -34,7 +34,7 @@ Encryption via the envelope technique works in the following way:
 
 2.	User data is encrypted using this CEK.
 
-3.	The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key which is managed locally.
+3.	The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key, which is managed locally.
 The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by the KEK. Users can choose to use custom providers for key wrapping/unwrapping if desired.
 
 4.	The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
@@ -42,7 +42,7 @@ The storage client library itself never has access to KEK. The library invokes t
 ### Decryption via the envelope technique
 Decryption via the envelope technique works in the following way:
 
-1.	The client library assumes that the user is managing the key encryption key (KEK) locally. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
+1.	The client library assumes that the user is managing the key encryption key (KEK) locally. The user does not need to know the specific key that was used for encryption. Instead, a key resolver, which resolves different key identifiers to keys, can be set up and used.
 
 2.	The client library downloads the encrypted data along with any encryption material that is stored on the service.
 
@@ -50,7 +50,7 @@ Decryption via the envelope technique works in the following way:
 
 4.	The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
-## Encryption Mechanism
+## Encryption Mechanism  
 The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
@@ -130,7 +130,7 @@ The key resolver must at least implement a method that, given a key id, returns 
 
 - For encryption, the key is used always and the absence of a key will result in an error.
 - For decryption:
-	- The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier , an error is thrown.
+	- The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
 	- If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
 
 	  The encryption samples in azure.storage.samples <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
@@ -162,7 +162,7 @@ Set the encryption policy fields on the blockblobservice object. Everything else
 	blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 
 ### Queue service encryption
-Set the encryption policy fields on the queservice object. Everything else will be handled by the client library internally.
+Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
 	# Create the KEK used for encryption.
 	# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
@@ -216,7 +216,7 @@ In addition to creating an encryption policy and setting it on request options, 
 	my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
 
 ### Using attributes
-As mentioned above, a property may be marked for encryption by storing it an an EntityProperty object and setting the encrypt field.
+As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
 	encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 
