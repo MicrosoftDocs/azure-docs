@@ -39,7 +39,7 @@ The benefits of using the CDN to cache web site assets include:
 
 3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
 
-4. The edge server caches the file and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is 7 days.
+4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
 
 5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
 
