@@ -34,7 +34,7 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-First, you must logon to Azure with this command.
+First, you must log in to Azure with this command.
 
 	Login-AzureRmAccount
 
@@ -50,7 +50,7 @@ To specify the subscription, run the following command. In the following example
 
 Before you can use Windows PowerShell with Azure Resource Manager, you need the following:
 
-- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 To get detailed help for any cmdlet you see in this tutorial, use the Get-Help cmdlet.
 
@@ -312,7 +312,7 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 `Set-AzureRmRedisCache` can be used to scale an Azure Redis cache instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 
 
->[AZURE.NOTE]Scaling a cache using PowerShell is subject to the same limits and guidelines as scaling a cache from the Azure Portal. You can scale to a different pricing tier with the following restrictions.
+>[AZURE.NOTE]Scaling a cache using PowerShell is subject to the same limits and guidelines as scaling a cache from the Azure portal. You can scale to a different pricing tier with the following restrictions.
 >
 >-	You can't scale from a higher pricing tier to a lower pricing tier.
 >    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
@@ -763,7 +763,7 @@ To learn more about using Windows PowerShell with Azure, see the following resou
 
 - [Azure Redis Cache cmdlet documentation on MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](../resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure Portal.
+- [Using Resource groups to manage your Azure resources](../resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
