@@ -50,7 +50,7 @@ This scenario will:
 ## Before you begin
 
 Azure Application Gateway requires its own subnet. When creating a virtual network ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet
-you will no longer be able to add additional resources to that subnet.
+you will only be able to add additional application gateways to the subnet, no other resources will be available to place in the subnet.
 
 ## Create the Application Gateway
 
@@ -74,7 +74,7 @@ The information needed for the basic settings are:
 
 ![blade showing basic settings][2]
 
->[AZURE.NOTE] An instance count of 1 can be chosen for testing purposes, but it is important to know that any instance count under 2 instances are not covered by the SLA and are therefore not recommended.
+>[AZURE.NOTE] An instance count of 1 can be chosen for testing purposes, but it is important to know that any instance count under 2 instances are not covered by the SLA and are therefore not recommended. Small gateways also should only be used for dev test and not for production purposes.
 
 
 ### Step 3
@@ -147,9 +147,9 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 ![Application Gateway resource view][10]
 
-## Next steps
+This creates a basic application gateway with default settings for the listener, backend pool, backend http settings and rules. You can modify these to suit your deployment once the provisioning is successful
 
-Once you have an application gateway configured you can customize it with more capabilities.
+## Next steps
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 

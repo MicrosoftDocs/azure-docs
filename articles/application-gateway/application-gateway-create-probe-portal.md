@@ -60,6 +60,8 @@ Fill out the required information for the probe and when complete click **OK**.
 - **Timeout (secs)** - The amount of time the probe will wait before timing out.
 - **Unhealthy threshold** - Number of failed attempts to be considered unhealthy.
 
+> [AZURE.IMPORTANT] the host name is not the server name. This is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
+
 ![probe configuration settings][3]
 
 ## Add probe to the gateway
@@ -80,7 +82,8 @@ When complete, click **OK** and the settings will be applied.
 ![appgatewaybackend settings blade][5]
 
 The default probe checks the default access to the web application. Now that a custom probe has been created, the application gateway will use the custom path defined to monitor health for the backend selected. Based on the criteria that was defined, the application gateway will check the file
-specified in the probe. If this path is not accessible within the defined threshold the backend with the error will be taken out of the load balancing. The probe will continue to run and if the backend that returned an error is healthy it will be available for traffic while it stays healthy.
+specified in the probe. If the call to host:Port/path does not return a Http 200 OK status response, the server is taken out of rotation, after the unhealthy threshold is reached. Probing continues on the unhealthy instance to determine when it becomes healthy again, once the instance is added back to healthy server pool traffic begins flowing to it again and probing to the instance continues at user specified interval as normal.
+
 
 ## Next steps
 
