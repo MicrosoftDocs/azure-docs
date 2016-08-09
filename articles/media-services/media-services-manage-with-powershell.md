@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/09/2016"
 	ms.author="juliako"/>
 
 
@@ -28,92 +28,475 @@
 
 ##Overview 
 
-This articles shows you how to use PowerShell cmdlets to manage Azure Media Services accounts.
+This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) in the Azure Resource Manager (ARM) framework. The cmdlets exist in the **Microsoft.Azure.Commands.Media** namespace.
 
->[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+## Versions
 
-##Install Microsoft Azure PowerShell Cmdlets
+**ApiVersion**:   "2015-10-01"
+               
 
-To install the latest Azure PowerShell cmdlets, see [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+## New-AzureRmMediaService
 
-##Select Azure Subscription
+Creates a media service.
 
-Once you install and configure PowerShell cmdlets, you should specify in which subscription you want to work. 
+### Syntax
 
-To get a list of available subscriptions run the following cmdlet:
+Parameter Set: StorageAccountIdParamSet
 
-	PS C:\> Get-AzureSubscription
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-Then, select one by doing:
+Parameter Set: StorageAccountsParamSet
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
- 
-##Get Storage Account Name
+### Parameters
 
-Azure Media Services uses Azure Storage to store media content. When you create a new Media Services account, you have to associate it with a Storage account. Storage account must belong to the same subscription as the one you  plan to use for your Media Services account. 
+**-ResourceGroupName &lt;String&gt;**
 
-In this example, an existing storage account is used. The [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) cmdlet gets storage accounts in the current subscription. Get the name (StorageAccountName) of the storage account you want to associate your Media Account with.
+Specifies the name of the resource group to which this media service belongs.
 
-	StorageAccountDescription : 
-	AffinityGroup             :
-	Location                  : East US
-	GeoReplicationEnabled     : True
-	GeoPrimaryLocation        : East US
-	GeoSecondaryLocation      : West US
-	Label                     : storagetest001
-	StorageAccountStatus      : Created
-	StatusOfPrimary           : Available
-	StatusOfSecondary         : Available
-	Endpoints                 : {https://storagetest001.blob.core.windows.net/,
-	                            https://storagetest001.queue.core.windows.net/,
-	                            https://storagetest001.table.core.windows.net/}
-	AccountType               : Standard_GRS
-	StorageAccountName        : storatetest001
-	OperationDescription      : Get-AzureStorageAccount
-	OperationId               : e919dd56-7691-96db-8b3c-2ceee891ae5d
-	OperationStatus           : Succeeded
+Aliases | none
+---|---
+Required?   |  true
+Position?   |  0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters?  |false
 
-##Create New Media Services Account
+**-AccountName &lt;String&gt;**
 
-To create a new Azure Media Services account use the [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) cmdlet providing Media Services account name, data center location where it will be created, and Storage account name. 
+Specifies the name of the media service.
 
+Aliases |Name
+---|---
+Required? |true
+Position? |1
+Default Value |none
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+**-Location &lt;String&gt;**
 
-##Get Media Services Accounts
+Specifies the resource location of the media service.
 
-Once you created one or more Media Services accounts you can list information by using [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
+Aliases |none
+---|---
+Required? |true
+Position? |2
+Default Value  |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
 
-	
-	PS C:\> Get-AzureMediaServicesAccount
-	
-	AccountId		Name				State
-	---------       ----       			 -----
-	xxxxxxxxxx      amstestaccount001   Active
+**-StorageAccountId &lt;String&gt;**
 
-By providing Name parameter you will get more detailed information including account keys.
+Specifies a primary storage account that associated with the media service.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+- New storage account (created with the ARM API) supported only.
 
-##Re-generate Media Services Access Keys
+- The storage account must exist and has the same location with the media service.
 
-If you want to update Media Services primary or secondary access key, use [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). 
-You need to provide account name and specify which key you want to re-generate (primary or secondary). 
+Aliases |none
+---|---
+Required? |true
+Position? |3
+Default Value  |none
+Accept Pipeline Input? |true(ByPropertyName)
+Parameter set name |StorageAccountIdParamSet
+Accept Wildcard Characters?|false
 
-Specify a -Force switch if you do not want for the PowerShell to ask confirmation questions.
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+Specifies storage accounts that associated with the media service.
 
-##Remove Media Services Account
+- New storage account (created with the ARM API) supported only.
 
-When you are ready to delete the Azure Media account, use [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
+- The storage account must exist and has the same location with the media service.
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+- Only one storage account can specified as primary.
 
+Aliases |none
+---|---
+Required?  |true
+Position?  |3
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept Wildcard Characters? |false
 
-##Media Services learning paths
+**-Tags &lt;Hashtable&gt;**
+
+Specifies a hash table of the tags that associated with the media service.
+
+- Example: @{"tag1"="value1";"tag2"=:value2"}
+
+Aliases |none
+---|---
+Required?  |false
+Position?  |named
+Default Value |none
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Set-AzureRmMediaService
+
+Updates a media service.
+
+### Syntax
+
+	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required?  |true
+Position?  |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |Name
+---|---
+Required? |True
+Position? |1
+Default Value |None
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |False
+
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
+
+Specifies storage accounts that associated with the media service.
+
+- New storage account (created with the ARM API) supported only.
+
+- The storage account must exist and has the same location with the media service.
+
+- Only one storage account can specified as primary.
+
+Aliases |none
+---|---
+Required? |false
+Position? |Named
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Parameter set name |StorageAccountsParamSet
+Accept Wildcard Characters? |false
+
+**-Tags &lt;Hashtable&gt;**
+
+Specifies a hash table of the tags that associated with this media service.
+
+- The tags that associated with the media service will be replaced with value specified by the customer.
+
+Aliases |none
+---|---
+Required? |False
+Position?  |Named
+Default Value |None
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Remove-AzureRmMediaService
+
+Removes a media service.
+
+### Syntax
+
+	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required? |true
+Position? |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |none
+---|---
+Required? |true
+Position? |2
+Default Value |None
+Accept Pipeline Input?  |true(ByPropertyName)
+Accept Wildcard Characters? |False
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Get-AzureRmMediaService
+
+Gets all media services in a resource group or a media service with a given name.
+
+### Syntax
+
+ParameterSet: ResourceGroupParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+
+ParameterSet: AccountNameParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required? |true
+Position?  |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Parameter set name |ResourceGroupParameterSet, AccountNameParameterSet
+Accept Wildcard Characters?   false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |none
+---|---
+Required? |true
+Position?  |1
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Parameter set name  |AccountNameParameterSet
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Get-AzureRmMediaServiceKeys
+
+Gets keys of a media service.
+
+### Syntax
+
+	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required? |true
+Position?  |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |none
+---|---
+Required? |true
+Position? |1
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Set-AzureRmMediaServiceKey
+
+Regenerates a primary or secondary key of a media service.
+
+### Syntax
+
+	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required?  |true
+Position?  |0
+Default Value |none
+Accept Pipeline Input?  |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |none
+---|---
+Required? |true
+Position?  |1
+Default Value |none
+Accept Pipeline Input?   |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-KeyType &lt;KeyType&gt;**
+
+Specifies the key type of the media service.
+
+- Primary or Secondary
+
+Aliases |none
+---|---
+Required?  |true
+Position?  |2
+Default Value |none
+Accept Pipeline Input? |false
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the
+cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Sync-AzureRmMediaServiceStorageKeys
+
+Synchronizes storage account keys for a storage account associated with
+the media service.
+
+### Syntax
+
+	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+
+### Parameters
+
+**-ResourceGroupName &lt;String&gt;**
+
+Specifies the name of the resource group to which this media service belongs.
+
+Aliases |none
+---|---
+Required? |true
+Position? |0
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-AccountName &lt;String&gt;**
+
+Specifies the name of the media service.
+
+Aliases |none
+---|---
+Required? |true
+Position? |1
+Default Value |none
+Accept Pipeline Input? |true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**-StorageAccountId &lt;String&gt;**
+
+Specifies the storage account associated with the media service.
+
+Aliases |Id
+---|---
+Required? |true
+Position?  |2
+Default Value |none
+Accept Pipeline Input? |      true(ByPropertyName)
+Accept Wildcard Characters? |false
+
+**&lt;CommandParameters&gt;**
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+
+### Inputs
+
+The input type is the type of the objects that you can pipe to the cmdlet.
+
+### Outputs
+
+The output type is the type of the objects that the cmdlet emits.
+
+## Next step 
+
+Please check out Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
