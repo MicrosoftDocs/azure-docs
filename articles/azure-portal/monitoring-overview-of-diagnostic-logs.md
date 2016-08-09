@@ -34,7 +34,7 @@ Diagnostic Logs are configured using Diagnostic Settings. **Diagnostic Settings*
 - Which Log Categories are sent.
 - How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
-These settings are easily configured via the Diagnostics blade for a resource in the Azure Portal, via Azure PowerShell and CLI commands, or via the [Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931943.aspx).
+These settings are easily configured via the Diagnostics blade for a resource in the Azure Portal, via Azure PowerShell and CLI commands, or via the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ##How to enable collection of Diagnostic Logs
 Collection of Diagnostic Logs can be enabled as part of creating a resource or after a resource is created via the resource’s blade in the Portal. You can also enable Diagnostic Logs at any point using Azure PowerShell or CLI commands, or using the Insights REST API.
@@ -86,7 +86,7 @@ To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
 
-To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/en-us/library/azure/dn931931.aspx).
+To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## Schema for Diagnostic Logs
 The schema for Diagnostic Logs varies depending on the resource and log category. Below are the schemas for some popular resources.
@@ -102,4 +102,4 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 ##Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-- [Change Diagnostic Settings using the Insights REST API](https://msdn.microsoft.com/en-us/library/azure/dn931931.aspx)
+- [Change Diagnostic Settings using the Insights REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
