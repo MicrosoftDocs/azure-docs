@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 1. In your ASP.NET project, add a reference to the class library that contains the `ICounter` interface.
 
-2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+2. From the **Build** menu, open the **Configuration Manager**. You should see something like this:
 
-3. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
+    ![Configuration manager showing class library as AnyCPU][vs-configuration-manager]
+
+    Note that the class library project, **MyStatefulService.Interface**, is configured to build for Any CPU. To work correctly with Service Fabric, it must be explicitly targeted at x64. Click the Platform dropdown and choose **New**, then create an x64 platform configuration.
+
+    ![Creating new platform for class library][vs-create-platform]
+
+3. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+
+4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -198,7 +206,7 @@ Our stateful service is now ready to receive traffic from other services. So all
 
     Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
 
-4. Press F5 again to run the modified application. As before, Visual Studio will automatically launch the browser to the root of the web project. Add the "api/values" path, and you should see the current counter value returned.
+5. Press F5 again to run the modified application. As before, Visual Studio will automatically launch the browser to the root of the web project. Add the "api/values" path, and you should see the current counter value returned.
 
     ![The stateful counter value displayed in the browser][browser-aspnet-counter-value]
 
@@ -240,6 +248,9 @@ To learn how to configure different values for different environment, see [Manag
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
+
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
