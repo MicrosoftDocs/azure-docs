@@ -30,7 +30,7 @@ This article walks you through how to move a Windows VM between subscriptions. T
 [AZURE.INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
 
-## Move a VM and its resources to another resource group or subscription using Powershell
+## Use Powershell to move a VM
 
 To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the resource name and the type of resource. You can get both from the Find-AzureRMResource cmdlet.
 

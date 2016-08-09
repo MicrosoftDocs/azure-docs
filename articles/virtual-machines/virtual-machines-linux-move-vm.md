@@ -26,19 +26,66 @@ This article walks you through how to move a Linux VM between subscriptions. Thi
 
 > [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 
-## Use the CLI to move a VM
+## Login and set your subscription
 
-To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example shows how to move a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
+1. Login to the CLI.
+		
+		azure login
 
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+2. Make sure you are in Resource Manager mode.
 	
-You will be asked to confirm that you want to move the specified resource.
-	
-    info:    Executing command resource move
-    Move selected resources in OldRG to NewRG? [y/n] y
-    + Moving selected resources to NewRG
-    info:    resource move command OK
+		azure config mode arm
 
+3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
+
+		azure account set <SubscriptionId>
+
+## stuff
+
+Subscription = Microsoft Azure Internal Consumption
+
+Resource group = (new) LinuxHeroRG
+
+Location = West US
+
+Computer name = LinuxHero
+
+Disk type = SSD
+
+User name = azureuser
+
+Size = Standard DS1 v2
+
+Storage account = (new) linuxherodisk
+
+Virtual network = (new) LinuxHeroRG-vnet
+
+Subnet = (new) LinuxHeroSubNet (172.17.0.0/24)
+
+Public IP address = (new) LinuxHero-ip
+
+Network security group (firewall) = (new) LinuxHero-nsg
+
+Availability set = None
+
+Diagnostics = Enabled
+
+Diagnostics storage account = (new) linuxherodiag
+
+## Use the CLI to move a VM 
+
+In order to successfully move a VM, you need to move the VM and all of it's supporting resources. Use the **azure group show** command to list all of the resources in a resource group.
+
+	azure group show <resourceGroupName>
+
+To move a VM and it's resources to another resource group, use the **azure resource move** CLI command. The following example shows how to move a VM and the most common resources required for the VM using the **-i** parameter to provide a comma-separated list (without spaces) of the resource IDs to move.
+
+    azure resource move -i /subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>,/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>  -d "<destinationResourceGroup>"
+	
+If you want to move the VM and it's resources to a different subscription, add the **--destination-subscriptionId <destinationSubscriptionID>** parameter to specify the destination subscription.
+
+You will be asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
+	
 
 [AZURE.INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
