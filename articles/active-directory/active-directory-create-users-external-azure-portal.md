@@ -22,24 +22,31 @@
 - [Azure portal](active-directory-create-users-external-azure-portal.md)
 - [Azure classic portal](active-directory-create-users-external.md)
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users either from other directories in Azure Active Directory (Azure AD) or from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users-azure-portal.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **Active Directory**, and then open your directory.
+2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
 
-3. Select the **Users** tab, and then, in the command bar, select **Add User**.
+    ![Opening user management](./media/active-directory-create-users-azure-portal/create-users-user-management.png)
 
-4. On the **Tell us about this user** page, under **Type of user**, select either:
+3.  On the **User Management** blade, select **Users**, and then select **Add**.
 
-	- **User in another Azure AD directory** – adds a user account to your directory that's sourced from another Azure AD directory. You can select a user in another directory only if you're also a member of that directory.
-	- **Users in partner companies** - to invite and authorize partner company users to your directory (See [Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)). You'll need to [upload a CSV file specifying email addresses](active-directory-b2b-references-csv-file-format.md).
+    ![Selecting the Add command](./media/active-directory-create-users-azure-portal/create-users-add-command.png)
 
-6. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication** for the user.
 
-7. On the **Get temporary password** page, select **Create**.
+4. On the user **User** blade:
+	- Provide a display name in **Name** and the user's sign-in name in **User name**.
+
+	- Select **Profile** to add the users first and last name, a job title, and a department name. 
+
+6. On the user **User** blade, click **Groups** to add the user to one or more groups.
+
+7. On the user **User** blade, click **Organizational role** to assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
+
+7. Select **Create**.
 
 > [AZURE.IMPORTANT] If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
