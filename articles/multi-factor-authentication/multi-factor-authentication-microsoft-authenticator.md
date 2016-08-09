@@ -16,7 +16,7 @@
 	ms.date="08/09/2016" 
 	ms.author="billmath"/>
 
-## Microsoft Authenticator app
+# Microsoft Authenticator app
 The Microsoft Authenticator app provides an additional level of security that can be used in with either your Azure account (e.x. bsimon@contoso.onmicrosoft.com), your on-premises work account (e.x. bsimon@contoso.com), or your Microsoft account(e.x. bsimon@outlook.com).
 
 ## Download the Microsoft Authenticator app
