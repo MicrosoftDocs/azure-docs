@@ -1,18 +1,19 @@
 <properties 
-   pageTitle="How to connect classic VNets to Resource Manager VNets using PowerShell | Microsoft Azure"
-   description="Learn how to create a VPN connection between classic VNets and Resource Manager VNets"
+   pageTitle="How to connect classic virtual networks to Resource Manager virtual networks using PowerShell | Microsoft Azure"
+   description="Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and PowerShell"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc" />
 
 # Connect virtual networks from different deployment models using PowerShell
@@ -23,8 +24,7 @@
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article will walk you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection.
 
-You can create a connection between VNets that are in different subscriptions and in different regions, as well as in different deployment models. You can also connect VNets that already have connections to on-premises networks, provided that the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
-
+You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, provided that the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## Before beginning
@@ -34,12 +34,12 @@ The steps below will walk you through the settings necessary to configure a dyna
 Before beginning, verify the following:
 
  - Both VNets have already been created.
- - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be configured with.
+ - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
  - You have installed the latest PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
 ### <a name="exampleref"></a>Example settings
 
-You can use the example settings as reference when using the PowerShell cmdlets in the steps below.
+You can use the example settings as a reference when using the PowerShell cmdlets in the steps below.
 
 **Classic VNet settings**
 
@@ -54,7 +54,7 @@ GatewayType = DynamicRouting
 **Resource Manager VNet settings**
 
 VNet Name = RMVNet <br>
-Resouce Group = RG1 <br>
+Resource Group = RG1 <br>
 Virtual Network IP Address Spaces = 192.168.1.0/16 <br>
 Subnet -1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
@@ -102,7 +102,7 @@ In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one
        
 ### Part 3 - Add the local network site
 
-The local network site you add will represent the RM VNet that you want to connect to. You may have to add a **LocalNetworkSites** element to the file if one doesn't already exist. At this point in the configuration, the VPNGatewayAddress can be any valid public IP address because we haven't yet created the gateway for the Resource Manager VNet. Once we create the gateway, we'll replace this placeholder IP address with the correct public IP address that has been assigned to the the RM gateway.
+The local network site you add will represent the RM VNet to which you want to connect. You may have to add a **LocalNetworkSites** element to the file if one doesn't already exist. At this point in the configuration, the VPNGatewayAddress can be any valid public IP address because we haven't yet created the gateway for the Resource Manager VNet. Once we create the gateway, we'll replace this placeholder IP address with the correct public IP address that has been assigned to the RM gateway.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -184,7 +184,7 @@ To create a VPN gateway for the RM VNet, follow the instructions below. Don't st
 			-Location "West US" -AddressPrefix "10.0.0.0/24" `
 			-GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
 
-3. **Request a public IP address** to be allocated to your Azure Resource Manager VNet VPN gateway. You cannot specify the IP address that you want to use; it is dynamically allocated to your gateway. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.<br>In this step, we will also set a variable that will be used in step 5.
+3. **Request a public IP address** to be allocated to your Azure Resource Manager VNet VPN gateway. You cannot specify the IP address that you want to use; it is dynamically allocated to your gateway. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and recreated. It won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.<br>In this step, we will also set a variable that will be used in a later step.
 
 
 		$ipaddress = New-AzureRmPublicIpAddress -Name gwpip `

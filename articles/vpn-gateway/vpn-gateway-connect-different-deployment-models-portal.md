@@ -1,18 +1,19 @@
 <properties 
-   pageTitle="How to connect classic VNets to Resource Manager VNets in the portal  | Microsoft Azure"
+   pageTitle="How to connect classic virtual networks to Resource Manager virtual networks in the portal  | Microsoft Azure"
    description="Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and the portal"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carmonm"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
+   ms.date="08/09/2016"
    ms.author="cherylmc" />
 
 # Connect virtual networks from different deployment models in the portal
@@ -24,7 +25,7 @@
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article will walk you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection. 
 
-You can create a connection between VNets that are in different subscriptions and in different regions, as well as in different deployment models. You can also connect VNets that already have connections to on-premises networks, provided that the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+You can create a connection between VNets that are in different subscriptions, in different regions, and in different deployment models. You can also connect VNets that already have connections to on-premises networks, provided that the gateway that they have been configured with is dynamic or route-based. For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
 [AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
@@ -35,7 +36,7 @@ The steps below will walk you through the settings necessary to configure a dyna
 Before beginning, verify the following:
 
  - Both VNets have already been created.
- - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be configured with.
+ - The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
  - You have installed the latest PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
 ### <a name="values"></a>Example settings
@@ -54,7 +55,7 @@ Local Network Name = RMVNetLocal <br>
 **Resource Manager VNet settings**
 
 VNet Name = RMVNet <br>
-Resouce Group = RG1 <br>
+Resource Group = RG1 <br>
 Virtual Network IP Address Spaces = 192.168.1.0/16 <br>
 Subnet -1 = 192.168.1.0/24 <br>
 GatewaySubnet = 192.168.0.0/26 <br>
@@ -90,7 +91,7 @@ Open the [classic portal](https://manage.windowsazure.com) and sign in with your
 
 ### Part 3 - Create the gateway
 
-1. Once the settings are saved, click **Dashboard** at the top of the page to change to the Dashboard page. On the bottom of the Dashboard page, click **Create Gateway**, then click **Dynamic Routing**. Click **Yes** to begin creating your gateway. Note that a Dynamic Routing gateway is required for this configuration.
+1. After saving the settings, click **Dashboard** at the top of the page to change to the Dashboard page. On the bottom of the Dashboard page, click **Create Gateway**, then click **Dynamic Routing**. Click **Yes** to begin creating your gateway. Note that a Dynamic Routing gateway is required for this configuration.
 
 2. Wait for the gateway to be created. This can sometimes take 45 minutes or more to complete.
 
@@ -103,7 +104,7 @@ After the gateway has been created, you can view the gateway IP address on the *
 
 In this section, we will create the virtual network gateway and the local network for your Resource Manager VNet. Don't start the following steps until after you have retrieved the public IP address for the classic VNet's gateway.
 
-Note that the screenshots are provided as examples. Be sure to replace the values with your own. If you are creating this configuration as an exercise, refer to these [values](#values).
+The screenshots are provided as examples. Be sure to replace the values with your own. If you are creating this configuration as an exercise, refer to these [values](#values).
 
 
 ### Part 1 - Create a gateway subnet
@@ -122,7 +123,9 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 ### Part 3 - Create a local network gateway
 
-The 'local network gateway' typically refers to your on-premises location. It tells Azure which IP address ranges to route to the location and the public IP address of the device for that location. However, in this case, it will refer to the address range and public IP address associated with your classic VNet and virtual network gateway.<br>You'll give the local network gateway a name by which Azure can refer to it. You can create your local network gateway while your virtual network gateway is being created. For this configuration, you'll use the public IP address that was assigned to your classic VNet gateway in the [previous section](#ip).
+The 'local network gateway' typically refers to your on-premises location. It tells Azure which IP address ranges to route to the location and the public IP address of the device for that location. However, in this case, it will refer to the address range and public IP address associated with your classic VNet and virtual network gateway.
+
+Give the local network gateway a name by which Azure can refer to it. You can create your local network gateway while your virtual network gateway is being created. For this configuration, you'll use the public IP address that was assigned to your classic VNet gateway in the [previous section](#ip).
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
