@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # Classic Endpoints in Resource Manager
