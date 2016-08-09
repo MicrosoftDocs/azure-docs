@@ -90,7 +90,7 @@ These advanced parameters are also available:
 |ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|Session Id|Identifier of the session.|
 |CorrelationId|Correlation Id|Identifier of the correlation.|
-|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
@@ -125,7 +125,7 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|string|Identifier of the session.|
 |CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
@@ -159,7 +159,7 @@ ServiceBusMessage: This object has the content and properties of a Service Bus m
 |ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
 |SessionId|string|Identifier of the session.|
 |CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to the Service Bus.|
+|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
 
 
 
