@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/10/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture with federated identities in Azure
@@ -45,25 +45,25 @@ The following diagram highlights the important components in this architecture (
 
 >[AZURE.NOTE] This diagram depicts the following use cases:
 >
->- Application code running inside a partner organization access a web application hosted inside your Azure VNet.
+>- Application code running inside a partner organization accesses a web application hosted inside your Azure VNet.
 >
 >- An external, registered user (with credentials stored inside AD DS) accessing a web application hosted inside your Azure VNet.
 >
 >- A user connecting to your VNet by using an authorized device and running a web application hosted inside you Azure VNet.
 >
->Not all of these use cases could be relevant in your own scenario.
+>Not all of these use cases might be relevant in your own scenario.
 >
->Additionally, this architecture focuses on passive federation, where the federation servers make the decisions concerning how and when to authenticate; the user is expected to provide sign in information when an application starts running. This is the mechanism most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user can provide their credentials. AD FS also supports active federation whereby an application takes on responsibility for supplying credentials without further user interaction.
+>Additionally, this architecture focuses on passive federation, where the federation servers make the decisions concerning how and when to authenticate; the user is expected to provide sign in information when an application starts running. This is the mechanism most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user can provide their credentials. AD FS also supports active federation whereby an application takes on responsibility for supplying credentials without further user interaction, but this case is outside the scope of this architecture.
 
-- **Active Directory subnet.** The AD DS servers are bounded in a separate subnet. NSG rules help to protect the AD DS servers and can provide a firewall against traffic from unexpected sources.
+- **AD DS subnet.** The AD DS servers are bounded in a separate subnet. NSG rules help to protect the AD DS servers and can provide a firewall against traffic from unexpected sources.
 
 - **AD DS Servers.** These are domain controllers running as VMs in the cloud. These servers can provide authentication of local identities within the domain.
 
-- **Active Directory Federation Services subnet.** The AD FS servers can be contained within their own subnet, with NSG rules acting as a firewall.
+- **AD FS subnet.** The AD FS servers can be contained within their own subnet, with NSG rules acting as a firewall.
 
 - **AD FS servers.** The AD FS servers provide federated authorization and authentication. In this architecture, they perform the following tasks:
 
-	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner user. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests. The claims can correspond to attributes held in AD DS, such as the email address, location, etc for the authenticated identity. In this scenario, the corporate web application is the *relying party*, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The parter federation servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization.The AD FS servers are called *resource partners* because they provide access to resources.
+	- They can receive security tokens containing claims made by a partner federation server on behalf of a partner user. AD FS can verify that these tokens are valid before passing the claims to web application running in Azure. The corporate web application (in Azure) can use these claims to authorize requests. In this scenario, the corporate web application is the *relying party*, and it is the responsibility of the partner federation server to issue claims that will be understood by the corporate web application. The parter federation servers are referred to as *account partners* because they submit access requests on behalf of authenticated accounts in the partner organization.The AD FS servers are called *resource partners* because they provide access to resources (web applications, in this case).
 
 	- They can authenticate (via AD DS and the [Active Directory Device Registration Service][ADDRS]) and authorize incoming requests external users running a web browser or device that needs access to your corporate web applications. 
 
