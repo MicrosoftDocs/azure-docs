@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="08/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -123,13 +123,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_07.png)
 
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://sso2.redvector.com/adfs/<Companyname>`. 
-	
-	You may have to contact Redvector support to get the correct values for youe environment.
+    a. In the Sign On URL text box, type a URL using the following pattern: `https://sso2.redvector.com/adfs/<Companyname>`. You may have to contact Redvector support at <sso@redvector.com> to get the correct values for your environment.
 
 	b. Click **Next**.
 
-5. On the **Configure single sign-on at RedVector** page, click **Download certificate**, and then save the file on your computer. Also, copy the single sign-on service URL value. You will need to share this information with RedVector support to get SSO configured.
+5. On the **Configure single sign-on at RedVector** page, Click **Download certificate**, and then save the file on your computer. Also, copy the single sign-on service URL value. You will need to share this information with RedVector support to get SSO configured.
 
 	![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_08.png)
 
