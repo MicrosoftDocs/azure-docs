@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2016"
+   ms.date="08/10/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -48,6 +48,29 @@ Returns the sum of the two provided integers.
 | operand1                           |   Yes    | First operand to use.
 | operand2                           |   Yes    | Second operand to use.
 
+The following example adds two parameters.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to add"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to add"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "return": {
+        "type": "int",
+        "value": "[add(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="copyindex" />
 ### copyIndex
@@ -56,7 +79,25 @@ Returns the sum of the two provided integers.
 
 Returns the current index of an iteration loop. 
 
-This function is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| offset                           |   No    | The amount to add to current iteration value.
+
+This function is always used with a **copy** object. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+The following example shows a copy loop and the index value included in the name. 
+
+    "resources": [ 
+      { 
+        "name": "[concat('examplecopy-', copyIndex())]", 
+        "type": "Microsoft.Web/sites", 
+        "copy": { 
+          "name": "websitescopy", 
+          "count": "[parameters('count')]" 
+        }, 
+        ...
+      }
+    ]
 
 
 <a id="div" />
@@ -71,6 +112,29 @@ Returns the integer division of the two provided integers.
 | operand1                           |   Yes    | Number being divided.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
+The following example divides one parameter by another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "return": {
+        "type": "int",
+        "value": "[div(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="int" />
 ### int
@@ -102,10 +166,32 @@ Returns the remainder of the integer division using the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number being divided.
-| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+| operand1                           |   Yes    | Integer being divided.
+| operand2                           |   Yes    | Integer which is used to divide, has to be different from 0.
 
+The following example returns the remainder of dividing one parameter by another parameter.
 
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer numerator"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer denominator"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "return": {
+        "type": "int",
+        "value": "[mod(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="mul" />
 ### mul
@@ -119,6 +205,29 @@ Returns the multiplication of the two provided integers.
 | operand1                           |   Yes    | First operand to use.
 | operand2                           |   Yes    | Second operand to use.
 
+The following example multiplies one parameter by another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to multiply"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to multiply"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "return": {
+        "type": "int",
+        "value": "[mul(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="sub" />
 ### sub
@@ -132,6 +241,29 @@ Returns the subtraction of the two provided integers.
 | operand1                           |   Yes    | Number which is to be subtracted from.
 | operand2                           |   Yes    | Number to be subtracted.
 
+The following example subtracts one parameter from another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer subtracted from"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer to subtract"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "return": {
+        "type": "int",
+        "value": "[sub(parameters('first'), parameters('second'))]"
+      }
+    }
 
 ## String functions
 
@@ -139,12 +271,14 @@ Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
-- [length](#length)
+- [length](#lengthstring)
 - [padLeft](#padleft)
 - [replace](#replace)
+- [skip](#skipstring)
 - [split](#split)
 - [string](#string)
 - [substring](#substring)
+- [take](#takestring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
@@ -176,7 +310,7 @@ The following example show how to use the base64 function.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters.
+Combines multiple values and returns the concatenated string. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat array](#concatarray).
 
 The following example shows how to combine multiple string values to return a concatenated string.
 
@@ -187,19 +321,22 @@ The following example shows how to combine multiple string values to return a co
         }
     }
 
-The next example shows how to combine two arrays.
+
+<a id="lengthstring" />
+### length
+
+**length(string)**
+
+Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length array](#length).
+
+The following example returns the number of characters in a string. 
 
     "parameters": {
-        "firstarray": {
-            type: "array"
-        }
-        "secondarray": {
-            type: "array"
-        }
-     },
-     "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
-     }
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
         
 
 <a id="padleft" />
@@ -246,11 +383,51 @@ The following example shows how to remove all dashes from the user-provided stri
         "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
+<a id="skipstring" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Returns a string with all of the characters after the specified number in the string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The string to use for skipping.
+| numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all of the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
+
+For an example of using skip with an array, see [skip array](#skip).
+
+The following example skips the specified number of characters in the string.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for skipping"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to skip"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+
 <a id="split" />
 ### split
 
-**split(inputString, delimiter)**
-**split(inputString, [delimiters])**
+**split(inputString, delimiterString)**
+
+**split(inputString, delimiterArray)**
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
 
@@ -326,6 +503,44 @@ The following example extracts the first three characters from a parameter.
         "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
+<a id="takestring" />
+### take
+**take(originalValue, numberToTake)**
+
+Returns a string with the specified number of characters from the start of the string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The string to take the characters from.
+| numberToTake                       |   Yes    | The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned.
+
+For an example of using take with an array, see [take array](#take).
+
+The following example takes the specified number of characters from the string.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for taking"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to take"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[take(parameters('first'), parameters('second'))]"
+      }
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -398,7 +613,9 @@ Creates a unique string based on the values provided as parameters. This functio
 | stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
 | additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value.
+
+    tcvhiyu5h2o5o
 
 The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
 
@@ -420,6 +637,8 @@ The following example shows how to create a unique name for a storage account ba
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
+
+
 
 <a id="uri" />
 ### uri
@@ -443,11 +662,34 @@ The following example shows how to construct a link to a nested template based o
 
 Resource Manager provides several functions for working with array values.
 
-- [concat](#concat)
+- [concat](#concatarray)
 - [length](#length)
 - [skip](#skip)
-- [split](#split)
 - [take](#take)
+
+To get an array of string values delimited by a value, see [split](#split).
+
+<a id="concatarray" />
+### concat
+
+**concat (arg1, arg2, arg3, ...)**
+
+Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat string](#concat).
+
+The following example shows how to combine two arrays.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="length" />
 ### length
@@ -461,37 +703,38 @@ Returns the number of elements in an array or the number of characters in a stri
         "count": "[length(parameters('siteNames'))]"
     }
 
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). 
 
-Or, you can use with a string:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
+For an example of using length with a string value, see [length string](#lengthstring).
 
 <a id="skip" />
 ### skip
 **skip(originalValue, numberToSkip)**
 
-Returns an array or string with all of the elements or characters after the specified number in the array or string.
+Returns an array with all of the elements after the specified number in the array.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The array or string to use for skipping the elements or characters.
-| numberToSkip                       |   Yes    | The number of elements or characters to skip. If this value is 0 or less, all of the elements in the array or string are returned. If it is larger than the length of the array or string, an empty array or string is returned. 
+| originalValue                      |   Yes    | The array to use for skipping.
+| numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all of the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
+
+For an example of using skip with a string, see [skip string](#skipstring).
 
 The following example skips the specified number of elements in the array.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for skipping"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to skip"
+        }
       }
     },
     "resources": [
@@ -499,7 +742,7 @@ The following example skips the specified number of elements in the array.
     "outputs": {
       "return": {
         "type": "array",
-        "value": "[skip(parameters('first'),parameters('second'))]"
+        "value": "[skip(parameters('first'), parameters('second'))]"
       }
     }
 
@@ -514,15 +757,23 @@ Returns an array or string with the specified number of elements or characters f
 | originalValue                      |   Yes    | The array or string to take the elements or characters from.
 | numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
 
+For an example of using take with a string, see [take string](#takestring).
+
 The following example takes the specified number of elements from the array.
 
     "parameters": {
       "first": {
         "type": "array",
+        "metadata": {
+          "description": "Values to use for taking"
+        },
         "defaultValue": [ "one", "two", "three" ]
       },
       "second": {
-        "type": "int"
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to take"
+        }
       }
     },
     "resources": [
@@ -551,7 +802,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 Returns information about the current deployment operation.
 
-This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
+This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
 
     {
         "name": "",
@@ -559,6 +810,8 @@ This function returns the object that is passed during deployment. The propertie
             "template": {
                 "$schema": "",
                 "contentVersion": "",
+                "parameters": {},
+                "variables": {},
                 "resources": [
                 ],
                 "outputs": {}
@@ -575,11 +828,19 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
         "name": "",
         "properties": {
             "templateLink": {
-                "uri": "",
-                "contentVersion": ""
+                "uri": ""
             },
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "parameters": {},
+                "variables": {},
+                "resources": [],
+                "outputs": {}
+            },
+            "parameters": {},
             "mode": "",
-            "provisioningState": ""
+            "provisioningState": "Accepted"
         }
     }
 
