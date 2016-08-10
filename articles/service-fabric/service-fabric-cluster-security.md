@@ -107,7 +107,7 @@ Client certificates are not typically issued by a third-party certificate author
 
 Learn to set up a secure cluster:
 
-- [Securing an azure cluster with certs](service-fabric-cluster-azure-secure-azure-with-certs.md)
+- [Securing an azure cluster with certs](service-fabric-secure-azure-cluster-with-certs.md)
 
 After your cluster is setup, learn about cluster upgrades:
 

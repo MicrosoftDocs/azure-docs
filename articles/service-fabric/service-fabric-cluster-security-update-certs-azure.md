@@ -44,26 +44,25 @@ Unlike during the cluster creation workflow, We do not take in the details on th
 
 ![Screen shot of certificate deployment in progress][SecurityConfigurations_03]
 
-here is a screen shot on how the security blade looks once the deployment is complete.
+6. Here is a screen shot on how the security blade looks once the deployment is complete.
 
-![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_04]
+![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_06]
 
-Can now use the new cert you just added to connect and perform operations on the cluster.
+7. You can now use the new certificate you just added to connect and perform operations on the cluster.
 
 >[AZURE.NOTE]
-Currently there is no way to swap the primary and secondary certificates, that feature is in the works. As long as there is a valid cluster certificate, the cluster will operate fine.
+Currently there is no way to swap the primary and secondary certificates on the portal, that feature is in the works. As long as there is a valid cluster certificate, the cluster will operate fine.
 
 ## Add a secondary certificate and swap it to be the primary using ARM Powershell
 
-These steps assume that you are familiar with how ARM works and have deployed atleast one Service Fabric cluster using an ARM template, and have the template that you used to set up the cluster handy. it is also assumed that you are comfortable using JSON. If any of the preceding assumptions is not true, it is best to use the portal.
-
+These steps assume that you are familiar with how ARM works and have deployed atleast one Service Fabric cluster using an ARM template, and have the template that you used to set up the cluster handy. it is also assumed that you are comfortable using JSON.
 
 >[AZURE.NOTE]
-If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo]. (https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 
 #### Edit your ARM template 
 
-If you were using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you will find these changes in The sample 5-VM-1-NodeTypes-Secure_Step2.JSON 
+If you were using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you will find these changes in The sample 5-VM-1-NodeTypes-Secure_Step2.JSON . Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster
 
 1. Open up the ARM template you used to deploy you Cluster.
 2. Add a new parameter "secCertificateThumbprint" of type "string". If you are using the ARM template that you downloaded from the portal during the creation time or from the quickstart templates, then just search for that parameter, you should find it already defined.  
@@ -193,6 +192,7 @@ Here is the process to remove an old certificate so that the cluster does not us
 3. Right Click on the certificate you want to remove
 4. Select Delete and follow the prompts. 
 
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
 
 
 ## Next steps
@@ -206,3 +206,5 @@ Read these articles for more information on cluster management:
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
 [SecurityConfigurations_04]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_04.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_06]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_06.png
