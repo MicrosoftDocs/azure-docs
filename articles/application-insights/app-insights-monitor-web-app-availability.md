@@ -258,7 +258,7 @@ When the test is complete, you are shown response times and success rates.
 
 * *Is HTTPS supported?*
 
-    We support TLS 1.0 and TLS 2.0.
+    We support TLS 1.1 and TLS 1.2.
 
 * *Is there a difference between "web tests" and "availability tests"?*
 
