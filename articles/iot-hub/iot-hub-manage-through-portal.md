@@ -26,7 +26,7 @@ This article describes how to get started with Azure IoT Hub through the Azure p
 
 There are a number of places in which you can find IoT hubs.
 
-1. **+ New** : **Azure IoT Hub** is an IoT service, and can be found in the category **Internet of Things**, under **+ New**, similar to other services.
+1. **+ New**: **Azure IoT Hub** is an IoT service, and can be found in the category **Internet of Things**, under **+ New**, similar to other services.
 
 2. IoT hubs can also be accessed through the Marketplace as the hero service under **Internet of Things**.
 
@@ -34,17 +34,17 @@ There are a number of places in which you can find IoT hubs.
 
 You can create an IoT hub using the following methods.
 
-1. Creating an IoT hub through the **+ New** option leads to the blade shown in the next screen shot. The steps for creating the IoT hub through this method as well as through the marketplace are identical.
+1. Creating an IoT hub through the **+ New** option leads to the blade shown in the next screen shot. The steps for creating the IoT hub through this method and through the marketplace are identical.
 
-2. Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. There are several steps involved in creating an IoT hub that are listed in the next sections.
+2. Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. The next sections lists the several steps involved in creating an IoT hub.
 
 ### Choose the name of the IoT hub
 
-In order to create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub be named as uniquely as possible.
+To create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub is named as uniquely as possible.
 
 ### Choose the pricing tier
 
-You can choose from 4 tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
+You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
 
 **Standard S1**: IoT Hubs S1 edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 edition allows up to 400,000 messages per day across all connected devices.
 
@@ -58,7 +58,7 @@ You can choose from 4 tiers: **Free**, **Standard 1** and **Standard 2**, and **
 
 ### IoT hub units
 
-An IoT hub unit includes a certain number of messages per day, so choosing the number of IoT units means that the total number of messages supported for this hub is the number of units multiplied by the number of messages per day for that tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose 2 units of the S1 tier.
+An IoT hub unit includes a certain number of messages per day, so choosing the number of IoT units means that the total number of messages supported for this hub is the number of units multiplied by the number of messages per day for that tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose two units of the S1 tier.
 
 ### Device to cloud partitions and resource group
 
@@ -80,7 +80,7 @@ The location option provides a list of the regions in which IoT Hub is offered. 
 
 When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the back-end process of creating this IoT hub with the specific options, and to deploy it to the location specified.
 
-Please note that it can take a few minutes for the IoT hub to be created as it takes time for the back-end deployment to occur in the appropriate location servers.
+Note that it can take a few minutes for the IoT hub to be created as it takes time for the back-end deployment to occur in the appropriate location servers.
 
 ## Change the settings of the IoT hub
 
@@ -88,15 +88,15 @@ You can change the settings of an existing IoT hub after it is created. Click th
 
 ![][8]
 
-**Shared Access Policies**: These are the policies that define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking on **Shared Access Policies** under **Settings**. In this blade you can either modify existing policies or add a new policy.
+**Shared Access Policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking on **Shared Access Policies** under **Settings**. In this blade, you can either modify existing policies or add a new policy.
 
 ### Create a new policy
 
 - Click **Add** to open a blade in which you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure.
 
-	There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Please note that choosing the write option automatically chooses the read option as well.
+	There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Note that choosing the write option automatically chooses the read option as well.
 
- 	The **Service connect** policy grants permission to access the cloud-side endpoints such as the consumer group for services connecting to the IoT hub, while the **Device connect** policy grants permissions for sending and receiving messages  on the device-side enpoints of the IoT hub.
+ 	The **Service connect** policy grants permission to access the cloud-side endpoints such as the consumer group for services connecting to the IoT hub, while the **Device connect** policy grants permissions for sending and receiving messages on the device-side endpoints of the IoT hub.
 
 - Click **Create** to add this newly created policy to the existing list.
 
@@ -106,15 +106,15 @@ You can change the settings of an existing IoT hub after it is created. Click th
 
 Click the **Messaging** policies to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that you can modify or copy: **Cloud to Device** and **Device to Cloud**.
 
-- **Cloud to Device** settings: This has 2 sub-settings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of 1 hour. However, you can customize these using the sliders, or just type the values.
+- **Cloud to Device** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. However, you can customize these using the sliders, or type the values.
 
-- **Device to Cloud** settings: This has several sub-settings, some of which are named/assigned when the IoT hub is created and can only be copied to other sub-settings that are customizable. These settings are listed in the next section.
+- **Device to Cloud** settings: This setting has several subsettings, some of which are named/assigned when the IoT hub is created and can only be copied to other subsettings that are customizable. These settings are listed in the next section.
 
 **Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
 
-**Event Hub compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally which the user may need access to under certain circumstances. This Event Hub name and endpoint cannot be customized but is available for use via the **Copy** button.
+**Event Hub compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally which the you may need access to under certain circumstances. This Event Hub name and endpoint cannot be customized but is available for use via the **Copy** button.
 
-**Retention Time**: Set to 1 day by default but can be customized to other values using the drop down list. Please note that this value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
+**Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. Note that this value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
 
 **Consumer Groups**: Consumer Groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs.
 
@@ -132,11 +132,11 @@ To use the file upload functionality in IoT Hub, you must first associate an Azu
 
 **Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
 
-**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to 1 hour by default but can be customized to other values using the slider.
+**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default but can be customized to other values using the slider.
 
-**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to 1 day by default but can be customized to other values using the slider.
+**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default but can be customized to other values using the slider.
 
-**File notification maximum delivery count**: The number of times the IoT Hub will attempt to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
+**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
 
 ![][13]
 
@@ -149,7 +149,7 @@ The pricing of an existing IoT hub can be changed through the **Pricing** settin
 
 ![][12]
 
-Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed, but if you change to the S1 tier then the hub will be throttled for that day.
+Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed, but if you change to the S1 tier then the hub is throttled for that day.
 
 ## Delete the IoT hub
 
