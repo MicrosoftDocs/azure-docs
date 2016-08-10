@@ -20,7 +20,7 @@
 
 A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. Please note that when configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                                
 
-If your device doesn't appear in the Validated VPN devices table, see the Non-validated VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
+If your device doesn't appear in the [Validated VPN devices](#devicetable) table, see the [Non-validated VPN devices](#additionaldevices) section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
 
 **Items to note when viewing the tables:**
 
@@ -30,9 +30,9 @@ If your device doesn't appear in the Validated VPN devices table, see the Non-va
 - Specifications for High Performance VPN gateway and route-based VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with route-based VPN gateways are also compatible with the Azure High Performance VPN gateway. 
 
 
-## Validated VPN devices 
+## <a name="devicetable"></a>Validated VPN devices 
 
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See the [VPN gateways](vpn-gateway-about-vpngateways.md) article to verify the type of gateway that you'll need to create for the solution you want to configure. 
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure. 
 
 To help configure your VPN device, please refer to the links that correspond to appropriate device family. 
 
@@ -65,7 +65,7 @@ To help configure your VPN device, please refer to the links that correspond to 
 
 (*) ISR 7200 Series routers only support policy-based VPNs.
 
-## Non-validated VPN devices
+## <a name="additionaldevices"></a>Non-validated VPN devices
 
 If you don’t see your device listed in the Validated VPN devices table (above), it still may work with a Site-to-Site connection. Verify that your VPN device meets the minimum requirements outlined in the Gateway Requirements section of the [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) article. Devices meeting the minimum requirements should also work well with VPN gateways. Please contact your device manufacturer for additional support and configuration instructions.
 
