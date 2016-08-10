@@ -47,7 +47,6 @@ This topic lists every topic that applies directly to the **SQL Data Warehouse**
 | 10 | get-started-create-support-ticket | [How to create a support ticket for SQL Data Warehouse](sql-data-warehouse-get-started-create-support-ticket.md) | How to create a support ticket in Azure SQL Data Warehouse. |
 | 11 | get-started-load-with-azure-data-factory | [Load Data with Azure Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Learn to load data with Azure Data Factory |
 | 12 | get-started-load-with-polybase | [Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) | Learn what PolyBase is and how to use it for data warehousing scenarios. |
-| 13 | get-started-new-server | [Create a New Logical Server](sql-data-warehouse-get-started-new-server.md) | Learn how to create an Azure SQL Data Warehouse in the Azure Portal |
 | 14 | get-started-provision | [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) | Learn how to create an Azure SQL Data Warehouse in the Azure Portal |
 | 15 | get-started-provision-powershell | [Create SQL Data Warehouse using Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Create SQL Data Warehouse by using Powershell |
 | 16 | get-started-visualize-with-power-bi | [Visualize data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Visualize SQL Data Warehouse data with Power BI |
