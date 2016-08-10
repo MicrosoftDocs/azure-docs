@@ -20,7 +20,11 @@
 
 Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
 
-Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These provide information such as a list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
+Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These logs provide information such as:
+
+* A list of users that accessed the data.
+* How frequently the data is accessed.
+* How much data is stored in the account.
 
 ## Prerequisites
 
@@ -202,7 +206,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | operationName   | String | Name of the operation that is logged. For example, JobSubmitted.              |
 | resultType | String | A substatus for the job status (operationName). |
 | resultSignature | String | Additional details on the job status (operationName). |
-| identity      | String | The the user that requested the operation. For example, susan@contoso.com.                                 |
+| identity      | String | The user that requested the operation. For example, susan@contoso.com.                                 |
 | properties      | JSON   | See the next section (Audit log properties schema) for details |
 
 > [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
