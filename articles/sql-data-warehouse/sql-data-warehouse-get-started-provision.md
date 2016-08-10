@@ -48,7 +48,7 @@ To get started, you will need:
 
     ![Create database](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Server**: We recommend you select your server first.  You can select an existing server or [create a new one](./sql-data-warehouse-get-started-new-server.md). 
+	- **Server**: We recommend you select your server first.  
 
 	- **Database name**:The name that will be used to reference the SQL Data Warehouse.  It must be unique to the server.
 	
@@ -66,7 +66,7 @@ To get started, you will need:
 
     ![Portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
-[AZURE.INCLUDE [SQL DataBase create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
+[AZURE.INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
 
 ## Next steps
 
@@ -84,8 +84,8 @@ It's also a great idea to take a look at our [Best practices][].
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Best practices]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [subscription]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 
