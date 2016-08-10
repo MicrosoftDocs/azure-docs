@@ -18,7 +18,7 @@
 
 # Identify databases and tables for Stretch Database by running Stretch Database Advisor
 
-To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
+To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor, and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
 
 ## Download and install Upgrade Advisor
 Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/?LinkID=613421). This tool is not included on the SQL Server installation media.
