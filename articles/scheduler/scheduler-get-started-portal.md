@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Get started with Azure Scheduler in Azure portal
