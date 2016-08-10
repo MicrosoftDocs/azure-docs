@@ -125,7 +125,7 @@ Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
-Specifies a hash table of the tags that associated with the media service.
+Specifies a hash table of the tags that are associated with the media service.
 
 - Example: @{"tag1"="value1";"tag2"=:value2"}
 
@@ -204,9 +204,9 @@ Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
-Specifies a hash table of the tags that associated with this media service.
+Specifies a hash table of the tags that are associated with this media service.
 
-- The tags that associated with the media service will be replaced with value specified by the customer.
+- The tags that are associated with the media service will be replaced with value specified by the customer.
 
 Aliases |none
 ---|---
