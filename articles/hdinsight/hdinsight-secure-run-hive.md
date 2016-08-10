@@ -32,7 +32,7 @@ Learn how to configure Hive policies. In this article, you will create 2 Ranger 
 
 **To connect to Rnager Admin UI**
 
-1. From a browser with SSH tunneling configured, connect to Ambari. The URL is https://<ClusterName>azurehdinsight.net.
+1. From a browser with SSH tunneling configured, connect to Ambari. The URL is https://&lt;ClusterName>.azurehdinsight.net.
 2. Click **Ranger** from the left menu.
 3. Click **Quick Links**, and then click **Ranger Admin UI**.
 4. Login as **admin** with the password **admin**. This is the default password.  You can change the password. The Ranger Admin UI home page looks like:
@@ -52,7 +52,7 @@ In this section, you will create two Ranger policies for accessing hivesampletab
 **To create Ranger policies**
 
 1. Open Ranger Admin UI. See [Connect to Apache Ranger Admin UI](#connect-to-apache-ranager-admin-ui).
-2. Click **<ClusterName>_hive**, under **Hive**. You shall see two pre-configure policies.
+2. Click **&lt;ClusterName>_hive**, under **Hive**. You shall see two pre-configure policies.
 3. Click **Add New Policy**, and then enter the following values:
 
 	- Policy name: read-hivesampletable-all
