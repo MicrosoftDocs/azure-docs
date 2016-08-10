@@ -37,8 +37,8 @@ Typically following a DR, the most recent backup is used to restore the data to 
 
 As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
 
-- *defaultPol*: One volume, *vol1*, runs daily starting at 10:30 PM.
-- *customPol*: Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
+- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
+- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
 
 In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
 
