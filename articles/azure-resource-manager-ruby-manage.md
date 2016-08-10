@@ -44,6 +44,14 @@ in Azure using the Azure Ruby SDK.
     bundle install
     ```
 
+    > You only need the `azure-mgmt-resources` and `haikunator` packages to run the sample. If that's all you want, don't install the development and test dependencies.
+    >
+    > ```
+    > bundle install --without development test
+    > ```
+    >
+    > The full set of dependences for working with the code also includes `rake`, `rspec`, `dotenv`, `webmock`, and `climate_control`. 
+
 1. Create an Azure service principal either through
     [Azure CLI](resource-group-authenticate-service-principal-cli.md),
     [PowerShell](resource-group-authenticate-service-principal.md),
