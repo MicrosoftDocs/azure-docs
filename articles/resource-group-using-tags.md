@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/10/2016"
 	ms.author="tomfitz"/>
 
 
@@ -29,7 +29,7 @@ Each resource or resource group can have a maximum of 15 tags. The tag name is l
 
 > [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal or Service Management API), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
 
-## Tags in templates
+## Templates
 
 To tag a resource during deployment, simply add the **tags** element to the resource you are deploying, and provide the tag name and value. The tag name and value do not need to pre-exist in your subscription. You can provide up to 15 tags for each resource.
 
@@ -82,33 +82,11 @@ Currently, Resource Manager does not support processing an object for the tag na
     }
 
 
-## Tags in the portal
+## Portal
 
-You can add tags to existing resources and resource groups through the portal. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade.
+[AZURE.INCLUDE [resource-manager-tag-resource](../includes/resource-manager-tag-resources.md)]
 
-![Tags part on resource and resource group blades](./media/resource-group-using-tags/tag-icon.png)
-
-This will open a blade with the list of tags that have already been applied. If this is your first tag, the list will be empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.
-
-![Tag resources with name/value pairs](./media/resource-group-using-tags/tag-resources.png)
-
-To view your taxonomy of tags in the portal, select **Browse** and **Tags**.
-
-![Find tags via the Browse hub](./media/resource-group-using-tags/select-tags.png)
-
-You will see a summary of the tags in your subscription.
-
-![Show all tags](./media/resource-group-using-tags/show-tag-summary.png)
-
-Selecting any of these tags will display the resources and resource groups with that tag.
-
-![Show tagged resources](./media/resource-group-using-tags/show-tagged-resources.png)
-
-Pin the most important tags to your Dashboard for quick access.
-
-![Pin tags to the Startboard](./media/resource-group-using-tags/show-pinned-tag.png)
-
-## Tags and PowerShell
+## PowerShell
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with **Get-AzureRmResource** or 
 **Get-AzureRmResourceGroup**. Let's start with a resource group.
@@ -211,7 +189,7 @@ You may see tags that start with "hidden-" and "link:". These are internal tags,
 
 Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
 
-## Tags and Azure CLI
+## Azure CLI
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource group and its resources with **azure group show**.
 
@@ -284,7 +262,7 @@ A summary of the resource group with the new tags is returned.
     
 You can list the existing tags in your subscription with **azure tag list**, and add a new tag with **azure tag create**. To remove a tag from the taxonomy for your subscription, first remove the tag from any resources it may be used with, and then remove the tag with **azure tag delete**.
 
-## Tags and REST API
+## REST API
 
 The portal and PowerShell both use the [Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn848368.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 
