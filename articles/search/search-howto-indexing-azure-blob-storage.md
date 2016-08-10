@@ -38,25 +38,21 @@ The blob indexer can extract text from the following document formats:
 
 To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for blob indexing will be added to the Azure Search .NET SDK and the Azure Portal.
 
-An indexer has three parts: a data source, an index, and a schedule. The following sections provide details about each one.
+To set up an indexer, do the following three steps: create a data source, create an index, configure the indexer.
 
-### Step 1: Create the data source
+### Step 1: Create a data source
 
 A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same subscription.
 
-For blob indexing, the data source must have a name, type, credentials, and container:
+For blob indexing, the data source must have the following required properties: 
 
-- **name** is the unique name of the data source within your search service.
+- **name** is the unique name of the data source within your search service. 
 
 - **type** must be `azureblob`. 
 
 - **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure Portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value. Since the connection string is bound to a storage account, specifying the connection string implicitly identifies the storage account providing the data.
 
-- **container** is a group of blobs, and the container name forms part of the blob name. By default, all blobs within the container are retrievable. 
-
-- **query** is an an optional parameter that specifies a virtual directory from which blobs will be retrieved. 
-
-  If you added path information to the blob naming structure that includes a virtual directory component, you can specify the `query` parameter to set the folder name in your data source definition. This allows you to restrict indexing to just those blobs having the same virtual directory as part of the blob name. Note that you can specify only one virtual directory in each data source definition. Furthermore, the virtual directory is just the name of the folder, not the full path. It's assumed the directory is a child of the specified container.
+- **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter. 
 
 The following example illustrates a data source definition:
 
@@ -68,12 +64,12 @@ The following example illustrates a data source definition:
 	    "name" : "blob-datasource",
 	    "type" : "azureblob",
 	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 	}   
 
 For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### Step 2: Create index 
+### Step 2: Create an index 
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.  
 
@@ -93,7 +89,7 @@ For blob indexing, be sure that your index has a searchable `content` field for 
 
 For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
 
-### Step 3: Create indexer 
+### Step 3: Create an indexer 
 
 An indexer connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source have been created, its relatively simple to create an indexer that references the data source and a target index. For example:
 
