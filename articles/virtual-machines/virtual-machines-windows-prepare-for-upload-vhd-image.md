@@ -96,12 +96,12 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 		sc config RemoteRegistry start= auto
 
-6. Remove any self-signed certificate tied to the Remote Desktop Protocol (RDP) service:
+6. Remove any self-signed certificate tied to the Remote Desktop Protocol (RDP) listener:
 
-	A. Open MMC, add Certificates snap-in, select **Compute Account** certificates, and then select **Local computer**.
+	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
 
-	B. Navigate to the **Remote Desktop** folder -> **Certificates**, remove the certificates listed in this folder.
-
+   For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
+	 
 7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP service:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
