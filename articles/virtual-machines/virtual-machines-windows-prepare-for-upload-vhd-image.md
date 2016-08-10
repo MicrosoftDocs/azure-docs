@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prepare a Windows VHD in order to upload to Azure | Microsoft Azure"
+	pageTitle="Prepare a Windows VHD to upload to Azure | Microsoft Azure"
 	description="Best Practices for preparing Windows VHD before uploading to Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="08/10/2016"
 	ms.author="genli"/>
 
-# Prepare a Windows VHD in order to upload to Azure
+# Prepare a Windows VHD to upload to Azure
 
 The following are recommended steps for preparing Windows VHD for Azure:
 
@@ -194,8 +194,8 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
 15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
-16.	Uninstall the other third party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
-17. Make sure that there is no third party application is using Port 3389. This port is used for the RDP service in Azure.
+16.	Uninstall the other third-party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
+17. Make sure that there is no third-party application is using Port 3389. This port is used for the RDP service in Azure.
 18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
 19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP connection.
 20.	Reset the current local administrator password and make sure you can use this account to log on to Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
