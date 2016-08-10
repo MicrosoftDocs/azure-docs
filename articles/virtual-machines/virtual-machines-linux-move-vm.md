@@ -29,7 +29,7 @@ This article walks you through how to move a Linux VM between resource groups or
 
 ## Use the Azure CLI to move a VM 
 
-To successfully move a VM, you need to move the VM and all its supporting resources. Use the **azure group show** command to list all the resources in a resource group.
+To successfully move a VM, you need to move the VM and all its supporting resources. Use the **azure group show** command to list all the resources in a resource group and their IDs. It helps to pipe the output of this command to a file so you can copy and paste the IDs into later commands.
 
 	azure group show <resourceGroupName>
 
@@ -43,9 +43,12 @@ To move a VM and its resources to another resource group, use the **azure resour
 	vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
 	diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
 	storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>  	
+	
 	azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
 	
 If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** parameter to specify the destination subscription.
+
+If you are working from the Command Prompt on a Windows computer, you need to add a **$** in front of the variable names when you declare them. This isn't needed in Linux.
 
 You are asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
 	
