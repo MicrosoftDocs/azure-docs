@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # Use PowerShell to back up and restore App Service apps
 
@@ -26,10 +26,24 @@ Learn how to use Azure PowerShell to back up and restore [App Service apps](http
 ## Prerequisites
 In order to use PowerShell to manage your app backups, you will need the following:
 
-- **A SAS URL** that allows read and write access to an Azure Storage container. See [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) for more information on SAS URLs.
+- **A SAS URL** that allows read and write access to an Azure Storage container. See [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) for an explanation of SAS URLs. See [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) for examples of managing Azure Storage using PowerShell.
 - **A database connection string** if you want to back up a database along with your web app.
 
-##Install Azure PowerShell 1.3.2 or greater
+### How to generate a SAS URL to use with the web app backup cmdlets
+A SAS URL can be generated with PowerShell. Here is an example of how to generate one that can be used with the cmdlets discussed in this article.
+
+		$storageAccountName = "<your storage account's name>"
+		$storageAccountRg = "<your storage account's resource group>"
+
+		# This returns an array of keys for your storage account. Be sure to select the appropriate key. Here we select the first key as a default.
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountRg -Name $storageAccountName
+		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
+
+		$blobContainerName = "<name of blob container for app backups>"
+		$token = New-AzureStorageContainerSASToken -name $blobContainerName -permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
+		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+
+## Install Azure PowerShell 1.3.2 or greater
 
 See [Using Azure PowerShell with Azure Resource Manager](../powershell-install-configure.md) for instructions on installing and using Azure PowerShell.
 
