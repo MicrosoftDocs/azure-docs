@@ -59,9 +59,9 @@ Aliases | none
 ---|---
 Required?   |  true
 Position?   |  0
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters?  |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters?  |false
 
 **-AccountName &lt;String&gt;**
 
@@ -71,9 +71,9 @@ Aliases |Name
 ---|---
 Required? |true
 Position? |1
-Default Value |none
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **-Location &lt;String&gt;**
 
@@ -83,9 +83,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |2
-Default Value  |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-StorageAccountId &lt;String&gt;**
 
@@ -99,10 +99,10 @@ Aliases |none
 ---|---
 Required? |true
 Position? |3
-Default Value  |none
-Accept Pipeline Input? |true(ByPropertyName)
+Default value  |none
+Accept pipeline input? |true(ByPropertyName)
 Parameter set name |StorageAccountIdParamSet
-Accept Wildcard Characters?|false
+Accept wildcard characters?|false
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
@@ -112,16 +112,16 @@ Specifies storage accounts that associated with the media service.
 
 - The storage account must exist and has the same location with the media service.
 
-- Only one storage account can specified as primary.
+- Only one storage account can be specified as primary.
 
 Aliases |none
 ---|---
 Required?  |true
 Position?  |3
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
 Parameter set name |StorageAccountsParamSet
-Accept Wildcard Characters? |false
+Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
@@ -133,9 +133,9 @@ Aliases |none
 ---|---
 Required?  |false
 Position?  |named
-Default Value |none
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
@@ -169,7 +169,7 @@ Required?  |true
 Position?  |0
 Default Value |none
 Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
@@ -179,9 +179,9 @@ Aliases |Name
 ---|---
 Required? |True
 Position? |1
-Default Value |None
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |False
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |False
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
@@ -191,16 +191,16 @@ Specifies storage accounts that associated with the media service.
 
 - The storage account must exist and has the same location with the media service.
 
-- Only one storage account can specified as primary.
+- Only one storage account can be specified as primary.
 
 Aliases |none
 ---|---
 Required? |false
 Position? |Named
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
 Parameter set name |StorageAccountsParamSet
-Accept Wildcard Characters? |false
+Accept wildcard characters? |false
 
 **-Tags &lt;Hashtable&gt;**
 
@@ -212,9 +212,9 @@ Aliases |none
 ---|---
 Required? |False
 Position?  |Named
-Default Value |None
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |None
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
@@ -246,9 +246,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |0
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
@@ -258,9 +258,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |2
-Default Value |None
-Accept Pipeline Input?  |true(ByPropertyName)
-Accept Wildcard Characters? |False
+Default value |None
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |False
 
 **&lt;CommandParameters&gt;**
 
@@ -298,10 +298,10 @@ Aliases |none
 ---|---
 Required? |true
 Position?  |0
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
 Parameter set name |ResourceGroupParameterSet, AccountNameParameterSet
-Accept Wildcard Characters?   false
+Accept wildcard characters?   false
 
 **-AccountName &lt;String&gt;**
 
@@ -311,10 +311,10 @@ Aliases |none
 ---|---
 Required? |true
 Position?  |1
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
 Parameter set name  |AccountNameParameterSet
-Accept Wildcard Characters? |false
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
@@ -346,9 +346,9 @@ Aliases |none
 ---|---
 Required? |true
 Position?  |0
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
@@ -358,9 +358,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |1
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
@@ -392,9 +392,9 @@ Aliases |none
 ---|---
 Required?  |true
 Position?  |0
-Default Value |none
-Accept Pipeline Input?  |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input?  |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
@@ -404,9 +404,9 @@ Aliases |none
 ---|---
 Required? |true
 Position?  |1
-Default Value |none
-Accept Pipeline Input?   |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input?   |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-KeyType &lt;KeyType&gt;**
 
@@ -418,9 +418,9 @@ Aliases |none
 ---|---
 Required?  |true
 Position?  |2
-Default Value |none
-Accept Pipeline Input? |false
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |false
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
@@ -454,9 +454,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |0
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-AccountName &lt;String&gt;**
 
@@ -466,9 +466,9 @@ Aliases |none
 ---|---
 Required? |true
 Position? |1
-Default Value |none
-Accept Pipeline Input? |true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |true(ByPropertyName)
+Accept wildcard characters? |false
 
 **-StorageAccountId &lt;String&gt;**
 
@@ -478,9 +478,9 @@ Aliases |Id
 ---|---
 Required? |true
 Position?  |2
-Default Value |none
-Accept Pipeline Input? |      true(ByPropertyName)
-Accept Wildcard Characters? |false
+Default value |none
+Accept pipeline input? |      true(ByPropertyName)
+Accept wildcard characters? |false
 
 **&lt;CommandParameters&gt;**
 
