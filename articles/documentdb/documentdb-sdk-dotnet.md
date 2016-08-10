@@ -45,7 +45,7 @@
   - Added support for parallel queries for partitioned collections.
   - Added support for cross partition ORDER BY and TOP queries for partitioned collections.
   - Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
-  - Fixed the ability to use parameters of different types when using user defined functions in LINQ. 
+  - Fixed the ability to use parameters of different types when using user-defined functions in LINQ. 
   - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
   - Added methods to the IDocumentClient interface that were missing: 
       - UpsertAttachmentAsync method that takes mediaStream and options as parameters
@@ -68,7 +68,7 @@
   - Added time to live (TTL) support for documents.
 
 ### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
-  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
+  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of an Azure Cloud Service solution.
   
 ### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
@@ -148,7 +148,7 @@ There was a change of NuGet package name between preview and GA. We moved from *
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
