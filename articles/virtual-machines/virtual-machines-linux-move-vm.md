@@ -22,18 +22,18 @@
 
 # Move a Linux VM to another subscription or resource group
 
-This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
-> [AZURE.NOTE] New resource IDs will be created as part of the move. Once the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
+> [AZURE.NOTE] New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
 
 
 ## Use the Azure CLI to move a VM 
 
-In order to successfully move a VM, you need to move the VM and all of it's supporting resources. Use the **azure group show** command to list all of the resources in a resource group.
+To successfully move a VM, you need to move the VM and all of its supporting resources. Use the **azure group show** command to list all the resources in a resource group.
 
 	azure group show <resourceGroupName>
 
-To move a VM and it's resources to another resource group, use the **azure resource move** CLI command. The following example shows how to move a VM and the most common resources required for the VM using the **-i** parameter to provide a comma-separated list (without spaces) of the resource IDs to move.
+To move a VM and its resources to another resource group, use the **azure resource move** CLI command. The following example shows how to move a VM and the most common resources it requires. We will use the **-i** parameter and pass in a comma-separated list (without spaces) IDs of the resources to move.
 
 	
     vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
@@ -45,9 +45,9 @@ To move a VM and it's resources to another resource group, use the **azure resou
 	storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>  	
 	azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
 	
-If you want to move the VM and it's resources to a different subscription, add the **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** parameter to specify the destination subscription.
+If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** parameter to specify the destination subscription.
 
-You will be asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
+You are asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
 	
 
 [AZURE.INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
