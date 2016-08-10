@@ -82,10 +82,9 @@ Resource provider | Feature
 ---------- | ------------
 Compute | Unassociated virtual machine disks.
 Compute | Virtual machine images.
-Network | Unassociated reserved IPs (if not attached to a VM). Reserved IPs attached to VMs are supported.
-Network | Unassociated network security groups (if not attached to a virtual network or network interface). NSGs referenced by virtual networks are supported.
 Network | Endpoint ACLs.
-Network | Virtual network gateways (site to site, Azure ExpressRoute, point to site).
+Network | Virtual network gateways (site to site, Azure ExpressRoute, application gateway, point to site).
+Network | Virtual networks using VNet Peering. (Migrate the virtual network to ARM and then peer if desired)
 
 ### Unsupported configurations
 
