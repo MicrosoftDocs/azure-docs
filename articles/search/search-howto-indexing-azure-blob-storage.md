@@ -21,15 +21,28 @@ This article shows how to use Azure Search to index documents (such as PDFs, Mic
 
 > [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
+## Supported document formats
+
+The blob indexer can extract text from the following document formats:
+
+- PDF
+- Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+- HTML
+- XML
+- ZIP
+- EML
+- Plain text files  
+- JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
+
 ## Setting up blob indexing
 
 To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for blob indexing will be added to the Azure Search .NET SDK and the Azure Portal.
 
-Setting up the indexer is a 3-part construction: define the data source, specify the index, and configure the indexer.
+An indexer has three parts: a data source, an index, and a schedule. The following sections provide details about each one.
 
 ### Step 1: Create the data source
 
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source is defined as an independent resource so that it can be used by multiple indexers in the same subscription.
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same subscription.
 
 For blob indexing, the data source must have a name, type, credentials, and container:
 
@@ -41,7 +54,9 @@ For blob indexing, the data source must have a name, type, credentials, and cont
 
 - **container** is a group of blobs, and the container name forms part of the blob name. By default, all blobs within the container are retrievable. 
 
-  If you added path information to the blob naming structure to include a virtual directory component, you can specify the optional `query` parameter to set the folder name in your data source definition. This allows you to restrict indexing to just those blobs having the same virtual directory as part of the blob name. Note that you can specify only one virtual directory in each data source definition. Furthermore, the virtual directory is just the name of the folder, not the full path. It's assumed the directory is a child of the specified container.
+- **query** is an an optional parameter that specifies a virtual directory from which blobs will be retrieved. 
+
+  If you added path information to the blob naming structure that includes a virtual directory component, you can specify the `query` parameter to set the folder name in your data source definition. This allows you to restrict indexing to just those blobs having the same virtual directory as part of the blob name. Note that you can specify only one virtual directory in each data source definition. Furthermore, the virtual directory is just the name of the folder, not the full path. It's assumed the directory is a child of the specified container.
 
 The following example illustrates a data source definition:
 
@@ -80,7 +95,7 @@ For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/
 
 ### Step 3: Create indexer 
 
-An indexer is a resource that connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source are defined, its relatively simple to create an indexer that references the data source and a target index. For example:
+An indexer connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source have been created, its relatively simple to create an indexer that references the data source and a target index. For example:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -97,19 +112,6 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 
 For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-
-## Supported document formats
-
-The blob indexer can extract text from the following document formats:
-
-- PDF
-- Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
-- HTML
-- XML
-- ZIP
-- EML
-- Plain text files  
-- JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
 
 ## Document extraction process
 

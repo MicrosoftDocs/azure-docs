@@ -50,7 +50,7 @@ Indexers can offer features that are unique to the data source. In this respect,
 
 An indexer will automate some tasks related to data ingestion, but creating an index is not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. For more information about structuring an index, see [Create an Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-### Step 2:Create a data source
+### Step 2: Create a data source
 
 An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
@@ -73,4 +73,6 @@ Now that you have the basic idea, the next step is to review requirements and ta
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
 - [Azure Blob storage (Preview)](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 - [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+- [Indexing CSV blobs using the Azure Search Blob indexer (Preview)](search-howto-index-csv-blobs.md)
+- [Indexing JSON blobs with Azure Search Blob indexer (Preview)](search-howto-index-json-blobs.md)
 
