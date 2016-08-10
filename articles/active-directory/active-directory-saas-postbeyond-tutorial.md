@@ -123,7 +123,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-postbeyond-tutorial/tutorial_postbeyond_07.png)
 
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://app.postbeyond.com`. 
+    a. In the Sign On URL text box, type a URL using the following pattern: `https://app.postbeyond.com`. 
 
 	b. Click **Next**.
 
@@ -131,7 +131,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-postbeyond-tutorial/tutorial_postbeyond_08.png)
 
-6. To get SSO configured for your application, contact your PostBeyond Account Manager or PostBeyond support. They will assist with the proper channel to configure SSO. Please note that you have to send an email with the single sign-on service URL and attach downloaded certificate file to <sso@postbeyond.com>. If you don't have the Sign On URL yet, make sure to ask for this value in the email. Then, update the Sign On URL field in the **Configure App Settings** dialog page.
+6. To get SSO configured for your application, contact PostBeyond support team at <sso@postbeyond.com>. They will assist with the proper channel to configure SSO and provide them the following: 
+
+	- The downloaded certificate
+	- The **Issuer URL**
+	- The **SAML SSO URL**
+	- The **Single Sign-Out Service URL**
 
 7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
@@ -202,7 +207,7 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating a PostBeyond test user
 
-In this section, you create a user called Britta Simon in PostBeyond. If you don't know how to add Britta Simon in PostBeyond, please work with PostBeyond support team to add the test user and enable SSO. Contact them at <sso@postBeyond.com>.
+In this section, you create a user called Britta Simon in PostBeyond. If you don't know how to add Britta Simon in PostBeyond, please work with PostBeyond support team to add the test user and enable SSO. Contact them at <sso@postbeyond.com>.
 
 ### Assigning the Azure AD test user
 
