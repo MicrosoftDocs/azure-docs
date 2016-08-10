@@ -90,7 +90,7 @@ The portal opens on a view of the telemetry from your app:
 ![](./media/app-insights-asp-net/66.png)
 
 * The first telemetry appears in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
-* Individual events appear in **Search** (1). Data may take a few minutes to appear. Click any event to see its properties. 
+* Individual events appear in **Search** (1). Data may take a few minutes to appear. Click any event in order to see its properties. 
 * Aggregated metrics appear in the charts (2). It might take a minute or two for data to appear here. Click any chart to open a blade with more detail.
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).
@@ -103,7 +103,7 @@ You'll see your telemetry building up in the Application Insights portal, where 
 
 You can also continue to analyze your telemetry in [Visual Studio](app-insights-visual-studio.md) with tools such as diagnostic search and [Trends](app-insights-visual-studio-trends.md).
 
-> [AZURE.NOTE] If your app sends enough telemetry to approach the [throttling limits](app-insights-pricing.md#limits-summary), automatic [sampling](app-insights-sampling.md) switches on. This reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
+> [AZURE.NOTE] If your app sends enough telemetry to approach the [throttling limits](app-insights-pricing.md#limits-summary), automatic [sampling](app-insights-sampling.md) switches on. Sampling reduces the quantity of telemetry sent from your app, while preserving correlated data for diagnostic purposes.
 
 
 ##<a name="land"></a> What did 'Add Application Insights' do?
