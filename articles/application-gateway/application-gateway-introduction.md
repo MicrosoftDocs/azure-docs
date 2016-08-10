@@ -37,7 +37,7 @@ The Application Gateway routes the HTTP traffic based on its configuration wheth
 
 HTTP layer 7 load balancing is useful for:
 
-- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these type of applications would be shopping cart apps and web mail servers.
+- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
