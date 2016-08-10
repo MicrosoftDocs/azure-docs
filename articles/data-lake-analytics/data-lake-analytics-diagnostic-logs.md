@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2016"
+   ms.date="08/10/2016"
    ms.author="larryfr"/>
 
 # Accessing diagnostic logs for Azure Data Lake Analytics
@@ -200,8 +200,12 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | resourceId      | String | The ID of the resource that operation took place on                            |
 | category        | String | The log category. For example, **Audit**.                                      |
 | operationName   | String | Name of the operation that is logged. For example, JobSubmitted.              |
+| resultType | String | A substatus for the job status (operationName). |
+| resultSignature | String | Additional details on the job status (operationName). |
 | identity      | String | The user that requested the operation. For example, susan@contoso.com.                                 |
 | properties      | JSON   | See below for details                                                          |
+
+> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and will only contain a value if an operation has completed. For example, they will contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
 
 #### Audit log properties schema
 
@@ -211,7 +215,11 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | JobName | String | The name that was provided for the job |
 | JobRunTime | String | The runtime used to process the job |
 | SubmitTime | String | The time (in UTC) that the job was submitted |
+| StartTime | String | The time the job started running after submission (in UTC). |
+| EndTime | String | The time the job ended. |
+| Parallelism | String | The number of Data Lake Analytics units requested for this job during submission. |
 
+> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and will only contain a value if an operation has started or completed. For example, __SubmitTime__ will only contain a value after __operationName__ indicates __JobSubmitted__.
 
 ## Samples to process the log data
 
