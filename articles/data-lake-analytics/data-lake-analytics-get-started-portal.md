@@ -166,3 +166,4 @@ After you have prepared the source data, you can start developing a U-SQL script
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
+- To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)

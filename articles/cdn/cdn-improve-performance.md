@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Improve performance by compressing files"
-	description="You can improve file transfer speed and increases page load performance by compressing your files."
+	pageTitle="Improve performance by compressing files in Azure CDN | Microsoft Azure"
+	description="Learn how to improve file transfer speed and increases page load performance by compressing your files in Azure CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Improve performance by compressing files

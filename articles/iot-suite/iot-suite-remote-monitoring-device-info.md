@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="get-started-article"
+ ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="06/20/2016"
@@ -260,9 +260,13 @@ The following shows the JSON **DeviceInfo** message the device sent to update th
 
 ## Next steps
 
-You can read more about sending device information messages from your custom device in [Connect your device to the remote monitoring preconfigured solution][lnk-connect-custom].
+Now you've finished learning how you can customize the preconfigured solutions, you can explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-You can read more about how to customize the preconfigured solutions in [Customize a preconfigured solution][lnk-customize].
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [Frequently asked questions for IoT Suite][lnk-faq]
+- [IoT security from the ground up][lnk-security-groundup]
+
+
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -273,8 +277,10 @@ You can read more about how to customize the preconfigured solutions in [Customi
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-docdb]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-ref-arch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-connect-custom]: iot-suite-connecting-devices.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-dm-preview]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md

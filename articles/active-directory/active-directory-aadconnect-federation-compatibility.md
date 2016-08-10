@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Azure AD federation compatibility list
@@ -37,6 +37,7 @@ For information on how you can get your third-party identity provider listed her
 - [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
 - [PingFederate 6.11](#pingfederate-611) 
 - [PingFederate 7.2](#pingfederate-72) 
+- [PingFederate 8.x](#pingfederate-8x)
 - [Centrify](#centrify) 
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 - [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
@@ -84,7 +85,7 @@ The following is the scenario support matrix this single sign-on experience:
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
 | Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Windows integrated authentication|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx)|
 
 
@@ -117,6 +118,20 @@ The following is the scenario support matrix for this single sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+
+## PingFederate 8.x 
+PingFederate 8.x implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+
+The following is the scenario support matrix for this single sign-on experience:
+
+
+| Client |Support  |Exceptions|
+| --------- | --------- |--------- |
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+
+For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
 
 ## Centrify 
 Centrify helps provide a federated single sign-on experience for Office 365 without the requirement of hosting an on-premises Federation server.
@@ -220,7 +235,7 @@ The following is the scenario support matrix for this single sign-on experience:
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
 | Web-based clients such as Exchange Web Access and SharePoint Online | Supported |*Kerberos Contracts supported|
-| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Windows integrated authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication is not supported|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 *NetIQ support Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact NetIQ or view the setup guide. For more information about NetIQ Access Manager, see [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
@@ -247,8 +262,8 @@ The following is the scenario support matrix for this single sign-on experience:
 
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Windows integrated authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Windows integrated authentication is not supported|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
@@ -275,8 +290,8 @@ The following is the scenario support matrix for this single sign-on experience:
 
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Windows integrated authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Windows integrated authentication is not supported|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 For more information about IceWall Federation, see [here](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) and [here.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
@@ -289,8 +304,8 @@ The following is the scenario support matrix for this single sign-on experience:
 
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Windows integrated authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Windows integrated authentication is not supported|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 For more information about CA Secure Cloud, see [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
@@ -317,8 +332,8 @@ The following is the scenario support matrix for this single sign-on experience:
 
 | Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Windows integrated authentication is not supported|
-| Rich client applications such as Lync, Office Subscription, CRM | Supported |Windows integrated authentication is not supported|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
 | Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 

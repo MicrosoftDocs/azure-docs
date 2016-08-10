@@ -24,17 +24,17 @@ SQL Database keeps replicas of your database so you can recover from outages and
 1.	In the [Azure Portal](https://azure.microsoft.com/), click **SQL databases**.
 2.	Select your database from the list and then click **Restore**.
 3.	Type a new name for the database, choose the date and time to restore from, and then click **Create.**
-4.	Make app adjustments as necessary to reference the new database. See [Recover a database from user error](sql-database-user-error-recovery.md).
+4.	Make app adjustments as necessary to reference the new database. See [Recover a database to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## To restore an accidentally deleted database
 1.	In the [Azure Portal](https://azure.microsoft.com/), click **SQL servers**.
 2.	Select the server that hosted the database from the list.
 3.	On the Server blade, scroll down and click **Deleted databases**.
 4.	Select the database to restore, and then click **Create**.
-5.	Make app adjustments as necessary to reference the new database. See [Recover a database from user error](sql-database-user-error-recovery.md).
+5.	Make app adjustments as necessary to reference the new database. See [Recover a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore).
 
 ## To recover from a regional datacenter outage
-With Standard and Premium databases, if you set up geo-replicated secondaries, you can recover using these secondaries. This gives you the ability to restore a database with a less potential for data loss. See [Recover an Azure SQL database from an outage](sql-database-disaster-recovery.md) for details.
+With Standard and Premium databases, if you set up geo-replicated secondaries, you can recover using these secondaries. This gives you the ability to restore a database with a less potential for data loss. See [Recover an Azure SQL database using automated database backups](sql-database-disaster-recovery.md) for details.
 
 Azure also provides backups of every database in a different region (a geo-redundant backup). You can create a new database from these backups, which is called Geo-restore, but it's likely that you'll experience data loss if you rely on this method alone.
 

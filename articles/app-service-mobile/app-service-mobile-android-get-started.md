@@ -3,7 +3,7 @@
     description="Follow this tutorial to get started with using Azure mobile app backends for Android development"
     services="app-service\mobile"
     documentationCenter="android"
-    authors="ysxu"
+    authors="RickSaling"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="yuaxu;ricksal"/>
+    ms.date="07/21/2016"
+    ms.author="ricksal"/>
 
 #Create an Android app
 

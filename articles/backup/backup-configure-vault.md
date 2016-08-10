@@ -3,8 +3,8 @@
 	description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="backup vault; back up a Windows server; backup windows;"/>
 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model
+# Back up a Windows Server or client to Azure using the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Azure portal](backup-configure-vault.md)
@@ -25,9 +25,10 @@
 
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Before you start
 To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
@@ -58,7 +59,7 @@ A Recovery Services vault is an entity that stores all the backups and recovery 
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
 

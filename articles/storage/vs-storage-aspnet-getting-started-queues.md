@@ -18,6 +18,8 @@
 
 # Get started with Azure Queue storage and Visual Studio connected services
 
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+
 ## Overview
 
 This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog.

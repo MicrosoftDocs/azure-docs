@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2016"
+   ms.date="08/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -27,8 +27,8 @@ If you created a DW before the dates below, you are currently using Standard Sto
 | **Region**          | **DW Created Before This Date**   |
 | :------------------ | :-------------------------------- |
 | Australia East      | Premium Storage Not Yet Available |
-| Australia Southeast | Premium Storage Not Yet Available |
-| Brazil South        | Premium Storage Not Yet Available |
+| Australia Southeast | August 5, 2016                    |
+| Brazil South        | August 5, 2016                    |
 | Canada Central      | May 25, 2016                      |
 | Canada East         | May 26, 2016                      |
 | Central US          | May 26, 2016                      |
@@ -40,10 +40,10 @@ If you created a DW before the dates below, you are currently using Standard Sto
 | India Central       | May 27, 2016                      |
 | India South         | May 26, 2016                      |
 | India West          | Premium Storage Not Yet Available |
-| Japan East          | Premium Storage Not Yet Available |
+| Japan East          | August 5, 2016                    |
 | Japan West          | Premium Storage Not Yet Available |
 | North Central US    | Premium Storage Not Yet Available |
-| North Europe        | Premium Storage Not Yet Available |
+| North Europe        | August 5, 2016                    |
 | South Central US    | May 27, 2016                      |
 | Southeast Asia      | May 24, 2016                      |
 | West Europe         | May 25, 2016                      |
@@ -73,8 +73,8 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | **Region**          | **Estimated Start Date**     | **Estimated End Date**       |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia East      | Not determined yet           | Not determined yet           |
-| Australia Southeast | Not determined yet           | Not determined yet           |
-| Brazil South        | Not determined yet           | Not determined yet           |
+| Australia Southeast | August 10, 2016              | August 24, 2016              |
+| Brazil South        | August 10, 2016              | August 24, 2016              |
 | Canada Central      | June 23, 2016                | July 1, 2016                 |
 | Canada East         | June 23, 2016                | July 1, 2016                 |
 | Central US          | June 23, 2016                | July 4, 2016                 |
@@ -86,10 +86,10 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | India Central       | June 23, 2016                | July 1, 2016                 |
 | India South         | June 23, 2016                | July 1, 2016                 |
 | India West          | Not determined yet           | Not determined yet           |
-| Japan East          | Not determined yet           | Not determined yet           |
+| Japan East          | August 10, 2016              | August 24, 2016              |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
-| North Europe        | Not determined yet           | Not determined yet           |
+| North Europe        | August 10, 2016              | August 24, 2016              |
 | South Central US    | June 23, 2016                | July 2, 2016                 |
 | Southeast Asia      | June 23, 2016                | July 1, 2016                 |
 | West Europe         | June 23, 2016                | July 8, 2016                 |
@@ -98,10 +98,8 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the steps below to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
 
-> [AZURE.NOTE] SQL Data Warehouse with Premium Storage is not currently geo-redundant.  This means that once your Data Warehouse is migrated over to Premium Storage, the data will only reside in your current region.  Once available, Geo-Backups will copy your Data Warehouse every 24 hours to the [Azure paired region][], allowing you to restore from the Geo-Backup to any region in Azure.  Once Geo-Backup functionality is available for self-migrations, it will be announced on our [main documentation site][].  In contrast, automatic migrations will not have this limitation.  
-
 ### Self-migration instructions
-If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around 1 hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps below for [rename workaround][]. 
+If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around 1 hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps below for [steps to rename during migration][]. 
 
 1.	[Pause][] your DW which will take an automatic backup
 2.	[Restore][] from your most recent snapshot
@@ -112,18 +110,18 @@ If you would like to control your downtime, you can self-migrate your Data Wareh
 >	-  Auditing at the Database level will need to be re-enabled
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
-#### Optional: rename workaround 
-Two databases on the same logical server cannot have the same name. SQL Data Warehouse does not currently support the ability to rename a DW.  The instructions below will get you around this missing functionality during a self-migration (note: automatic migrations will not have this limitation).
+#### Optional: steps to rename during migration 
+Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
 
 For the purpose of this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
-1.	[Pause][] "MyDW" which will take an automatic backup
-2.	[Restore][] from your most recent snapshot a new database with a different name like "MyDWTemp"
-3.	Delete "MyDW".  **If you fail to do this step, you will be charged for both DWs.**
-4.	Since "MyDWTemp" is a newly created DW, the backup will not be available to restore from for a period of time.  It is recommended to continue operations for a couple of hours on "MyDWTemp" and then continue with steps 5 and 6.
-5.	[Pause][] "MyDWTemp" which will take an automatic backup.
-6.	[Restore][] from your most recent "MyDWTemp" snapshot a new database with the name "MyDW".
-7.	Delete "MyDWTemp". **If you fail to do this step, you will be charged for both DWs.**
+1.	Rename "MyDW" using the ALTER DATABASE command that follows to something like "MyDW_BeforeMigration".  This will kill all existing transactions and must be done in the master database to succeed.
+```
+ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
+```
+2.	[Pause][] "MyDW_BeforeMigration" which will take an automatic backup
+3.	[Restore][] from your most recent snapshot a new database with the name you used to have (ex: "MyDW")
+4.	Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
 
 > [AZURE.NOTE] These settings will not carry over as part of the migration:
 > 
@@ -131,6 +129,57 @@ For the purpose of this example, imagine that your existing DW on Standard Stora
 >	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Next steps
+With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  If you encounter any performance issues, we recommend that you rebuild your Clustered Columnstore Indexes using the script below.  This will force some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
+
+**Pre-requisites:**
+
+1.	Data Warehouse should run with 1,000 DWUs or higher (see [scale compute power][])
+2.	User executing the script should be in the [mediumrc role][] or higher
+	1.	To add a user to this role, execute the following: 
+		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+
+````sql
+-------------------------------------------------------------------------------
+-- Step 1: Create Table to control Index Rebuild
+-- Run as user in mediumrc or higher
+--------------------------------------------------------------------------------
+create table sql_statements
+WITH (distribution = round_robin)
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+    row_number() over (order by s.name, t.name) as sequence
+from 
+    sys.schemas s
+    inner join sys.tables t
+        on s.schema_id = t.schema_id
+where
+    is_external = 0
+;
+go
+ 
+--------------------------------------------------------------------------------
+-- Step 2: Execute Index Rebuilds.  If script fails, the below can be rerun to restart where last left off
+-- Run as user in mediumrc or higher
+--------------------------------------------------------------------------------
+
+declare @nbr_statements int = (select count(*) from sql_statements)
+declare @i int = 1
+while(@i <= @nbr_statements)
+begin
+      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+      exec (@statement)
+      delete from sql_statements where sequence = @i
+      set @i += 1
+end;
+go
+-------------------------------------------------------------------------------
+-- Step 3: Cleanup Table Created in Step 1
+--------------------------------------------------------------------------------
+drop table sql_statements;
+go
+````
+
 If you encounter any issues with your Data Warehouse, please [create a support ticket][] and reference “Migration to Premium Storage” as the possible cause.
 
 <!--Image references-->
@@ -143,7 +192,9 @@ If you encounter any issues with your Data Warehouse, please [create a support t
 [main documentation site]: ./services/sql-data-warehouse.md
 [Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
 [Restore]: ./sql-data-warehouse-manage-database-restore-portal.md
-[rename workaround]: #optional-rename-workaround
+[steps to rename during migration]: #optional-steps-to-rename-during-migration
+[scale compute power]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[mediumrc role]: ./sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 

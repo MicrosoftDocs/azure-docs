@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
    
 # Creating a performance testing environment for Elasticsearch on Azure
@@ -78,14 +78,14 @@ entails configuring each Elasticsearch node with a public IP address. If this is
 Elasticsearch configuration, then consider implementing the JMeter VMs in the same VNet as the 
 Elasticsearch cluster by using the same resource group, in which case you can omit this first procedure.
 
-First, [create a resource group](../articles/resource-group-portal/#create-resource-group-and-resources). 
+First, [create a resource group](../resource-group-template-deploy-portal.md). 
 This document assumes that your resource group is named *JMeterPerformanceTest*. If you wish to run the 
 JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource group as that cluster 
 instead of creating a new one.
 
 ## Creating the JMeter Master Virtual Machine
 
-Next [create a Windows VM](../articles/virtual-machines-windows-hero-tutorial/) using the 
+Next [create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) using the 
 *Windows Server 2008 R2 SP1* image.  We recommend selecting a VM size with sufficient cores and memory 
 to run the performance tests. Ideally this will be a machine with at least 2 cores and 3.5GB of RAM 
 (A2 Standard or bigger).
@@ -97,13 +97,13 @@ We recommend that you disable the diagnostics. When creating the VM in the porta
 default values.
 
 Verify that the VM and all the associated resources have been created successfully by 
-[examining the resource group](../articles/resource-group-portal/#browse-resource-groups) in the portal. 
+[examining the resource group](../azure-portal/resource-group-portal.md#manage-resource-groups) in the portal. 
 The resources listed should consist of a VM, a network security group, and a public IP address all with 
 the same name, and network interface and storage account with names based on that of the VM.
 
 ## Creating the JMeter Subordinate Virtual Machines
 
-Now [create a Linux VM](../articles/virtual-machines-linux-tutorial-portal-rm/) using the 
+Now [create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) using the 
 *Ubuntu Server 14.04 LTS* image.  As with the JMeter Master VM, select a VM size with sufficient cores 
 and memory to run the performance tests. Ideally this will be a machine with at least 2 cores, and at 
 least 3.5GB of RAM (Standard A2 or bigger).
@@ -116,7 +116,7 @@ You can create as many Subordinate VMs as you wish.
 
 The JMeter Subordinate VMs are running Linux and by default you cannot connect to them by opening a 
 remote desktop connection (RDP). Instead, you can 
-[use PuTTY to open a command line window](../articles/virtual-machines-linux-how-to-log-on/) on each VM.
+[use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-classic-log-on.md) on each VM.
 
 Once you've connected to one of the Subordinate VMs, we'll use bash to setup JMeter.
 

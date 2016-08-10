@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -220,9 +220,8 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating an Expensify test user
 
-In this section, you create a user called Britta Simon in Expensify. Expensify supports just-in-time provisioning, which is enabled by default.
-
-There is no action item for you in this section. A new user is created when accessing Expensify if the user doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+In this section, you create a user called Britta Simon in Expensify. Please work with Expensify support team 
+to add the users in the Expensify platform.
 
 > [AZURE.NOTE] If you need to create a user manually, you need to contact the Expensify support team.
 

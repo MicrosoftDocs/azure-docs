@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Microsoft Azure new support request File Upload utility guidelines | Microsoft Azure"
 	description="Describes the guidelines when using Microsoft Azure new support request File Upload utility"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags

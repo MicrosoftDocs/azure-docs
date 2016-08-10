@@ -64,7 +64,7 @@ To create a VPN gateway for the ARM VNet, follow the instructions below.
 
 3. Create a public IP address for the gateway by running the command below.
 
-		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP`
+		$ipaddress = New-AzureRmPublicIpAddress -Name gatewaypubIP `
 			-ResourceGroupName RG1 -Location "East US" `
 			-AllocationMethod Dynamic
 
@@ -77,16 +77,17 @@ To create a VPN gateway for the ARM VNet, follow the instructions below.
 
 5. Create an IP configuration object for the gateway by running the command below. Notice the id for a gateway subnet. That subnet must exist in the VNet.
 
+
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
-			-Name ipconfig -PrivateIpAddress 10.1.2.4 `
-			-SubnetId $subnet.id -PublicIpAddressId $ipaddress.id
+		-Name ipconfig -SubnetId $subnet.id `
+		-PublicIpAddressId $ipaddress.id
 
 	>[AZURE.IMPORTANT] The *SubnetId* and *PublicIpAddressId* parameters must be passed the id property from the subnet, and IP adress objects, repectively. You cannot use a simple string.
 	
 5. Create the ARM VNet gateway by running the command below.
 
 		New-AzureRmVirtualNetworkGateway -Name v1v2Gateway -ResourceGroupName RG1 `
-			-Location "East US" -GatewayType Vpn -IpConfigurations $ipconfig `
+			-Location "East US" -GatewaySKU Standard -GatewayType Vpn -IpConfigurations $ipconfig `
 			-EnableBgp $false -VpnType RouteBased
 
 6. Once the VPN gateway is created, retrieve its public IP address by running the command below. Copy the IP address, you will need it to configure the local network for the classic VNet.

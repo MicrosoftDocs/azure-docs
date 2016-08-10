@@ -3,7 +3,7 @@
 	description="This page describes some common resource limits for Azure SQL Database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/02/2016"
+	ms.date="07/19/2016"
 	ms.author="carlrab" />
 
 
@@ -60,7 +60,7 @@ For an expanded definition of each resource listed in the previous tables, see t
 | Area | Limit | Description |
 |---|---|---|
 | Databases using Automated export per subscription | 10 | Automated export allows you to create a custom schedule for backing up your SQL databases. For more information, see [SQL Databases: Support for Automated SQL Database Exports](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
-| Database per server | Up to 5000 | Up to 5000 databases are allowed per server on V12 servers. Lower limits may apply in practice depending on log-in activity across all databases on the server and query usage on system views in the master database. Customers are recommended to monitor database connections for any issues when significantly increasing the number of databases on a server. |  
+| Database per server | Up to 5000 | Up to 5000 databases are allowed per server on V12 servers. |  
 | DTUs per server | 45000 | 45000 DTUs are available per server on V12 servers for provisioning databases, elastic pools and data warehouses. |
 
 

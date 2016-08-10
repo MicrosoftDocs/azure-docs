@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources using C# 
@@ -75,8 +75,8 @@ The Azure Active Directory application is created and the authentication library
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }

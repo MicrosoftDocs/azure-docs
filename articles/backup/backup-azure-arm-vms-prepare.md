@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/01/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -50,7 +50,7 @@ Before you prepare your environment, please understand the limitations.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - You can back up virtual machines only for select operating system versions:
-  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Linux**: Azure Backup supports  [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -84,7 +84,7 @@ To create a recovery services vault:
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 

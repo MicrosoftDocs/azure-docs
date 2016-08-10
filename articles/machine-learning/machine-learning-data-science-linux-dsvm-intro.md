@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
-
 
 The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image that is pre-installed and configured with a collection of tools that are commonly used for doing data analytics and machine learning. The key software components included are:
 
@@ -65,6 +64,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
+
   **a. Basics**: 
 
    - **Name**: Name of your data science server you are creating.
@@ -82,7 +82,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 
    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-   - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values. 
 
   **d. Summary**: 
 
@@ -118,21 +118,6 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
 
 Once you login to the VM using either the SSH client OR XFCE graphical desktop through X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE you can see applications menu shortcuts and desktop icons for many of the tools. 
 
-## How to create a strong password on the Jupyter notebook server 
-
-Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
-
-	python -c "import IPython;print(IPython.lib.passwd())"
-
-Enter a strong password when prompted.
-
-You will see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **/usr/local/etc/jupyter/jupyter_notebook_config.py** with a parameter name ***c.NotebookApp.password***. You will need to edit this file as the **root user**. 
-
-You should only replace the existing hash value that is within the quotes. The quotes and the ***sha1:*** prefix for the parameter value need to be retained.
-
-Finally, you need to stop and restart the Jupyter service that is installed in /etc/init.d/jupyter folder. 
-
->[AZURE.NOTE] If your new password is not accepted after restarting jupyter or you have issues stopping jupyter, try restarting the virtual machine.
 
 ## Tools installed on the Linux Data Science Virtual Machine
 
@@ -163,12 +148,19 @@ Python 3.5 is installed at */anaconda/envs/py35/bin*
 
 Now to invoke python interactive session just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding setup, you can type ***spyder*** command to launch the Python IDE. 
 
-### Jupyter Notebook
-The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server.
+### Jupyter Notebook 
+
+The Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. The Jupyter Notebook is accessed through JupyterHub. You log in using your local Linux username and password.
+
+The Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
 
 >[AZURE.NOTE] Continue if you get any certificate warnings. 
 
-You can access the Jupyter notebook server from any host. Just type in "https://\<VM DNS name or IP Address\>:9999/". We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created earlier. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
+You can access the Jupyter notebook server from any host. Just type in "https://\<VM DNS name or IP Address\>:8000/". 
+
+>[AZURE.NOTE] Port 8000 is opened in the firewall by default when the VM is provisioned.
+
+We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using your local Linux username and password. You can create a new notebook by selecting "New" and then the language kernel. If you don't see the "New" button, click on the Jupyter icon on the top left to go to the home page of the notebook server. 
 
 
 ### IDEs and Editors 
@@ -231,11 +223,8 @@ The following Azure tools are installed on the VM:
 - **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
 - **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool used to browse through the objects that you have stored in your Azure Storage Account, and to upload/download data to and from Azure blobs. You can access the Storage Explorer from desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be logged in from an X2go client or have X11 forwarding setup. 
 - **Azure Libraries**: The following are the some of the libraries  that have been installed and so are available for you:
-
 - **Python**: The Azure related libraries in Python that are installed are ***azure***, ***azureml***, ***pydocumentdb***, ***pyodbc***. The first three libraries allow you to access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with Microsoft ODBC driver for SQL Server), enables access to Microsoft SQL Server, Azure SQL Database and Azure SQL Datawarehouse from Python using an ODBC interface. Please enter ***pip list*** to see all the listed library. Be sure to run this command in both Python 2.7 and 3.5 environment. 
-
 - **R**: The Azure related libraries in R that are installed are ***AzureML*** and ***RODBC***. 
-
 - **Java**: The list of Azure Java libraries can be found in the directory ***/dsvm/sdk/AzureSDKJava*** on the VM. The key libraries are Azure storage and management APIs, DocumentDB, and JDBC drivers for SQL Server.  
 
 You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage and monitor Azure resources. 

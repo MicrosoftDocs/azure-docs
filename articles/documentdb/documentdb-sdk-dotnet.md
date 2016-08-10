@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
-	description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
+	pageTitle="DocumentDB .NET API & SDK | Microsoft Azure" 
+	description="Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,28 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB APIs and SDKs 
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB .NET SDK
+## DocumentDB .NET API and SDK
 
 <table>
-<tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-<tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**Samples**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
-<tr><td>**Current Supported Framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Release Notes
+
+### <a name="1.9.2"/>[1.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+
+  - Added support for parallel queries for partitioned collections.
+  - Added support for cross partition ORDER BY and TOP queries for partitioned collections.
+  - Fixed the missing references to DocumentDB.Spatial.Sql.dll and Microsoft.Azure.Documents.ServiceInterop.dll that are required when referencing a DocumentDB project with a reference to the DocumentDB Nuget package.
+  - Fixed the ability to use parameters of different types when using user-defined functions in LINQ. 
+  - Fixed a bug for globally replicated accounts where Upsert calls were being directed to read locations instead of write locations.
+  - Added methods to the IDocumentClient interface that were missing: 
+      - UpsertAttachmentAsync method that takes mediaStream and options as parameters
+      - CreateAttachmentAsync method that takes options as a parameter
+      - CreateOfferQuery method that takes querySpec as a parameter.
+  - Unsealed public classes that are exposed in the IDocumentClient interface.
 
 ### <a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Added the support for multi-region database accounts.
@@ -51,7 +68,7 @@
   - Added time to live (TTL) support for documents.
 
 ### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
-  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
+  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of an Azure Cloud Service solution.
   
 ### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
   - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
@@ -131,7 +148,7 @@ There was a change of NuGet package name between preview and GA. We moved from *
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
@@ -142,6 +159,9 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.9.2](#1.9.2) | July 23, 2016 |---
+| 1.9.1 | Deprecated |---
+| 1.9.0 | Deprecated |---
 | [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | May 06, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---

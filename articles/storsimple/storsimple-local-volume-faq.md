@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/25/2016"
+   ms.date="07/26/2016"
    ms.author="manuaery" />
 
 # StorSimple locally pinned volumes: frequently asked questions (FAQ)
