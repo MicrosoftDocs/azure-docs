@@ -28,7 +28,7 @@
 
 ##Overview 
 
-This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) in the Azure Resource Manager (ARM) framework. The cmdlets exist in the **Microsoft.Azure.Commands.Media** namespace.
+This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) in the Azure Resource Manager framework. The cmdlets exist in the **Microsoft.Azure.Commands.Media** namespace.
 
 ## Versions
 
@@ -91,7 +91,7 @@ Accept wildcard characters? |false
 
 Specifies a primary storage account that associated with the media service.
 
-- New storage account (created with the ARM API) supported only.
+- New storage account (created with the Resource Manager API) supported only.
 
 - The storage account must exist and has the same location with the media service.
 
@@ -108,7 +108,7 @@ Accept wildcard characters?|false
 
 Specifies storage accounts that associated with the media service.
 
-- New storage account (created with the ARM API) supported only.
+- New storage account (created with the Resource Manager API) supported only.
 
 - The storage account must exist and has the same location with the media service.
 
@@ -187,7 +187,7 @@ Accept wildcard characters? |False
 
 Specifies storage accounts that associated with the media service.
 
-- New storage account (created with the ARM API) supported only.
+- New storage account (created with the Resource Manager API) supported only.
 
 - The storage account must exist and has the same location with the media service.
 
