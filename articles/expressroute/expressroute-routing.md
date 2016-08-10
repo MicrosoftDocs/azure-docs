@@ -124,8 +124,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | East US | 12076:51004 |
 |    | East US 2 | 12076:51005 |
 |    | West US | 12076:51006 |
-|    | West US 2 | 12076:51022 |
-|    | West Central US | 12076:51023 |
+|    | West US 2 | 12076:51026 |
+|    | West Central US | 12076:51027 |
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
