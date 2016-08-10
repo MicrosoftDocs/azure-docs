@@ -36,7 +36,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 ## Prepare Windows configuration for upload
 
-> [AZURE.NOTE] You must run the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
+> [AZURE.NOTE] You should run the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
@@ -52,7 +52,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
    - `sc config w32time start= auto`
 
-5. Make sure that the below windows services are set to its windows default values which are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
+5. Make sure that the following windows services are set to its windows default values, which are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
 
 		sc config bfe start= auto
 
@@ -101,7 +101,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
 
    For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
-	 
+
 7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP service:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
@@ -174,8 +174,8 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
-12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [here](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to see how to rebuild the repository. /).
-13. Ensure the BCD settings are the same as below:
+12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  click [here](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to see how to rebuild the repository.
+13. Ensure the BCD settings are the same as following:
 
 		bcdedit /set {bootmgr} device partition=<Boot Partition>
 
@@ -193,11 +193,11 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
 15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
-16.	Uninstall the other 3rd party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
+16.	Uninstall the other third-party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
 17. Make sure that there is no third-party application is using Port 3389. This port is used for the RDP service in Azure.
 18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
 19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP connection.
-20.	Reset the current local administrator password and make sure you can use this account to login Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment".
+20.	Reset the current local administrator password and make sure you can use this account to login Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
 22. Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
