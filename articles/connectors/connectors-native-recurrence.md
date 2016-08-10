@@ -45,7 +45,7 @@ The logic app now starts a run after each interval of time.
 
 The recurrence trigger has the following properties that you can configure.
 
-Fire a logic app after a specified time interval.
+It fires a logic app after a specified time interval.
 A * means that it is a required field.
 
 |Display name|Property name|Description|
