@@ -34,7 +34,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ### VM recommendations
 
-- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
+- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
 
 - When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
 
@@ -88,7 +88,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
 ## Manageability considerations
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **Resource groups.** Put tightly-coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
 - **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
@@ -98,7 +98,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
     azure vm enable-diag <resource-group> <vm-name>
      ```
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM is de-allocated.
 
     Use the following CLI command to de-allocate a VM:
 
@@ -118,7 +118,7 @@ Provisioning VM in Azure involves more moving parts than just the VM itself. The
 
     - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
-    - Once data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+    - When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
 - **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
@@ -216,7 +216,7 @@ The script references the following parameter files to build the VM and the surr
 
 	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
 
-	```powershell
+	```text
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
@@ -299,7 +299,7 @@ The solution assumes the following prerequisites:
 
 - You have an existing Azure subscription in which you can create resource groups.
 
-- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+- You have downloaded and installed the most recent build of Azure PowerShell. See [here][azure-powershell-download] for instructions.
 
 To run the script that deploys the solution:
 
@@ -326,11 +326,11 @@ To run the script that deploys the solution:
 	```powershell
 	$resourceGroupName = "app1-dev-rg"
 	```
-6. Edit each of the json files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
+6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
 
-	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as the one you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
-7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+7. Open a PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
@@ -344,7 +344,7 @@ To run the script that deploys the solution:
 
 ## Next steps
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
+In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
