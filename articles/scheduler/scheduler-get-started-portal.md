@@ -94,7 +94,7 @@ For storage queue action types, you may change the storage account, queue name, 
 
 For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
 
-      ![][job-action-settings]
+   ![][job-action-settings]
 
 ### Schedule
 
