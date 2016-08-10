@@ -18,7 +18,7 @@
 
 # About VPN devices for Site-to-Site VPN Gateway connections
 
-A VPN device is required in order to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. Please note that when configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                                
+A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. Please note that when configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                                
 
 If your device doesn't appear in the Validated VPN devices table, see the Non-validated VPN devices section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
 
@@ -32,7 +32,7 @@ If your device doesn't appear in the Validated VPN devices table, see the Non-va
 
 ## Validated VPN devices 
 
-We have validated a set of standard VPN devices in partnership with device vendors. All of the devices in the device families contained in the list below should work with Azure VPN gateways. See the [VPN gateways](vpn-gateway-about-vpngateways.md) article to verify the type of gateway that you'll need to create for the solution you want to configure. 
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See the [VPN gateways](vpn-gateway-about-vpngateways.md) article to verify the type of gateway that you'll need to create for the solution you want to configure. 
 
 To help configure your VPN device, please refer to the links that correspond to appropriate device family. 
 
@@ -97,7 +97,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 ## IPsec Parameters
 
->[AZURE.NOTE] Although the values listed below are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
+>[AZURE.NOTE] Although the values listed in the following table are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
 
 ### IKE Phase 1 setup
 
@@ -125,7 +125,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 ### Route-based Gateway IPsec Security Association (SA) Offers
 
-The table below lists IPsec SA Encryption and Authentication Offers. Offers are listed the order of preference that the offer is presented or accepted.
+The following table lists IPsec SA Encryption and Authentication Offers. Offers are listed the order of preference that the offer is presented or accepted.
 
 | **IPsec SA Encryption and Authentication Offers** | **Azure Gateway as initiator**                               | **Azure Gateway as responder**                                   |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
@@ -149,7 +149,7 @@ The table below lists IPsec SA Encryption and Authentication Offers. Offers are 
 | 18                                                | -                                                            | AH MD5, no lifetimes                                         |
 
 
-- You can specify IPsec ESP NULL encryption with route-based and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may chose to use this in vnet-to-vnet communication scenarios, or when encryption is being applied elsewhere in the solution.
+- You can specify IPsec ESP NULL encryption with route-based and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may choose to use this in vnet-to-vnet communication scenarios, or when encryption is being applied elsewhere in the solution.
 
 - For cross-premises connectivity through the Internet, please use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
 
