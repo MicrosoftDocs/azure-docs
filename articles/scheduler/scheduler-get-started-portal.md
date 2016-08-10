@@ -100,7 +100,7 @@ For service bus action types, you may change the namespace, topic/queue path, au
 
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
-This is an opoprtunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
 
 You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
 
@@ -150,7 +150,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
  [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Scheduler limits, lefaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
