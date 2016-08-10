@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/10/2016"
 	ms.author="jeedes"/>
 
 
@@ -121,27 +121,27 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_07.png)
 
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://app.asana.com`
+    a. In the Sign On URL textbox, type a URL using the following pattern: `https://app.asana.com`
 
 	c. Click **Next**.
 
-5. On the **Configure single sign-on at Asana** page, Click **Download metadata**, and then save the file on your computer. Also, copy the value for SAML SSO URL.
+5. On the **Configure single sign-on at Asana** page, Click **Download certificate**, and then save the file on your computer. Also, copy the value for SAML SSO URL.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_08.png)
 
-8. Open the metadata file and locate the tag **<X509Certificate\>**. Copy and save the content inside the tag. This is the X.509 certificate, we will need it later to configure SSO with Asana.
+8. Right click on the certificate, then open the certificate file using Notepad or you preferred text editor. Copy the content between the begin and the end certificate title. This is the X.509 certificate you will use in Asana to configure SSO.
 
-	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_11.png)
-
-6. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking on the workspace name on the top right corner of the screen. Then, click on **<your workspace name\> Settings**. 
+6. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking on the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_09.png)
 
-7. On the **Organization settings** window, click **Administration**. Then, click **Members must log in via SAML** to enable the SSO configuration.
+7. On the **Organization settings** window, click **Administration**. Then, click **Members must log in via SAML** to enable the SSO configuration. The perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)
 
-8. Paste the value you have copied for SAML Sign on URL into the Sign-in page URL textbox and the X.509 Certificate you have copied from the metadata file into the X.509 Certificate textbox.
+	a. In the **Sign-in page URL** texbox, paste the SAML Sign on URL from Azure AD.
+
+	b. In the **X.509 Certificate** textbox, paste the X.509 Certificate you have copied from Azure AD.
 
 9. Click **Save**. Go to [Asana guide for setting up SSO](https://asana.com/guide/help/premium/authentication#gl-saml) if you need further assistance.
 
@@ -221,8 +221,8 @@ In this section, you create a user called Britta Simon in Asana.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
 
-2. Type the email britta.simon@contoso.com in the textbox and then select **Invite**.
-3. Click **Send Invite**. The new user will recceive an email into her email account. She will need to create and validate the account.
+2. Type the email britta.simon@contoso.com in the text box and then select **Invite**.
+3. Click **Send Invite**. The new user will receive an email into her email account. She will need to create and validate the account.
 
 
 ### Assigning the Azure AD test user
@@ -256,7 +256,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD single sign-on.
 
-Go to Asana login page. In the Email address text box insert the email address britta.simon@contoso.com. Leave the password text box in blank and then click **Log In**. You will be redirected to Azure AD login page. Complete your Azure AD credentials. Now, you are logged in on Asana.
+Go to Asana login page. In the Email address textbox insert the email address britta.simon@contoso.com. Leave the password textbox in blank and then click **Log In**. You will be redirected to Azure AD login page. Complete your Azure AD credentials. Now, you are logged in on Asana.
 
 ## Additional resources
 
