@@ -41,7 +41,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 	* Set **Status** to **On** to enable diagnostic logging.
 	* You can choose to store/process the data in two different ways.
 		* Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
-		* Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data that will be processed at a later date. If you select this option, you must provide an Azure Storage account to save the logs to.
+		* Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure Storage account to save the logs to.
 	* Specify whether you want to get audit logs or request logs or both.
 	* Specify the number of days for which the data must be retained.
 	* Click **Save**.
@@ -94,7 +94,7 @@ There are two ways to view the log data for your Data Lake Analytics account.
                                   m=00/
                                     PT1H.json
     
-    > [AZURE.NOTE] The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` will always contain a value of `00`.
+    > [AZURE.NOTE] The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` always contains a value of `00`.
 
 	As an example, the complete path to an audit log could be:
     
@@ -150,7 +150,7 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | operationName   | String | Name of the operation that is logged. For example, GetAggregatedJobHistory.              |
 | resultType      | String | The status of the operation, For example, 200.                                 |
 | callerIpAddress | String | The IP address of the client making the request                                |
-| correlationId   | String | The id of the log. This can be used to group together a set of related log entries |
+| correlationId   | String | The id of the log. This value can be used to group a set of related log entries |
 | identity        | Object | The identity that generated the log                                            |
 | properties      | JSON   | See the next section (Request log properties schema) for details |
 
@@ -205,7 +205,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | identity      | String | The the user that requested the operation. For example, susan@contoso.com.                                 |
 | properties      | JSON   | See the next section (Audit log properties schema) for details |
 
-> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and will only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
+> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
 
 #### Audit log properties schema
 
@@ -219,7 +219,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | EndTime | String | The time the job ended. |
 | Parallelism | String | The number of Data Lake Analytics units requested for this job during submission. |
 
-> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and will only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
+> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
 
 ## Samples to process the log data
 
