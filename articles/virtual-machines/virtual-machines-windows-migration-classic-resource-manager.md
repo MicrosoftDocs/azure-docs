@@ -85,6 +85,7 @@ Compute | Virtual machine images.
 Network | Endpoint ACLs.
 Network | Virtual network gateways (site to site, Azure ExpressRoute, application gateway, point to site).
 Network | Virtual networks using VNet Peering. (Migrate the virtual network to ARM and then peer if desired)
+Network | Traffic Manager profiles.
 
 ### Unsupported configurations
 
