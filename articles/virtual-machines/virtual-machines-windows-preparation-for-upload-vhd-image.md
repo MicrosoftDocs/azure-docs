@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Best Practices for preparing Windows VHD before uploading to Azure | Microsoft Azure"
+	pageTitle="Prepare a Windows VHD to upload to Azure | Microsoft Azure"
 	description="Best Practices for preparing Windows VHD before uploading to Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
+	ms.date="08/09/2016"
 	ms.author="genli"/>
 
-# Best Practices for preparing Windows VHD before uploading to Azure
+# Prepare a Windows VHD to upload to Azure
 
-The following are best practices for preparing Windows VHD for Azure:
+The following are recommended steps for preparing Windows VHD for Azure:
 
 ## Prepare VM configuration for upload
 
-1.	Make sure that the Windows VHD is working fine in the local Hyper-V server.
+1.	Make sure that the Windows VHD is working fine in the local server.
 2.	Azure can only accept VHD disk file that created for generation 1 virtual machines. The disk must be in **Fixed size**. The maximum size allowed for the VHD is 1,023 GB.
 
 	If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
@@ -33,14 +33,6 @@ The following are best practices for preparing Windows VHD for Azure:
 	- [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx): Read the blog post [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) for more information.
 
 	If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
-
-3.	Remove the Network adapter from Hyper-V Manager and set to **Not connected** or reset all the network interfaces to default in Windows:
-
-	 A. Remove all static IP address, gateway and DNS settings.
-
-	 B.	Set the IP setting to **Obtain an IP address automatically**.
-
-	 C. Set the DNS setting to **Obtain DNS server address automatically**.
 
 ## Prepare Windows configuration for upload
 
@@ -182,7 +174,7 @@ The following are best practices for preparing Windows VHD for Azure:
 
 				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
-12. Make sure that the [Windows Management Instrumentation (WMI) repository is healthy](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not/).
+12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [here](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to see how to rebuild the repository. /).
 13. Ensure the BCD settings are the same as below:
 
 		bcdedit /set {bootmgr} device partition=<Boot Partition>
@@ -231,7 +223,7 @@ The following are best practices for preparing Windows VHD for Azure:
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
-## Additional configuration
+## Suggested extra configuration
 
 The following settings will not affect VHD uploading. However, it is good to have them configured.
 
