@@ -206,7 +206,7 @@ Accept wildcard characters? |false
 
 Specifies a hash table of the tags that are associated with this media service.
 
-- The tags that are associated with the media service will be replaced with value specified by the customer.
+- The tags that are associated with the media service are replaced with value specified by the customer.
 
 Aliases |none
 ---|---
@@ -496,7 +496,7 @@ The output type is the type of the objects that the cmdlet emits.
 
 ## Next step 
 
-Please check out Media Services learning paths.
+Check out Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
