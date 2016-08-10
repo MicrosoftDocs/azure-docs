@@ -13,7 +13,7 @@ Click the scorecard links for each article to review the Acrolinx feedback on gr
    ;; linebreak
    :template-change
    "
-* **Article: ${github/filename}**: score ${acrolinx/qualityscore}, ${acrolinx/flags/total} issues, [scorecard link](${acrolinx/scorecard}) 
+* **${github/filename}**: score ${acrolinx/qualityscore}, ${acrolinx/flags/total} issues, [scorecard link](${acrolinx/scorecard}) 
 "
 
  :template-footer
