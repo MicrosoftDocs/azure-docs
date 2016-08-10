@@ -20,12 +20,12 @@
 
 # How to setup automatic registration of Windows domain joined devices with Azure Active Directory 
 
-Registration of Windows domain joined computers with Azure AD is required to enable Device-based Conditional Access (link: Securing access to Office 365 and other apps connected to Azure AD) and additional user experiences in Windows 10 Anniversary.
+Registration of Windows domain joined computers with Azure AD is required to enable [Azure Active Directory device-based conditional access](active-directory-conditional-access.md).
 
 Update like allowing the use of the work or school account to get an enhanced SSO experience to Azure AD apps, enterprise roaming of settings across devices, use of the Windows Store for Business and have a stronger authentication and convenient sign-in with Windows Hello. 
 
 > [AZURE.NOTE] Windows 10 November 2015 Update supports some of the enhanced user experiences, however it is the Anniversary Update which has full support for Device-based Conditional Access.  
-For more information on Conditional Access please see [Azure Active Directory Conditional Access](active-directory-conditional-access.md).  
+For more information on conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access.md).  
 For more information on Windows 10 devices in the workplace and the  experiences users get when registered with Azure AD please see [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md). 
 
 
@@ -261,7 +261,10 @@ To set the policy, perform the following steps:
 
 ## MSI package for non-Windows 10 computers  
 
-To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download under the following location. 
+To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download:
+
+- [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
+- [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
 
 You should deploy this package using a software distribution system such as System Center Configuration Manager. The package supports the standard silent install options using the /quiet parameter. If you use System Center Configuration Manager 2016 you will enjoy additional benefits like the ability to track completed registrations. For more information, please see [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-2016). 
 
