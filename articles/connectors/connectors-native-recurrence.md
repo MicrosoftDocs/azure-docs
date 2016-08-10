@@ -52,8 +52,8 @@ A * means that it is a required field.
 |---|---|---|
 |Frequency*|frequency|The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`.|
 |Interval*|interval|The interval of the given frequency for the recurrence.|
-|Time Zone|timeZone|If a startTime is provided without a UTC offset, this timeZone will be used.|
-|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). If a startTime is provided without a UTC offset, this timeZone will be used.|
+|Time Zone|timeZone|If a start time is provided without a UTC offset, this time zone will be used.|
+|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
 <br>
 
 
