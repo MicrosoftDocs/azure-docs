@@ -76,7 +76,7 @@ The easiest way to start working with a template is to either grab one of the Qu
 
     ![add variables](./media/resource-manager-vs-code/add-variables.png)
 
-5. Intellisense can also suggest available values or functions. To set a property to a parameter value, create an expression with **"[]"** and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
+5. IntelliSense can also suggest available values or functions. To set a property to a parameter value, create an expression with **"[]"** and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
 
     ![add parameter](./media/resource-manager-vs-code/select-parameters.png)
 
