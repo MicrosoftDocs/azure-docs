@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/08/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -125,7 +125,6 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 |---|---|---|---|
 | Virtual machine image | No | Yes | No|
 | Developer service | Yes | Yes | Yes |
-| Data service | Yes | No | No |
 
 ### 2.1. Set your VM prices
 Presently for virtual machines, we have the following **3 types of billing models:**

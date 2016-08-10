@@ -53,4 +53,4 @@ Here are some examples of using PowerShell to manage Key Vault:
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Key Vault, follow these links to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md).
-* See the [Azure Key Vault PowerShell scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
+* See the [Azure Key Vault PowerShell scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5).

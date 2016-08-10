@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/20/2016"
+  ms.date="08/10/2016"
   ms.author="araguila"/>
   
 # Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution
