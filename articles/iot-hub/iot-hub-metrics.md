@@ -26,11 +26,11 @@ You can enable diagnostic metrics from the Azure portal.
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
 
-2. Open the blade of your IoT hub. From there, click on **All settings**, and then click **Diagnostics**.
+2. Open the blade of your IoT hub. From there, click **Diagnostics**.
 
     ![][1]
 
-3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check the metrics checkbox, and then press **Save**. Please note that the storage account must be created ahead of time and you will be charged separately for storage.
+3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check the metrics checkbox, and then press **Save**. Please note that the storage account must be created ahead of time and you will be charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 

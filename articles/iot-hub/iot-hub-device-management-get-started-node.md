@@ -66,7 +66,7 @@ You need to create a device management enabled IoT Hub for your simulated device
 
 	![][img-monitor]
 
-5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click the **Keys** icon.
+5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click **Shared access policies**.
 
 	![][img-keys]
 

@@ -84,11 +84,11 @@ Note that it can take a few minutes for the IoT hub to be created as it takes ti
 
 ## Change the settings of the IoT hub
 
-You can change the settings of an existing IoT hub after it is created. Click the IoT hub name to open the settings page.
+You can change the settings of an existing IoT hub after it is created from the IoT Hub blade.
 
 ![][8]
 
-**Shared Access Policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking on **Shared Access Policies** under **Settings**. In this blade, you can either modify existing policies or add a new policy.
+**Shared Access Policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking on **Shared Access Policies** under **General**. In this blade, you can either modify existing policies or add a new policy.
 
 ### Create a new policy
 
@@ -104,7 +104,7 @@ You can change the settings of an existing IoT hub after it is created. Click th
 
 ## Messaging
 
-Click the **Messaging** policies to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that you can modify or copy: **Cloud to Device** and **Device to Cloud**.
+Click **Messaging** to display a list of messaging properties for the IoT hub that is being modified. There are two main types of properties that you can modify or copy: **Cloud to Device** and **Device to Cloud**.
 
 - **Cloud to Device** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. However, you can customize these using the sliders, or type the values.
 

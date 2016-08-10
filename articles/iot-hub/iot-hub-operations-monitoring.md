@@ -32,7 +32,7 @@ IoT Hub monitors five categories of events:
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
 
-2. Open the blade of your IoT hub. From there, click on **All settings**, and then click **Operations monitoring**.
+2. Open the blade of your IoT hub. From there, click **Operations monitoring**.
 
     ![][1]
 

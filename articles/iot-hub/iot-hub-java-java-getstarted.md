@@ -38,7 +38,7 @@ To complete this tutorial you'll need the following:
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-As a final step, make a note of the **Primary key** value, then click **Settings** on the IoT Hub blade, then **Messaging** on the **Settings** blade. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You will need these three values when you create your **read-d2c-messages** application.
+As a final step, make a note of the **Primary key** value, and then click **Messaging**. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You will need these three values when you create your **read-d2c-messages** application.
 
 ![][6]
 

@@ -65,7 +65,7 @@ When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Ev
 
 When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
 
-1. In the IoT hub blade, click **Settings** > **Messaging**.
+1. In the IoT hub blade, click **Messaging**.
 2. In the **Device-to-cloud settings** section, you'll find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
 
     ![Device-to-cloud settings][img-eventhubcompatible]
