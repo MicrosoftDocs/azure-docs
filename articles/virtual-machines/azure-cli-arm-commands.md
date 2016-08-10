@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
 # Azure CLI commands in Resource Manager mode
 
-This article provides syntax and options for Azure command line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters.
+This article provides syntax and options for Azure command line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../resource-group-overview.md).  
 
 To get started, first [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md) by using a work or school account or a Microsoft account identity.
 
@@ -36,12 +36,6 @@ Use the following command to enable Azure CLI Resource Manager commands.
 	azure config mode arm
 
 >[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
-
-## Imperative and declarative approaches
-
-As with the [Azure Service Management mode](../virtual-machines-command-line-tools.md), the Resource Manager mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type `azure group create <groupname> <location>` you are asking Azure to create a resource group, and with `azure group deployment create <resourcegroup> <deploymentname>` you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.
-
-However, using resource group _templates_ that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose. When using templates, the only imperative command is to deploy one. For a general overview of templates, resources, and resource groups, see [Azure Resource Group Overview](../resource-group-overview.md).  
 
 
 ## azure account: Manage your account information
@@ -326,7 +320,7 @@ Parameter options:
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
+Creates a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -1595,7 +1589,7 @@ Parameter options:
 
 ## azure provider: Commands to manage resource provider registrations
 
-**List currently registered providers in ARM**
+**List currently registered providers in Resource Manager**
 
 	provider list [options]
 
