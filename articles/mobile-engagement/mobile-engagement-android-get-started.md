@@ -79,7 +79,7 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 
 	  ![][7]
 
-5. Sync your project in order to load the library.
+5. Sync your project to load the library.
 
 	  ![][8]
 
@@ -100,7 +100,7 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 
 	  ![][9]
 
-4. Paste it in the `setConnectionString` parameter to replace the example provided as shown below:
+4. Paste it into the `setConnectionString` parameter, replacing the entire string shown in the following code:
 
 		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
@@ -115,7 +115,7 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 		<uses-permission android:name="android.permission.VIBRATE" />
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
-2. Add the following between the `<application>` and `</application>` tags to declare the agent service:
+2. To declare the agent service, add this code between the `<application>` and `</application>` tags:
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -141,7 +141,7 @@ Comment out the following line for this simple sample scenario:
 
     // setSupportActionBar(toolbar);
 
-If you want to keep this around, you should check out [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
+If you want to keep the `ActionBar` in your app, see [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connect app with real-time monitoring
 
@@ -149,7 +149,7 @@ If you want to keep this around, you should check out [Advanced Android Reportin
 
 ## Enable push notifications and in-app messaging
 
-Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
+During a campaign, Mobile Engagement lets you interact with and REACH your users with push notifications and in-app messaging. This module is called REACH in the Mobile Engagement portal.
 The following section sets up your app to receive them.
 
 ### Copy SDK resources in your project
