@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # What are the Azure IoT Suite preconfigured solutions?
@@ -24,7 +24,7 @@ The Azure IoT Suite preconfigured solutions are implementations of common IoT so
 - As a starting point for your own IoT solutions.
 - To learn about common patterns in IoT solution design and development.
 
-Each preconfigured solution is a complete, end-to-end implementation using simulated devices to generate telemetry.
+Each preconfigured solution is a complete, end-to-end implementation that uses simulated devices to generate telemetry.
 
 In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
@@ -111,7 +111,7 @@ The solution portal is a web-based UI that is deployed to the cloud as part of t
 - Send commands to specific devices.
 - Manage rules and actions.
 
-In this preconfigured solution, the solution portal forms part of the **IoT solution back end** and part of the **Processing and business connectivity** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the solution portal forms part of the **IoT solution back end** and part of the **Processing and business connectivity** in the typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Next steps
 

@@ -201,7 +201,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you wi
           }
 ```
 
-You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure resource manager templates](../resource-group-authoring templates.md). 
+You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure resource manager templates](../resource-group-authoring-templates.md). 
 
 Once you have a template configured, you create your VMs using the `azure group deployment create` command. Specify the URI of your JSON template with the `--template-uri` parameter:
 
