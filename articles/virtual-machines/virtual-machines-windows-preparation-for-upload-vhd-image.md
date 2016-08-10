@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="08/10/2016"
 	ms.author="genli"/>
 
 # Prepare a Windows VHD to upload to Azure
