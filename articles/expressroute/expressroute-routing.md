@@ -3,8 +3,8 @@
    description="This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # ExpressRoute routing requirements  
@@ -124,6 +124,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | East US | 12076:51004 |
 |    | East US 2 | 12076:51005 |
 |    | West US | 12076:51006 |
+|    | West US 2 | 12076:51022 |
+|    | West Central US | 12076:51023 |
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
