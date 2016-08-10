@@ -156,29 +156,29 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 
 ### .NET
 
-- [Manage Azure resources and resource groups with .NET](azure-resource-manager-dotnet-manage.md)
-- [Deploy an SSH Enabled VM with a Template with .NET](azure-resource-manager-dotnet-deploy.md)
+- [Manage Azure resources and resource groups](azure-resource-manager-dotnet-manage.md)
+- [Deploy an SSH Enabled VM with a Template](azure-resource-manager-dotnet-deploy.md)
 
 ### Java
 
-- [Getting Started with Resources - Manage Resource - in Java](azure-resource-manager-java-manage-resources.md)
-- [Getting Started with Resources - Manage Resource Group - in Java](azure-resource-manager-java-manage-resource-groups.md)
-- [Getting Started with Resources - Deploy Using ARM Template - in Java](hazure-resource-manager-dotnet-deploy.md)
+- [Manage Azure resources](azure-resource-manager-java-manage-resources.md)
+- [Manage Azure resource groups](azure-resource-manager-java-manage-resource-groups.md)
+- [Deploy an SSH Enabled VM with a Template](azure-resource-manager-dotnet-deploy.md)
 
 ### Node.js
 
-- [Manage Azure resources and resource groups with Node.js](azure-resource-manager-node-manage.md)
-- [Deploy an SSH Enabled VM with a Template in Node.js](azure-resource-manager-node-deploy.md)
+- [Manage Azure resources and resource groups](azure-resource-manager-node-manage.md)
+- [Deploy an SSH Enabled VM with a Template](azure-resource-manager-node-deploy.md)
 
 ### Python
 
-- [Manage Azure resources and resource groups with Python](azure-resource-manager-python-manage.md)
-- [Deploy an SSH Enabled VM with a Template in Python](azure-resource-manager-python-deploy.md)
+- [Manage Azure resources and resource groups](azure-resource-manager-python-manage.md)
+- [Deploy an SSH Enabled VM with a Template](azure-resource-manager-python-deploy.md)
 
 ### Ruby
 
-- [Manage Azure resources and resource groups with Ruby](azure-resource-manager-ruby-manage.md)
-- [Deploy an SSH Enabled VM with a Template in Ruby](azure-resource-manager-ruby-deploy.md)
+- [Manage Azure resources and resource groups](azure-resource-manager-ruby-manage.md)
+- [Deploy an SSH Enabled VM with a Template](azure-resource-manager-ruby-deploy.md)
 
 
 In addition to these samples, you can search through the gallery samples.

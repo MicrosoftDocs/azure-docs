@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage Azure Resources and Resource Groups using the Java SDK for Azure | Microsoft Azure"
-   description="Describes how to use the Java SDK for Azure to manage resources and resource groups on Azure."
+   pageTitle="Manage Azure Resources using the Java SDK for Azure | Microsoft Azure"
+   description="Describes how to use the Java SDK for Azure to manage resources on Azure."
    services="azure-resource-manager"
    documentationCenter="java"
    authors="allclark"
