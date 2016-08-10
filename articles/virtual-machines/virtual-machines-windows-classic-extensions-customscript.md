@@ -43,7 +43,7 @@ With the Custom Script extension for Windows, you can run PowerShell scripts on 
 
 The following example shows how you can run your scripts on the VM if they are in the storage container of the default account of your subscription. You upload your scripts to ContainerName. You can verify the default storage account by using the **Get-AzureSubscription –Default** command.
 
-The following example creates a new VM, but you can also run the same scenario on an existing VM.
+The following example creates a VM, but you can also run the same scenario on an existing VM.
 
     # create a new VM in Azure.
     $vm = New-AzureVMConfig -Name $name -InstanceSize Small -ImageName $imagename
