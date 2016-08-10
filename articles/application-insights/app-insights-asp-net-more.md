@@ -17,7 +17,7 @@
 
 # More telemetry from Application Insights
 
-After you have already [added Application Insights to your ASP.NET code](app-insights-asp-net.md), there are a few more things you can do to get even more telemetry about the availability, performance and usage of your app. 
+After you have [added Application Insights to your ASP.NET code](app-insights-asp-net.md), there are a few things you can do to get even more telemetry. 
 
 ## If your app runs on your IIS server ...
 
@@ -37,12 +37,13 @@ You don't need to do anything else, but you can confirm that monitoring is enabl
 
 If Status Monitor is installed on your server machines, you get some additional telemetry:
 
-* Dependency telemetry  (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, Status Monitor is not required for dependency telemetry.) 
+* Dependency telemetry (SQL calls and REST calls made by your app) for .NET 4.5 apps. (For later versions of .NET, Status Monitor is not required for dependency telemetry.) 
 * Exception stack traces show more detail.
-* Performance counters. In Application Insights, you'll see these in the Servers blade.
+* Performance counters. In Application Insights, these counters appear in the Servers blade. 
 
 ![Extend in Azure](./media/app-insights-asp-net-more/070.png)
 
+To see more or fewer counters, [edit the charts](app-insights-metrics-explorer.md). If the performance counter you want isn't in the available set, you can [add it to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
 
 ## If it's an Azure web app ...
 
@@ -80,15 +81,15 @@ Add the Application Insights JavaScript snippet to your web pages, to get teleme
 
 ## Availability web tests
 
-Send your web app HTTP requests at regular intervals from around the world. We'll alert you if the response is slow or unreliable.
+Send your web app HTTP requests at regular intervals from around the world. We alert you if the response is slow or unreliable.
 
-In the Application Insights resource for your app, click the Availability tile to add, edit and view web tests.
+In the Application Insights resource for your app, click the Availability tile to add, edit, and view web tests.
 
 You can add multiple tests running at multiple locations.
 
 ![Extend in Azure](./media/app-insights-asp-net-more/110.png)
 
-[Learn more](app-insights-availability.md)
+[Learn more](app-insights-monitor-web-app-availability.md)
 
 ## Custom telemetry and logging
 
@@ -96,18 +97,18 @@ The Application Insights packages that you added to your code provide an API tha
 
 * [Generate your own events and metrics](app-insights-api-custom-events-metrics.md), for example to count business events or monitor performance.
 * [Capture log traces](app-insights-asp-net-trace-logs.md) from Log4Net, NLog, or System.Diagnostics.Trace.
-* [Filter, modify or augment](app-insights-api-filtering-sampling.md) the standard telemetry sent from your app by writing Telemetry Processors. 
+* [Filter, modify, or augment](app-insights-api-filtering-sampling.md) the standard telemetry sent from your app by writing Telemetry Processors. 
 
 
 ## Powerful analysis and presentation
 
-There are plenty of ways to explore your data. If you've recently started with Application Insights, check out these:
+There are plenty of ways to explore your data. If you've recently started with Application Insights, check out these articles:
 
 ||
 |---|---
-|[**Diagnostic search for instance data**](app-insights-visual-studio.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces and page views. In Visual Studio, go to code from stack traces.|![Visual studio](./media/app-insights-asp-net/61.png)
-|[**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|![Visual studio](./media/app-insights-asp-net-more/060.png)
-|[**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mashup data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.  |![Dashboards sample](./media/app-insights-asp-net/62.png)
+|[**Diagnostic search for instance data**](app-insights-visual-studio.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views. In Visual Studio, go to code from stack traces.|![Visual studio](./media/app-insights-asp-net/61.png)
+|[**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|![Visual studio](./media/app-insights-asp-net-more/060.png)
+|[**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.  |![Dashboards sample](./media/app-insights-asp-net/62.png)
 |[**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.|![Analytics sample](./media/app-insights-asp-net-more/050.png)
 |[**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language.|![Analytics sample](./media/app-insights-asp-net-more/010.png)
 |[**Automatic and manual alerts**](app-insights-alerts.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|![Alert sample](./media/app-insights-asp-net-more/020.png)
