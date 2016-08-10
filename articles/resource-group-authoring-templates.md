@@ -18,7 +18,7 @@
 
 # Authoring Azure Resource Manager templates
 
-This topic describes the structure of an Azure Resource Manager template. It presents the differenct sections of a template and the properties that are available in those sections. The template consists of JSON and expressions which you can use to construct values for your deployment. 
+This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions which you can use to construct values for your deployment. 
 
 For guidance on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md). For recommendations about creating templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 

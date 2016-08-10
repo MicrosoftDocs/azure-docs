@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/22/2016" 
+    ms.date="08/02/2016" 
     ms.author="markvi" />
 
 
@@ -100,7 +100,7 @@ For more details, see [Customizing the AD FS Sign-in Pages](https://technet.micr
 ### Exchange ActiveSync clients support 
 
 
-Certain Exchange ActiveSync applications on iOS 9 or later are supported. To determine if your email application does support this feature, please contact your application developer. 
+On iOS 9 or later, the native iOS mail client is supported. For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.  
 
 
 

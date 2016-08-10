@@ -540,7 +540,7 @@ and the Pod:
 	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
 	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
 	    ADAuthenticationError *error;
-	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
 	    authContext.parentController = parent;
 	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
 	    [authContext acquireTokenWithResource:resourceId

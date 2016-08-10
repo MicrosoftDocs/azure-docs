@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Overview of maps Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use maps with the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -22,10 +22,13 @@
 Enterprise integration uses maps to transform XML data from one format to another format. 
 
 ## What is a map?
-A map is an XML document that defines who data in a document should be transformed into another format. 
+A map is an XML document that defines which data in a document should be transformed into another format. 
 
 ## Why use maps?
 Let's assume you regularly receive B2B orders or invoices from a customers who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
+
+## How do i create a map?
+The [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015 allows Biztalk Integration projects to be created.  Creating an Integration Map file will allow you to visually map items between two XML schema files.  After building this project, an XSLT document is output.
 
 ## How to upload a map?
 From the Azure portal:  

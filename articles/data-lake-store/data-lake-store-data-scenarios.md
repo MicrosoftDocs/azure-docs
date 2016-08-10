@@ -92,13 +92,15 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 
 ### Really large datasets
 
-For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the following options.
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
 
-* **"Offline" upload of data**. You can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center and your data is then uploaded to an Azure Storage Blob. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to move data from Azure Storage Blobs to Data Lake Store.
+* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../expressroute/expressroute-introduction.md).
+
+
+* **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to copy data from Azure Storage Blobs to Data Lake Store.
 
 	>[AZURE.NOTE] While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 200 GB.
 
-* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../expressroute/expressroute-introduction.md).
 
 ## Process data stored in Data Lake Store
 

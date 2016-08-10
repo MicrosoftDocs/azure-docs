@@ -67,7 +67,6 @@ Click the **CONFIGURE** tab.
 From the configuration tab you can
 
 - Suspend access to the Machine Learning workspace by clicking DENY. Users will no longer be able to open the workspace in Machine Learning Studio. To restore access, click ALLOW.
-- Change the workspace owner by specifying a different Microsoft Account.
 
 To manage additional accounts who have access to the workspace in Machine Learning Studio, click **Sign-in to ML Studio** in the **DASHBOARD** tab (see note above regarding **Sign-in to ML Studio**). This opens the workspace in Machine Learning Studio. From here, click the **SETTINGS** tab and then **USERS**. You can click **INVITE MORE USERS** to give users access to the workspace, or select a user and click **REMOVE**.
 

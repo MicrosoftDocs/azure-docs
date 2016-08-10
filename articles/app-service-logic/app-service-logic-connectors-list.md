@@ -1,7 +1,7 @@
 <properties
 	pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
 	description="Read about the Connectors and API Apps in Azure App Service"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="erikre"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/11/2016"
+	ms.date="07/28/2016"
 	ms.author="mandia"/>
 
 
 # List of Connectors and API Apps to use in your Logic Apps
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [New Connectors List](../connectors/apis-list.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the Logic Apps General Availability (GA) version, see [New Connectors List](../connectors/apis-list.md).
 
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## Core Connectors
 The following table lists all the available connectors and API Apps created by Microsoft that are available as Core Connectors:
@@ -32,7 +32,7 @@ The following table lists all the available connectors and API Apps created by M
 Name | Description
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions.
-[Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing to translate text into another language.
+[Bing Translator](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use Bing to translate text into another language.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | You can  complete different tasks including create, update, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.

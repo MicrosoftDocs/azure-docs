@@ -85,7 +85,7 @@ A worker role can have any number of HTTP, HTTPS, or TCP endpoints. Endpoints ca
 
 ## Local storage page
 
-You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running. For more information about how to work with local storage resources, see [Configure Local Storage Resources](./cloud-services/cloud-services-configure-local-storage-resources.md).
+You can use the **Local Storage** property page to reserve one or more local storage resources for a role. A local storage resource is a reserved directory in the file system of the Azure virtual machine in which an instance of a role is running.
 
 ## Certificates page
 

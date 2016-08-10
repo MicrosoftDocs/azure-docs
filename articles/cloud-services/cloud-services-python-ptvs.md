@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article"
-	ms.date="07/20/2016"
+	ms.date="08/03/2016"
 	ms.author="adegeo"/>
 
 
@@ -69,6 +69,7 @@ The main problem with the setup scripts are that they do not install python. Fir
 
 The scripts below were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
+
 ```xml
 <Startup>
 
@@ -109,6 +110,56 @@ The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup
   </EntryPoint>
 </Runtime>
 ```
+
+#### Sample ServiceDefinition.csdef
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="WorkerRole1" vmsize="Small">
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="Python2" />
+    </ConfigurationSettings>
+    <Startup>
+      <Task executionContext="elevated" taskType="simple" commandLine="bin\ps.cmd PrepPython.ps1">
+        <Environment>
+          <Variable name="EMULATED">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+          <Variable name="PYTHON2" value="off" />
+        </Environment>
+      </Task>
+      <Task executionContext="elevated" taskType="simple" commandLine="bin\ps.cmd PipInstaller.ps1">
+        <Environment>
+          <Variable name="EMULATED">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+          <Variable name="PYTHON2" value="off" />
+        </Environment>
+      </Task>
+    </Startup>
+    <Runtime>
+      <Environment>
+        <Variable name="EMULATED">
+          <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+        </Variable>
+        <Variable name="PYTHON2" value="off" />
+        <Variable name="PYPATH" value="%SystemDrive%\Python27" />
+      </Environment>
+      <EntryPoint>
+        <ProgramEntryPoint commandLine="bin\ps.cmd LaunchWorker.ps1" setReadyOnProcessStart="true" />
+      </EntryPoint>
+    </Runtime>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
+  </WorkerRole>
+</ServiceDefinition>
+```
+
+
 
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
@@ -199,18 +250,33 @@ $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
-if (-not $is_emulated){
+if (-not $is_emulated)
+{
 	Write-Host "Running worker.py$nl"
 
 	if ($is_python2) {
-        cd..
+		cd..
 		iex "$env:PYPATH\python.exe worker.py"
 	}
 	else {
 		cd..
 		iex "py worker.py"
 	}
-	
+}
+else
+{
+	Write-Host "Running (EMULATED) worker.py$nl"
+
+	# Customize to your local dev environment
+
+	if ($is_python2) {
+		cd..
+		iex "$env:PYPATH\python.exe worker.py"
+	}
+	else {
+		cd..
+		iex "py worker.py"
+	}
 }
 ```
 
