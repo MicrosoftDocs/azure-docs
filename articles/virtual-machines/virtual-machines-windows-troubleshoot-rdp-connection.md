@@ -39,6 +39,8 @@ After each troubleshooting step, try reconnecting to the VM:
 
 Continue reading if you need more detailed steps and explanations can be found for both Resource Manager and Classic deployment models.
 
+
+<a id="fix-common-remote-desktop-errors"></a>
 ## Troubleshoot VMs created by using the Resource Manager deployment model
 
 After each troubleshooting step, try reconnecting to the VM.
