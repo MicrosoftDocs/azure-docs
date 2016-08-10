@@ -123,9 +123,9 @@ The following diagram highlights the important components in this architecture:
 
 ## Considerations
 
-For ExpressRoute considerations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+For ExpressRoute considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
-For Site-to-Site VPN considerations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+For Site-to-Site VPN considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
