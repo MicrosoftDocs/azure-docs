@@ -52,13 +52,6 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 > [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
-|                          | Azure AD Free | Azure AD Basic | Azure AD Premium |
-| ---                      | :-:           | :-:            | :-:              |
-| Common Features          | ![Check][12]  | ![Check][12]   | ![Check][12]     |
-| Basic Features           |               | ![Check][12]   | ![Check][12]     |
-| Premium Features         |               |                | ![Check][12]     |
-
-
 
 
 
