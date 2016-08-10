@@ -31,23 +31,23 @@ It also requires the [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).
 
 > [AZURE.IMPORTANT] To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 
-## Setup Mobile Engagement for your Android app
+## Set up Mobile Engagement for your Android app
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ## Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Android SDK integration](mobile-engagement-android-sdk-overview.md)
+This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification. You create a basic app with Android Studio to demonstrate the integration. 
 
-We will create a basic app with Android Studio to demonstrate the integration.
+The complete integration documentation can be found in the [Mobile Engagement Android SDK integration](mobile-engagement-android-sdk-overview.md).
 
-### Create a new Android project
+### Create an Android project
 
 1. Start **Android Studio**, and in the pop-up, select **Start a new Android Studio project**.
 
     ![][1]
 
-2. Provide an app name and company domain. Make a note of what you are filling as you will use it later. Click **Next**.
+2. Provide an app name and company domain. Make a note of what you are filling, because you need it later. Click **Next**.
 
     ![][2]
 
@@ -57,7 +57,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
 
     ![][3]
 
-4. Select **Blank Activity** here which will be the only screen for this app and click **Next**.
+4. Select **Blank Activity** here, which is the only screen for this app and click **Next**.
 
     ![][4]
 
@@ -65,7 +65,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
 
     ![][5]
 
-Android Studio now creates the demo app into which we will integrate Mobile Engagement.
+Android Studio now creates the demo app into which we integrate Mobile Engagement.
 
 ### Include the SDK library in your project
 
@@ -79,7 +79,7 @@ Android Studio now creates the demo app into which we will integrate Mobile Enga
 
 	  ![][7]
 
-5. Sync your project to load the library.
+5. Sync your project in order to load the library.
 
 	  ![][8]
 
@@ -123,11 +123,11 @@ Android Studio now creates the demo app into which we will integrate Mobile Enga
  			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. In the code you just pasted, replace `"<Your application name>"` in the label. This is displayed in the **Settings** menu where users can see services running on the device. You can add the word "Service" in that label for example.
+3. In the code you pasted, replace `"<Your application name>"` in the label, which is displayed in the **Settings** menu where you can see services running on the device. You can add the word "Service" in that label for example.
 
 ### Send a screen to Mobile Engagement
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
+To start sending data and ensure that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
 Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** to **EngagementActivity**:
 
@@ -137,11 +137,11 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) for how to inherit from different classes.
 
 
-You should comment out (exclude) the following line for this simple sample scenario:
+Comment out the following line for this simple sample scenario:
 
     // setSupportActionBar(toolbar);
 
-If you want to keep this around then you should check out [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
+If you want to keep this around, you should check out [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connect app with real-time monitoring
 
@@ -150,7 +150,7 @@ If you want to keep this around then you should check out [Advanced Android Repo
 ## Enable push notifications and in-app messaging
 
 Mobile Engagement allows you to interact with and REACH your users with push notifications and in-app messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
-The following sections sets up your app to receive them.
+The following section sets up your app to receive them.
 
 ### Copy SDK resources in your project
 
@@ -170,7 +170,7 @@ The following sections sets up your app to receive them.
 
 ## Next steps
 
-Go to [Android SDK](mobile-engagement-android-sdk-overview.md) to get detailed knowlege about the SDK integration.
+Go to [Android SDK](mobile-engagement-android-sdk-overview.md) to get detailed knowledge about the SDK integration.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
