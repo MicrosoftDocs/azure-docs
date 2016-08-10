@@ -25,7 +25,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
 2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
 
@@ -43,7 +43,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
     3.  **URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
 
@@ -55,7 +55,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
     4. **End by**: Two days from today's date  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Click **Create**
 
@@ -73,13 +73,13 @@ Once a job is created, it appears in the main Azure dashboard. Click the job and
 
 5.  Users
 
-   ![][job-overview]
+      ![][job-overview]
 
 ### Properties
 
 These read-only properties describe the management metadata for the Scheduler job.
 
-   ![][job-properties]
+      ![][job-properties]
 
 
 ### Action settings
@@ -94,7 +94,7 @@ For storage queue action types, you may change the storage account, queue name, 
 
 For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
 
-   ![][job-action-settings]
+      ![][job-action-settings]
 
 ### Schedule
 
@@ -104,7 +104,7 @@ This is an opoprtunity to build [complex schedules and advanced recurrence in yo
 
 You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
 
-   ![][job-schedule]
+      ![][job-schedule]
 
 
 ### History
@@ -123,11 +123,11 @@ The **History** tab displays selected metrics for every job execution in the sys
 
 6.  End time of execution
 
-   ![][job-history]
+      ![][job-history]
 
 You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
 
-   ![][job-history-details]
+      ![][job-history-details]
 
 ### Users
 
