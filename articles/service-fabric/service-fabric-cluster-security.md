@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/29/2016"
    ms.author="chackdan"/>
 
 # Service Fabric cluster security scenarios
@@ -104,9 +104,15 @@ Client certificates are not typically issued by a third-party certificate author
 
 
 ## Next steps
+
+Learn to set up a secure cluster:
+
+- [Securing an azure cluster with certs](service-fabric-cluster-azure-secure-azure-with-certs.md)
+
 After your cluster is setup, learn about cluster upgrades:
 
 - [Service Fabric cluster upgrade process and expectations](service-fabric-cluster-upgrade.md)
+- [Rolling over or adding new Certificates](service-fabric-cluster-security-update-certs-azure.md)
 
 Learn more about application security:
 
