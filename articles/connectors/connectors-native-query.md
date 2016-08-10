@@ -46,6 +46,7 @@ Here's how you can add it in a logic app:
 	![Complete the query action](./media/connectors-native-query/using-action-2.png)
 
    The action will output a new array that contains only results that met the filter requirements.
+   
 6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
 ## Query action
