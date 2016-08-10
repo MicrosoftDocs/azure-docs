@@ -249,4 +249,3 @@ The following settings do not affect VHD uploading. However, it is good to have 
 	## Next steps
 
 	- [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md)
-	-
