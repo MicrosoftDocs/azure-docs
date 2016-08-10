@@ -24,7 +24,7 @@ By using the delay and "delay-until" actions, you can complete workflow scenario
 For example, you can:
 
 - Wait until a weekday to send a status update over email.
-- Delay the workflow until an HTTP call has time to complete before resuming and retrieving the result.
+- Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
 
 To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -35,7 +35,7 @@ An action is an operation that is carried out by the workflow that is defined in
 Here’s an example sequence of how to use a delay step in a logic app:
 
 1. After adding a trigger, click **New Step** to add an action.
-2. Search for "delay" to bring up the delay actions. In this example, we will select **Delay**.
+2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.
 
 	![Delay actions](./media/connectors-native-delay/using-action-1.png)
 
