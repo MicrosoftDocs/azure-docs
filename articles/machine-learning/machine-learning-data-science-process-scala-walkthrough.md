@@ -19,7 +19,7 @@
 
 # Data science using Scala and Spark on Azure
 
-This article shows you how to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [data science process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models in the article include logistic and linear regression, random forests, and gradient-boosted trees (GBTs), in addition to two common supervised machine learning tasks:
+This article shows you how to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models in the article include logistic and linear regression, random forests, and gradient-boosted trees (GBTs), in addition to two common supervised machine learning tasks:
 
 - Regression problem: Prediction of the tip amount ($) for a taxi trip
 - Binary classification: Prediction of tip or no tip (1/0) for a taxi trip
@@ -34,7 +34,7 @@ The modeling process requires training and evaluation on a test data set and rel
 
 The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. However, the code in this article and in the [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) are generic and should work on any Spark cluster. The cluster setup and management steps might be slightly different from what is shown in this article if you are not using HDInsight Spark.
 
-> [AZURE.NOTE] For a topic that shows you how to use Python rather than Scala to complete tasks for an end-to-end data science process, see [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
+> [AZURE.NOTE] For a topic that shows you how to use Python rather than Scala to complete tasks for an end-to-end Data Science process, see [Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of data science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
+For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
 
 ## Execute Scala code from a Jupyter notebook on the Spark cluster
@@ -62,7 +62,7 @@ You also can access Jupyter notebooks at https://&lt;clustername&gt;.azurehdinsi
 
 ![Go to Jupyter notebooks by using the cluster name](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
-Select **Scala** to see a directory that has a few examples of prepackaged notebooks that use the PySpark API. The Exploration Modeling and Scoring using Scala.ipynb notebook that contains the code samples for this suite of Spark topic is available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
+Select **Scala** to see a directory that has a few examples of prepackaged notebooks that use the PySpark API. The Exploration Modeling and Scoring using Scala.ipynb notebook that contains the code samples for this suite of Spark topics is available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
 
 You can upload the notebook directly from GitHub to the Jupyter Notebook server on your Spark cluster. On your Jupyter home page, click the **Upload** button. In the file explorer, paste the GitHub (raw content) URL of the Scala notebook, and then click **Open**. The Scala notebook is available at the following URL:
@@ -78,7 +78,7 @@ You can upload the notebook directly from GitHub to the Jupyter Notebook server 
 	val beginningTime = Calendar.getInstance().getTime()
 
 
-The Spark kernels that are provided with Jupyter notebooks have preset contexts, available to you by default. You don't need to explicitly set the Spark or Hive contexts before you start working with the application you are developing. The preset contexts are:
+The Spark kernels that are provided with Jupyter notebooks have preset contexts. You don't need to explicitly set the Spark or Hive contexts before you start working with the application you are developing. The preset contexts are:
 
 - `sc` for SparkContext
 - `sqlContext` for HiveContext
@@ -134,14 +134,14 @@ Import the Spark, MLlib, and other libraries you'll need by using the following 
 
 ## Data ingestion
 
-The first step in the data science process is to ingest the data that you want to analyze. You bring the data from external sources or systems where it resides into your data exploration and modeling environment. In this article, the data you ingest is a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file). The data exploration and modeling environment is Spark. This section contains the code to complete the following series of tasks:
+The first step in the Data Science process is to ingest the data that you want to analyze. You bring the data from external sources or systems where it resides into your data exploration and modeling environment. In this article, the data you ingest is a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file). The data exploration and modeling environment is Spark. This section contains the code to complete the following series of tasks:
 
-- Set directory paths for data and model storage
-- Read in the input data set (stored as a .tsv file)
-- Define a schema for the data and clean the data
-- Create a cleaned data frame and cache it in memory
-- Register the data as a temporary table in SQLContext
-- Query the table and import the results into a data frame
+1. Set directory paths for data and model storage.
+2. Read in the input data set (stored as a .tsv file).
+3. Define a schema for the data and clean the data.
+4. Create a cleaned data frame and cache it in memory.
+5. Register the data as a temporary table in SQLContext.
+6. Query the table and import the results into a data frame.
 
 
 ### Set directory paths for storage locations in Azure Blob storage
@@ -162,7 +162,7 @@ The following code sample specifies the location of the input data to be read an
 	val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### Import data, create a resilient distributed dataset (RDD), and define a data frame according to the schema
+### Import data, create an RDD, and define a data frame according to the schema
 
 	# RECORD THE START TIME
 	val starttime = Calendar.getInstance().getTime()
@@ -271,13 +271,13 @@ fare_amount|passenger_count|tip_amount|tipped
 
 ## Data exploration and visualization
 
-After you bring the data into Spark, the next step in the data science process is to gain a deeper understanding of the data through exploration and visualization. In this section, you examine the taxi data by using SQL queries. Then, import the results into a data frame to plot the target variables and prospective features for visual inspection by using the auto-visualization feature of Jupyter.
+After you bring the data into Spark, the next step in the Data Science process is to gain a deeper understanding of the data through exploration and visualization. In this section, you examine the taxi data by using SQL queries. Then, import the results into a data frame to plot the target variables and prospective features for visual inspection by using the auto-visualization feature of Jupyter.
 
 ### Use local and SQL magic to plot data
 
-By default, the output of any code snippet that you run from a Jupyter Notebook is available within the context of the session that persists on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the `%%local` magic to run the code snippet on the Jupyter server.
+By default, the output of any code snippet that you run from a Jupyter .otebook is available within the context of the session that is persisted on the worker nodes. If you want to save a trip to the worker nodes for every computation, and if all the data that you need for your computation is available locally on the Jupyter server node (which is the head node), you can use the `%%local` magic to run the code snippet on the Jupyter server.
 
-- **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against the SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
+- **SQL magic** (`%%sql`). The HDInsight Spark kernel supports easy inline HiveQL queries against SQLContext. The (`-o VARIABLE_NAME`) argument persists the output of the SQL query as a Pandas data frame on the Jupyter server. This means it'll be available in the local mode.
 - `%%local` **magic**. The `%%local` magic runs the code locally on the Jupyter server, which is the head node of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with the `-o` parameter. The `-o` parameter would persist the output of the SQL query locally, and then `%%local` magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally.
 
 ### Query the data by using SQL
@@ -287,7 +287,7 @@ This query retrieves the taxi trips by fare amount, passenger count, and tip amo
 	%%sql -q -o sqlResults
 	SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-In the following code, the `%%local` magic creates a local data frame, sqlResults, which you can use to plot by using matplotlib.
+In the following code, the `%%local` magic creates a local data frame, sqlResults. You can use sqlResults to plot by using matplotlib.
 
 > [AZURE.TIP] Local magic is used multiple times in this article. If your data set is large, please sample to create a data frame that can fit in local memory.
 
@@ -304,7 +304,7 @@ You can plot by using Python code after the data frame is in local context as a 
 
 
  The Spark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You can choose between several types of visualizations:
-- Table
+-	Table
 - Pie
 - Line
 - Area
@@ -355,11 +355,11 @@ Here's the code to plot the data:
 
 For tree-based modeling functions from Spark ML and MLlib, you have to prepare target and features by using a variety of techniques, such as binning, indexing, one-hot encoding, and vectorization. Here are the procedures to follow in this section:
 
-- Create a new feature by **binning** hours into traffic time buckets
-- Apply **indexing and one-hot encoding** to categorical features
-- **Sample and split the data set** into training and test fractions
-- **Specify training variable and features**, and then create indexed or one-hot encoded training and testing input labeled point resilient distributed datasets (RDDs) or data frames
-- Automatically **categorize and vectorize features and targets** to use as inputs for machine learning models
+1. Create a new feature by **binning** hours into traffic time buckets.
+2. Apply **indexing and one-hot encoding** to categorical features.
+3. **Sample and split the data set** into training and test fractions.
+4. **Specify training variable and features**, and then create indexed or one-hot encoded training and testing input labeled point resilient distributed datasets (RDDs) or data frames.
+5. Automatically **categorize and vectorize features and targets** to use as inputs for machine learning models.
 
 
 ### Create a new feature by binning hours into traffic time buckets
@@ -388,7 +388,7 @@ This code shows you how to create a new feature by binning hours into traffic ti
 
 The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. This section shows you how to index or encode categorical features for input into the modeling functions.
 
-You need to index or encode your models in different ways, depending on the model. For example, logistic and linear regression models require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, each containing 0 or 1 depending on the category of an observation. MLlib provides the [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function for one-hot encoding. This encoder maps a column of label indices to a column of binary vectors with at most a single one-value. With this encoding, algorithms that expect numerical valued features, such as logistic regression, can be applied to categorical features.
+You need to index or encode your models in different ways, depending on the model. For example, logistic and linear regression models require one-hot encoding. For example, a feature with three categories can be expanded into three feature columns. Each column would contain 0 or 1 depending on the category of an observation. MLlib provides the [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function for one-hot encoding. This encoder maps a column of label indices to a column of binary vectors with at most a single one-value. With this encoding, algorithms that expect numerical valued features, such as logistic regression, can be applied to categorical features.
 
 Here you transform only four variables to show examples, which are character strings. You also can index other variables, such as weekday, represented by numerical values, as categorical variables.
 
@@ -436,7 +436,7 @@ Time to run the cell: 4 seconds.
 
 
 
-### Sample and split data set into training and test fractions
+### Sample and split the data set into training and test fractions
 
 This code creates a random sampling of the data (25%, in this example). Although sampling is not required for this example due to the size of the data set, the article shows you how you can sample so that you know how to use it for your own problems when needed. When samples are large, this can save significant time while you train models. Next, split the sample into a training part (75%, in this example) and a testing part (25%, in this example) to use in classification and regression modeling.
 
@@ -461,7 +461,7 @@ Add a random number (between 0 and 1) to each row (in a "rand" column) that can 
 	# ADD A RANDOM NUMBER FOR CROSS-VALIDATION
 	val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
 
-	# SPLIT THE SAMPLED DATA FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
+	# SPLIT THE SAMPLED DATA FRAME INTO TRAIN AND TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
 	# INCLUDE A RANDOM COLUMN FOR CREATING CROSS-VALIDATION FOLDS
 	val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
 	val trainData = splits(0)
@@ -526,10 +526,10 @@ Time to run the cell: 4 seconds.
 
 ### Automatically categorize and vectorize features and targets to use as inputs for machine learning models
 
-Use Spark ML to categorize the target and features to use in tree-based modeling functions. The code complete two tasks:
+Use Spark ML to categorize the target and features to use in tree-based modeling functions. The code completes two tasks:
 
 -	Creates a binary target for classification by assigning a value of 0 or 1 to each data point between 0 and 1 by using a threshold value of 0.5.
-- Automatically categorizes features. If the number of distinct numerical values for any feature is < 32, that feature is categorized.
+- Automatically categorizes features. If the number of distinct numerical values for any feature is less than 32, that feature is categorized.
 
 Here's the code for these two tasks.
 
@@ -574,11 +574,11 @@ In this section, you create three types of binary classification models to predi
 
 Next, create a logistic regression model by using the Spark ML `LogisticRegression()` function. You create the model building code in a series of steps:
 
-- **Train the model** data with one parameter set
-- **Evaluate the model** on a test data set with metrics
-- **Save the model** in Blob storage for future consumption
-- **Score the model** against test data
-- **Plot the results** with receiver operating characteristic (ROC) curves
+1. **Train the model** data with one parameter set.
+2. **Evaluate the model** on a test data set with metrics.
+3. **Save the model** in Blob storage for future consumption.
+4. **Score the model** against test data.
+5. **Plot the results** with receiver operating characteristic (ROC) curves.
 
 Here's the code for these procedures:
 
@@ -854,7 +854,7 @@ Time to run the cell: 13 seconds.
 R-sqr on test data = 0.5960320470835743
 
 
-Next, query the test results as a data frame and use Jupyter autoviz and Python matplotlib to visualize it.
+Next, query the test results as a data frame and use AutoVizWidget and matplotlib to visualize it.
 
 
 	# RUN A SQL QUERY
@@ -966,7 +966,7 @@ Next, split data into train and validation sets, use hyper-parameter sweeping on
 	# DEFINE THE PARAMETER GRID
 	val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
 
-	# DEFINE THE PIPELINE WITH A TRAIN AND TEST VALIDATION SPLIT (75%, IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
+	# DEFINE THE PIPELINE WITH A TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
 	val trainPct = 0.75
 	val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
 
@@ -1015,7 +1015,7 @@ This section shows you how to optimize a binary classification model by using cr
 	# SPECIFY THE NUMBER OF FOLDS
 	val numFolds = 3
 
-	# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75%, IN THE TRAINING SET)
+	# DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
 	val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
 
 	# RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
@@ -1157,7 +1157,7 @@ Time to run the cell: 61 seconds.
 
 ## Consume Spark-built machine learning models automatically with Scala
 
-For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
 
 [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 
