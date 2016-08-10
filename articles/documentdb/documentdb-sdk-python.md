@@ -24,7 +24,7 @@
 - [Java](documentdb-sdk-java.md)
 - [Python](documentdb-sdk-python.md)
 - [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
-- [SQL](https://msdn.microsoft.com/en-us/library/azure/dn782250.aspx)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
 ## DocumentDB Python API and SDK
 
