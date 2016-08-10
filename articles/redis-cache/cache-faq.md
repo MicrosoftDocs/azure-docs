@@ -251,10 +251,10 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 #### StackExchange.Redis best practices
 
--	Set AbortConnect to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)
+-	Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
 -	Reuse the ConnectionMultiplexer - do not create a new one for each request. The `Lazy<ConnectionMultiplexer>` pattern [shown here](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) is strongly recommended.
 -	Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100kb is considered "large". Read [this article](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) for an example problem that can be caused by large values.
--	Configure your [ThreadPool settings](https://gist.github.com/JonCole/e65411214030f0d823cb#file-threadpool-md) to avoid timeouts.
+-	Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
 -	Use at least the default connectTimeout of 5 seconds. This would give StackExchange.Redis sufficient time to re-establish the connection, in case of a network blip.
 -	Be aware of the performance costs associated with different operations you are running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](http://redis.io/commands/) has details around the time complexity for each operation that it supports.
 
@@ -295,12 +295,14 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 The following is an example of using redis-benchmark.exe. For accurate results, run this command from a VM in the same region as your cache.
 
-	Test Pipelined SET requests using a 1k payload
-	 > redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
+-	Test Pipelined SET requests using a 1k payload
+
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50
 	
-	Test Pipelined GET requests using a 1k payload. 
+-	Test Pipelined GET requests using a 1k payload. 
 	NOTE: Run the SET test shown above first to populate cache
-	>redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
+	
+    redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50
 
 <a name="threadpool"></a>
 ### Important details about ThreadPool growth
