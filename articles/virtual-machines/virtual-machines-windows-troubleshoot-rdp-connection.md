@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Troubleshoot Remote Desktop connection to an Azure VM | Microsoft Azure"
-	description="Troubleshoot Remote Desktop connection errors for a Windows VM. Get quick mitigation steps, help by error message and detailed network troubleshooting."
-	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting, unable to connect to azure vm, cannot rdp to azure vm"
+	description="If you are unable to access your Azure VM, get quick RDP troubleshooting steps, help by error messages, and detailed network troubleshooting steps."
+	keywords="Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -20,7 +20,7 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
-The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. If your issue isn't listed here or you still can't connect to your VM via RDP, you can read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. This can leave you unable to access your VM. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. If your issue isn't listed here or you still can't connect to your VM via RDP, you can read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -37,7 +37,7 @@ After each troubleshooting step, try reconnecting to the VM:
 6. Check the VM Resource Health in the Azure Portal
 7. Reset your VM password
 
-Continue reading if you need more detailed steps and explanations can be found for both Resource Manager and Classic deployment models.
+Continue reading if you need more detailed steps and explanations for both Resource Manager and Classic deployment models.
 
 
 <a id="fix-common-remote-desktop-errors"></a>
