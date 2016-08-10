@@ -36,7 +36,7 @@ You can run indexers on demand or on a recurring data refresh schedule that runs
 
 For generally available indexers like Azure SQL or DocumentDB, you can create and manage indexers using these approaches:
 
-- [Portal > Import Data Wizard ](search-get-started-portal)
+- [Portal > Import Data Wizard ](search-get-started-portal.md)
 - [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 - [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
