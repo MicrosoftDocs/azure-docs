@@ -27,7 +27,7 @@ Each tag you add to a resource or resource group is automatically added to the s
 
 Each resource or resource group can have a maximum of 15 tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
 
-> [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. Redeploy these resources through Resource Manager to support tagging. All other resources support tagging.
+> [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. To support tagging, redeploy these resources through Resource Manager. All other resources support tagging.
 
 ## Templates
 
@@ -174,7 +174,7 @@ Tags are updated as a whole. To add one tag to a resource that has other tags, u
 
 To remove one or more tags, simply save the array without the ones you want to remove.
 
-The process is the same for resources, except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
+The process is the same for resources except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
 
 To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
 
@@ -271,7 +271,7 @@ For supported services, you can use tags to group your billing data. For example
 you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
 You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file that you can download from
+You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from
 the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
