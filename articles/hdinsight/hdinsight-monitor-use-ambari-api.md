@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Microsoft Azure"
-	description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop."
+	description="Use the Apache Ambari APIs for creating, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,22 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
 
-Learn how to monitor HDInsight clusters versions 3.1 and 2.1 by using Ambari APIs.
+Learn how to monitor HDInsight clusters by using Ambari APIs.
 
 > [AZURE.NOTE] The information in this article is primarily for Windows-based HDInsight clusters, which provide a read-only version of the Ambari REST API. For Linux-based clusters, see [Manage Hadoop clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## What is Ambari?
 
-[Apache Ambari][ambari-home] is used for provisioning, managing, and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see [Ambari API Reference][ambari-api-reference].
-
-
-HDInsight currently supports only the Ambari monitoring feature. Ambari API 1.0 is supported by HDInsight version 3.0 and 2.1 clusters. This article covers accessing Ambari APIs on HDInsight version 3.1 and 2.1 clusters. The key difference between the two is that some of the components have changed with the introduction of new capabilities (such as the Job History Server).
-
+[Apache Ambari][ambari-home] is used for creating, managing, and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see [Ambari API Reference][ambari-api-reference]. HDInsight currently supports only the Ambari monitoring and managing features. 
 
 **Prerequisites**
 
@@ -48,7 +44,7 @@ Before you begin this tutorial, you must have the following:
     Cluster property|Azure PowerShell variable name|Value|Description
     ---|---|---|---
     HDInsight cluster name|$clusterName||The name of your HDInsight cluster.
-    Cluster username|$clusterUsername||Cluster user name specified at provisioning.
+    Cluster username|$clusterUsername||Cluster user name specified when the cluster was created.
     Cluster password|$clusterPassword||Cluster user password.
 
     >[AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
