@@ -38,7 +38,7 @@ Or
 The following steps are needed to enable telemetry:
 
 - Get the credentials of the storage account attached to the Media Services account. 
-- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPontAddress pointing to the storage table.
+- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPointAddress pointing to the storage table.
 
 	    INotificationEndPoint notificationEndPoint = 
 	                  _context.NotificationEndPoints.Create("monitoring", 

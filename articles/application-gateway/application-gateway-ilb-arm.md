@@ -3,7 +3,7 @@
    description="This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 
 # Create an application gateway with an internal load balancer (ILB) by using Azure Resource Manager
@@ -63,13 +63,13 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 ### Step 2
 
 Check the subscriptions for the account.
 
-		PS C:\> get-AzureRmSubscription
+		get-AzureRmSubscription
 
 You will be prompted to authenticate with your credentials.<BR>
 
@@ -78,7 +78,7 @@ You will be prompted to authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4

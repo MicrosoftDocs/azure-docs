@@ -190,7 +190,7 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 | 90 | [SQL Database automated backups](sql-database-automated-backups.md) | Learn about SQL Database builit-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days). |
 | 91 | [Business continuity with Azure SQL Database](sql-database-business-continuity.md) | Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running. |
 | 92 | [Upgrade an application without downtime](sql-database-manage-application-rolling-upgrade.md) | This article provides guidance for preventing downtime during an application upgrade. |
-| 93 | [Business continuity scenarios for Azure SQL Database](sql-database-business-continuity-scenarios.md) | Azure SQL Database business continuity scenarios |
+| 93 | [Business continuity scenarios for Azure SQL Database](sql-database-business-continuity.md) | Azure SQL Database business continuity scenarios |
 | 94 | [How to restore a single table from an Azure SQL Database backup](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Learn how to restore a single table from Azure SQL Database backup. |
 | 95 | [Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database. |
 | 96 | [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) | Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities. |
@@ -205,7 +205,7 @@ This topic lists every topic that applies directly to the **SQL Database** servi
 | 105 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) | Restore a deleted Azure SQL database (Azure Portal). |
 | 106 | [Restore a deleted Azure SQL Database using PowerShell](sql-database-restore-deleted-database-powershell.md) | Restore a deleted Azure SQL Database (PowerShell). |
 | 107 | [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md) | Learn how to recover a cloud database from errors and outages using backups and replicas in Azure SQL Database. |
-| 108 | [Recover an Azure SQL Database from an error](sql-database-user-error-recovery.md) | Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database. |
+| 108 | [Recover an Azure SQL Database from an error](sql-database-business-continuity.md) | Learn how to recover from user error, accidental data corruption, or a deleted database using the Point-in-time Restore (PITR) feature of Azure SQL Database. |
 | 109 | [Use Azure Storage for SQL Server Backup and Restore](storage-use-storage-sql-server-backup-restore.md) | Learn how to back up SQL Server to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage. |
 
 
