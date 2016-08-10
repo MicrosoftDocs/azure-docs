@@ -64,8 +64,8 @@ If you change information for a user whose identity is synchronized with your on
 ## What's next
 
 - [Add a user](active-directory-create-users-azure-portal.md)
-- Reset a user's password in the new Azure portal
-- Assign a user to a role in your Azure AD
-- Change a user's work information
-- Manage user properties
-- Delete a user in your Azure AD
+- [Reset a user's password in the new Azure portal](active-directory-create-users-reset-password-azure-portal.md)
+- [Assign a user to a role in your Azure AD](active-directory-create-users-assign-role-azure-portal.md)
+- [Change a user's work information](active-directory-create-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-create-users-profile-azure-portal.md)
+- [Delete a user in your Azure AD](active-directory-create-users-delete-user-azure-portal.md)

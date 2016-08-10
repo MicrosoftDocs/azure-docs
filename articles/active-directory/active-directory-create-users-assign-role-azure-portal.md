@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Assign a user to administrator roles in Azure Active Directory
@@ -34,7 +34,7 @@ This article explains how to assign an administrative role to a user in Azure Ac
 
 4. On the **User Management - Users** blade, select a user from the list.
 
-5. On the blade for the selected user, select **Administrative role**, and then assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
+5. On the blade for the selected user, select **Organizational role**, and then assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
 
 	  ![Assigning a user to a role](./media/active-directory-create-users-assign-role-azure-portal/create-users-assign-role.png)
 
@@ -44,7 +44,7 @@ This article explains how to assign an administrative role to a user in Azure Ac
 ## What's next
 
 - [Add a user](active-directory-create-users-azure-portal.md)
-- Change a user's work information
-- Reset a user's password in the new Azure portal
-- Manage user properties
-- Delete a user in your Azure AD
+- [Reset a user's password in the new Azure portal](active-directory-create-users-reset-password-azure-portal.md)
+- [Change a user's work information](active-directory-create-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-create-users-profile-azure-portal.md)
+- [Delete a user in your Azure AD](active-directory-create-users-delete-user-azure-portal.md)

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Reset the password for a user in Azure Active Directory | Microsoft Azure"
-	description="Explains how to reset the password for a user in Azure Active Directory"
+	pageTitle="Add or change profile information for a user in Azure Active Directory | Microsoft Azure"
+	description="Explains how to add the user profile, including profile picture, in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -16,13 +16,9 @@
 	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
-# Reset the password for a user in Azure Active Directory
+# Add or change profile information for a user in Azure Active Directory
 
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-create-users-reset-password-azure-portal.md)
-- [Azure classic portal](active-directory-create-users-reset-password.md)
-
-This article explains how to delete a user from a directory in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-create-users-azure-portal.md).
+This article explains how to add user profile information, such as a profile picture or phone and email authentication information, in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-create-users-azure-portal.md).
 
 ## Delete a user
 
@@ -38,16 +34,16 @@ This article explains how to delete a user from a directory in Azure Active Dire
 
 4. On the **User Management - Users** blade, select a user from the list.
 
-5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Reset password**.
+5. On the blade for the selected user, select **Profile**.
 
-    ![Selecting the Reset password command](./media/active-directory-create-users-reset-password-azure-portal/create-users-reset-password-command.png)
+    ![Opening Work information](./media/active-directory-create-users-reset-password-azure-portal/active-directory-create-users-profile.png)
 
-6. On the **Reset password** blade, select **Reset password**.
+6. Add or change the profile information, and then in the command bar select **Save**.
 
 ## What's next
 
 - [Add a user](active-directory-create-users-azure-portal.md)
+- [Reset a user's password in the new Azure portal](active-directory-create-users-reset-password-azure-portal.md)
 - [Assign a user to a role in your Azure AD](active-directory-create-users-assign-role-azure-portal.md)
 - [Change a user's work information](active-directory-create-users-work-info-azure-portal.md)
-- [Manage user profiles](active-directory-create-users-profile-azure-portal.md)
 - [Delete a user in your Azure AD](active-directory-create-users-delete-user-azure-portal.md)

@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Reset the password for a user
+
+> [AZURE.SELECTOR]
+- [Azure portal](active-directory-create-users-reset-password-azure-portal.md)
+- [Azure classic portal](active-directory-create-users-reset-password.md)
 
 Whether you're responding to a user requesting a password reset after a lockout, or just attending to routine security maintenance, sometimes you need to reset a user's password. Azure Active Directory (Azure AD) makes this easy.
 
