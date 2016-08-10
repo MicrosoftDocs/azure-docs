@@ -20,7 +20,7 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
-The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. This can leave you unable to access your VM. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. If your issue isn't listed here or you still can't connect to your VM via RDP, you can read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
+The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons, leaving you unable to access your VM. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. If your issue isn't listed here or you still can't connect to your VM via RDP, you can read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -29,12 +29,12 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Quick troubleshooting steps
 After each troubleshooting step, try reconnecting to the VM:
 
-1. Reset remote access using the Azure Portal or Azure PowerShell
+1. Reset remote access using the Azure portal or Azure PowerShell
 2. Restart the VM
 3. Redeploy the VM
 4. Check Network Security Group / Cloud Services endpoint rules
-5. Review VM console logs in the Azure Portal or Azure PowerShell
-6. Check the VM Resource Health in the Azure Portal
+5. Review VM console logs in the Azure portal or Azure PowerShell
+6. Check the VM Resource Health in the Azure portal
 7. Reset your VM password
 
 Continue reading if you need more detailed steps and explanations for both Resource Manager and Classic deployment models.
@@ -45,7 +45,7 @@ Continue reading if you need more detailed steps and explanations for both Resou
 
 After each troubleshooting step, try reconnecting to the VM.
 
-> [AZURE.TIP] If the 'Connect' button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+> [AZURE.TIP] If the 'Connect' button in the portal is grayed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 1. Reset remote access by using PowerShell.
 	- If you haven't already, [install and configure the latest Azure PowerShell](../powershell-install-configure.md).
@@ -75,7 +75,7 @@ After each troubleshooting step, try reconnecting to the VM.
 	
 4. Verify that your [Network Security Group rules](../virtual-network/virtual-networks-nsg.md) allow RDP traffic (TCP port 3389).
 
-5. Review your VM's console log or screenshot in order to correct boot problems. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Support + Troubleshooting** > **Boot diagnostics**.
+5. Review your VM's console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Support + Troubleshooting** > **Boot diagnostics**.
 
 6. [Reset your VM's password](virtual-machines-windows-reset-rdp.md).
 
@@ -96,7 +96,7 @@ After each troubleshooting step, try reconnecting to the VM.
 	
 4. Verify that your [Cloud Services endpoint allow RDP traffic](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 
-5. Review your VM’s console log or screenshot in order to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
+5. Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
 
 6. Check your VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Settings** > **Check Health**.
 
@@ -191,7 +191,7 @@ Cause: The account that's used to connect does not have Remote Desktop sign-in r
 
 Every Windows computer has a Remote Desktop users local group, which contains the accounts and groups that can sign into it remotely. Members of the local administrators group also have access, even though those accounts are not listed in the Remote Desktop users local group. For domain-joined machines, the local administrators group also contains the domain administrators for the domain.
 
-Make sure that the account you're using to connect with has Remote Desktop sign-in rights. As a workaround, use a domain or local administrator account to connect over Remote Desktop. Then use the Microsoft Management Console snap-in (**System Tools > Local Users and Groups > Groups > Remote Desktop Users**) in order to add the desired account to the Remote Desktop users local group.
+Make sure that the account you're using to connect with has Remote Desktop sign-in rights. As a workaround, use a domain or local administrator account to connect over Remote Desktop. To add the desired account to the Remote Desktop users local group, use the Microsoft Management Console snap-in (**System Tools > Local Users and Groups > Groups > Remote Desktop Users**).
 
 ## Troubleshoot generic Remote Desktop errors
 
