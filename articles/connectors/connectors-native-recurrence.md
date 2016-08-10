@@ -32,7 +32,7 @@ To get started using the recurrence trigger in a logic app, see [Create a logic 
 
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app.
+Here’s an example sequence of how to set up a recurrence trigger in a logic app:
 
 1. Add the **Recurrence** trigger as the first step in a logic app.
 2. Fill in the parameters for the recurrence interval.
