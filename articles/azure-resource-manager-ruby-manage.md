@@ -44,7 +44,8 @@ in Azure using the Azure Ruby SDK.
     bundle install
     ```
 
-    > You only need the `azure-mgmt-resources` and `haikunator` packages to run the sample. If that's all you want, don't install the development and test dependencies.
+    > [AZURE.NOTE] You only need the `azure-mgmt-resources` and `haikunator` packages to run the sample.
+    > If that's all you plan to do, you don't need to install the development and test dependencies.
     >
     > ```
     > bundle install --without development test
