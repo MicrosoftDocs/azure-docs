@@ -33,6 +33,7 @@ The blob indexer can extract text from the following document formats:
 - EML
 - Plain text files  
 - JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
+- CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details)
 
 ## Setting up blob indexing
 
