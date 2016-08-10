@@ -26,17 +26,17 @@ This article explains how to add or change work information such as phone number
 
 2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
 
-    ![Opening user management](./media/active-directory-create-users-reset-password-azure-portal/create-users-user-management.png)
+    ![Opening user management](./media/active-directory-create-users-work-info-azure-portal/create-users-user-management.png)
 
 3.  On the **User Management** blade, select **Users**.
 
-    ![Opening the Users blade](./media/active-directory-create-users-reset-password-azure-portal/create-users-open-users-blade.png)
+    ![Opening the Users blade](./media/active-directory-create-users-work-info-azure-portal/create-users-open-users-blade.png)
 
 4. On the **User Management - Users** blade, select a user from the list.
 
 5. On the blade for the selected user, select **Work Info**.
 
-    ![Opening Work information](./media/active-directory-create-users-reset-password-azure-portal/active-directory-create-users-work-info.png)
+    ![Opening Work information](./media/active-directory-create-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 
 6. Add or change the work information, and then in the command bar select **Save**.
 
