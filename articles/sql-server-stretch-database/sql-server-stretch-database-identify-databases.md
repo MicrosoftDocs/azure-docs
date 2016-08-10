@@ -63,3 +63,5 @@ Enable Stretch Database.
 [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
 [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
+
+[All topics for Azure SQL Server Stretch Database service](sql-server-stretch-database-identify-databases.md)
