@@ -52,7 +52,7 @@ Here's how to add an HTTP Response action:
 
 1. Select the **New Step** button.
 2. Choose **Add an action**.
-3. In the action search box, type "Response" to list the Response action.
+3. In the action search box, type **response** to list the Response action.
 
 	![Select the response action](./media/connectors-native-reqres/using-action-1.png)
 
@@ -60,7 +60,7 @@ Here's how to add an HTTP Response action:
 
 	![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
 
-5. Click the top left corner of the toolbar to save, and your logic app will both save and publish (activate).
+5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
 ## Request trigger
 
@@ -68,7 +68,7 @@ Here are the details for the trigger that this connector supports. There is a si
 
 |Trigger|Description|
 |---|---|
-|Request|Occurs when an HTTP request is received.|
+|Request|Occurs when an HTTP request is received|
 
 ## Response action
 
@@ -76,7 +76,7 @@ Here are the details for the action that this connector supports. There is a sin
 
 |Action|Description|
 |---|---|
-|Response|Returns a response to the correlated HTTP request.|
+|Response|Returns a response to the correlated HTTP request|
 
 ### Trigger and action details
 
