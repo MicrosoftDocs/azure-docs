@@ -40,7 +40,7 @@ A SAS URL can be generated with PowerShell. Here is an example of how to generat
 		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
 
 		$blobContainerName = "<name of blob container for app backups>"
-		$token = New-AzureStorageContainerSASToken -name $blobContainerName -permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
+		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
 		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
 
 ## Install Azure PowerShell 1.3.2 or greater
