@@ -17,7 +17,7 @@
 	ms.author="johnkem"/>
 
 # Overview of Azure Diagnostic Logs
-**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from [Audit Logs](../resource-group-audit.md), which provide insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. [This list of Supported Services](monitoring-diagnostic-logs-supported-services.md) shows which resource types support the new Diagnostic Logs.
+**Azure Diagnostic Logs** are logs emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts) and differ from [Audit Logs](../resource-group-audit.md), which provide insight into the operations that were performed on resources in your subscription. Not all resources support the new type of Diagnostic Logs described here. The list of Supported Services below shows which resource types support the new Diagnostic Logs.
 
 ![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
 
@@ -88,8 +88,8 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
-## Schema for Diagnostic Logs
-The schema for Diagnostic Logs varies depending on the resource and log category. Below are the schemas for some popular resources.
+## Supported Services and Schema for Diagnostic Logs
+The schema for Diagnostic Logs varies depending on the resource and log category. Below are the supported services and their schema.
 
 | Service                       | Schema & Docs                                                                                                   |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -99,6 +99,8 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Key Vault                  |    [Azure Key Vault Logging](../key-vault/key-vault-logging.md)                                                 |
 |    Azure Search               |    [Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md)                         |
 |    Data Lake Store            |    [Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+|    Data Lake Analytics        |    No schema available.                                                                                         |
+|    Logic Apps                 |    No schema available.                                                                                         |
 
 ##Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
