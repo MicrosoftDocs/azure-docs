@@ -18,15 +18,15 @@
 
 # Azure Resource Manager overview
 
-The infrastructure for your application is typically made up of many components. Maybe it's a virtual machine, storage account, and virtual network, or maybe a web app, database, database server, and third-party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update or delete all of the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
 
 ## Terminology
 
 If you are new to Azure Resource Manager, there are some terms you might not be familiar with.
 
 - **resource** - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
-- **resource group** - A container that holds related resources for an application. The resource group can include all the resources for an application, or only those resources that you group together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
-- **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are `Microsoft.Compute`, which supplies the virtual machine resource, `Microsoft.Storage`, which supplies the storage account resource, and `Microsoft.Web`, which supplies resources related to web apps. See [Resource providers](#resource-providers).
+- **resource group** - A container that holds related resources for an application. The resource group can include all of the resources for an application, or only those resources that you group together. You can decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
+- **resource provider** - A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Some common resource providers are Microsoft.Compute which supplies the virtual machine resource, Microsoft.Storage which supplies the storage account resource, and Microsoft.Web which supplies resources related to web apps. See [Resource providers](#resource-providers).
 - **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
 - **declarative syntax** - A syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure. 
 
@@ -34,19 +34,19 @@ If you are new to Azure Resource Manager, there are some terms you might not be 
 
 Resource Manager provides several benefits:
 
-- You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
+- You can deploy, manage, and monitor all of the resources for your solution as a group, rather than handling these resources individually.
 - You can repeatedly deploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.
 - You can manage your infrastructure through declarative templates rather than scripts.
 - You can define the dependencies between resources so they are deployed in the correct order.
 - You can apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
-- You can apply tags to resources to logically organize all the resources in your subscription.
-- You can clarify your organization's billing by viewing the rolled-up costs for the entire group or for a group of resources that share a tag.  
+- You can apply tags to resources to logically organize all of the resources in your subscription.
+- You can clarify billing for your organization by viewing the rolled-up costs for the entire group or for a group of resources sharing the same tag.  
 
 Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md).
 
 ## Guidance
 
-The following suggestions help you take full advantage of Resource Manager when working with your solutions.
+The following suggestions will help you take full advantage of Resource Manager when working with your solutions.
 
 1. Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
 2. Define all deployment and configuration steps in the template. You should have no manual steps for setting up your solution.
@@ -59,33 +59,31 @@ For more recommendations, see [Best practices for creating Azure Resource Manage
 
 There are some important factors to consider when defining your resource group:
 
-1. All the resources in your group should share a lifecycle. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+1. All of the resources in your group should share the same lifecycle. You will deploy, update and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
 2. Each resource can only exist in one resource group.
 3. You can add or remove a resource to a resource group at any time.
 4. You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 4. A resource group can contain resources that reside in different regions.
 5. A resource group can be used to scope access control for administrative actions.
-6. A resource can interact with a resource in another resource groups when the two resources are related but they do not share a lifecycle. (For example, a web app connecting to a database).
+6. A resource can interact with a resource in another resource groups when the two resources are related but they do not share the same lifecycle (for example, a web apps connecting to a database).
 
 ## Resource providers
 
-Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. It also provides operations through [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx). You can call the REST API directly or you can use [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) and [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) to manage the key vault. You can also use various programming languages to work with most resources. For more information, see [SDKs and samples](#sdks-and-samples). 
+Each resource provider offers a set of resources and operations for working with technical area. For example, if you want to store keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault. It also provides operations through [Key Vault REST API operations](https://msdn.microsoft.com/library/azure/dn903609.aspx). You can call the REST API directly or you can use [Key Vault PowerShell cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) and [Key Vault Azure CLI](./key-vault/key-vault-manage-with-cli.md) to manage the key vault. You can also use a number of programming languages to work with most resources. For more information, see [SDKs and samples](#sdks-and-samples). 
 
-To deploy and manage your infrastructure, you need to know details about the resource providers. For example, you need to know what resource types it offers. You need to know the version numbers of the REST API operations and the operations it supports. You also need to know the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
+To deploy and manage your infrastructure, you will need to know details about the resource providers; such as, what resource types it offers, the version numbers of the REST API operations, the operations it supports, and the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 ## Template deployment
 
 With Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state. Azure Resource Manager analyzes dependencies to ensure resources are created in the correct order. For more information, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md).
 
-When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs.
-You can retrieve a resource group's template by exporting the current state of the resource group to a template, or viewing the template that was used for a particular deployment.
-Viewing the exported template is a helpful way to learn about the template syntax. To learn more about working with exported templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
+When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group to a template, or viewing the template that was used for a particular deployment. Viewing the exported template is a helpful way to learn about the template syntax. To learn more about working with exported templates, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
-You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily reuse these templates for different solutions. To deploy a particular solution, you create a master template that links all the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily re-use these templates for different solutions. To deploy a particular solution, you create a master template that links all of the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-You can also use the template for updates to the infrastructure. For example, you can add a resource to your app and add configuration rules for the resources that are already deployed. If the template specifies creating a resource but that resource already exists, Azure Resource Manager performs an update instead of creating an asset. Azure Resource Manager updates the existing asset to the same state as it would be as new. Or, you can specify that Resource Manager delete any resources that are not specified in the template. To understand the differences options when deploying, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
+You can also use the template for updates to the infrastructure. For example, you can add a new resource to your app and add configuration rules for the resources that are already deployed. If the template specifies creating a new resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new. Or, you can specify that Resource Manager delete any resources that are not specified in the template. To understand the differences options when deploying, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
 
-You can specify parameters in your template to allow for customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template for deployment to all your app’s environments.
+You can specify parameters in your template to allow for customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template for deployment to all of your app’s environments.
 
 Resource Manager provides extensions for scenarios when you need additional operations such as installing particular software that is not included in the setup. If you are already using a configuration management service, like DSC, Chef or Puppet, you can continue working with that service by using extensions.
 
@@ -99,19 +97,19 @@ For guidance on deploying your solution to different environments, see [Developm
 
 ## Tags
 
-Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources. That way you can visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department. Without tags, you can create multiple resources that may be difficult to later identify and manage. For example, you may wish to delete all the resources for a particular project. If those resources were tagged for the project, you can find them using the tag. Tagging can be an important way for you to reduce unnecessary costs in your subscription. 
+Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department. Without tags, users in your organization can create multiple resources that may be very difficult to later identify and manage. For example, you may wish to delete all of the resources for a particular project, but if those resources were not tagged for the project, you will have to manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription. 
 
-Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than applying slightly different tags (such as "dept" instead of "department").
+Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department").
 
 For more information about tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
 
 ## Access control
 
-Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group, or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group, or resource.
+Resource Manager enables you to control who has access to specific actions for your organization. It natively integrates OAuth and Role-Based Access Control (RBAC) into the management platform and applies that access control to all services in your resource group. You can add users to pre-defined platform and resource-specific roles and apply those roles to a subscription, resource group or resource to limit access. For example, you can take advantage of the pre-defined role called SQL DB Contributor that permits users to manage databases, but not database servers or security policies. You add users in your organization that need this type of access to the SQL DB Contributor role and apply the role to the subscription, resource group or resource.
 
 Resource Manager automatically logs user actions for auditing. For information about working with the audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 
-For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). The [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md) topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor, and service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager.
+For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). The [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md) topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
@@ -119,11 +117,11 @@ For best practices, see [Security considerations for Azure Resource Manager](bes
 
 ## Manage resources with customized policies
 
-Resource Manager enables you to create customized policies for managing your resources. You can create diverse types of polices. A policy might enforce a naming convention on resources. It might limit which types and instances of resources can be deployed or which regions can host a type of resource. The policy might require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which types and instances of resources can be deployed,  limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 
-Resource Manager provides compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
+Resource Manager provides completely compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -144,8 +142,15 @@ The code in each of these SDKs is generated from Azure RESTful API specification
 These specifications are open source and based on the Swagger 2.0 specification.
 The SDK code is generated via an open-source project called AutoRest.
 AutoRest transforms these RESTful API specifications into client libraries in multiple languages.
-The entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
-If you want to improve any aspects of the generated code in the SDKs, your contributions are welcome.
+If you want to improve any aspects of the generated code in the SDKs,
+the entire set of tools to create the SDKs are open, freely available, and based on a widely adopted API specification format.
+
+**Samples**: Get started quickly in the language of your choice.
+
+From the table you can find more information about environment settings for samples,
+you can inspect the sample before you run it,
+you can download it and run it later,
+or you can run the sample right away.
 
 ### Samples that manage resources and resource groups
 
@@ -163,7 +168,7 @@ If you want to improve any aspects of the generated code in the SDKs, your contr
 | Sample | Learn more | View the sample | Download it now |
 |:---|:---:|:---:|:---:|
 | Deploy an SSH Enabled VM with a Template with .NET | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-template-deployment/) | [GitHub](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment) | [Download](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/archive/master.zip) |
-| Getting Started with Resources - Deploy Using Resource Manager Template - in Java | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resources-java-deploy-using-arm-template/) | [GitHub](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template) | [Download](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/archive/master.zip) |
+| Getting Started with Resources - Deploy Using ARM Template - in Java | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resources-java-deploy-using-arm-template/) | [GitHub](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template) | [Download](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/archive/master.zip) |
 | Deploy an SSH Enabled VM with a Template in Node.js | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-template-deployment/) | [GitHub](https://github.com/Azure-Samples/resource-manager-node-template-deployment) | [Download](https://github.com/Azure-Samples/resource-manager-node-template-deployment/archive/master.zip) |
 | Deploy an SSH Enabled VM with a Template in Python | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-template-deployment/) | [GitHub](https://github.com/Azure-Samples/resource-manager-python-template-deployment) | [Download](https://github.com/Azure-Samples/resource-manager-python-template-deployment/archive/master.zip) |
 | Deploy an SSH Enabled VM with a Template in Ruby | [Gallery](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-template-deployment/) | [GitHub](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment) | [Download](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/archive/master.zip) |
