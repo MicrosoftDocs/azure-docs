@@ -245,6 +245,10 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 ### What are some production best practices?
 
+-	[StackExchange.Redis best practices](#stackexchangeredis-best-practices)
+-	[Configuration and concepts](#configuration-and-concepts)
+-	[Performance testing](#performance-testing)
+
 #### StackExchange.Redis best practices
 
 -	Set AbortConnect to false, then let the ConnectionMultiplexer reconnect automatically. [See here for details](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)
@@ -260,7 +264,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 -	Remember that Redis is an **In-Memory** data store. Read [this article](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) so that you are aware of scenarios where data loss can occur.
 -	Develop your system such that it can handle connection blips [due to patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
-#### Performance Testing
+#### Performance testing
 
 -	Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Note that redis-benchmark does not support SSL, so you will have to [enable the Non-SSL port through the Azure Portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache).
 -	The client VM used for testing should be in the same region as your Redis cache instance.
