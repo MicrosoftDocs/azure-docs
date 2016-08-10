@@ -41,15 +41,15 @@ This article explains how to add users either from other directories in Azure Ac
 
 	- Select **Profile** to add the users first and last name, a job title, and a department name.
 
-	 ![Opening the user profile](./media/active-directory-create-users-external-azure-portal/create-users-user-profile.png)
+   ![Opening the user profile](./media/active-directory-create-users-external-azure-portal/create-users-user-profile.png)
 
 	- Select **Groups** to add the user to one or more groups.
 
-    ![Adding a user to groups](./media/active-directory-create-users-external-azure-portal/create-users-user-groups.png)
+   ![Adding a user to groups](./media/active-directory-create-users-external-azure-portal/create-users-user-groups.png)
 
   - Select **Organizational role** to assign the user to a role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
 
-	    ![Assigning a user to a role](./media/active-directory-create-users-external-azure-portal/create-users-assign-role.png)
+	 ![Assigning a user to a role](./media/active-directory-create-users-external-azure-portal/create-users-assign-role.png)
 
 7. Select **Create**.
 
