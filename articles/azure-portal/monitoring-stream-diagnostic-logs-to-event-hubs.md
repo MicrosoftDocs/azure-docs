@@ -147,7 +147,7 @@ Here is sample output data from the Event Hubs:
 |properties    | Properties of the event.                               |
 
 
-You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-diagnostic-logs-supported-services.md).
+You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-overview-of-diagnostic-logs.md).
 
 ##Next Steps
 - [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
