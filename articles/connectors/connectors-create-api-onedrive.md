@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Add the OneDrive connector in your Logic Apps | Microsoft Azure"
 	description="Overview of the OneDrive connector with REST API parameters"
-	services="app-servicelogic"    
+	services="logic-apps"    
 	documentationCenter=""     
 	authors="MandiOhlinger"    
 	manager="erikre"    
@@ -9,12 +9,12 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/25/2016"
+   ms.date="07/26/2016"
    ms.author="mandia"/>
 
 # Get started with the OneDrive connector
@@ -43,13 +43,13 @@ Before your logic app can access any service, you first create a *connection* to
 
 ## Use a trigger
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 1. In the logic app, type "onedrive" to get a list of the triggers:  
 
 	![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
-2. Select **When a file is modified**. If a connection already exists, then select the **...** (Show Picker) button to select a folder.
+2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
 	![](./media/connectors-create-api-onedrive/sample-folder.png)
 
@@ -57,7 +57,11 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 	> [AZURE.NOTE] In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
-3. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
+
+	![](./media/connectors-create-api-onedrive/trigger-properties.png)
+
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
 ## Use an action

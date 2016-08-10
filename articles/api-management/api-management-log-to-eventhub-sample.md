@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/25/2016"
-    ms.author="v-darmi"/>
+    ms.date="08/09/2016"
+    ms.author="darrmi"/>
 
 # Monitor your APIs with Azure API Management, Event Hubs and Runscope
 

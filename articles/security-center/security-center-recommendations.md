@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/20/2016"
+   ms.date="07/26/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -72,7 +72,7 @@ Use the table below as a reference to help you understand the available recommen
 |[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
 |[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
 |[Add a Next Generation Firewall](security-center-add-next-generation-firewall.md)|Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner in order to increase your security protections.|
-|[Route traffic through NGFW only](security-center-route-traffic-through-ngfw-only.md)|Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.|
+|[Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)|Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW.|
 |[Install Endpoint Protection](security-center-install-endpoint-protection.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |[Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)|Recommends that you resolve endpoint protection failures.|
 |[Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md)|Recommends that you enable NSGs on subnets or VMs.|
@@ -103,12 +103,12 @@ In the table of recommendations above, select a recommendation and walk through 
 ## See also
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+- [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
