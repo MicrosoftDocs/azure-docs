@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2016"
+   ms.date="08/10/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -37,10 +37,10 @@ Typically following a DR, the most recent backup is used to restore the data to 
 
 As an example, if there are two backup policies (one default and one custom) *defaultPol*, *customPol* with the following details:
 
-- *defaultPol* : One volume, *vol1*, runs daily starting at 10:30 PM.
-- *customPol* : Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
+- *defaultPol*: One volume, *vol1*, runs daily starting at 10:30 PM.
+- *customPol*: Four volumes, *vol1*, *vol2*, *vol3*, *vol4*, runs daily starting at 10:00 PM.
 
-In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The  most recent backup from this policy is used to restore data.
+In this case, *customPol* will be used as it has more volumes and we prioritize for crash-consistency. The most recent backup from this policy is used to restore data.
 
 
 ## Considerations for device failover
@@ -60,13 +60,13 @@ For any device failover, keep in mind the following:
 
 #### Device failover across software versions
 
-A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinnned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
 
 Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
 
-| Failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+| Fail over from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| Update 2  to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
+| Update 2 to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
 | Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 | Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
@@ -97,7 +97,7 @@ Perform the following steps to restore your device to a target physical device.
 
 1. On the **Devices** page, click **Failover**.
 
-1. In the wizard that opens up, under **Choose volume container to failover**:
+1. In the wizard that opens up, under **Choose volume container to fail over**:
 
 	1. In the list of volume containers, select the volume containers you would like to fail over.
 	**Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
@@ -154,9 +154,9 @@ Perform the following steps to restore the device to a target StorSimple virtual
 													
 	a. In the list of volume containers, select the volume containers you would like to fail over.
 
-	>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	**Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.  
+	b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. **Only the devices that have sufficient capacity are displayed in the drop-down list.**  
 	
 
 1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
@@ -165,7 +165,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 													
 	a. Select the StorSimple virtual device that was used as the target device for the failover process.
 	
-	b. 	Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
+	b. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
 ![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
