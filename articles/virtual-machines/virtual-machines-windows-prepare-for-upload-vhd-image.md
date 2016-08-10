@@ -194,11 +194,11 @@ The following are recommended steps for preparing Windows VHD for Azure:
 14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
 15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
 16.	Uninstall the other 3rd party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
-17. Make sure that there is no third-party application is using Port 3389. This port will be used for the RDP service in Azure.
+17. Make sure that there is no third-party application is using Port 3389. This port is used for the RDP service in Azure.
 18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
 19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP connection.
 20.	Reset the current local administrator password and make sure you can use this account to login Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment".
-22. Install the latest updates for Windows. If that is not possible, please make sure that the following updates are installed:
+22. Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
 
@@ -225,7 +225,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 ## Suggested extra configuration
 
-The following settings will not affect VHD uploading. However, it is good to have them configured.
+The following settings do not affect VHD uploading. However, it is good to have them configured.
 
 - Install [VM Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 
