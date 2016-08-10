@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration for Windows Universal Apps Engagement SDK
@@ -55,7 +55,7 @@ Set report crash to false using your EngagementConfiguration object.
 		/* Disable Engagement crash reporting. */
 		engagementConfiguration.Agent.ReportCrash = false;
 
-### Burst mode
+### Disable real time reporting
 
 By default, the Engagement service reports logs in real time. If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the “burst mode”).
 
