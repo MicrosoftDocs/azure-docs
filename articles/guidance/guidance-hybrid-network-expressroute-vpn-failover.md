@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/04/2016"
+   ms.date="08/10/2016"
    ms.author="telmos"/>
 
 # Implementing a highly available hybrid network architecture
@@ -121,13 +121,13 @@ The following diagram highlights the important components in this architecture:
 		New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
 		```
 
-## Availability, Security, Scalability, Monitoring, and Troubleshooting considerations
+## Considerations
 
-For ExpressRoute recommendations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
+For ExpressRoute considerations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
-For Site-to-Site VPN recommendations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
+For Site-to-Site VPN considerations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
-For general Azure security recommendations, see [Microsoft cloud services and network security][best-practices-security].
+For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
 ## Solution Deployment
 
