@@ -20,17 +20,17 @@
 
 Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
 
-Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
+Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These provide information such as a list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
 
 ## Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
-- **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure Portal](data-lake-analytics-get-started-portal.md).
+- **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Enable diagnostic logging for your Data Lake Analytics account
 
-1. Sign on to the new [Azure Portal](https://portal.azure.com).
+1. Sign on to the new [Azure portal](https://portal.azure.com).
 
 2. Open your Data Lake Analytics account, and from your Data Lake Analytics account blade, click **Settings**, and then click **Diagnostic Settings**.
 
@@ -40,8 +40,8 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 
 	* Set **Status** to **On** to enable diagnostic logging.
 	* You can choose to store/process the data in two different ways.
-		* Select the option to **Export to Event Hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
-		* Select the option to **Export to Storage Account** to store logs to an Azure Storage account. You use this option if you want to archive the data that will be batch-processed at a later date. If you select this option you must provide an Azure Storage account to save the logs to.
+		* Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+		* Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data that will be processed at a later date. If you select this option, you must provide an Azure Storage account to save the logs to.
 	* Specify whether you want to get audit logs or request logs or both.
 	* Specify the number of days for which the data must be retained.
 	* Click **Save**.
@@ -52,7 +52,7 @@ Once you have enabled diagnostic settings, you can watch the logs in the **Diagn
 
 There are two ways to view the log data for your Data Lake Analytics account.
 
-* From the Data Lake Analytics account settings view
+* From the Data Lake Analytics account settings
 * From the Azure Storage account where the data is stored
 
 ### Using the Data Lake Analytics Settings view
@@ -65,7 +65,7 @@ There are two ways to view the log data for your Data Lake Analytics account.
 	* Request logs capture every API request made on the Data Lake Analytics account.
 	* Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 
-3. Click the **Download** link against each log entry to download the logs.
+3. Click the **Download** link for a log entry to download the logs.
 
 ### From the Azure Storage account that contains log data
 
@@ -94,13 +94,13 @@ There are two ways to view the log data for your Data Lake Analytics account.
                                   m=00/
                                     PT1H.json
     
-    > [AZURE.NOTE] The `##` entries in the path will contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` will always be set to `00`.
+    > [AZURE.NOTE] The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` will always contain a value of `00`.
 
 	As an example, the complete path to an audit log could be:
     
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
-	Similary, the complete path to a request log could be:
+	Similarly, the complete path to a request log could be:
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
@@ -150,9 +150,9 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
 | operationName   | String | Name of the operation that is logged. For example, GetAggregatedJobHistory.              |
 | resultType      | String | The status of the operation, For example, 200.                                 |
 | callerIpAddress | String | The IP address of the client making the request                                |
-| correlationId   | String | The id of the log that can used to group together a set of related log entries |
+| correlationId   | String | The id of the log. This can be used to group together a set of related log entries |
 | identity        | Object | The identity that generated the log                                            |
-| properties      | JSON   | See below for details                                                          |
+| properties      | JSON   | See the next section (Request log properties schema) for details |
 
 #### Request log properties schema
 
@@ -202,10 +202,10 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | operationName   | String | Name of the operation that is logged. For example, JobSubmitted.              |
 | resultType | String | A substatus for the job status (operationName). |
 | resultSignature | String | Additional details on the job status (operationName). |
-| identity      | String | The user that requested the operation. For example, susan@contoso.com.                                 |
-| properties      | JSON   | See below for details                                                          |
+| identity      | String | The the user that requested the operation. For example, susan@contoso.com.                                 |
+| properties      | JSON   | See the next section (Audit log properties schema) for details |
 
-> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and will only contain a value if an operation has completed. For example, they will contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
+> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and will only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
 
 #### Audit log properties schema
 
@@ -219,7 +219,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | EndTime | String | The time the job ended. |
 | Parallelism | String | The number of Data Lake Analytics units requested for this job during submission. |
 
-> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and will only contain a value if an operation has started or completed. For example, __SubmitTime__ will only contain a value after __operationName__ indicates __JobSubmitted__.
+> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and will only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
 
 ## Samples to process the log data
 
