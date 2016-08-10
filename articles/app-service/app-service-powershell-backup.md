@@ -24,7 +24,7 @@
 Learn how to use Azure PowerShell to back up and restore [App Service apps](https://azure.microsoft.com/services/app-service/web/). For more information about web app backups, including requirements and restrictions, see [Back up a web app in Azure App Service](../app-service-web/web-sites-backup.md).
 
 ## Prerequisites
-In order to use PowerShell to manage your app backups, you will need the following:
+To use PowerShell to manage your app backups, you need the following:
 
 - **A SAS URL** that allows read and write access to an Azure Storage container. See [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md) for an explanation of SAS URLs. See [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) for examples of managing Azure Storage using PowerShell.
 - **A database connection string** if you want to back up a database along with your web app.
@@ -57,11 +57,11 @@ Use the New-AzureRmWebAppBackup cmdlet to create a backup of a web app.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl
 
-This will create a backup with an automatically generated name. If you would like to provide a name for your backup, use the BackupName optional parameter.
+This creates a backup with an automatically generated name. If you would like to provide a name for your backup, use the BackupName optional parameter.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl -BackupName MyBackup
 
-If you would like to include a database as part of your backup, first create a database backup setting using the New-AzureRmWebAppDatabaseBackupSetting cmdlet, then supply that setting in the Databases parameter of the New-AzureRmWebAppBackup cmdlet. The Databases parameter accepts an array of database settings, allowing you to back up more than one database.
+To include a database in the backup, first create a database backup setting using the New-AzureRmWebAppDatabaseBackupSetting cmdlet, then supply that setting in the Databases parameter of the New-AzureRmWebAppBackup cmdlet. The Databases parameter accepts an array of database settings, allowing you to back up more than one database.
 
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
@@ -69,7 +69,7 @@ If you would like to include a database as part of your backup, first create a d
 
 ## Get backups
 
-The Get-AzureRmWebAppBackupList cmdlet will return an array of all backups for a web app. You must supply the name of the web app and its resource group.
+The Get-AzureRmWebAppBackupList cmdlet returns an array of all backups for a web app. You must supply the name of the web app and its resource group.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -96,11 +96,11 @@ You can schedule backups to happen automatically at a specified interval. To con
 - **FrequencyInterval** - Numeric value for how often the backups should be made. Must be a positive integer.
 - **FrequencyUnit** - Unit of time for how often the backups should be made. Options are Hour and Day.
 - **RetentionPeriodInDays** - How many days the automatic backups should be saved before being automatically deleted.
-- **StartTime** - Optional. The time when the automatic backups should begin. Backups will begin immediately if this is null. Must be a DateTime.
+- **StartTime** - Optional. The time when the automatic backups should begin. Backups begin immediately if this is null. Must be a DateTime.
 - **Databases** - Optional. An array of DatabaseBackupSettings for the databases to backup.
 - **KeepAtLeastOneBackup** - Optional switched parameter. Supply this if one backup should always be kept in the storage account, regardless of how old it is.
 
-Below is an example of how to use this cmdlet.
+Following is an example of how to use this cmdlet.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -126,11 +126,11 @@ To get the current backup schedule, use the Get-AzureRmWebAppBackupConfiguration
 
 To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from the Get-AzureRmWebAppBackup cmdlet or Get-AzureRmWebAppBackupList cmdlet.
 
-Once you have a backup object, you can pipe it into the Restore-AzureRmWebAppBackup cmdlet. You must specify the Overwrite switch parameter to indicate that you intend to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases will be restored as well.
+Once you have a backup object, you can pipe it into the Restore-AzureRmWebAppBackup cmdlet. Specify the Overwrite switch parameter to indicate that you intend to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases are restored as well.
 
 		$backup | Restore-AzureRmWebAppBackup -Overwrite
 
-Below is an example of how to use the Restore-AzureRmWebAppBackup by specifying all of the parameters.
+Following is an example of how to use the Restore-AzureRmWebAppBackup by specifying all the parameters.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -142,7 +142,7 @@ Below is an example of how to use the Restore-AzureRmWebAppBackup by specifying 
 
 ## Delete a backup
 
-To delete a backup, use the Remove-AzureRmWebAppBackup cmdlet. This will remove the backup from your storage account. You must specify your app name, its resouce group, and the ID of the backup you want to delete.
+To delete a backup, use the Remove-AzureRmWebAppBackup cmdlet. This removes the backup from your storage account. Specify your app name, its resource group, and the ID of the backup you want to delete.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
