@@ -16,9 +16,9 @@
 
 # How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions
 
-Azure Stream Analytics lets you rapidly develop and deploy low-cost solutions to gain real-time insights from devices, sensors, infrastructure, and applications, or any stream of data. It enables a variety of use cases such as real-time management and monitoring, command and control, fraud detection, connected cars and many more. In many such scenarios, users may want to store data outputted by Azure Stream Analytics into a distributed data store such as an Azure Redis cache.
+Azure Stream Analytics lets you rapidly develop and deploy low-cost solutions to gain real-time insights from devices, sensors, infrastructure, and applications, or any stream of data. It enables various use cases such as real-time management and monitoring, command and control, fraud detection, connected cars and many more. In many such scenarios, users may want to store data outputted by Azure Stream Analytics into a distributed data store such as an Azure Redis cache.
 
-Suppose you are part of a telecommunications company. You are trying to detect SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations), and you are tasked with storing all the fraudulent phone calls in an Azure Redis cache. In this blog, we will provide guidance on how you can easily complete your task by storing the fraudulent phone calls coming from the output of the Stream Analytics pipeline in an Azure Redis cache.
+Suppose you are part of a telecommunications company. You are trying to detect SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations), and you are tasked with storing all the fraudulent phone calls in an Azure Redis cache. In this blog, we provide guidance on how you can easily complete your task by storing the fraudulent phone calls coming from the output of the Stream Analytics pipeline in an Azure Redis cache.
 
 ## Prerequisites
 Complete the [Real-time Fraud Detection][fraud-detection] walk-through for ASA
@@ -28,8 +28,8 @@ Complete the [Real-time Fraud Detection][fraud-detection] walk-through for ASA
 
 As shown in the figure above, Stream Analytics allows streaming input data to be queried and sent to an output. Based on the output, Azure Functions can then trigger some type of event. 
 
-In this blog, we will be focusing on the Azure Functions part of the pipeline, or more specifically the triggering of an event that stores fraudulent data into the cache.
-After completing the [Real-time Fraud Detection][fraud-detection] tutorial, you will have your input (an event hub), your query, and your output (blob storage) already configured and running. In this blog, we will change the output to use a Service Bus Queue instead, to which we will later connect an Azure Function.
+In this blog, we focus on the Azure Functions part of this pipeline, or more specifically the triggering of an event that stores fraudulent data into the cache.
+After completing the [Real-time Fraud Detection][fraud-detection] tutorial, you will have your input (an event hub), your query, and your output (blob storage) already configured and running. In this blog, we change the output to use a Service Bus Queue instead, to which we will later connect an Azure Function. 
 
 ## Create and connect a Service Bus Queue output
 To create a Service Bus Queue, follow steps 1 and 2 of the .NET section in [Get Started with Service Bus Queues][servicebus-getstarted].
@@ -69,14 +69,14 @@ Now let's connect the queue to the Stream Analytics job that was created in the 
 
 ## Create an Azure Redis Cache
 Create an Azure Redis cache by following the .NET section in [How to Use Azure Redis Cache][use-rediscache] until the section called ***Configure the cache clients***.
-Once complete you will have a new Redis Cache. Under **All settings**, select **Access keys** and note down the ***Primary connection string***.
+Once complete, you will have a new Redis Cache. Under **All settings**, select **Access keys** and note down the ***Primary connection string***.
 
 ![Screenshot of architecture](./media/stream-analytics-functions-redis/redis-cache-keys.png)
 
 ## Create an Azure Function
 Follow [Create your first Azure Function][functions-getstarted] tutorial to get started with Azure Functions. If you already have an Azure function you would like to use, then skip ahead to [Writing to Redis Cache](#Writing-to-Redis-Cache)
 
-1. In the portal, select App Services from the left-hand navigation, then click on your Azure function app name to get to the Function's app website.
+1. In the portal, select App Services from the left-hand navigation, then click your Azure function app name to get to the Function's app website.
 	![Screenshot of app services function list](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Click **New Function > ServiceBusQueueTrigger – C#**. For the following fields, follow these instructions:
@@ -90,7 +90,7 @@ Follow [Create your first Azure Function][functions-getstarted] tutorial to get 
 3. Click **Create**
 
 ## Writing to Redis Cache
-We have now created an Azure Function which reads from a Service Bus Queue. All that is left to do is use our Function to write this data to the Redis Cache. 
+We have now created an Azure Function that reads from a Service Bus Queue. All that is left to do is use our Function to write this data to the Redis Cache. 
 
 1. Select your newly created **ServiceBusQueueTrigger**, and click **Function app settings** on the top right corner. Select **Go to App Service Settings > Settings > Application settings**
 
@@ -179,7 +179,7 @@ We have now created an Azure Function which reads from a Service Bus Queue. All 
 
 	![Screenshot of start job](./media/stream-analytics-functions-redis/starting-job.png)
 
-3. In the **Start job** blade that appears, select **Now** and then click the **Start** button at the bottom of the screen. The job status will change to Starting and will shortly move to Running.
+3. In the **Start job** blade that appears, select **Now** and then click the **Start** button at the bottom of the screen. The job status changes to Starting and after some time changes to Running.
  
 	![Screenshot of start job time selection](./media/stream-analytics-functions-redis/start-job-time.png)
 
