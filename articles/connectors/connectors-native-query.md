@@ -36,17 +36,17 @@ Here's how you can add it in a logic app:
 
 1. Select the **New Step** button.
 2. Choose **Add an action**.
-3. In the action search box, type "Filter" to list the **Filter array** action.
+3. In the action search box, type **filter** to list the **Filter array** action.
 
 	![Select the query action](./media/connectors-native-query/using-action-1.png)
 
-4. Select an array to filter. (The screenshot below shows the array of results from a Twitter search.)
-5. Create a condition to evaluate on each item. (The screenshot below filters tweets from users who have more than 100 followers.)
+4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
+5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
 
 	![Complete the query action](./media/connectors-native-query/using-action-2.png)
 
 6. The action will output a new array that contains only results that met the filter requirements.
-7. Click the top left corner of the toolbar to save, and your logic app will both save and publish (activate).
+7. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
 ## Query action
 
