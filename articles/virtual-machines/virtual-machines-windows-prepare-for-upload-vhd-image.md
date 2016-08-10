@@ -174,7 +174,8 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
-12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [how to rebuild the repository]((https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [here](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to see how to fix the issue.
+
 13. Ensure the BCD settings are the same as following:
 
 		bcdedit /set {bootmgr} device partition=<Boot Partition>
