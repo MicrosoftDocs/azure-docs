@@ -156,29 +156,29 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 
 ### .NET
 
-- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Manage Azure resources and resource groups with .NET](azure-resource-manager-dotnet-manage.md)
+- [Deploy an SSH Enabled VM with a Template with .NET](azure-resource-manager-dotnet-deploy.md)
 
 ### Java
 
-- [Getting Started with Resources - Manage Resource - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-- [Getting Started with Resources - Manage Resource Group - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Getting Started with Resources - Deploy Using ARM Template - in Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Getting Started with Resources - Manage Resource - in Java](azure-resource-manager-java-manage-resources.md)
+- [Getting Started with Resources - Manage Resource Group - in Java](azure-resource-manager-java-manage-resource-groups.md)
+- [Getting Started with Resources - Deploy Using ARM Template - in Java](hazure-resource-manager-dotnet-deploy.md)
 
 ### Node.js
 
-- [Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template in Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Manage Azure resources and resource groups with Node.js](azure-resource-manager-node-manage.md)
+- [Deploy an SSH Enabled VM with a Template in Node.js](azure-resource-manager-node-deploy.md)
 
 ### Python
 
-- [Manage Azure resources and resource groups with Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template in Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Manage Azure resources and resource groups with Python](azure-resource-manager-python-manage.md)
+- [Deploy an SSH Enabled VM with a Template in Python](azure-resource-manager-python-deploy.md)
 
 ### Ruby
 
-- [Manage Azure resources and resource groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-- [Deploy an SSH Enabled VM with a Template in Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Manage Azure resources and resource groups with Ruby](azure-resource-manager-ruby-manage.md)
+- [Deploy an SSH Enabled VM with a Template in Ruby](azure-resource-manager-ruby-deploy.md)
 
 
 In addition to these samples, you can search through the gallery samples.
