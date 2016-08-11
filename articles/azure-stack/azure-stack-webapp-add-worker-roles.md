@@ -24,7 +24,7 @@ This document provides instructions about how to scale Web Apps web worker roles
 
 Azure Stack supports free and shared web app deployments. To add other types, you'll need to add more web worker roles.
 
-If you are not sure what was deployed with the default Web Apps installation, you can review additional information [here](https://azure.microsoft.com/documentation/articles/azure-stack-webapps-overview/).
+If you are not sure what was deployed with the default Web Apps installation, you can review additional information [here](azure-stack-webapps-overview.md).
 
 The following steps are required to scale web worker roles:
 
@@ -39,7 +39,7 @@ The following steps are required to scale web worker roles:
 Step 1: Create a new VM to support the new instance size
 ========================================================
 
-Create a virtual machine as described in [this article](https://azure.microsoft.com/documentation/articles/azure-stack-provision-vm/),
+Create a virtual machine as described in [this article](/azure-stack-provision-vm.md),
 ensuring that the following selections are made:
 
 -   User name and password: Provide the same user name and password you provided when you installed Web Apps.
