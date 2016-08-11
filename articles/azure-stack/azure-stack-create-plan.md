@@ -18,11 +18,11 @@
 
 # Create a plan in Azure Stack
 
-[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. In this example, you will create a plan that includes the compute, network, and storage resource providers. This will give subscribers to the plan the ability to provision virtual machines.
+[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
 1.  In an internet browser, navigate to https://portal.azurestack.local.
 
-2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (this is the account created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
+2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
 
     Service administrators can create offers and plans, and manage users.
 
@@ -30,11 +30,11 @@
 
     ![](media/azure-stack-create-plan/image01.png)
 
-4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name. Only the admin can see the Resource Name. It's the name that admins  use to work with the plan as an Azure Resource Manager resource.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
     ![](media/azure-stack-create-plan/image02.png)
 
-5.  Create a new **Resource Group**, or select an existing one, as a container for the plan. By default, all plans and offers will go into a resource group called OffersAndPlans.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan. By default, all plans and offers go into a resource group called OffersAndPlans.
 
     ![](media/azure-stack-create-plan/image02a.png)
 
