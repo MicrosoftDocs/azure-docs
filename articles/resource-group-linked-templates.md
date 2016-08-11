@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -129,6 +129,113 @@ You can also use [deployment()](resource-group-template-functions.md#deployment)
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
+## Conditionally linking to templates
+
+You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment which linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
+
+The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
+
+    "parameters": {
+        "storageAccountName": {
+            "type": "String"
+        },
+        "newOrExisting": {
+            "type": "String",
+            "allowedValues": [
+                "new",
+                "existing"
+            ]
+        }
+    },
+
+You create a variable for the template URI that includes the value of the new or existing parameter.
+
+    "variables": {
+        "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
+    },
+
+You provide that variable value for the deployment resource.
+
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "StorageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    }
+                }
+            }
+        }
+    ],
+
+The URI resolves to either **https://raw.githubusercontent.com/exampleuser/templates/master/newStorageAccount.json** or **https://raw.githubusercontent.com/exampleuser/templates/master/existingStorageAccount.json**. Create templates for those URIs.
+
+The following example shows the existing storage account template.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountName": {
+          "type": "String"
+        }
+      },
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "storageAccountInfo": {
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+          "type" : "object"
+        }
+      }
+    }
+
+The next example shows the new storage account template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either nested template.
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountName": {
+          "type": "String"
+        },
+        "storageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+            "Standard_LRS",
+            "Standard_GRS",
+            "Standard_ZRS"        
+          ]
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Storage/storageAccounts",
+          "name": "[parameters('StorageAccountName')]",
+          "apiVersion": "2014-12-01-preview",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "accountType": "[parameters('storageAccountType')]"
+          }
+        }
+      ],
+      "outputs": {
+        "storageAccountInfo": {
+          "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+          "type" : "object"
+        }
+      }
     }
 
 ## Complete example
