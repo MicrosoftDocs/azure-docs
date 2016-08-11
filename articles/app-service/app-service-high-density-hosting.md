@@ -48,8 +48,8 @@ The following Azure Resource Manager template will create an App Service plan th
 instances and an app that's configured to use per app scaling and scale to
 only 5 instances.
 
-To do this, the App Service plan is setting the **per-site scaling** property to true ( `"perSiteScaling": true`) and the app is setting the **number of
-workers** to use to 1 `"properties": { "numberOfWorkers": "1" }`
+To do this, the App Service plan is setting the **per-site scaling** property to true ( `"perSiteScaling": true`), and the app is setting the **number of
+workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -108,7 +108,7 @@ Follow these steps to configure
 high-density hosting for your apps:
 
 1. Configure the App Service Environment and choose a worker pool that
-will be dedicated to the *high-density hosting* scenario.
+will be dedicated to the high-density hosting scenario.
 
 1. Create a single App Service plan, and scale it to use all the available
 capacity on the worker pool.
