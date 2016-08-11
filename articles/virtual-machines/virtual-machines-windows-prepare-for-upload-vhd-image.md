@@ -230,9 +230,9 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
 
-- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the VM agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
+- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
 
-- Enable the Dump log collection. The Dump log file can be helpful in troubleshooting Windows crash issues.
+- Enable the Dump log collection. The Dump log can be helpful in troubleshooting Windows crash issues.
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
 
