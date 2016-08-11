@@ -368,7 +368,7 @@ When you run the sample, you can use the [Device Explorer or iothub-explorer][ln
 
 ## Send cloud-to-device messages
 
-The BLE module also supports sending instructions from the Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device. For example, if you are using the Texas Instruments SensorTag device then you can send the following JSON messages to the device from IoT Hub.
+The BLE module also supports sending instructions from the Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device. For example, if you are using the Texas Instruments SensorTag device then you can send the following JSON messages to the device from IoT Hub.
 
 - Reset all LEDs and the buzzer (turn them off)
 
