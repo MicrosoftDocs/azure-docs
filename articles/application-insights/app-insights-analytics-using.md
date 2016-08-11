@@ -22,7 +22,7 @@
 
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+ Analytics query language.
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
@@ -33,7 +33,7 @@ From your app's home resource in Application Insights, click Analytics.
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
-The inline tutorial will give you some ideas about what you can do.
+The inline tutorial gives you some ideas about what you can do.
 
 There's a [more extensive tour here](app-insights-analytics-tour.md).
 
@@ -43,7 +43,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 
 ![Schema display](./media/app-insights-analytics-using/150.png)
 
-Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense will prompt you with the operators and some of the expression elements that you can use.
+Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense prompts you with the operators and some of the expression elements that you can use.
 
 See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
 
@@ -54,7 +54,7 @@ See the [Analytics language overview](app-insights-analytics-tour.md) and [langu
 1. You can use single line breaks in a query.
 2. Put the cursor inside or at the end of the query you want to run.
 3. Click Go to run the query.
-4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the one with the cursor will run.
+4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the one with the cursor runs.
 
 ### Save a query
 
@@ -67,7 +67,7 @@ See the [Analytics language overview](app-insights-analytics-tour.md) and [langu
 
 ## See the details
 
-Expand any row in the results to see its complete list of properties. You can further expand any property which is a structured value - for example, custom dimensions, or the stack listing in an exception.
+Expand any row in the results to see its complete list of properties. You can further expand any property that is a structured value - for example, custom dimensions, or the stack listing in an exception.
 
 ![Expand a row](./media/app-insights-analytics-using/070.png)
 
@@ -75,9 +75,9 @@ Expand any row in the results to see its complete list of properties. You can fu
 
 ## Arrange the results
 
-You can sort, filter, paginate and group the results returned from your query.
+You can sort, filter, paginate, and group the results returned from your query.
 
-> [AZURE.NOTE] Sorting, grouping and filtering in the browser don't re-run your query. They only re-arrange the results that were returned by your last query. 
+> [AZURE.NOTE] Sorting, grouping, and filtering in the browser don't re-run your query. They only rearrange the results that were returned by your last query. 
 > 
 > To perform these tasks in the server before the results are returned, write your query with the [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) and [where](app-insights-analytics-reference.md#where-operator) operators.
 
@@ -105,7 +105,7 @@ To sort by more than one column, use grouping. First enable it, and then drag co
 
 ### Missing some results?
 
-There's a limit of about 10k rows on the results returned from the portal. A warning will show if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
+There's a limit of about 10k rows on the results returned from the portal. A warning shows if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
 
 It's good practice to avoid hitting the limit. Use operators such as:
 

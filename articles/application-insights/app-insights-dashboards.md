@@ -38,7 +38,7 @@ Click:
 * **Any chart or tile** to see more detail about what's displayed on the chart.
 * **Settings** to get to predefined blades of other metrics, as well as configuration pages.
 * [**Metrics Explorer**](app-insights-metrics-explorer.md) to create metrics pages of your own choice.
-* [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions or log traces.
+* [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](app-insights-analytics.md) for powerful queries over your telemetry.
 * [**Live Stream**](app-insights-metrics-explorer.md#live-stream) for a fixed set of near-instant metrics, useful when deploying a new build or debugging.
 
@@ -60,10 +60,10 @@ The first thing you see after you sign in to the [Microsoft Azure portal](https:
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
 
-1. Edit, create and share dashboards using the dashboard toolbar.
+1. Edit, create, and share dashboards using the dashboard toolbar.
 2. Return to the current dashboard, or switch to other recent views.
 3. Switch dashboards.
-4. Create, edit and share dashboards.
+4. Create, edit, and share dashboards.
 5. Hover over a tile and then use its top bar to move, customize, or remove it.
 
 ## Add to a dashboard
@@ -86,14 +86,14 @@ You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) c
 
 Once a tile is on the dashboard, you can adjust it.
 
-![Hover over a chart to edit it.](./media/app-insights-dashboards/36.png)
+![Hover over a chart in order to edit it.](./media/app-insights-dashboards/36.png)
 
 1. Add a chart to the tile. 
 2. Set the metric, group-by dimension and style (table, graph) of a chart.
 3. Set the timespan and filter properties for the charts on the tile. You can set the chart's own timespan, or inherit from the timespan of the dashboard.
 4. Set tile title.
 
-Tiles pinned from metric explorer blades have more editing options than tiles pinned from an  Overview blade.
+Tiles pinned from metric explorer blades have more editing options than tiles pinned from an Overview blade.
 
 The original tile that you pinned isn't affected by your edits.
 
@@ -132,7 +132,7 @@ The Settings button on the overview blade is not only about configuration, but a
 * **Performance** - Response time, dependency response times. [Editable metrics blade](app-insights-metrics-explorer.md).
 * [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
-* **Usage** - Page view, user and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
+* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
 * **Getting started** - inline tutorial.
 * **Properties** - instrumentation key, subscription and resource id.
 * [Availability](app-insights-monitor-web-app-availability.md) - web test configuration and results.
