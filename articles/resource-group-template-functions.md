@@ -18,9 +18,9 @@
 
 # Azure Resource Manager template functions
 
-This topic describes all of the functions you can use in an Azure Resource Manager template.
+This topic describes all the functions you can use in an Azure Resource Manager template.
 
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function will preserve the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
 ## Numeric functions
 
@@ -110,7 +110,7 @@ Returns the integer division of the two provided integers.
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | operand1                           |   Yes    | Number being divided.
-| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+| operand2                           |   Yes    | Number that is used to divide, has to be different from 0.
 
 The following example divides one parameter by another parameter.
 
@@ -167,7 +167,7 @@ Returns the remainder of the integer division using the two provided integers.
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | operand1                           |   Yes    | Integer being divided.
-| operand2                           |   Yes    | Integer which is used to divide, has to be different from 0.
+| operand2                           |   Yes    | Integer that is used to divide, has to be different from 0.
 
 The following example returns the remainder of dividing one parameter by another parameter.
 
@@ -175,13 +175,13 @@ The following example returns the remainder of dividing one parameter by another
       "first": {
         "type": "int",
         "metadata": {
-          "description": "Integer numerator"
+          "description": "Integer being divided"
         }
       },
       "second": {
         "type": "int",
         "metadata": {
-          "description": "Integer denominator"
+          "description": "Integer used to divide"
         }
       }
     },
@@ -238,7 +238,7 @@ Returns the subtraction of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand1                           |   Yes    | Number that is subtracted from.
 | operand2                           |   Yes    | Number to be subtracted.
 
 The following example subtracts one parameter from another parameter.
@@ -298,7 +298,7 @@ Returns the base64 representation of the input string.
 | :--------------------------------: | :------: | :----------
 | inputString                        |   Yes    | The string value to return as a base64 representation.
 
-The following example show how to use the base64 function.
+The following example shows how to use the base64 function.
 
     "variables": {
       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
@@ -370,7 +370,7 @@ Returns a new string with all instances of one character in the specified string
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
+| originalString                     |   Yes    | The string that has all instances of one character replaced by another character.
 | oldCharacter                       |   Yes    | The character to be removed from the original string.
 | newCharacter                       |   Yes    | The character to add in place of the removed character.
 
@@ -387,12 +387,12 @@ The following example shows how to remove all dashes from the user-provided stri
 ### skip
 **skip(originalValue, numberToSkip)**
 
-Returns a string with all of the characters after the specified number in the string.
+Returns a string with all the characters after the specified number in the string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The string to use for skipping.
-| numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all of the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
+| numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
 
 For an example of using skip with an array, see [skip array](#skip).
 
@@ -514,7 +514,7 @@ Returns a string with the specified number of characters from the start of the s
 | originalValue                      |   Yes    | The string to take the characters from.
 | numberToTake                       |   Yes    | The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned.
 
-For an example of using take with an array, see [take array](#take).
+For an example of using take with an array, see [take (with array)](#take).
 
 The following example takes the specified number of characters from the string.
 
@@ -617,7 +617,7 @@ The returned value is not a random string, but rather the result of a hash funct
 
     tcvhiyu5h2o5o
 
-The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
+The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
 Unique based on subscription
 
@@ -652,7 +652,7 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 | baseUri                            |   Yes    | The base uri string.
 | relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
 
-The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter will result in a base URI of **http://contoso.com/resources/**.
+The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter results in a base URI of **http://contoso.com/resources/**.
 
 The following example shows how to construct a link to a nested template based on the value of the parent template.
 
@@ -711,12 +711,12 @@ For an example of using length with a string value, see [length string](#lengths
 ### skip
 **skip(originalValue, numberToSkip)**
 
-Returns an array with all of the elements after the specified number in the array.
+Returns an array with all the elements after the specified number in the array.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The array to use for skipping.
-| numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all of the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
+| numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
 
 For an example of using skip with a string, see [skip string](#skipstring).
 
@@ -750,14 +750,14 @@ The following example skips the specified number of elements in the array.
 ### take
 **take(originalValue, numberToTake)**
 
-Returns an array or string with the specified number of elements or characters from the start of the array or string.
+Returns an array with the specified number of elements from the start of the array.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | originalValue                      |   Yes    | The array or string to take the elements or characters from.
 | numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
 
-For an example of using take with a string, see [take string](#takestring).
+For an example of using take with a string, see [take (with string)](#takestring).
 
 The following example takes the specified number of elements from the array.
 
@@ -802,7 +802,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 Returns information about the current deployment operation.
 
-This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
+This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
 
     {
         "name": "",
@@ -1057,8 +1057,8 @@ Returns the unique identifier of a resource. You use this function when the reso
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
-| subscriptionId    |   No     | Optional subscription id. Default value is the current subscription. Specify this value when you are retrieving a resource in another subscription.
-| resourceGroupName |   No     | Optional resource group name. Default value is current resource group. Specify this value when you retrieving a resource in another resource group.
+| subscriptionId    |   No     | Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription.
+| resourceGroupName |   No     | Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group.
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
 | resourceName2     |   No     | Next resource name segment if resource is nested.
