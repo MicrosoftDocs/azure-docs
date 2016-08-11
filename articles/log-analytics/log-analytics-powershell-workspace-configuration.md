@@ -25,11 +25,10 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 + Import and export saved searches
 + Create a computer group
 + Enable collection of IIS logs from computers with the Windows agent installed
-+ Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-+ Collect syslog events from Linux computers
-+ Collect Error and Warning events from the Application Event Log from Windows computers
-+ Collect Memory Available Mbytes performance counter from Windows computers
-+ Collect a custom log
++ Collect performance counters from Linux and Windows computers
++ Collect events from syslog on Linux computers 
++ Collect events from the Windows event logs
++ Collect custom event logs
 + Add the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
 
