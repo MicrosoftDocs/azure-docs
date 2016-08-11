@@ -29,7 +29,7 @@ Additionally, you'll have to make sure that the device you want to use for your 
 
 **About this article** 
 
-This article was written for the classic deployment model using the [classic portal](https://manage.windowsazure.com) (not the Azure Portal). When we have an article available for the resource manager deployment model, we will link to it from here. 
+This article was written for the classic deployment model using the [classic portal](https://manage.windowsazure.com) (not the Azure portal). 
 
 **About Azure deployment models**
 
@@ -37,7 +37,7 @@ This article was written for the classic deployment model using the [classic por
 
 ## Configuration overview
 
-The procedure below will walk you through configuring your VPN gateway in the Azure Classic Portal. These steps apply to gateways for VNets that were created using the Service Management mode and are visible in the Azure Classic Portal. They are not the steps for using the Preview Portal or for VNets configured using the Resource Manager mode. You can find information about creating VNet gateways for virtual networks created using the Resource Manager mode in [Create a virtual network with a site-to-site connection using Azure Resource Manager and PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
+The following steps walk you through configuring your VPN gateway in the Azure classic portal. These steps apply to gateways for VNets that were created using the classic deployment model. Currently, not all of the configuration settings for gateways are available in the Azure portal. When they are, we will create a new set of instructions that apply to the Azure portal.
 
 
 1. [Create a VPN gateway for your VNet](#create-a-vpn-gateway)
@@ -56,7 +56,7 @@ If you already have a VPN gateway and you want to change the routing type, see [
 
 ## Create a VPN gateway
 
-1. In the [Azure Classic Portal](https://manage.windowsazure.com), on the **Networks** page, verify that the status column for your virtual network is **Created**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), on the **Networks** page, verify that the status column for your virtual network is **Created**.
 
 1. In the **Name** column, click the name of your virtual network.
 
