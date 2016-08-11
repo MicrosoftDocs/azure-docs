@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/06/2016"
+ ms.date="08/11/2016"
  ms.author="nberdy"/>
 
 # Introduction to diagnostic metrics
 
-Diagnostic metrics provide you with better data on the state of the Azure resources in your subscription. Metrics allow a user to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help the user see what is going on with their IoT hub and help root-cause issues without needing to contact Azure support.
+Diagnostic metrics give you better data about the state of the Azure resources in your subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 You can enable diagnostic metrics from the Azure portal.
 
@@ -30,11 +30,11 @@ You can enable diagnostic metrics from the Azure portal.
 
     ![][1]
 
-3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check the metrics checkbox, and then press **Save**. Please note that the storage account must be created ahead of time and you will be charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
+3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 
-4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking on the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
+4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
 
     ![][3]
 

@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/10/2016"
+ ms.date="08/11/2016"
  ms.author="juanpere"/>
 
 # Get started with Azure IoT Hub device management using node.js (preview)
@@ -57,7 +57,7 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
-  -   Check the box to **Enable Device Management**. If you don't check the box to **Enable Device Management**, the samples won't work. By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
+  -   Check the box to **Enable Device Management**. If you don't check the box to **Enable Device Management**, the samples don't work. By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
   -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
@@ -74,7 +74,7 @@ You need to create a device management enabled IoT Hub for your simulated device
 
 	![][img-connection]
 
-You have now created a device management enabled IoT Hub. You will need the connection string to complete the rest of this tutorial.
+You have now created a device management enabled IoT Hub. You need the connection string to complete the rest of this tutorial.
 
 ## Build the samples and provision devices in your IoT Hub
 
@@ -123,11 +123,11 @@ Using a shell, navigate to the **azure-iot-sdks/node/service/samples** directory
   ./simulate.sh
   ```
 
-This script outputs the commands you need to run to start **iotdm\_simple\_sample** for each device listed in the **devicecreds.txt** file. Run the commands individually from a separate terminal window for each simulated device. The simulated device will continue to run until you close the command window.
+This script outputs the commands you need to run to start **iotdm\_simple\_sample** for each device listed in the **devicecreds.txt** file. Run the commands individually from a separate terminal window for each simulated device. The simulated device continues to run until you close the command window.
 
 The **iotdm\_simple\_sample** application is built using the Azure IoT Hub device management client library for C, which enables the creation of IoT devices that can be managed by Azure IoT Hub. Device makers can use this library to report device properties and implement the execute actions required by device jobs. This library is a component delivered as part of the open source Azure IoT Hub SDKs.
 
-When you run **simulate.sh**, you see a stream of data in the output window. This output shows the incoming and outgoing traffic and the **printf** statements in the application specific callback functions. This output allows you to see incoming and outgoing traffic along with how the sample application is handling the decoded packets. When the device connects to the IoT Hub, the service automatically starts to observe resources on the device. The IoT Hub DM client library then invokes the device callbacks to retrieve the latest values from the device.
+When you run **simulate.sh**, you see a stream of data in the output window. This output shows the incoming and outgoing traffic and the **printf** statements in the application-specific callback functions. This output allows you to see incoming and outgoing traffic along with how the sample application is handling the decoded packets. When the device connects to the IoT Hub, the service automatically starts to observe resources on the device. The IoT Hub DM client library then invokes the device callbacks to retrieve the latest values from the device.
 
 Following is the output from the **iotdm\_simple\_sample** sample application. At the top, you see a successful **REGISTERED** message, showing the device with Id **Device11-7ce4a850** connecting to IoT Hub.
 
