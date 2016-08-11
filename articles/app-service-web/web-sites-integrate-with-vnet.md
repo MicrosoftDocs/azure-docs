@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/11/2016" 
 	ms.author="ccompy"/>
 
 # Integrate your app with an Azure Virtual Network #
@@ -25,7 +25,7 @@ The Azure App Service has two forms.
 1. The multi-tenant systems that support the full range of pricing plans
 1. The App Service Environment (ASE) premium feature which deploys into your VNET.  
 
-This article does not describe putting an ASE in a V2 VNET.  That is still not yet supported and is unrelated to this article.  This article is about enabling your apps to consume resources in a V1 or V2 VNET.
+This document goes through VNET Integration and not App Service Environment.  If you want to learn more about the ASE feature then start with the information here: [App Service Environment introduction][ASEintro].
 
 VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  A common scenario where you would use this feature is enabling your web app access to a database or a web services that are running in a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
@@ -293,3 +293,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
+[ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
