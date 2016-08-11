@@ -4,7 +4,7 @@
 	authors="jeffhollan"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Overview of partners and Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -30,7 +30,7 @@ Enterprise integration supports three protocol/transport standards:
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (coming soon)
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Why use agreements
 Some of the common benefits of using agreements are:

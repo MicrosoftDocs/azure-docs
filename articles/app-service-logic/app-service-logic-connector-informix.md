@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using the Informix connector in Microsoft Azure App Service | Microsoft Azure"
    description="How to use the Informix connector with Logic app triggers and actions"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"

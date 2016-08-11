@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
     ms.devlang="python"
     ms.topic="hero-article"
     ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 # Python Flask Web Application Development with DocumentDB
 

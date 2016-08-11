@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/23/2016"
+     ms.date="08/09/2016"
      ms.author="dobett"/>
 
 # What is Azure IoT Suite?

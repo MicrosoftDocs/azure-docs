@@ -2,7 +2,7 @@ This article outlines a set of proven practices for running a Linux virtual mach
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-We don't recommend using a single VM for production workloads, because there is no up-time SLA for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ## Architecture diagram
 
@@ -12,17 +12,17 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - **Resource group.** A [_resource group_][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 
-- **VM**. You can provision a VM from a list of published images or from a VHD file that you upload to Azure blob storage.
+- **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure blob storage.
 
-- **OS disk.** The OS disk is a VHD stored in [Azure storage][azure-storage]. That means it persists even if the host machine goes down. The OS disk is `/dev/sda1`
+- **OS disk.** The OS disk is a VHD stored in [Azure storage][azure-storage]. That means it persists even if the host machine goes down. The OS disk is `/dev/sda1`.
 
 - **Temporary disk.** The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is _not_ saved in Azure storage, and might go away during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. The temporary disk is `/dev/sdb1` and is mounted at `/mnt/resource` or `/mnt`.
 
 - **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure storage, like the OS disk.
 
-- **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a virtual network (VNet), which is further divided into subnets.
+- **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a (VNet), which is further divided into subnets.
 
-- **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over ssh.
+- **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over SSH.
 
 - **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
@@ -34,9 +34,9 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ### VM recommendations
 
-- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
+- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
+- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure command-line interface (CLI) command:
 
     ```
     azure vm sizes --location <location>
@@ -46,7 +46,9 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ### Disk and storage recommendations
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+
+- One storage account can support 1 to 20 VMs.
 
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk. The data disks will show as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a new partition and file system, and mount the disk. For example:
 
@@ -66,7 +68,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an app that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
-- You may want to change the I/O scheduler, to optimize for performance on SSDs (used by Premium Storage). A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat] to monitor disk I/O performance for your particular workload.
+- You may want to change the I/O scheduler, to optimize for performance on solid-state drives (SSDs) (used by Premium Storage). A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat] to monitor disk I/O performance for your particular workload.
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
@@ -81,7 +83,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
 
-- To enable ssh, add a rule to the NSG that allows inbound traffic to TCP port 22.
+- To enable SSH, add a rule to the NSG that allows inbound traffic to TCP port 22.
 
 ## Scalability considerations
 
@@ -97,13 +99,13 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
 
-- To protect against accidental data loss during normal operations (e.g., because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
+- To protect against accidental data loss during normal operations (for example, because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
 
 ## Manageability considerations
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **Resource groups.** Put tightly coupled resources that share the same life cycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-- **ssh**. Before you create a Linux VM, generate a 2048-bit RSA public-private key pair. Use the public key file when you create the VM. For more information, see [How to Use SSH with Linux and Mac on Azure][ssh-linux].
+- **SSH**. Before you create a Linux VM, generate a 2048-bit RSA public-private key pair. Use the public key file when you create the VM. For more information, see [How to Use SSH with Linux and Mac on Azure][ssh-linux].
 
 - **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
 
@@ -113,15 +115,15 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
     azure vm enable-diag <resource-group> <vm-name>
     ```
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "Deallocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM deallocated.
 
-    Use the following CLI command to de-allocate a VM:
+    Use the following CLI command to deallocate a VM:
 
     ```text
     azure vm deallocate <resource-group> <vm-name>
     ```
 
-    The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ de-allocated, so you will still be charged.
+    The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ deallocated, so you will still be charged.
 
 - **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
 
@@ -131,7 +133,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 - Automate OS updates by using the [OSPatching] VM extension. Install this extension when you provision the VM. You can specify how often to install patches and whether to reboot after patching.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contrubutor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
     > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
@@ -152,23 +154,24 @@ The script references the following parameter files to build the VM and the surr
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "addressPrefixes": [
-            "172.17.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-subnet",
-              "addressPrefix": "172.17.0.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg",
+        "addressPrefixes": [
+          "172.17.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-subnet",
+            "addressPrefix": "172.17.0.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
-	}
+    }
+  }
 	```
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
@@ -176,17 +179,19 @@ The script references the following parameter files to build the VM and the surr
 	The security rule shown in the example enables a user to connect to the VM through an SSH connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
 
 	```json
-	"parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
       },
-      "networkSecurityGroupSettings": {
-        "value": {
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "networkSecurityGroupSettings": {
+      "value": [
+        {
           "name": "app1-nsg",
           "subnets": [
             "app1-subnet"
@@ -205,13 +210,14 @@ The script references the following parameter files to build the VM and the surr
             }
           ]
         }
-      }
-	}
+      ]
+    }
+  }
 	```
 
-- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disk.
+- **[virtualMachineParameters.json][vm-parameters]**. This file defines the settings for the VM itself, including the name and size of the VM, the security credentials for the admin user, the disks to be created, and the storage accounts to hold these disks.
 
-	Make sure that you set the `osType` parameter to `linux`. You must Also specify an image in the `imageReference` section. The values shown below create a VM with the latest build of RedHat Linux 7.2. You can use the following Azure CLI command to obtain a list of all available RedHat images in a region (the example uses the westus region):
+	Make sure that you set the `osType` parameter to `linux`. You must also specify an image in the `imageReference` section. The values shown below create a VM with the latest build of RedHat Linux 7.2. You can use the following Azure CLI command to obtain a list of all available RedHat images in a region (the example uses the westus region):
 
 	```powershell
 	azure vm image list westus redhat rhel
@@ -222,74 +228,74 @@ The script references the following parameter files to build the VM and the surr
 	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
 
 	```json
-	"parameters": {
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "app1",
-          "computerNamePrefix": "",
-          "size": "Standard_DS1",
-          "osType": "linux",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osAuthenticationType": "password",
-          "nics": [
-            {
-              "isPublic": "true",
-              "subnetName": "app1-subnet",
-              "privateIPAllocationMethod": "dynamic",
-              "publicIPAllocationMethod": "dynamic",
-              "isPrimary": "true"
-            }
-          ],
-          "imageReference": {
-            "publisher": "RedHat",
-            "offer": "RHEL",
-            "sku": "7.2",
-            "version": "latest"
-          },
-          "dataDisks": {
-            "count": 2,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": ""
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "app1",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "osType": "linux",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "app1-subnet",
+            "privateIPAllocationMethod": "dynamic",
+            "publicIPAllocationMethod": "dynamic",
+            "isPrimary": "true"
+          }
+        ],
+        "imageReference": {
+          "publisher": "RedHat",
+          "offer": "RHEL",
+          "sku": "7.2",
+          "version": "latest"
+        },
+        "dataDisks": {
+          "count": 2,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
           }
         },
-        "metadata": {
-          "description": "Settings for Virtual Machines"
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": ""
         }
       },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "app1-vnet",
-          "resourceGroup": "app1-dev-rg"
-        },
-        "metadata": {
-          "description": "Infrastructure Settings"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 1,
-          "vmStartIndex": 0
-        },
-        "metadata": {
-          "description": "Settings specific to the building block"
-        }
+      "metadata": {
+        "description": "Settings for Virtual Machines"
       }
-	}
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "app1-vnet",
+        "resourceGroup": "app1-dev-rg"
+      },
+      "metadata": {
+        "description": "Infrastructure Settings"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 0
+      },
+      "metadata": {
+        "description": "Settings specific to the building block"
+      }
+    }
+  }
 	```
 
-## Deployment
+## Solution deployment
 
 The solution assumes the following prerequisites:
 
@@ -299,15 +305,11 @@ The solution assumes the following prerequisites:
 
 To run the script that deploys the solution:
 
-1. Move to a convenient folder on your local computer and create the following two subfolders:
-
-	- Scripts
-
-	- Templates
+1. Create a folder that contains subfolders named `Scripts` and `Templates`.
 
 2. In the Templates folder, create another subfolder named Linux.
 
-3. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
+3. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder.
 
 4. Download the following files to Templates/Linux folder:
 
@@ -322,7 +324,7 @@ To run the script that deploys the solution:
 	```powershell
 	$resourceGroupName = "app1-dev-rg"
 	```
-6. Edit each of the json files in the Templates/Linux folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
+6. Edit each of the JSON files in the Templates/Linux folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
 
 	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
@@ -345,6 +347,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
+[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md

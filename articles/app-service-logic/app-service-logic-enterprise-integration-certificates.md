@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Using certificates with Enterprise Integration Pack | Microsoft Azure App Service" 
 	description="Learn how to use certificates with the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 

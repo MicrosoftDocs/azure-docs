@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using the Twitter Connector in Logic Apps | Microsoft Azure App Service"
    description="How to create and configure the Twitter Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"

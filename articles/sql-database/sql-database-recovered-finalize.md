@@ -3,7 +3,7 @@
    description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

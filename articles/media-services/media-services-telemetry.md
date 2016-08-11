@@ -27,20 +27,18 @@ Note that the telemetry system does not manage data retention. You can remove th
 
 You can consume telemetry data in one of the following ways:
 
-- Read data directly from Azure Table Storage (e.g. using the Storage SDK)
+- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.
 
 Or
 
-- Use the support in the Media Services .NET SDK for reading storage data.
-
-This topic shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
+- Use the support in the Media Services .NET SDK for reading storage data. This topic shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.  
 
 ## Configuring telemetry for a Media Services account
 
 The following steps are needed to enable telemetry:
 
 - Get the credentials of the storage account attached to the Media Services account. 
-- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPontAddress pointing to the storage table.
+- Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPointAddress pointing to the storage table.
 
 	    INotificationEndPoint notificationEndPoint = 
 	                  _context.NotificationEndPoints.Create("monitoring", 

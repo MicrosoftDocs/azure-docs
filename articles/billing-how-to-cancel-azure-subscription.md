@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to cancel your Azure subscription | Microsoft Azure"
 	description="Describes how to cancel your Azure subscription"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
