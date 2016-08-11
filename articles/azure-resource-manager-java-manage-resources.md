@@ -18,6 +18,26 @@
 
 # Manage resource groups using the Java SDK
 
+  Resource: Manage Resource Sample (for 1.0.0-beta2) - demonstrates how to perform common tasks using the Microsoft Azure Resource management service.
+   - Create a resource
+   - Update a resource
+   - Create another resource
+   - List resources
+   - Delete a resource.
+ 
+
+## Running this Sample
+
+To run this sample:
+
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
+
+    git clone https://github.com/Azure-Samples/resources-java-manage-resource.git
+
+    cd resources-java-manage-resource
+
+    mvn clean compile exec:java
+
 ## More information
 
 [http://azure.com/java](http://azure.com/java)
