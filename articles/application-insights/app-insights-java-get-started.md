@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/11/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -38,10 +38,7 @@ You'll need:
 ## 1. Get an Application Insights instrumentation key
 
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com).
-2. Create a new Application Insights resource.
-
-    ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)
-3. Set the application type to Java web application.
+2. Create an Application Insights resource. Set the application type to Java web application.
 
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
 4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.

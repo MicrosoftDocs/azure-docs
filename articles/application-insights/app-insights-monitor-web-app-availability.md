@@ -214,12 +214,36 @@ Now, upload your test to the portal. It will use the dynamic values on every run
 
 If your users sign in to your app, you have various options for simulating sign-in so that you can test pages behind the sign-in. The approach you use depends on the type of security provided by the app.
 
-In all cases, you should create an account just for the purpose of testing. If possible, restrict its permissions so that it's read-only.
+In all cases, you should create an account in your application just for the purpose of testing. If possible, restrict the permissions of this test account so that there's no possibility of the web tests affecting real users.
 
-* Simple username and password: Record a web test in the usual way. Delete cookies first.
-* SAML authentication. Use the SAML plugin that is available for web tests.
-* Client secret: If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory provides a client secret sign-in. 
-* Open Authentication - for example, signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so the first tactic is to investigate that. If your test has to sign in using OAuth, the general approach is:
+### Simple username and password
+
+Record a web test in the usual way. Delete cookies first.
+
+### SAML authentication
+
+Use the SAML plugin that is available for web tests.
+
+### Client secret
+
+If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that  provides a client secret sign-in. In AAD, the client secret is the App Key. 
+
+Here's a sample web test of an Azure web app using an app key:
+
+![Client secret sample](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Get token from AAD using client secret (AppKey).
+2. Extract bearer token from response.
+3. Call API using bearer token in the authorization header.
+
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app will be reflected in the web test in the “resource” field. 
+
+### Open Authentication
+
+An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should to investigate that possibility. 
+
+If your test must sign in using OAuth, the general approach is:
+
  * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app. 
  * Perform two or more sign-ins using different machines or browsers, or at long intervals (to allow tokens to expire).
  * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in. 
