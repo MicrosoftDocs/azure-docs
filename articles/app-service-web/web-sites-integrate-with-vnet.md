@@ -27,12 +27,14 @@ The Azure App Service has two forms.
 
 This document goes through VNET Integration and not App Service Environment.  If you want to learn more about the ASE feature then start with the information here: [App Service Environment introduction][ASEintro].
 
-VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  A common scenario where you would use this feature is enabling your web app access to a database or a web services that are running in a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
+VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.  Private site access is only available with an ASE configured with an Internal Load Balancer (ILB).  For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE][ILBASE]. 
+
+A common scenario where you would use VNET Integration is enabling access from your web app to a database or a web services running on a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
 The VNET Integration feature:
 
 - requires a Standard or Premium pricing plan 
-- will work with V1(Classic) or V2(Resource Manager) VNET 
+- will work with Classic(V1) or Resource Manager(V2) VNET 
 - supports TCP and UDP
 - works with Web, Mobile and API apps
 - enables an app to connect to only 1 VNET at a time
@@ -73,7 +75,7 @@ If your app is not in the correct pricing plan the UI will helpfully enable you 
 ![][1]
  
 ###Enabling VNET Integration with a pre-existing VNET###
-The VNET Integration UI allows you to select from a list of your VNETs.  The V1 VNETs will indicate that they are such with the word "Classic" in parenthesis next to the VNET name.  The list is sorted such that the V2 VNETs are listed first.  In the image shown below you can see that only one VNET can be selected.  There are multiple reasons that a VNET will be greyed out including:
+The VNET Integration UI allows you to select from a list of your VNETs.  The Classic VNETs will indicate that they are such with the word "Classic" in parenthesis next to the VNET name.  The list is sorted such that the Resource Manager VNETs are listed first.  In the image shown below you can see that only one VNET can be selected.  There are multiple reasons that a VNET will be greyed out including:
 
 - the VNET is in another subscription that your account has access to
 - the VNET does not have Point to Site enabled
@@ -84,19 +86,19 @@ The VNET Integration UI allows you to select from a list of your VNETs.  The V1 
 
 To enable integration simply click on the VNET you wish to integrate with.  After you select the VNET, your app will be automatically restarted for the changes to take effect.  
 
-##### Enable Point to Site in a V1 VNET #####
-If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this for a V1 VNET, go to the [Azure Portal][AzurePortal] and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
+##### Enable Point to Site in a Classic VNET #####
+If your VNET does not have a gateway nor has Point to Site then you have to set that up first.  To do this for a Classic VNET, go to the [Azure Portal][AzurePortal] and bring up the list of Virtual Networks(classic).  From here click on the network you want to integrate with and click on the big box under Essentials called VPN Connections.  From here you can create your point to site VPN and even have it create a gateway.  After you go through the point to site with gateway creation experience it will be about 30 minutes before it is ready.  
 
 ![][8]
 
-##### Enabling Point to Site in a V2 VNET #####
+##### Enabling Point to Site in a Resource Manager VNET #####
 
-To configure a V2 VNET with a gateway and Point to Site you need to use PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S].  The UI to perform this capability is not yet available. 
+To configure a Resource Manager VNET with a gateway and Point to Site you need to use PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S].  The UI to perform this capability is not yet available. 
 
 ### Creating a pre-configured VNET ###
-If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a V2 VNET.  If you wish to create a V1 VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
+If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a Resource manager VNET.  If you wish to create a Classic VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
 
-To create a V2 VNET through the VNET Integration UI, simply select **Create New Virtual Network** and provide the:
+To create a Resource Manager VNET through the VNET Integration UI, simply select **Create New Virtual Network** and provide the:
 
 - Virtual Network Name
 - Virtual Network Address Block
@@ -107,7 +109,7 @@ To create a V2 VNET through the VNET Integration UI, simply select **Create New 
 
 If you want this VNET to connect to any of your other network then you should avoid picking IP address space that overlaps with those networks.  
 
->[AZURE.NOTE] V2 VNET creation with a gateway takes about 30 minutes and currently will not integrate the VNET with your app.  After your VNET is created with the gateway you need to come back to your app VNET Integration UI and select your new VNET.
+>[AZURE.NOTE] Resource Manager VNET creation with a gateway takes about 30 minutes and currently will not integrate the VNET with your app.  After your VNET is created with the gateway you need to come back to your app VNET Integration UI and select your new VNET.
 
 ![][3]
 
@@ -121,7 +123,7 @@ The VNET address space needs to be specified in CIDR notation.  If you are unfam
 
 If you set the DNS server information here then that will be set for your VNET.  After VNET creation you can edit this information from the VNET user experiences.
 
-When you create a V1 VNET using the VNET Integration UI, it will create a VNET in the same resource group as your app. 
+When you create a Classic VNET using the VNET Integration UI, it will create a VNET in the same resource group as your app. 
 
 ## How the system works ##
 Under the covers this feature builds on top of Point-to-Site VPN technology to connect your app to your VNET.   Apps in Azure App Service have a multi-tenant system architecture which precludes provisioning an app directly in a VNET as is done with virtual machines.  By building on point-to-site technology we limit network access to just the virtual machine hosting the app.  Access to the network is further restricted on those app hosts so that your apps can only access the networks that you configure them to access.  
@@ -178,7 +180,7 @@ If those certificates or network information is changed then you will need to cl
 
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
->[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a V1 or V2 VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
+>[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
 
 ##Pricing details##
 There are a few pricing nuances that you should be aware of when using the VNET Integration feature.  There are 3 related charges to the use of this feature:
@@ -215,26 +217,32 @@ This tool will tell you if you can reach a specific host and port but will not p
 
 ####Debugging access to VNET hosted resources####
 
-There are a number of things that can prevent your app from reaching a specific host and port.  To break the problem down start with the easy things like:  
+There are a number of things that can prevent your app from reaching a specific host and port.  Most of the time it is one of three things:
+
+- **There is a firewall in the way**  If you have a firewall in the way then you will hit the TCP timeout.  That is 21 seconds in this case.  Use the tcpping tool to test connectivity.  TCP timeouts can be due to many things beyond firewalls but start there.  
+- **DNS is not accessible**  The DNS timeout is 3 seconds per DNS server.  If you have 2 DNS servers that is 6 seconds.  Use nameresolver to see if DNS is working.  Remember you can't use nslookup as that does not use the DNS your VNET is configured with.
+- **Invalid P2S IP range** The point to site IP range needs to be in the RFC 1918 private IP ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)  If the range uses IPs outside of that then things won't work.  
+
+If those items don't answer your problem, look first for the simple things like:  
 
 - Does the Gateway show as being up in the Portal?
 - Do certificates show as being in sync?
-- Did anybody change the network configuration without doing a "Sync Network" in the affected ASPs?
+- Did anybody change the network configuration without doing a "Sync Network" in the affected ASPs? 
 
 If your gateway is down then bring it back up.  If your certificates are out of sync then go to the ASP view of your VNET Integration and hit "Sync Network".  If you suspect that there has been a change made to your VNET configuration and it wasn't sync'd with your ASPs then go to the ASP view of your VNET Integration and hit "Sync Network"  Just as a reminder, this will cause a brief outage with your VNET connection and your apps.  
 
 If all of that is fine then you need to dig in a bit deeper:
 
-- Are there any other apps using this VNET successfully to reach a remote resource? 
-- Can you go to the app console and use tcpping to reach any resources in your VNET?  
+- Are there any other apps using VNET Integration to reach resources in the same VNET? 
+- Can you go to the app console and use tcpping to reach any other resources in your VNET?  
 
-If either of the above are true then your VNET Integration is fine and the problem is somewhere else.  You also may simply not have an answer from the above two items because you don't have something else in your VNET to hit.  This is where it gets to be more of a challenge because there is no simple way to see why you can't reach a host:port.  Some of the causes include:
+If either of the above are true then your VNET Integration is fine and the problem is somewhere else.  This is where it gets to be more of a challenge because there is no simple way to see why you can't reach a host:port.  Some of the causes include:
 
+- you have a firewall up on your host preventing access to the application port from your point to site IP range.  Crossing subnets often requires Public access.
 - your target host is down
 - your application is down
 - you had the wrong IP or hostname
 - your application is listening on a different port than what you expected.  You can check this by going onto that host and using "netstat -aon" from the cmd prompt.  This will show you what process ID is listening on what port.  
-- you have a firewall up on your host preventing access to the application port from your point to site IP range
 - your network security groups are configured in such a manner that they prevent access to your application host and port from your point to site IP range
 
 Remember that you don't know what IP in your Point to Site IP range that your app will use so you need to allow access from the entire range.  
@@ -243,7 +251,6 @@ Additional debug steps include:
 
 - log onto another VM in your VNET and attempt to reach your resource host:port from there.  There are some TCP ping utilities that you can use for this purpose or can even use telnet if need be.  The purpose here is just to determine if connectivity is there from this other VM. 
 - bring up an application on another VM and test access to that host and port from the console from your app  
-
 ####On premise resources####
 If your cannot reach resources on premise then the first thing you should check is if you can reach a resource in your VNET.  If that is working then the next steps are pretty easy.  From a VM in your VNET you need to try to reach the on premise application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on premise resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on premise gateway configuration and status.  
 
@@ -294,3 +301,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
