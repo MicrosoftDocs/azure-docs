@@ -122,4 +122,4 @@ possible on this worker pool.
 1. The number of workers can be configured independently per site to grant
 additional resources as needed. For example, a high-use site might set
 **numberOfWorkers** to **3** to have more processing capacity for that app, while
-low-use sites would set *numberOfWorkers* to *1*.
+low-use sites would set **numberOfWorkers** to **1**.
