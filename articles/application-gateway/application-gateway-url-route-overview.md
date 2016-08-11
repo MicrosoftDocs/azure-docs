@@ -1,6 +1,6 @@
 <properties
-   pageTitle="URL based content routing overview | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway URL based content routing, UrlPathMap configuration and PathBasedRouting rule ."
+   pageTitle="URL-based content routing overview | Microsoft Azure"
+   description="This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule ."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -17,8 +17,8 @@
 
 # URL Path Based Routing overview
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenario is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool and DefaultServerPool.
+URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
+In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool, and DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -26,7 +26,7 @@ Requests for http://contoso.com/video* are routed to VideoServerPool, and http:/
 
 ## UrlPathMap configuration element
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. This is the snippet of urlPathMap element from template file.
+UrlPathMap element is used to specify Path patterns to back-end server pool mappings. This following is the snippet of urlPathMap element from template file.
 
 	"urlPathMaps": [
 	{
@@ -59,13 +59,13 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
 	}
 	
 
->[AZURE.NOTE] PathPattern: This is a list of path patterns to match. Each must start with / and the only place a * is allowed is at the end following a ‘/’. The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. 
+>[AZURE.NOTE] PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
 
-You can check out an [ARM template using URL based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+You can check out an [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
 
 ## PathBasedRouting rule
 
-RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests which are received for this listener are routed based on policy specified in urlPathMap.
+RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
 Snippet of PathBasedRouting rule:
 
 	"requestRoutingRules": [
@@ -86,4 +86,4 @@ Snippet of PathBasedRouting rule:
 	
 ## Next steps 
 
-After learning about URL based content routing, go to [create an application gateway using URL based routing](application-gateway-create-url-route-arm-ps.md) to create an application gateway with URL routing rules.
+After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) to create an application gateway with URL routing rules.

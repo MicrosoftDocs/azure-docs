@@ -16,13 +16,13 @@
    ms.author="gwallace"/>
 
 
-# Create an application gateway using URL based routing 
+# Create an application gateway using URL-based routing 
 
-URL Path Based Routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL based routing is to load balance requests for different content types to different back-end server pools.
+URL Path Based Routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-URL based routing introduces a new rule type to application gateway. Application gateway has 2 rule types: basic and PathBasedRouting. Basic rule type provides round-robin service for the back-end pools while PathBasedRouting in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
+URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and PathBasedRouting. Basic rule type provides round-robin service for the back-end pools while PathBasedRouting in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
 
->[AZURE.IMPORTANT] PathPattern: The list of path patterns to match. Each must start with / and the only place a * is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first ? or #, and those characters are not allowed. 
+>[AZURE.IMPORTANT] PathPattern: The list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*. The string fed to the path matcher does not include any text after the first "?" or "#", and those characters are not allowed. 
 
 ## Scenario
 In the following example, Application Gateway is serving traffic for contoso.com with two back-end server pools: video server pool and image server pool.
@@ -48,11 +48,11 @@ Requests for http://contoso.com/image* are routed to image server pool (pool1), 
 - **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
 
-## Create a new application gateway
+## Create an application gateway
 
 The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
 
-With Resource Manager, all items that make an application gateway is configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 
 Here are the steps that are needed to create an application gateway:
@@ -68,7 +68,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 ### Step 1
 
-Login to Azure
+Log in to Azure
 
 	Login-AzureRmAccount
 
@@ -89,7 +89,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 ### Step 4
 
-Create a new resource group (skip this step if you're using an existing resource group).
+Create a resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-RG -location "West US"
 
@@ -133,11 +133,11 @@ Create a public IP resource "publicIP01" in resource group "appgw-rg" for the We
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-An IP address are assigned to the application gateway when the service starts.
+An IP address is assigned to the application gateway when the service starts.
 
 ## Create application gateway configuration
 
-You need to set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+All configuration items must be setup before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
@@ -156,7 +156,7 @@ Configure the back-end IP address pool named "pool01"and "pool2" with IP address
 
 	$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.46, 134.170.189.221,134.170.186.50
 
-In this example there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from URL path "/video" and other pool receive traffic from path "/image". You have to replace the IP addresses above to add your own application IP address endpoints. 
+In this example, there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from URL path "/video" and other pool receive traffic from path "/image". Replace the IP addresses above to add your own application IP address endpoints. 
 
 ### Step 3
 
@@ -185,7 +185,7 @@ Configure the listener. This step configures the listener for the public IP addr
 
 ### Step 7 
 
-Configure URL rule paths for the back-end pools. This step configures the relative path used by application gateway to define the mapping between URL path and which back-end pool are assigned to handle the incoming traffic.
+Configure URL rule paths for the back-end pools. This step configures the relative path used by application gateway to define the mapping between URL path and which back-end pool is assigned to handle the incoming traffic.
 
 The example below creates two rules: one for "/image/" path routing traffic to back-end "pool1" and another one for "/video/" path routing traffic to back-end "pool2".
     
@@ -199,7 +199,7 @@ The rule path map configuration also configures a default back-end address pool 
 
 ### Step 8
 
-Create a rule setting. This step configures the application gateway to use URL path based routing.
+Create a rule setting. This step configures the application gateway to use URL path-based routing.
 
 	$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
 
