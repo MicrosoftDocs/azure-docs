@@ -34,7 +34,7 @@ You can enable diagnostic metrics from the Azure portal.
 
     ![][2]
 
-4. After you have set up the diagnostics, return to the main IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking on the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
+4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking on the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
 
     ![][3]
 
