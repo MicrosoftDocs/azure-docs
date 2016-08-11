@@ -63,7 +63,7 @@ For the on-premise Hybrid Runbook Worker to connect to and register with the OMS
 
 The following list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
 
-- Port:  Only TCP 443 is required for outbound Internet access.  
+- Port:  Only TCP 443 is required for outbound Internet access
 - Global URL:  *.azure-automation.net
 
 If you have an Automation account defined for a specific region and you want to restrict communication with that regional datacenter, the following table provides the DNS record for each region.
