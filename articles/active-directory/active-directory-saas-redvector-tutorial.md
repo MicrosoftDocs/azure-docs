@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -131,7 +131,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_08.png)
 
-6. To get SSO configured for your application, contact your RedVector Account Manager or RedVector support. They will assist with the proper channel to configure SSO. Please note that you have to send an email with the single sign-on service URL and attach downloaded certificate file to <sso@redvector.com>. If you don't have the Sign On URL yet, make sure to ask for this value in the email. Then, update the Sign On URL field in the **Configure App Settings** dialog page.
+6. To get SSO configured for your application, contact RedVector support team at <sso@redvector.com>. They will assist with the proper channel to configure SSO. In the email, provide them the following: 
+
+	- The downloaded certificate
+	- The **SAML SSO URL**
 
 7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
