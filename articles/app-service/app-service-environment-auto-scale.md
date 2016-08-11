@@ -232,7 +232,7 @@ To prevent this, he sets the autoscale rule to increase instances as follows:
 |	**Action:** Increase count by 3					|
 |	**Cool down (minutes):** 120					|
 |													|
-|	**Autoscale rule (Scale DOWN)**					|
+|	**Autoscale rule (Scale Down)**					|
 |	**Resource:** Worker pool 1						|
 |	**Metric:** CPU %								|
 |	**Operation:** Less than 30%					|
