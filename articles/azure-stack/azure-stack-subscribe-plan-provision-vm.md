@@ -30,11 +30,8 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
 
 4.  To view the subscription you just created, click **Browse**, click **Subscriptions**, then click your new subscription.  
 
-	![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
 
-	![](media/azure-stack-subscribe-plan-provision-vm/image04png)
-
-	![](media/azure-stack-subscribe-plan-provision-vm/image05png)
 
 After you subscribe to an offer, wait until the subscription state is InSync. Then refresh the portal to see which services are part of the new subscription.
 
