@@ -102,7 +102,7 @@ Similar to how you can run after individual actions, you can also group actions 
 
 You can use the `runAfter` a scope has been marked `Failed` to fire specific actions for any failures.  This allows you to create a single action to catch failures if *any* actions fail.
 
-### Getting the context of failures with resulted
+### Getting the context of failures with results
 
 Catching failures from a scope is very useful, but the one item that is missing is the context to understand exactly which action failed and any errors or status codes returned.  The `@result()` workflow function can bring that context into an action after a scope.
 
@@ -194,11 +194,11 @@ You could use the expressions above to perform different exception handling patt
 
 ## Azure Diagnostics and telemetry
 
-The patterns above are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself.  [Azure Diagnostics](app-service-logic-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure Storage account or Azure Event Hub.  You can then monitor the logs, or publish them into any monitoring tool you prefer, to evaluate run statuses.  One potential option is to stream all the events through Azure Event Hub into [Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/) and there could write live queries off of any anomalies, averages, or failures.  Stream Analytics can easily be outputted to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
+The patterns above are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself.  [Azure Diagnostics](app-service-logic-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure Storage account or Azure Event Hub.  You can then monitor the logs, or publish them into any monitoring tool you prefer, to evaluate run statuses.  One potential option is to stream all the events through Azure Event Hub into [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) and there could write live queries off of any anomalies, averages, or failures.  Stream Analytics can easily be outputted to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
 
 ## Next Steps
 - [See how one customer built robust error handling with Logic Apps](app-service-logic-scenario-error-and-exception-handling.md)
-- [Find more Logic Apps examples and scenarios](app-service-logic-examples-and-scenraios.md)
+- [Find more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
 - [Learn how to create automated deployments of logic apps](app-service-logic-create-deploy-template.md)
 - [Design and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
 
