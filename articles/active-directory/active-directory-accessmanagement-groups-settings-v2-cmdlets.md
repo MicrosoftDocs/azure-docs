@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Azure Active Directory preview cmdlets for group management
