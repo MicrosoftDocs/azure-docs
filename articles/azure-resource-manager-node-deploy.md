@@ -49,9 +49,9 @@ resources are created. You specify values for these parameters either inline or 
     ```
 
 4. Create an Azure service principal either through
-    [Azure CLI](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-    [PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-    or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+    [Azure CLI](resource-group-authenticate-service-principal-cli.md),
+    [PowerShell](resource-group-authenticate-service-principal.md),
+    or [the portal](resource-group-create-service-principal-portal.md).
 
 5. Set the following environment variables using the information from the service principle that you created.
 
@@ -106,7 +106,7 @@ msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (
   resourceClient = new ResourceManagementClient(credentials, subscriptionId);
 ```
 
-Then it creates a resource group into which the VM will be deployed.
+Then it creates a resource group into which the VM is deployed.
 
 ```
 var groupParameters = { location: location, tags: { sampletag: 'sampleValue' } };
@@ -116,7 +116,7 @@ resourceClient.resourceGroups.createOrUpdate(resourceGroupName, groupParameters,
 <a id="deploy"></a>
 ### Deploy the template
 
-Now, the sample loads the template and deploys it into the resource group that it just created.
+Now, the sample loads the template and deploys it into the resource group that it created.
 
 ```
 try {

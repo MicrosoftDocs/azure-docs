@@ -50,11 +50,11 @@ using the Azure .NET SDK.
     ```
 
 1. Create an Azure service principal either through
-    [Azure CLI](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-    [PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-    or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+    [Azure CLI](resource-group-authenticate-service-principal-cli.md),
+    [PowerShell](resource-group-authenticate-service-principal.md),
+    or [the portal](resource-group-create-service-principal-portal.md).
 
-1. Add these environment variables to your .env file using your subscription id and the tenant id, client id and client secret from the service principle that you created. 
+1. Add these environment variables to your `.env` file using your subscription id and the tenant id, client id, and client secret from the service principle that you created. 
 
     ```
     export AZURE_TENANT_ID={your tenant id}

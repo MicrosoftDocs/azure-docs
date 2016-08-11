@@ -37,22 +37,22 @@ With complete deployment, Resource Manager:
 
 - deletes resources that exist in the resource group but are not specified in the template
 - adds resources that are specified in the template but do not exist in the resource group
-- does not re-provision resources that exist in the resource group in the same condition defined in the template
+- does not reprovision resources that exist in the resource group in the same condition defined in the template
 
-You specify the type of deployment through the Mode property, as shown in the examples below.
+You specify the type of deployment through the Mode property, as shown in the following examples.
 
 ## Deploy with Ruby
 
-In this sample, we are going to deploy a resource template which contains an Ubuntu 16.04 LTS virtual machine using
-ssh public key authentication, storage account, and virtual network with public IP address. The virtual network
-contains a single subnet with a single network security group rule which allows traffic on port 22 for ssh with a single
+In this sample, we are going to deploy a resource template, which contains an Ubuntu 16.04 LTS virtual machine. It uses
+ssh public key authentication, a storage account, and avirtual network with public IP address. The virtual network
+contains a single subnet. The subnet has a network security group rule, which allows traffic on port 22 for ssh with a single
 network interface belonging to the subnet. The virtual machine is a `Standard_D1` size. You can find the template
 [here](https://github.com/azure-samples/resource-manager-ruby-template-deployment/blob/master/templates/template.json).
 
 ### To run this sample, do the following:
 
-You will need to create an Azure service principal either through Azure CLI, PowerShell or the portal. You should gather
-each the Tenant Id, Client Id and Client Secret from creating the Service Principal for use below.
+Create an Azure service principal either through Azure CLI, PowerShell, or the portal.
+Get the Tenant Id, Client Id, and Client Secret from creating the Service Principal for use in the following steps.
 
 - [Create a Service Principal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/#authenticate-with-password---azure-cli)
 - `git clone https://github.com/Azure-Samples/resource-manager-ruby-template-deployment.git`
@@ -65,12 +65,13 @@ each the Tenant Id, Client Id and Client Secret from creating the Service Princi
 
 ### What is this azure_deployment.rb Doing?
 
-The entry point for this sample is [azure_deployment.rb](https://github.com/azure-samples/resource-manager-ruby-template-deployment/blob/master/azure_deployment.rb). This script uses the deployer class
-below to deploy a the aforementioned template to the subscription and resource group specified in `my_resource_group`
-and `my_subscription_id` respectively. By default the script will use the ssh public key from your default ssh
+The entry point for this sample is [azure_deployment.rb](https://github.com/azure-samples/resource-manager-ruby-template-deployment/blob/master/azure_deployment.rb).
+This script uses the following deployer class
+below to deploy the template to the subscription and resource group specified in `my_resource_group`
+and `my_subscription_id` respectively. By default the script uses the ssh public key from your default ssh
 location.
 
-*Note: you must set each of the below environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET) prior to
+*Note: set each of the below environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET) before
 running the script.*
 
 ``` ruby
@@ -117,7 +118,7 @@ class Deployer
       vmName:               'azure-deployment-sample-vm'
   }
 
-  # Initialize the deployer class with subscription, resource group and public key. The class will raise an
+  # Initialize the deployer class with subscription, resource group, and public key. The class will raise an
   # ArgumentError under two conditions, if the public key path does not exist or if there are empty values for
   # Tenant Id, Client Id or Client Secret environment variables.
   #
@@ -168,18 +169,19 @@ class Deployer
 end
 ```
 
-The `initialize` method initializes the class with subscription, resource group and public key. The method also fetches
-the Azure Active Directory bearer token, which will be used in each HTTP request to the Azure Management API. The class
-will raise an ArgumentError under two conditions, if the public key path does not exist or if there are empty
-values for Tenant Id, Client Id or Client Secret environment variables.
+The `initialize` method initializes the class with subscription, resource group, and public key. The method also fetches
+the Azure Active Directory bearer token, which is used in each HTTP request to the Azure Management API. The class
+raises an ArgumentError under two conditions.
+- the public key path does not exist
+- there are empty values for Tenant Id, Client Id, or Client Secret environment variables
 
 The `deploy` method does the heavy lifting of creating or updating the resource group, preparing the template,
-parameters and deploying the template.
+parameters, and deploying the template.
 
-The `destroy` method simply deletes the resource group thus deleting all of the resources within that group.
+The `destroy` method simply deletes the resource group thus deleting all the resources within that group.
 
-Each of the above methods use the `Azure::ARM::Resources::ResourceManagementClient` class, which resides within the
-[azure_mgmt_resources](https://rubygems.org/gems/azure_mgmt_resources) gem ([see the rdocs docs here](http://www.rubydoc.info/gems/azure_mgmt_resources/0.2.1)).
+Each of the preceding methods uses the `Azure::ARM::Resources::ResourceManagementClient` class, which resides within the
+[azure_mgmt_resources](https://rubygems.org/gems/azure_mgmt_resources) gem. ([See the `rdocs` docs here](http://www.rubydoc.info/gems/azure_mgmt_resources/0.2.1)).
 
 After the script runs, you should see something like the following in your output:
 

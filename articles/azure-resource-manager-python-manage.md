@@ -26,7 +26,7 @@ using the Azure Python SDK.
 
 1. If you don't already have it, [install Python](https://www.python.org/downloads/).
 
-1. We recommend to use a [virtual environnement](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtualenv this way:
+1. We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory. You can initialize a virtualenv this way:
 
     ```
     pip install virtualenv
@@ -49,9 +49,9 @@ using the Azure Python SDK.
     ```
 
 1. Create an Azure service principal either through
-[Azure CLI](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal-cli/),
-[PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
-or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
+    [Azure CLI](resource-group-authenticate-service-principal-cli.md),
+    [PowerShell](resource-group-authenticate-service-principal.md),
+    or [the portal](resource-group-create-service-principal-portal.md).
 
 1. Export these environment variables into your current shell. 
 

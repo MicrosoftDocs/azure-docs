@@ -37,24 +37,24 @@ With complete deployment, Resource Manager:
 
 - deletes resources that exist in the resource group but are not specified in the template
 - adds resources that are specified in the template but do not exist in the resource group
-- does not re-provision resources that exist in the resource group in the same condition defined in the template
+- does not reprovision resources that exist in the resource group in the same condition defined in the template
 
-You specify the type of deployment through the Mode property, as shown in the examples below.
+You specify the type of deployment through the Mode property, as shown in the following examples.
 
 ## Deploy with Python
 
-In this sample, we are going to deploy a resource template which contains an Ubuntu 16.04 LTS virtual machine using
-ssh public key authentication, storage account, and virtual network with public IP address. The virtual network
-contains a single subnet with a single network security group rule which allows traffic on port 22 for ssh with a single
+In this sample, we are going to deploy a resource template, which contains an Ubuntu 16.04 LTS virtual machine. It uses
+ssh public key authentication, a storage account, and a virtual network with public IP address. The virtual network
+contains a single subnet. The subnet uses a network security group rule, which allows traffic on port 22 for ssh with a single
 network interface belonging to the subnet. The virtual machine is a `Standard_D1` size. You can find the template
 [here](https://github.com/azure-samples/resource-manager-python-template-deployment/blob/master/templates/template.json).
 
 ### To run this sample, do the following:
 
-You will need to create an Azure service principal either through Azure CLI, PowerShell or the portal. You should gather
-each the Tenant Id, Client Id and Client Secret from creating the Service Principal for use below.
+Create an Azure service principal either through Azure CLI, PowerShell, or the portal.
+Get the Tenant Id, Client Id, and Client Secret from creating the Service Principal for use in the following steps.
 
-We recommend to use a [virtual environnement](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory.
+We recommend using a [virtual environment](https://docs.python.org/3/tutorial/venv.html) to run this example, but it's not mandatory.
 To initialize a virtual environment:
 
 - `pip install virtualenv`
@@ -62,7 +62,7 @@ To initialize a virtual environment:
 - `cd mytestenv`
 - `source bin/activate`
 
-Once in your virtual environement:
+Once in your virtual environment:
 - [Create a Service Principal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/#authenticate-with-password---azure-cli)
 - `git clone https://github.com/Azure-Samples/resource-manager-python-template-deployment.git`
 - `cd resource-manager-python-template-deployment`
@@ -73,12 +73,13 @@ Once in your virtual environement:
 
 ### What is this azure_deployment.py Doing?
 
-The entry point for this sample is [azure_deployment.py](https://github.com/azure-samples/resource-manager-python-template-deployment/blob/master/azure_deployment.py). This script uses the deployer class
-below to deploy a the aforementioned template to the subscription and resource group specified in `my_resource_group`
-and `my_subscription_id` respectively. By default the script will use the ssh public key from your default ssh
+The entry point for this sample is [azure_deployment.py](https://github.com/azure-samples/resource-manager-python-template-deployment/blob/master/azure_deployment.py).
+This script uses the following deployer class
+to deploy the template to the subscription and resource group specified in `my_resource_group`
+and `my_subscription_id` respectively. By default the script uses the ssh public key from your default ssh
 location.
 
-*Note: you must set each of the below environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET) prior to
+*Note: set each of these environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET) before
 running the script.*
 
 ``` python
@@ -128,7 +129,7 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.resource.resources.models import DeploymentMode
 
 class Deployer(object):
-    """ Initialize the deployer class with subscription, resource group and public key.
+    """ Initialize the deployer class with subscription, resource group, and public key.
 
     :raises IOError: If the public key path cannot be read (access or not exists)
     :raises KeyError: If AZURE_CLIENT_ID, AZURE_CLIENT_SECRET or AZURE_TENANT_ID env
@@ -191,18 +192,19 @@ class Deployer(object):
         self.client.resource_groups.delete(self.resource_group)
 ```
 
-The `__init__` method initializes the class with subscription, resource group and public key. The method also fetches
-the Azure Active Directory bearer token, which will be used in each HTTP request to the Azure Management API. The class
-will raise excewptions under two conditions, if the public key path does not exist or if there are empty
-values for Tenant Id, Client Id or Client Secret environment variables.
+The `__init__` method initializes the class with subscription, resource group, and public key. The method also fetches
+the Azure Active Directory bearer token, which is used in each HTTP request to the Azure Management API. The class
+raises exceptions under two conditions. 
+- the public key path does not exist
+- there are empty values for Tenant Id, Client Id or Client Secret environment variables
 
 The `deploy` method does the heavy lifting of creating or updating the resource group, preparing the template,
-parameters and deploying the template.
+parameters, and deploying the template.
 
-The `destroy` method simply deletes the resource group thus deleting all of the resources within that group.
+The `destroy` method simply deletes the resource group thus deleting all the resources within that group.
 
-Each of the above methods use the `azure.mgmt.resource.ResourceManagementClient` class, which resides within the
-[azure-mgmt-resource](https://pypi.python.org/pypi/azure-mgmt-resource/) package ([see the docs docs here](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)).
+Each of the preceding methods uses the `azure.mgmt.resource.ResourceManagementClient` class, which resides within the
+[azure-mgmt-resource](https://pypi.python.org/pypi/azure-mgmt-resource/) package ([see the docs here](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)).
 
 After the script runs, you should see something like the following in your output:
 
