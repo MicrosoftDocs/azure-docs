@@ -131,7 +131,7 @@ It is easy to add a domain to be federated with Azure AD by using Azure AD Conne
 4. On the next page, the wizard will provide a list of Azure AD domains with which you can federate your on-premises directory. Choose the domain from the list.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-  After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details about how to verify your domain.
+    After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details about how to verify your domain.
 
 5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain5.PNG)
