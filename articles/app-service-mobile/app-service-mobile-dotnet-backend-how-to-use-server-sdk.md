@@ -474,7 +474,7 @@ Ensure that your application has [Microsoft.Azure.Mobile.Server.Authentication] 
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
 			ValidAudiences = new[] { ConfigurationManager.AppSettings["authAudience"] },
 			ValidIssuers = new[] { ConfigurationManager.AppSettings["authIssuer"] },
-			TokenHandler = config.GetMobileAppTokenHandler()
+			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
 In the above example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the URL of your application root, using the HTTPS scheme. Similarly you should set _authSigningKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. To obtain it, navigate to your app within the [Azure portal] and click **Tools**. Then select **Kudu** and click **Go**. This will take you to the Kudu management endpoint for your site. Click **Environment** and find the value under _WEBSITE_AUTH_SIGNING_KEY_. This is the value you should use for _authSigningKey_ in your local app config.
