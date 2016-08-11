@@ -22,17 +22,6 @@ This sample explains how to manage your
 [resources and resource groups in Azure](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#resource-groups)
 using the Azure .NET SDK.
 
-**On this page**
-
-- [Run this sample](#run)
-- [What is program.cs doing?](#example)
-    - [List resource groups](#list-groups)
-    - [Create a key vault in the resource group](#create-resource)
-    - [List resources within the group](#list-resources)
-    - [Export the resource group template](#export)
-    - [Delete a resource group](#delete-group)
-
-<a id="run"></a>
 ## Run this sample
 
 1. If you don't have it, install the [.NET Core SDK](https://www.microsoft.com/net/core).
@@ -69,7 +58,6 @@ using the Azure .NET SDK.
     dotnet run
     ```
 
-<a id="example"></a>
 ## What is program.cs doing?
 
 The sample walks you through several resource and resource group management operations.
@@ -82,7 +70,6 @@ var resourceClient = new ResourceManagementClient(serviceCreds);
 resourceClient.SubscriptionId = subscriptionId;
 ```
 
-<a id="list-groups"></a>
 ### List resource groups
 
 List the resource groups in your subscription.
@@ -91,7 +78,6 @@ List the resource groups in your subscription.
 resourceClient.ResourceGroups.List();
 ```
 
-<a id="create-resource"></a>
 ### Create a key vault in the resource group
 
 ```csharp
@@ -116,14 +102,12 @@ var keyVault = resourceClient.Resources.CreateOrUpdate(
     keyVaultParams);
 ```
 
-<a id="list-resources"></a>
 ### List resources within the group
 
 ```csharp
 resourceClient.ResourceGroups.ListResources(resourceGroupName);
 ```
 
-<a id="export"></a>
 ### Export the resource group template
 
 You can export the resource group as a template and then use that
@@ -137,7 +121,6 @@ var exportResult = resourceClient.ResourceGroups.ExportTemplate(
     });
 ```
 
-<a id="delete-group"></a>
 ### Delete a resource group
 
 ```csharp
