@@ -17,13 +17,13 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-# Using the Custom Script extension for Windows VMs With Azure Resource Manager templates
+# Windows VM Custom Script extensions with Azure Resource Manager templates
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Template example for a Windows VM
 
-Define the following resource in the Resource section of the template
+Define the following resource in the Resource section of the template.
 
        {
        "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -47,10 +47,10 @@ Define the following resource in the Resource section of the template
        }
      }
 
-In the example above, replace the file URL and the file name with your own settings.
-After authoring the template, you can deploy it using Azure Powershell.
+In the preceding example, replace the file URL and the file name with your own settings.
+After authoring the template, you can deploy it using Azure PowerShell.
 
-In many scenarios customers want to keep the script urls and parameters as private. This can be achieved by keeping the script URL as a private so that can be accessed only with a storage account name and key , sent as protected settings. In addition the script parameters can also be provided as protected settings with version 1.7 or above for the windows custom script extension.
+If you want to keep script URLs and parameters private, you can set the script URL as **private**. If the script URL is set as **private**, it can only be accessed with a storage account name and key sent as protected settings. The script parameters can also be provided as protected settings with version 1.7 or later of the Custom Script extension.
 
 ## Template example for a Windows VM with protected settings
 
@@ -69,8 +69,6 @@ In many scenarios customers want to keep the script urls and parameters as priva
         "storageAccountKey": "yourStorageAccountKey"
         }
         }
-For information on the schema of the latest versions of custom script extension, please refer to the documentation [here](virtual-machines-windows-extensions-configuration-samples.md)
+For information about the schema of the latest versions of the Custom Script extension, please see  [Azure Windows VM Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md).
 
-Please refer to the example below for a complete samples of configuring applications on a VM using Custom Script extension.
-
-* [Custom Script extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+For samples of application configuration on a VM using the Custom Script extension, see [Custom Script extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/).
