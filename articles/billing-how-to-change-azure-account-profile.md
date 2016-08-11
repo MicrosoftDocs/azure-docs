@@ -33,7 +33,7 @@ The email address in the Account Administrator’s profile is used by Microsoft 
 
 ## How to change your profile information
 
-1.	Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or just go to https://account.windowsazure.com/Profile.
+1.	Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or go to https://account.windowsazure.com/Profile.
 
 2.	Select the **Edit details** button, and then update the **Profile** information.
 
