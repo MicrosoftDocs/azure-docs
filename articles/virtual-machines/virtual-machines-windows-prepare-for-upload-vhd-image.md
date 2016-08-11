@@ -52,7 +52,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
    - `sc config w32time start= auto`
 
-5. Make sure that each of the following windows services is set to its windows default values. They are all enabled with the following startup setting. You can run these commands to reset the startup setting.
+5. Make sure that each of the following windows services is set to its **windows default values**. They are all enabled with the following startup setting. You can run these commands to reset the startup setting.
 
 		sc config bfe start= auto
 
@@ -193,7 +193,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 		bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
 14. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
-15. To make sure that disk is healthy and consistent, run a `CHKDSK /f` command.
+15. To make sure the disk is healthy and consistent, run a `CHKDSK /f` command.
 16.	Uninstall all other third-party software and drivers.
 17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure.
 18.	If the Windows VDH that you want to upload is a domain controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
@@ -224,13 +224,15 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
+23, If you want to create a image by using the VHD, it is better to run `sysprep` to prepare the installation of Windows for imaging.
+
 ## Suggested extra configurations
 
-The following settings do not affect VHD uploading. However, we are recommended that you have them configured.
+The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
 
-- Install [VM Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the VM agent, you can enable VM extensions. The VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others.
 
-- Enable the Dump log collection.
+- Enable the Dump log collection. The Dump log file can be helpful in troubleshooting Windows crash issues.
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
 
