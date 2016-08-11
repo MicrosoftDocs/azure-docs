@@ -23,7 +23,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
 ## Prepare the VM configuration for upload
 
->[AZURE.NOT] Azure accepts only VHD disk files that are created for generation 1 virtual machines. The disk must be in Fixed size. The maximum size allowed for the VHD is 1,023 GB.
+>[AZURE.NOTE] Azure accepts only VHD disk files that are created for generation 1 virtual machines. The disk must be in Fixed size. The maximum size allowed for the VHD is 1,023 GB.
 
 1.	Make sure that the Windows VHD is working correctly on the local server.
 2.	If you have a Windows VM image in VHDX format, convert it to a VHD by using either of the following:
@@ -100,7 +100,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
 	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
 
-	For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
+		For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 
 7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
 
