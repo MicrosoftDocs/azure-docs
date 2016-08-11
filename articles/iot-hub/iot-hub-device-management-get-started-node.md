@@ -57,10 +57,8 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
-  -   Check the box to **Enable Device Management**.
+  -   Check the box to **Enable Device Management**. If you don't check the box to **Enable Device Management**, the samples won't work. By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
   -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
-
-  > [AZURE.NOTE]  If you don't check the box to **Enable Device Management**, the samples won't work.<br/>By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
 
