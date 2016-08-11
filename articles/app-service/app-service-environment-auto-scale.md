@@ -20,13 +20,11 @@
 
 # Autoscaling and App Service Environment
 
-## Introduction
-
-App Service environments support *Autoscale*. You can autoscale individual worker pools based on metrics or schedule.
+Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
 
 ![Autoscale options for a worker pool.][intro]
 
-Autoscale optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
+Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
 
 ## Configure worker pool autoscale
 
@@ -46,7 +44,7 @@ Autoscale profiles are useful to set limits on your scale. This way, you can hav
 
 ![Scale settings in profile.][scale-profile2]
 
-After you define a profile, you can add autoscale rules, which are based on metrics, to scale up or down the number of instances in the worker pool within the bounds defined by the profile.
+After you define a profile, you can add autoscale rules to scale up or down the number of instances in the worker pool within the bounds defined by the profile. Autoscale rules are based on metrics.
 
 ![Scale rule.][scale-rule]
 
@@ -60,7 +58,7 @@ This article explains all the necessary considerations when you set up autoscale
 
 ### Scenario introduction
 
-Frank is a SysAdmin for an enterprise, who has migrated a portion of the workloads that he manages to an App Service environment.
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
 
 The App Service environment is configured to manual scale as follows:
 
@@ -73,7 +71,7 @@ Worker pool 1 is used for production workloads, while worker pool 2 and worker p
 
 The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is an LOB application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
+Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
 ![Specific settings for LOB app.][asp-scale]
 
@@ -86,9 +84,9 @@ Frank is very familiar with the application. He knows that the peak hours for lo
 |	**Target range:** 5 to 20 instances						|	**Target range:** 3 to 10 instances						|
 |	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday								|
 |	**Start time:** 9:00 AM									|	**Start time:** 9:00 AM									|
-|	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08									|
+|	**Time zone:** UTC-08									|	**Time zone:** UTC-08									|
 |	                                                    	|	                                            	        |
-|	**Autoscale rule (Scale UP)**							|	**Autoscale rule (Scale UP)**							|
+|	**Autoscale rule (Scale Up)**							|	**Autoscale rule (Scale Up)**							|
 |	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
 |	**Metric:** CPU %										|	**Metric:** CPU %										|
 |	**Operation:** Greater than 60%							|	**Operation:** Greater than 80%							|
@@ -97,7 +95,7 @@ Frank is very familiar with the application. He knows that the peak hours for lo
 |	**Action:** Increase count by 2							|	**Action:** Increase count by 1							|
 |	**Cool down (minutes):** 15								|	**Cool down (minutes):** 20								|
 |	                                                    	|	                                            	        |
-	|	**Autoscale rule (Scale DOWN)**						|	**Autoscale rule (Scale DOWN)**							|
+	|	**Autoscale rule (Scale Down)**						|	**Autoscale rule (Scale Down)**							|
 |	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
 |	**Metric:** CPU %										|	**Metric:** CPU %										|
 |	**Operation:** Less than 30%							|	**Operation:** Less than 20%							|
@@ -117,28 +115,28 @@ The App Service plan inflation rate is calculated as follows:
 
 ![App Service plan inflation rate calculation.][ASP-Inflation]
 
-Based on the Autoscale - Scale UP rule for the Weekday profile of the production App Service plan, this would look as follows:
+Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-![App Service plan inflation rate for weekdays based on Autoscale - Scale UP rule.][Equation1]
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
-In the case of the Autoscale – Scale UP rule for the Weekends profile of the production
+In the case of the Autoscale – Scale Up rule for the Weekend profile of the production
 App Service plan, the formula would resolve to:
 
-![App Service plan inflation rate for weekends based on Autoscale - Scale UP rule.][Equation2]
+![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
 This value can also be calculated for scale-down operations:
 
-Based on the Autoscale - Scale Down rule for the Weekday profile of the production
+Based on the Autoscale – Scale Down rule for the Weekday profile of the production
 App Service plan, this would look as follows:
 
-![App Service plan inflation rate for weekdays based on Autoscale - Scale DOWN rule.][Equation3]
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
 
-In the case of the Autoscale – Scale Down rule for the Weekends profile of the production
+In the case of the Autoscale – Scale Down rule for the Weekend profile of the production
 App Service plan, the formula would resolve to:  
 
-![App Service plan inflation rate for weekends based on Autoscale - Scale DOWN rule.][Equation4]
+![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-What this means is that the production App Service plan can grow at a maximum rate of eight
+This means that the production App Service plan can grow at a maximum rate of eight
 instances per hour during the week and four instances per hour during the weekend. And it can
 release instances at a maximum rate of four instances per hour during the week and six instances
 per hour during weekends.
@@ -171,9 +169,9 @@ With this information, Frank can define the following autoscale profile and rule
 |	**Target range:** 13 to 25 instances					|	**Target range:** 6 to 15 instances				|
 |	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday						|
 |	**Start time:** 7:00 AM									|	**Start time:** 9:00 AM							|
-|	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08							|
+|	**Time zone:** UTC-08									|	**Time zone:** UTC-08							|
 |	                                                    	|	                                            	|
-|	**Autoscale rule (Scale UP)**							|	**Autoscale rule (Scale UP)**					|
+|	**Autoscale rule (Scale Up)**							|	**Autoscale rule (Scale Up)**					|
 |	**Resource:** Worker pool 1								|	**Resource:** Worker pool 1						|
 |	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
 |	**Operation:** Less than 8								|	**Operation:** Less than 3						|
@@ -223,9 +221,9 @@ To prevent this, he sets the autoscale rule to increase instances as follows:
 |	**Target range:** 3 to 10 instances				|
 |	**Days:** Everyday								|
 |	**Start time:** 9:00 AM							|
-|	**Time zone:** UTC – 08							|
+|	**Time zone:** UTC-08							|
 |													|
-|	**Autoscale Rule (Scale UP)**					|
+|	**Autoscale rule (Scale Up)**					|
 |	**Resource:** Front-end pool					|
 |	**Metric:** CPU %								|
 |	**Operation:** Greater than 60%					|
