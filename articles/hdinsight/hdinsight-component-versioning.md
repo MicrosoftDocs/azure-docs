@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -87,15 +87,15 @@ The following table lists the versions of HDInsight currently available, the cor
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
 * Once the support has expired for a particular version, it may not be available through the Azure Portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
 
-HDInsight Version|HDP Version|High Availability|Release Date|Available on Azure Portal|Support Expiration Date|Deprecation Date
+HDInsight Version|HDP Version|VM OS|High Availability|Release Date|Available on Azure Portal|Support Expiration Date|Deprecation Date
 ---|---|---|---|---|---|---
-HDI 3.4|HDP 2.4|Yes|03/29/2016|Yes||
-HDI 3.3|HDP 2.3|Yes|12/02/2015|Yes||
-HDI 3.2|HDP 2.2|Yes|2/18/2015|Yes||
-HDI 3.1|HDP 2.1|Yes|6/24/2014|Yes||
-HDI 3.0|HDP 2.0|Yes|02/11/2014|Yes|09/17/2014|06/30/2015
-HDI 2.1|HDP 1.3|Yes|10/28/2013|Yes|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1|No|10/28/2013|Yes|04/26/2014|05/31/2015
+HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Yes|03/29/2016|Yes||
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes||
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes||
+HDI 3.1|HDP 2.1|Windows Server 2012R2|Yes|6/24/2014|Yes||
+HDI 3.0|HDP 2.0|Windows Server 2012R2|Yes|02/11/2014|Yes|09/17/2014|06/30/2015
+HDI 2.1|HDP 1.3|Windows Server 2012R2|Yes|10/28/2013|Yes|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1||No|10/28/2013|Yes|04/26/2014|05/31/2015
 
 **Deployment of non-default clusters**
 
