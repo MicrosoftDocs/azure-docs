@@ -175,7 +175,7 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Microsoft Visual Studio Tools for HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
+| [Microsoft Visual Studio Tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md/#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
