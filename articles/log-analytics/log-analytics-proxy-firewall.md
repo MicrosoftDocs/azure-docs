@@ -41,7 +41,7 @@ You can use the following procedure to configure proxy settings for the Microsof
 2. Open **Microsoft Monitoring Agent**.
 
 3. Click the **Proxy Settings** tab.<br>  
-  ![proxy settings tab](../media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+  ![proxy settings tab](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
 
