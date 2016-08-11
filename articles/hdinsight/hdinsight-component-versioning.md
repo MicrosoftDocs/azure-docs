@@ -88,7 +88,7 @@ The following table lists the versions of HDInsight currently available, the cor
 * Once the support has expired for a particular version, it may not be available through the Azure Portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
 
 HDInsight Version|HDP Version|VM OS|High Availability|Release Date|Available on Azure Portal|Support Expiration Date|Deprecation Date
----|---|---|---|---|---|---
+---|---|---|---|---|---|---|---
 HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Yes|03/29/2016|Yes||
 HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes||
 HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes||
