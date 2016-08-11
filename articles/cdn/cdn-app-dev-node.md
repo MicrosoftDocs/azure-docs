@@ -367,5 +367,5 @@ To see the reference for the Azure CDN SDK for Node.js, view the [reference](htt
 
 To find additional documentation on the Azure SDK for Node.js, view the [full reference](http://azure.github.io/azure-sdk-for-node/).
 
-Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).
+Manage your CDN resources with [PowerShell](./cdn-manage-powershell.md).
 
