@@ -340,10 +340,9 @@ After you have restored the disks, use these steps to create and configure the v
 2. Set the Azure storage context and restore the JSON configuration file.
 
     ```
-    Set -AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
+    PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
     PS C:\> $destination_path = "C:\vmconfig.json"
-    Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination
-    PS C:\> $destination_path -Context $storageContext
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
