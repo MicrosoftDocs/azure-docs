@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/11/2016"
    ms.author="yurid"/>
 
 # Azure Security Center planning and operations guide
@@ -36,35 +36,37 @@ In the next section you will learn how to plan for each one of those areas and a
 ## Security roles and access controls
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. Below you have an example of fictitious personas and their respective roles and security responsibilities:
 
-![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01.png)
+![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
 
 Security Center enables these individuals to meet these various responsibilities. For example:
 
 **Jeff (Cloud Workload Owner)**
 
-- Views and Completes Security Center Recommendations in the Azure Portal
-- May Also Use a Ticketing System to Track Changes (populates recommendations using [API](https://msdn.microsoft.com/library/mt704034.aspx))
+- Manage a cloud workload and its related resources
+- Responsible for implementing and maintaining protections in accordance with company security policy
 
-**Rex (CISO/CIO)**
+**Ellen (CISO/CIO)**
 
-- Views Security Center Reports from Power BI or Excel
+- Responsible for all aspects of security for the company
+- Wants to understand the company's security posture across cloud workloads
+- Needs to be informed of major attacks and risks
 
 **David (IT Security)**
 
-- Sets Security Policy and Views Security Health in Azure Portal
-- Analyzes Data and Generates Reports in Power BI
+- Sets company security policies to ensure the appropriate protections are in place
+- Monitors compliance with policies
+- Generates reports for leadership or auditors
 
-**Sam (Security Operations)**
+**Judy (Security Operations)**
 
-- Views and Triages Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
+- Monitors and responds to security alerts 24/7
+- Escalates to Cloud Workload Owner or IT Security Analyst
 
-**Sherlock (Security Analyst)**
+**Sam (Security Analyst)**
 
-- Views Security Center Alerts in the Azure Portal
-- May Use an Existing Dashboard (populates alerts using [API](https://msdn.microsoft.com/library/mt704034.aspx))
-- Analyzes Alert Trends in Power BI
-- Reviews Event Logs from Storage
+- Investigate attacks
+- Remediates alerts or works with Cloud Workload Owner to apply remediation 
+
 
 Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they will only see information related to resources they have access to, meaning the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. Using the personas above, the following RBAC would be needed:
 
@@ -76,12 +78,12 @@ Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role
 
 - Subscription Owner/Collaborator
 
-**Sam (Security Operations)**
+**Judy (Security Operations)**
 
 - Subscription Reader to View Alerts
 - Subscription Owner/Collaborator Required to Dismiss Alerts
 
-**Sherlock (Security Analyst)**
+**Sam (Security Analyst)**
 
 - Subscription Reader to View Alerts
 - Subscription Owner/Collaborator Required to Remediate or Dismiss Alerts
@@ -229,6 +231,7 @@ The example below shows a suspicious RDP activity taking place:
 
 As you can see, this blade shows details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
+> [AZURE.NOTE] In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 
 ## See also
 In this document, you learned how to plan for Security Center adoption. To learn more about Security Center, see the following:

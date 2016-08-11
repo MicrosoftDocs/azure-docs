@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/08/2016"
+   ms.date="08/11/2016"
    ms.author="yurid"/>
 
 # Get insights from Azure Security Center data with Power BI
