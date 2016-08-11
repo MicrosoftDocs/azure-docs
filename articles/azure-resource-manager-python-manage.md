@@ -95,7 +95,7 @@ It also sets up a ResourceGroup object (resource_group_params) to be used as a p
 resource_group_params = {'location':'westus'}
 ```
 
-There are a couple of supporting functions (`print_item` and `print_properties`) that print a resource group and it's properties.
+There are a couple of supporting functions (`print_item` and `print_properties`) that print a resource group and its properties.
 With that set up, the sample lists all resource groups for your subscription, it performs these operations.
 
 ### List resource groups

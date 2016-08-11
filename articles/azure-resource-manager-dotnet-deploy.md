@@ -79,7 +79,7 @@ resourceClient.ResourceGroups.CreateOrUpdate(resourceGroupName, new ResourceGrou
 
 ### Deploy the template
 
-Now, the sample loads the template and deploys it into the resource group that it just created.
+Now, the sample loads the template and deploys it into the resource group that it created.
 
 ```
 // build the deployment from a json file template from parameters

@@ -31,7 +31,7 @@ deployment, Resource Manager:
 
 - leaves unchanged resources that exist in the resource group but are not specified in the template
 - adds resources that are specified in the template but do not exist in the resource group
-- does not re-provision resources that exist in the resource group in the same condition defined in the template
+- does not reprovision resources that exist in the resource group in the same condition defined in the template
 
 With complete deployment, Resource Manager:
 
@@ -196,7 +196,7 @@ The `__init__` method initializes the class with subscription, resource group, a
 the Azure Active Directory bearer token, which is used in each HTTP request to the Azure Management API. The class
 raises exceptions under two conditions. 
 - the public key path does not exist
-- there are empty values for Tenant Id, Client Id or Client Secret environment variables
+- there are empty values for Tenant Id, Client Id, or Client Secret environment variables
 
 The `deploy` method does the heavy lifting of creating or updating the resource group, preparing the template,
 parameters, and deploying the template.

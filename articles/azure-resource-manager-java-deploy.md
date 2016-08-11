@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy an SSK enabled VM to Azure using a resource manager template and the Java SDK for Azure | Microsoft Azure"
-   description="Describes how to use the Java SDK for Azure to deploy a resource group using a resource manager template."
+   pageTitle="Deploy an SSK enabled VM to Azure using a Resource Manager template and the Java SDK for Azure | Microsoft Azure"
+   description="Describes how to use the Java SDK for Azure to deploy a resource group using a Resource Manager template."
    services="azure-resource-manager"
    documentationCenter="java"
    authors="allclark"
@@ -19,7 +19,7 @@
 # Deploy an SSH enabled VM with a template using Java
 
   Resource: Manage Resource Sample (for 1.0.0-beta2) - demonstrates how to perform common tasks using the Microsoft Azure resource management service.
-   - Deploy a resource using an resource manager template.
+   - Deploy a resource using a Resource Manager template.
  
 
 ## Running this Sample

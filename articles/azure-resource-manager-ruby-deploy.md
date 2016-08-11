@@ -31,7 +31,7 @@ deployment, Resource Manager:
 
 - leaves unchanged resources that exist in the resource group but are not specified in the template
 - adds resources that are specified in the template but do not exist in the resource group
-- does not re-provision resources that exist in the resource group in the same condition defined in the template
+- does not reprovision resources that exist in the resource group in the same condition defined in the template
 
 With complete deployment, Resource Manager:
 
@@ -44,7 +44,7 @@ You specify the type of deployment through the Mode property, as shown in the fo
 ## Deploy with Ruby
 
 In this sample, we are going to deploy a resource template, which contains an Ubuntu 16.04 LTS virtual machine. It uses
-ssh public key authentication, a storage account, and avirtual network with public IP address. The virtual network
+ssh public key authentication, a storage account, and a virtual network with public IP address. The virtual network
 contains a single subnet. The subnet has a network security group rule, which allows traffic on port 22 for ssh with a single
 network interface belonging to the subnet. The virtual machine is a `Standard_D1` size. You can find the template
 [here](https://github.com/azure-samples/resource-manager-ruby-template-deployment/blob/master/templates/template.json).
@@ -67,11 +67,11 @@ Get the Tenant Id, Client Id, and Client Secret from creating the Service Princi
 
 The entry point for this sample is [azure_deployment.rb](https://github.com/azure-samples/resource-manager-ruby-template-deployment/blob/master/azure_deployment.rb).
 This script uses the following deployer class
-below to deploy the template to the subscription and resource group specified in `my_resource_group`
+to deploy the template to the subscription and resource group specified in `my_resource_group`
 and `my_subscription_id` respectively. By default the script uses the ssh public key from your default ssh
 location.
 
-*Note: set each of the below environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET) before
+*Note: set each of these environment variables (AZURE_TENANT_ID, AZURE_CLIENT_ID, and AZURE_CLIENT_SECRET) before
 running the script.*
 
 ``` ruby
