@@ -178,9 +178,9 @@ You provide that variable value for the deployment resource.
         }
     ],
 
-The URI resolves to either **https://raw.githubusercontent.com/exampleuser/templates/master/newStorageAccount.json** or **https://raw.githubusercontent.com/exampleuser/templates/master/existingStorageAccount.json**. Create templates for those URIs.
+The URI resolves to a template named either **existingStorageAccount.json** or **newStorageAccount.json**. Create templates for those URIs.
 
-The following example shows the existing storage account template.
+The following example shows the **existingStorageAccount.json** template.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -200,33 +200,27 @@ The following example shows the existing storage account template.
       }
     }
 
-The next example shows the new storage account template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either nested template.
+The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either nested template.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "storageAccountName": {
-          "type": "String"
-        },
-        "storageAccountType": {
-          "type": "string",
-          "defaultValue": "Standard_LRS",
-          "allowedValues": [
-            "Standard_LRS",
-            "Standard_GRS",
-            "Standard_ZRS"        
-          ]
+          "type": "string"
         }
       },
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
           "name": "[parameters('StorageAccountName')]",
-          "apiVersion": "2014-12-01-preview",
+          "apiVersion": "2016-01-01",
           "location": "[resourceGroup().location]",
+          "sku": {
+            "name": "Standard_LRS"
+          },
+          "kind": "Storage",
           "properties": {
-            "accountType": "[parameters('storageAccountType')]"
           }
         }
       ],
