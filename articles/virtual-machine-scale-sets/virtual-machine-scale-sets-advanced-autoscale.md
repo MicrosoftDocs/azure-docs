@@ -1,0 +1,1 @@
+[AZURE.INCLUDE [insights-advanced-autoscale-virtual-machine-scale-sets](../../includes/insights-advanced-autoscale-virtual-machine-scale-sets.md)]
