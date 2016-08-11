@@ -18,7 +18,7 @@
 
 # Create an offer in Azure Stack
 
-[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to buy (subscribe to). In this example, you will create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This will give subscribers to the offer the ability to provision virtual machines.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to buy (subscribe to). This example showsyou how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
 1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
 	![](media/azure-stack-create-offer/image01.png)
@@ -31,7 +31,7 @@
 
 	![](media/azure-stack-create-offer/image02.png)
 	
-4. Click **Offers** and then click the offeryou just created.
+4. Click **Offers** and then click the offer you just created.
 
 	![](media/azure-stack-create-offer/image03.png)
 
@@ -40,7 +40,7 @@
   
 	![](media/azure-stack-create-offer/image04.png)
 
-Plans and offers have to be made public for tenants to get the full view when subscribing. If a plan is private and the offer is public, tenants can get to the offer but won’t be able to see the details of the plan. Plans and offers can be:
+Plans and offers must be made public for tenants to get the full view when subscribing. If a plan is private and the offer is public, tenants can get to the offer but can't see the details of the plan. Plans and offers can be:
 
     -   **Public**: Visible to tenants.
 
@@ -52,7 +52,7 @@ Plans and offers have to be made public for tenants to get the full view when su
 
 Changes to the plan or offer are not immediately visible to the tenant. To see the changes, the subscription state must be InSync, then the tenant must refresh the portal or login/logout.
 
-Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
+Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
 ## Next steps
 
