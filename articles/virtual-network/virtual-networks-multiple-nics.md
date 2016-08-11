@@ -25,7 +25,7 @@ You can create virtual machines (VMs) in Azure and attach multiple network inter
 
 The figure above shows a VM with three NICs, each connected to a different subnet.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - Internet-facing VIP (classic deployments) is only supported on the "default" NIC. There is only one VIP to the IP of the default NIC.
 - At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs.
