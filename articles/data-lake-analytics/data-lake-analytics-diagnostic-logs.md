@@ -32,7 +32,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 - **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
 - **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
-## Enable diagnostic logging
+## Enable logging
 
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-## View diagnostic logs
+## View logs
 
 There are two ways to view the log data for your Data Lake Analytics account.
 
@@ -108,7 +108,7 @@ There are two ways to view the log data for your Data Lake Analytics account.
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Diagnostic log structure
+## Log structure
 
 The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
