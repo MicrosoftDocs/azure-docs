@@ -221,4 +221,4 @@ Create an application gateway with all configuration objects from the preceding 
 
 ## Next steps
 
-If you want to learn Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-arm.md).
+If you want to learn Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl-arm.md).
