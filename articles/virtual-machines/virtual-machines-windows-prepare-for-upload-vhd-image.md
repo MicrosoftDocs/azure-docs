@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # Prepare a Windows VHD to upload to Azure
 
-The following are recommended steps for preparing Windows VHD for Azure:
+This article shows you how to prepare a Windows virtual hard disk (VHD) to upload to Microsoft Azure.
 
-## Prepare VM configuration for upload
+## Prepare the VM configuration for upload
 
-1.	Make sure that the Windows VHD is working fine in the local server.
-2.	Azure can only accept VHD disk file that created for generation 1 virtual machines. The disk must be in **Fixed size**. The maximum size allowed for the VHD is 1,023 GB.
+>[AZURE.NOT] Azure accepts only VHD disk files that are created for generation 1 virtual machines. The disk must be in Fixed size. The maximum size allowed for the VHD is 1,023 GB.
 
-	If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
+1.	Make sure that the Windows VHD is working correctly on the local server.
+2.	If you have a Windows VM image in VHDX format, convert it to a VHD by using either of the following:
 
 	- Hyper-V: Open Hyper-V and select your local computer on the left. Then in the menu above it, click **Action** > **Edit Disk**. Navigate through the screens by clicking **Next** and entering these options: *Path for your VHDX file* > **Convert** > **VHD** > **Fixed size** > *Path for the new VHD file*. Click **Finish** to close.
 
@@ -40,19 +40,19 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 1. Remove any static persistent route on the routing table:
 
-	A.	Run  `route print` to view the route table.
+	A.	To view the route table, run  `route print`.
 
 	B.	Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 
-2. Remove the Winhttp proxy: `netsh winhttp reset proxy`
+2. Remove the WinHTTP proxy: `netsh winhttp reset proxy`
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx): `diskpart san policy=onlineall`
-4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to automatically:
+4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
 
 	 - `REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
 
    - `sc config w32time start= auto`
 
-5. Make sure that the following windows services are set to its windows default values, which are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
+5. Make sure that each of the following windows services is set to its windows default values. They are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
 
 		sc config bfe start= auto
 
@@ -96,13 +96,13 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 		sc config RemoteRegistry start= auto
 
-6. Remove any self-signed certificate tied to the Remote Desktop Protocol (RDP) listener:
+6. If there is any self-signed certificate tied to the Remote Desktop Protocol (RDP) listener, remove them:
 
 	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
 
    For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 
-7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values on the RDP service:
+7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
 
 		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
@@ -110,7 +110,7 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
 
-8. Configure authentication mode for the RDP service:
+8. Configure the authentication mode for the RDP service:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
@@ -118,11 +118,11 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
 
-9. Enable RDP service：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
+9. Enable RDP service by adding the following subkeys to the registry:：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
 
 10. Allow WinRM through the three firewall profiles (Domain, Private and Public), and enable PowerShell Remote service: `Enable-PSRemoting -force`
 
-11. Make sure that the following GuestOS firewall rules are in place:
+11. Make sure that the following guest operating system firewall rules are in place:
 
 	- Inbound
 
@@ -174,9 +174,9 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
 
-12. Run `winmgmt /verifyrepository` to check if the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [here](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to see how to fix the issue.
+12. Run `winmgmt /verifyrepository` to check whether the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to learn how to fix the issue.
 
-13. Ensure the BCD settings are the same as following:
+13. Make sure the Boot Configuration Data (BCD) settings match the following:
 
 		bcdedit /set {bootmgr} device partition=<Boot Partition>
 
@@ -192,13 +192,13 @@ The following are recommended steps for preparing Windows VHD for Azure:
 
 		bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
-14. Remove any extra Transport Driver Interface (TDI) filters like any software that analyze TCP packets.
-15. Run a `CHKDSK /f` to ensure the disk is healthy and consistent.
-16.	Uninstall the other third-party (Other than Microsoft Hyper-V) physical，virtualization software or drivers.
-17. Make sure that there is no third-party application is using Port 3389. This port is used for the RDP service in Azure.
-18.	If the Windows VDH you want to upload is a Domain Controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
-19.	Do a healthy reboot on the VM to ensure the Windows is healthy， and it can be reached by using RDP connection.
-20.	Reset the current local administrator password and make sure you can use this account to log on to Windows through RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object, which under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
+14. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
+15. To make sure that disk is healthy and consistent, run a `CHKDSK /f` command.
+16.	Uninstall all other third-party software and drivers.
+17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure.
+18.	If the Windows VDH that you want to upload is a domain controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
+19.	Do a reboot on the VM to make sure that the Windows is healthy， and that it can be reached by using the RDP connection.
+20.	Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
 22. Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
@@ -224,13 +224,13 @@ The following are recommended steps for preparing Windows VHD for Azure:
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
-## Suggested extra configuration
+## Suggested extra configurations
 
-The following settings do not affect VHD uploading. However, it is good to have them configured.
+The following settings do not affect VHD uploading. However, we are recommended that you have them configured.
 
 - Install [VM Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 
-- Enable Dump log collection.
+- Enable the Dump log collection.
 
 		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
 
@@ -242,7 +242,7 @@ The following settings do not affect VHD uploading. However, it is good to have 
 
 		sc config wer start= auto
 
-- After the VM is created in Azure, setup the system defined size pagefile on D:
+- After the VM is created in Azure, setup the system defined size pagefile on drive D:
 
 	`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f`
 
