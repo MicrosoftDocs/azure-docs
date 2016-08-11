@@ -25,11 +25,11 @@ This article details tasks related to Microsoft Azure Active Directory Federatio
 |:------|:-------------|
 |**AD FS management**|
 |[Repairing the trust](#repairthetrust)| Repairing the federation trust with Office 365 |
-|[Adding a new AD FS server](#addadfsserver) | Expanding the AD FS farm with an additional AD FS server|
-|[Adding a new AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with an additional WAP server|
-|[Add a new federated domain](#addfeddomain)| Adding a federated domain|
+|[Adding an AD FS server](#addadfsserver) | Expanding the AD FS farm with an additional AD FS server|
+|[Adding an AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with an additional WAP server|
+|[Add a federated domain](#addfeddomain)| Adding a federated domain|
 | **AD FS customization**|
-|[Add a custom company logo or illustration](#customlogo)| Customizing a FS sign-in page with a company logo and illustration |
+|[Add a custom company logo or illustration](#customlogo)| Customizing an FS sign-in page with a company logo and illustration |
 |[Add a sign-in description](#addsignindescription) | Adding a sign-in page description |
 |[Modifying AD FS claim rules](#modclaims) | Modifying AD FS claims for various federation scenarios |
 
@@ -60,11 +60,11 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
 4. Click **Install** to repair the trust.
 
->[AZURE.NOTE] Azure AD Connect can only repair or take action on certificates that are self-signed. Third party certificates cannot be repaired by Azure AD Connect.
+>[AZURE.NOTE] Azure AD Connect can only repair or act on certificates that are self-signed. Third-party certificates cannot be repaired by Azure AD Connect.
 
-### Adding a new AD FS server <a name=addadfsserver></a>
+### Adding an AD FS server <a name=addadfsserver></a>
 
-> [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add an AD FS server. Therefore, you will be able to perform this operation only if you configured the AD FS farm by using Azure AD Connect.
+> [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add an AD FS server. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
 
 1. Select **Deploy an additional Federation Server** and click **Next**.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer1.PNG)
@@ -88,7 +88,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
   ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Add a new AD FS web application proxy server <a name=addwapserver></a>
+### Add an AD FS web application proxy server <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm by using Azure AD Connect.
 
@@ -115,11 +115,11 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 7. Click **Install** to finish the configuration. After the configuration is complete, wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
 ![](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### Add a new federated domain <a name=addfeddomain></a>
+### Add a federated domain <a name=addfeddomain></a>
 
-It is easy to add a new domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect not only adds the new domain for federation but modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
+It is easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
-1. To add a new federated domain, select the task **Add an additional Azure AD domain**.
+1. To add a federated domain, select the task **Add an additional Azure AD domain**.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain1.PNG)
 
 2. On the next page of the wizard, provide the global administrator credentials for Azure AD.
@@ -133,7 +133,7 @@ It is easy to add a new domain to be federated with Azure AD by using Azure AD C
 
   After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details about how to verify your domain.
 
-5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will be performing. Click **Install** to finish the configuration.
+5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain5.PNG)
 
 ## AD FS customization
@@ -165,14 +165,14 @@ The following sections detail how you can write custom rules for some scenarios 
 
 #### Immutable ID conditional on a value being present in the attribute
 
-Azure AD Connect lets you specify an attribute to be used as a source anchor when objects will be synced to Azure AD. You might want to issue an immutable ID claim if the value in the custom attribute is not empty. For example, you might select **ms-ds-consistencyguid** as the attribute for the source anchor and want to issue **ImmutableID** as **ms-ds-consistencyguid** in case the attribute has a value against it. If there is no value against the attribute, issue **objectGuid** as the immutable ID.  You can construct the set of custom claim rules as described in the following section.
+Azure AD Connect lets you specify an attribute to be used as a source anchor when objects are synced to Azure AD. If the value in the custom attribute is not empty, you might want to issue an immutable ID claim. For example, you might select **ms-ds-consistencyguid** as the attribute for the source anchor and want to issue **ImmutableID** as **ms-ds-consistencyguid** in case the attribute has a value against it. If there is no value against the attribute, issue **objectGuid** as the immutable ID.  You can construct the set of custom claim rules as described in the following section.
 
 **Rule 1: Query attributes**
 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
-In this rule you are querying the values of **ms-ds-consistencyguid** and **objectguid** for the user from Active Directory. Change the store name to an appropriate store name in your ADFS deployment. Also change the claims type to a proper claims type for your federation as defined for **objectGUID** and **ms-ds-consistencyguid**.
+In this rule, you are querying the values of **ms-ds-consistencyguid** and **objectguid** for the user from Active Directory. Change the store name to an appropriate store name in your ADFS deployment. Also change the claims type to a proper claims type for your federation as defined for **objectGUID** and **ms-ds-consistencyguid**.
 
 Also, by using **add** and not **issue**, you avoid adding an outgoing issue for the entity and can use the values as intermediate values. You will issue the claim in a later rule once you establish which value to use as the immutable ID.
 
@@ -181,14 +181,14 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you added claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you will end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **ObjectGuid**, so that claim will always be there after Rule 1 is executed
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you added claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **ObjectGuid**, so that claim will always be there after Rule 1 is executed
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if present**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
-This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. Note that the previous example uses the **nameidentifier** claim. You will have to change this with the appropriate claim type for immutable ID in your environment.
+This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You will have to change this to the appropriate claim type for immutable ID in your environment.
 
 **Rule 4: Issue Object Guid as immutable ID if ms-ds-consistencyGuid is not present**
 
@@ -196,13 +196,13 @@ This is an implicit **Exist** check. If the value for the claim exists, then iss
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
 
-In this rule, you are simply checking the temporary flag **idflag**. You will decide whether to issue the claim based on its value.
+In this rule, you are simply checking the temporary flag **idflag**. You decide whether to issue the claim based on its value.
 
 > [AZURE.NOTE] The sequence of these rules is important.
 
 #### SSO with a sub-domain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). The UPN claim will need to be modified so that the issuer ID corresponds to the root domain and not the sub-domain, because the federated root domain covers the child as well.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). The UPN claim needs to be modified so that the issuer ID corresponds to the root domain and not the sub-domain, because the federated root domain also covers the child.
 
 By default, the claim rule for issuer ID is set as:
 
@@ -213,7 +213,7 @@ By default, the claim rule for issuer ID is set as:
 
 ![Default issuer id claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
 
-The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, and the default issuer id claim rule in AD FS will handle it in the following manner.
+The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, and the default issuer id claim rule in AD FS handles it in the following manner.
 
     c:[Type
     == “http://schemas.xmlsoap.org/claims/UPN“]
