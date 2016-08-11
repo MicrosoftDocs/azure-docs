@@ -1,5 +1,4 @@
 <properties
-
 	pageTitle="View all existing groups in Azure Active Directory | Microsoft Azure"
 	description="How to view the groups that have already been created in Azure Active Directory."
 	services="active-directory"
@@ -13,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="08/11/2016"
 	ms.author="curtand"/>
 
@@ -97,7 +96,7 @@ To learn about how to create *advanced* rules (rules that can contain multiple c
 These articles provide additional information on Azure Active Directory.
 
 * [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-crate-azure-portal.md)
+* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
 * [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
