@@ -30,6 +30,8 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
 
+	![](media/azure-stack-provision-storage-account/image03.png)
+	
 ## Next steps
 
 [Use Azure Resource Manager templates](azure-stack-arm-templates.md)
