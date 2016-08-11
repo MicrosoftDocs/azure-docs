@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -305,11 +305,11 @@ The following example shows how to use the base64 function.
     }
 
 <a id="concat" />
-### concat
+### concat - string
 
-**concat (arg1, arg2, arg3, ...)**
+**concat (string1, string2, string3, ...)**
 
-Combines multiple values and returns the concatenated string. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat array](#concatarray).
+Combines multiple values and returns the concatenated string. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
 
 The following example shows how to combine multiple string values to return a concatenated string.
 
@@ -326,7 +326,7 @@ The following example shows how to combine multiple string values to return a co
 
 **length(string)**
 
-Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length (array)](#length).
+Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length -array](#length).
 
 The following example returns the number of characters in a string. 
 
@@ -393,7 +393,7 @@ Returns a string with all the characters after the specified number in the strin
 | originalValue                      |   Yes    | The string to use for skipping.
 | numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
 
-For an example of using skip with an array, see [skip array](#skip).
+For an example of using skip with an array, see [skip - array](#skip).
 
 The following example skips the specified number of characters in the string.
 
@@ -513,7 +513,7 @@ Returns a string with the specified number of characters from the start of the s
 | originalValue                      |   Yes    | The string to take the characters from.
 | numberToTake                       |   Yes    | The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned.
 
-For an example of using take with an array, see [take (with array)](#take).
+For an example of using take with an array, see [take - array](#take).
 
 The following example takes the specified number of characters from the string.
 
@@ -612,7 +612,7 @@ Creates a unique string based on the values provided as parameters. This functio
 | stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
 | additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value. Of course, the actual value will vary by the provided base string.
 
     tcvhiyu5h2o5o
 
@@ -673,7 +673,7 @@ To get an array of string values delimited by a value, see [split](#split).
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat string](#concat).
+Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
 
 The following example shows how to combine two arrays.
 
@@ -932,9 +932,9 @@ The following example shows how to return the keys from a storage account in the
 
 Any operation that starts with **list** can be used a function in your template. This includes **listKeys**, as shown above, but also operations like **list**, **listAdminKeys**, and **listStatus**. When calling the function, use the actual name of the function not list*. To determine which resource types have a list operation, use the following PowerShell command.
 
-    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+    Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
-Or, retrieve the list with Azure CLI. The following example retrieves all of the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+Or, retrieve the list with Azure CLI. The following example retrieves all the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
 
     azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
@@ -943,14 +943,14 @@ Or, retrieve the list with Azure CLI. The following example retrieves all of the
 
 **providers (providerNamespace, [resourceType])**
 
-Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
+Returns information about a resource provider and its supported resource types. If you do not provide a resource type, the function returns all the supported types for the resource provider.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | providerNamespace                  |   Yes    | Namespace of the provider
 | resourceType                       |   No     | The type of resource within the specified namespace.
 
-Each supported type is returned in the following format; array ordering is not guaranteed:
+Each supported type is returned in the following format. Array ordering is not guaranteed.
 
     {
         "resourceType": "",
@@ -977,7 +977,7 @@ Enables an expression to derive its value from another resource's runtime state.
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | resourceName or resourceIdentifier |   Yes    | Name or unique identifier of a resource.
-| apiVersion                         |   No     | API version of the specified resource. You must include this parameter when the resource is not provisioned within same template.
+| apiVersion                         |   No     | API version of the specified resource. Include this parameter when the resource is not provisioned within same template.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
@@ -1002,7 +1002,7 @@ The following example references a storage account that is not deployed in this 
 		}
 	}
 
-You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown below.
+You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown in the following example.
 
     "outputs": {
 		"BlobUri": {
@@ -1025,7 +1025,7 @@ The following example references a storage account in a different resource group
 
 **resourceGroup()**
 
-Returns a structured object that represents the current resource group. The object will be in the following format:
+Returns a structured object that represents the current resource group. The returned object is in the following format:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
