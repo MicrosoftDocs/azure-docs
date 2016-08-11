@@ -75,11 +75,11 @@ If you have an Automation account defined for a specific region and you want to 
 |East US 2|eus2-jobruntimedata-prod-su1.azure-automation.net|
 |West Europe|we-jobruntimedata-prod-su1.azure-automation.net|
 |North Europe|ne-jobruntimedata-prod-su1.azure-automation.net|
-|Central Canada|cc-jobruntimedata-prod-su1.azure-automation.net|
+|Canada Central|cc-jobruntimedata-prod-su1.azure-automation.net|
 |South East Asia|sea-jobruntimedata-prod-su1.azure-automation.net|
 |Central India|cid-jobruntimedata-prod-su1.azure-automation.net|
 |Japan East|jpe-jobruntimedata-prod-su1.azure-automation.net|
-|Australia South East|se-jobruntimedata-prod-su1.azure-automation.net|
+|Australia South East|ase-jobruntimedata-prod-su1.azure-automation.net|
 
 
 ## Installing Hybrid Runbook Worker
