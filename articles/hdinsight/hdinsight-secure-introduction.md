@@ -27,7 +27,7 @@
 
 [jgao questions:] 
 
-- Public preview ETA: Aug 1, 2016
+- Public preview ETA: Setp 22, 2016
 - Only Hive and Yarn will be supported by public preview
 - The Names: Ranger admin UI (found on Ambari) vs Ranger administration console (HDP name) vs. Policy Manager.
 

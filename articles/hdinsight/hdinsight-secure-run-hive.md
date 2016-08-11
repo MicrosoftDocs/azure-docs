@@ -32,9 +32,11 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you wil
 
 **To connect to Ranger Admin UI**
 
-1. From a browser with SSH tunneling configured, connect to Ambari. The URL is https://&lt;ClusterName>.azurehdinsight.net.
-2. Click **Ranger** from the left menu.
-3. Click **Quick Links**, and then click **Ranger Admin UI**.
+[jgao: Ranger doesn't work in IE/Edge.]
+
+1. From a browser, connect to Ranger Admin UI. The URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
+
+	>[AZURE.NOTE] Ranger uses different credentials than Hadoop cluster. To prevent browers using cached Hadoop credentials, use new inprivate brower window to connect to the Ranger Admin UI.
 4. Login as **admin** with the password **admin**. This is the default password.  You can change the password. The Ranger Admin UI home page looks like:
 
 	![HDInsight secure Ranger home page](./media/hdinsight-secure-run-hive/hdinsight-secure-ranger-home-page.png)
@@ -100,6 +102,6 @@ Make sure to click **Test** before saving the data source.
 
 ## Import data to Excel
 
-[jgao: The Ranger polices don't 100%.  I have reported the issue to Nitya.]
+[jgao: The Ranger polices don't work 100%.  I have reported the issue to Nitya.]
 
 From Excel, use the DSN you configured in the last section to import data, and observe the difference using hiveuser1 and hiveuser2.  hiveuser1 has select permission on all the fields, hiveuser2 only has permissions to view two columns.
