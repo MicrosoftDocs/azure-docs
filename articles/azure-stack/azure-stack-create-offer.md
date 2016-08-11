@@ -18,14 +18,14 @@
 
 # Create an offer in Azure Stack
 
-[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to buy (subscribe to). This example showsyou how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to buy (subscribe to). This example shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
 1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
 	![](media/azure-stack-create-offer/image01.png)
 
 2.  In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-    	![](media/azure-stack-create-offer/image01a.png)
+	![](media/azure-stack-create-offer/image01a.png)
 
 3.  Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
@@ -42,13 +42,11 @@
 
 Plans and offers must be made public for tenants to get the full view when subscribing. If a plan is private and the offer is public, tenants can get to the offer but can't see the details of the plan. Plans and offers can be:
 
-    -   **Public**: Visible to tenants.
+- **Public**: Visible to tenants.
 
-    -   **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
+- **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
 
-    -   **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
-
-    ![](media/azure-stack-create-offer/image6.png)
+- **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
 Changes to the plan or offer are not immediately visible to the tenant. To see the changes, the subscription state must be InSync, then the tenant must refresh the portal or login/logout.
 
