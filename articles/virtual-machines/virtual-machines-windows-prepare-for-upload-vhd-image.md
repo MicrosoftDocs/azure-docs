@@ -224,13 +224,13 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
-23, If you want to create a image by using the VHD, it is better to run `sysprep` to prepare the installation of Windows for imaging.
+23, If you want to create an image by using the VHD, it is better to run `sysprep` to prepare the installation of Windows for imaging.
 
 ## Suggested extra configurations
 
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
 
-- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the VM agent, you can enable VM extensions. The VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others.
+- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the VM agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
 
 - Enable the Dump log collection. The Dump log file can be helpful in troubleshooting Windows crash issues.
 
