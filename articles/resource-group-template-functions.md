@@ -284,7 +284,6 @@ Resource Manager provides the following functions for working with strings:
 - [uniqueString](#uniquestring)
 - [uri](#uri)
 
-To get the number of characters in a string or array, see [length](#length).
 
 <a id="base64" />
 ### base64
@@ -980,9 +979,9 @@ Or, retrieve the list with Azure CLI. The following example retrieves all the op
 
     azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
-The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**. You can use the function to get the primaryKey and secondaryKey.
+The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
 
-The following example shows how to return the keys from a storage account in the outputs section.
+The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
     "outputs": { 
       "listKeysOutput": { 
@@ -1042,7 +1041,7 @@ The following example shows how to use the provider function:
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
 
-Enables an expression to derive its value from another resource's runtime state.
+Returns an object representing another resource's runtime state.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
@@ -1097,7 +1096,9 @@ The properties on the returned object vary by the resource type.
 
 **resourceGroup()**
 
-Returns a structured object that represents the current resource group. The returned object is in the following format:
+Returns an object that represents the current resource group. 
+
+The returned object is in the following format:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
@@ -1127,9 +1128,7 @@ The following example uses the resource group location to assign the location fo
 
 **resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
-
-    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
+Returns the unique identifier of a resource. 
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
@@ -1138,6 +1137,10 @@ Returns the unique identifier of a resource. You use this function when the reso
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
 | resourceName2     |   No     | Next resource name segment if resource is nested.
+
+You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
+
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
 
 The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
 
