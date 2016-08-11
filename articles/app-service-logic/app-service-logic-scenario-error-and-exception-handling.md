@@ -41,13 +41,13 @@ The project had two major requirements:
 
 We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
 
-Another requirement was to purge records after a certain date.  DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
+Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
 
 ### Create the logic app
 
 The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
 
-Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger since the parent logic app will trigger this child.
+Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger since the parent logic app triggers this child.
 
 > [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
 
@@ -96,7 +96,7 @@ We are using a Request trigger as shown in the following example.
 We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
 
 1. We need to get a new appointment record from Dynamics CRM Online.
-    The trigger coming from CRM will provide us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
+    The trigger coming from CRM provides us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
     We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
 1. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
@@ -115,7 +115,7 @@ We need to log the source (request) of the patient record from the Dynamics CRM 
 
 ## Logic app source code
 
->[AZURE.NOTE]  The following are samples only. Because this  tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+>[AZURE.NOTE]  The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
 
 ### Logging
 The following logic app code sample shows how to handle logging.
@@ -431,7 +431,7 @@ There are two controllers:
 
 > [AZURE.TIP] Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
 
-Every document in DocumentDB must have an unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
+Every document in DocumentDB must have a unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
 
 You can view the source code of our error controller API [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
