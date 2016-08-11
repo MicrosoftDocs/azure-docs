@@ -53,4 +53,4 @@ If your credit card number ever changes, due to being lost, stolen, or expired, 
 3. On the right side of the page, select **Change payment method**.
 4. On the **Choose payment method** page, select the drop-down arrow next to the credit card, select the credit card you want to use, and then select ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) to close the window.
 
-> [AZURE.NOTE] To remove a credit card that you no longer use as an Azure payment method, you must submit a support ticket to request assistance. To create a support ticket to remove a credit card, see the article [How to create a support ticket for Azure billing and subscription issues](billing-how-to-create-billing-support-ticket.md).
+> [AZURE.NOTE] To remove a credit card that you no longer use as an Azure payment method, you must submit a support ticket to request assistance. To create a support ticket to remove a credit card, see [How to create a support ticket for Azure billing and subscription issues](billing-how-to-create-billing-support-ticket.md).
