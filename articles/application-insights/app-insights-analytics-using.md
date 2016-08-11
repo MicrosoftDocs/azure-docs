@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2016" 
+	ms.date="07/26/2016" 
 	ms.author="danha"/>
 
 
@@ -30,7 +30,7 @@
 ## Open Analytics
 
 From your app's home resource in Application Insights, click Analytics.
-p
+
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
 The inline tutorial will give you some ideas about what you can do.
@@ -41,7 +41,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 
 ### Write a query
 
-![](./media/app-insights-analytics-using/150.png)
+![Schema display](./media/app-insights-analytics-using/150.png)
 
 Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense will prompt you with the operators and some of the expression elements that you can use.
 
@@ -120,13 +120,44 @@ It's good practice to avoid hitting the limit. Use operators such as:
 
 Select the type of diagram you'd like:
 
-![](./media/app-insights-analytics-using/230.png)
+![Select a diagram type](./media/app-insights-analytics-using/230.png)
 
 If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
 
-You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (Only available for apps in a paid-for pricing tier.) 
+## Pin to dashboard
+
+You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 
+
+![Click the pin](./media/app-insights-analytics-using/pin-01.png)
+
+This means that, when you put together a dashboard to help you monitor the performance or usage of your web services, you can include quite complex analysis alongside the other metrics. 
+
+#### Dashboard refresh
+
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every half hour.
+
+#### Automatic simplifications
+
+In some cases, certain simplifications are applied to a chart when you pin it to a dashboard.
+
+When you pin a chart that displays a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query:
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+looks like this in Analytics:
+
+
+![Chart with long tail](./media/app-insights-analytics-using/pin-07.png)
+
+but when you pin it to a dashboard, it looks like this:
+
+
+![Chart with limited bins](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Export to Excel
 
