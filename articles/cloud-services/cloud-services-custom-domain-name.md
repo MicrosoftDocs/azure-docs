@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/10/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
@@ -30,7 +30,7 @@ However, you can also expose your application on your own domain name, such as c
 Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
 
 > [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> Get going faster! Use the Azure [guided walkthrough](http://support.microsoft.com/kb/2990804). It makes associating a custom domain name and securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 
 <p/>
 
