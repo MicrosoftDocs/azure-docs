@@ -47,8 +47,8 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Easy to use**|**Scalable**|**Always Protected**|**Reliable**
 
-- **Easy to Use** - Azure Multi-Factor Authenticaton is simple to setup and use.  The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be setup with just a few simple clicks.
-- **Scalable** - Azure Multi-Factor Authenticaton utilizes the power of the cloud and integrates with your on-premises AD and custom apps.  This protection is even extended to your high volume mission critical scenarios.
+- **Easy to Use** - Azure Multi-Factor Authentication is simple to setup and use.  The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be setup with just a few simple clicks.
+- **Scalable** - Azure Multi-Factor Authentication utilizes the power of the cloud and integrates with your on-premises AD and custom apps.  This protection is even extended to your high volume mission critical scenarios.
 - **Always Protected** - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.
 - **Reliable** - We guarantee 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process authentication requests for the multi-factor authentication.  
 
@@ -73,7 +73,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 - mobile app verification code
 - 3rd party OATH tokens
 
-For additional information oh how it works see the following video.
+For additional information on how it works see the following video.
 
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
@@ -134,8 +134,8 @@ If you would like the full functionality offered by Azure Multi-Factor Authentic
 When using an Azure Multi-Factor Authentication Provider there are two usage models available that are billed through your Azure subscription:
 
 
-- **Per User**. Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
-- **Per Authentication**. Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
+- **Per User**. For enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
+- **Per Authentication**. For enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
 
 Azure Multi-Factor Authentication provides selectable verification methods for both cloud and server.  This means that you can choose which methods are available for your users to use with multi-factor authentication.  This feature is currently in public preview for the cloud version of multi-factor authentication.  For additional information see [selectable verification methods](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
