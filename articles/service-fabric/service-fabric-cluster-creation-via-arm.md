@@ -23,18 +23,18 @@
 - [Azure Resource Manager (ARM)](service-fabric-walkthrough-cluster-security.md)
 - [Azure portal](service-fabric-walkthrough-cluster-security-portal.md)
 
-This is a step-by-step guide that will walk you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager (ARM). This guide will walk you through the following steps:
+This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager (ARM). This guide walks you through the following steps:
 
  - Set up Key Vault to manage keys for cluster and application security.
  - Create a secured cluster in Azure with Azure Resource Manager (ARM).
  - Authenticate users with Azure Active Directory (AAD) for cluster management.
 
-A secure cluster refers to a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster refers to a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured at a later time** - a new cluster must be created.
+A secure cluster refers to a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster refers to a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
 ## Log in to Azure
 This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
 
-Login to your azure account:
+Log in to your azure account:
 
 ```powershell
 Login-AzureRmAccount
@@ -127,7 +127,7 @@ This certificate is required to secure a cluster and prevent unauthorized access
  - **Cluster authentication:** Authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster.
  - **Server authentication:** Authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster. This certificate also provides SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS.
 
-In order to serve these purposes, the certificate must meet the following requirements:
+To serve these purposes, the certificate must meet the following requirements:
 
  - The certificate must contain a private key.
  - The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
@@ -178,7 +178,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 ```
 
 
-These are all the Key Vault prerequisites for configuring a Service Fabric cluster ARM template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following set up in Azure:
+These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following setup in Azure:
 
  - Key Vault resource group
    - Key Vault
@@ -187,13 +187,13 @@ These are all the Key Vault prerequisites for configuring a Service Fabric clust
 
 ## Set up Azure Active Directory for client authentication
 
-AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we will assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
 
-Service Fabric clusters offer a variety of entry points to their management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you will create two AAD applications to control access to the cluster, one web application and one native application.
+A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you will create two AAD applications to control access to the cluster, one web application and one native application.
 
 To simplify some of the steps involved in configuring AAD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
 
->[AZURE.NOTE] You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones which you have already created.
+>[AZURE.NOTE] You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones that you have already created.
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
 
@@ -211,13 +211,13 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
     https://<i></i>manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/**690ec069-8200-4068-9d01-5aaf188e557a**/users
 
-    The **ClusterName** will be used to prefix the AAD applications created by the script. It does not need to match the actual cluster name exactly as it is only intended to make it easier for you to map AAD artifacts to the Service Fabric cluster that they're being used with.
+    The **ClusterName** is used to prefix the AAD applications created by the script. It does not need to match the actual cluster name exactly as it is only intended to make it easier for you to map AAD artifacts to the Service Fabric cluster that they're being used with.
 
     The **WebApplicationReplyUrl** is the default endpoint that AAD will return your users to after completing the sign-in process. You should set this to the Service Fabric Explorer endpoint for your cluster, which by default is:
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    You will be prompted to sign into an account which has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
+    You will be prompted to sign into an account that has administrative privileges for the AAD tenant. Once you do, the script will proceed to create the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
 
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
@@ -233,19 +233,19 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 },
 ```
 
-## Create cluster ARM template
+## Create cluster Resource Manager template
 
-In this section, the output of the preceding PowerShell commands will be used in a Service Fabric cluster ARM template.
+In this section, the output of the preceding PowerShell commands will be used in a Service Fabric cluster Resource Manager template.
 
 Sample Resource Manager templates are available in the [Azure quick-start template gallery on GitHub][azure-quickstart-templates]. These templates can be used as a starting point for your cluster template. 
 
-### Create the ARM template
+### Create the Resource Manager template
 
 This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your local machine and open both files in your favorite text editor.
 
 ### Add certificates
 
-Certificates are added to a cluster ARM template by referencing the Key Vault that contains the certificate keys. It is recommended that these Key Vault values are placed in an ARM parameters file to keep the ARM template file reusable and free of values specific to a deployment.
+Certificates are added to a cluster Resource Manager template by referencing the Key Vault that contains the certificate keys. It is recommended that these Key Vault values are placed in an ARM parameters file to keep the Resource Manager template file reusable and free of values specific to a deployment.
 
 #### Add all certificates to the VMSS osProfile
 
@@ -343,7 +343,7 @@ The cluster authentication certificate must also be configured in the Service Fa
 
 ### Insert AAD config
 
-The AAD configuration created earlier can be inserted directly into your ARM template, however it is recommended to extract the values into parameters first into a parameters file to keep the ARM template reusable and free of values specific to a deployment.
+The AAD configuration created earlier can be inserted directly into your Resource Manager template, however it is recommended to extract the values into parameters first into a parameters file to keep the Resource Manager template reusable and free of values specific to a deployment.
 
 ```json
 {
@@ -416,9 +416,9 @@ At this point, you should now have the following:
     - Data encipherment certificate
  - Azure Active Directory tenant 
     - AAD Application for web-based management and Service Fabric Explorer
-    - AAD Application for native client mamanagent
+    - AAD Application for native client management
     - Users with roles assigned 
- - Service Fabric cluster ARM template
+ - Service Fabric cluster Resource Manager template
     - Certificates configured through Key Vault
     - Azure Active Directory configured 
 
@@ -431,7 +431,7 @@ You are now ready to create the cluster using [ARM deployment][resource-group-te
 
 #### Test it:
 
-Use the following PowerShell command to test your ARM template with a parameters file:
+Use the following PowerShell command to test your Resource Manager template with a parameters file:
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
@@ -439,7 +439,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 
 #### Deploy it:
 
-If the ARM template test passes, use the following PowerShell command to deploy your ARM template with a parameters file:
+If the Resource Manager template test passes, use the following PowerShell command to deploy your Resource Manager template with a parameters file:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json

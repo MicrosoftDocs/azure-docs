@@ -133,7 +133,7 @@ In order to serve these purposes, the certificate must meet the following requir
 
  - The certificate must contain a private key.
  - The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
- - The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Servic Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+ - The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
 ### Client authentication certificates
 
@@ -189,7 +189,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-These are all the Key Vault prerequisites for configuring a Service Fabric cluster ARM template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following set up in Azure:
+These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following set up in Azure:
 
  - Key Vault resource group
    - Key Vault
