@@ -311,7 +311,7 @@ After you've created a cluster, learn more about securing it and deploying apps:
 
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/
+[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/key-vault-get-started.md

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/22/2016"
+   ms.date="08/10/2016"
    ms.author="vturecek"/>
 
 # Create a Service Fabric cluster in Azure using Azure Resource Manager (ARM)
@@ -467,12 +467,12 @@ Once you have created the applications to represent your cluster, you will need 
 
 At this point, you should have a secured cluster using Azure Active Directory for management authentication, certificates installed on the cluster nodes for application secret decryption, and Key Vault set up for key and secret management. 
 
-Learn more about [running applications with different security permissions](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-runas-security/)
+Learn more about [running applications with different security permissions](https://azure.microsoft.com/documentation/articles/service-fabric-application-runas-security/)
 
 <!-- Links -->
-[azure-powershell]:https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/
+[azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[aad-graph-api-docs]:https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog
+[aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
@@ -482,7 +482,7 @@ Learn more about [running applications with different security permissions](http
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
-[resource-group-template-deploy]: https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/
+[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
