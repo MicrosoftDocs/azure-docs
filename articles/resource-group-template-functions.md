@@ -30,7 +30,6 @@ Resource Manager provides the following functions for working with integers:
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
-- [length](#length)
 - [mod](#mod)
 - [mul](#mul)
 - [sub](#sub)
@@ -323,11 +322,11 @@ The following example shows how to combine multiple string values to return a co
 
 
 <a id="lengthstring" />
-### length
+### length - string
 
 **length(string)**
 
-Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length array](#length).
+Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length (array)](#length).
 
 The following example returns the number of characters in a string. 
 
@@ -384,7 +383,7 @@ The following example shows how to remove all dashes from the user-provided stri
     }
 
 <a id="skipstring" />
-### skip
+### skip - string
 **skip(originalValue, numberToSkip)**
 
 Returns a string with all the characters after the specified number in the string.
@@ -504,7 +503,7 @@ The following example extracts the first three characters from a parameter.
     }
 
 <a id="takestring" />
-### take
+### take - string
 **take(originalValue, numberToTake)**
 
 Returns a string with the specified number of characters from the start of the string.
@@ -670,7 +669,7 @@ Resource Manager provides several functions for working with array values.
 To get an array of string values delimited by a value, see [split](#split).
 
 <a id="concatarray" />
-### concat
+### concat - array
 
 **concat (arg1, arg2, arg3, ...)**
 
@@ -692,9 +691,9 @@ The following example shows how to combine two arrays.
         
 
 <a id="length" />
-### length
+### length - array
 
-**length(array or string)**
+**length(array)**
 
 Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
@@ -705,10 +704,10 @@ Returns the number of elements in an array or the number of characters in a stri
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). 
 
-For an example of using length with a string value, see [length string](#lengthstring).
+For an example of using length with a string value, see [length - string](#lengthstring).
 
 <a id="skip" />
-### skip
+### skip - array
 **skip(originalValue, numberToSkip)**
 
 Returns an array with all the elements after the specified number in the array.
@@ -718,7 +717,7 @@ Returns an array with all the elements after the specified number in the array.
 | originalValue                      |   Yes    | The array to use for skipping.
 | numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
 
-For an example of using skip with a string, see [skip string](#skipstring).
+For an example of using skip with a string, see [skip - string](#skipstring).
 
 The following example skips the specified number of elements in the array.
 
@@ -747,7 +746,7 @@ The following example skips the specified number of elements in the array.
     }
 
 <a id="take" />
-### take
+### take - array
 **take(originalValue, numberToTake)**
 
 Returns an array with the specified number of elements from the start of the array.
@@ -757,7 +756,7 @@ Returns an array with the specified number of elements from the start of the arr
 | originalValue                      |   Yes    | The array or string to take the elements or characters from.
 | numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
 
-For an example of using take with a string, see [take (with string)](#takestring).
+For an example of using take with a string, see [take - string](#takestring).
 
 The following example takes the specified number of elements from the array.
 
