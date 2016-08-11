@@ -20,7 +20,7 @@
 
 Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant), click **New** > **Data + Storage** > **Storage account**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant), click **New** > **Data + Storage** > **Storage account** > **Create**.
 
 	![](media/azure-stack-provision-storage-account/image01.png)
 
