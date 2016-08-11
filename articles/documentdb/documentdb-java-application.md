@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter="java"
-	authors="aliuy"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="mimig"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
 	ms.date="03/10/2016"
-	ms.author="andrl"/>
+	ms.author="anhoh"/>
 
 # Build a Java web application using DocumentDB
 
