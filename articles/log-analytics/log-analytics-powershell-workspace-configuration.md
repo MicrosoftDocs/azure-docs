@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/12/2016"
 	ms.author="richrund"/>
 
 # Manage Log Analytics using PowerShell
@@ -23,8 +23,16 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 + Create a workspace
 + Add or remove a solution
 + Import and export saved searches
++ Create a computer group
++ Enable collection of IIS logs from computers with the Windows agent installed
++ Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
++ Collect syslog events from Linux computers
++ Collect Error and Warning events from the Application Event Log from Windows computers
++ Collect Memory Available Mbytes performance counter from Windows computers
++ Collect a custom log
 + Add the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
+
 
 This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
 
@@ -48,7 +56,13 @@ The following script sample illustrates how to:
 3.	Add solutions to the workspace
 4.	Import saved searches
 5.	Export saved searches
-
+6.	Create a computer group
+7.	Enable collection of IIS logs from computers with the Windows agent installed
+8.	Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+9.	Collect syslog events from Linux computers
+10.	Collect Error and Warning events from the Application Event Log from Windows computers
+11.	Collect Memory Available Mbytes performance counter from Windows computers
+12.	Collect a custom log 
 ```
 
 $ResourceGroup = "oms-example"
@@ -75,6 +89,44 @@ $ExportedSearches = @"
     }
 ]
 "@ | ConvertFrom-Json
+
+# Custom Log to collect
+$CustomLog = @"
+{
+    "customLogName": "sampleCustomLog1", 
+	"description": "Example custom log datasource", 
+	"inputs": [
+	    { 
+		    "location": { 
+			"fileSystemLocations": { 
+			    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ], 
+				"linuxFileTypeLogPaths": [ "/var/logs" ] 
+	    		} 
+		    }, 
+	    "recordDelimiter": { 
+	        "regexDelimiter": { 
+	    	    "pattern": "\\n", 
+		        "matchIndex": 0, 
+		        "matchIndexSpecified": true, 
+		        "numberedGroup": null 
+		        } 
+	        } 
+	    }
+	], 
+	"extractions": [
+	    { 
+		    "extractionName": "TimeGenerated", 
+		    "extractionType": "DateTime", 
+			"extractionProperties": { 
+			    "dateTimeExtraction": { 
+				    "regex": null, 
+				    "joinStringRegex": null 
+				    } 
+			    } 
+		    }
+		] 
+    }
+"@
 
 # Create the resource group if needed
 try {
@@ -105,6 +157,29 @@ foreach ($search in $ExportedSearches) {
 
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
+
+# Create Computer Group
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Enable IIS Log Collection using agent
+Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Linux Perf
+New-AzureRmOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
+Enable-AzureRmOperationalInsightsLinuxCustomLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Linux Syslog
+New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernal syslog collection"
+Enable-AzureRmOperationalInsightsLinuxSyslogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Windows Event
+New-AzureRmOperationalInsightsWindowsEventDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -EventLogName "Application" -CollectErrors -CollectWarnings -Name "Example Application Event Log"
+
+# Windows Perf
+New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Memory" -InstanceName "*" -CounterName "Available MBytes" -IntervalSeconds 20 -Name "Example Windows Performance Counter"
+
+# Custom Logs
+New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
 
