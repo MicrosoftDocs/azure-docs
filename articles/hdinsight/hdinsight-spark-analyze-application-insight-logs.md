@@ -30,9 +30,9 @@ In this document, you will learn how to use HDInsight to analyze Application Ins
 
 * Familiarity with creating a Linux-based HDInsight cluster. If you are not familiar with creating a cluster, see [Create Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) for more information.
 
-    > [AZURE.NOTE] This document does not provide a walk-through of creating a new cluster, but does provide guidance on how to add access to the Application Insights telemetry to an existing or new HDInsight cluster.
+    > [AZURE.NOTE] This document does not provide a walk-through of creating a new cluster. Instead, it references other documents that provide information on how to create a cluster that can access the telemetry data.
 
-* A web browser. This will be used to run interactively run analysis using a Jupyter Notebook.
+* A web browser. This is used to interactively run analysis using a Jupyter Notebook.
 
 The following were used in developing and testing this document:
 
@@ -48,49 +48,47 @@ The following diagram illustrates the overall architecture of this example:
 
 ### Azure storage
 
-An HDInsight cluster can directly access block blobs from an Azure storage account, and Application Insights can be configured to continuously export telemetry information to blobs in Azure storage. However, there are some things to take into consideration when planning the storage account that you will use:
+An HDInsight cluster can directly access block blobs from an Azure storage account, and Application Insights can be configured to continuously export telemetry information to blobs in Azure storage. However, there are some requirements that you must follow:
 
-* __Location__: The storage account should be located in the same region as HDInsight in order to reduce latency and egress charges when moving data from one region to another.
+* __Location__: The storage account should be located in the same region as HDInsight. This reduces latency when accessing the data, and avoids egress charges that occur when you move data between regions.
 
 * __Blob type__: HDInsight only supports block blobs. Application Insights defaults to using block blobs, so should work by default with HDInsight.
 
-* __Access permissions__: If you use the same storage account for both Application Insights continuous export and HDInsight's default storage, HDInsight will have full access to the Application Insight telemetry data. This increases the chance that the data may be accidentally modified or deleted.
+* __Access permissions__: If you use the same storage account for both Application Insights continuous export and HDInsight's default storage, HDInsight has full access to the Application Insight telemetry data. If you use the same storage account, it is possible to delete the telemetry data from the HDInsight cluster.
 
     Instead, it is recommended that you use separate storage accounts for HDInsight and Application Insights telemetry, and [use Shared Access Signatures (SAS) to restrict access to the data from HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md). Using an SAS allows you to grant HDInsight read-only access to the telemetry data.
 
 ### Data schema
 
-Application Insights provides [export data model](../application-insights/app-insights-export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data; Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you should not have to manually define the schema when performing analysis.
+Application Insights provides [export data model](../application-insights/app-insights-export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you do not have to manually define the schema when performing analysis.
 
 ## Configure Application Insights to export telemetry
 
-Follow the steps in [Set up Continous Export](../application-insights/app-insights-export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure storage blob.
+Follow the steps in [Configure Continuous Export](../application-insights/app-insights-export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure storage blob.
 
 ## Configure HDInsight to access the stored telemetry data
 
-Use the information in [Use Shared Access Signatures (SAS) to restrict access to the data from HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) to create a shared access signature for the blob container that holds the exported telemetry. The SAS should provide read-only access to the data.
+Use the information in [Use Shared Access Signatures (SAS) to restrict access to the data from HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) to create a SAS for the blob container that holds the exported telemetry data. The SAS should provide read-only access to the data.
 
-The Shared Access Signature document also provides information on how you can either add the SAS storage to an existing Linux-based Spark on HDInsight cluster, or add it when creating a new cluster.
+The Shared Access Signature document provides information on how you can add the SAS storage to an existing Linux-based HDInsight cluster. It also provides information on how to add it when creating a new HDInsight cluster.
 
 ## Analyze the data from Spark SQL using Python (PySpark)
 
-1. From the [Azure Portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
+1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
 
     ![The cluster dashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
 
-2. In the upper right corner of the Jupyter page, select __New__, and then __PySpark__. This will open a new browser tab containing a Python-based Jupyter Notebook.
+2. In the upper right corner of the Jupyter page, select __New__, and then __PySpark__. This opens a new browser tab containing a Python-based Jupyter Notebook.
 
 3. In the first field (called a __cell__) on the page, enter the following:
 
         sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
 
-    This configures Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged into a directory structure similar to the following:
+    This allows Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged to a directory structure similar to the following:
 
         /{telemetry type}/YYYY-MM-DD/{##}/
-    
-    Setting `mapreduce.input.fileinputformat.input.dir.recursive` to true allows you to specify the top level telemetry type (for example, __Requests__,) and retrieve data logged in all the subdirectories. 
 
-4. Use __SHIFT+ENTER__ to run the code. On the left side of the cell, an '\*' will appear between the brackets to indicate that the code in this cell is being executed. Once it completes, the '\*' will change to a number, and output similiar to the following will be displayed below the cell:
+4. Use __SHIFT+ENTER__ to run the code. On the left side of the cell, an '\*' will appear between the brackets to indicate that the code in this cell is being executed. Once it completes, the '\*' will change to a number, and output similar to the following will be displayed below the cell:
 
         Creating SparkContext as 'sc'
 
@@ -100,7 +98,7 @@ The Shared Access Signature document also provides information on how you can ei
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. A new cell will have been created below the first one. Enter the following in the new cell. Replace __CONTAINER__ and __STORAGEACCOUNT__ with the Azure storage account name and  blob container name that you used when configuring the Application Insights continuous export.
+5. A new cell will have been created below the first one. Enter the following in the new cell. Replace __CONTAINER__ and __STORAGEACCOUNT__ with the Azure storage account name and blob container name that you used when configuring the Application Insights continuous export.
 
         %%bash
         hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
@@ -211,7 +209,7 @@ The Shared Access Signature document also provides information on how you can ei
 
 ## Analyze the data from Spark SQL using Scala
 
-1. From the [Azure Portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
+1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
 
     ![The cluster dashboards](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -221,11 +219,9 @@ The Shared Access Signature document also provides information on how you can ei
 
         sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
 
-    This configures Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged into a directory structure similar to the following:
+    This allows Spark to recursively access the directory structure for the input data. Application Insights telemetry is logged to a directory structure similar to the following:
 
         /{telemetry type}/YYYY-MM-DD/{##}/
-    
-    Setting `mapreduce.input.fileinputformat.input.dir.recursive` to true allows you to specify the top level telemetry type (for example, __Requests__,) and retrieve data logged in all the subdirectories. 
 
 4. Use __SHIFT+ENTER__ to run the code. On the left side of the cell, an '\*' will appear between the brackets to indicate that the code in this cell is being executed. Once it completes, the '\*' will change to a number, and output similar to the following will be displayed below the cell:
 
@@ -237,7 +233,7 @@ The Shared Access Signature document also provides information on how you can ei
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. A new cell will have been created below the first one. Enter the following in the new cell. Replace __CONTAINER__ and __STORAGEACCOUNT__ with the Azure storage account name and  blob container name that you used when configuring the Application Insights continuous export.
+5. A new cell will have been created below the first one. Enter the following in the new cell. Replace __CONTAINER__ and __STORAGEACCOUNT__ with the Azure storage account name and blob container name that you used when configuring the Application Insights continuous export.
 
         %%bash
         hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
