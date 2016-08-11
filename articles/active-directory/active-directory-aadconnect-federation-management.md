@@ -78,7 +78,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 4. Azure AD Connect will ask you for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer4.PNG)
 
-  ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer5.PNG)
+    ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer5.PNG)
 
 5. On the **AD FS Servers** page, enter the additional server name or IP address to be added to the AD FS farm.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer6.PNG)
@@ -86,7 +86,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 6. Click **Next** and go through the final **Configure** page. After Azure AD Connect has finished adding the servers to the AD FS farm, you will be given the option to verify the connectivity.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer7.PNG)
 
-  ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
+    ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
 ### Add an AD FS web application proxy server <a name=addwapserver></a>
 
@@ -101,7 +101,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 3. On the **Specify SSL certificate** page, you need to provide the password for the PFX file that you provided when configuring the AD FS farm with Azure AD Connect.
 ![](media\active-directory-aadconnect-federation-management\WapServer3.PNG)
 
-  ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
+    ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
 4. Add the server to be added as a web application proxy. Since the web application proxy server might not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
