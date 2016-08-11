@@ -44,7 +44,7 @@ We recommend the first option because failover and recovery aren't seamless in t
 
 To replicate across sites in this scenario you'll deploy the single VMM server as a virtual machine in the primary site, and replicate this VM to a secondary site using Site Recovery and Hyper-V Replica. To do this:
 
-1. Set up VMM on a Hyper-V VM. When you do this we suggest you also consider colocating the SQL Server instance used by VMM on the same VM. This saves time as only one VM has to be instantiated. If you want do use a remote instance of SQL Server and an outage occurs, you'll need to recover that instance before you can recover VMM.
+1. Set up VMM on a Hyper-V VM. When you do this we suggest you also consider colocating the SQL Server instance used by VMM on the same VM. This saves time as only one VM has to be instantiated. If you want do use a remote instance of SQL Server and when an outage occurs, you'll need to recover that instance before you can recover VMM.
 2. Make sure that the VMM server has at least two clouds configured. One cloud will contain the VMs you want to replicate and the other cloud will serve as the secondary location. The cloud that contains the VMs you want to protect should have:
 
 	- One or more VMM host groups containing one or more Hyper-V host servers in each host group.
@@ -80,7 +80,7 @@ Note that when you set up Site Recovery you'll need to register each VMM server 
  
 ### After an outage 
 
-When an outage occur the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.
+When an outage occurs the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.
 
 ![Clustered virtual VMM server](./media/site-recovery-single-vmm/single-vmm-cluster.png)
 
