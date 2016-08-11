@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/11/2016"
    ms.author="gwallace"/>
 
 # URL Path Based Routing overview
@@ -22,7 +22,7 @@ In the following example, Application Gateway is serving traffic for contoso.com
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video* will be routed to VideoServerPool, and http://contoso.com/images* will be routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Requests for http://contoso.com/video* are routed to VideoServerPool, and http://contoso.com/images* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 ## UrlPathMap configuration element
 
