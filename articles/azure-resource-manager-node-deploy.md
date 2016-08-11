@@ -24,13 +24,6 @@ using the Azure SDK for Node.js.
 When deploying an application definition with a template, you can provide parameter values to customize how the
 resources are created. You specify values for these parameters either inline or in a parameter file.
 
-** On this page**
-
-- [Running this sample](#run)
-- [What is index.js doing?](#example)
-  - [Deploy the template](#deploy)
-
-<a id="run"></a>
 ## Running this sample
 
 1. If you don't already have it, [get node.js](https://nodejs.org).
@@ -77,7 +70,6 @@ resources are created. You specify values for these parameters either inline or 
     node cleanup.js <resourceGroupName> <deploymentName>
     ```
 
-<a id="example"></a>
 ## What is index.js doing?
 
 The sample starts by logging in using your service principal.
@@ -113,7 +105,6 @@ var groupParameters = { location: location, tags: { sampletag: 'sampleValue' } }
 resourceClient.resourceGroups.createOrUpdate(resourceGroupName, groupParameters, callback);
 ```
 
-<a id="deploy"></a>
 ### Deploy the template
 
 Now, the sample loads the template and deploys it into the resource group that it created.

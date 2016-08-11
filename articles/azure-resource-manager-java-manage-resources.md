@@ -28,15 +28,24 @@
 
 ## Running this Sample
 
-To run this sample:
+1. If you don't already have it, download [Apache Maven](https://maven.apache.org/download.cgi).
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an Auth file. See [how to create an Auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
+1. Create an [Auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
 
+1. Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an Auth file.
+
+1. Clone the repository.
+
+    ```
     git clone https://github.com/Azure-Samples/resources-java-manage-resource.git
+    ```
 
+1. Run the sample.
+
+    ```
     cd resources-java-manage-resource
-
     mvn clean compile exec:java
+    ```
 
 ## More information
 

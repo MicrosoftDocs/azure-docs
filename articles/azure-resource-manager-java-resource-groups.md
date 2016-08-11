@@ -27,8 +27,6 @@ This sample demonstrates how to perform common tasks using the Microsoft Azure R
  
 ## Run this sample
 
-To run this sample:
-
 1. If you don't already have it, download [Apache Maven](https://maven.apache.org/download.cgi).
 
 1. Create an [Auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
@@ -38,13 +36,13 @@ To run this sample:
 1. Clone the repository.
 
     ```
-    git clone https://github.com/Azure-Samples/resources-java-manage-resource.git
+    git clone https://github.com/Azure-Samples/resources-java-manage-resource-group.git
     ```
 
-1. Build the sample.
+1. Run the sample.
 
     ```
-    cd resources-java-manage-resource
+    cd resources-java-manage-resource-group
     mvn clean compile exec:java
     ```
 
