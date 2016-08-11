@@ -972,7 +972,7 @@ Returns the values for any resource type that supports the list operation. The m
 | resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
 | apiVersion                         |   Yes    | API version of resource runtime state.
 
-Any operation that starts with **list** can be used a function in your template. The available operations not olnly **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command.
+Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command.
 
     Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
@@ -1103,6 +1103,11 @@ Returns a structured object that represents the current resource group. The retu
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
       "name": "{resourceGroupName}",
       "location": "{resourceGroupLocation}",
+      "tags": {
+      },
+      "properties": {
+        "provisioningState": "{status}"
+      }
     }
 
 The following example uses the resource group location to assign the location for a web site.
