@@ -68,7 +68,7 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 
 
 ## Install and Configure the Azure Multi-Factor Authentication Server
-Now that you have downloaded the server you can install it and configure it.  Be sure that the server you are installing it on meets the following requirements:
+Now that you have downloaded the server you can install and configure it.  Be sure that the server you are installing it on meets the following requirements:
 
 
 
@@ -111,8 +111,7 @@ IP Subnet|Netmask|IP Range
 2. On the Select Installation Folder screen, make sure that the folder is correct and click Next.
 3. Once the installation complete, click Finish.  This will launch the configuration wizard.
 4. On the configuration wizard welcome screen, place a check in **Skip using the Authentication Configuration Wizard** and click **Next**.  This will close the wizard and start the server.
-![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Back on the page that we downloaded the server from, click the **Generate Activation Credentials** button.  Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
 
 
@@ -182,9 +181,9 @@ Method|Description
 :------------- | :------------- | 
 [User Portal](multi-factor-authentication-get-started-portal.md)|  Information on setup and configuring the User portal including deployment and user self-service.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|Information on setting up Azure Multi-Factor Authentication with AD FS.
-[RADIUS Authenticaton](multi-factor-authentication-get-started-server-radius.md)|  Information on setup and configuring the Azure MFA Server with RADIUS.
+[RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md)|  Information on setup and configuring the Azure MFA Server with RADIUS.
 [IIS Authentication](multi-factor-authentication-get-started-server-iis.md)|Information on setup and configuring the Azure MFA Server with IIS.
-[Windows Authenticaton](multi-factor-authentication-get-started-server-windows.md)|  Information on setup and configuring the Azure MFA Server with Windows Authentication.
+[Windows Authentication](multi-factor-authentication-get-started-server-windows.md)|  Information on setup and configuring the Azure MFA Server with Windows Authentication.
 [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md)|Information on setup and configuring the Azure MFA Server with LDAP Authentication.
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md)|  Information on setup and configuring the Azure MFA Server with Remote Desktop Gateway using RADIUS.
 [Sync with Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Information on setup and configuring synchronization between Active Directory and the Azure MFA Server.
