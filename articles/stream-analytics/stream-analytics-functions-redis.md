@@ -1,16 +1,19 @@
 <properties
-	pageTitle="How to store data from Azure Stream Analytics into an Azure Redis Cache using Azure Functions | Microsoft Azure"
+	pageTitle="Output to an Azure Redis Cache, using Azure Functions, from Azure Stream Analytics | Microsoft Azure"
 	description="Learn how to use an Azure Function connected a Service Bus Queue, to populate an Azure Redis Cache from the output of a Stream Analytics job."
 	keywords="data stream, redis cache, service bus queue"
 	services="stream-analytics"
-	authors="ryancrawcour"/>
+	authors="ryancrawcour"
+	manager="paulettm"
+    documentationCenter=""
+	/>
 
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
+	ms.workload="na"
 	ms.date="08/09/2016"
 	ms.author="ryancraw"/>
 
