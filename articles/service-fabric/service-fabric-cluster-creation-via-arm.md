@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Create a secure Service Fabric cluster using ARM | Microsoft Azure"
+   pageTitle="Create a secure Service Fabric cluster using Azure Resource Manager | Microsoft Azure"
    description="This article describes how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (AAD) for client authentication."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,19 +17,19 @@
    ms.date="08/10/2016"
    ms.author="vturecek"/>
 
-# Create a Service Fabric cluster in Azure using Azure Resource Manager (ARM)
+# Create a Service Fabric cluster in Azure using Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Resource Manager (ARM)](service-fabric-walkthrough-cluster-security.md)
+- [Azure Resource Manager](service-fabric-walkthrough-cluster-security.md)
 - [Azure portal](service-fabric-walkthrough-cluster-security-portal.md)
 
-This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager (ARM). This guide walks you through the following steps:
+This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. This guide walks you through the following steps:
 
  - Set up Key Vault to manage keys for cluster and application security.
- - Create a secured cluster in Azure with Azure Resource Manager (ARM).
+ - Create a secured cluster in Azure with Azure Resource Manager.
  - Authenticate users with Azure Active Directory (AAD) for cluster management.
 
-A secure cluster refers to a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster refers to a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
+A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
 ## Log in to Azure
 This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
@@ -222,7 +222,7 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
     - *ClusterName*\_Cluster
     - *ClusterName*\_Client
 
-    The script will print the Json required by the Azure Resource Manager (ARM) template when you create the cluster in the next section so keep the PowerShell window open.
+    The script will print the Json required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
 ```json
 -----ARM template-----
@@ -233,7 +233,7 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 },
 ```
 
-## Create cluster Resource Manager template
+## Create a Service Fabric cluster Resource Manager template
 
 In this section, the output of the preceding PowerShell commands will be used in a Service Fabric cluster Resource Manager template.
 
@@ -241,11 +241,11 @@ Sample Resource Manager templates are available in the [Azure quick-start templa
 
 ### Create the Resource Manager template
 
-This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your local machine and open both files in your favorite text editor.
+This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node-1-nodetype-wad] example template and template parameters. Download `azuredeploy.json` and `azuredeploy.parameters.json` to your computer and open both files in your favorite text editor.
 
 ### Add certificates
 
-Certificates are added to a cluster Resource Manager template by referencing the Key Vault that contains the certificate keys. It is recommended that these Key Vault values are placed in an ARM parameters file to keep the Resource Manager template file reusable and free of values specific to a deployment.
+Certificates are added to a cluster Resource Manager template by referencing the Key Vault that contains the certificate keys. It is recommended that these Key Vault values are placed in an Resource Manager template parameters file to keep the Resource Manager template file reusable and free of values specific to a deployment.
 
 #### Add all certificates to the VMSS osProfile
 
@@ -367,7 +367,7 @@ The AAD configuration created earlier can be inserted directly into your Resourc
 }
 ```
 
-### Configure ARM parameters
+### Configure Resource Manager template parameters
 
 Finally, use the output values from the Key Vault and AAD PowerShell commands to populate the parameters file:
 
@@ -422,14 +422,15 @@ At this point, you should now have the following:
     - Certificates configured through Key Vault
     - Azure Active Directory configured 
 
+The following diagram illustrates where Key Vault and AAD configuration fit into your Resource Manager template.
+
 ![ARM dependency map][cluster-security-arm-dependency-map]
 
-
-## Create cluster
+## Create the cluster
 
 You are now ready to create the cluster using [ARM deployment][resource-group-template-deploy].
 
-#### Test it:
+#### Test it
 
 Use the following PowerShell command to test your Resource Manager template with a parameters file:
 
@@ -437,7 +438,7 @@ Use the following PowerShell command to test your Resource Manager template with
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-#### Deploy it:
+#### Deploy it
 
 If the Resource Manager template test passes, use the following PowerShell command to deploy your Resource Manager template with a parameters file:
 
@@ -467,7 +468,7 @@ Once you have created the applications to represent your cluster, you will need 
 
 At this point, you should have a secured cluster using Azure Active Directory for management authentication, certificates installed on the cluster nodes for application secret decryption, and Key Vault set up for key and secret management. 
 
-Learn more about [running applications with different security permissions](https://azure.microsoft.com/documentation/articles/service-fabric-application-runas-security/)
+Learn more about [running applications with different security permissions](service-fabric-application-runas-security.md)
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
