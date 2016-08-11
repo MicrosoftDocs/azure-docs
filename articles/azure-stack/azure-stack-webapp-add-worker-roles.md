@@ -39,7 +39,7 @@ The following steps are required to scale web worker roles:
 Step 1: Create a new VM to support the new instance size
 ========================================================
 
-Create a virtual machine as described in [this article](azure-stack-provision-vm.md ),ensuring that the following selections are made:
+Create a virtual machine as described in [this article](azure-stack-provision-vm.md),ensuring that the following selections are made:
 
 -   User name and password: Provide the same user name and password you provided when you installed Web Apps.
 
