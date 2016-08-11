@@ -44,8 +44,8 @@ Returns the sum of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First operand to use.
-| operand2                           |   Yes    | Second operand to use.
+| operand1                           |   Yes    | First integer to add.
+| operand2                           |   Yes    | Second integer to add.
 
 The following example adds two parameters.
 
@@ -65,7 +65,7 @@ The following example adds two parameters.
     },
     ...
     "outputs": {
-      "return": {
+      "addResult": {
         "type": "int",
         "value": "[add(parameters('first'), parameters('second'))]"
       }
@@ -108,8 +108,8 @@ Returns the integer division of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number being divided.
-| operand2                           |   Yes    | Number that is used to divide, has to be different from 0.
+| operand1                           |   Yes    | Integer being divided.
+| operand2                           |   Yes    | Integer that is used to divide. Cannot be 0.
 
 The following example divides one parameter by another parameter.
 
@@ -129,7 +129,7 @@ The following example divides one parameter by another parameter.
     },
     ...
     "outputs": {
-      "return": {
+      "divResult": {
         "type": "int",
         "value": "[div(parameters('first'), parameters('second'))]"
       }
@@ -186,7 +186,7 @@ The following example returns the remainder of dividing one parameter by another
     },
     ...
     "outputs": {
-      "return": {
+      "modResult": {
         "type": "int",
         "value": "[mod(parameters('first'), parameters('second'))]"
       }
@@ -201,8 +201,8 @@ Returns the multiplication of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First operand to use.
-| operand2                           |   Yes    | Second operand to use.
+| operand1                           |   Yes    | First integer to multiply.
+| operand2                           |   Yes    | Second integer to multiply.
 
 The following example multiplies one parameter by another parameter.
 
@@ -222,7 +222,7 @@ The following example multiplies one parameter by another parameter.
     },
     ...
     "outputs": {
-      "return": {
+      "mulResult": {
         "type": "int",
         "value": "[mul(parameters('first'), parameters('second'))]"
       }
@@ -237,8 +237,8 @@ Returns the subtraction of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number that is subtracted from.
-| operand2                           |   Yes    | Number to be subtracted.
+| operand1                           |   Yes    | Integer that is subtracted from.
+| operand2                           |   Yes    | Integer that is subtracted.
 
 The following example subtracts one parameter from another parameter.
 
@@ -258,7 +258,7 @@ The following example subtracts one parameter from another parameter.
     },
     ...
     "outputs": {
-      "return": {
+      "subResult": {
         "type": "int",
         "value": "[sub(parameters('first'), parameters('second'))]"
       }
@@ -309,7 +309,14 @@ The following example shows how to use the base64 function.
 
 **concat (string1, string2, string3, ...)**
 
-Combines multiple values and returns the concatenated string. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
+Combines multiple string values and returns the concatenated string. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| string1                        |   Yes    | A string value to concatenate.
+| additional strings             |   No     | String values to concatenate.
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
 
 The following example shows how to combine multiple string values to return a concatenated string.
 
@@ -326,7 +333,13 @@ The following example shows how to combine multiple string values to return a co
 
 **length(string)**
 
-Returns the number of elements in an array or the number of characters in a string. For an example of using length with an array, see [length -array](#length).
+Returns the number of characters in a string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| string                        |   Yes    | The string value to use for getting the number of characters.
+
+For an example of using length with an array, see [length - array](#length).
 
 The following example returns the number of characters in a string. 
 
@@ -428,7 +441,7 @@ The following example skips the specified number of characters in the string.
 
 **split(inputString, delimiterArray)**
 
-Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
@@ -442,6 +455,20 @@ The following example splits the input string with a comma.
     },
     "variables": { 
         "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+The next example splits the input string with either a comma or a semi-colon.
+
+    "variables": {
+      "stringToSplit": "test1,test2;test3",
+      "delimiters": [ ",", ";" ]
+    },
+    "resources": [ ],
+    "outputs": {
+      "exampleOutput": {
+        "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
+        "type": "array"
+      }
     }
 
 <a id="string" />
@@ -603,14 +630,16 @@ The following example trims the white-space characters from the user-provided pa
 <a id="uniquestring" />
 ### uniqueString
 
-**uniqueString (stringForCreatingUniqueString, ...)**
+**uniqueString (baseString, ...)**
 
-Creates a unique string based on the values provided as parameters. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+Creates a unique string based on the values provided as parameters. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
+| baseString      |   Yes    | The string used in the hash function to create a unique string.
 | additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
+
+This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
 
 The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value. Of course, the actual value will vary by the provided base string.
 
@@ -671,9 +700,16 @@ To get an array of string values delimited by a value, see [split](#split).
 <a id="concatarray" />
 ### concat - array
 
-**concat (arg1, arg2, arg3, ...)**
+**concat (array1, array2, array3, ...)**
 
-Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
+Combines multiple arrays and returns the concatenated array. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| array1                        |   Yes    | An array to concatenate.
+| additional arrays             |   No     | Arrays to concatenate.
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
 
 The following example shows how to combine two arrays.
 
@@ -695,7 +731,13 @@ The following example shows how to combine two arrays.
 
 **length(array)**
 
-Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+Returns the number of elements in an array.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| array                        |   Yes    | The array to use for getting the number of elements.
+
+You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
     "copy": {
         "name": "websitescopy",
@@ -753,8 +795,8 @@ Returns an array with the specified number of elements from the start of the arr
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The array or string to take the elements or characters from.
-| numberToTake                       |   Yes    | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned.
+| originalValue                      |   Yes    | The array to take the elements from.
+| numberToTake                       |   Yes    | The number of elements to take. If this value is 0 or less, an empty array is returned. If it is larger than the length of the given array, all the elements in the array are returned.
 
 For an example of using take with a string, see [take - string](#takestring).
 
@@ -839,7 +881,7 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
             },
             "parameters": {},
             "mode": "",
-            "provisioningState": "Accepted"
+            "provisioningState": ""
         }
     }
 
