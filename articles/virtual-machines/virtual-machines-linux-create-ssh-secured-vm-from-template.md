@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/27/2016"
+	ms.date="08/12/2016"
 	ms.author="v-livech"/>
 
 # Create a secured Linux VM using an Azure template
