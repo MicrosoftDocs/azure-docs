@@ -24,7 +24,7 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 	![](media/azure-stack-provision-storage-account/image01.png)
 
-2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **OK** to create the storage account.
+2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
 
 	![](media/azure-stack-provision-storage-account/image02.png)
 
