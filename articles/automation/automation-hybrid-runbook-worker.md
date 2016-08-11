@@ -19,7 +19,7 @@
 
 Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources. The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premises machines.  
 
-This functionality is illustrated in the following image.
+This functionality is illustrated in the following image.<br>  
 
 ![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
@@ -33,7 +33,6 @@ There are no inbound firewall requirements to support Hybrid Runbook Workers. Th
 
 >[AZURE.NOTE] Hybrid Runbook Workers do not currently support [DSC Configurations](automation-dsc-overview.md).
 
->[AZURE.NOTE] Hybrid Runbook Worker version 7.2.11136.0 currently support communicating through a proxy server only with PowerShell scripts.  Support for PowerShell Workflow scripts will be available in a future release.   
 
 ## Hybrid Runbook Worker groups
 
@@ -54,6 +53,9 @@ Consider the following recommendations for hybrid workers:
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
 - Consider using a machine physically located in or near the region of your Automation account since the job data is sent back to Azure Automation when a job completes.
+
+
+>[AZURE.NOTE] Hybrid Runbook Worker version 7.2.11136.0 currently support communicating through a proxy server only with PowerShell scripts.  Support for PowerShell Workflow scripts will be available in a future release.  
 
 ### Configure proxy and firewall settings
 
