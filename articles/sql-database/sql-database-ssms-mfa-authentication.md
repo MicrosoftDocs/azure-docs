@@ -1,5 +1,5 @@
 <properties
-   pageTitle="SSMS Support for Azure AD MFA with SQL Database and SQL Data Warehouse | Microsoft Azure"
+   pageTitle="SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse | Microsoft Azure"
    description="Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse."
    services="sql-database"
    documentationCenter=""
@@ -17,7 +17,7 @@
    ms.date="08/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
-# SSMS Support for Azure AD MFA with SQL Database and SQL Data Warehouse
+# SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse
 
 Azure SQL Database and Azure SQL Data Warehouse now support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. Active Directory Universal Authentication is an interactive work flow that supports *Azure Multi-Factor Authentication* (MFA). Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options—phone call, text message, smart cards with pin, or mobile app notification—allowing users to choose the method they prefer. For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
 
@@ -27,7 +27,7 @@ SSMS now supports:
 
 When the user account is configured for MFA the interactive authentication work flow requires additional user interaction through pop-up dialog boxes, smart card use, etc. When the user account is configured for MFA, the user must select Azure Universal Authentication to connect. If the user account does not require MFA, the user can still use the other two Azure Active Directory Authentication options.
 
-## Active Directory Universal Authentication Limitations for SQL Database and SQL Data Warehouse
+## Active Directory Universal Authentication limitations for SQL Database and SQL Data Warehouse
 
 - SSMS is the only tool currently enabled for MFA through Active Directory Universal Authentication.
 - Only a single Azure Active Directory account can log in for an instance of SSMS using Universal Authentication. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
@@ -58,7 +58,7 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 
     > [AZURE.NOTE] For Universal Authentication with an account which does not require MFA, you connect at this point. For users requiring MFA, continue with the following steps.
  
-4. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is usually already pre-defined (for example, the domain requires users to use a smartcard and pin).
+4. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).
 ![3mfa-setup][3]
 
 5. The second possible one time dialog box allows you to select the details of your authentication method. The possible options are configured by your administrator.
@@ -69,8 +69,8 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 
 When verification is complete, SSMS connects normally presuming valid credentials and firewall access.
 
-## See Also
-[Configure an Azure SQL Database server-level firewall rule using the Azure Portal](sql-database-configure-firewall-settings.md)
+## See also
+[Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)
 [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
