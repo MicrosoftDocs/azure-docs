@@ -24,24 +24,24 @@ This article details tasks related to Microsoft Azure Active Directory Federatio
 | Topic | What it covers |
 |:------|:-------------|
 |**AD FS management**|
-|[Repairing the trust](#repairthetrust)| Repairing the federation trust with Office 365 |
-|[Adding an AD FS server](#addadfsserver) | Expanding the AD FS farm with an additional AD FS server|
-|[Adding an AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with an additional WAP server|
+	|[Repair the trust](#repairthetrust)| Repairing the federation trust with Office 365 |
+|[Add an AD FS server](#addadfsserver) | Expanding the AD FS farm with an additional AD FS server|
+|[Add an AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with an additional WAP server|
 |[Add a federated domain](#addfeddomain)| Adding a federated domain|
 | **AD FS customization**|
-|[Add a custom company logo or illustration](#customlogo)| Customizing an FS sign-in page with a company logo and illustration |
+|[Add a custom company logo or illustration](#customlogo)| Customizing an AD FS sign-in page with a company logo and illustration |
 |[Add a sign-in description](#addsignindescription) | Adding a sign-in page description |
-|[Modifying AD FS claim rules](#modclaims) | Modifying AD FS claims for various federation scenarios |
+|[Modify AD FS claim rules](#modclaims) | Modifying AD FS claims for various federation scenarios |
 
 ## AD FS management
 
 Azure AD Connect provides various tasks related to AD FS that can be performed by using the Azure AD Connect wizard with minimal user intervention. After you have finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
-### Repairing the trust <a name=repairthetrust></a>
+### To repair the trust <a name=repairthetrust></a>
 
 Azure AD Connect can check for the current health of the AD FS and Azure Active Directory trust and take appropriate actions to repair the trust. Follow these steps to repair your Azure AD and AD FS trust.
 
-1. Select **Repair AAD and ADFS Trust** from the list of tasks available.
+1. Select **Repair AAD and ADFS Trust** from the list of available tasks.
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
 2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD and click **Next**.
@@ -60,9 +60,9 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
 4. Click **Install** to repair the trust.
 
->[AZURE.NOTE] Azure AD Connect can only repair or act on certificates that are self-signed. Third-party certificates cannot be repaired by Azure AD Connect.
+>[AZURE.NOTE] Azure AD Connect can only repair or act on certificates that are self-signed. Azure AD Connect cannot repair third-party certificates.
 
-### Adding an AD FS server <a name=addadfsserver></a>
+### To add an AD FS server <a name=addadfsserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add an AD FS server. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
 
@@ -88,7 +88,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
     ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Add an AD FS web application proxy server <a name=addwapserver></a>
+### To add an AD FS web application proxy server <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm by using Azure AD Connect.
 
@@ -115,7 +115,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 7. Click **Install** to finish the configuration. After the configuration is complete, wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
 ![](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### Add a federated domain <a name=addfeddomain></a>
+### To add a federated domain <a name=addfeddomain></a>
 
 It is easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
@@ -140,7 +140,7 @@ It is easy to add a domain to be federated with Azure AD by using Azure AD Conne
 
 The following sections provide details about some of the common tasks that you may have to perform when customizing your AD FS sign-in page.
 
-### Add a custom company logo or illustration <a name=customlogo></a>
+### To add a custom company logo or illustration <a name=customlogo></a>
 
 To change the logo of the company that is displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
 
@@ -151,13 +151,13 @@ To change the logo of the company that is displayed on the **Sign-in** page, use
 > [AZURE.NOTE] The *TargetName* parameter is required. The default theme that is released with AD FS is named Default.
 
 
-### Add a sign-in description <a name=addsignindescription></a>
+### To add a sign-in description <a name=addsignindescription></a>
 
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### Modifying AD FS claim rules <a name=modclaims></a>
+### To modify AD FS claim rules <a name=modclaims></a>
 
 AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](https://technet.microsoft.com/library/dd807118.aspx).
 
@@ -181,7 +181,7 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you added claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **ObjectGuid**, so that claim will always be there after Rule 1 is executed
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **ObjectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if present**
 
@@ -200,9 +200,9 @@ In this rule, you are simply checking the temporary flag **idflag**. You decide 
 
 > [AZURE.NOTE] The sequence of these rules is important.
 
-#### SSO with a sub-domain UPN
+#### SSO with a subdomain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). The UPN claim needs to be modified so that the issuer ID corresponds to the root domain and not the sub-domain, because the federated root domain also covers the child.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). The UPN claim needs to be modified so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
 
 By default, the claim rule for issuer ID is set as:
 
@@ -211,9 +211,9 @@ By default, the claim rule for issuer ID is set as:
 
 	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-![Default issuer id claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+![Default issuer ID claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
 
-The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, and the default issuer id claim rule in AD FS handles it in the following manner.
+The default rule simply takes the UPN suffix and uses it in the issuer ID claim. For example, John is a user in sub.contoso.com, and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the user name while signing in to Azure AD, and the default issuer ID claim rule in AD FS handles it in the following manner.
 
     c:[Type
     == “http://schemas.xmlsoap.org/claims/UPN“]
@@ -228,6 +228,6 @@ To have only the root domain in the issuer claim value, change the claim rule to
 
 	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## Next Steps
+## Next steps
 
-Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md)
+Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md).
