@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # How to change profile information of your Azure account such as contact email, address and phone number
