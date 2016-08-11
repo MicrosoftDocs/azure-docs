@@ -124,7 +124,7 @@ App Service plan, the formula would resolve to:
 
 ![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
-This value can also be calculated for scale-down operations:
+This value can also be calculated for scale-down operations.
 
 Based on the Autoscale – Scale Down rule for the Weekday profile of the production
 App Service plan, this would look as follows:
@@ -180,7 +180,7 @@ With this information, Frank can define the following autoscale profile and rule
 |	**Action:** Increase count by 8							|	**Action:** Increase count by 3					|
 |	**Cool down (minutes):** 180							|	**Cool down (minutes):** 180					|
 |	                                                    	|	                                            	|
-|	**Autoscale rule (Scale DOWN)**							|	**Autoscale rule (Scale DOWN)**					|
+|	**Autoscale rule (Scale Down)**							|	**Autoscale rule (Scale Down)**					|
 |	**Resource:** Worker pool 1								|	**Resource:** Worker pool 1						|
 |	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
 |	**Operation:** Greater than 8							|	**Operation:** Greater than 3					|
