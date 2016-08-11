@@ -124,7 +124,7 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 
 6. Upload this file into the root directory of your function (not WWWROOT). You should see a file named **project.lock.json** automatically appear. This confirms that the NuGet packages “StackExchange.Redis” and “Newtonsoft.Json” have been imported.
 
-7. In the **run.csx** file, replace the pre-generated code with the following code. In the lazyConnection function, replace “YOUR CONNECTION NAME” with the name you created in step 2 of **Store data into the Redis cache**.
+7. In the **run.csx** file, replace the pre-generated code with the following code. In the lazyConnection function, replace “CONN NAME” with the name you created in step 2 of **Store data into the Redis cache**.
 
 ````
 
@@ -136,7 +136,7 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
     
     public static void Run(string myQueueItem, TraceWriter log)
     {
-        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+        log.Info($"Function processed message: {myQueueItem}");
 
         // Connection refers to a property that returns a ConnectionMultiplexer
         IDatabase db = Connection.GetDatabase();
@@ -159,10 +159,12 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
     }
 
     // Connect to the Service Bus
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect(ConfigurationManager.ConnectionStrings["YOUR CONNECTION NAME"].ConnectionString);
-    });
+    private static Lazy<ConnectionMultiplexer> lazyConnection = 
+		new Lazy<ConnectionMultiplexer>(() =>
+    		{
+				var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
+        		return ConnectionMultiplexer.Connect();
+    		});
     
     public static ConnectionMultiplexer Connection
     {
