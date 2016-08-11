@@ -190,7 +190,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resource that you need to do the above configuration for includes:
+For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resource that you need to do the preceding configuration for includes:
 
 + Classic cloud services (web and worker roles)
 + Service fabric clusters
