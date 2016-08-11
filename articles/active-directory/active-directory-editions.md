@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2016"
+	ms.date="08/10/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -51,13 +51,6 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 ##Comparing generally available features
 
 > [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
-
-|                          | Azure AD Free | Azure AD Basic | Azure AD Premium |
-| ---                      | :-:           | :-:            | :-:              |
-| Common Features          | ![Check][12]  | ![Check][12]   | ![Check][12]     |
-| Basic Features           |               | ![Check][12]   | ![Check][12]     |
-| Premium Features         |               |                | ![Check][12]     |
-
 
 
 
