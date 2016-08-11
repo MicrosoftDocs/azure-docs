@@ -52,7 +52,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
    - `sc config w32time start= auto`
 
-5. Make sure that each of the following windows services is set to its windows default values. They are all enabled and with the following startup setting. You can run these commands to reset the startup setting.
+5. Make sure that each of the following windows services is set to its windows default values. They are all enabled with the following startup setting. You can run these commands to reset the startup setting.
 
 		sc config bfe start= auto
 
@@ -100,7 +100,7 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
 	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
 
-   For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
+	For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 
 7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
 
