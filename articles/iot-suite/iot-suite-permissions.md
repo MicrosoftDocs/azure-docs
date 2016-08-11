@@ -11,10 +11,10 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="get-started-article"
+  ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/16/2016"
+  ms.date="08/10/2016"
   ms.author="araguila"/>
   
 # Permissions on the azureiotsuite.com site
