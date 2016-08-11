@@ -32,7 +32,7 @@ Now that you've [created a subscription](azure-stack-subscribe-plan-provision-vm
 
 	![](media/azure-stack-provision-vm/image03.png)
 
-4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**.  
+4.  In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults and click **OK**. In the **Settings** blade, click **OK** to create the virtual machine.
 
 	![](media/azure-stack-provision-vm/image04.png)
 
