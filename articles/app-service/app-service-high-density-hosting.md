@@ -18,8 +18,6 @@
 
 # High-density hosting on Azure App Service#
 
-## Understand app scaling##
-
 When you use Azure App Service, your application will be decoupled from its allocated capacity
 by two concepts:
 
@@ -29,26 +27,26 @@ by two concepts:
 
 An app is always linked to an App Service plan, but an App Service plan can provide capacity to one or more apps.
 
-What this means is that the platform provides the flexibility to isolate a
+This means that the platform provides the flexibility to isolate a
 single app or have multiple apps share resources by sharing an
 App Service plan.
 
 However, when multiple apps share an App Service plan, an
-instance of that app runs on each and every instance of that
+instance of that app runs on every instance of that
 App Service plan.
 
 ## Per app scaling##
 *Per app scaling* is a feature that can be enabled at the
 App Service plan level and then used per application.
 
-Per app scaling scales an app independent of the
+Per app scaling scales an app independently from the
 App Service plan that hosts it. This way, an App Service plan
 can be configured to provide 10 instances, but an app can be set to scale to
-only five of them.
+only 5 of them.
 
 The following Azure Resource Manager template will create an App Service plan that's scaled out to 10
-instances and an app that's configured to use per app scaling and only scale to
-five instances.
+instances and an app that's configured to use per app scaling and scale to
+only 5 instances.
 
 To do this, the App Service plan is setting the **per-site scaling** property to true ( `"perSiteScaling": true`) and the app is setting the **number of
 workers** to use to 1 `"properties": { "numberOfWorkers": "1" }`
