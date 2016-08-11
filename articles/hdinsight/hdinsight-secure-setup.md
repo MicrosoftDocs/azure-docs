@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Configure Secure HDInsight | Microsoft Azure"
-   	description="Learn how to setup and configure secure HDInsight"
+   	description="Learn how to set up and configure secure HDInsight"
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
@@ -19,7 +19,7 @@
 
 # Configure Secure HDInsight
 
-Learn how to setup an Azure HDInsight cluster with Azure Active Directory(AAD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
+Learn how to set up an Azure HDInsight cluster with Azure Active Directory(AAD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
 This is the first tutorial of the 2-part series:
 
@@ -30,7 +30,7 @@ An example of the final topology looks as follows:
 
 ![Secure HDInsight topology](.\media\hdinsight-secure-setup\hdinsight-secure-topology.png)
 
-Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
+Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager based VNets, HDInsight AAD integration requires two VNets and a bridge between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
 Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
 	
@@ -60,7 +60,7 @@ This tutorial provides the steps for configuring a secured HDInsight. Each secti
 2. Create and configure an Azure Active Directory.
 3. Add an admin VM to the AAD.
 3. Configure an organizational unit.
-4. Create an HDInsight VNet (ARM VNet)
+4. Create an HDInsight VNet (Resource Manager VNet)
 5. Bridge the two VNets.
 6. Create an HDInsight cluster.
 6. Test the connection between the two VNets.
@@ -82,7 +82,7 @@ In this section, you will create a classic VNet using the Azure classic portal. 
 4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, your VNet will use the internal naming resolution provided by Azure. For our scenario, we will not configure DNS servers.
 5. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0/24** as shown below:
 
-	![Configure Secure HDInsight Azure Activie directory virtual network](.\media\hdinsight-secure-setup\hdinsight-secure-aad-vnet-setting.png)
+	![Configure Secure HDInsight Azure Active directory virtual network](.\media\hdinsight-secure-setup\hdinsight-secure-aad-vnet-setting.png)
 	
 6. Click **Complete** to create the VNet.
 
@@ -147,8 +147,8 @@ Follow the same procedure to create two more users with the **User** role. The f
 8. Click **Add Members**.
 9. Select the first user you created in the previous step, for example jgao@contoso158.onmicrosoft.com, and then click **Complete**.
 
-	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will setup.	
-	- After domain join, this group will be added to the Administrators group on these domain-joined machines.
+	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will set up.	
+	- After domain joined, this group will be added to the Administrators group on these domain-joined machines.
 	- Members of this group will also be able to use Remote Desktop to connect remotely to domain-joined machines. [jgao: this is not correct based on my testing]
 
 For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD DC Administrators' group](../active-directory/active-directory-ds-getting-started.md).
@@ -306,15 +306,15 @@ For more information, See [Create an Organizational Unit (OU) on an AAD Domain S
 
 
 
-## Create an ARM virtual network for HDInsight cluster
+## Create a Resource Manager virtual network for HDInsight cluster
 
-In this section, you will create an ARM VNet that will be used for the HDInsight cluster. An ARM template is used in this tutorial to create the VNet.  For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+In this section, you will create a Resource Manager VNet that will be used for the HDInsight cluster. A Resource Manager template is used in this tutorial to create the VNet.  For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 
-After creating the VNet, you will configure the ARM VNet to use the same DNS servers as for the AAD VNet. If you follow the steps in this tutorial to create the classic VNet and the AAD, the DNS servers are 10.1.0.4 and 10.1.0.5.
+After creating the VNet, you will configure the Resource Manager VNet to use the same DNS servers as for the AAD VNet. If you follow the steps in this tutorial to create the classic VNet and the AAD, the DNS servers are 10.1.0.4 and 10.1.0.5.
 
-**To create an ARM VNet**
+**To create a Resource Manager VNet**
 
-1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
+1. Click the following image to open a Resource Manager template in the Azure Portal. The Resource Manager template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-vnet-secure-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -357,14 +357,14 @@ After creating the VNet, you will configure the ARM VNet to use the same DNS ser
 5. Click **Legal terms**, and then click **Create**.
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. 
 
-**To configure DNS for the ARM VNet**
+**To configure DNS for the Resource Manager VNet**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **Browse** -> **Virtual networks**. Don't click **Virtual networks (classic).
 2. Click **contosohdivnet**.
 3. Click **Settings** from the top menu.
 4. Click **DNS servers** from the Settings blade.
-6. Click **Custom DNS**, and the enter the following:
+6. Click **Custom DNS**, and then enter the following:
 
 	- Primary DNS server: 10.1.0.4
 	- Secondary DNS server: 10.1.0.5
@@ -388,17 +388,17 @@ There are 3 steps in this section.
 4. Click **Next**.
 4. Enter or select the following values:
 
-	- In the address space STARTING IP text box, type the network prefix for the ARM VNet you want to connect to. For example, 10.2.0.0/16.
-	- In the CIDR (ADDRESS COUNT) drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.
+	- In the address space STARTING IP text box, type the network prefix for the Resource Manager VNet you want to connect to. For example, 10.2.0.0/16.
+	- In the CIDR (ADDRESS COUNT) drop-down, select the number of bits used for the network portion of the CIDR block used by the Resource Manager VNet you want to connect to.
 4. Click **Complete**.
 5. Click **Networks** from the left pane >  **VIRTUAL NETWORKS**, and then click on your classic VNet (contosoaadvnet), and then click **CONFIGURE**.
 6. Under **site-to-site connectivity**,  check **Connect to the local network**, and then select the local network you just created in **Local Network**.
 7. Click **Save** on the bottom of the page.
 8. Click **Yes** to confirm.
-9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to setup the gateway in the ARM VNet. Don't worry if you see the status is disconnected.  It is expected. 104.209.180.23
+9. Click **Dashboard** from the top menu, click **Create Gateway** from the bottom of the page, click **Dynamic Routing**, and then click **Yes**. When it is done, copy the gateway public IP address. You will need it to set up the gateway in the Resource Manager VNet. Don't worry if you see the status is disconnected.  It is expected. 104.209.180.23
 
 
-**To create a VPN gateway for the HDInsight(ARM) VNet**
+**To create a VPN gateway for the HDInsight(Resource Manager) VNet**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Networking** > **Local network gateway**.
@@ -420,7 +420,7 @@ There are 3 steps in this section.
 4. Select or enter:
 
 	- Name: contosohdivnetvirtualnetworkgateway
-	- Virtual network: ARM network name contosohdivnet.
+	- Virtual network: Resource Manager network name contosohdivnet.
 	- Public IP address: Create new: contosohdvnetvirtualnetworkgatewayip
 
 4. Click **OK**.
@@ -432,9 +432,9 @@ There are 3 steps in this section.
 **To connect the two gateways**
 
 1. Sign on to the [classic portal](https://manage.windowsazure.com).
-2. Click **Networks** > **Local Networks**, and then click the ARM VNet that you want to connect to. For example: contosohdivnet.
+2. Click **Networks** > **Local Networks**, and then click the Resource Manager VNet that you want to connect to. For example: contosohdivnet.
 3. Click **Edit** from the bottom.
-4. Replace **VPN Device IP Address** with the ARM VNet gateway public IP address: 40.79.76.167
+4. Replace **VPN Device IP Address** with the Resource Manager VNet gateway public IP address: 40.79.76.167
 5. Click **Next**.
 6. Click **Complete**.
 7. From a PowerShell console, setup a shared key by running the command below. Make sure you change the names of the VNets to the your own VNet names.
@@ -448,7 +448,7 @@ There are 3 steps in this section.
 		$vnet01gateway = Get-AzureRmLocalNetworkGateway  -ResourceGroupName  contosohdirg -Name contosohdivnetlocalnetworkgateway
 		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName contosohdirg -Name contosohdivnetvirtualnetworkgateway
 
-		New-AzureRmVirtualNetworkGatewayConnection -Name contoso-asm-arm-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name contoso-asm-Resource Manager-connection `
 			-ResourceGroupName contosohdirg -Location "East US 2" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey "Password123"
@@ -457,11 +457,11 @@ There are 3 steps in this section.
 ## Create HDInsight cluster
 
 
-In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure ARM template](../resource-group-template-deploy.md). The Azure ARM template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using ARM template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you will create a Linux-based Hadoop cluster in HDInsight using [Azure Resource Manager template](../resource-group-template-deploy.md). The Azure Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 **To create an HDInsight cluster**
 
-1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
+1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-vnet-v2.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -496,13 +496,13 @@ In this section, you will create a Linux-based Hadoop cluster in HDInsight using
 5. Click **Legal terms**, and then click **Purchase**.
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can click the cluster blade in the portal to open it.
 
-After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md#delete-clusters).
+After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 
 
 ## Configure the Ranger user sync service
 
-[jgao: this part is actually done in the ARM template.  It might be good to keep it as a validation procedure.]
+[jgao: this part is actually done in the Resource Manager template.  It might be good to keep it as a validation procedure.]
 
 **To configure the Ranger user sync service**
 
@@ -528,7 +528,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ## Test the connection between the two VNets
 
-[This part only tests the network connectivity and domain name resolution. Do I need to add another procedure for validating the AAD configuration, for example, verify domain users are populate when creating a Ranger policy.]
+[This part only tests the network connectivity and domain name resolution. Do I need to add another procedure for validating the AAD configuration, for example, verify domain users are populated when creating a Ranger policy.]
 
 To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
 

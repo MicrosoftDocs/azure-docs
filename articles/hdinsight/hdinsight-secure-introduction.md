@@ -27,8 +27,8 @@
 
 [jgao questions:] 
 
-- Public preview ETA: Setp 22, 2016
-- Only Hive and Yarn will be supported by public preview
+- Public preview ETA: Sept 22, 2016
+- Only Hive and Yarn are supported by the public preview.
 - The Names: Ranger admin UI (found on Ambari) vs Ranger administration console (HDP name) vs. Policy Manager.
 
 
@@ -38,11 +38,11 @@ At a high level, there are four pillars of security and governance in Hadoop. Th
 
 - **Authentication**
 This pillar deals with allowing only the users that belong to the organization access the Hadoop resources. Anyone outside the organization cannot log in or access cluster resources. This is accomplished by integrating with the organization’s identity management system. 
-HDInsight supports integrating with Azure Active Directory to provide strong authentication through the use of Active Directory Domain Services (ADDS). 
+HDInsight provides strong authentication through the use of Active Directory Domain Services (ADDS). 
 
 - **Authorization**
 Proper authorization ensures that only the users allowed to access a Hadoop resource are able to access it. For example, within an organization, not everyone may have the same level of privileges to access financial or HR data. For those cases, an administrator in the organization should be able to define and administer access control policies on all Hadoop resources. 
-HDInsight supports defining role based access control (RBAC) policies using Apache Ranger. 
+HDInsight supports defining role-based access control (RBAC) policies using Apache Ranger. 
 
 - **Auditing**
 Hadoop administrators or auditors should be able to audit how the cluster resources were accessed and used by different members of the organization. This may be needed for compliance and governance reasons. 
