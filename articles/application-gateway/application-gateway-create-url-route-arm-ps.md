@@ -137,7 +137,7 @@ An IP address is assigned to the application gateway when the service starts.
 
 ## Create application gateway configuration
 
-All configuration items must be setup before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+All configuration items must be set up before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
@@ -160,7 +160,7 @@ In this example, there are two back-end pools to route network traffic based on 
 
 ### Step 3
 
-Configure application gateway setting "poolsetting01" and "poolsetting02" for the load-balanced network traffic in the back-end pool. In this example you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.
+Configure application gateway setting "poolsetting01" and "poolsetting02" for the load-balanced network traffic in the back-end pool. In this example, you configure different back-end pool settings for the back-end pools. Each back-end pool can have its own back-end pool setting.
 
 	$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 
@@ -211,7 +211,7 @@ Configure the number of instances and size for the application gateway.
 
 ## Create Application Gateway
 
-Create an application gateway with all configuration objects from the steps above.
+Create an application gateway with all configuration objects from the preceding steps.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
