@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prepare a Windows VHD to upload to Azure | Microsoft Azure"
-	description="Best Practices for preparing Windows VHD before uploading to Azure"
+	description="Recommended practices for preparing a Windows VHD before uploading to Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="genlin"
@@ -18,187 +18,246 @@
 	ms.author="genli"/>
 
 # Prepare a Windows VHD to upload to Azure
+To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
 
-This article shows you how to prepare a Windows virtual hard disk (VHD) to upload to Microsoft Azure.
+## Prepare the virtual disk
 
-## Prepare the VM configuration for upload
+>[AZURE.NOTE] The newer VHDX format is not supported in Azure. The VHD must be a Fixed size, not Dynamic. If needed, the instructions below detail converting from VHDX or Dynamic disks. The maximum size allowed for the VHD is 1,023 GB.
 
->[AZURE.NOTE] Azure accepts only VHD disk files that are created for generation 1 virtual machines. The disk must be in Fixed size. The maximum size allowed for the VHD is 1,023 GB.
+Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-1.	Make sure that the Windows VHD is working correctly on the local server.
-2.	If you have a Windows VM image in VHDX format, convert it to a VHD by using either of the following:
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections.
 
-	- Hyper-V: Open Hyper-V and select your local computer on the left. Then in the menu above it, click **Action** > **Edit Disk**. Navigate through the screens by clicking **Next** and entering these options: *Path for your VHDX file* > **Convert** > **VHD** > **Fixed size** > *Path for the new VHD file*. Click **Finish** to close.
+### Convert using Hyper-V Manager
+- Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
+	- On the **Locate Virtual Hard Disk** screen, browse to, and select your virtual disk.
+	- Select **Convert** on the next screen
+		- If you need to convert from VHDX, select **VHD** and click **Next**
+		- If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
+		
+	- Browse to and select **Path for the new VHD file**. 
+	- Click **Finish** to close.
 
-	- [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx): Read the blog post [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) for more information.
+### Convert using PowerShell
+You can convert a virtual disk using the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). In the following example, we are converting from a VHDX to VHD, and converting from a Dynamic to Fixed type:
 
-	If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
+```powershell
+Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
+```
+
+### Convert from VMware VMDK disk format
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 ## Prepare Windows configuration for upload
 
-> [AZURE.NOTE] Run the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
+> [AZURE.NOTE] Run all the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
 
-	A.	To view the route table, run  `route print`.
+	- To view the route table, run `route print`.
+	- Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 
-	B.	Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
+2. Remove the WinHTTP proxy:
 
-2. Remove the WinHTTP proxy: `netsh winhttp reset proxy`
-3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx): `diskpart san policy=onlineall`
+	```
+	netsh winhttp reset proxy
+	```
+
+3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
+
+	```
+	dispart san policy=onlineall
+	```
+
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
 
-	 - `REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1`
+	```
+	REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
+	sc config w32time start= auto
+	```
 
-   - `sc config w32time start= auto`
 
-5. Make sure that each of the following windows services is set to its **windows default values**. They are all enabled with the following startup setting. You can run these commands to reset the startup setting.
+## Configure Windows services
+5. Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
 
-		sc config bfe start= auto
+	```
+	sc config bfe start= auto
 
-		sc config dcomlaunch start= auto
+	sc config dcomlaunch start= auto
 
-		sc config dhcp start= auto
+	sc config dhcp start= auto
 
-		sc config dnscache start= auto
+	sc config dnscache start= auto
 
-		sc config IKEEXT start= auto
+	sc config IKEEXT start= auto
 
-		sc config iphlpsvc start= auto
+	sc config iphlpsvc start= auto
 
-		sc config PolicyAgent start= manual
+	sc config PolicyAgent start= manual
 
-		sc config LSM start= auto
+	sc config LSM start= auto
 
-		sc config netlogon start= manual
+	sc config netlogon start= manual
 
-		sc config netman start= manual
+	sc config netman start= manual
 
-		sc config NcaSvc start= manual
+	sc config NcaSvc start= manual
 
-		sc config netprofm start= manual
+	sc config netprofm start= manual
 
-		sc config NlaSvc start= auto
+	sc config NlaSvc start= auto
 
-		sc config nsi start= auto
+	sc config nsi start= auto
 
-		sc config RpcSs start= auto
+	sc config RpcSs start= auto
 
-		sc config RpcEptMapper start= auto
+	sc config RpcEptMapper start= auto
 
-		sc config termService start= manual
+	sc config termService start= manual
 
-		sc config MpsSvc start= auto
+	sc config MpsSvc start= auto
 
-		sc config WinHttpAutoProxySvc start= manual
+	sc config WinHttpAutoProxySvc start= manual
 
-		sc config LanmanWorkstation start= auto
+	sc config LanmanWorkstation start= auto
 
-		sc config RemoteRegistry start= auto
+	sc config RemoteRegistry start= auto
+	```
 
-6. If there is any self-signed certificate tied to the Remote Desktop Protocol (RDP) listener, remove them:
 
-	`REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”`
+## Configure Remote Desktop configuration
+6. If there are any self-signed certificates tied to the Remote Desktop Protocol (RDP) listener, remove them:
 
-		For more information about configure certificate for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
+	```
+	REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”
+	```
+
+	For more information about configuring certificates for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 
 7. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
 
-		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
+	```
+	REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
 
-		REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
+	REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
 
-		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
+	```
 
 8. Configure the authentication mode for the RDP service:
 
-		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
+	```
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
 
-		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
 
-		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
+	```
 
-9. Enable RDP service by adding the following subkeys to the registry:：`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f`
+9. Enable RDP service by adding the following subkeys to the registry:
 
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public), and enable PowerShell Remote service: `Enable-PSRemoting -force`
+	```
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f
+	```
+
+
+## Configure Windows Firewall rules
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service: 
+
+	```
+	Enable-PSRemoting -force
+	```
 
 11. Make sure that the following guest operating system firewall rules are in place:
 
 	- Inbound
 
-			netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+	```
+	netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
-			netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+	```
 
 	- Inbound and outbound
 
-			netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+	```
+	netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
 
-			netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+	netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+	```
 
 	- Outbound
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+	```
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-				netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	```
 
-12. Run `winmgmt /verifyrepository` to check whether the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted,  see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) to learn how to fix the issue.
+
+## Additional Windows configuration steps
+12. Run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 13. Make sure the Boot Configuration Data (BCD) settings match the following:
 
-		bcdedit /set {bootmgr} device partition=<Boot Partition>
+	```
+	bcdedit /set {bootmgr} device partition=<Boot Partition>
 
-		bcdedit /set {bootmgr} integrityservices enable
+	bcdedit /set {bootmgr} integrityservices enable
 
-		bcdedit /set {default} device partition=<OS Partition>
+	bcdedit /set {default} device partition=<OS Partition>
 
-		bcdedit /set {default} integrityservices enable
+	bcdedit /set {default} integrityservices enable
 
-		bcdedit /set {default} recoveryenabled Off
+	bcdedit /set {default} recoveryenabled Off
 
-		bcdedit /set {default} osdevice partition=<OS Partition>
+	bcdedit /set {default} osdevice partition=<OS Partition>
 
-		bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+	```
 
 14. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
-15. To make sure the disk is healthy and consistent, run a `CHKDSK /f` command.
+15. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command.
 16.	Uninstall all other third-party software and drivers.
 17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure.
-18.	If the Windows VDH that you want to upload is a domain controller, follow the extra steps to prepare the disk as specified [here](https://support.microsoft.com/kb/2904015).
-19.	Do a reboot on the VM to make sure that the Windows is healthy， and that it can be reached by using the RDP connection.
+18.	If the Windows VHD that you want to upload is a domain controller, follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
+19.	Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection.
 20.	Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
+
+
+## Install Windows Updates
 22. Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
 
 	- [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
@@ -226,28 +285,34 @@ This article shows you how to prepare a Windows virtual hard disk (VHD) to uploa
 
 23. If you want to create an image by using the VHD, it is better to run `sysprep` to prepare the installation of Windows for imaging.
 
+
 ## Suggested extra configurations
 
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
 
-- Install [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
+- Install the [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
 
-- Enable the Dump log collection. The Dump log can be helpful in troubleshooting Windows crash issues.
+- The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
 
-		REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
+	```
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
 
-		REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
 
-		REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
+	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
 
-		REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
+	REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
 
-		sc config wer start= auto
+	sc config wer start= auto
+	```
 
-- After the VM is created in Azure, setup the system defined size pagefile on drive D:
+- After the VM is created in Azure, configure the system defined size pagefile on drive D:
 
-	`REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f`
+	```
+	REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f
+	```
 
-	## Next steps
 
-	- [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md)
+## Next steps
+
+- [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md)
