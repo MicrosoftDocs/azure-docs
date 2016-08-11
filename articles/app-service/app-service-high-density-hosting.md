@@ -21,9 +21,9 @@
 When you use Azure App Service, your application will be decoupled from its allocated capacity
 by two concepts:
 
-**The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
+- **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
 
-**The App Service Plan:** Defines the characteristics of the capacity, available feature set, and locality of the application. For example, characteristics might be large (four cores) machine, four instances, Premium features in East US.
+- **The App Service Plan:** Defines the characteristics of the capacity, available feature set, and locality of the application. For example, characteristics might be large (four cores) machine, four instances, Premium features in East US.
 
 An app is always linked to an App Service plan, but an App Service plan can provide capacity to one or more apps.
 
