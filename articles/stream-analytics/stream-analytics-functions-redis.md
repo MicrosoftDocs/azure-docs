@@ -21,7 +21,7 @@
 
 Azure Stream Analytics lets you rapidly develop and deploy low-cost solutions to gain real-time insights from devices, sensors, infrastructure, and applications, or any stream of data. It enables various use cases such as real-time management and monitoring, command and control, fraud detection, connected cars and many more. In many such scenarios, you may want to store data outputted by Azure Stream Analytics into a distributed data store such as an Azure Redis cache.
 
-Suppose you are part of a telecommunications company. You are trying to detect SIM fraud where multiple calls coming from the same identity at the same time but in different geographically locations. You are tasked with storing all the potential fraudulent phone calls in an Azure Redis cache. In this blog, we provide guidance on how you can easily complete your task. 
+Suppose you are part of a telecommunications company. You are trying to detect SIM fraud where multiple calls coming from the same identity, at the same time, but in different geographically locations. You are tasked with storing all the potential fraudulent phone calls in an Azure Redis cache. In this blog, we provide guidance on how you can easily complete your task. 
 
 ## Prerequisites
 Complete the [Real-time Fraud Detection][fraud-detection] walk-through for ASA
@@ -32,7 +32,7 @@ Complete the [Real-time Fraud Detection][fraud-detection] walk-through for ASA
 As shown in the preceding figure, Stream Analytics allows streaming input data to be queried and sent to an output. Based on the output, Azure Functions can then trigger some type of event. 
 
 In this blog, we focus on the Azure Functions part of this pipeline, or more specifically the triggering of an event that stores fraudulent data into the cache.
-After completing the [Real-time Fraud Detection][fraud-detection] tutorial, you will have your input (an event hub), your query, and your output (blob storage) already configured and running. In this blog, we change the output to use a Service Bus Queue instead. After that, we connect an Azure Function to this queue. 
+After completing the [Real-time Fraud Detection][fraud-detection] tutorial, you have an input (an event hub), a query, and an output (blob storage) already configured and running. In this blog, we change the output to use a Service Bus Queue instead. After that, we connect an Azure Function to this queue. 
 
 ## Create and connect a Service Bus Queue output
 To create a Service Bus Queue, follow steps 1 and 2 of the .NET section in [Get Started with Service Bus Queues][servicebus-getstarted].
@@ -72,7 +72,7 @@ Now let's connect the queue to the Stream Analytics job that was created in the 
 
 ## Create an Azure Redis Cache
 Create an Azure Redis cache by following the .NET section in [How to Use Azure Redis Cache][use-rediscache] until the section called ***Configure the cache clients***.
-Once complete, you will have a new Redis Cache. Under **All settings**, select **Access keys** and note down the ***Primary connection string***.
+Once complete, you have a new Redis Cache. Under **All settings**, select **Access keys** and note down the ***Primary connection string***.
 
 ![Screenshot of architecture](./media/stream-analytics-functions-redis/redis-cache-keys.png)
 
@@ -191,7 +191,7 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 ## Run & Check
 Going back to your **ServiceBusQueueTrigger **page, you should now see log statements. These logs show that you got something from the Service Bus Queue, put it into the database, and fetched it out using the time as the key!
 
-To verify that your data is in your Redis cache, go to your Redis cache page in the new portal (as shown in the [Create an Azure Redis Cache](#Create-an-Azure-Redis-Cache) step above) and select Console.
+To verify that your data is in your Redis cache, go to your Redis cache page in the new portal (as shown in the preceding [Create an Azure Redis Cache](#Create-an-Azure-Redis-Cache) step) and select Console.
 
 Now you can write Redis commands to confirm that data is in fact in the cache.
 
@@ -200,9 +200,9 @@ Now you can write Redis commands to confirm that data is in fact in the cache.
 ## Next Steps
 We’re excited about the new things Azure Functions and Stream analytics can do together, and we hope this unlocks new possibilities for you. If you have any feedback on what you want next, feel free to use the [Azure UserVoice site](https://feedback.azure.com/forums/270577-stream-analytics).
 
-If you are new Microsoft Azure we invite you to try it out by signing up for a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/). If you are new to Stream Analytics then we invite you to [create your first Stream Analytics job](stream-analytics-create-a-job.md).
+If you are new Microsoft Azure, we invite you to try it out by signing up for a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/). If you are new to Stream Analytics, then we invite you to [create your first Stream Analytics job](stream-analytics-create-a-job.md).
 
-If you need any help or have questions, reach out to us through the [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) or [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) forums. 
+If you need any help or have questions, post on [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) or [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) forums. 
 
 You can also see the following resources:
 
