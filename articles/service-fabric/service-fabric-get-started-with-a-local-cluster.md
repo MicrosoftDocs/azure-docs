@@ -66,7 +66,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
     cd c:\ServiceFabric\
     ```
 
-4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.  Note: the Microsoft Edge browser saves the file with a *.zip* extension.  You need to change the file extension to *.sfpkg*.
+4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.  Note: the Microsoft Edge browser saves the file with a *.zip* extension.  Change the file extension to *.sfpkg*.
 
 5. Connect to the local cluster:
 
@@ -74,7 +74,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
     Connect-ServiceFabricCluster localhost:19000
     ```
 
-6. Create a new application by invoking the SDK's deployment command with a name and a path to the application package.
+6. Create a new application using the SDK's deployment command with a name and a path to the application package.
 
     ```powershell  
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
@@ -113,7 +113,7 @@ Now that we have deployed the application, let's look at some of the app details
 
     ![List services for the application in PowerShell][ps-getsfsvc]
 
-    Note that the application is made up of two services--the web front end and the stateful service that manages the words.
+    The application is made up of two services--the web front end and the stateful service that manages the words.
 
 3. Finally, take a look at the list of partitions for WordCountService:
 
@@ -178,7 +178,7 @@ Before wrapping up, it's important to remember that the local cluster is real. A
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
 
-    Or, delete the application from the **ACTIONS** menu of Service Fabric Exploreer or the context menu in the application list view of the left hand pane.
+    Or, delete the application from the **ACTIONS** menu of Service Fabric Exploreer or the context menu in the application list view of the left-hand pane.
 
     ![Delete an application is Service Fabric Explorer][sfe-delete-application]
 
