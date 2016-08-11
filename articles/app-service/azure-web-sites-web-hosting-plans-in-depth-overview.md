@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure App Service plans in-depth overview"
+	pageTitle="Azure App Service plans in-depth overview | Microsoft Azure"
 	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience."
 	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
 	services="app-service"
@@ -19,7 +19,7 @@
 
 # Azure App Service plans in-depth overview#
 
-An App Service plan represents a set of features and capacity that you can share across multiple apps, which include Web Apps, Mobile Apps, Logic Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are 	associated with a given plan run on the resources that the plan defines.
+An App Service plan represents a set of features and capacity that you can share across multiple apps, which include Web Apps, Mobile Apps, Logic Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are 	associated with a plan run on the resources that the plan defines.
 
 For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan will run on both instances and will have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
 
@@ -66,7 +66,7 @@ To create a new App Service plan, click **[+] Create New**, type the **App Servi
 
 You can move an app to a different app service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.
 
-To move an app to another plan, go to the app that you want to move. In the **Settings** menu, look for **Change App Service Plan**.
+To move an app to another plan, go to the app that you want to move. On the **Settings** menu, look for **Change App Service Plan**.
 
 This will open the **App Service plan** selector. At this point, you can either pick an existing plan or create a new one. Only valid plans (in the same resource group and geographical location) are shown.
 
@@ -79,7 +79,7 @@ If you want to move the app to a different region, one alternative is app clonin
 
  ![][appclone]
 
-You can find **Clone App** in the **Tools** menu.
+You can find **Clone App** on the **Tools** menu.
 
 Clone has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
 
@@ -91,17 +91,17 @@ There are three ways to scale a plan:
 - **Change the plan’s instance size**. As an example, a plan in the *Basic* tier that uses small instances can be changed to use large instances. All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance size offers.
 - **Change the plan’s instance count**. For example, a *Standard* plan that's scaled out to three instances can be scaled to 10 instances. A *Premium* plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance count offers.
 
-You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the App or the App Service Plan. Changes will apply to the App Service plan and affect all apps that are hosted by it.
+You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the app or the App Service plan. Changes will apply to the App Service plan and affect all apps that it hosts.
 
  ![][pricingtier]
 
 ## Summary
 
-App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a given set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
+App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
 
 ## What's changed
 
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
