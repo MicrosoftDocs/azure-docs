@@ -108,12 +108,89 @@ Catching failures from a scope is very useful, but the one item that is missing 
 
 `@result()` taks a single parameter, scope name, and returns an array of all of the action objects from within that scope.  These action objects include the same attributes as any `@actions()` object, including action start time, action end time, action status, action inputs, and action outputs.  You can then easily pair an `@result()` function with a `runAfter` failures to send any context on which actions failed.
 
-If you only wanted to perform actions for each action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](app-service-logic-loops-and-scopes.md)** loop.  This would allow you to filter the array of all action results down to only actions that failed, and then perform an action for each failure.  Here's an example of a that pattern below.  This will send an email with the response body of any actions that failed within the scope `My_Scope`:
+If you only wanted to perform actions for each action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](app-service-logic-loops-and-scopes.md)** loop.  This would allow you to filter the array of all action results down to only actions that failed, and then perform an action for each failure.  Here's an example of a that pattern below, followed by a detailed explanation.  This example will send an HTTP POST request with the response body of any actions that failed within the scope `My_Scope`.
 
 ```json
-
-
+"Filter_array": {
+    "inputs": {
+        "from": "@result('My_Scope')",
+        "where": "@equals(item()['status'], 'Failed')"
+    },
+    "runAfter": {
+        "My_Scope": [
+            "Failed"
+        ]
+    },
+    "type": "Query"
+},
+"For_each": {
+    "actions": {
+        "Log_Exception": {
+            "inputs": {
+                "body": "@item()['outputs']['body']",
+                "method": "POST",
+                "headers": {
+                    "x-failed-action-name": "@item()['name']",
+                    "x-failed-tracking-id": "@item()['clientTrackingId']"
+                }
+                "uri": "http://requestb.in/"
+            },
+            "runAfter": {},
+            "type": "Http"
+        }
+    },
+    "foreach": "@body('Filter_array')",
+    "runAfter": {
+        "Filter_array": [
+            "Succeeded"
+        ]
+    },
+    "type": "Foreach"
+}
 ```
+
+Here's a detailed walkthrough of what's happening:
+
+1. **Filter Array** action to filter the `@result('My_Scope')` to get the result of all actions within `My_Scope`
+1. Condition of the **Filter Array** is any `@result()` item with the status equal to `Failed`.  This will filter the array of all action results from `My_Scope` to only an array of failed action results.
+1. Perform a **For Each** action on the **Filtered Array** outputs.  This will perform an action *for each* failed action result we filtered above.
+    - If there was a single action in the scope that failed, the actions in the `foreach` would only run once.  Many failed actions would cause one action per failure.
+1. Send an HTTP POST on the `foreach` item response body, or `@item()['outputs']['body']`.  The `@result()` item shape is the same as the `@actions()` shape, and can be parsed the same way.
+1. Also included two custom headers with the failed action name `@item()['name']` and the failed run client tracking ID `@item()['clientTrackingId']`.
+
+For reference, here is an example of a single `@result()` item.  You can see the `name`, `body`, and `clientTrackingId` properties parsed in the example above.  It should be noted that outside of a `foreach`, `@result()` returns an array of these objects.
+
+```json
+{
+    "name": "Example_Action_That_Failed",
+    "inputs": {
+        "uri": "https://myfailedaction.azurewebsites.net",
+        "method": "POST"
+    },
+    "outputs": {
+        "statusCode": 404,
+        "headers": {
+            "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
+            "Server": "Microsoft-IIS/8.0",
+            "X-Powered-By": "ASP.NET",
+            "Content-Length": "68",
+            "Content-Type": "application/json"
+        },
+        "body": {
+            "code": "ResourceNotFound",
+            "message": "/docs/foo/bar does not exist"
+        }
+    },
+    "startTime": "2016-08-11T03:18:19.7755341Z",
+    "endTime": "2016-08-11T03:18:20.2598835Z",
+    "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
+    "clientTrackingId": "08587307213861835591296330354",
+    "code": "NotFound",
+    "status": "Failed"
+}
+```
+
+You could use the expressions above to perform different exception handling patterns.  You may choose to just have one failure action outside the scope that accepts the entire filtered array of failures and remove the `foreach`.  You could also include other useful properties from the `@result()` response above.
 
 ## Azure Diagnostics and telemetry
 
