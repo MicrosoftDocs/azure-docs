@@ -19,7 +19,7 @@
 
 # Configure Hive policies in secure HDInsight
 
-Learn how to configure Apache Ranger policies for Hive. In this article, you will create 2 Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have confiugred the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
+Learn how to configure Apache Ranger policies for Hive. In this article, you create two Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
 
 
 ## Prerequisites
@@ -36,8 +36,8 @@ Learn how to configure Apache Ranger policies for Hive. In this article, you wil
 
 1. From a browser, connect to Ranger Admin UI. The URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/. 
 
-	>[AZURE.NOTE] Ranger uses different credentials than Hadoop cluster. To prevent browers using cached Hadoop credentials, use new inprivate brower window to connect to the Ranger Admin UI.
-4. Login as **admin** with the password **admin**. This is the default password.  You can change the password. The Ranger Admin UI home page looks like:
+	>[AZURE.NOTE] Ranger uses different credentials than Hadoop cluster. To prevent browsers using cached Hadoop credentials, use new inprivate browser window to connect to the Ranger Admin UI.
+4. Log in as **admin** with the password **admin**. This is the default password.  You can change the password. The Ranger Admin UI home page looks like:
 
 	![HDInsight secure Ranger home page](./media/hdinsight-secure-run-hive/hdinsight-secure-ranger-home-page.png)
 
@@ -68,7 +68,7 @@ In this section, you will create two Ranger policies for accessing hivesampletab
 
 	![HDInsight Secure Ranger Hive policy configure](./media/hdinsight-secure-run-hive/hdinsight-secure-configure-ranger-policy.png).
 
-	>[AZURE.NOTE] If a domain user is not populated in Select User, please wait a bit for Ranger to sync with AAD.
+	>[AZURE.NOTE] If a domain user is not populated in Select User, wait a few moments for Ranger to sync with AAD.
 
 4. Click **Add** to save the policy.
 5. Repeat the last two steps to create another policy with the following properties:
@@ -102,7 +102,7 @@ Make sure to click **Test** before saving the data source.
 
 ##Import data into Excel from HDInsight
 
-In the last section, you have configured two policies.  hiveuser1 has the select permission on all the columns, and hiveuser2 has the select permission on two columns. In this section, you impersionate the two users to import data into Excel.
+In the last section, you have configured two policies.  hiveuser1 has the select permission on all the columns, and hiveuser2 has the select permission on two columns. In this section, you impersonate the two users to import data into Excel.
 
 
 1. Open a new or existing workbook in Excel.
@@ -116,17 +116,17 @@ In the last section, you have configured two policies.  hiveuser1 has the select
 8. Select **hivesampletable**, and then click **Next**. 
 8. Click **Finish**.
 9. In the **Import Data** dialog, you can change or specify the query. To do so, click **Properties**. This can take a few seconds. 
-10. Click on the **Definition** tab.The command text is:
+10. Click the **Definition** tab. The command text is:
 
 		SELECT * FROM "HIVE"."default"."hivesampletable"
 
-	By the Ranger policies you defined,  hiveuser1 has select permission on all the columns.  So this query will work with hiveuser1's credentials, but will not work with hiveuser2's credentials.
+	By the Ranger policies you defined,  hiveuser1 has select permission on all the columns.  So this query works with hiveuser1's credentials, but this query doesn't not work with hiveuser2's credentials.
 
 	![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. Click **OK** to close the Connection Properties dialog.
 12. Click **OK** to close the **Import Data** dialog.  
-13. Re-enter the password for hiveuser1, and then click **OK**. It takes a few seconds before data gets imported to Excel. When it is done, you shall see 11 columns of data.
+13. Reenter the password for hiveuser1, and then click **OK**. It takes a few seconds before data gets imported to Excel. When it is done, you shall see 11 columns of data.
 
 To test the second policy (read-hivesampletable-devicemake) you created in the last section
 
