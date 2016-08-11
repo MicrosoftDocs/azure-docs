@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage Azure Resources and Resource Groups using the .NET SDK for Azure | Microsoft Azure"
-   description="Describes how to use the .NET SDK for Azure to manage resources and resource groups on Azure."
+   pageTitle="Deploy an SSK enabled VM to Azure using a resource manager template and the .NET SDK for Azure | Microsoft Azure"
+   description="Describes how to use the .NET SDK for Azure to deploy a resource group using a resource manager template."
    services="azure-resource-manager"
    documentationCenter=".net"
    authors="allclark"
@@ -16,7 +16,7 @@
    ms.date="08/11/2016"
    ms.author="allclark"/>
 
-# Manage resources using the .NET SDK
+# Deploy an SSH enabled VM with a template using .NET
 
 ## More information
 

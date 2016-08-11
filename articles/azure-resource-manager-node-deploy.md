@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Manage Azure Resources and Resource Groups using the .NET SDK for Azure | Microsoft Azure"
-   description="Describes how to use the .NET SDK for Azure to manage resources and resource groups on Azure."
+   pageTitle="Deploy an SSK enabled VM to Azure using a resource manager template and the Node.js SDK for Azure | Microsoft Azure"
+   description="Describes how to use the Node.js SDK for Azure to deploy a resource group using a resource manager template."
    services="azure-resource-manager"
-   documentationCenter=".net"
+   documentationCenter="nodejs"
    authors="allclark"
    manager="douge"
    editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="dotnet"
+   ms.devlang="nodejs"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/11/2016"
    ms.author="allclark"/>
 
-# Manage resources using the .NET SDK
+# Deploy an SSH enabled VM with a template using Node.js
 
 ## More information
 
