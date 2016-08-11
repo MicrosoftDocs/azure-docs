@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a Secure Linux VM using a Azure template | Microsoft Azure"
-	description="Create a Secure Linux VM on Azure using an Azure Resource Manager template."
+	pageTitle="Create a Linux VM using an Azure template | Microsoft Azure"
+	description="Create a Linux VM on Azure using an Azure Resource Manager template."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="vlivech"
@@ -17,7 +17,7 @@
 	ms.date="08/12/2016"
 	ms.author="v-livech"/>
 
-# Create a secured Linux VM using an Azure template
+# Create a Linux VM using an Azure template
 
 To create a Linux VM from a template you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
