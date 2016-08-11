@@ -3,7 +3,7 @@
 	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="HeathL17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="erikje"/>
+	ms.date="08/10/2016"
+	ms.author="helaw"/>
 
 # What is Azure Stack Technical Preview 1?
 

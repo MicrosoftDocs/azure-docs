@@ -183,7 +183,7 @@ Next, you'll create the Site-to-Site VPN connection between your virtual network
 
 After a short while, the connection will be established. 
 
-## 9. Verify a VPN connection
+## <a name="toverify"></a>To verify a VPN connection
 
 There are a few different ways to verify your VPN connection. Below, we'll talk about how to do basic verification by using the Azure portal and by using PowerShell.
 
@@ -191,10 +191,13 @@ There are a few different ways to verify your VPN connection. Below, we'll talk 
 
 ## <a name="modify"></a>To modify IP address prefixes for a local network gateway
 
-If you need to change the prefixes for your local network gateway, use the instructions below.  Two sets of instructions are provided. The instructions you choose depends on whether you have already created your VPN gateway connection. 
+If you need to change the prefixes for your local network gateway, use the instructions below. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection. 
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
 
