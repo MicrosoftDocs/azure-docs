@@ -61,7 +61,7 @@ Consider the following recommendations for hybrid workers:
 
 For the on-premise Hybrid Runbook Worker to connect to and register with the OMS service, it must have access to the port number and the URLs described below. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access. 
 
-The following list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
+The information below list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
 
 - Port:  Only TCP 443 is required for outbound Internet access
 - Global URL:  *.azure-automation.net
