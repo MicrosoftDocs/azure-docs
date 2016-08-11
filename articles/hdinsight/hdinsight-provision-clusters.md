@@ -68,7 +68,7 @@ See [Cluster types](#cluster-types).
 
 You can create HDInsight clusters on one of the following two operating systems:
 
-- HDInsight on Linux (Ubuntu 12.04 LTS for Linux). HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+- HDInsight on Linux (Ubuntu 12.04 LTS for Linux). HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - HDInsight on Windows (Windows Server 2012 R2 Datacenter).
 
@@ -135,7 +135,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 >The nodes used by your cluster do not count as virtual machines because the virtual machine images used for the nodes are an implementation detail of the HDInsight service. However, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the available cores and the number of cores the cluster will use in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
 
-When you configure the cluster with the Azure portal, the Node size is available through the __Node Pricing Tier__ blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
+When you configure the cluster with the Azure portal, the node size is available through the __Node Pricing Tier__ blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
 
 ![HDInsight vm node sizes](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
@@ -148,7 +148,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_A3\Large|4|7 GB|2|Temporary = 285 GB |8|8x500|
 |Standard_A4\ExtraLarge|8|14 GB|4|Temporary = 605 GB |16|16x500|
@@ -158,7 +158,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 
 ### Standard tier: D-series###
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
 |Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
@@ -169,7 +169,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 
 ### Standard tier: Dv2-series###
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
 |Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
@@ -184,7 +184,7 @@ For deployment considerations to be aware of when you're planning to use these r
 Billing starts when a cluster is created and stops when the cluster is deleted. For more information about pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
 |Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
@@ -201,7 +201,7 @@ For deployment considerations to be aware of when you're planning to use these r
 
 ## Add more storage
 
-In some cases, you may wish to add more storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or for different services, but you want to analyze them all with HDInsight.
+In some cases, you may want to add more storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or for different services, but you want to analyze them all with HDInsight.
 
 For more information about secondary Blob storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
@@ -212,11 +212,11 @@ We strongly recommend that you use a custom metastore if you want to keep your H
 
 > [AZURE.IMPORTANT] HDInsight metastore is not backward compatible. For example, you cannot use a metastore of an HDInsight 3.3 cluster to create an HDInsight 3.2 cluster.
 
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you to retain your Hive and Oozie metadata. You don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, if you create Hive tables in a cluster created with a Hive metastore, you can see those tables if you delete and recreate the cluster with the same Hive metastore.
+The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you to retain your Hive and Oozie metadata. You don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, if you create Hive tables in a cluster created with a Hive metastore, you can see those tables if you delete and re-create the cluster with the same Hive metastore.
 
 Metastore configuration is not available for HBase cluster types.
 
-> [AZURE.IMPORTANT] When creating a custom metastore, do not use a database name that contains dashes or hyphens because this can cause the cluster creation process to fail.
+> [AZURE.IMPORTANT] When you're creating a custom metastore, do not use a database name that contains dashes or hyphens because this can cause the cluster creation process to fail.
 
 ## Use Azure Virtual Network
 
