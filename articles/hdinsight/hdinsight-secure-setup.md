@@ -21,10 +21,10 @@
 
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory(AAD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
-This is the first tutorial of the 2-part series:
+This is the first tutorial of a series:
 
 - Create an HDInsight cluster connected to AAD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
-- Create and apply Hive policies through Apache Ranger, and allow users (e.g. business analysts) to connect to Hive using ODBC-based tools e.g. Excel, Tableau etc. Currently, other workloads, such as HBase, Spark and Storm, are not supported. [jgao: how about YARN?]
+- Create and apply Hive policies through Apache Ranger, and allow users (for example, business analysts) to connect to Hive using ODBC-based tools, for example Excel, Tableau etc. Currently, other workloads, such as HBase, Spark, and Storm, are not supported. [jgao: how about YARN?]
 
 An example of the final topology looks as follows:
 
@@ -32,7 +32,7 @@ An example of the final topology looks as follows:
 
 Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager based VNets, HDInsight AAD integration requires two VNets and a bridge between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
-Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
+Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You need to replace *contoso* with a different name when you go through the tutorial.
 	
 **Names:**
 
@@ -45,7 +45,7 @@ Azure service names must be globally unique.  The following are the names used i
 - HDInsight VNet resource group: contosohdirg
 - HDInsight cluster: contosohdicluster
 
-This tutorial provides the steps for configuring a secured HDInsight. Each section has links to other articles which give you more background information.
+This tutorial provides the steps for configuring a secured HDInsight. Each section has links to other articles with more background information.
 
 ## Prerequisites:
 
@@ -67,7 +67,7 @@ This tutorial provides the steps for configuring a secured HDInsight. Each secti
 	
 ## Create an Azure classic VNet
 
-In this section, you will create a classic VNet using the Azure classic portal. In the next section,  you will create an AAD and enabled the AAD service for the VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+In this section, you create a classic VNet using the Azure classic portal. In the next section,  you will create an AAD and enabled the AAD service for the VNet. For additional information about the following procedure and using other VNet creation methods, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 
 **To create a classic VNet**
 
@@ -79,7 +79,7 @@ In this section, you will create a classic VNet using the Azure classic portal. 
 	- **Location**: East US 2
 	- **Subscription**: (Select a subscription).
 4. Click **Next**.
-4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, your VNet will use the internal naming resolution provided by Azure. For our scenario, we will not configure DNS servers.
+4. On the **DNS Servers and VPN Connectivity** page, click **Next**. If you do not specify a DNS server, the VNet uses the internal naming resolution provided by Azure. For our scenario, we will not configure DNS servers.
 5. Configure **Address Space** with **10.1.0.0/16**, and **Subnet-1** with **10.1.0.0/24** as shown below:
 
 	![Configure Secure HDInsight Azure Active directory virtual network](.\media\hdinsight-secure-setup\hdinsight-secure-aad-vnet-setting.png)
@@ -92,7 +92,7 @@ In this section, you will:
 
 - Create an AAD.
 - Create AAD users. These are domain users. The first user will be used to configure the AAD.  The other two users are optional for this tutorial.  They will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md) when you configure Ranger policies.
-- Create the AAD DC Administrators group and add the AAD user to the group. You will use this user to create the organizational unit.
+- Create the AAD DC Administrators group and add the AAD user to the group. You use this user to create the organizational unit.
 - Enable AAD Service for the VNet.
 - Update the DNS setting for the VNet - Use the AAD domain controllers for domain name resolution.
 - Configure DNS for the VNet.
@@ -298,7 +298,7 @@ This organization unit will be used when creating the HDInsight cluster. It will
 
 *****************************************
 **additional steps**
-Permissions/security for newly created ous
+Permissions/security for newly created OUs
 https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-create-ou/#permissionssecurity-for-newly-created-ous
 *****************************************
 
@@ -314,7 +314,7 @@ After creating the VNet, you will configure the Resource Manager VNet to use the
 
 **To create a Resource Manager VNet**
 
-1. Click the following image to open a Resource Manager template in the Azure Portal. The Resource Manager template is located in a public blob container. 
+1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-vnet-secure-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
