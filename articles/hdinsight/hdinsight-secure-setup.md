@@ -14,25 +14,25 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/25/2016"
+   	ms.date="08/11/2016"
    	ms.author="jgao"/>
 
 # Configure Secure HDInsight
 
-Learn how to setup an Azure HDInsight cluster with Azure Active Directory(AAD) and Apache Ranger to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
+Learn how to setup an Azure HDInsight cluster with Azure Active Directory(AAD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role based access control(RBAC) policies.  Secure HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Secure HDInsight](hdinsight-secure-introduction.md).
 
 This is the first tutorial of the 2-part series:
 
 - Create an HDInsight cluster connected to AAD (via the Azure Directory Domain Services capability) with Apache Ranger enabled.
-- Create and apply Hive policies through Apache Ranger, and allow users (e.g. business analysts) to connect to Hive using ODBC-based tools e.g. Excel, Tableau etc. Currently, other workloads, such as HBase, Spark and Storm,  are not supported. [jgao: how about YARN?]
+- Create and apply Hive policies through Apache Ranger, and allow users (e.g. business analysts) to connect to Hive using ODBC-based tools e.g. Excel, Tableau etc. Currently, other workloads, such as HBase, Spark and Storm, are not supported. [jgao: how about YARN?]
 
 An example of the final topology looks as follows:
 
 ![Secure HDInsight topology](.\media\hdinsight-secure-setup\hdinsight-secure-topology.png)
 
-Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. 
+Because AAD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager (ARM) based VNets, HDInsight AAD integration requires two VNets and a bridge between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
-Most of the Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
+Azure service names must be globally unique.  The following are the names used in this tutorial. Contoso is a fictitious name. You must replace *contoso* with a different name when you go through the tutorial.
 	
 **Names:**
 
@@ -45,14 +45,14 @@ Most of the Azure service names must be globally unique.  The following are the 
 - HDInsight VNet resource group: contosohdirg
 - HDInsight cluster: contosohdicluster
 
-This tutorial mainly provides the steps to configure a secured HDInsight. Each section has links to other articles which give you more background information.
+This tutorial provides the steps for configuring a secured HDInsight. Each section has links to other articles which give you more background information.
 
 ## Prerequisites:
 
 - Familiarize yourself with [ADDS](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 - Learn about [Apache Ranger](http://hortonworks.com/apache/ranger/), specifically how [Hive policies](http://hortonworks.com/apache/hive/) work.
-- Ensure that your subscription is whitelisted for this private preview. You can do so by sending an email to adnan.ijaz@microsoft.com with your subscription ID.
-- [Azure PowerShell](../powershell-install-configure.md). Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell.  You must install Azure PowerShell on a Windows workstation.
+- Ensure that your subscription is whitelisted for this private preview. You can do so by sending an email to arindamc@microsoft.com with your subscription ID.
+- [Azure PowerShell](../powershell-install-configure.md) on a Windows workstation. Most of the steps use the Azure portal or Azure classic portal. Only a few steps in this tutorial require Azure PowerShell. Azure PowerShell can only be installed on Windows workstations.
 
 ## Procedures
 
@@ -91,10 +91,11 @@ In this section, you will create a classic VNet using the Azure classic portal. 
 In this section, you will:
 
 - Create an AAD.
-- Create an AAD user. This is a domain user, which will be used to configure the AAD.
+- Create AAD users. These are domain users. The first user will be used to configure the AAD.  The other two users are optional for this tutorial.  They will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md) when you configure Ranger policies.
 - Create the AAD DC Administrators group and add the AAD user to the group. You will use this user to create the organizational unit.
 - Enable AAD Service for the VNet.
 - Update the DNS setting for the VNet - Use the AAD domain controllers for domain name resolution.
+- Configure DNS for the VNet.
 - Configure LDAPS for the AAD.
 
 **To create an AAD**
@@ -111,6 +112,8 @@ In this section, you will:
 
 **Create an AAD user**
 
+[jgao: use lower case for the usernames. Nitya has logged this bug.]
+
 1. Sign on to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Users** from the top menu.
@@ -121,10 +124,13 @@ In this section, you will:
 7. Make a copy of the password - Bodu8439, and then click **Complete**. jgao@contoso158.onmicrosoft.com
 
 
-Follow the same procedure to create 2 more users with the **User** role.
+Follow the same procedure to create two more users with the **User** role. The following users will be used in [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md).
 
-- HiveUser1, Mala7341
-- HiveUser2, Curo7602
+- hiveuser1, Faja2959
+- hiveuser2, Juha0790
+- hiveuser3, Nulu4002
+- hiveuser4, Cado7088
+
 
 **To create the AAD DC Administrators' group, and add the AAD user**
 
@@ -142,8 +148,8 @@ Follow the same procedure to create 2 more users with the **User** role.
 9. Select the first user you created in the previous step, for example jgao@contoso158.onmicrosoft.com, and then click **Complete**.
 
 	- Members of this group will be granted administrative privileges on machines that are domain joined to the Azure AD domain Service domain you will setup.	
-	- After domain join, this group will be added to the Administrators group on these domain joined machines.
-	- Members of this group will also be able to use Remote Desktop to connect remotely to domain joined machines. [jgao: this is not correct based on my testing]
+	- After domain join, this group will be added to the Administrators group on these domain-joined machines.
+	- Members of this group will also be able to use Remote Desktop to connect remotely to domain-joined machines. [jgao: this is not correct based on my testing]
 
 For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD DC Administrators' group](../active-directory/active-directory-ds-getting-started.md).
 
@@ -216,12 +222,9 @@ You can skip the next step in this tutorial. In your real implementation, you mi
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## Add an admin VM to the AAD VNet
+## Configure an organizational unit
 
-In this section, you will add a virtual machine to the AAD VNet, you will install some administrative tools on this VM to perform:
-
-- Configure reverse DNS.  [jgao: is this step still needed?]
-- Configure AAD organizational unit.
+In this section, you will add a virtual machine to the AAD VNet, you will install some administrative tools on this VM so you can configure AAD organizational unit.
 
 **To create a virtual machine into the virtual network**
 
@@ -274,32 +277,12 @@ For more information, see [Join a Windows Server virtual machine to a managed do
 6. Select **Role-based or feature-based installation**, and then click **Next**.
 7. Select the current virtual machine from the server pool, and click **Next**.
 8. Click **Next** to skip roles.
-9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**. [jgao: don't need to select DNS server Tools. It is for reversed dns which is no longer needed.]
+9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools**, and then click **Next**. 
 10. Click **Next**
 10. Click **Install**.
 
 For more information, see [Install Active Directory administration tools on the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/active-directory-ds-admin-guide-administer-domain/#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
 
-
-**To configure reverse DNS on the AAD DC/DNS**
-
-[This step is not needed anymore.]
-
-1. RDP to contosoaadadmin using the AAD user account.
-2. Click **Start**, click **Administrative Tools**, and then click **DNS**. The DNS Manager opens.
-3. Right-click the **DNS** node from the left pane, and then click **Connect to DNS Server**.
-4. Select **The following computer**,  enter the IP address of the DC/DNS server (for example, 10.1.0.4), and then click **OK**. You see the DC/DNS is added to the left pane.
-3. Expand the DC/DNS server, right-click **Reverse Lookup Zones**, and then click **New Zone**. The New Zone Wizard opens.
-4. Click **Next**.
-5. Select **Primary zone**, and then click **Next**.
-6. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
-6. Select **IPv4 Reverse Lookup Zone, and then click **Next**.
-7. In **Network ID**, enter **10**, and then click **Next**.
-8. Click **Next**.
-9. Click **Next**.
-10. Click **Finish**.
-
-## Configure an organizational unit
 
 [jgao: how about adding a step here to check the AADDC Users OU?]
 
@@ -370,7 +353,7 @@ After creating the VNet, you will configure the ARM VNet to use the same DNS ser
 	- **SubNetName**: Subnet1
 
 3. Click **OK** to save the parameters.
-4. From the **Custom deployment** blade, click **Create new** under **Resource Gropu**, and then enter **contosohdirg**.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+4. From the **Custom deployment** blade, click **Create new** under **Resource Group**, and then enter **contosohdirg**.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 5. Click **Legal terms**, and then click **Create**.
 6. Click **Create**. You will see a new tile titled **Submitting deployment for Template deployment**. 
 
@@ -519,6 +502,8 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ## Configure the Ranger user sync service
 
+[jgao: this part is actually done in the ARM template.  It might be good to keep it as a validation procedure.]
+
 **To configure the Ranger user sync service**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
@@ -528,8 +513,8 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 5. Click **Ranger** from the left menu.
 6. Click the **Configs** tab.
 7. Click the **Ranger User Info** tab.
-8. click the **Common Configs** tab.
-9. Configue the fields highlighted in the following screenshots:
+8. Click the **Common Configs** tab.
+9. Configure the fields highlighted in the following screenshots:
 
 	![Secure HDInsight Ranger user sync configuration](.\media\hdinsight-secure-setup\hdinsight-secure-ranger-user-sync-common-configs.png)
 
@@ -543,29 +528,29 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 
 ## Test the connection between the two VNets
 
-[jgao: users can test the configuration by creating domain users and verify the users in Ranger.]
+[This part only tests the network connectivity and domain name resolution. Do I need to add another procedure for validating the AAD configuration, for example, verify domain users are populate when creating a Ranger policy.]
 
 To test the connection between the two VNets, you will ping one of the cluster nodes from the Windows VM in the Classic VNet.
 
-**To find the cluster node ip addresses**
+**To find the cluster node IP addresses**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the cluster. For example: contosohdicluster.
 3. Click **Dashboard**.
 4. Sign in to Ambari using the Hadoop HTTP username and password.
-5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address of one of the nodes.
+5. Click **Hosts** from the top. You will see a list of the Hadoop nodes.  Write down the IP address and the domain name of one of the nodes.
 
 **To ping a cluster node**
 
 1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
 2. Click **Start**, and then click **Windows PowerShell**.
-3. Ping the IP address you wrote down earlier.
+3. Ping the IP address and the domain name you wrote down in the last procedure.
 
 
 
 
 ## Next steps:
 
-[jgao: coming soon]
+- [Configure Hive policies in secure HDInsight](hdinsight-secure-run-hive.md)
 
 
