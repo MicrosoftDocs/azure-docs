@@ -13,12 +13,12 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/29/2016"
+ms.date="08/11/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Monitor alerts for Azure virtual machine backups
 
-Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - as soon as it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
+Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
 
 To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
 
@@ -31,7 +31,7 @@ To open the Backup Alerts blade from Backup Alerts tile:
 
 To open the Backup Alerts blade from the Alerts and Events blade:
 
-1. From the vault dashboard click **All Settings**. ![All Settings button](./media/backup-azure-monitor-vms/all-settings-button.png)
+1. From the vault dashboard, click **All Settings**. ![All Settings button](./media/backup-azure-monitor-vms/all-settings-button.png)
 
 2. On the **Settings** blade, click **Alerts and Events**. ![Alerts and Events button](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 
@@ -63,11 +63,11 @@ To set up email notifications for alerts
 
 2. On the Configure notifications blade, for Email notifications, click **On**.
 
-    The Recipients and Severity dialogs have a star next to them because that information is required. You must provide at least one email address, and select at least one Severity.
+    The Recipients and Severity dialogs have a star next to them because that information is required. Provide at least one email address, and select at least one Severity.
 
-3. In the **Recipients (Email)** dialog, type the email address(es) for who will receive the notifications. Use the format: username@domainname.com. Separate multiple email addresses with a semicolon (;).
+3. In the **Recipients (Email)** dialog, type the email addresses for who receive the notifications. Use the format: username@domainname.com. Separate multiple email addresses with a semicolon (;).
 
-4. In the **Notify** area, choose **Per Alert** to send notification each time the specified alert occurs, or **Hourly Digest** to send notifications about the specified alerts that occurred in the past hour.
+4. In the **Notify** area, choose **Per Alert** to send notification when the specified alert occurs, or **Hourly Digest** to send a summary for the past hour.
 
 5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
 
@@ -75,7 +75,7 @@ To set up email notifications for alerts
 
 ## Customize your view of events
 
-The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade open, it shows you the information you want.
+The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade opens, it shows you the information you want.
 
 1. In the [vault dashboard](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
@@ -85,7 +85,7 @@ The **Audit logs** setting comes with a pre-defined set of filters and columns s
 
     ![Audit Logs Filter](./media/backup-azure-monitor-vms/audit-logs-filter.png)
 
-    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle the chart off. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-monitor-vms.md#view-additional-event-attributes).
+    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle off the chart. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 2. For additional information on an operational event, in the **Operation** column, click an operational event to open its blade. The blade contains detailed information about the events. Events are grouped by their correlation ID and a list of the events that occurred in the Time span.
 
@@ -135,7 +135,7 @@ Using the **Columns** button, you can enable additional event attributes to appe
 
     ![Columns blade](./media/backup-azure-monitor-vms/columns-blade.png)
 
-2. Click the checkbox to select that attribute. The attribute checkbox toggles on and off.
+2. In order to select the attribute, click the checkbox. The attribute checkbox toggles on and off.
 
 3. Click **Reset** to reset the list of attributes in the **Events** blade. After adding or removing attributes from the list, use **Reset** to view the new list of Event attributes.
 
@@ -161,16 +161,16 @@ Using the **Columns** button, you can enable additional event attributes to appe
 ## Use PowerShell to customize alerts
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
 
-To define a custom notification to alert for backup failures, use a command like this:
+To define a custom notification to alert for backup failures, use a command like the following script:
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : You can get this information from the Audit logs. The ResourceId is a URL provided in the Resource column of the Operation logs.
+**ResourceId** : You can get ResourceId from the Audit logs. The ResourceId is a URL provided in the Resource column of the Operation logs.
 
-**OperationName** : This is in the format "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" where *EventName* can be:<br/>
+**OperationName** : OperationName is in the format "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" where *EventName* can be:<br/>
 - Register
 - Unregister
 - ConfigureProtection
