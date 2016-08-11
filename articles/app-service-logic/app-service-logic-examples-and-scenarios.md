@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/01/2016"
+   ms.date="08/11/2016"
    ms.author="jehollan"/>
 
 # Logic Apps Examples and Common Scenarios
 
 This document details common scenarios and examples to help you to understand some of the ways you can use Logic apps to automate business processes. 
 
-## Triggers and actions
+## Custom Triggers and Actions
 
-There are several ways you can trigger a Logic app from another app. Here are some of those ways: 
+There are several ways you can trigger a Logic app from another app. Here's a few common examples:
 
 - [Creating a custom trigger or action](app-service-logic-create-api-app.md)
 - [Long-running actions](app-service-logic-create-api-app.md)
@@ -33,9 +33,11 @@ There are several ways you can trigger a Logic app from another app. Here are so
 ### Scenarios
 
 - [Request synchronous response](app-service-logic-http-endpoint.md)
+- [Request Response with SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Error handling and logging
 
+- [Exception and error handling](app-service-logic-exception-handling.md)
 - [Configure Azure Alerts and diagnostics](app-service-logic-monitor-your-logic-apps.md)
 
 ### Scenarios
