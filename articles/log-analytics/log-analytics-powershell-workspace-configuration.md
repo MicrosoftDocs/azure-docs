@@ -27,7 +27,7 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 + Enable collection of IIS logs from computers with the Windows agent installed
 + Collect performance counters from Linux and Windows computers
 + Collect events from syslog on Linux computers 
-+ Collect events from the Windows event logs
++ Collect events from Windows event logs
 + Collect custom event logs
 + Add the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
@@ -189,7 +189,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resource that you need to do the preceding configuration for includes:
+For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resources that you need to do the preceding configuration for includes:
 
 + Classic cloud services (web and worker roles)
 + Service fabric clusters
