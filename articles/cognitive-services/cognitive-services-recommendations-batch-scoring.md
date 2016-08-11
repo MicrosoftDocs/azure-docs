@@ -36,8 +36,8 @@ To be more precise, these are the steps to follow:
 1.	Create an Azure Storage container if you don’t have one already.
 2.	Upload an input file that describes each of your recommendation requests to Azure Blob storage.
 3.	Kick-start the scoring batch job.
-4.	Wait for the asynchronous operation to complete.
-5.	Once the operation has finished, gather the results from Blob storage.
+4.	Wait for the asynchronous operation to finish.
+5.	When the operation has finished, gather the results from Blob storage.
 
 Let’s walk through each of these steps.
 
@@ -45,12 +45,12 @@ Let’s walk through each of these steps.
 
 Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-Once you have a storage account, you need to create the blob container(s) where you will store the input and output of the batch execution.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
 Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
-Once you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
 
-A given batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
 This is an example of what the input.json file looks like:
 
@@ -112,16 +112,16 @@ Here a few important things to note:
 
 -	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. User-to-Item recommendations are not currently supported by batching.
+-	The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
-## Wait for the asynchronous operation to complete
+## Wait for the asynchronous operation to finish
 
 When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
 You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
 ## Get the results
 
-Once the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
 The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
