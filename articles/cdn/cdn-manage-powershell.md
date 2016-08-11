@@ -23,9 +23,9 @@ PowerShell provides one of the most flexible methods to manage your Azure CDN pr
 
 ## Prerequisites
 
-In order to use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Login-AzureRmAccount` cmdlet, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Login-AzureRmAccount` cmdlet, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
->[AZURE.IMPORTANT] You must login with `Login-AzureRmAccount` before you can execute Azure PowerShell cmdlets.
+>[AZURE.IMPORTANT] You must log in with `Login-AzureRmAccount` before you can execute Azure PowerShell cmdlets.
 
 ## Listing the Azure CDN cmdlets
 
@@ -60,7 +60,7 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 
 ## Getting help
 
-You can get help with any of these cmdlets using the `Get-Help` cmdlet.  `Get-Help` provides usage and syntax, as well as optionally showing examples.
+You can get help with any of these cmdlets using the `Get-Help` cmdlet.  `Get-Help` provides usage and syntax, and optionally shows examples.
 
 ```text
 PS C:\> Get-Help Get-AzureRmCdnProfile
@@ -92,7 +92,7 @@ REMARKS
 
 ## Listing existing Azure CDN profiles
 
-The `Get-AzureRmCdnProfile` cmdlet without any parameters will retrieve all your existing CDN profiles.
+The `Get-AzureRmCdnProfile` cmdlet without any parameters retrieves all your existing CDN profiles.
 
 ```powershell
 Get-AzureRMCdnProfile
@@ -114,7 +114,7 @@ You can also return a single profile by specifying the profile name and resource
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
->[AZURE.TIP] It is possible to have multiple CDN profiles with the same name, so long as they are in different resource groups.  Omitting the `ResourceGroupName` parameter will return all profiles with a matching name.
+>[AZURE.TIP] It is possible to have multiple CDN profiles with the same name, so long as they are in different resource groups.  Omitting the `ResourceGroupName` parameter returns all profiles with a matching name.
 
 ## Listing existing CDN endpoints
 
@@ -134,9 +134,9 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState -eq "Running" }
 ```
 
-## Creating new CDN profiles and endpoints
+## Creating CDN profiles and endpoints
 
-`New-AzureRmCdnProfile` and `New-AzureRmCdnEndpoint` are used to create new CDN profiles and endpoints.
+`New-AzureRmCdnProfile` and `New-AzureRmCdnEndpoint` are used to create CDN profiles and endpoints.
 
 ```powershell
 # Create a new profile
@@ -167,7 +167,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 
 `New-AzureRmCdnCustomDomain` adds a custom domain name to an existing endpoint.
 
->[AZURE.IMPORTANT] You must set up the CNAME with your DNS provider as described in [How to map Custom Domain to Content Delivery Network (CDN) endpoint](./cdn-map-content-to-custom-domain.md).  You can test the mapping prior to modifying your endpoint using `Test-AzureRmCdnCustomDomain`.
+>[AZURE.IMPORTANT] You must set up the CNAME with your DNS provider as described in [How to map Custom Domain to Content Delivery Network (CDN) endpoint](./cdn-map-content-to-custom-domain.md).  You can test the mapping before modifying your endpoint using `Test-AzureRmCdnCustomDomain`.
 
 ```powershell
 # Get an existing endpoint

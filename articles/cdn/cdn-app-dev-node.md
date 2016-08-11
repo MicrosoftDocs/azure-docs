@@ -22,7 +22,7 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial will walk through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for Node.js in detail.
+You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) to automate creation and management of CDN profiles and endpoints.  This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN SDK for Node.js in detail.
 
 To complete this tutorial, you should already have [Node.js](http://www.nodejs.org) **4.x.x** or higher installed and configured.  You can use any text editor you want to create your Node.js application.  To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).  
 
@@ -38,16 +38,16 @@ Create a folder to store your application.  From a console with the Node.js tool
 	
 	npm init
 	
-You will then be presented a series of questions to initialize your project.  For **entry point**, this tutorial will use *app.js*.  You can see my other choices in the example below.
+You will then be presented a series of questions to initialize your project.  For **entry point**, this tutorial uses *app.js*.  You can see my other choices in the following example.
 
 ![NPM init output](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll be using the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
+Our project is now initialized with a *packages.json* file.  Our project is going to use some Azure libraries contained in NPM packages.  We'll use the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).  Let's add those to the project as dependencies.
  
 	npm install --save ms-rest-azure
 	npm install --save azure-arm-cdn
 
-After the packages are done installing, the *package.json* file should look similar to this (version numbers may differ):
+After the packages are done installing, the *package.json* file should look similar to this example (version numbers may differ):
 
 ``` json
 {
@@ -103,7 +103,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 	
 	If you are using individual user authentication, these two lines will look slightly different.
 
-	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be very careful to guard your individual user credentials and keep them secret.
+	>[AZURE.IMPORTANT] Only use this code sample if you are choosing to have individual user authentication instead of a service principal.  Be careful to guard your individual user credentials and keep them secret.
 
 	``` javascript
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
@@ -114,10 +114,10 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 	Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`, use the redirect URI you entered when you registered the application in Azure AD.
 	
 
-4.  Our Node.js console application is going to take some command line parameters.  Let's validate that at least one parameter was passed.
+4.  Our Node.js console application is going to take some command-line parameters.  Let's validate that at least one parameter was passed.
 
 	```javascript
-	//Collect command line parameters
+	//Collect command-line parameters
 	var parms = process.argv.slice(2);
 
 	//Do we have parameters?
@@ -129,7 +129,7 @@ With *app.js* open in our editor, let's get the basic structure of our program w
 	}
 	```
 
-5. That brings us to the main part of our program, where we'll branch off to other functions based on what parameters were passed.
+5. That brings us to the main part of our program, where we branch off to other functions based on what parameters were passed.
 
 	```javascript
 	switch(parms[0].toLowerCase())
@@ -213,7 +213,7 @@ Now that the basic structure of our program is written, we should create the fun
 
 ## List CDN profiles and endpoints
 
-Let's start with code to list our existing profiles and endpoints.  I'll provide code comments with the expected syntax so we know which parameter goes where.
+Let's start with code to list our existing profiles and endpoints.  My code comments provide the expected syntax so we know where each parameter goes.
 
 ```javascript
 // list profiles
@@ -341,7 +341,7 @@ function cdnDelete() {
 
 We can now execute our Node.js program using our favorite debugger or at the console.
 
-> [AZURE.TIP] If you're using Visual Studio Code as your debugger, you'll need to setup your environment to pass in the command line parameters.  Visual Studio Code does this in the **lanuch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
+> [AZURE.TIP] If you're using Visual Studio Code as your debugger, you'll need to set up your environment to pass in the command-line parameters.  Visual Studio Code does this in the **lanuch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
 
 Let's start by listing our profiles.
 
