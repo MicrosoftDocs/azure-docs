@@ -36,7 +36,7 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 
 This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
 
-> [AZURE.NOTE] Log Analytics was previously called Operational Insights, which is why this is the name used in the cmdlets.
+> [AZURE.NOTE] Log Analytics was previously called Operational Insights, which is why it is the name used in the cmdlets.
 
 ## Prerequisites
 
@@ -190,7 +190,13 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, the resources first need to have Azure diagnostics enabled to write to a storage account and then Log Analytics can be configured to collect the logs from the storage account. This applies to classic cloud services (web and worker roles), service fabric clusters, network security groups, key vaults, and application gateways.
+For agentless monitoring of Azure resources, the resources first need to have Azure diagnostics enabled to write to a storage account and then Log Analytics can be configured to collect the logs from the storage account. You will need to do this for:
+
++ Classic cloud services (web and worker roles)
++ Service fabric clusters
++ Network security groups
++ Key vaults and 
++ Application gateways
 
 You can also use PowerShell to configure a Log Analytics workspace in one Azure subscription to collect logs from different Azure subscriptions.
 
