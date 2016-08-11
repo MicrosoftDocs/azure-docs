@@ -49,10 +49,10 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we will follow it up to 10 redirects.
+- **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
 - **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
 - **Enable retries**:  When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. (We recommend this setting. On average, about 80% of failures disappear on retry.)
-- **Test frequency**: Sets how often the test is run from each test location. With a frequency of 5 minutes and five test locations, your site is tested on average every minute.
+- **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
 - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 - **Success criteria**:
@@ -120,7 +120,7 @@ Click the result to evaluate it in the portal and see why it failed.
 Alternatively, you can download the result file and inspect it in Visual Studio.
 
 
-*Looks OK but reported as a failure?* Check all the images, scripts, style sheets and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
+*Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
 
 
@@ -128,7 +128,7 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
-To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights will replay the scenario at intervals and verify the responses.
+To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
@@ -198,7 +198,7 @@ Web Test Plug-ins provide the way to do parameterize times.
 
     ![Choose Add Web Test Plugin and select a type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    In this example, we'll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now."
+    In this example, we use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now."
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
@@ -208,7 +208,7 @@ Web Test Plug-ins provide the way to do parameterize times.
 
     ![In the test parameter, use {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Now, upload your test to the portal. It will use the dynamic values on every run of the test.
+Now, upload your test to the portal. It uses the dynamic values on every run of the test.
 
 ## Dealing with sign-in
 
@@ -226,7 +226,7 @@ Use the SAML plugin that is available for web tests.
 
 ### Client secret
 
-If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that  provides a client secret sign-in. In AAD, the client secret is the App Key. 
+If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key. 
 
 Here's a sample web test of an Azure web app using an app key:
 
@@ -236,11 +236,11 @@ Here's a sample web test of an Azure web app using an app key:
 2. Extract bearer token from response.
 3. Call API using bearer token in the authorization header.
 
-Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app will be reflected in the web test in the “resource” field. 
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the “resource” field. 
 
 ### Open Authentication
 
-An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should to investigate that possibility. 
+An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility. 
 
 If your test must sign in using OAuth, the general approach is:
 
@@ -278,7 +278,7 @@ When the test is complete, you are shown response times and success rates.
 
 * *Can I call code from my web test?*
 
-    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
+    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are several plug-ins that you might find helpful.
 
 * *Is HTTPS supported?*
 

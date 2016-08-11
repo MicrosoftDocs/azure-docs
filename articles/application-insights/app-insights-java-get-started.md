@@ -25,9 +25,9 @@
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-Application Insights supports Java apps running on Linux, Unix or Windows.
+Application Insights supports Java apps running on Linux, Unix, or Windows.
 
-You'll need:
+You need:
 
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
@@ -37,11 +37,11 @@ You'll need:
 
 ## 1. Get an Application Insights instrumentation key
 
-1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 2. Create an Application Insights resource. Set the application type to Java web application.
 
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.
+4. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
@@ -110,8 +110,8 @@ Manually add the SDK:
 
 * *What's the relationship between the `-core` and `-web` components in the zip?*
 
- * `applicationinsights-core` gives you the bare API. You always need this.
- * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected. For example, if you want to write your own.
+ * `applicationinsights-core` gives you the bare API. You always need this component.
+ * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
  * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
@@ -158,8 +158,8 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
-* The Application Insight key can be passed dynamically from Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure Appsetting. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This helps in managing different InstrumentationKey for different environment dynamically.
+* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
+* The Application Insight key can be passed dynamically from Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure Appsettings. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This helps in managing different InstrumentationKeys for different environment dynamically.
 
 ### Alternative ways to set the instrumentation key
 
@@ -226,9 +226,9 @@ Either run it in debug mode on your development machine, or publish to your serv
 ## 6. View your telemetry in Application Insights
 
 
-Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
+Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
-HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
@@ -238,7 +238,7 @@ Click through any chart to see more detailed aggregated metrics.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`. This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+> Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
 
 ### Instance data 
@@ -273,13 +273,13 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
  * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (This enables performance counters.)
+    (This component enables performance counters.)
 
 ## Exceptions and request failures
 
 Unhandled exceptions are automatically collected:
 
-![Scroll down and click the Failures tile](./media/app-insights-java-get-started/21-exceptions.png)
+![Open Settings, Failures](./media/app-insights-java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -294,7 +294,7 @@ To collect data on other exceptions, you have two options:
 
 ## Performance counters
 
-Click the **Servers** tile, and you'll see a range of performance counters.
+Open **Settings**, **Servers**, to see a range of performance counters.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -364,7 +364,7 @@ OK, you're sending telemetry from your web server. Now to get the full 360-degre
 
 ## Capture log traces
 
-You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
+You can use Application Insights to slice and dice logs from Log4J, Logback, or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
 
 ## Send your own telemetry
 
@@ -376,17 +376,15 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], click Web tests.
 
-![Scroll down, click Availability, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
+![Click Web tests, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
 ![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability] 
-
-
 
 
 
