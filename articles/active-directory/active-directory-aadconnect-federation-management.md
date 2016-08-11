@@ -24,7 +24,7 @@ This article details tasks related to Microsoft Azure Active Directory Federatio
 | Topic | What it covers |
 |:------|:-------------|
 |**AD FS management**|
-	|[Repair the trust](#repairthetrust)| Repairing the federation trust with Office 365 |
+|[Repair the trust](#repairthetrust)| Repairing the federation trust with Office 365 |
 |[Add an AD FS server](#addadfsserver) | Expanding the AD FS farm with an additional AD FS server|
 |[Add an AD FS web application proxy server](#addwapserver) | Expanding the AD FS farm with an additional WAP server|
 |[Add a federated domain](#addfeddomain)| Adding a federated domain|
@@ -44,13 +44,13 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 1. Select **Repair AAD and ADFS Trust** from the list of available tasks.
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
-2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD and click **Next**.
+2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD, and click **Next**.
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust2.PNG)
 
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust3.PNG)
 
-    After you click **Next**, Azure AD Connect will check for certificate health and will show any issues if they exist.
+    After you click **Next**, Azure AD Connect will check for certificate health and show any issues.
 
     ![](media\active-directory-aadconnect-federation-management\RepairADTrust4.PNG)
 
@@ -75,12 +75,12 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 3. Provide the domain administrator credentials.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer3.PNG)
 
-4. Azure AD Connect will ask you for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
+4. Azure AD Connect will ask for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer4.PNG)
 
     ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer5.PNG)
 
-5. On the **AD FS Servers** page, enter the additional server name or IP address to be added to the AD FS farm.
+5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer6.PNG)
 
 6. Click **Next** and go through the final **Configure** page. After Azure AD Connect has finished adding the servers to the AD FS farm, you will be given the option to verify the connectivity.
@@ -103,7 +103,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
     ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-4. Add the server to be added as a web application proxy. Since the web application proxy server might not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
+4. Add the server to be added as a web application proxy. Because the web application proxy server might not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
 5. On the **Proxy trust credentials** page, provide administrative credentials to configure the proxy trust and access the primary server in the AD FS farm.
@@ -112,12 +112,12 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 6. On the **Ready to configure** page, the wizard shows the list of actions that will be performed.
 ![](media\active-directory-aadconnect-federation-management\WapServer7.PNG)
 
-7. Click **Install** to finish the configuration. After the configuration is complete, wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
+7. Click **Install** to finish the configuration. After the configuration is complete, the wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
 ![](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
 ### To add a federated domain <a name=addfeddomain></a>
 
-It is easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
+It's easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
 1. To add a federated domain, select the task **Add an additional Azure AD domain**.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain1.PNG)
@@ -131,7 +131,7 @@ It is easy to add a domain to be federated with Azure AD by using Azure AD Conne
 4. On the next page, the wizard will provide a list of Azure AD domains with which you can federate your on-premises directory. Choose the domain from the list.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details about how to verify your domain.
+    After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details.
 
 5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain5.PNG)
@@ -161,7 +161,7 @@ To add a sign-in page description to the **Sign-in page**, use the following Win
 
 AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](https://technet.microsoft.com/library/dd807118.aspx).
 
-The following sections detail how you can write custom rules for some scenarios pertaining to Azure AD and AD FS federation.
+The following sections describe how you can write custom rules for some scenarios pertaining to Azure AD and AD FS federation.
 
 #### Immutable ID conditional on a value being present in the attribute
 
@@ -183,7 +183,7 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
 
 This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **ObjectGuid**, so that claim will always be there after Rule 1 is executed.
 
-**Rule 3: Issue ms-ds-consistencyguid as immutable ID if present**
+**Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
