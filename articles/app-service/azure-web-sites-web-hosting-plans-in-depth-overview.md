@@ -19,7 +19,7 @@
 
 # Azure App Service plans in-depth overview#
 
-An App Service plan represents a set of features and capacity that you can share across multiple apps, which include Web Apps, Mobile Apps, Logic Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are 	associated with a plan run on the resources that the plan defines.
+An App Service plan represents a set of features and capacity that you can share across multiple apps, which include Web Apps, Mobile Apps, Logic Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are associated with a plan run on the resources that the plan defines.
 
 For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan will run on both instances and will have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
 
@@ -54,11 +54,11 @@ Finally, if you want to create a new app in a different region, and that region 
 You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
 
 In the [Azure portal](https://portal.azure.com), click **New**, click **Web + mobile**, and then click 	**Web App**, **Mobile App**, **API App** or **Logic App**.
-![][createWebApp]
+![Create an app in the Azure portal.][createWebApp]
 
 You can then select or create the App Service plan for the new app.
 
- ![][createASP]
+ ![Create an App Service plan.][createASP]
 
 To create a new App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
 
@@ -70,14 +70,14 @@ To move an app to another plan, go to the app that you want to move. On the **Se
 
 This will open the **App Service plan** selector. At this point, you can either pick an existing plan or create a new one. Only valid plans (in the same resource group and geographical location) are shown.
 
-![][change]
+![App Service plan selector.][change]
 
-Note that each plan has its own pricing tier. For example, when you move a site from a *Free* tier to a *Standard* tier, your app will be able to use all the features and resources of the *Standard* tier.
+Note that each plan has its own pricing tier. For example, when you move a site from a Free tier to a Standard tier, your app will be able to use all the features and resources of the Standard tier.
 
 ## Clone an app to a different App Service plan
 If you want to move the app to a different region, one alternative is app cloning. Clone will make a copy of your app in a new or existing App Service plan or App Service environment in any region.
 
- ![][appclone]
+ ![Clone an app.][appclone]
 
 You can find **Clone App** on the **Tools** menu.
 
@@ -87,13 +87,13 @@ Clone has some limitations that you can read about at [Azure App Service App clo
 
 There are three ways to scale a plan:
 
-- **Change the plan’s pricing tier**. For example, a plan in the *Basic* tier can be converted to a *Standard* or *Premium* tier, and all apps that are associated with that plan will be able to use the features that the new service tier offers.
-- **Change the plan’s instance size**. As an example, a plan in the *Basic* tier that uses small instances can be changed to use large instances. All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance size offers.
-- **Change the plan’s instance count**. For example, a *Standard* plan that's scaled out to three instances can be scaled to 10 instances. A *Premium* plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance count offers.
+- **Change the plan’s pricing tier**. For example, a plan in the Basic tier can be converted to a Standard or Premium tier, and all apps that are associated with that plan will be able to use the features that the new service tier offers.
+- **Change the plan’s instance size**. As an example, a plan in the Basic tier that uses small instances can be changed to use large instances. All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance size offers.
+- **Change the plan’s instance count**. For example, a Standard plan that's scaled out to three instances can be scaled to 10 instances. A Premium plan can be scaled out to 20 instances (subject to availability). All apps that are associated with that plan will be able to use the additional memory and CPU resources that the larger instance count offers.
 
 You can change the pricing tier and instance size by clicking the **Scale Up** item under settings for either the app or the App Service plan. Changes will apply to the App Service plan and affect all apps that it hosts.
 
- ![][pricingtier]
+ ![Set values to scale up an app.][pricingtier]
 
 ## Summary
 
