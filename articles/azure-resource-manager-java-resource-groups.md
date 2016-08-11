@@ -25,7 +25,6 @@ This sample demonstrates how to perform common tasks using the Microsoft Azure R
    - List resources
    - Delete a resource.
  
-
 ## Run this sample
 
 To run this sample:
