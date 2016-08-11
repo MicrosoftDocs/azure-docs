@@ -92,7 +92,7 @@ If you do not already have an Operations Management Suite workspace, then create
 
 Solutions add functionality to Operations Management Suite.  The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker.  When you add the solution to your workspace, it will automatically push down worker components to the agent computer that you will install in the next step.
 
-Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics-log-analytics-add-solutions.md) to add the **Automation** solution to your Operations Management Suite workspace.
+Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md) to add the **Automation** solution to your Operations Management Suite workspace.
 
 ### 3. Install the Microsoft Monitoring Agent
 
