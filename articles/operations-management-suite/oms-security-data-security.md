@@ -16,7 +16,7 @@
    ms.date="08/11/2016"
    ms.author="yurid"/>
 
-# Operations Management Suite Security and Audit Solution Data Security
+# Operations Management Suite Security and Audit solution data security
 
 To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
 
@@ -33,11 +33,11 @@ To help customers prevent, detect, and respond to threats, [Operations Managemen
 We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
 
-## Data Sources
+## Data sources
 
 OMS Security and Audit Solution analyze data from your Virtual Machines and physical computers where the OMS Agent is installed. OMS Security and Audit Solution can collect configuration information about security events, such as Windows event, audit logs, IIS logs and syslog messages. Examples of such data are: operating system type and version, running processes, machine name, IP addresses, logged in user, and tenant ID.  
 
-## Data Protection
+## Data protection
 
 **Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
 
