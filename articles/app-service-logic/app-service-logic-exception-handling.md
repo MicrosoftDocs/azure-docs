@@ -98,6 +98,33 @@ Notice the `runAfter` property is set to if the `Insert_Row` action is `Failed`.
 
 ## Scopes and results to evaluate actions
 
+Similar to how you can `runAfter` individual actions, you can also group actions together inside of a [scope](app-service-logic-loops-and-scopes.md) - which act as a logical grouping of actions.  This can be useful both for organizing your logic app actions, but also for performing aggregate evaluations on the status of a scope.  The scope itself will receive a status after all of the actions within a scope have completed.  The scope status will be determined using the same status as a run -- if the final action in an execution branch is `Failed` or `Aborted` the status will be `Failed`.
+
+You can use the `runAfter` to run after a scope has been marked fail to trigger specific actions for any failures.  This allows me to create a single action to catch failures if *any* actions fail.
+
+### Getting the context of failures with resulted
+
+Catching failures from a scope is very useful, but the one item that is missing is the context to understand exactly which action failed and any errors or status codes returned.  The `@result()` workflow function can bring that context into an action after a scope.
+
+`@result()` taks a single parameter, scope name, and returns an array of all of the action objects from within that scope.  These action objects include the same attributes as any `@actions()` object, including action start time, action end time, action status, action inputs, and action outputs.  You can then easily pair an `@result()` function with a `runAfter` failures to send any context on which actions failed.
+
+If you only wanted to perform actions for each action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](app-service-logic-loops-and-scopes.md)** loop.  This would allow you to filter the array of all action results down to only actions that failed, and then perform an action for each failure.  Here's an example of a that pattern below.  This will send an email with the response body of any actions that failed within the scope `My_Scope`:
+
+```json
+
+
+```
+
+## Azure Diagnostics and telemetry
+
+The patterns above are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself.  [Azure Diagnostics](app-service-logic-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure Storage account or Azure Event Hub.  You can then monitor the logs, or publish them into any monitoring tool you prefer, to evaluate run statuses.  One potential option is to stream all of the events through Azure Event Hub into [Stream Analytics](https://azure.microsoft.com/en-us/services/stream-analytics/) and there could write live queries off of any anomolies, averages, or failures.  Stream Analytics can easily be outputted to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
+
+## Next Steps
+- [See how one customer built robust error handling with Logic Apps](app-service-logic-scenario-error-and-exception-handling.md)
+- [Find more Logic Apps examples and scenarios](app-service-logic-examples-and-scenraios.md)
+- [Learn how to creat automated deployments of logic apps](app-service-logic-create-deploy-template.md)
+- [Design and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
+
 
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
