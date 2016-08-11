@@ -109,9 +109,8 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 
 5. In an editor of your choice, create a JSON file named **project.json** with the following and save it to your local disk.
 
-````
-    {
-        "frameworks": {
+        {
+            "frameworks": {
 		        "net46": {
 		            "dependencies": {
 				        "StackExchange.Redis":"1.1.603",
@@ -120,7 +119,6 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 		        }
 	        }
         }
-````
 
 6. Upload this file into the root directory of your function (not WWWROOT). You should see a file named **project.lock.json** automatically appear, confirming that the Nuget packages “StackExchange.Redis” and “Newtonsoft.Json” have been imported.
 
