@@ -202,7 +202,7 @@ In this rule, you are simply checking the temporary flag **idflag**. You decide 
 
 #### SSO with a subdomain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). The UPN claim needs to be modified so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
+You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). You must modify the UPN claim so that the issuer ID corresponds to the root domain and not the subdomain, because the federated root domain also covers the child.
 
 By default, the claim rule for issuer ID is set as:
 
