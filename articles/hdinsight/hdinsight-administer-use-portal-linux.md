@@ -17,11 +17,11 @@
 	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
-#Manage Hadoop clusters in HDInsight by using the Azure Portal
+#Manage Hadoop clusters in HDInsight by using the Azure portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure Portal][azure-portal], you can manage Linux-based clusters in Azure HDInsight. Use the tab selector for information on creating Hadoop clusters in HDInsight using other tools. 
+Using the [Azure portal][azure-portal], you can manage Linux-based clusters in Azure HDInsight. Use the tab selector for information on creating Hadoop clusters in HDInsight using other tools. 
 
 **Prerequisites**
 
@@ -36,14 +36,14 @@ Before you begin this article, you must have the following:
 
 	- Click **New** from the left menu to create a new cluster:
 	
-		![new HDInsight cluster buttom](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+		![new HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
 	- Click **HDInsight Clusters** from the left menu to list the existing clusters
 	
-		![Azure portal HDInsight cluster buttom](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
+		![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
         If **HDInsight** doesn't appear in the left menu, click **Browse**, and then click **HDInsight Clusters**.
 
-        ![Azure portal Browse cluster buttom](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
+        ![Azure portal Browse cluster buttomn](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
 
 ##Create clusters
 
@@ -66,7 +66,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 	- **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
 	- **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
     - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
-	- **Scale Cluster**: Allows you to change the number of workder nodes for this cluster.
+	- **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
 	- **Delete**: Deletes the cluster.
 	- **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
 	- **Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
@@ -113,8 +113,8 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 	- **Operating system**: Either **Windows** or **Linux**.
 	- **Type**: Hadoop, HBase, Storm, Spark. 
 	- **Version**. See [HDInsight versions](hdinsight-component-versioning.md)
-	- **Subscriotion**: Subscription name.
-	- **Subscrition ID**.
+	- **Subscription**: Subscription name.
+	- **Subscription ID**.
     - **Default data source**: The default cluster file system.
 	- **Worker nodes pricing tier**.
 	- **Head node pricing tier**.
