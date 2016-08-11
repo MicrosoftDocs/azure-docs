@@ -27,7 +27,7 @@ This article describes how you can extend a logic app to better support exceptio
 ## Overview of the use case and scenario
 
 The following story is the use case for this article.
-A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal by using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 
@@ -37,7 +37,7 @@ The project had two major requirements:
 
 ## How we solved the problem
 
->[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group")
+>[AZURE.TIP] You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
 
 We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
 
@@ -49,7 +49,7 @@ The first step is to create the logic app and load it in the designer. In this e
 
 Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger since the parent logic app will trigger this child.
 
-> [AZURE.IMPORTANT] In order to complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
+> [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
 
 ### Logic app trigger
 
@@ -93,11 +93,11 @@ We are using a Request trigger as shown in the following example.
 
 ### Steps
 
-We need to log the source (request) of the Patient record from the Dynamics CRM Online portal.
+We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
 
 1. We need to get a new appointment record from Dynamics CRM Online.
     The trigger coming from CRM will provide us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
-    We will get the CRM record using the CRM **PatientID** and the **Record Type**.
+    We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
 1. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
 
 
@@ -395,12 +395,12 @@ Our solution added additional capabilities with [DocumentDB](https://azure.micro
 
 ### Error management portal
 
-In order to view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
+To view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
 
 > [AZURE.NOTE] Edit operation: DocumentDB does a replace of the entire document.
 > The records shown in the **List** and **Detail** views are samples only. They are not actual patient appointment records.
 
-Following are examples of our MVC app details using the previously described approach.
+Following are examples of our MVC app details created with the previously described approach.
 
 #### Error management list
 
@@ -412,7 +412,7 @@ Following are examples of our MVC app details using the previously described app
 
 ### Log management portal
 
-In order to view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
+To view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
 
 #### Sample log detail view
 
@@ -435,7 +435,7 @@ Every document in DocumentDB must have an unique ID. We are using `PatientId` an
 
 You can view the source code of our error controller API [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-We call the API from a logic app using the following syntax.
+We call the API from a logic app by using the following syntax.
 
 ``` json
  "actions": {
@@ -477,7 +477,7 @@ The expression in the preceding code sample is checking for the *Create_NewPatie
 - You can use MVC to create a portal to display log and error records.
 
 ### Source code
-The source code for the Logic Apps exception management API application is available in this [GitHub Repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
+The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
 
 
 ## Next steps
