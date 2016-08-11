@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Create a plan in Azure Stack | Microsoft Azure"
 	description="As a service administrator, create a plan that lets subscribers provision virtual machines."
 	services="azure-stack"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="03/02/2016"
 	ms.author="erikje"/>
 
 # Create a plan in Azure Stack
@@ -26,47 +26,53 @@
 
     Service administrators can create offers and plans, and manage users.
 
-3.  To create a plan and offer that tenants can subscribe to, click **New**.
+3.  To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
 
-    ![](media/azure-stack-create-plan/image1.png)
+    ![](media/azure-stack-create-plan/image01.png)
 
-4.  In the Create blade, click **Tenant Offers and Plans**, and then click **Plan**.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name. Only the admin can see the Resource Name. It's the name that admins  use to work with the plan as an Azure Resource Manager resource.
 
-	![](media/azure-stack-create-plan/image2.png)
+    ![](media/azure-stack-create-plan/image02.png)
 
-5.  Fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name. Only the admin can see the Resource Name. It's the name that admins  use to work with the plan as an Azure Resource Manager resource.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan. By default, all plans and offers will go into a resource group called OffersAndPlans.
 
-	![](media/azure-stack-create-plan/image3.png)
+    ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Select or create a new **Resource Group** as a container for the plan. By default, all plans and offers will go into a resource group called OffersAndPlans.
+6.  Click **Services**, use the Shift key to multi-select all three providers (**Compute Provider Admin**, **Storage Provider Admin**, and **Network Provider Admin**) and then click **Select**.
 
-7.  Click **Offered Services**, use the Shift key to multi-select all three providers (**Compute Provider**, **Storage Provider**, and **Network Provider**) and then click **Select**.
+    ![](media/azure-stack-create-plan/image03.png)
 
-	![](media/azure-stack-create-plan/image4.png)
+7.  Click **Quotas**, click **Quota for Storage Provider Admin**, and then click **Create new quota**.
 
-8.  Click **Microsoft.Compute**, and then click **Needs Configuration**.
+	![](media/azure-stack-create-plan/image04.png)
 
-	![](media/azure-stack-create-plan/image5.png)
+8.  Type a name for the quota, click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
 
-9.  In the **Set Quotas** blade, accept all the defaults, click **OK**, and then click **OK** again.
+    ![](media/azure-stack-create-plan/image06.png)
 
-    ![](media/azure-stack-create-plan/image6.png)
+9. Click **Quota for Network Provider Admin**, click **Create new quota**, and then type a name for the quota.
 
-10. Click **Microsoft.Network**, then click **Needs Configuration**.
+	![](media/azure-stack-create-plan/image07.png)
 
-	![](media/azure-stack-create-plan/image7.png)
+10. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
 
-11. In the **Set Quotas** blade, select all the check boxes, click **OK**, then click **OK** again.
+	![](media/azure-stack-create-plan/image08.png)
+	
+11. Click **Quota for Compute Provider Admin**, click **Create new quota**, and then type a name for the quota.
 
-	![](media/azure-stack-create-plan/image8.png)
+	![](media/azure-stack-create-plan/image09.png)
 
-12. Click **Microsoft.Storage**, click **Needs Configuration**, and then in the **Set Quotas** blade, accept all the defaults, click **OK**, click **OK** again, and then click **Create** to create the plan.
+12. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
 
-	![](media/azure-stack-create-plan/image9.png)
+	![](media/azure-stack-create-plan/image10.png)
+	
+12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
-13. Your plan can now be included in an offer. View notifications by clicking the bell at the top right.
+	![](media/azure-stack-create-plan/image11.png)
 
-    ![](media/azure-stack-create-plan/image10.png)
+13. To see your new plan, click **All resources**, then search for the plan and click its name.
+
+    ![](media/azure-stack-create-plan/image12.png)
 
 ## Next steps
 
