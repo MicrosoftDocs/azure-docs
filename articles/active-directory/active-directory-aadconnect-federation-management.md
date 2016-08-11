@@ -50,13 +50,13 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust3.PNG)
 
-  After you click **Next**, Azure AD Connect will check for certificate health and will show any issues if they exist.
+    After you click **Next**, Azure AD Connect will check for certificate health and will show any issues if they exist.
 
-  ![](media\active-directory-aadconnect-federation-management\RepairADTrust4.PNG)
+    ![](media\active-directory-aadconnect-federation-management\RepairADTrust4.PNG)
 
-  The **Ready to configure** page will show the list of actions that will be performed to repair the trust.
+    The **Ready to configure** page will show the list of actions that will be performed to repair the trust.
 
-  ![](media\active-directory-aadconnect-federation-management\RepairADTrust5.PNG)
+    ![](media\active-directory-aadconnect-federation-management\RepairADTrust5.PNG)
 
 4. Click **Install** to repair the trust.
 
@@ -88,7 +88,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
   ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Adding a new AD FS web application proxy server <a name=addwapserver></a>
+### Add a new AD FS web application proxy server <a name=addwapserver></a>
 
 > [AZURE.NOTE] Azure AD Connect requires the PFX certificate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm by using Azure AD Connect.
 
@@ -117,8 +117,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 
 ### Add a new federated domain <a name=addfeddomain></a>
 
-It is easy to add a new domain to be federated with Azure AD by
-using Azure AD Connect. Azure AD Connect not only adds the new domain for federation but modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
+It is easy to add a new domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect not only adds the new domain for federation but modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
 
 1. To add a new federated domain, select the task **Add an additional Azure AD domain**.
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain1.PNG)
