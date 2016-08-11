@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/11/2016"
    ms.author="cherylmc" />
 
 # Configure a VPN gateway for the classic deployment model
@@ -69,7 +69,7 @@ Next, at the bottom of the page, click **Create Gateway**. You can select either
 
 ![Gateway VPN routing type](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
-When your gateway is creating, notice the gateway graphic on the page changes to yellow and says *Creating Gateway*. It may take up to 25 minutes for the gateway to create. You'll have to wait until the gateway is complete before you can move forward with other configuration settings.
+When your gateway is creating, notice the gateway graphic on the page changes to yellow and says *Creating Gateway*. It may take up to 45 minutes for the gateway to create. You'll have to wait until the gateway is complete before you can move forward with other configuration settings.
 
 ![Gateway Creating](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
 
