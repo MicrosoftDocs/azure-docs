@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/10/2016" 
+    ms.date="08/12/2016" 
     ms.author="jeedes" />
 
 
@@ -118,9 +118,20 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     ![Configuring single sign-on][9]
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.successfactors.com/<company name>`
+    a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.successfactors.com/<company name>`
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
+
+	b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
+	
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
+	| `https://<company name>.sapsf.eu/<company name>` |
 
 	c. Click **Next**. 
 
@@ -133,33 +144,41 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 5.  In a different web browser window, log into your **SuccessFactors admin portal** as an administrator.
 
-6.  Go to **Application Security -> Single Sign On Feature**. 
+6.  Visit **Application Security** and native to **Single Sign On Feature**. 
 
 7. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
 
 	![Configuring single sign-on on app side][11]
 
-8. In the **For SAML based SSO** page perform the following actions.
+	> [AZURE.Note] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF. You don’t need to use the same value each time. You don’t even need to know what you typed.
 
-	a. Select the **SAML v2 SSO** Radio Button
-
-	b. In the **SAML Issuer** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
-
-	c. Select **Response(Customer Generated/IdP/AP)** as **Require Mandatory Signature**.
-
-	d. Select **Enabled** as **Enable SAML Flag**.
-
-	e. Select **No** as **Login Request Signature(SF Generated/SP/RP)**.
-
-	f. Select **Browser/Post Profile** as **SAML Profile**.
-
-	g. Select **No** as **Enforce Certificate Valid Period**.
-
-	h. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
+8. Native to below screenshot and perform the following actions.
 
 	![Configuring single sign-on on app side][12]
 
-9. In the **SAML2 specific settings** page perform the following actions.
+	a. Select the **SAML v2 SSO** Radio Button
+    
+	b. Set the SAML Asserting Party Name(e.g. SAml issuer + company name).
+
+	c. In the **SAML Issuer** textbox put the value of **Issuer URL** from Azure AD application configuration wizard.
+
+	d. Select **Response(Customer Generated/IdP/AP)** as **Require Mandatory Signature**.
+
+	e. Select **Enabled** as **Enable SAML Flag**.
+
+	f. Select **No** as **Login Request Signature(SF Generated/SP/RP)**.
+
+	g. Select **Browser/Post Profile** as **SAML Profile**.
+
+	h. Select **No** as **Enforce Certificate Valid Period**.
+
+	i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
+
+	> [AZURE.Note] the certificate content needs begin certificate and end certificate tags.
+
+9. Native to below screenshot and perform the following actions.
+
+	![Configuring single sign-on on app side][13]
 
 	a. Select **Yes** as **Support SP-initiated Global Logout**.
 
@@ -173,13 +192,23 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	f. In the **Send request as Company-Wide issuer** textbox put the value of **Remote Login URL** from Azure AD application configuration wizard.
 
-	![Configuring single sign-on on app side][13]
+10.  Perform these steps if you want to make the login usernames Case Insensitive, .
+	
+	a.visit **Company Settings**(near the bottom).
+	
+	b. select checkbox near **Enable Non-Case-Sensitive Username**.
 
-10.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+	c.Click **Save**.
+	
+	![Configure Single Sign-On][29]
+
+	> [AZURE.Note] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
+
+11.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Applications][14]
 
-11. On the **Single sign-on confirmation** page, click **Complete**.
+12. On the **Single sign-on confirmation** page, click **Complete**.
 
 	![Applications][15]
 
@@ -269,13 +298,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
     
 	![Configure Single Sign-On][26]
 
-1. In the menu on the top, click **Users**.
+3. In the menu on the top, click **Users**.
     
 	![Assign User][27]
 
-1. In the Users list, select **Britta Simon**.
+4. In the Users list, select **Britta Simon**.
 
-2. In the toolbar on the bottom, click **Assign**.
+5. In the toolbar on the bottom, click **Assign**.
     
 	![Assign User][28]
 
@@ -325,6 +354,7 @@ When you click the SuccessFactors tile in the Access Panel, you should get autom
 
 [24]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_07.png
 [25]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_08.png
-[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_11.png
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
+[29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
