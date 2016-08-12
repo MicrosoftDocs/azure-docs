@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2016"
+   ms.date="08/12/2016"
    ms.author="vturecek"/>
 
 # Managing secrets in Service Fabric applications
@@ -25,7 +25,7 @@ This guide uses Azure Key Vault to manage keys and secrets. However, *using* sec
 
 ## Overview
 
-The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updateable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for enrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.
+The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updatable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for encrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.
 
 The following diagram illustrates the basic flow for secret management in a Service Fabric application:
 
@@ -48,7 +48,7 @@ A data encipherment certificate is used strictly for encryption and decryption o
  - The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
  - The certificate key usage must include Data Encipherment (10), and should not include Server Authentication or Client Authentication. 
  
- For example, when creating a self-signed certificate using PowerShell, the KeyUsage flag must indicate DataEncipherment:
+ For example, when creating a self-signed certificate using PowerShell, the `KeyUsage` flag must be set to `DataEncipherment`:
 
  ```powershell
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
@@ -148,7 +148,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 
 Services in Service Fabric run under NETWORK SERVICE by default on Windows and don't have access to certificates installed on the node without some extra setup.
 
-When using a data encipherment certificate, you need to make sure NETWORK SERVICE or whatever user account the service is running under has access to the private key. Service Fabric will handle granting access for your service automatically if you configure it to do so. This configuration can be done in ApplicationManifest.xml by defining users and security policies for certificates. In the following example, the NETWORK SERVICE account is given read access to a certificate defined by its thumbprint:
+When using a data encipherment certificate, you need to make sure NETWORK SERVICE or whatever user account the service is running under has access to the certificate's private key. Service Fabric will handle granting access for your service automatically if you configure it to do so. This configuration can be done in ApplicationManifest.xml by defining users and security policies for certificates. In the following example, the NETWORK SERVICE account is given read access to a certificate defined by its thumbprint:
 
 ```xml
 <ApplicationManifest … >
@@ -172,7 +172,7 @@ When using a data encipherment certificate, you need to make sure NETWORK SERVIC
 
 ### Use application secrets in service code
 
-The API for accessing configuration values from Settings.xml in a configuration package allows for easy decrypting of values that have the `IsEncrypted` attribute set to `true`. Since the encrypted text contains information about the certificate used for encryption, you do not need to manually find the certificate. The certificate just needs to be installed on the node that the service is running on. Simply call the `DecryptValue()` method to retreive the original secret value:
+The API for accessing configuration values from Settings.xml in a configuration package allows for easy decrypting of values that have the `IsEncrypted` attribute set to `true`. Since the encrypted text contains information about the certificate used for encryption, you do not need to manually find the certificate. The certificate just needs to be installed on the node that the service is running on. Simply call the `DecryptValue()` method to retrieve the original secret value:
 
 ```csharp
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
