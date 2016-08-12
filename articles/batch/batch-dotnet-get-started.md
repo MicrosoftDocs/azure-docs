@@ -60,7 +60,7 @@ The *DotNetTutorial* code sample is a Visual Studio 2015 solution that consists 
 
 - **TaskApplication** is the program that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
 
-The following diagram illustrates the primary operations that are performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
+The following diagram illustrates the primary operations that are performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario includes similar processes.
 
 ![Batch example workflow][8]<br/>
 
@@ -76,11 +76,11 @@ The following diagram illustrates the primary operations that are performed by t
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks are completed, they upload their output data to Azure Storage.<br/>
 [**Step 7.**](#step-7-download-task-output) Download task output from Storage.
 
-As mentioned, not every Batch solution will perform these exact steps, and may include many more, but the *DotNetTutorial* sample application demonstrates common processes found in a Batch solution.
+As mentioned, not every Batch solution performs these exact steps, and may include many more, but the *DotNetTutorial* sample application demonstrates common processes found in a Batch solution.
 
 ## Build the *DotNetTutorial* sample project
 
-Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the *DotNetTutorial* project's `Program.cs` file. If you have not done so already, open the solution in Visual Studio by double-clicking on the `DotNetTutorial.sln` solution file. Or open it from within Visual Studio by using the **File > Open > Project/Solution** menu.
+Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the *DotNetTutorial* project's `Program.cs` file. If you have not done so already, open the solution in Visual Studio by double-clicking the `DotNetTutorial.sln` solution file. Or open it from within Visual Studio by using the **File > Open > Project/Solution** menu.
 
 Open `Program.cs` within the *DotNetTutorial* project. Then add your credentials as specified near the top of the file:
 
@@ -99,7 +99,7 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-> [AZURE.IMPORTANT] As mentioned above, you must currently specify the credentials for a **General purpose** storage account in Azure Storage. Your Batch applications will use blob storage within the **General purpose** storage account. Do not specify the credentials for a Storage account that was created by selecting the *Blob storage* account type.
+> [AZURE.IMPORTANT] As mentioned above, you must currently specify the credentials for a **General purpose** storage account in Azure Storage. Your Batch applications use blob storage within the **General purpose** storage account. Do not specify the credentials for a Storage account that was created by selecting the *Blob storage* account type.
 
 You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal][azure_portal]:
 
@@ -143,7 +143,7 @@ CloudStorageAccount storageAccount =
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
+We use the `blobClient` reference throughout the application and pass it as a parameter to several methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
 ```csharp
 // Use the blob client to create the containers in Azure Storage if they don't
@@ -260,7 +260,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
 ### ResourceFiles
 
-A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types within Batch .NET include a *ResourceFiles* property, including:
+A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that is downloaded to a compute node before that task is run. The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types within Batch .NET include a *ResourceFiles* property, including:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
@@ -284,6 +284,8 @@ Shared access signatures are strings which—when included as part of a URL—pr
 ![Create a Batch pool][3]
 <br/>
 
+A Batch **pool** is a collection of compute nodes (virtual machines) on which Batch executes a job's tasks.
+
 After it uploads the application and data files to the Storage account, *DotNetTutorial* starts its interaction with the Batch service by using the Batch .NET library. To do so, a [BatchClient][net_batchclient] is first created:
 
 ```
@@ -299,7 +301,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Next, a pool of compute nodes is created in the Batch account with a call to `CreatePoolAsync`. `CreatePoolAsync` uses the [BatchClient.PoolOperations.CreatePool][net_pool_create] method to actually create a pool in the Batch service.
 
-```
+```csharp
 private static async Task CreatePoolAsync(
     BatchClient batchClient,
     string poolId,
@@ -340,11 +342,11 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you specify a number of parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
+When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
 > [AZURE.IMPORTANT] You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
 
-Along with these physical node properties, you may also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data by using Python scripts, you could use a StartTask to install Python on the compute nodes.
+Along with these physical node properties, you may also specify a [StartTask][net_pool_starttask] for the pool. The StartTask executes on each node as that node joins the pool, and each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data by using Python scripts, you could use a StartTask to install Python on the compute nodes.
 
 In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `TaskApplication.exe` and its dependencies to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
@@ -352,13 +354,15 @@ In this sample application, the StartTask copies the files that it downloads fro
 
 Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
-> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see the [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) and [Files and directories](batch-api-basics.md#files-and-directories) sections in the [Batch feature overview for developers](batch-api-basics.md).
+> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, and information on task working directories, see the [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) and [Files and directories](batch-api-basics.md#files-and-directories) sections in the [Batch feature overview for developers](batch-api-basics.md).
 
 ## Step 4: Create Batch job
 
 ![Create Batch job][4]<br/>
 
-A Batch job is essentially a collection of tasks that are associated with a pool of compute nodes. You can use it not only for organizing and tracking tasks in related workloads, but also for imposing certain constraints—such as the maximum runtime for the job (and by extension, its tasks), as well as job priority in relation to other jobs in the Batch account. In this example, however, the job is associated only with the pool that was created in step #3. No additional properties are configured.
+A Batch **job** is a collection of tasks, and is associated with a pool of compute nodes. The tasks in a job execute on the associated pool's compute nodes.
+
+You can use a job not only for organizing and tracking tasks in related workloads, but also for imposing certain constraints--such as the maximum runtime for the job (and by extension, its tasks) as well as job priority in relation to other jobs in the Batch account. In this example, however, the job is associated only with the pool that was created in step #3. No additional properties are configured.
 
 All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks will execute on. You specify this by using the [CloudJob.PoolInformation][net_job_poolinfo] property, as shown in the code snippet below.
 
@@ -384,6 +388,8 @@ Now that a job has been created, tasks are added to perform the work.
 
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
+
+Batch **tasks** are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
 To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured by using a command-line property and [ResourceFiles][net_task_resourcefiles] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
 
