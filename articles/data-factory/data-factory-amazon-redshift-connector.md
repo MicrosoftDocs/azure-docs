@@ -18,7 +18,7 @@
 
 # Move data From Amazon Redshift using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Redshift to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
 
 Data factory currently supports only moving data from Amazon Redshift to other data stores, but not for moving data from other data stores to Amazon Redshift.
 
@@ -28,7 +28,7 @@ Data factory currently supports only moving data from Amazon Redshift to other d
 - If you are moving data to an Azure data store, see [Microsoft Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) for the Compute IP address ranges (including SQL ranges) used by the Microsoft Azure data centers. 
 
 ## Sample: Copy data from Amazon Redshift to Azure Blob
-This sample shows how to copy data from a Amazon Redshift database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an Amazon Redshift database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
  
 The sample has the following data factory entities:
 
@@ -218,7 +218,7 @@ The following table provides description for JSON elements specific to Amazon Re
 
 ## Dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes Amazon Redshift dataset) has the following properties
 
@@ -242,7 +242,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 ### Type mapping for Amazon Redshift
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
