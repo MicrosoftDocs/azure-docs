@@ -31,4 +31,6 @@ The overarching principles for securing customer data are:
 * [Protecting data using encryption](azure-government-other-securingdata-protectingdatausingencryption.md).
 * [Managing secrets](azure-government-other-securingdata-managingsecrets.md).
 * [Isolation to restrict data access](azure-government-other-securingdata-isolation.md).
-* [Detecting and responding to incidents](azure-government-other-securingdata-detectingandrespondingtoincidents.md).
+
+For supplemental information and updates please subscribe to the
+<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
