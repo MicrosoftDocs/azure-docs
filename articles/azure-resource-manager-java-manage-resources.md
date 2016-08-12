@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/18/2016"
    ms.author="allclark"/>
 
 # Manage resource groups using the Java SDK

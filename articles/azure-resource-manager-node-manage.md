@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="08/18/2016"
    ms.author="allclark"/>
 
 # Manage resources using the Node.js SDK

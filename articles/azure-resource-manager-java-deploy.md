@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="08/18/2016"
    ms.author="allclark"/>
 
 # Deploy an SSH enabled VM with a template using Java
