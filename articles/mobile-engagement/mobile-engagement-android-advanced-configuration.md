@@ -68,7 +68,7 @@ By default, the Engagement service reports logs in real time. If your applicatio
 
 	<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
-The burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). Your burst threshold should be no longer than 30000 (30s).
+Burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). Your burst threshold should be no longer than 30000 (30s).
 
 ### Session timeout
 

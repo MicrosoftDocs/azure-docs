@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android SDK Integration for Azure Mobile Engagement
@@ -24,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK. 
+This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK.
 
 ## Prerequisites
 
@@ -71,4 +71,4 @@ For all versions, see the [complete release notes](mobile-engagement-android-rel
 
 ## Upgrade procedures
 
-If you already have integrated an older version of our SDK into your application, please consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).
+If you already have integrated an older version of our SDK into your application, consult [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md).

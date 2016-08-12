@@ -4,7 +4,7 @@ This tutorial requires the following:
 + Visual Studio 2015
 + [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) Nuget package
 
-> [AZURE.IMPORTANT] This tutorial assumes use of Visual Studio 15. You can also use Visual Studio 13, but the user interface will be slightly different from what is in this tutorial.
+> [AZURE.IMPORTANT] This tutorial assumes use of Visual Studio 15. You can also use Visual Studio 13, but that user interface is slightly different from what is in this tutorial.
 
 &nbsp;
 

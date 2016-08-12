@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration for Windows Universal Apps Engagement SDK
@@ -34,11 +34,11 @@ This procedure describes how to configure various configuration options for Azur
 
 ### Disable automatic crash reporting
 
-You can disable the automatic crash reporting feature of Engagement. Then, when an unhandled exception will occur, Engagement won't do anything.
+You can disable the automatic crash reporting feature of Engagement. Then, when an unhandled exception occurs, Engagement does nothing.
 
-> [AZURE.WARNING] If you plan to disable this feature, be aware that when a unhandled crash will occur in your app, Engagement will not send the crash **AND** will not close the session and jobs.
+> [AZURE.WARNING] If you disable this feature, then when an unhandled crash occurs in your app, Engagement does not send the crash **AND** does not close the session and jobs.
 
-To disable automatic crash reporting, just customize your configuration depending on the way you declared it:
+To disable automatic crash reporting, customize your configuration depending on the way you declared it:
 
 #### From `EngagementConfiguration.xml` file
 
@@ -57,17 +57,17 @@ Set report crash to false using your EngagementConfiguration object.
 
 ### Disable real time reporting
 
-By default, the Engagement service reports logs in real time. If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the “burst mode”).
+By default, the Engagement service reports logs in real time. If your application reports logs frequently, it is better to buffer the logs and to report them all at once on a regular time basis. This is called “burst mode”.
 
 To do so, call the method:
 
 		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-The argument is a value in **milliseconds**. At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.
+The argument is a value in **milliseconds**. Whenever you want to reactivate the real-time logging, call the method without any parameter, or with the 0 value.
 
-The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s). You have to be aware that saved logs are limited to 300 items. If sending is too long you can lose some logs.
+Burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). We recommend using a burst threshold no longer than 30000 (30s). Saved logs are limited to 300 items. If sending is too long, you can lose some logs.
 
-> [AZURE.WARNING] The burst threshold cannot be configured to a period lesser than 1s. If you try to do so, the SDK will show a trace with the error and will automatically reset to the default value, i.e., 0s. This will trigger the SDK to report the logs in real-time.
+> [AZURE.WARNING] The burst threshold cannot be configured to a period less than one second. If you do so, the SDK shows a trace with the error and automatically resets to the default value, zero seconds. This triggers the SDK to report the logs in real-time.
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview

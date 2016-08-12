@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/03/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Windows Universal Apps
@@ -21,14 +21,14 @@
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application.
-This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. You will create a blank Windows Universal App that collects basic app usage data and receives push notifications using Windows Notification Service (WNS).
+This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. You create a blank Windows Universal App that collects basic app usage data and receives push notifications using Windows Notification Service (WNS).
 
 ## Prerequisites
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 
-## Setup Mobile Engagement for your Windows Universal app
+## Set up Mobile Engagement for your Windows Universal app
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -36,9 +36,9 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 
 This tutorial presents a "basic integration," which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md).
 
-We will create a basic app with Visual Studio to demonstrate the integration.
+You create a basic app with Visual Studio to demonstrate the integration.
 
-###Create a new Windows Universal App project
+###Create a Windows Universal App project
 
 The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio.
 
@@ -48,11 +48,11 @@ The following steps assume the use of Visual Studio 2015 though the steps are si
 
     ![][1]
 
-You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
+You have now created a Windows Universal App project into which you next integrate the Azure Mobile Engagement SDK.
 
 ###Connect your app to Mobile Engagement backend
 
-1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. For Windows 8.x and Windows Phone 8.1 the same Nuget package places the correct platform-specific binaries in each project.
+1. Install the [MicrosoftAzure.MobileEngagement] Nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both projects. For Windows 8.x and Windows Phone 8.1, the same Nuget package places the correct platform-specific binaries in each project.
 
 2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 
@@ -64,7 +64,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 	![][3]
 
-	>[AZURE.TIP] If your App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platforms. This is to ensure that you are able to create correct segmentation of the audience and are able to send appropriately targeted notifications for each platform.
+	>[AZURE.TIP] If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Havng two appa ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
 
 4. In the `App.xaml.cs` file:
 
@@ -72,7 +72,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 			using Microsoft.Azure.Engagement;
 
-	b. Add a method to initialize the Engagement:
+	b. Add a method that initializes the Engagement:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -101,7 +101,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
-In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
+To start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
 1. 	In the **MainPage.xaml.cs**, add the following `using` statement:
 
@@ -119,7 +119,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
 	b. Replace the **Page** in the XML tag name with **engagement:EngagementPageOverlay**
 
-> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, make sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
+> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise, the activity is not reported  `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -146,11 +146,11 @@ In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngage
 		   EngagementReach.Instance.Init(e);
 		}
 
-You're ready to send a toast. Now we will verify that you have correctly carried out this basic integration.
+You're ready to send a toast. Next we verify that you have correctly carried out this basic integration.
 
 ###Grant access to Mobile Engagement to send notifications
 
-1. Open [Windows Store Dev Center] in your web browser, login and create an account if necessary.
+1. Open [Windows Store Dev Center] in your web browser, login, and create an account if necessary.
 2. Click **Dashboard** at the top right corner and then click **Create a new app** from the left panel menu.
 
 	![][9]
@@ -163,11 +163,11 @@ You're ready to send a toast. Now we will verify that you have correctly carried
 
 	![][11]
 
-4. In the Push notifications section, click on **Live Services site** link.
+4. In the Push notifications section, click the **Live Services site** link.
 
 	![][12]
 
-5. You will be navigated to the Push credentials section. Make sure you are in the **App Settings** section and then copy your **Package SID** and **Client secret**
+5. You navigate to the Push credentials section. Make sure you are in the **App Settings** section and then copy your **Package SID** and **Client secret**
 
 	![][13]
 
@@ -175,16 +175,15 @@ You're ready to send a toast. Now we will verify that you have correctly carried
 
 	![][6]
 
-8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. You need to click on **Associate App with Store** from Visual Studio to do this.
-
+8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. Click on **Associate App with Store** in Visual Studio.
 	![][7]
 
 ##<a id="send"></a>Send a notification to your app
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-If the app was running then you will see an in-app notification otherwise you will see a toast notification if the app was closed.
-If you are seeing an in-app notification but not a toast notification and you are running the app in debug mode in Visual Studio then you should try **Lifecycle events -> Suspend** in the toolbar to ensure that the app is actually suspended. If you just clicked the Home button while debugging the application in Visual Studio then it doesn't always get suspended and while you will see the notification as in-app, it wouldn't show up as toast notification.  
+If the app is running, you see an in-app notification. otherwise  If the app is closed, you see a toast notification.
+If you see an in-app notification but not a toast notification, and you are running the app in debug mode in Visual Studio, then try **Lifecycle events -> Suspend** in the toolbar to ensure that the app is actually suspended. If you clicked the Home button while debugging the application in Visual Studio, then it doesn't always get suspended and while you will see the notification as in-app, it doesn't show up as a toast notification.  
 
 ![][8]
 
