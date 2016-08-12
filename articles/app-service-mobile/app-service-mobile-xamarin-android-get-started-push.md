@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/12/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Xamarin.Android app

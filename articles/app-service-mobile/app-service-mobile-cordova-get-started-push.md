@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Apache Cordova app
