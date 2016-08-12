@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/11/2016" 
 	ms.author="mimig"/>
 
 # How to create a database for DocumentDB using the Azure portal
 
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents.  This topic describes how to create a database for DocumentDB in the Microsoft Azure portal. For information on how to create a database using one of the SDKs, see [Other ways to create a DocumentDB database](#other-ways-to-create-a-documentdb-database).
 
-![Screen shot showing how to create a database, highlighting DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade](./media/documentdb-create-database/docdb-database-creation-1-2.png)
-
 1.  In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
 
 2.  In the **DocumentDB Accounts** blade, select the account in which to add a DocumentDB NoSQL database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
-    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-3-5.png)
+    ![Screen shot showing how to create a database, highlighting DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
 3. In the **DocumentDB account** blade, click **Add Database**.
 
 4. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the **ID** box.
 
 5. Click **OK** at the bottom of the screen to create the new database. 
+
+    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
 6. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
  
