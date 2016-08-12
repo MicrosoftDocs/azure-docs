@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Basics of Azure Batch
@@ -72,7 +72,7 @@ Your applications and services can issue direct REST API calls, use one or more 
 | **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Batch Java** (preview) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Batch resource management
 
@@ -83,6 +83,16 @@ In addition to the client APIs, you can also use the following to manage resourc
 - [Azure CLI](../xplat-cli-install.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 
 - [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
+
+### Batch tools
+
+While not required to build solutions using Batch, these tools can be valuable while building and debugging your Batch applications and services.
+
+ - [Azure portal][portal]: You can create pools, jobs, and tasks in the portal. You can also view task information and download files from compute nodes. Use the portal to download
+
+ - [Azure Batch Explorer][batch_explorer]: Batch Explorer is one of the Batch .NET sample applications available on [GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2015 or above. Use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
+
+ - [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Scenario: Scale out a parallel workload
 
@@ -126,7 +136,7 @@ Now that you have a high-level overview of the Batch service, it's time to dig d
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
-[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -144,6 +154,9 @@ Now that you have a high-level overview of the Batch service, it's time to dig d
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[storage_explorer]: http://storageexplorer.com/
+[portal]: https://portal.azure.com
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
