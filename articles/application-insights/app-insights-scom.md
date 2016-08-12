@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2016" 
+	ms.date="08/12/2016" 
 	ms.author="awills"/>
  
 # Application Performance Monitoring using Application Insights for SCOM
@@ -39,7 +39,7 @@ On the machine where you run Operations Manager:
 2. Uninstall any old version of the management pack:
  1. In Operations Manager, open Administration, Management Packs. 
  2. Delete the old version.
-1. Download and install the management pack from the ??? catalog.
+1. Download and install the management pack from the catalog.
 2. Restart Operations Manager.
 
 
