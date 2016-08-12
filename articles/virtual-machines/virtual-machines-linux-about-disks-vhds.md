@@ -30,7 +30,7 @@ Just like any other computer, virtual machines in Azure use disks as a place to 
 
 ## Next steps
 
--  [Attach a disk](virtual-machines-linux-attach-disk-portal.md) to add additional storage for your VM.
+-  [Attach a disk](virtual-machines-linux-add-disk.md) to add additional storage for your VM.
 -  [Configure software RAID](virtual-machines-linux-configure-raid.md) for redundancy.
 -  [Capture a Linux virtual machine](virtual-machines-linux-classic-capture-image.md) so you can quickly deploy additional VMs.
 
