@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="08/12/2016" 
 	ms.author="spelluru"/>
 
 # Move data From Amazon Redshift using Azure Data Factory
@@ -53,7 +53,7 @@ The sample copies data from a query result in Amazon Redshift to a blob every ho
 	            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
 	            "database": "<The database name of the Amazon Redshift database>",
 	            "username": "<username>",
-	            "password": "<password>",
+	            "password": "<password>"
 	        }
 	    }
 	}
@@ -81,7 +81,7 @@ Setting **"external": true** informs the Data Factory service that the dataset i
 	        "type": "RelationalTable",
 	        "linkedServiceName": "AmazonRedshiftLinkedService",
 	        "typeProperties": {
-	            "tableName  ": "<Table name>",
+	            "tableName  ": "<Table name>"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
