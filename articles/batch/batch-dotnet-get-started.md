@@ -127,7 +127,7 @@ Batch includes built-in support for interacting with Azure Storage. Containers i
 
 In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage]. We create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that create a [CloudBlobClient][net_cloudblobclient]:
 
-```
+```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format(
     "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
@@ -135,15 +135,17 @@ string storageConnectionString = String.Format(
     StorageAccountKey);
 
 // Retrieve the storage account
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+CloudStorageAccount storageAccount =
+    CloudStorageAccount.Parse(storageConnectionString);
 
-// Create the blob client, for use in obtaining references to blob storage containers
+// Create the blob client, for use in obtaining references to
+// blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
 We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
-```
+```csharp
 // Use the blob client to create the containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
@@ -154,12 +156,13 @@ await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-```
+```csharp
 private static async Task CreateContainerIfNotExistAsync(
     CloudBlobClient blobClient,
     string containerName)
 {
-		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+		CloudBlobContainer container =
+            blobClient.GetContainerReference(containerName);
 
 		if (await container.CreateIfNotExistsAsync())
 		{
@@ -483,7 +486,7 @@ Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are thr
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
-```
+```csharp
 private static async Task<bool> MonitorTasks(
     BatchClient batchClient,
     string jobId,
@@ -494,7 +497,7 @@ private static async Task<bool> MonitorTasks(
     const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
     // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to specify that only the "id" property of each task should be
+    // a detail level to  specify that only the "id" property of each task should be
     // populated. Using a detail level for all list operations helps to lower
     // response time from the Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
@@ -506,63 +509,57 @@ private static async Task<bool> MonitorTasks(
     // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
     // will wait for all tasks to reach the Completed state.
     TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(
-        tasks,
-        TaskState.Completed,
-        timeout);
-
-    if (timedOut)
+    try
     {
-        allTasksSuccessful = false;
-
-        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-
-        Console.WriteLine(failureMessage);
+        await taskStateMonitor.WhenAll(tasks, TaskState.Completed, timeout);
     }
-    else
+    catch (TimeoutException)
     {
-        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+        Console.WriteLine(failureMessage);
+        return false;
+    }
 
-        // All tasks have reached the "Completed" state. However, this does not
-        // guarantee that all tasks were completed successfully. Here we further
-        // check each task's ExecutionInfo property to ensure that it did not
-        // encounter a scheduling error or return a non-zero exit code.
+    await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        // Update the detail level to populate only the task id and executionInfo
-        // properties. We refresh the tasks below, and need only this information
-        // for each task.
-        detail.SelectClause = "id, executionInfo";
+    // All tasks have reached the "Completed" state, however, this does not
+    // guarantee all tasks completed successfully. Here we further check each task's
+    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // or return a non-zero exit code.
 
-        foreach (CloudTask task in tasks)
+    // Update the detail level to populate only the task id and executionInfo
+    // properties. We refresh the tasks below, and need only this information for
+    // each task.
+    detail.SelectClause = "id, executionInfo";
+
+    foreach (CloudTask task in tasks)
+    {
+        // Populate the task's properties with the latest info from the
+        // Batch service
+        await task.RefreshAsync(detail);
+
+        if (task.ExecutionInformation.SchedulingError != null)
         {
-            // Populate the task's properties with the latest info from the Batch service
-            await task.RefreshAsync(detail);
+            // A scheduling error indicates a problem starting the task on the node.
+            // It is important to note that the task's state can be "Completed," yet
+            // still have encountered a scheduling error.
 
-            if (task.ExecutionInformation.SchedulingError != null)
-            {
-                // A scheduling error indicates a problem starting the task on the
-                // node. It is important to note that the task's state can be
-                // "Completed," yet the task still might have encountered a
-                // scheduling error.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
+            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
+                task.Id,
+                task.ExecutionInformation.SchedulingError.Message);
+        }
+        else if (task.ExecutionInformation.ExitCode != 0)
+        {
+            // A non-zero exit code may indicate that the application executed by
+            // the task encountered an error during execution. As not every
+            // application returns non-zero on failure by default (e.g. robocopy),
+            // your implementation of error checking may differ from this example.
 
-                Console.WriteLine(
-                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
-                    task.Id,
-                    task.ExecutionInformation.SchedulingError.Message);
-            }
-            else if (task.ExecutionInformation.ExitCode != 0)
-            {
-                // A non-zero exit code may indicate that the application executed by
-                // the task encountered an error during execution. As not every
-                // application returns non-zero on failure by default (e.g. robocopy),
-                // your implementation of error checking may differ from this example.
+            allTasksSuccessful = false;
 
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
-            }
+            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
         }
     }
 
