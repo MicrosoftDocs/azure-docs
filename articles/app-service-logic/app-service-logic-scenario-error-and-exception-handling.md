@@ -43,11 +43,11 @@ We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Az
 
 Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
 
-### Create the logic app
+### Creation of the logic app
 
 The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
 
-Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger since the parent logic app triggers this child.
+Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger because the parent logic app triggers this child.
 
 > [AZURE.IMPORTANT] To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
 
