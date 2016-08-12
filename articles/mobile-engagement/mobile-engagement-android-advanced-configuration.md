@@ -33,7 +33,7 @@ This procedure describes how to configure various configuration options for Azur
 ## Permission Requirements
 Some options require specific permissions, all of which are listed here for reference, and in-line in the specific feature. Add these permissions to the AndroidManifest.xml of your project immediately before or after the `<application>` tag.
 
-The permission code needs to look like the following, where you fill in the appropriate permission from the table below.
+The permission code needs to look like the following, where you fill in the appropriate permission from the table that follows.
 
 	<uses-permission android:name="android.permission.[specific permission]"/>
 
@@ -72,7 +72,7 @@ The burst mode slightly increases the battery life but has an impact on the Enga
 
 ### Session timeout
 
- You can end an activity by pressing the **Home** or **Back** key, by setting the phone idle or by jumping into another application. By default, a session is ended 10s after the end of its last activity. This is to avoid a session split each time the user exits and returns to the application very quickly, which can happen when the user picks up an image, checks a notification, etc. You may want to modify this parameter. To do so, add **this** (between the `<application>` and `</application>` tags):
+ You can end an activity by pressing the **Home** or **Back** key, by setting the phone idle or by jumping into another application. By default, a session is ended ten seconds after the end of its last activity. This avoids a session split each time the user exits and returns to the application quickly, which can happen when the user picks up an image, checks a notification, etc. You may want to modify this parameter. To do so, add this code between the `<application>` and `</application>` tags:
 
 	<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
@@ -97,7 +97,7 @@ Instead of calling this function, you can also integrate this setting directly i
 You can configure Engagement to use your preferences file (with the desired mode) in the `AndroidManifest.xml` file with `application meta-data`:
 
 -   The `engagement:agent:settings:name` key is used to define the name of the shared preferences file.
--   The `engagement:agent:settings:mode` key is used to define the mode of the shared preferences file,. You should use the same mode as in your `PreferenceActivity`. The mode must be passed as a number: if you are using a combination of constant flags in your code, check the total value.
+-   The `engagement:agent:settings:mode` key is used to define the mode of the shared preferences file. Use the same mode as in your `PreferenceActivity`. The mode must be passed as a number: if you are using a combination of constant flags in your code, check the total value.
 
 Engagement always uses the `engagement:key` boolean key within the preferences file for managing this setting.
 

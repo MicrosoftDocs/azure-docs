@@ -79,7 +79,7 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 
 	  ![][7]
 
-5. Sync your project to load the library.
+5. To load the library, sync the project .
 
 	  ![][8]
 
