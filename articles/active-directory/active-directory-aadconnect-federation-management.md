@@ -19,7 +19,7 @@
 
 # Active Directory Federation Services management and customization with Azure AD Connect
 
-This article details tasks related to Azure Active Directory Federation Services (AD FS) that can be performed by using Microsoft Azure Active Directory Connect, plus other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
+This article details tasks related to Active Directory Federation Services (AD FS) that can be performed by using Microsoft Azure Active Directory Connect, plus other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
 
 | Topic | What it covers |
 |:------|:-------------|
