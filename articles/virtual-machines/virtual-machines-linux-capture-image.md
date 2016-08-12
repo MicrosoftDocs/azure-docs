@@ -76,7 +76,7 @@ After the VM is provisioned and running, you might want to [attach and mount a d
 
 8. Generalize the VM with the following command:
 
-	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm generalize -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. Now capture the image and a local file template with the following command:
 
