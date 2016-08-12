@@ -29,6 +29,8 @@ This article shows you how to use Azure PowerShell create a generalized image of
 
 - You need to have Azure PowerShell version 1.0.x installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
+- Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 ## Prepare the source VM 
 
 This section shows you how to generalize your Windows virtual machine so that it can be used as an image.
