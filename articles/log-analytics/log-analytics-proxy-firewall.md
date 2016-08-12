@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/10/2016"
 	ms.author="banders;magoedte"/>
 
 # Configure proxy and firewall settings in Log Analytics
@@ -27,10 +27,10 @@ For the Microsoft Monitoring Agent to connect to and register with the OMS servi
 
 |**Agent Resource**|**Ports**|**Bypass HTTPS inspection**|
 |--------------|-----|--------------|
-|*.ods.opinsights.azure.com|Port 443|Yes|
-|*.oms.opinsights.azure.com|Port 443|Yes|
-|*.blob.core.windows.net|Port 443|Yes|
-|ods.systemcenteradvisor.com|Port 443| |
+|\*.ods.opinsights.azure.com|443|Yes|
+|\*.oms.opinsights.azure.com|443|Yes|
+|\*.blob.core.windows.net|443|Yes|
+|ods.systemcenteradvisor.com|443| |
 
 You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -93,9 +93,9 @@ Here's a list of agent resources and ports:<br>
 
 |**Agent resource**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|443|
-|*.oms.opinsights.azure.com|443|
-|*.blob.core.windows.net/|443|
+|\*.ods.opinsights.azure.com|443|
+|\*.oms.opinsights.azure.com|443|
+|\*.blob.core.windows.net/\*|443|
 |ods.systemcenteradvisor.com|443|
 <br>
 Here's a list of management server resources and ports:<br>
@@ -103,22 +103,22 @@ Here's a list of management server resources and ports:<br>
 |**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
 |--------------|-----|--------------|
 |service.systemcenteradvisor.com|443| |
-|*.service.opinsights.azure.com|443| |
-|*.blob.core.windows.net|443|Yes| 
+|\*.service.opinsights.azure.com|443| |
+|\*.blob.core.windows.net|443|Yes| 
 |data.systemcenteradvisor.com|443| | 
 |ods.systemcenteradvisor.com|443| | 
-|*.ods.opinsights.azure.com|443|Yes| 
+|\*.ods.opinsights.azure.com|443|Yes| 
 <br>
 Here's a list of OMS and Operations Manager console resources and ports.<br>
 
 |**OMS and Operations Manager console resource**|**Ports**|
 |----|----|
 |service.systemcenteradvisor.com|443|
-|*.service.opinsights.azure.com|443|
-|*.live.com|Port 80 and 443|
-|*.microsoft.com|Port 80 and 443|
-|*.microsoftonline.com|Port 80 and 443|
-|*.mmms.microsoft.com|Port 80 and 443|
+|\*.service.opinsights.azure.com|443|
+|\*.live.com|Port 80 and 443|
+|\*.microsoft.com|Port 80 and 443|
+|\*.microsoftonline.com|Port 80 and 443|
+|\*.mmms.microsoft.com|Port 80 and 443|
 |login.windows.net|Port 80 and 443|
 <br>
 
@@ -180,12 +180,6 @@ Or, you can also check for OMS management packs by using the following Windows P
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in OMS and the configured log collection policy.  
     ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
-
-## Azure Automation Hybrid Runbook Worker
-
-There are no inbound firewall requirements to support Hybrid Runbook Workers.
-
-For the on-premises machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
 
 ## Next steps
 

@@ -110,6 +110,20 @@ The `alg` claim indicates the algorithm that was used to sign the token, while t
 
 At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically.  A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
+You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
+
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
+
+> [AZURE.TIP] Try this URL in a browser!
+
+This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  
+
+It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
+
+Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
+
 #### Validating the claims
 
 When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include but are not limited to:
