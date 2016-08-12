@@ -19,7 +19,7 @@
 
 # How to manage a DocumentDB account
 
-Learn how to set global consistency and manage multiple regions for global availability of data in Azure DocumentDB. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
+Learn how to set global consistency, work with keys, and delete a DocumentDB account in the Azure Portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
@@ -31,41 +31,6 @@ Selecting the right consistency level depends on the semantics of your applicati
 2. In the account blade, click **Default Consistency**.
 3. In the **Default Consistency** blade, select the new consistency level and click **OK**.
     ![Default consistency session][5]
-
-## <a id="addregion"></a>Add regions
-
-DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
-
-> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now. 
-
-1. In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
-2. In the **DocumentDB Account** blade, select the database account to modify.
-3. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
-4. In the **All Settings** blade, click on **Add / Remove Regions**.
-    ![Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
-5. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the pricing page for more information.
-
-    ![Click on the regions in the map to add or remove them][2]
-
-### Select regions
-
-When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
-
-Specifically, when configuring to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to 4 US regions, you select 2 US regions from the left column and 2 from the right. So, the following would be an appropriate set: West US, East US, North Central US and South Central US.
-
-This guidance is important to follow when only 2 regions are configured for disaster recovery scenarios. For more than 2 regions, following this guidance is good practice, but not critical as long as some of the selected regions adhere to this pairing.
-
-## <a id="selectwriteregion"></a>Select the write region
-
-While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
-
-
-1. In the **DocumentDB Account** blade, select the database account to modify.
-2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
-3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
-4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
 
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. 
