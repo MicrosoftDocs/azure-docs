@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/05/2016"
+   ms.date="08/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -47,7 +47,9 @@ If you created a DW before the dates below, you are currently using Standard Sto
 | South Central US    | May 27, 2016                      |
 | Southeast Asia      | May 24, 2016                      |
 | West Europe         | May 25, 2016                      |
+| West Central US     | Premium Storage Not Yet Available |
 | West US             | May 26, 2016                      |
+| West US2            | Premium Storage Not Yet Available |
 
 ## Automatic migration details
 By default, we will migrate your database for you during 6pm and 6am in your region's local time at some point during the [automatic migration schedule][] below.  During the migration, your existing Data Warehouse will be unusable.  We estimate that the migration will take around 1 hour per TB of storage per Data Warehouse.  We will also ensure that you are not charged during any portion of the migration.
@@ -93,7 +95,9 @@ Automatic migration will occur from 6pm – 6am (local time for that region) at 
 | South Central US    | June 23, 2016                | July 2, 2016                 |
 | Southeast Asia      | June 23, 2016                | July 1, 2016                 |
 | West Europe         | June 23, 2016                | July 8, 2016                 |
+| West Central US     | August 14, 2016              | August 28, 2016              |
 | West US             | June 23, 2016                | July 7, 2016                 |
+| West US2            | August 14, 2016              | August 28, 2016              |
 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the steps below to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
