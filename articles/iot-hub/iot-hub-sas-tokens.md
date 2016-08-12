@@ -78,6 +78,25 @@ This is a Node function that computes the token from the inputs `resourceUri, si
         // console.log("signature:" + token);
         return token;
     };
+ 
+ For comparison purposes, the equivalent Python code is:
+ 
+    from base64 import b64encode, b64decode
+    from hashlib import sha256
+    from hmac import HMAC
+    from urllib import urlencode
+    
+    def generate_sas_token(uri, key, policy_name='device', expiry=3600):
+        ttl = time() + expiry
+        sign_key = "%s\n%d" % (uri, int(ttl))
+        signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+     
+        return 'SharedAccessSignature ' + urlencode({
+            'sr' :  uri,
+            'sig': signature,
+            'se' : str(int(ttl)),
+            'skn': policy_name
+        })
 
 > [AZURE.NOTE] Since the time validity of the token is validated on IoT Hub machines, it is important that the drift on the clock of the machine that generates the token be minimal.
 

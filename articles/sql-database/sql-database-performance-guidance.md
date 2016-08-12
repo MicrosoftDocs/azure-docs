@@ -189,7 +189,7 @@ There are two views that enable you to monitor resource usage for a SQL database
 ### Using sys.dm_db_resource_stats
 The [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view exists in each SQL database and supplies recent resource utilization data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for one hour.
 
-Because this view provides a more granular look at resource utilization, you should first use **sys.dm_db_resource_stats ** for any current-state analysis or troubleshooting. For example, the following query show the average and maximum resource utilization for the current database over the last hour:
+Because this view provides a more granular look at resource utilization, you should first use **sys.dm_db_resource_stats** for any current-state analysis or troubleshooting. For example, the following query show the average and maximum resource utilization for the current database over the last hour:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',

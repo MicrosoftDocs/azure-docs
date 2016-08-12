@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/16/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET
@@ -47,6 +47,10 @@ You must have **Visual Studio 2015** to build the sample project. You can find f
 The [DotNetTutorial][github_dotnettutorial] sample is one of the many code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download the sample by clicking the **Download ZIP** button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you will find the solution in the following folder:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
+
+### Azure Batch Explorer (optional)
+
+The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
 
@@ -716,6 +720,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
