@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/12/2016"
 	ms.author="helaw"/>
 
 # Microsoft Azure Stack troubleshooting
