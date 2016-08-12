@@ -21,17 +21,17 @@
 
 ## Overview
 
-Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Microsoft Azure Active Directory now supports tokens signed with a SHA256 algorithm and recommends setting the token signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
+Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Microsoft Azure Active Directory now supports tokens signed with an SHA256 algorithm and recommends setting the token signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
 
 ## To change the token signing algorithm
 
-Once you have set the signature algorithm with one of the two processes below, AD FS will start signing the tokens for O365 relying party trust with SHA256. You don't need to make any  extra configuration change, and making this change has no impact on your users' ability to access Office 365 or other Azure AD applications.
+After you have set the signature algorithm with one of the two processes below, AD FS signs the tokens for O365 relying party trust with SHA256. You don't need to make any extra configuration changes, and this change has no impact on your ability to access Office 365 or other Azure AD applications.
 
 ### AD FS Management Console
 
 1. Open AD FS Management Console on the primary AD FS server.
 2. Expand the AD FS node and click **Relying Party Trusts**.
-3. Right click your O365/Azure relying party trust and select **Properties**.
+3. Right-click your O365/Azure relying party trust and select **Properties**.
 4. Select the **Advanced** tab and select the secure hash algorithm SHA256.
 5. Click **OK**.
 
