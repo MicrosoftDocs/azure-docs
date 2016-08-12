@@ -21,9 +21,9 @@
 
 ## Overview
 
-Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Microsoft Azure Active Directory now supports tokens signed with an SHA256 algorithm and recommends setting the token signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
+Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Azure Active Directory now supports tokens signed with an SHA256 algorithm and recommends setting the token-signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
 
-## To change the token signing algorithm
+## To change the token-signing algorithm
 
 After you have set the signature algorithm with one of the two processes below, AD FS signs the tokens for O365 relying party trust with SHA256. You don't need to make any extra configuration changes, and this change has no impact on your ability to access Office 365 or other Azure AD applications.
 
@@ -39,7 +39,7 @@ After you have set the signature algorithm with one of the two processes below, 
 
 ### AD FS PowerShell cmdlets
 
-1. On any AD FS server, open PowerShell under **administrator privileges**.
+1. On any AD FS server, open PowerShell under **administrator** privileges.
 2. Set the secure hash algorithm by using the **Set-AdfsRelyingPartyTrust** cmdlet.
 
  <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
