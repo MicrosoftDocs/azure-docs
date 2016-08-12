@@ -27,7 +27,7 @@ The following sections will provide guidance on determining each of these.
 
 ## What am I trying to secure?
 
-In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or is it a remote access system for example.  By determining what we are trying to secure, we will see to answer the question of where multi-factor authentication needs to be enabled.  
+In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or is it a remote access system for example.  By determining what we are trying to secure, we will seek to answer the question of where multi-factor authentication needs to be enabled.  
 
 
 What are you trying to secure| Multi-Factor Authentication in the cloud|Multi-Factor Authentication Server 
@@ -42,7 +42,7 @@ Remote access such as VPN, RDG| |* |
 
 ## Where are the users located
 
-Next, depending on where our users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
+Next, depending on where our users are located, we can determine the correct solution to use, whether it is multi-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 
