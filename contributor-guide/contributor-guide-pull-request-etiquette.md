@@ -41,7 +41,7 @@ You can help make the pull request queue work better by following these best pra
 
 ## Criteria for expedited pull requests
 
-- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
+- Contact azdocprs to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
 - Content for feature releases does not qualify for expedited handling - feature release content requires prior planning or it must be handled through the standard priority queue.
 
 
