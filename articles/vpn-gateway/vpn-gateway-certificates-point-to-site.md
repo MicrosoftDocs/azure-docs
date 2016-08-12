@@ -44,7 +44,7 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. The self-signed certificate is used to create client certificates. Any computer with a client certificate installed that is also configured with the proper VPN client settings can connect to your virtual network via P2S. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using. For that reason, you want to make sure that client certificates are generated and installed only when needed and that this self-signed certificate is backed up and stored safely.
+4. The self-signed certificate is used to create client certificates. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using. Any computer with a client certificate installed that's also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed, and that this self-signed certificate is backed up and stored safely.
  
 
 ## Create and install client certificates
