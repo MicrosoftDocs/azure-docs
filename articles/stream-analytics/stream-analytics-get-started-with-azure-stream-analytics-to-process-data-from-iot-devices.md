@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Get started with Azure Stream Analytics to process data from IoT devices. | Stream Analytics"
 	description="IoT sensor tags and data streams with stream analytics and real-time data processing"
+    keywords="iot solution, get started with iot"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +15,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"
 />
 
@@ -25,7 +26,7 @@ In this tutorial you will learn to create stream processing logic to gather data
 ## Prerequisites
 
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
--   Sample query and data files downloadable from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
+-   Sample query and data files downloadable from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## Scenario
 
@@ -75,7 +76,7 @@ The simplest form of query is a pass-through which will archive all input data t
 
 ![Archive job query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-Now download the sample data file from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) to a location in your computer. Copy and paste the query from the **PassThrough.txt** file. Click on the Test button below and select the data file named **HelloWorldASA-InputStream.json** from your downloaded location.
+Now download the sample data file from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) to a location in your computer. Copy and paste the query from the **PassThrough.txt** file. Click on the Test button below and select the data file named **HelloWorldASA-InputStream.json** from your downloaded location.
 
 ![Test button in Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
