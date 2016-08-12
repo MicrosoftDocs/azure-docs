@@ -152,7 +152,7 @@ Key Password:
 
 ## Using ssh-agent to store your private key password
 
-To avoid typing your private key file password with every SSH log in, you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM.  On OSX, `ssh-agent`
+To avoid typing your private key file password with every SSH login, you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM.  On OSX, `ssh-agent`
 
 If you are using OSX, the Keychain will securely store your private key passwords when you invoke `ssh-agent`.
 
