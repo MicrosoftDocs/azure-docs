@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/12/2016"
 	ms.author="jeedes"/>
 
 
@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. Click **Next**
 
-	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [@andfrankly.com](emailTo:help@andfrankly.com) to get these values.
+	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [help@andfrankly.com](emailTo:help@andfrankly.com) to get these values.
 
 5. On the **Configure single sign-on at &frankly** page, perform the following steps and click **Next**:
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     b. Click **Next**.
 
-6. To get SSO configured for your application, contact your &frankly support team via [@andfrankly](emailTo:help@andfrankly.com). Attach the downloaded metadata file and share it with &frankly team to set up SSO on their side.
+6. To get SSO configured for your application, contact your &frankly support team via [help@andfrankly.com](emailTo:help@andfrankly.com). Attach the downloaded metadata file and share it with &frankly team to set up SSO on their side.
 
 7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
