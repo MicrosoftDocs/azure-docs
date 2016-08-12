@@ -64,7 +64,7 @@ You have now created a Windows Universal App project into which you next integra
 
 	![][3]
 
-	>[AZURE.TIP] If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Havng two appa ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
+	>[AZURE.TIP] If your App targets both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platform. Having two apps ensures that you can create correct segmentation of the audience and can send appropriately targeted notifications for each platform.
 
 4. In the `App.xaml.cs` file:
 
@@ -119,7 +119,7 @@ To start sending data and ensuring that the users are active, you must send at l
 
 	b. Replace the **Page** in the XML tag name with **engagement:EngagementPageOverlay**
 
-> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise, the activity is not reported  `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
+> [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise, the activity is not reported `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method.
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -171,19 +171,19 @@ You're ready to send a toast. Next we verify that you have correctly carried out
 
 	![][13]
 
-6. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left. Then, click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
+6. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left. Then, click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown:
 
 	![][6]
 
-8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. Click on **Associate App with Store** in Visual Studio.
+8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. Click **Associate App with Store** in Visual Studio.
 	![][7]
 
 ##<a id="send"></a>Send a notification to your app
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-If the app is running, you see an in-app notification. otherwise  If the app is closed, you see a toast notification.
-If you see an in-app notification but not a toast notification, and you are running the app in debug mode in Visual Studio, then try **Lifecycle events -> Suspend** in the toolbar to ensure that the app is actually suspended. If you clicked the Home button while debugging the application in Visual Studio, then it doesn't always get suspended and while you will see the notification as in-app, it doesn't show up as a toast notification.  
+If the app is running, you see an in-app notification. otherwise if the app is closed, you see a toast notification.
+If you see an in-app notification but not a toast notification, and you are running the app in debug mode in Visual Studio, then try **Lifecycle events -> Suspend** in the toolbar to ensure that the app is suspended. If you clicked the Home button while debugging the application in Visual Studio, then it doesn't always get suspended and while you see the notification as in-app, it doesn't show up as a toast notification.  
 
 ![][8]
 

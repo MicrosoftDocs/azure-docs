@@ -50,11 +50,11 @@ You also need to specify a location permission. This code uses ``COARSE`` permis
 
 If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
-### Real time location reporting
+### Real-time location reporting
 
-Real-time location reporting enables reporting the latitude and longitude associated with devices. By default, this type of location reporting only uses network locations (based on Cell ID or WIFI), and the reporting is only active when the application runs in foreground (for example, during a session).
+Real-time location reporting enables reporting the latitude and longitude associated with devices. By default, this type of location reporting only uses network locations, based on Cell ID or WIFI. The reporting is only active when the application runs in foreground (for example, during a session).
 
-Real-time locations are *NOT* used to compute statistics. Their only purpose is to allow the use of real time
+Real-time locations are *NOT* used to compute statistics. Their only purpose is to allow the use of real-time
 geo-fencing \<Reach-Audience-geofencing\> criterion in Reach campaigns.
 
 To enable real-time location reporting, add a line of code to where you set the Engagement connection string in the launcher activity. The result looks like the following:
@@ -72,7 +72,7 @@ To enable real-time location reporting, add a line of code to where you set the 
 
 #### GPS based reporting
 
-By default, real-time location reporting only uses network based locations. To enable the use of GPS-based locations, which are far more precise, use the configuration object:
+By default, real-time location reporting only uses network-based locations. To enable the use of GPS-based locations, which are far more precise, use the configuration object:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -113,7 +113,7 @@ You also need to add the following permission if missing:
 
 Starting with Android M, some permissions are managed at runtime and need user approval.
 
-If you target Android API level 23, the runtime permissions is turned off by default for new app installations. Otherwise it is turned on by default.
+If you target Android API level 23, the runtime permissions are turned off by default for new app installations. Otherwise they are turned on by default.
 
 You can enable/disable those permissions from the device settings menu. Turning off permissions from the system menu kills the background processes of the application, which is a system behavior, and has no impact on ability to receive push in background.
 
@@ -122,7 +122,7 @@ In the context of Mobile Engagement location reporting, the permissions that req
 - `ACCESS_COARSE_LOCATION`
 - `ACCESS_FINE_LOCATION`
 
-Request permissions from the user using a standard system dialog. If the user approves, tell ``EngagementAgent`` to take that change into account in real time, otherwise the change will be processed the next time the user launches the application.
+Request permissions from the user using a standard system dialog. If the user approves, tell ``EngagementAgent`` to take that change into account in real-time. Otherwise the change is processed the next time the user launches the application.
 
 Here is a code sample to use in an activity of your application to request permissions and forward the result if positive to ``EngagementAgent``:
 
@@ -142,7 +142,7 @@ Here is a code sample to use in an activity of your application to request permi
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
       {
         /*
-         * Request location permission, but this won't explain why it is needed to the user.
+         * Request location permission, but this doesn't explain why it is needed to the user.
          * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
          * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
          */
