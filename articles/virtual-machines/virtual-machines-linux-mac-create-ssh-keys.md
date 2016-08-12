@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-In order to create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys, you will be able to create new VMs with that key by default. You will also be able to add the public key to existing VMs using both the Azure CLI and Azure templates.  Using SSH keys will allow for password-less logins over SSH using the much more secure authentication method of keys versus passwords.
+In order to create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys, you will be able to create new VMs with that key by default. You will also be able to add the public key to existing VMs using both the Azure CLI and Azure templates.  Using SSH keys will allow for password-less log ins over SSH using the much more secure authentication method of keys versus passwords.
 
 ## Quick Command Listing
 
@@ -64,7 +64,7 @@ $
 
 ## Introduction
 
-Using SSH public and private keys is the easiest way to login into your Linux servers. In addition to being simple, [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to login to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key will have a [secure password](https://www.xkcd.com/936/) to safeguard it and this password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key so that the private key is usable without the password to unlock it.  If an attacker were to steal your private key and it did not have a password they would be able to use that private key to login to any servers that have the corresponding public key.  If private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
+Using SSH public and private keys is the easiest way to log in to your Linux servers. In addition to being simple, [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) also provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key will have a [secure password](https://www.xkcd.com/936/) to safeguard it and this password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key so that the private key is usable without the password to unlock it.  If an attacker were to steal your private key and it did not have a password they would be able to use that private key to log in to any servers that have the corresponding public key.  If private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
 
 This article creates *ssh-rsa* formatted key files which are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
@@ -148,11 +148,11 @@ Key Password:
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen` refers to a password as "a passphrase".  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to login to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
+`ssh-keygen` refers to a password as "a passphrase".  It is *strongly* recommended to add a password to your key pairs. Without a password protecting the key pair, anyone with the private key file can use it to log in to any server that has the corresponding public key. Adding a password offers more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
 ## Using ssh-agent to store your private key password
 
-To avoid typing your private key file password with every SSH login, you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM.  On OSX, `ssh-agent`
+To avoid typing your private key file password with every SSH log in, you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM.  On OSX, `ssh-agent`
 
 If you are using OSX, the Keychain will securely store your private key passwords when you invoke `ssh-agent`.
 
@@ -172,7 +172,7 @@ The private key password is now stored in `ssh-agent`.
 
 ## Create and configure a SSH config file
 
-It is a recommended best practice to create and configure an `~/.ssh/config` file to speed up logins and for optimizing your SSH client behavior.
+It is a recommended best practice to create and configure an `~/.ssh/config` file to speed up log ins and for optimizing your SSH client behavior.
 
 The following example shows a standard configuration.
 
@@ -219,14 +219,14 @@ This SSH config gives you sections for each service to enable each to have its o
 
 `User git` = the remote user account to use when logging into the Azure VM.
 
-`PubKeyAuthentication yes` = tells SSH you want to use a SSH key to login.
+`PubKeyAuthentication yes` = tells SSH you want to use a SSH key to log in.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = this tells SSH which key pair to present to the server to authenticate the login.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = this tells SSH which key pair to present to the server to authenticate the log in.
 
 
 ## SSH into Linux without a password
 
-Now that you have a SSH key pair and a configured SSH config file, you are able to login to your Linux VM quickly and securely. The first time you login to a server using a SSH key the command prompts you for the passphrase for that key file.
+Now that you have a SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using a SSH key the command prompts you for the passphrase for that key file.
 
 ```bash
 ssh fedora22
