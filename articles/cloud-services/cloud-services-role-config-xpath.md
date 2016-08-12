@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="05/17/2016" 
+ms.date="08/10/2016" 
 ms.author="adegeo"/>
 
 # Expose role configuration settings as an environment variable with XPath

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="08/10/2016"
    ms.author="gwallace"/>
 
 # Application Gateway overview
@@ -31,13 +31,13 @@ Application Gateway currently supports layer-7 application delivery for the foll
 
 ## HTTP layer 7 load balancing
 
-Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic.
+Azure provides layer 4 load balancing through Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway applies the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) is associated and used as public IP for ingress network traffic.
 
-The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
+The Application Gateway routes the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app, or an external IP address.
 
 HTTP layer 7 load balancing is useful for:
 
-- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of this would be shopping cart apps and web mail servers.
+- Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
@@ -59,7 +59,7 @@ The following table shows an average performance throughput for each application
 |100 K | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE] These are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
+>[AZURE.NOTE] These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page.
 
 
 ## Health monitoring
@@ -77,7 +77,7 @@ You can create and manage an application gateway by using REST APIs and by using
 
 ## Next steps
 
-After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway.md) or you can [create an application gateway SSL offload](application-gateway-ssl.md) to load-balance HTTPS connections.
+After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.
 

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/05/2016"
+ms.date="08/10/2016"
 ms.author="adegeo"/>
 
 # How to update a cloud service
@@ -180,6 +180,6 @@ The following diagram illustrates how a service than contains two roles are dist
 > [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)<br>
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
+[How to Configure Cloud Services](cloud-services-how-to-configure.md)  

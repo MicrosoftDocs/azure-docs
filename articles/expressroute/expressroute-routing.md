@@ -3,8 +3,8 @@
    description="This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # ExpressRoute routing requirements  
 
-To connect to Microsoft cloud services using ExpressRoute, you’ll need to setup and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the requirements described below. 
+To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the requirements described below. 
 
-Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be setup in order to facilitate connectivity.
+Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be set up in order to facilitate connectivity.
 
 **Note:** Microsoft does not support any router redundancy protocols (e.g., HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 
@@ -37,16 +37,16 @@ You can use either private IP addresses or public IP addresses to configure the 
  - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	 - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
+	 - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to set up a BGP session.
+	 - You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
-If you choose to use a.b.c.d/29 to setup the peering, it will be split into two /30 subnets. In the example below, we will look at how the a.b.c.d/29 subnet is used. 
+If you choose to use a.b.c.d/29 to set up the peering, it will be split into two /30 subnets. In the example below, we will look at how the a.b.c.d/29 subnet is used. 
 
 a.b.c.d/29 will be split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs. You will use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE. You will use a.b.c.d+5 as the VRF IP for the secondary PE and Microsoft will use a.b.c.d+6 as the VRF IP for the secondary MSEE.
 
-Consider a case where you select 192.168.100.128/29 to setup private peering. 192.168.100.128/29 includes addresses from 192.168.100.128 to 192.168.100.135, among which:
+Consider a case where you select 192.168.100.128/29 to set up private peering. 192.168.100.128/29 includes addresses from 192.168.100.128 to 192.168.100.135, among which:
 
 - 192.168.100.128/30 will be assigned to link1, with provider using 192.168.100.129 and Microsoft using 192.168.100.130.
 - 192.168.100.132/30 will be assigned to link2, with provider using 192.168.100.133 and Microsoft using 192.168.100.134.
@@ -55,11 +55,11 @@ Consider a case where you select 192.168.100.128/29 to setup private peering. 19
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
-- You must use a unique /29 subnet or two /30 subnets to setup the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
+- You must use a unique /29 subnet or two /30 subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
 - If a /29 subnet is used, it will be split into two /30 subnets. 
 	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to set up a BGP session.
+	- You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -99,7 +99,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
  To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
 
  - Azure public peering is enabled to route traffic to public endpoints
- - You use user defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+ - You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
@@ -124,6 +124,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 |    | East US | 12076:51004 |
 |    | East US 2 | 12076:51005 |
 |    | West US | 12076:51006 |
+|    | West US 2 | 12076:51026 |
+|    | West Central US | 12076:51027 |
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |

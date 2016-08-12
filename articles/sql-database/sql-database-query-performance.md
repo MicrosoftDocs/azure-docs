@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="05/05/2016"
+   ms.date="08/09/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -29,15 +29,15 @@ Managing and tuning the performance of relational databases is a challenging tas
 ## Prerequisites
 
 - Query Performance Insight is only available with Azure SQL Database V12.
-- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running on your database. The portal will prompt you to turn Query Store on if it is not already running.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running on your database. If Query Store is not running, the portal prompts you to turn it on.
 
  
 ## Permissions
 
 The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
-- **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
-- **Owner**, **Contributor**, **SQL DB Contributor** or **SQL Server Contributor** permissions are required to view query text.
+- **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
+- **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.
 
 
 
@@ -46,13 +46,13 @@ The following [role-based access control](../active-directory/role-based-access-
 Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
-- Select an individual query to view its details.
+- To view its details, select an individual query.
 - Open [SQL Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
 - Zoom in for detailed information.
 
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
-> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
+> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts are empty when displaying that time period. If Query Store is not running, you may enable it at any time.   
 
 
 
@@ -60,13 +60,13 @@ Query Performance Insight is easy to use:
 
 In the [portal](http://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **All settings** > **Performance** > **Queries**. 
+1. Browse to a SQL database and click **Settings** > **Performance** > **Queries**. 
 
     ![Query Performance Insight][1]
 
     The top queries view opens and the top CPU consuming queries are listed.
 
-1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents 1 day).
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database. The bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
 
     ![top queries][2]
 
@@ -111,7 +111,7 @@ During your use of Query Performance Insight, you might encounter the following 
 - "Query Store for this database is in read-only mode and not collecting performance insights data."
 - "Query Store parameters are not optimally set for Query Performance Insight."
 
-These messages usually appear when Query Store is not able to collect new data. To fix this you have couple of options:
+These messages usually appear when Query Store is not able to collect new data. To resolve these issues, you have a couple of options:
 
 -	Change the Retention and Capture policy of Query Store
 -	Increase size of Query Store 
@@ -121,16 +121,16 @@ These messages usually appear when Query Store is not able to collect new data. 
 
 There are two types of retention policies:
 
-- Size based – if set to AUTO it will clean data automatically when near max size is reached.
-- Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days. 
+- Size based – if set to AUTO it cleans data automatically when near max size is reached.
+- Time based - if Query Store runs out of space, it deletes query information older than the default setting of 30 days.
 
 Capture policy could be set to:
 
-- **All** – Captures all queries. This is the default option.
-- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined.
+- **All** – Captures all queries. **All** is the default option.
+- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile, and runtime duration are internally determined.
 - **None** – Query Store stops capturing new queries.
 	
-We recommend to set all policies to AUTO and clean policy to 30 days:
+We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
@@ -141,26 +141,26 @@ We recommend to set all policies to AUTO and clean policy to 30 days:
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
+Increase size of Query Store by connecting to a database and issuing following query:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Clear Query Store. Be aware that this will delete all current information in the Query Store:
+Clear Query Store. Deletes all current information in the Query Store:
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
 ## Summary
 
-Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
 
 
 
 
 ## Next steps
 
-For additional recommendations for improving the performance of your SQL database click [SQL Database Advisor](sql-database-advisor.md) on the **Query Performance Insight** blade.
+For additional recommendations about improving the performance of your SQL database, click [Database Advisor](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 

@@ -52,20 +52,10 @@ You can add these features:
 
 ## Release notes
 
-### 4.2.2 (05/17/2016)
+### 4.2.3 (08/10/2016)
 
-- Stability improvements.
-
-### 4.2.1 (05/10/2016)
-
-- Security: disable web view local file access.
-- Security: remove `EngagementPreferenceActivity` class that extends obsolete and unsecure `PreferenceActivity` class.
-- Security: reach activities are now documented to use `exported="false"`. This flag can also be used in previous SDK versions.
-
-### 4.2.0 (03/11/2016)
-
-- The SDK is now licensed under MIT.
-- Allow specifying a custom device identifier at SDK initialization time.
+ - No more WIFI lock.
+ - Fix a deadlock when calling getDeviceId before init (bug introduced in 4.2.0).
 
 For all versions, see the [complete release notes](mobile-engagement-android-release-notes.md).
 

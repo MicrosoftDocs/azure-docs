@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="DocumentDB Java SDK | Microsoft Azure" 
-	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
+	pageTitle="DocumentDB Java API & SDK | Microsoft Azure" 
+	description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="rnagpal" 
@@ -13,25 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB APIs and SDKs
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Java SDK
+## DocumentDB Java API and SDK
 
 <table>
-<tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Documentation**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
-<tr><td>**Current Supported Runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**SDK Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Release Notes

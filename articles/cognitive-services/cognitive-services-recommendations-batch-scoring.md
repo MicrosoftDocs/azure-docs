@@ -1,6 +1,7 @@
+
 <properties
-	pageTitle="Getting Recommendations in Batches: Machine Learning Recommendations API | Microsoft Azure"
-	description="Azure Machine Learning Recommendations - Getting Recommendations IN bATCHES"
+	pageTitle="Getting recommendations in batches: Machine learning recommendations API | Microsoft Azure"
+	description="Azure machine learning recommendations--getting recommendations in batches"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -16,36 +17,40 @@
 	ms.date="05/24/2016"
 	ms.author="luisca"/>
 
-# Getting recommendations in batches
+# Get recommendations in batches
 
->[AZURE.NOTE] Getting recommendations in batches is more complicated than getting a recommendation results one at a time. Please do check the APIs for getting recommendations for a single request here:<br>
-> [Item-to-Item Recoomendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
-> [User-to-Item Recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
+>[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+
+> [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
+> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
-> Batch scoring only works for builds created after July 21. 2016
+> Batch scoring only works for builds that were created after July 21, 2016.
 
 
-There are situations when you need to get recommendations for more than one item at a time. For instance, you may be interested in creating a recommendations cache or even doing an analysis on the types of recommendations you are getting.
+There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
-Batch scoring operations as we call them, are asynchronous operations. You need to submit the request, wait for the operation to complete, and then gather your results.  
+Batch scoring operations, as we call them, are asynchronous operations. You need to submit the request, wait for the operation to finish, and then gather your results.  
+
 To be more precise, these are the steps to follow:
 
-1.	Create an Azure Storage Container if you don’t have one already.
-2.	Upload an input file that describes each of your recommendation requests to Azure Blob Storage.
+1.	Create an Azure Storage container if you don’t have one already.
+2.	Upload an input file that describes each of your recommendation requests to Azure Blob storage.
 3.	Kick-start the scoring batch job.
-4.	Wait for the asynchronous operation to complete.
-5.	Once completed, gather the results from Azure Blob Storage.
+4.	Wait for the asynchronous operation to finish.
+5.	When the operation has finished, gather the results from Blob storage.
 
 Let’s walk through each of these steps.
 
-## Create an Azure Storage Container if you don’t have one already
+## Create a Storage container if you don’t have one already
 
-Go to the [Azure Management Portal](https://portal.azure.com) and create a new storage account if you don’t have one already by navigating to *+New* > *Data* + *Storage* > *Storage Account*.
+Go to the [Azure portal](https://portal.azure.com) and create a new storage account if you don’t have one already. To do this, navigate to **New** > **Data** + **Storage** > **Storage Account**.
 
-Once you have a storage account, you need to create the blob container(s) where you will store the input and output of the batch execution.
+After you have a storage account, you need to create the blob containers where you will store the input and output of the batch execution.
 
-Upload an input file that describes each of your recommendation requests to Azure Blob - let's call it input.json here.
-Once you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service. A given batch can perform only one type of request from a specific build. We will explain how to define this information in the next section, for now let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case the seed items) for each of the requests.
+Upload an input file that describes each of your recommendation requests to Blob storage--let's call the file input.json here.
+After you have a container, you need to upload a file that describes each of the requests that you need to perform from the recommendations service.
+
+A batch can perform only one type of request from a specific build. We will explain how to define this information in the next section. For now, let’s assume that we will be performing item recommendations out of a specific build. The input file then contains the input information (in this case, the seed items) for each of the requests.
 
 This is an example of what the input.json file looks like:
 
@@ -61,14 +66,14 @@ This is an example of what the input.json file looks like:
       { "SeedItems": [ "C9A-69320" ] }
       ]
     }
-    
-As you can see, the file is a JSON file, where each of the requests has the information necessary to send a recommendations request. Create a similar JSON file for the requests you need to fulfill, and copy it to the container you just created in blob storage.
+
+As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
 ## Kick-start the batch job
 
-The next step is to submit a new batch job. Check the API reference [here](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
+The next step is to submit a new batch job. For more information, check the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
-The request body of the API needs to define the locations where the input, output and error files need to be stored, as well as the credentials necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, number of results per call, etc.)
+The request body of the API needs to define the locations where the input, output, and error files need to be stored. It also needs to define the credentials that are necessary to access those locations. In addition, you need to specify some parameters that apply to the whole batch (the type of recommendations to request, the model/build to use, the number of results per call, and so on.)
 
 This is an example of what the request body should look like:
 
@@ -101,22 +106,24 @@ This is an example of what the request body should look like:
       }
     }
 
-A few things to point out:
+Here a few important things to note:
 
--	Currently AuthenticationType should always be set to PublicOrSas.
--	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your blob storage account. More information on generating SAS tokens can be found [here](../storage/storage-dotnet-shared-access-signature-part-1.md)
--	The only *apiName* currently supported is “ItemRecommend” which is used for Item-to-Item  recommendations. User to Item recommendations are not supported by batching right now.
+-	Currently, **authenticationType** should always be set to **PublicOrSas**.
 
-## Wait for the asynchronous operation to complete.
+-	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
-When you start the batch operation, the response will return the Operation-Location header that will give you the information necessary to track the operation.
-You track the operation using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
+-	The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
+
+## Wait for the asynchronous operation to finish
+
+When you start the batch operation, the response returns the Operation-Location header that gives you the information that's necessary to track the operation.
+You track the operation by using the [Retrieve Operation Status API]( https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), just like you do for tracking the operation of a build operation.
 
 ## Get the results
 
-Once the operation is completed, and assuming that there were no errors in the operation you can gather the results from your output blob storage.
+After the operation has finished, assuming that there were no errors, you can gather the results from your output Blob storage.
 
-The sample below show an example of what the output may look like. In the example we show results for a batch with two requests for brevity.
+The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
     {
       "results":
@@ -189,8 +196,7 @@ The sample below show an example of what the output may look like. In the exampl
     ]}
 
 
-## Limitations
+## Learn about the limitations
 
 -	Only one batch job can be called per subscription at a time.
--	A batch job input file cannot be more than 2MB.
-
+-	A batch job input file cannot be more than 2 MB.

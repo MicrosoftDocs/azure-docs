@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/09/2016"
 	ms.author="roopalik;garye"/>
 
 
@@ -75,7 +75,7 @@ If you're not already signed in while browsing, you will be prompted to sign in 
 
 When you sign in you become a member of the Gallery community. This allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
 
-See the section below, [Suggestions for Publishing and for Quality Documentation](#suggestions-for-publishing-and-for-quality-documentation), for more details and tips on how to create a quality gallery contribution.
+See the section below, [Suggestions for publishing and for quality documentation](#suggestions-for-publishing-and-for-quality-documentation), for more details and tips on how to create a quality gallery contribution.
 
 #### Contribute experiments
 
@@ -87,7 +87,7 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 - Create your experiment and run it
 - When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas
 
-See the section below, [Process for Publishing Azure ML Experiments](#process-for-publishing-azure-ml-experiments), for more details and tips on contributing an experiment.
+See the section below, [Process for publishing Azure Machine Learning experiments](#process-for-publishing-azure-ml-experiments), for more details and tips on contributing an experiment.
 
 #### Contribute collections
 
@@ -117,19 +117,19 @@ While you're editing your collection, you can also change the order of the items
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 -->
 
-## Suggestions for Publishing and for Quality Documentation
+## Suggestions for publishing and for quality documentation
 
 - While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.
 - Not all readers will be familiar with the Cortana Intelligence Suite, given that it is relatively new; therefore, provide enough information and step-by-step explanations to help such readers navigate through your work.
 - Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See [this collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
 - If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
-## Process for Publishing Azure ML Experiments
+## Process for publishing Azure Machine Learning experiments
 
 When you are ready to publish to the Gallery, follow the five steps below.
 
 1. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
-	![](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
+	![Fill out title and tag fields when publishing](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
 
 2. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
 
