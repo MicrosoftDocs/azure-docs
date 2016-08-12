@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="08/11/2016"
 	ms.author="anhoh"/>
 
 # How to manage a DocumentDB account
@@ -28,16 +28,9 @@ Selecting the right consistency level depends on the semantics of your applicati
 ### To specify the default consistency for a DocumentDB account
 
 1. In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account.
-2. In the account blade, if the **Settings** blade is not already opened, click **All settings**.
-![Default consistency session][5]
-
-3. In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
-    ![Default consistency session][6]
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
-
-> [AZURE.NOTE] It can take several minutes before a change to the default
-consistency setting takes effect across your DocumentDB account.
+2. In the account blade, click **Default Consistency**.
+3. In the **Default Consistency** blade, select the new consistency level and click **OK**.
+    ![Default consistency session][5]
 
 ## <a id="addregion"></a>Add regions
 
@@ -77,25 +70,19 @@ While all regions associated with your DocumentDB database account can serve rea
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. 
 
-In the [Microsoft Azure Portal](https://portal.azure.com/), access the **Keys** blade from the **Essentials** bar in your **DocumentDB Account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
+In the [Microsoft Azure Portal](https://portal.azure.com/), access the **Keys** blade from the **DocumentDB Account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
 
 ![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
 
-Another option is to access the **Keys** entry from the **All Settings** blade.
-
-![All Settings, Keys blade](./media/documentdb-manage-account/allsettingskeys.png)
-
 > [AZURE.NOTE] The **Keys** blade also includes primary and secondary connection strings that can be used to connect to your account from the [Data Migration Tool](documentdb-import-data.md).
 
-It also includes read-only keys to provide users with read only-access to DocumentDB. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
+Read-only keys are also available on this blade. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
 
 ### View and copy an access key in the Azure Portal
 
-1. In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
-2. In the **Essentials** bar from the **DocumentDB Account** blade, click **Keys**.
-3. On the **Keys** blade, click the **Copy** button to the right of the
-key you wish to copy.
-   ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
+On the **Keys** blade, click the **Copy** button to the right of the key you wish to copy.
+
+![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerate access keys
 
@@ -106,31 +93,30 @@ You should change the access keys to your DocumentDB account periodically to hel
 If you have applications or cloud services using the DocumentDB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
 
 1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
-
 2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/),
 access your DocumentDB account.
-
-3. In the **Essentials** bar from the **DocumentDB Account** blade, click **Keys**.
-
+3. In the **DocumentDB Account** blade, click **Keys**.
 4. On the **Keys** blade, click the **Regenerate Primary** command, then click **Ok** to confirm that you want to generate a new key.
+    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-keys.png)
 
 5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
-
 6. Regenerate the secondary access key.
-
+    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
 
 ## <a id="delete"></a> Delete a DocumentDB account
-To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete** command on the **DocumentDB Account** blade.
+To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.
 
-![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccountconfirmation.png)
+![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccount.png)
 
 
 1. In the [Azure Portal](https://portal.azure.com/), access the DocumentDB Account you wish to delete.
-2. On the **DocumentDB Account** blade, click **Delete Account**.
+2. On the **DocumentDB account** blade, click **More**, and then click **Delete Account**. Or, right-click the name of the database, and click **Delete Account**.
 3. On the resulting confirmation blade, type the DocumentDB Account name to confirm that you want to delete the account.
-4. Click the **Delete** button on the confirmation blade.
+4. Click the **Delete** button.
+
+![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Next steps
 
