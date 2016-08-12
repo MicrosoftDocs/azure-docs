@@ -22,15 +22,26 @@
    - Deploy a resource using a Resource Manager template.
  
 
-## Running this Sample
+## Run this sample
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an Auth file. See [how to create an Auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
+1. If you don't already have it, download [Apache Maven](https://maven.apache.org/download.cgi).
 
+1. Create an [Auth file](https://github.com/Azure/azure-sdk-for-java/blob/master/AUTH.md).
+
+1. Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an Auth file.
+
+1. Clone the repository.
+
+    ```
     git clone https://github.com/Azure-Samples/resources-java-deploy-using-arm-template.git
+    ```
 
-    cd resources-java-deploy-using-arm-template
+1. Run the sample.
 
+    ```
+    cd ources-java-deploy-using-arm-template
     mvn clean compile exec:java
+    ```
 
 ## More information
 
