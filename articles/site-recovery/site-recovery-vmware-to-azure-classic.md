@@ -62,6 +62,20 @@ The enhanced deployment is a major update. Here's a summary of the improvements 
 - Run easy failovers from your on-premises infrastructure to Azure, and failback (restore) from Azure to VMware VM servers in the on-premises site.
 - Configure recovery plans that group together application workloads that are tiered across multiple machines. You can fail over those plans, and Site Recovery provides multi-VM consistency so that machines running the same workloads can be recovered together to a consistent data point.
 
+
+## Supported Operating Systems
+
+### Windows(64 bit only)
+- Windows Server 2008 R2 SP1+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### Linux (64 bit only)
+- Red Hat Enterprise Linux 6.7, 7.1, 7.2
+- CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
+- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- SUSE Linux Enterprise Server 11 SP3
+
 ## Scenario architecture
 
 Scenario components:
