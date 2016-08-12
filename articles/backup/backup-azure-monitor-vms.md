@@ -171,18 +171,18 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 **ResourceId** : You can get ResourceId from the Audit logs. The ResourceId is a URL provided in the Resource column of the Operation logs.
 
 **OperationName** : OperationName is in the format "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" where *EventName* can be:<br/>
-- Register
-- Unregister
-- ConfigureProtection
-- Backup
-- Restore
-- StopProtection
-- DeleteBackupData
-- CreateProtectionPolicy
-- DeleteProtectionPolicy
-- UpdateProtectionPolicy
+- Register <br/>
+- Unregister <br/>
+- ConfigureProtection <br/>
+- Backup <br/>
+- Restore <br/>
+- StopProtection <br/>
+- DeleteBackupData <br/>
+- CreateProtectionPolicy <br/>
+- DeleteProtectionPolicy <br/>
+- UpdateProtectionPolicy <br/>
 
-**Status** : Supported values are- Started, Succeeded, or Failed.
+**Status** : Supported values are Started, Succeeded, or Failed.
 
 **ResourceGroup** : This is the Resource Group to which the resource belongs. You can add the Resource Group column to the generated logs. Resource Group is one of the available types of event information.
 
