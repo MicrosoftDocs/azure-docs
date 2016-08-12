@@ -38,13 +38,14 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 	
 		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
 
-3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you'll later upload. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
+3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you'll upload to Azure when configuring P2S. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
 
 	Note: If you run the following example with no changes, the result is a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-	>[AZURE.NOTE] Because you have created a self-signed certificate from which client certificates are generated, you may want to export this certificate along with its private key, and save it to a safe location where it may be recovered. 
+4. The self-signed certificate is used to create client certificates. Any computer with a client certificate installed that is also configured with the proper VPN client settings can connect to your virtual network via P2S. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using. For that reason, you want to make sure that client certificates are generated and installed only when needed and that this self-signed certificate is backed up and stored safely.
+ 
 
 ## Create and install client certificates
 
