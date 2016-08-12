@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2016"
+   ms.date="08/15/2016"
    ms.author="nitinme"/>
 
 # Comparing Azure Data Lake Store and Azure Blob Storage
