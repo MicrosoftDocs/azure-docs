@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/12/2016"
    ms.author="chackdan"/>
 
 # Add or remove certificates for a Service Fabric cluster in Azure
@@ -206,6 +206,5 @@ Read these articles for more information on cluster management:
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
-[SecurityConfigurations_04]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_04.png
 [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
 [SecurityConfigurations_07]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_07.png
