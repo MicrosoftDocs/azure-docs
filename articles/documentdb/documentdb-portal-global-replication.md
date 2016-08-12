@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB global database replication | Microsoft Azure"
-	description="Learn how to manage the global replication of your DocumentDB account via the Azure Portal."
+	description="Learn how to manage the global replication of your DocumentDB account via the Azure portal."
 	services="documentdb"
 	documentationCenter=""
 	authors="mimig1"
@@ -20,7 +20,7 @@
 
 Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure DocumentDB. 
 
-For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 > [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now. 
 
@@ -28,22 +28,22 @@ For information about how global distribution works in DocumentDB, see [Distribu
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-1. In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
+1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 2. In the **DocumentDB Account** blade, select the database account to modify.
 3. In the account blade, click **Add/Remove Regions** from the menu.
     ![Add regions under DocumentDB Account > Add/Remove Regions][1]
 
 5. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally) article for more information.
 
-    ![Click on the regions in the map to add or remove them][2]
+    ![Click the regions in the map to add or remove them][2]
 
 ### Selecting regions
 
 When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
 
-Specifically, when configuring to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to 4 US regions, you select 2 US regions from the left column and 2 from the right. So, the following would be an appropriate set: West US, East US, North Central US and South Central US.
+Specifically, when configuring to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to four US regions, you select two US regions from the left column and two from the right. So, the following would be an appropriate set: West US, East US, North Central US, and South Central US.
 
-This guidance is important to follow when only 2 regions are configured for disaster recovery scenarios. For more than 2 regions, following this guidance is good practice, but not critical as long as some of the selected regions adhere to this pairing.
+This guidance is important to follow when only two regions are configured for disaster recovery scenarios. For more than two regions, following this guidance is good practice, but not critical as long as some of the selected regions adhere to this pairing.
 
 <!---
 ## <a id="selectwriteregion"></a>Select the write region
@@ -63,7 +63,7 @@ While all regions associated with your DocumentDB database account can serve rea
 
 Learn how to manage consistency of your globally replicated account by reading [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
 
-For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
