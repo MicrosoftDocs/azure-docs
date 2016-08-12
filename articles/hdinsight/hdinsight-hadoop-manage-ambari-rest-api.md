@@ -23,8 +23,6 @@
 
 Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes. In this document, you will learn the basics of working with the Ambari REST API by performing common tasks such as finding the fully qualified domain name of the cluster nodes or finding the default storage account used by the cluster.
 
-> [AZURE.NOTE] The information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only a sub-set of monitoring functionality is available through the Ambari REST API. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
-
 ##Prerequisites
 
 * [cURL](http://curl.haxx.se/): cURL is a cross-platform utility that can be used to work with REST APIs from the command-line. In this document, it is used to communicate with the Ambari REST API.
