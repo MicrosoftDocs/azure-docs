@@ -54,7 +54,7 @@ network interface belonging to the subnet. The virtual machine is a `Standard_D1
 Create an Azure service principal either through Azure CLI, PowerShell, or the portal.
 Get the Tenant Id, Client Id, and Client Secret from creating the Service Principal for use in the following steps.
 
-- [Create a Service Principal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/#authenticate-with-password---azure-cli)
+- [Create a Service Principal](resource-group-authenticate-service-principal.md#authenticate-with-password---azure-cli)
 - `git clone https://github.com/Azure-Samples/resource-manager-ruby-template-deployment.git`
 - `cd resource-manager-ruby-template-deployment`
 - `bundle install`

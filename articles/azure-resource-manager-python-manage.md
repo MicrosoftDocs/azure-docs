@@ -19,7 +19,7 @@
 # Manage resources using the Python SDK
 
 This sample explains how to manage your
-[resources and resource groups in Azure](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/#resource-groups)
+[resources and resource groups in Azure](resource-group-overview.md#resource-groups)
 using the Azure Python SDK.
 
 ## Run this sample

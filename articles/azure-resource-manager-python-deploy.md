@@ -63,7 +63,7 @@ To initialize a virtual environment:
 - `source bin/activate`
 
 Once in your virtual environment:
-- [Create a Service Principal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/#authenticate-with-password---azure-cli)
+- [Create a Service Principal](resource-group-authenticate-service-principal.md#authenticate-with-password---azure-cli)
 - `git clone https://github.com/Azure-Samples/resource-manager-python-template-deployment.git`
 - `cd resource-manager-python-template-deployment`
 - `export AZURE_TENANT_ID={your tenant id}`
