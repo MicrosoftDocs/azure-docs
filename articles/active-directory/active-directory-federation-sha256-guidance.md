@@ -17,34 +17,33 @@
 	ms.date="08/01/2016"
 	ms.author="anandy"/>
 
-#Change signature hash algorithm for O365 replying party trust
+# Change signature hash algorithm for O365 replying party trust
 
-##Overview
+## Overview
 
-AD FS signs it’s tokens to Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Microsoft Azure Active Directory now supports tokens signed with a SHA256 algorithm and recommends setting the token signing algorithm to SHA256 for the highest level of security. This article provides the step to set the token signing algorithm to the more secure SHA256 level.
+Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Microsoft Azure Active Directory now supports tokens signed with a SHA256 algorithm and recommends setting the token signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
 
-##Changing the token signing algorithm
+## To change the token signing algorithm
 
-Once you have set the signature algorithm as directed in the steps below, AD FS will start signing the tokens for O365 relying party trust with SHA-256. There is no extra configuration change needed and making this change has no impact to your end users accessing Office 365 or other Azure AD applications.
+Once you have set the signature algorithm with one of the two processes below, AD FS will start signing the tokens for O365 relying party trust with SHA256. You don't need to make any  extra configuration change, and making this change has no impact on your users' ability to access Office 365 or other Azure AD applications.
 
-###Using management console
+### AD FS Management Console
 
-* Open the AD FS management console on the primary AD FS server.
-* Expand the AD FS node and click on Relying party trusts.
-* Right click on your O365/Azure relying party trust and select Properties.
-* Select the advanced tab and select the secure hash algorithm as SHA256
-* Click Ok
+1. Open AD FS Management Console on the primary AD FS server.
+2. Expand the AD FS node and click **Relying Party Trusts**.
+3. Right click your O365/Azure relying party trust and select **Properties**.
+4. Select the **Advanced** tab and select the secure hash algorithm SHA256.
+5. Click **OK**.
 
 ![SHA256 Signing Algorithm - MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
 
-###Using AD FS PowerShell cmdlets
+### AD FS PowerShell cmdlets
 
-* On any AD FS server, open PowerShell under administrator privileges
-* Set the secure has algorithm by using the Set-AdfsRelyingPartyTrust cmdlet
+1. On any AD FS server, open PowerShell under **administrator privileges**.
+2. Set the secure hash algorithm by using the **Set-AdfsRelyingPartyTrust** cmdlet.
 
  <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
-##Also Read
+## Also read
 
-* [Repair O365 trust with AAD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust) 
-
+* [Repair O365 trust with AAD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
