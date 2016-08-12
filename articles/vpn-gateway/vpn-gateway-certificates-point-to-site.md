@@ -38,7 +38,7 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 	
 		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
 
-3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you'll upload to Azure when configuring P2S. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
+3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
 
 	Note: If you run the following example with no changes, the result is a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
