@@ -24,10 +24,9 @@ In some regions, certain SKUs are not automatically available on new subscriptio
 
 You may review SKU availability on the [Azure services by region](https://azure.microsoft.com/regions/#services) page. 
 
-To request access to a SKU that has been restricted from your subscription create a new support request.
+To request access to a SKU that has been restricted from your subscription, create a "Subscription Management" support request.
 
-1. Click "New Support request" in the [Azure portal](portal.azure.com).
-Select Issue type as "Subscription Management" on the Basics page and click "Next".
+1. On the Basics page, select Issue type as "Subscription Management" and click "Next".
 
 ![Basics blade](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
