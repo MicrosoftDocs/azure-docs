@@ -3,7 +3,7 @@
    description="Learn how to control routing and use virtual appliances in Azure Resource Manager by using a template"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Create User Defined Routes (UDR) in Resource Manager by using a template
 

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN Overview"
+	pageTitle="Azure CDN Overview | Microsoft Azure"
 	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="08/09/2016"
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
@@ -39,7 +39,7 @@ The benefits of using the CDN to cache web site assets include:
 
 3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
 
-4. The edge server caches the file and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is 7 days.
+4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
 
 5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
 
@@ -57,13 +57,14 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | DDOS protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -74,7 +75,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 
 To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 

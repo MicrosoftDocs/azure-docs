@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Azure Active Directory preview cmdlets for group management
@@ -218,8 +218,6 @@ If you want to remove an owner from a group, use Remove-AzureADGroupOwner:
 ## Next steps
 
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260).
-
-Additional instruction from Microsoft program manager Rob de Jong is available at [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 

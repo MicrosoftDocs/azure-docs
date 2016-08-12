@@ -1,7 +1,7 @@
 <properties
 	pageTitle="List of Microsoft-managed connectors for use in Microsoft Azure Logic apps | Microsoft Azure App Service | Microsoft Azure"
 	description="Get a complete list of the Microsoft-Managed connectors you can use to build Logic apps in Azure App Service"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -109,7 +109,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [http~requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
 [http~responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
 [delaydoc]: ./connectors-native-delay.md "Learn about the delay action."
-[http-swaggerdoc]: ./connectors-native-httpswagger.md "HTTP + Swagger connector to make HTTP calls."
+[http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls."
 [querydoc]: ./connectors-native-query.md "Query action to select and filter arrays."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps."
 [azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."

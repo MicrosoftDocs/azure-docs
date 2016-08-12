@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/25/2016" 
 	ms.author="spelluru"/>
 
 # Move data From a OData source using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data from an OData source to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+
+> [AZURE.NOTE] This OData connector support copying data from both cloud OData and on-premises OData sources. For the latter, you need to install the Data Management Gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
 
 ## Sample: Copy data from OData source to Azure Blob
 
@@ -212,15 +214,16 @@ The following table provides description for JSON elements specific to OData lin
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **OData** | Yes |
 | url| Url of the OData service. | Yes |
-| authenticationType | Type of authentication used to connect to the OData source. Possible values are: Anonymous and Basic. | Yes | 
+| authenticationType | Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous and Basic; for on-premises OData, possible values are Anonymous, Basic and Windows. | Yes | 
 | username | Specify user name if you are using Basic authentication. | Yes (only if you are using Basic authentication) | 
 | password | Specify password for the user account you specified for the username. | Yes (only if you are using Basic authentication) | 
+| gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. | No |
 
 ### Using Basic authentication
 
     {
         "name": "inputLinkedService",
-       "properties": 
+        "properties": 
         {
             "type": "OData",
            	"typeProperties": 
@@ -240,10 +243,28 @@ The following table provides description for JSON elements specific to OData lin
        	"properties": 
         {
             "type": "OData",
-           "typeProperties": 
+            "typeProperties": 
             {
                "url": "http://services.odata.org/OData/OData.svc",
                "authenticationType": "Anonymous"
+           }
+       }
+    }
+
+### Using Windows authentication accessing on-premises OData source
+
+    {
+        "name": "inputLinkedService",
+        "properties": 
+        {
+            "type": "OData",
+           	"typeProperties": 
+            {
+               "url": "<endpoint of on-premises OData source e.g. Dynamics CRM>",
+               "authenticationType": "Windows",
+                "username": "domain\\user",
+               "password": "password",
+               "gatewayName": "mygateway"
            }
        }
     }

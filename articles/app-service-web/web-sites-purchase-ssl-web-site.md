@@ -20,8 +20,8 @@
 #Buy and Configure an SSL Certificate for your Azure App Service
 
 > [AZURE.SELECTOR]
-- [Buy SSL Certificate for Web Apps](web-sites-purchase-ssl-web-site.md)
-- [Enable SSL for your custom domain](web-sites-configure-ssl-certificate.md)  
+- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 
 By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** already enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. 
 Azure App Service now provides you a really simplified way to purchase and manage an SSL certificate right from Azure Portal without ever leaving the portal.  

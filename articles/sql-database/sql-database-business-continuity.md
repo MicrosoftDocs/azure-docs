@@ -4,7 +4,7 @@
    keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -19,7 +19,7 @@
 
 # Overview of business continuity with Azure SQL Database
 
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery, along with their use cases and related tutorials. You can use these key business continuity features to keep your business running when a disruption to your business occurs or to prevent a disruption during planning maintenance events. For example, a disruption could occur due to a user or application error affecting data integrity or in the event of an Azure regional outage. 
+This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
 
 ## SQL Database features that you can use to provide business continuity
 
@@ -31,7 +31,7 @@ SQL Database automatically performs a combination of full database backups weekl
 
 You can use these automatic database backups to recover a database from a variety of disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery will depend on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
 
-> [AZURE.IMPORTANT] To recover using automated backups, you must be a memboer of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell or the REST API. You cannot use Transact-SQL.
+> [AZURE.IMPORTANT] To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell or the REST API. You cannot use Transact-SQL.
 
 Use automated backups as your business continuity and recovery mechanism if your application:
 

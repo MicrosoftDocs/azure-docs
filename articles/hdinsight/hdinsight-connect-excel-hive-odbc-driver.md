@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Connect Excel to Hadoop with the Microsoft Hive ODBC driver
@@ -58,7 +58,7 @@ The following steps show you how to create a Hive ODBC Data Source.
     Property|Description
     ---|---
     Data Source Name|Give a name to your data source
-    Host|Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
+    Host|Enter &lt;HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
     Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
     Database|Use <strong>Default</strong>.
     Hive Server Type|Select <strong>Hive Server 2</strong>

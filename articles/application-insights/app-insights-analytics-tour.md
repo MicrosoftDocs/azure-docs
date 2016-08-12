@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -151,8 +151,10 @@ You can flatten it by choosing the properties you're interested in:
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
 
 ## Custom properties and measurements
 
@@ -176,7 +178,7 @@ To extract these values in Analytics:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -478,6 +480,7 @@ Use [let](./app-insights-analytics-reference.md#let-statements) to separate out 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
 
 
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

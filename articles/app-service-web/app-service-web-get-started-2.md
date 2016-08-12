@@ -176,7 +176,7 @@ Find out how to do more with your deployed app. Here's only a partial list:
 *.azurewebsites.net domain. Or use a domain that you already have.
 - [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
 web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots. 
-- [Set up continuous deployment](web-sites-publish-source-control.md) - Integrate app deployment into your source control system. Deploy to 
+- [Set up continuous deployment](app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to 
 Azure with every commit.
 - [Access on-premises resources](web-sites-hybrid-connection-get-started.md) - Access an existing on-premises database or CRM system.
 - [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.

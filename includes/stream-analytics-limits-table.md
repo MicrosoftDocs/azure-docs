@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-data"
-   ms.date="07/22/2016"
+   ms.date="07/25/2016"
    ms.author="jeffstok" />
 
 | Limit identifier | Limit       | Comments |
@@ -23,4 +23,3 @@
 | Maximum number of outputs per job | 60 | There is a hard limit of 60 outputs per Stream Analytics job. |
 | Maximum number of functions per job | 60 | There is a hard limit of 60 functions per Stream Analytics job. |
 | Maximum number of jobs per region | 1500 | Each subscription may have up to 1500 jobs per geographical region. |
-
