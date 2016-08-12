@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="08/11/2016"
 	ms.author="genli"/>
 
 # How to change profile information of your Azure account such as contact email, address and phone number
@@ -33,7 +33,7 @@ The email address in the Account Administrator’s profile is used by Microsoft 
 
 ## How to change your profile information
 
-1.	Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or just go to https://account.windowsazure.com/Profile.
+1.	Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or go to https://account.windowsazure.com/Profile.
 
 2.	Select the **Edit details** button, and then update the **Profile** information.
 

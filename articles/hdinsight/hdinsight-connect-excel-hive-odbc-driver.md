@@ -58,7 +58,7 @@ The following steps show you how to create a Hive ODBC Data Source.
     Property|Description
     ---|---
     Data Source Name|Give a name to your data source
-    Host|Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
+    Host|Enter &lt;HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
     Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
     Database|Use <strong>Default</strong>.
     Hive Server Type|Select <strong>Hive Server 2</strong>
