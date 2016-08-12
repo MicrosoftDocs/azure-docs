@@ -18,7 +18,7 @@
 
 # Working with self-signed certificates for Point-to-Site connections
 
-This article will help you create a self-signed certificate using makecert, and then generate client certificates from it. The steps are written for makecert on Windows 10. Makecert has been validated to create certificates that are compatible with P2S connections. 
+This article helps you create a self-signed certificate using makecert, and then generate client certificates from it. The steps are written for makecert on Windows 10. Makecert has been validated to create certificates that are compatible with P2S connections. 
 
 For P2S connections, the preferred method for certificates is to use your enterprise certificate solution, making to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
 
@@ -40,15 +40,15 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 
 3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you'll later upload. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
 
-	Note: If you run the following example with no changes, the result will be a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
+	Note: If you run the following example with no changes, the result is a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-	>[AZURE.NOTE] Because you have created a self-signed certificate from which client certificates will be generated, you may want to export this certificate along with its private key and save it to a safe location where it may be recovered. 
+	>[AZURE.NOTE] Because you have created a self-signed certificate from which client certificates are generated, you may want to export this certificate along with its private key, and save it to a safe location where it may be recovered. 
 
 ## Create and install client certificates
 
-The self-signed certificate is not what you will install on your clients. You need to generate a client certificate from the self-signed certificate. You then export and install the client certificate to the client computer. The following steps are not deployment-model specific. They are valid for both Resource Manager and classic.
+The self-signed certificate is not what you install on your clients. You need to generate a client certificate from the self-signed certificate. You then export and install the client certificate to the client computer. The following steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
 ### Part 1 - Generate a client certificate from a self-signed certificate
 
@@ -56,7 +56,7 @@ The following steps walk you through one way to generate a client certificate fr
 
 1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
 
-2. Change the directory to the location to which you want to save the client certificate file. *CertificateName* refers to the self-signed certificate that you generated. If you run the following example (changing the CertificateName to the name of your certificate), the result will be a client certificate named "ClientCertificateName" in your Personal certificate store.
+2. Change the directory to the location to which you want to save the client certificate file. *CertificateName* refers to the self-signed certificate that you generated. If you run the following example (changing the CertificateName to the name of your certificate), the result is a client certificate named "ClientCertificateName" in your Personal certificate store.
 
 3. Type the following command:
 
@@ -66,7 +66,7 @@ The following steps walk you through one way to generate a client certificate fr
 
 ### Part 2 - Export a client certificate
 
-1. To export a client certificate, use *certmgr.msc*. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This will open the Certificate Export Wizard.
+1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 
 2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
 
