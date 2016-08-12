@@ -48,9 +48,9 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
     A **partitioned collection** can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s. In the portal, the largest storage you can reserve is 250 GB, and the most throughput you can reserve is 250,000 RU/s. To increase either quota, file a request as described in [Request increased DocumentDB account quotas](documentdb-increase-limits.md). For more informaiton about partitioned collections, see [Single Partition and Partitioned Collections](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-    If you use the Standard pricing tier, you can return to this blade at any time and change the throughput of your collection. For information on estimating your throughput needs, see [Estimating throughput needs](documentdb-request-units/#estimating-throughput-needs). 
+    If you use the Standard pricing tier, you can return to this blade at any time and change the throughput of your collection.  
 
-7. Select the **Throughput** for the collection. You can use the [Capacity planner](https://www.documentdb.com/capacityplanner) to estimate your needs.  
+7. Select the **Throughput** for the collection. For information on estimating your throughput needs, see [Estimating throughput needs](documentdb-request-units/#estimating-throughput-needs) and the [Capacity planner](https://www.documentdb.com/capacityplanner).  
 
 8. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
