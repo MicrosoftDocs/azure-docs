@@ -33,6 +33,8 @@ This article assumes that you have:
 
 - **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
+- Make sure the server roles running on the VM support sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+
 
 ## Make sure that the VM is in the right file format
 
