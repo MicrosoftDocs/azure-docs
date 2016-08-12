@@ -182,21 +182,17 @@ vim ~/.ssh/config
 Host fedora22
   Hostname 102.160.203.241
   User ahmet
-  PubkeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # Default Settings
 Host *
-  PubkeyAuthentication=no
+  PubkeyAuthentication=yes
   IdentitiesOnly=yes
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /home/ahmet/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
   ControlPersist 4h
-  StrictHostKeyChecking=no
-  IdentityFile /home/ahmet/.ssh/id_rsa
-  UseRoaming=no
+  IdentityFile ~/.ssh/id_rsa
 ```
 
 This SSH config gives you sections for each service to enable each to have its own dedicated key pair. The default settings are for any hosts that you are logged into that do not match any of the above groups.
