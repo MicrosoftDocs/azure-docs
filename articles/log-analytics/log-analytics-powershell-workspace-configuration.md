@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="08/15/2016"
 	ms.author="richrund"/>
 
 # Manage Log Analytics using PowerShell
@@ -51,7 +51,7 @@ If you have created an OMS workspace, but it is not yet linked it to an Azure su
 + Using the Get-AzureRmOperationalInsightsLinkTargets and New-AzureRmOperationalInsightsWorkspace cmdlets.
 
 
-## Create a Log Analytics Workspace, add solutions and saved searches
+## Create and configure a Log Analytics Workspace
 
 The following script sample illustrates how to:
 
@@ -67,6 +67,8 @@ The following script sample illustrates how to:
 10.	Collect Error and Warning events from the Application Event Log from Windows computers
 11.	Collect Memory Available Mbytes performance counter from Windows computers
 12.	Collect a custom log 
+
+
 ```
 
 $ResourceGroup = "oms-example"
