@@ -27,16 +27,16 @@ To request access to a SKU that has been restricted from your subscription, crea
 
 1. On the Basics page, select Issue type as "Subscription Management" and click "Next".
 
-![Basics blade](./media/sku-series-unavailable/BasicsSubMgmt.png)
+![Basics blade](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
 2. On the Problem page, select the Problem type as “Other General questions” and enter the exact region and SKU you aren’t seeing.
 This helps expedite the support process.
 
-![Problem](./media/sku-series-unavailable/ProblemSubMgmt.png)
+![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
 3. On the Contact Information page, enter your contact details and click "Create".
 
-![Contact Information](./media/sku-series-unavailable/ContactInformation.png)
+![Contact Information](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## Feedback
 We are always open to feedback and suggestions! Send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
