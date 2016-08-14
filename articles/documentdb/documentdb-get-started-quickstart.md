@@ -602,7 +602,7 @@ You should see the output of your get started app. The output will show the resu
 
 Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
-##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
+## <a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 - An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
@@ -619,6 +619,7 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
+[quickstartbutton]: media/documentdb-get-started-quickstart/get-quickstart-project.png
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
