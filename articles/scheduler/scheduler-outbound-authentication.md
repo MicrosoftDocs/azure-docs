@@ -72,7 +72,7 @@ Content-Type: application/json; charset=utf-8
         },
 		"authentication": {
           "type": "clientcertificate",
-          "password": "pass@word1",
+          "password": "password",
           "pfx": "pfx key"
         }
       },
