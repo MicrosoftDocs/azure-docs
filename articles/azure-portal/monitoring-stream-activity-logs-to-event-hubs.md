@@ -30,11 +30,17 @@ You can enable streaming of Activity Logs either programmatically or via the por
 
 ### Via Azure portal 
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
+
 ![Navigate to Activity Logs in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
+
 2. Click the **Export** button at the top of the blade.
+
 ![Export button in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export.png)
+
 3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+
 ![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
+
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 
