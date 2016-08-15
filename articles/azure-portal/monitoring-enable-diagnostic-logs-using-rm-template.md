@@ -17,20 +17,20 @@
 	ms.author="johnkem"/>
 
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
-In this article we will show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
+In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
-- **Non-Compute** resources (eg. Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-In this article we will describe how to configure diagnostics using either method.
+In this article we describe how to configure diagnostics using either method.
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the resource and enable diagnostics.
 2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
 
-Below we give an example of the template JSON file you will need to generate for non-Compute and Compute resources.
+Below we give an example of the template JSON file you need to generate for non-Compute and Compute resources.
 
 ## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
@@ -155,7 +155,7 @@ Here is a full example that creates a Network Security Group and turns on stream
 ```
 
 ## Compute resource template
-To enable diagnostics on a Compute resource, for example a Virtual Machine or Service Fabric cluster, you will need to:
+To enable diagnostics on a Compute resource, for example a Virtual Machine or Service Fabric cluster, you need to:
 
 1. Add the Azure Diagnostics extension to the VM resource definition.
 2. Specify a storage account and/or event hub as a parameter.
