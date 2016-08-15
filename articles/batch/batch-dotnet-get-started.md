@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial - Get started with the Azure Batch .NET library | Microsoft Azure"
-	description="Learn the basic concepts of Azure Batch and how to develop for the Batch service with a simple scenario"
+	description="Learn the basic concepts of Azure Batch and how to develop for the Batch service with an example scenario."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/12/2016"
+	ms.date="08/15/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET
@@ -510,11 +510,14 @@ private static async Task<bool> MonitorTasks(
     List<CloudTask> tasks =
         await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
 
-    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
+    Console.WriteLine("Awaiting task completion, timeout in {0}...",
+        timeout.ToString());
 
     // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
     // will wait for all tasks to reach the Completed state.
-    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
+    TaskStateMonitor taskStateMonitor
+        = batchClient.Utilities.CreateTaskStateMonitor();
+
     try
     {
         await taskStateMonitor.WhenAll(tasks, TaskState.Completed, timeout);
