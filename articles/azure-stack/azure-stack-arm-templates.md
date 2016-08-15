@@ -82,9 +82,9 @@ Deploy a simple Windows VM that includes a virtual network (with DNS), public IP
 
 To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
 
-##Finding ARM Templates in Azure Stack Gallery
+##Finding Azure Resource Manager Templates in Azure Stack Gallery
 
-This process allows you to find ARM templates in Azure Stack once they have been uploaded to the gallery.
+This process allows you to find Azure Resource Manager templates in Azure Stack once they have been uploaded to the gallery.
 
 1.  Open PowerShell as administrator on the ClientVM
 
@@ -97,16 +97,12 @@ This process allows you to find ARM templates in Azure Stack once they have been
     Gallery
 
     dir “C:\\inetpub\\AzureStack-Gallery\\App\_Data\\Gallery\\\*\\manifest.json” -recurse | Select-String -pattern "\`"name\`":" -SimpleMatch -List | ft -Property Line,Path
-
 ![](media/azure-stack-arm-templates/TemplateRetreiveScript.png)
 
 4.  Once you have found the correct template, on the ClientVM, navigate to the
     \\\\PortalVM\\C\$\\InetPub\\AzureStack-**Gallery\\App\_Data\\Gallery\\&lt;GUID&gt;\\DeploymentTemplates** folder on the PortalVM. This folder contains the JSON file you will require for the deployment steps below.
-
 Example: Web App Template
-
 ![](media/azure-stack-arm-templates/TemplateExample.png)
-
 5.  Copy the JSON file to a location on the ClientVM where you can work with it with the tool of your choice.
 
 ## Next steps
