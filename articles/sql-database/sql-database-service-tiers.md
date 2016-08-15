@@ -24,6 +24,14 @@
 ## Service tiers and database options
 Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. The following table provides examples of the tiers best suited for different application workloads.
 
+| blah | Basic |
+|---|---|
+| Max DTU | 5 |
+| Max database size | 2 |
+| Max OLTP | N/A |
+
+## blah
+
 | Service tier | Target workloads |
 |---|---|
 | **Basic** | Best suited for a small database, supporting typically one single active operation at a given time. Examples include databases used for development or testing, or small-scale infrequently used applications. |
