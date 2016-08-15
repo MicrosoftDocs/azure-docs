@@ -31,7 +31,7 @@ Here are some of the things you can do with Activity Logs:
 - [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
 - Save them to a **Storage Account** for archival or manual inspection. You can specify the retention time (in days) using **Log Profiles**.
 - Analyze them in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Stream them to an **Event Hub**](./monitoring-stream-activity-logs-to-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+- [Stream them to an **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
 
 ## Export Activity Logs with Log Profiles
 A **Log Profile** controls how your Activity Logs are exported. Using a Log Profile, you can configure:
@@ -48,13 +48,13 @@ You can stream Activity Logs to an Event Hub or store them in a Storage Account 
 
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
 
-    ![Navigate to Activity Logs in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
+    ![Navigate to Activity Logs in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
 
-    ![Export button in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export.png)
+    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
-    ![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
+    ![Export Activity Logs blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
@@ -221,4 +221,4 @@ Each event in Activity Logs has a JSON blob like this one:
 
 ## Next Steps
 - [Learn more about Activity (formerly Audit) Logs](../resource-group-audit.md)
-- [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-to-event-hubs.md)
+- [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-event-hubs.md)
