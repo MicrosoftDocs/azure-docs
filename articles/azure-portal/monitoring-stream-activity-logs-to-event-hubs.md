@@ -66,5 +66,5 @@ The Service Bus Rule ID is a string with this format: {service bus resource ID}/
 [The schema for Activity Logs is available here](./monitoring-overview-of-activity-logs.md). Each event is in an array of JSON blobs called “records.”
 
 ## Next Steps
-- [Read the overview of Activity Logs](../overview-of-activity-logs.md)
+- [Read the overview of Activity Logs](./overview-of-activity-logs.md)
 - [article2](./insights-auditlog-to-webhook-email.md)
