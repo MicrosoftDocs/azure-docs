@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Change signature hash algorithm for O365 replying party trust | Microsoft Azure"
-	description="This page provides guidelines for changing SHA algorithm for federation trust with O365"
+	pageTitle="Change signature hash algorithm for Office 365 replying party trust | Microsoft Azure"
+	description="This page provides guidelines for changing SHA algorithm for federation trust with Office 365"
     keywords="SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust"
 	services="active-directory"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="08/01/2016"
 	ms.author="anandy"/>
 
-# Change signature hash algorithm for O365 replying party trust
+# Change signature hash algorithm for Office 365 replying party trust
 
 ## Overview
 
@@ -25,13 +25,13 @@ Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft
 
 ## To change the token-signing algorithm
 
-After you have set the signature algorithm with one of the two processes below, AD FS signs the tokens for O365 relying party trust with SHA256. You don't need to make any extra configuration changes, and this change has no impact on your ability to access Office 365 or other Azure AD applications.
+After you have set the signature algorithm with one of the two processes below, AD FS signs the tokens for Office 365 relying party trust with SHA256. You don't need to make any extra configuration changes, and this change has no impact on your ability to access Office 365 or other Azure AD applications.
 
 ### AD FS Management Console
 
 1. Open AD FS Management Console on the primary AD FS server.
 2. Expand the AD FS node and click **Relying Party Trusts**.
-3. Right-click your O365/Azure relying party trust and select **Properties**.
+3. Right-click your Office 365/Azure relying party trust and select **Properties**.
 4. Select the **Advanced** tab and select the secure hash algorithm SHA256.
 5. Click **OK**.
 
@@ -46,4 +46,4 @@ After you have set the signature algorithm with one of the two processes below, 
 
 ## Also read
 
-* [Repair O365 trust with AAD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
+* [Repair Office 365 trust with Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
