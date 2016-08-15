@@ -62,11 +62,11 @@ If a log profile already exists, you first need to remove that profile.
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-The Service Bus Rule ID is a string with this format: {service bus resource ID}/authorizationrules/{key name}.
+The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
  
 ## How do I consume the log data from Event Hubs?
 [The schema for Activity Logs is available here](./monitoring-overview-of-activity-logs.md). Each event is in an array of JSON blobs called “records.”
 
 ## Next Steps
-- [Read the overview of Activity Logs](./overview-of-activity-logs.md)
+- [Read the overview of Activity Logs](./monitoring-overview-of-activity-logs.md)
 - [Set up an alert based on an Activity Log event](./insights-auditlog-to-webhook-email.md)
