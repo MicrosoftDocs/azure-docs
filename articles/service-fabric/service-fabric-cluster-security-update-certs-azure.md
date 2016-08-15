@@ -20,7 +20,7 @@
 
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates, read [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
 
-Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation. refer to [Securing an azure cluster with certs](service-fabric-cluster-azure-secure-azure-with-certs.md) for details. If deploying via ARM, and you specify only one cluster certificate, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
+Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via arm](service-fabric-cluster-creation-via-arm.md)for details. If deploying via ARM, and you specify only one cluster certificate, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
 
 >[AZURE.NOTE] For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate (primary or secondary) deployed if not, the cluster stops functioning. 90 days before all valid certificates reach expiration, the system generates a warning trace and also a warning health event on the node. There is currently no email or any other notification that service fabric sends out on this topic. 
 
