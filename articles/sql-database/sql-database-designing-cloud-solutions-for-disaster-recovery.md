@@ -24,7 +24,7 @@
 
 
 
-Learn how to use [Active Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to design database applications resilient to regional failures and catastrophic outages. For business continuity planning, you'll consider the application deployment topology, the service level agreement you are targeting, traffic latency, and costs. In this article we look at the common application patterns, and discuss the benefits and trade-offs of each option.
+Learn how to use [Active Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to design database applications resilient to regional failures and catastrophic outages. For business continuity planning, you'll consider the application deployment topology, the service level agreement you are targeting, traffic latency, and costs. In this article we look at the common application patterns, and discuss the benefits and trade-offs of each option. For information about Active Geo-Replication with Elastid Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## Design pattern 1: Active-passive deployment for cloud disaster recovery with a co-located database
 
@@ -158,13 +158,9 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 
 ## Next steps
 
-- For information about using and configuring Active Geo-Replication for disaster recovery, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For information about using Geo-Restore for disaster recovery, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
-
-## Next steps
-
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 - To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
+- For information about Active Geo-Replication with Elastid Pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
