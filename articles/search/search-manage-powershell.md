@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Manage your Azure Search service with PowerShell
