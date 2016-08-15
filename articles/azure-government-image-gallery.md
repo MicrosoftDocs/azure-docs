@@ -2,6 +2,7 @@
    pageTitle="Azure Government Image Gallery | Microsoft Azure"
    description="This article provides an overview of the Azure Government Image Gallery and the images included"
    services="Azure-Government"
+   cloud="gov"
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
