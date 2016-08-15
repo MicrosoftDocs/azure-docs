@@ -166,6 +166,99 @@ When a request is sent with authentication info, the response contains the follo
 |_type_ |Type of authentication. For Basic authentication, the value is `Basic`.|
 |_username_ |The authenticated username.|
 
+## Sample Request for Basic Authentication
+
+```
+PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+User-Agent: Fiddler
+Host: management.azure.com
+Authorization: Bearer sometoken
+Content-Length: 562
+Content-Type: application/json; charset=utf-8
+
+{
+  "properties": {
+    "startTime": "2015-05-14T14:10:00Z",
+    "action": {
+      "request": {
+        "uri": "https://mywebserviceendpoint.com",
+        "method": "GET",
+		"headers": {
+          "x-ms-version": "2013-03-01"
+        },
+		"authentication": {
+          "type": "basic",
+		  "username": "user",
+          "password": "password"
+        }
+      },
+      "type": "http"
+    },
+    "recurrence": {
+      "frequency": "minute",
+      "endTime": "2016-04-10T08:00:00Z",
+      "interval": 1
+    },
+    "state": "enabled",
+  }
+}
+```
+
+## Sample Response for Basic Authentication
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Length: 701
+Content-Type: application/json; charset=utf-8
+Expires: -1
+x-ms-request-id: a2dcb9cd-1aea-4887-8893-d81273a8cf04
+Server: Microsoft-IIS/8.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+x-ms-ratelimit-remaining-subscription-resource-requests: 599
+x-ms-correlation-request-id: 7816f222-6ea7-468d-b919-e6ddebbd7e95
+x-ms-routing-request-id: WESTUS:20160316T190506Z:7816f222-6ea7-468d-b919-e6ddebbd7e95
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Wed, 16 Mar 2016 19:05:06 GMT
+
+{  
+   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type":"Microsoft.Scheduler/jobCollections/jobs",
+   "name":"southeastasiajc/httpjob",
+   "properties":{  
+      "startTime":"2015-05-14T14:10:00Z",
+      "action":{  
+         "request":{  
+            "uri":"https://mywebserviceendpoint.com",
+            "method":"GET",
+            "headers":{  
+               "x-ms-version":"2013-03-01"
+            },
+            "authentication":{  
+               "username":"user1",
+               "type":"Basic"
+            }
+         },
+         "type":"http"
+      },
+      "recurrence":{  
+         "frequency":"minute",
+         "endTime":"2016-04-10T08:00:00Z",
+         "interval":1
+      },
+      "state":"enabled",
+      "status":{  
+         "nextExecutionTime":"2016-03-16T19:06:00Z",
+         "executionCount":0,
+         "failureCount":0,
+         "faultedCount":0
+      }
+   }
+}
+```
+
 ## Request Body for ActiveDirectoryOAuth Authentication
 
 When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
