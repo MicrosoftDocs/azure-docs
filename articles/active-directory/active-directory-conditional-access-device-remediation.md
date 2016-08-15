@@ -31,11 +31,11 @@ What device platform is your device running on?
 The answer to this question determines the right section in this topic for you:
  
 
-1.	Windows device
+-	Windows device
 
-2.	iOS device (iPhone or iPad)
+-	iOS device (iPhone or iPad)
 
-3.	Android device
+-	Android device
 
 ## Access from a Windows device
 
@@ -163,11 +163,11 @@ The only remediation is to use a browser that is supported for your device platf
 
 ## Access from an iOS device
 
-Instructions for iPhones or iPads are coming soon.
+Check back soon for instructions for iPhones or iPads.
 
 ## Access from an Android device
 
-Instructions for Android phones or tablets are coming soon.
+Check back soon for instructions for Android phones or tablets.
 
 
 ## Next steps
