@@ -32,7 +32,7 @@ The basic steps are as follows:
 
 Below we give an example of the template JSON file you will need to generate for non-Compute and Compute resources.
 
-## Non-Compute resource template file
+## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name and service bus rule id (enabling archival of Diagnostic Logs in a storage account and/or streaming of logs to Event Hubs).
