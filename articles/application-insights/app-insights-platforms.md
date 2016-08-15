@@ -15,9 +15,9 @@
 	ms.date="08/15/2016"
 	ms.author="awills"/>
 
-# Developer analytics: languages, platforms and integrations
+# Developer analytics: languages, platforms, and integrations
 
-These are implementations of [Application Insights](app-insights-overview.md) that we've heard about, including some by third parties.
+These items are implementations of [Application Insights](app-insights-overview.md) that we've heard about, including some by third parties.
 
 ## Languages
 

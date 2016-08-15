@@ -22,7 +22,7 @@ Should the telemetry from different components and versions of your application 
 First, let's understand the question. 
 The data received from your application is stored and processed by Application Insights in a Microsoft Azure *resource*. Each resource is identified by an *instrumentation key* (iKey). In your app, the key is provided to the Application Insights SDK so that it can send the data it collects to the right resource. The key can be provided either in code or in ApplicationInsights.config. By changing the key in the SDK, you can direct data to different resources. 
 
-In a simple case, when you create the code for a new application, you also create a new resource in Application Insights. In Visual Studio, the *new project* dialog will do this for you.
+In a simple case, when you create the code for a new application, you also create a new resource in Application Insights. In Visual Studio, the *new project* dialog does this for you.
 
 If it's a high-volume website, it might be deployed on more than one server instance.
 
@@ -35,7 +35,7 @@ Here are some general guidelines:
 * Where you have an independently deployable application unit that runs on a set of server instances that can be scaled up/down independently of other components, then you would usually map that to a single resource - that is, it will have a single instrumentation key (iKey).
 * By contrast, reasons for using separate iKeys include:
  - Easily read separate metrics from separate components.
- - Keep lower-volume telemetry separate from high-volume, so that throttling, quotas and sampling on one stream don't affect the other.
+ - Keep lower-volume telemetry separate from high-volume, so that throttling, quotas, and sampling on one stream don't affect the other.
  - Separate alerts, export, and work item configurations.
  - Spread [limits](app-insights-pricing.md#limits-summary) such as telemetry quota, throttling, and web test count.
  - Code under development and test should send to a separate iKey than the production stamp.  
@@ -46,7 +46,7 @@ A lot of Application Insights portal experiences are designed with these guideli
 
 Where you send telemetry from multiple components to a single iKey:
 
-* Add a property to all the telemetry that allows you to segment and filter on the component identity. This happens automatically with server role instances, but in other cases you can use a [telemetry initializer](app-insights-api-filtering-sampling.md#add-properties) to add the property.
+* Add a property to all the telemetry that allows you to segment and filter on the component identity. The role ID is added automatically to telemetry from server role instances, but in other cases you can use a [telemetry initializer](app-insights-api-filtering-sampling.md#add-properties) to add the property.
 * Update the Application Insights SDKs in the different components at the same time. Telemetry for one iKey should originate with the same version of the SDK.
 
 ## Separate iKeys
@@ -122,7 +122,7 @@ The instrumentation key identifies the resource that you created.
 
 ![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
-You'll need the instrumentation keys of all the resources to which your app will send data.
+You need the instrumentation keys of all the resources to which your app will send data.
 
 
 

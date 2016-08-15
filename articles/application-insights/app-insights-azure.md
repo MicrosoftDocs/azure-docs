@@ -20,7 +20,7 @@
 *Application Insights is in preview.*
 
 
-Detect issues, solve problems and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
+Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
 
 Configuration is very easy, and you'll see results within minutes.
 
