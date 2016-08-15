@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="08/15/2016"
 	ms.author="sstein;carlrab" />
 
 # Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
@@ -25,7 +25,7 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-This article shows you how to connect to an Azure SQL database using the most recent version of SQL Server Management Studio (SSMS). After connecting we will perform a simple query with Transact-SQL (T-SQL) statements to verify communication with the database.
+This article shows you how to connect to an Azure SQL database using the most recent version of SQL Server Management Studio (SSMS). After connecting we perform a simple query with Transact-SQL (T-SQL) statements to verify communication with the database.
 
 [AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
@@ -37,7 +37,7 @@ For information about firewall rules, see [How to: Configure Firewall Settings (
 
 After you connect to your logical server, you can connect to a database and run a sample query. 
 
-1. In **Object Explorer**, navigate to a databbase on the server to which you have permission, such as the **AdventureWorks** sample database.
+1. In **Object Explorer**, navigate to a database on the server to which you have permission, such as the **AdventureWorks** sample database.
 2. Right-click the database and then select **New Query**.
 
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
