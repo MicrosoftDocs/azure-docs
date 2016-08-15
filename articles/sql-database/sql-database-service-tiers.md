@@ -32,6 +32,20 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 
 >[AZURE.NOTE] Web and Business editions are retired. Read the [Sunset FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business editions.
 
+blah
+
+| blah | Basic | 
+|---|---|
+|Max DTUs|5|
+|Max Database Size|2|
+|Max in-memory OLTP storage (GB)|N/A|
+|Max concurrent workers|30|
+|Max concurrent logins|30|
+|Max concurrent sessions|300|
+|Point-in-time-restore|Any point last 7 days|
+|Disaster recovery|Active Geo-Replication|
+
+
 ## Standalone database service tiers and performance levels
 For standalone databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
