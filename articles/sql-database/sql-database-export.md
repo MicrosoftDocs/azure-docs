@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="07/19/2016"
+	ms.date="08/15/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -29,13 +29,14 @@ When you need to create an archive of an Azure SQL database, you can export the 
 
 ***Considerations***
 
-- For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
-- The maximum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
-- Archiving to Azure premium storage using a BACPAC file is not supported.
-- If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
- - Temporarily increase your service level 
- - Cease all read and write activity during the export
- - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
+- For an archive to be transactionally consistent, you must ensure either that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
+- The maximum size of a BACPAC file archived to Azure Blob storage is 200 GB. To archive a larger BACPAC file to local storage, use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+- Archiving to Azure premium storage by using a BACPAC file is not supported.
+- If the export operation exceeds 20 hours, it may be canceled. To increase performance during export, you can:
+ - Temporarily increase your service level.
+ - Cease all read and write activity during the export.
+ - Use a [clustered index](https://msdn.microsoft.com/library/ms190457.aspx) with non-null values on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete a table scan to try to export entire table. A good way to determine if your tables are optimized for export is to run **DBCC SHOW_STATISTICS** and make sure that the *RANGE_HI_KEY* is not null and its value has good distribution. For details, see [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+
 
 > [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
