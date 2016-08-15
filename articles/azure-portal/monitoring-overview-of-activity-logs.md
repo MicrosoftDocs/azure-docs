@@ -19,7 +19,7 @@
 # Overview of Azure Activity Logs
 **Azure Activity Logs** are logs that provide insight into the operations that were performed on resources in your subscription. Activity Logs were previously known as “Audit Logs” or “Operational Logs,” since they report control-plane events for your subscriptions. Using Activity Logs, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. Activity Logs do not include read (GET) operations.
 
-Activity Logs differ from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+Activity Logs differ from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
 
 You can retrieve events from your Activity Logs using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
 
@@ -30,7 +30,7 @@ Here are some of the things you can do with Activity Logs:
 - [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
 - Save them to a **Storage Account** for archival or manual inspection. You can specify the retention time (in days) using **Log Profiles**.
 - Analyze them in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Stream them to an **Event Hub**](monitoring-stream-activity-logs-to-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+- [Stream them to an **Event Hub**](./monitoring-stream-activity-logs-to-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
 
 ## Export Activity Logs with Log Profiles
 A **Log Profile** controls how your Activity Logs are exported. Using a Log Profile, you can configure:
@@ -211,5 +211,5 @@ Each event in Activity Logs has a JSON blob like this one:
 | subscriptionId       | Azure Subscription Id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | nextLink             | Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records.                                                                                                                                                                                                                                                                                                                                                           |
 ## Next Steps
-- [Learn more about Activity (formerly Audit) Logs](.,/resource-group-audit.md)
+- [Learn more about Activity (formerly Audit) Logs](../resource-group-audit.md)
 - [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-to-event-hubs.md)
