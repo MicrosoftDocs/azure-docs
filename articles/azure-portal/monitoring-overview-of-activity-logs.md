@@ -41,7 +41,7 @@ A **Log Profile** controls how your Activity Logs are exported. Using a Log Prof
 
 These settings can be configured via the “Export” option in the Activity Logs blade in the Portal, or programmatically using the REST API, PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
-### Configure Log Profiles using the Azure Portal
+### Configure log profiles using the Azure Portal
 You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure Portal. 
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the Portal.
 ![Navigate to Activity Logs in Portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
@@ -51,7 +51,7 @@ You can stream Activity Logs to an Event Hub or store them in a Storage Account 
 ![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings will immediately be applied to your subscription.
 
-### Configure Log Profiles using the Azure PowerShell Cmdlets
+### Configure log profiles using the Azure PowerShell Cmdlets
 #### Get existing Log Profile
 ```
 Get-AzureRmLogProfile
@@ -76,7 +76,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### Configure Log Profiles Using the Azure Cross-Platform CLI
+### Configure log profiles Using the Azure Cross-Platform CLI
 #### Get existing log profile
 ```
 azure insights logprofile list
