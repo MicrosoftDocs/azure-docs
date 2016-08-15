@@ -1,5 +1,4 @@
-![Service Tiers and Performance Levels](./media/sql-database-service-tiers-table/sql-database-service-tiers-table.png)
-
+### Basic service tier
 || Basic | 
 |:---:|:---:|
 |||
@@ -14,6 +13,8 @@
 |||
 |||
 
+### Standard service tier
+
 || Standard |  
 |:---:|:---:|
 |||
@@ -27,6 +28,8 @@
 |Disaster recovery|Active Geo-Replication|
 |||
 |||
+
+### Premium service tier
 
 || Premium | 
 |:---:|:---:|

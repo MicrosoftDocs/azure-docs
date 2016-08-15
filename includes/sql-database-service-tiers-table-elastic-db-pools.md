@@ -1,6 +1,7 @@
 
 * Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
+### Basic pool limits
 
 |Elastic Pool| Basic | 
 |:---:|:---:|
@@ -13,6 +14,8 @@
 |||
 |||
 
+## Standard pool limits
+
 |Elastic Pool| Standard | 
 |:---:|:---:|
 |eDTUs per pool|&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200|
@@ -24,6 +27,8 @@
 |||
 |||
 
+### Premium pool limits
+
 |Elastic Pool| Premium | 
 |:---:|:---:|
 |eDTUs per pool|125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500|
@@ -34,6 +39,7 @@
 |Max concurrent sessions per pool|4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800|
 |||
 |||
+
 
 
 |Elastic database| Basic | 
