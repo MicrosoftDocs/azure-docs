@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2016"
+   ms.date="08/15/2016"
    ms.author="chackdan"/>
 
 # Add or remove certificates for a Service Fabric cluster in Azure
@@ -46,7 +46,7 @@ Unlike during the cluster creation workflow, We do not take in the details on th
 
 6. Here is a screen shot on how the security blade looks once the deployment is complete.
 
-![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_07]
+![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_08]
 
 
 7. You can now use the new certificate you just added to connect and perform operations on the cluster.
@@ -207,4 +207,4 @@ Read these articles for more information on cluster management:
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
 [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
 [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
-[SecurityConfigurations_07]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_07.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
