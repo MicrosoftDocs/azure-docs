@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -121,9 +121,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	a. In the **Sign On URL** textbox, type sign in URL with your own domain.
 
-    b. In the **Identifier** textbox, type a enebled Assertion Consumer Interface URL.
+    b. In the **Identifier** textbox, type a entity ID URL.
 
-	c. Click **Next**
+    c. In the **REPLY URL** textbox, type a enebled Assertion Consumer Interface URL.
+
+	d. Click **Next**
 
 	> [AZURE.NOTE] Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, you can refer step 8 for more details or contact [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
 
@@ -137,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 5. Sign-on to your MOVEit Transfer tenant as an administrator.
 
-6. Go to the **Settings page** in the sidebar (**Settings**).
+6. On the left navigation pane, click **Settings**.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
@@ -145,15 +147,21 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-8. Click the Metadata URL link to confirm the Identifier URL match your configuration in step 3.
+8. Click the Metadata URL link to download the metadata document.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+
+	- Verify **entityID** matches **Identifier** in step3.
+	
+	- Verify **AssertionConsumerService** Location URL matches **REPLY URL** in step3.
+
+	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 9. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-10. Click **Browse...** to select the metadata file which you downloaded in step 4. Then click **Add Identity Provider** to upload the downloaded file. 
+10. Click **Browse...** to select the metadata file which you downloaded in step 4,then click **Add Identity Provider** to upload the downloaded file. 
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
@@ -269,24 +277,21 @@ The objective of this section is to enabling Britta Simon to use Azure single si
     
 	![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_50.png)
 
-1. In the menu on the top, click **Users**.
+3. In the menu on the top, click **Users**.
     
 	![Assign User][203]
 
-1. In the Users list, select **Britta Simon**.
+4. In the Users list, select **Britta Simon**.
 
-2. In the toolbar on the bottom, click **Assign**.
+5. In the toolbar on the bottom, click **Assign**.
     
 	![Assign User][205]
-
-
 
 ### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
 When you click the MOVEit Transfer tile in the Access Panel, you should get automatically signed-on to your MOVEit Transfer application.
-
 
 ## Additional resources
 
