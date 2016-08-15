@@ -12,6 +12,8 @@
 
 - [Style and voice](./style-and-voice.md)
 
+- [Feedback, comments, and support](./feedback-and-comments.md)
+
 
 ##Authoring articles: tools, processes, guidance
 

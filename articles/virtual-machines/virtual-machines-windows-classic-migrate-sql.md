@@ -3,8 +3,8 @@
 	description="Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
+	authors="rothja"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management" />
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="carlrab"/>
+	ms.author="jroth"/>
 
 
 # Migrate a SQL Server database to SQL Server in an Azure VM

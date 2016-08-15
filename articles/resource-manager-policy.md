@@ -88,7 +88,12 @@ event service log. For example, an administrator can create a policy which cause
         "effect" : "deny | audit"
       }
     }
+    
+## Policy Evaluation
 
+Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+
+Note: Resource types which do not support tags, kind, location are not evaluated by Policy, such as Microsoft.Resources/deployments. The support will be added at a future time. To avoid backward compatability issues, it is best practice to explicitly specify type when authoring policies. For example, a tag policy without specifying types will be applied for all types, so template deployment may fail if there is a nested resource that don't support tag when the resource type is added to evaluation at a future time. 
 
 ## Logical Operators
 
@@ -208,19 +213,19 @@ will be denied.
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -239,14 +244,14 @@ The below example shows the use of property alias to restrict SKUs. In the examp
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -340,8 +345,6 @@ With a request body similar to the following:
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -392,8 +395,6 @@ With a request body similar to the following:
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 

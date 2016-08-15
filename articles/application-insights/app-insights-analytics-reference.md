@@ -22,7 +22,28 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-*Use your browser search to find language elements in this page, which combines the contents of the Queries, Aggregations and Scalars pages.* 
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
+|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
+|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
+|[Arithmetic ops](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
+|[Array and object literals](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Scalar comparisons](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
+|[Boolean Literals](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Boolean ops](#boolean-operators)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Casts](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[variance](#variance)
+|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String Literals](#string-literals)|[where op](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
+|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+
+
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
@@ -1987,7 +2008,7 @@ T
 ```
 
 
-### Operators and functions over dynamic types
+## Dynamic object functions
 
 |||
 |---|---|
@@ -2135,7 +2156,7 @@ T
 
 
 
-#### range
+### range
 
 The `range()` function (not to be confused with the `range` operator)
 generates a dynamic array holding a series of equally-spaced values.

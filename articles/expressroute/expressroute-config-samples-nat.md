@@ -120,36 +120,36 @@ NAT Commands:
  - Allow services on the interfaces
 
 
-	security {   
-	 zones {
-	        security-zone Trust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth0.100;
-	            }
-	        }
-	        security-zone Untrust {
-	            host-inbound-traffic {
-	                system-services {
-	                    ping;
-	                }
-	                protocols {
-	                    bgp;
-	                }
-	            }
-	            interfaces {
-	                reth1.100;
-	            }
-	        }
-	    }
-	}
+    security {
+        zones {
+            security-zone Trust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth0.100;
+                }
+            }
+            security-zone Untrust {
+                host-inbound-traffic {
+                    system-services {
+                        ping;
+                    }
+                    protocols {
+                        bgp;
+                    }
+                }
+                interfaces {
+                    reth1.100;
+                }
+            }
+        }
+    }
 
 
 ### 3. Create security policies between zones

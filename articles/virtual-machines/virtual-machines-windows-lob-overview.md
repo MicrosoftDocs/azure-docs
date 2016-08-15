@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Deploy a high-availability line of business application in Azure
@@ -91,5 +91,5 @@ For additional information about designing IT workloads for Azure, see [Azure in
 
 ## Next step
 
-To start the configuration of this workload, go to [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md).
+- Start the configuration of this workload with [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 

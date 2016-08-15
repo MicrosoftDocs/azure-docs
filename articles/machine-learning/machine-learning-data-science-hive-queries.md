@@ -36,7 +36,7 @@ This article assumes that you have:
  
 * Created an Azure storage account. If you need instructions for this task, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
 * Provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](../hdinsight-get-started.md#provision).
-* Uploaded the data to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+* Uploaded the data to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -127,7 +127,7 @@ We describe the following data wrangling tasks in this section using Hive in Azu
 1. [Data Exploration](#hive-dataexploration)
 2. [Feature Generation](#hive-featureengineering)
 
-> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+> [AZURE.NOTE] The sample Hive queries assume that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 
 ###<a name="hive-dataexploration"></a>Data Exploration
 Here are a few sample Hive scripts that can be used to explore data in Hive tables.

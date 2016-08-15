@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/03/2016"
+	ms.date="04/07/2016"
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -108,7 +108,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| (Public Preview)|(Public Preview) | *
+Admin control over authentication methods| *|* | *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *
@@ -193,7 +193,7 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ●
 Hardware Tokens as second factor |  | ●
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods | (Public Preview) | ●
+Admin control over authentication methods | ● | ●
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ●

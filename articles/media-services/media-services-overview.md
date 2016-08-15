@@ -57,7 +57,7 @@ To start using Azure Media Services, you should have the following:
 2. An Azure Media Services account. Use the Azure Classic Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). 
 
-	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect_programmatically.md).
+	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
 4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-manage-origins.md).
 
 ##Concepts and overview

@@ -3,9 +3,9 @@
 	description="This article covers application patterns for SQL Server on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="Selcin"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="rothja"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management,azure-resource-manager" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
-	ms.author="selcint" />
+	ms.date="04/05/2016"
+	ms.author="jroth" />
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 
@@ -226,7 +226,7 @@ Another approach to implement this application pattern is to use a consolidated 
 
 ![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 
-## Pattern with Azure VMs, Azure SQL Database, and Azure Web Apps
+## Pattern with Azure VMs, Azure SQL Database, and Azure App Service (Web Apps)
 
 The primary goal of this application pattern is to show you how to combine Azure infrastructure as a service (IaaS) components with Azure platform-as-a-service components (PaaS) in your solution. This pattern is focused on Azure SQL Database for relational data storage. It does not include SQL Server in an Azure virtual machine, which is part of the Azure infrastructure as a service offering.
 

@@ -22,7 +22,7 @@ To configure a table for Stretch Database, select **Stretch | Enable** for a tab
 
 -   If you store historical data in a separate table, you can migrate the entire table.
 
--   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate. In CTP 3.1 through RC1, the option to specify a filter predicate is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option.
+-   If your table contains both historical and current data, you can specify a filter predicate to select the rows to migrate. In CTP 3.1 through RC2, the option to specify a filter predicate is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option.
 
 **Prerequisites**. If you select **Stretch | Enable** for a table, and you have not yet enabled Stretch Database for the database, the wizard first configures the database for Stretch Database. Follow the steps in [Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md) instead of the steps in this topic.
 
@@ -43,7 +43,7 @@ Review the purpose of the wizard and the prerequisites.
 
 Confirm that the table you want to enable is displayed and selected.
 
-In CTP 3.1 through RC1, you can only migrate an entire table by using the wizard. If you want to specify  a predicate to select rows to migrate from a table that contains both historical and current data, run the ALTER TABLE statement to specify a predicate after you exit the wizard, or exit the wizard and run the ALTER TABLE statement, as described later in this topic.
+In CTP 3.1 through RC2, you can only migrate an entire table by using the wizard. If you want to specify  a predicate to select rows to migrate from a table that contains both historical and current data, run the ALTER TABLE statement to specify a predicate after you exit the wizard, or exit the wizard and run the ALTER TABLE statement, as described later in this topic.
 
 **Summary**
 
@@ -59,11 +59,11 @@ You can enable Stretch Database for an existing table or create a new table with
 ### Common options
 Use the following options when you run CREATE TABLE or ALTER TABLE to enable Stretch Database on a table.
 
--   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
+-   Optionally, use the `FILTER_PREDICATE = <predicate>` clause to specify  a predicate to select rows to migrate if the table contains both historical and current data. The predicate must call an inline table\-valued function. For more info, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). If you don't specify a filter predicate, the entire table is migrated.
 
     >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
-    In CTP 3.1 through RC1, this option is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+    In CTP 3.1 through RC2, this option is not available in the Enable Database for Stretch wizard. You have to use the CREATE TABLE or ALTER TABLE statement to configure a table for Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 -   Specify `MIGRATION_STATE = OUTBOUND` to start data migration immediately or  `MIGRATION_STATE = PAUSED` to postpone the start of data migration.
 
@@ -76,7 +76,7 @@ Here's an example that migrates the entire table and begins data migration immed
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 ALTER TABLE <table name>
@@ -96,7 +96,7 @@ Here's an example that migrates the entire table and begins data migration immed
 CREATE TABLE <table name> ...
     WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```
-Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Write an Inline Table-Valued Function to Select Rows (Stretch Database)](sql-server-stretch-database-predicate-function.md).
+Here's an example that migrates only the rows identified by the `dbo.fn_stretchpredicate` inline table\-valued function and postpones data migration. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
 CREATE TABLE <table name> ...

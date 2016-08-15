@@ -3,7 +3,7 @@
    description="Learn how to manage Data Lake Store accounts, and the file system." 
    services="data-lake-store" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="nitinme" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,17 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/06/2016"
+   ms.author="nitinme"/>
 
 # Manage Azure Data Lake Store using Azure SDK for Node.js
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [.NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [Azure CLI](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 
 The Azure ADK for Node.js can be used for managing Azure Data Lake store accounts, and the file system:
@@ -37,7 +38,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. See [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md) to create an account.
-- **A service principal with permissions to access the Data Lake Analytics account**. See [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- **A service principal with permissions to access the Data Lake Analytics account**. See [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 ## Install the SDK
 
@@ -110,5 +111,5 @@ The following example creates a file in a Data Lake Store account and appends da
 ##See also 
 
 - [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Manage Azure Data Lake Analytics using Node.js](data-lake-analytics-use-nodejs.md)
+- [Manage Azure Data Lake Analytics using Node.js](../data-lake-analytics/data-lake-analytics-manage-use-nodejs.md)
 

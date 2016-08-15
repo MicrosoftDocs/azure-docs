@@ -150,6 +150,21 @@ The `WebImage` binding code is provided in a `WebImageBinder` class that derives
 		    }
 		}
 
+## Getting the blob path for the triggering blob
+
+To get the container name and blob name of the blob that has triggered the function, include a `blobTrigger` string parameter in the function signature.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
+
 ## <a id="poison"></a> How to handle poison blobs
 
 When a `BlobTrigger` function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.

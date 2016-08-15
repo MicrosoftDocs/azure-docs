@@ -33,7 +33,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 15. Click **Azure Active Directory**, and then click **Express** under **Management Mode**.
 
-16. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you wish to choose an existing
+16. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you want to choose an existing
 registration instead, click **Select an existing app** and then search for the name of a previously created registration within your tenant.
 Click the registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings blade.
 

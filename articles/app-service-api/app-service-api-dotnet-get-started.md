@@ -76,8 +76,7 @@ In this tutorial, you'll learn:
 
 	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
 
-	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are 
-	* . 
+	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are lost.
 
 	The middle tier provides the user ID in the `Owner` field when it calls the data tier. In the code that you download, the user ID is always "*". When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier.
 
@@ -504,7 +503,7 @@ As explained [earlier](#apptype), the only difference between API apps, web apps
 
 However, if you want to change the portal representation, it's easy to do. For example, you could change one of the API apps you just created to a web app by performing the following steps.
 
-1. Open Resource Explorer.
+1. Open [Resource Explorer](https://resources.azure.com/).
 
 2. In the left navigation pane, expand **subscriptions**, and then expand the subscription you've been working with.
 

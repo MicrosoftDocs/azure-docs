@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
@@ -50,6 +50,8 @@ If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect
 #### Solution
 
 Always run Service Fabric cmdlets directly from Windows PowerShell.
+
+>[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
 
 ### Type Initialization exception
 

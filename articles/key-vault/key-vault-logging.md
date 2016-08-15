@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="04/07/2016"
 	ms.author="cabailey"/>
 
 # Azure Key Vault Logging #

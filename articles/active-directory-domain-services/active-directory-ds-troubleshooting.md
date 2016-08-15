@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Troubleshooting guide
@@ -59,5 +59,5 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 ### Contact Us
 If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
 
-- **Email:** You may email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com). Ensure you include the tenant ID for your Azure AD directory and the domain name you've configured for AAD Domain Services, so we can investigate the issue.
+- **Email:** You may email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com). Ensure you include the tenant ID for your Azure AD directory and the domain name you've configured for AAD Domain Services, so we can investigate the issue. The tenant ID is the GUID you will notice in the browser's address bar when you navigate to the page from where you enable AAD Domain Services for your directory.
 - **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/):** Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.

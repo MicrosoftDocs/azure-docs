@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="sumukhs"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -57,7 +57,7 @@ SharedLogSizeInMB specifies the amount of disk space to preallocate for the defa
 You can modify stateful Reliable Services' default configurations by using the configuration package (Config) or the service implementation (code).
 
 + **Config** - Configuration via the config package is accomplished by changing the Settings.xml file that is generated in the Microsoft Visual Studio package root under the Config folder for each service in the application.
-+ **Code**   - Configuration via code is accomplished by overriding StatefulService.CreateReliableStateManager and creating a ReliableStateManager by using a  ReliableStateManagerConfiguration object with the appropriate options set.
++ **Code**   - Configuration via code is accomplished by creating a ReliableStateManager using a  ReliableStateManagerConfiguration object with the appropriate options set.
 
 By default, the Azure Service Fabric runtime looks for predefined section names in the Settings.xml file and consumes the configuration values while creating the underlying runtime components.
 
@@ -99,14 +99,32 @@ ReplicatorConfig
 
 ### Sample configuration via code
 ```csharp
-protected override IReliableStateManager CreateReliableStateManager()
+class Program
 {
-    return new ReliableStateManager(
+    /// <summary>
+    /// This is the entry point of the service host process.
+    /// </summary>
+    static void Main()
+    {
+        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
+            context => new HelloWorldStateful(context, 
+                new ReliableStateManager(context, 
         new ReliableStateManagerConfiguration(
-            new ReliableStateManagerReplicatorSettings
+                        new ReliableStateManagerReplicatorSettings()
             {
                 RetryInterval = TimeSpan.FromSeconds(3)
-            }));
+                        }
+            )))).GetAwaiter().GetResult();
+    }
+}    
+```
+```csharp
+class MyStatefulService : StatefulService
+{
+    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
+        : base(context, stateManager)
+    { }
+    ...
 }
 ```
 
@@ -143,3 +161,7 @@ The MaxRecordSizeInKB setting defines the maximum size of a record that can be w
 
 The SharedLogId and SharedLogPath settings are always used together to make a service use a separate shared log from the default shared log for the node. For best efficiency, as many services as
 possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file to reduce head movement contention. We expect that this value would need to be changed in only rare cases.
+
+## Next steps
+ - [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
+ - [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)

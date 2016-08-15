@@ -132,6 +132,17 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Check the *total_elapsed_time* column to see if a particular distribution is taking significantly longer than others for data movement.
 - For the long-running distribution, check the *rows_processed* column to see if the number of rows being moved from that distribution is significantly larger than others. If so, this may indicate skew of your underlying data.
 
+If the query is currently running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server execution plan for the currently running DMS Step for a particular distribution.
+
+```sql
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
+```
+
+
 ## Investigate Data Skew
 
 Use [DBCC PDW_SHOWSPACEUSED][] to lookup space used by a table.

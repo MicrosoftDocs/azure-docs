@@ -22,12 +22,21 @@ One of the challenges for modern data integration is to seamlessly move data to 
 
 Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
 
-## Current version (1.10.5892.1)
+## Current version (1.11.5918.1)
 
-•	Performance improvements
-•	Bug fixes
+- Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
+- A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
+- In case auto-update fails, gateway installer will retry auto-updating 3 times at maximum.
+- Performance improvements
+	- Improve performance for loading large tables from on-premises server in code-free copy scenario.
+- Bug fixes
 
 ## Earlier versions
+
+## 1.10.5892.1
+
+- Performance improvements
+- Bug fixes
 
 ## 1.9.5865.2
 

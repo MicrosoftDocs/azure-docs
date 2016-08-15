@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cawa" />
 
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
@@ -41,12 +41,13 @@ Before you can set up the build machine, you need to create a [service principal
 
 ### Install Azure PowerShell and sign in
 
-1.	Install Azure PowerShell.
-2. Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+1.  Install PowerShellGet.
 
-    >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
+    a. If you are running Windows 10 with the latest updates, you can skip this step (PowerShellGet is already installed).
 
-3.	Install and update the AzureRM module.
+    b. If not, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+
+2.	Install and update the AzureRM module.
 If you have any previous version of Azure PowerShell installed, remove it:
 
     a. Right-click the Start button, and then select **Add/Remove Programs**.
@@ -81,42 +82,25 @@ If you have any previous version of Azure PowerShell installed, remove it:
 
 ### Create a service principal
 
-1.	Download and extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to a folder on this machine.
+1. Follow [these instructions](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) to create a service principal and service endpoint for your project.
 
-2.	In an admin PowerShell command prompt, change to the directory `Powershell\Manual` within the extracted archive.
+2. Note the values that are printed at the end of the script's output. You will need them to set up your build definition.
 
-3.	Choose a password for the service principal by using the following command. Remember this password, because it will be used as a build variable.
+### Create a certificate and upload it to a new Azure Key Vault
 
-    ```
-    $password = Read-Host -AsSecureString
-    ```
-4.	Run the PowerShell script Create-ServicePrincipal.ps1 with the following parameters:
+>[AZURE.NOTE] This example script generates a self-signed certificate, which is not a secure practice and is only acceptable for experimentation. Follow your organization's guidelines to obtain a legitimate certificate instead. These instructions also use a single certificate for both the server and the client. In production, you should use separate server and client certificates.
 
-|Parameter|Value|
-|---|---|
-|DisplayName|Any name.|
-|HomePage|Any URI. Doesn't have to actually exist.|
-|IdentifierUri|Any unique URI. Doesn't have to actually exist.|
-|SecurePassword|$password|
+1. Download and extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to a folder on this machine.
 
-When the script finishes, it outputs the following three values. Note the values, because they are used as build variables.
+2. In an admin PowerShell prompt, change to the directory `<extracted zip>/Manual`.
 
- - `ServicePrincipalId`
- - `ServicePrincipalTenantId`
- - `ServicePrincipalSubscriptionId`
-
-### Create a certificate and upload it to a new instance of Azure Key Vault
-
->[AZURE.NOTE] This example script generates a self-signed certificate, which is not a secure practice and is acceptable only for experimentation. Follow your organization's guidelines to obtain a legitimate certificate instead.
-
-1.	In an admin PowerShell prompt, change to the directory from which you extracted `Manual.zip`.
-
-2.	Run the PowerShell script `CreateAndUpload-Certificate.ps1` with the following parameters:
+3. Run the PowerShell script `CreateAndUpload-Certificate.ps1` with the following parameters:
 
 | Parameter | Value |
 | --- | --- |
 | KeyVaultLocation | Any value. This parameter must match the location in which you plan to create the cluster. |
 | CertificateSecretName | Any value. |
+| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.azure.cloudapp.net` |
 | SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
 | KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
 | KeyVaultName | Any value. |
@@ -160,7 +144,7 @@ Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-f
 
 To install Azure PowerShell, follow the steps in the previous section "Install Azure PowerShell and sign in". Skip the "Sign in to Azure PowerShell" step.
 
-### Register the Azure PowerShell modules with the Local Service account
+### Register the Azure PowerShell modules with the Network Service account
 
 >[AZURE.NOTE] Do this *before* you start the build agent. Otherwise, it will not pick up the new environment variable.
 
@@ -191,7 +175,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     c. Select **Administrative Tools** > **Manage computer certificates**.
 
-3.	Grant Local Service account permission to use your automation certificate:
+3.	Grant the Network Service account permission to use your automation certificate:
 
     a.	Under **Certificates - Local Computer**, expand **Personal**, and then select **Certificates**.
 
@@ -199,11 +183,15 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     c.	Right-click your certificate, and then select **All Tasks** > **Manage Private Keys**.
 
-    d.	Select the **Add** button, enter **Local Service**, and then select **Check Names**.
+    d.	Select the **Add** button, enter **Network Service**, and then select **Check Names**.
 
     e.	Select **OK**, and then close the certificate manager.
 
- ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+    ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+
+4.  Copy the certificate to the `Trusted People` folder.
+
+    a. Your certificate was imported to **Personal/Certificates**, but we need to add it to **Trusted People**. Right-click on the certificate and select **Copy**. Then right-click on the **Trusted People** folder and select **Paste**.
 
 ### Register your build agent
 
@@ -217,11 +205,13 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     d.	Select **Download agent** to download the agent.zip file.
 
+    >[AZURE.NOTE] If the download doesn't start, check your popup blocker.
+
     e.	Copy agent.zip to the build machine that you created earlier.
 
     f.	Unzip agent.zip to `C:\agent` (or any location that has a short path) on your build machine.
 
-    >[AZURE.NOTE] If you plan to use ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
+    >[AZURE.NOTE] If you plan to use ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment. When ASP.NET Core is released, it will mitigate this issue.
 
 2.	From an admin command prompt, run `C:\agent\ConfigureAgent.cmd`. The script prompts you for the following parameters:
 
@@ -232,12 +222,13 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 |Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
 |Work folder|Accept the default value. This is the folder where the build agent will actually build your application. If you plan to use ASP.NET 5 Web Services, we recommend that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
 |Install as Windows Service?|Default value is N. Change the value to **Y**.|
-|User account to run the service|Accept the default value, `NT AUTHORITY\LocalService`.|
+|User account to run the service|Accept the default value, `NT AUTHORITY\NetworkService`.|
+|Password for `NT AUTHORITY\Network Service`|The network service account does not have a password, but will refuse blank passwords. Enter any non-empty string for the password (whatever you enter will be ignored).|
 |Un-configure existing agent?|Accept the default value, **N**.|
 
 3.  When you're prompted for credentials, enter the credentials for your Microsoft account that has rights to your team project.
 
-4.  Verify that your build agent was registered. To do this:
+4.  Verify that your build agent was registered and configure its capabilities. To do this:
 
     a. Go back to your web browser, (`https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`), and refresh the page.
 
@@ -245,7 +236,11 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
 
- ![Screenshot that shows the status of the build agent](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+    ![Screenshot that shows the status of the build agent](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+
+    d. Select the build agent, then select the **Capabilities** tab.
+
+    e. Add a capability named **azureps** with any value. This indicates to VSTS that this machine has Azure PowerShell installed on it, which is required to use some of the VSTS-provided build tasks.
 
 
 ## Create your build definition
@@ -276,27 +271,39 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 2.	On the **Variables** tab, create the following variables with these values.
 
-|Variable|Value|Secret|Allow at queue time|
-|---|---|---|---|
-|BuildConfiguration|Release||X|
-|BuildPlatform|x64|||
-|ServicePrincipalPassword|The password that you passed to CreateServicePrincipal.ps1.|X||
-|ServicePrincipalId|From the output of CreateServicePrincipal.ps1.|||
-|ServicePrincipalTenantId|From the output of CreateServicePrincipal.ps1.|||
-|ServicePrincipalSubscriptionId|From the output of CreateServicePrincipal.ps1.|||
-|ServiceFabricCertificateThumbprint|From the output of GenerateCertificate.ps1.|||
-|ServiceFabricKeyVaultId|From the output of GenerateCertificate.ps1.|||
-|ServiceFabricCertificateSecretId|From the output of GenerateCertificate.ps1.|||
-|ServiceFabricClusterName|Any name you want.|||
-|ServiceFabricClusterResourceGroupName|Any name you want.|||
-|ServiceFabricClusterLocation|Any name that matches the location of your key vault.|||
-|ServiceFabricClusterAdminPassword|Any name you want.|X||
-|ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` The connection endpoint in your publish profile will be ignored. The connection endpoint for your temporary cluster is used instead.|||
-|ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-|ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder that contains your .sfproj file.||||
+    |Variable|Value|Secret|Allow at queue time|
+    |---|---|---|---|
+    |BuildConfiguration|Release||X|
+    |BuildPlatform|x64|||
+    |ServicePrincipalPassword|The password that you used when you created your service principal.|X||
+    |ServicePrincipalId|From the output of the script you used to create your service principal.|||
+    |ServicePrincipalTenantId|From the output of the script you used to create your service principal.|||
+    |ServicePrincipalSubscriptionId|From the output of the script you used to create your service principal.|||
+    |ServiceFabricCertificateThumbprint|From the output of CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricKeyVaultId|From the output of CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricCertificateSecretId|From the output of CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricClusterName|Must match the DNS Name of your certificate.|||
+    |ServiceFabricClusterResourceGroupName|Any name you want.|||
+    |ServiceFabricClusterLocation|Must match the location of your key vault.|||
+    |ServiceFabricClusterAdminPassword|8-123 characters, with at least 3 of the following types of characters: Upper-case, lower-case, numeric, special character.|X||
+    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
+    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` The connection endpoint in your publish profile will be ignored. The connection endpoint for your temporary cluster is used instead.|||
+    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
+    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder that contains your .sfproj file.||||
 
-3.  Save the build definition and give it a name. (You can change this name later if you want.)
+3.  Save the build definition and give it a name. You can change this name later if you want.
+
+### Add a "Restore NuGet packages" step
+
+1. On the **Build** tab, choose the **Add build step…** command.
+
+2. Choose **Package** > **NuGet Installer**
+
+3. Choose the pencil icon by the build step's name and rename it to **Restore NuGet packages**.
+
+4. Choose the **…** button next to the **Solution** field and then choose your .sln file.
+
+5. Save the build definition.
 
 ### Add a "Build" step
 
@@ -312,7 +319,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 6.	Enter `$(BuildConfiguration)` for **Configuration**.
 
-7.	Select the **Restore NuGet Packages** check box (if it isn't already selected).
+7.	Clear the **Restore NuGet Packages** check box (if it isn't already selected).
 
 8.	Save the build definition.
 

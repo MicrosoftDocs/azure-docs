@@ -3,7 +3,7 @@
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
-   authors="JohnPWSharp"
+   authors="mikewasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
-   ms.author="masashin"/>
+   ms.date="03/30/2016"
+   ms.author="mikewasson"/>
 
 # Running Windows VMs for a 3-tier architecture on Azure
 
@@ -121,7 +121,7 @@ The following diagram builds on the topology shown in [Running multiple Windows 
 
 ## Manageability
 
-- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs](azure-audit-logs) to view provisioning actions and other events.
+- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs][azure-audit-logs] to view provisioning actions and other events.
 
 - Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
 
@@ -457,28 +457,29 @@ goto :eof
 
 <!-- links -->
 
-[azure-administration]: ../automation/automation-intro/
-[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability/#configure-each-application-tier-into-separate-availability-sets
+[azure-administration]: ../automation/automation-intro.md
+[azure-audit-logs]: ../resource-group-audit.md
+[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: ../virtual-machines-command-line-tools.md
-[azure-key-vault]: https://azure.microsoft.com/services/key-vault/
-[azure-load-balancer]: ../load-balancer/load-balancer-overview/
+[azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
+[azure-load-balancer]: ../load-balancer/load-balancer-overview.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
-[load-balancer-external]: ../load-balancer/load-balancer-internet-overview/
-[load-balancer-external-cli]: ../load-balancer/load-balancer-get-started-internet-arm-cli/
-[load-balancer-internal]: ../load-balancer/load-balancer-internal-overview/
-[load-balancer-internal-cli]: ../load-balancer/load-balancer-get-started-ilb-arm-cli/
+[load-balancer-external]: ../load-balancer/load-balancer-internet-overview.md
+[load-balancer-external-cli]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
+[load-balancer-internal]: ../load-balancer/load-balancer-internal-overview.md
+[load-balancer-internal-cli]: ../load-balancer/load-balancer-get-started-ilb-arm-cli.md
 [multi-vm]: guidance-compute-multi-vm.md
 [naming conventions]: guidance-naming-conventions.md
-[nsg]: ../virtual-network/virtual-networks-nsg/
+[nsg]: ../virtual-network/virtual-networks-nsg.md
 [nsg-rules]: ../best-practices-resource-manager-security.md#network-security-groups
-[operations-management-suite]: https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx
-[public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm/
+[operations-management-suite]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
+[public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
 [resource-manager-overview]: ../resource-group-overview.md
 [rfc1918]: http://tools.ietf.org/html/rfc1918
 [sql-alwayson]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[vnet faq]: ../virtual-network/virtual-networks-faq/
+[vnet faq]: ../virtual-network/virtual-networks-faq.md

@@ -42,7 +42,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 	![Open PuTTY](./media/virtual-machines-linux-classic-log-on/putty.png)
 
-4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md).
+4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](virtual-machines-linux-classic-createportal.md).
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
 

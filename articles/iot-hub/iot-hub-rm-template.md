@@ -115,7 +115,7 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
 3. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**.  Add a new JSON file called **parameters.json** to your project.
 
-4. Replace the contents of **parameters.json** with the following parameter information that sets the name of the new IoT hub to **mynewiothub**:
+4. Replace the contents of **parameters.json** with the following parameter information that sets the name of the new IoT hub to **mynewiothub**  (note that this name must be globally unique):
 
     ```
     {

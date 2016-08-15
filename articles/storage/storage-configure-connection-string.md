@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configure a Connection String to Azure Storage | Microsoft Azure"
-	description="Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key."
+	description="Construct a connection string to an Azure storage account. A connection string includes the information needed to authenticate access to resources in a storage account from your application."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
@@ -96,13 +96,13 @@ For example, a connection string to a Blob endpoint on a custom domain may be si
 
 ### Specifying a Blob endpoint with a shared access signature
 
-You can create a connection string with explicit endpoints to access storage resources via a shared access signature. In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials. The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted. For more information about shared access signatures, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
+You can create a connection string with explicit endpoints to access storage resources via a shared access signature. In this case, you can specify the shared access signature for as part of the connection string, rather than the account name and key credentials. The shared access signature token encapsulates information about the resource to be accessed, the period of time for which it is available, and the permissions being granted. For more information about shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
 
 To create a connection string that includes a shared access signature, specify the string in the following format:
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-The endpoint can be either the default service endpoint or a custom endpoint. The `base64Signature` corresponds to the signature portion of a shared access signature. The signature is an HMAC computed over a valid string-to-sign and key using the SHA256 algorithm, that is then Base64-encoded.
+The endpoint can be either the default service endpoint or a custom endpoint. The `sasToken` is the query string that follows the question mark (?) on the SAS URL. 
 
 ### Creating a connection string with an endpoint suffix
 
@@ -118,3 +118,8 @@ For example, your connection string should look similar to the following sample 
 	AccountName=storagesample;
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
+
+## Next steps
+
+- [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md)
+- [Azure Storage Explorers](storage-explorers.md)

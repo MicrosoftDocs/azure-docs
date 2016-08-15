@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recover a database from an outage in SQL Data Warehouse
 
-Geo-restore provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because it uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Besides recovering from an outage, geo-restore can also be used for other scenarios like migrating or copying the database to a different server or region. 
+Geo-restore provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because geo-restore uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Besides recovering from an outage, geo-restore can also be used for other scenarios like migrating or copying the database to a different server or region. 
 
 
 ## When to initiate recovery
@@ -43,14 +43,14 @@ Recovering a database creates a new database from the latest geo-redundant backu
 ### PowerShell
 Use Azure PowerShell to programmatically perform database recovery. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). You can check your version by running Get-Module -ListAvailable -Name Azure. This article is based on Microsoft Azure PowerShell version 1.0.4.
 
-To recover a database, use the [Start-AzureSqlDatabaseRecovery][] cmdlet.
+To recover a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
 
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
 3. Select the subscription that contains the database to be restored.
 4. Get the database you want to recover.
 5. Create the recovery request for the database.
-6. Monitor the progress of the recovery.
+6. Verify the status of the geo-restored database.
 
 ```Powershell
 
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$Database = Get-AzureRmSqlRecoverableDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$RecoveryRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourSourceServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -TargetServerName "<YourTargetServerName>"
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Monitor progress of recovery operation
-Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationGuid $RecoveryRequest.RequestID
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
 
 ```
 
-Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
+>[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
 
 ### REST API
 Use REST to programmatically perform database recovery.
@@ -93,7 +93,7 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 
 
 ## Next steps
-To learn about the business continuity features of other Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
+To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
 
 
 <!--Image references-->
@@ -103,7 +103,7 @@ To learn about the business continuity features of other Azure SQL Database edit
 [Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
-[Start-AzureSqlDatabaseRecovery]: https://msdn.microsoft.com/library/azure/dn720224.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [List Recoverable Databases]: http://msdn.microsoft.com/library/azure/dn800984.aspx
 [Get Recoverable Database]: http://msdn.microsoft.com/library/azure/dn800985.aspx
 [Create Database Recovery Request]: http://msdn.microsoft.com/library/azure/dn800986.aspx

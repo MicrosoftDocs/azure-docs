@@ -21,8 +21,9 @@ After you have [set up Application Insights on your project](app-insights-overvi
 
 ## The dashboard
 
-When you sign in to the [Azure portal](https://portal.azure.com), you first get to the dashboard. You can customize it or put it into full screen mode. This example has been customized to show the key charts that interest its owners.
+When you sign in to the [Azure portal](https://portal.azure.com), you first get to the dashboard. You can customize it or put it into full screen mode. 
 
+The dashboard is particularly useful for monitoring a solution made up of multiple applications, no matter where they're hosted. And if you have Azure components such as Stream Analytics as part of your system, you can add their monitoring charts to the dashboard too.
 
 ![A customized dashboard.](./media/app-insights-dashboards/30.png)
 

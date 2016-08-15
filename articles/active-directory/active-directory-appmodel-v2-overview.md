@@ -55,9 +55,3 @@ These links will be useful for exploring the platform in depth:
   - [iOS OAuth2 Client](https://github.com/nxtbgthng/OAuth2Client)
   - [Android OAuth2 Client](https://github.com/wuman/android-oauth-client)
   - [Android OpenID Connect Client](https://github.com/kalemontes/OIDCAndroidLib)
-
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->

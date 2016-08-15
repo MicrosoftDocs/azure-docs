@@ -27,7 +27,7 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
 
- - See [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md)
+ - See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
  - See [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md)
 
 

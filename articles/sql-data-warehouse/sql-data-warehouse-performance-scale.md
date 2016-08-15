@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/29/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Elastic performance and scale with SQL Data Warehouse
@@ -36,7 +36,7 @@ If your application has a fluctuating workload, move performance levels up or do
 ## Scaling compute resources up and down
 Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This gives you the flexibility to tune your compute power to something that is optimal for your business.  
 
-To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Classic Portal.  You can also add DWUs through T-SQL, REST APIs, or Powershell cmdlets.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
+To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Classic Portal.  You can also add DWUs through T-SQL, REST APIs, or Azure Powershell cmdlets.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
 
 In the [Azure Classic Portal][], you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.  If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:
 
@@ -47,10 +47,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ```
 Please note that this T-SQL should be run against your logical server, and not against the SQL Data Warehouse instance itself.
 
-You can also achieve the same with result using Powershell using the code below:
+You can also achieve the same result using Azure Powershell by importing the AzureRM.Sql module and using the code below:
 
 ```Powershell
-Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## Pausing compute resources
@@ -60,22 +60,27 @@ The pause action returns your compute resources back to the pool of available re
 
 > [AZURE.NOTE] Since storage is separate from compute, your storage is unaffected by pause.
 
-Pause and resume of your compute power can be done through the [Azure Classic Portal][], via REST APIs or through Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.
+Pause and resume of your compute power can be done through the [Azure Classic Portal][], via REST APIs or through Azure Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.
 
-The code below shows how to perform a pause using PowerShell:
-
-```Powershell
-Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-"Server01" –DatabaseName "Database02"
-```
-
-Resuming the service is also very straightforward with PowerShell:
+To pause and resume the service using Azure Powershell, you will first need to import the AzureRM.Sql module as follows:
 
 ```Powershell
-Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Import-Module AzureRM.Sql
 ```
 
-For more details on how to use PowerShell please refer to [Using PowerShell cmdlets and REST APIs with SQL Data Warehouse][].
+The code below shows how to perform a pause using Azure PowerShell:
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Resuming the service is also very straightforward with Azure PowerShell:
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+For more details on how to use Azure PowerShell please refer to [Using PowerShell cmdlets and REST APIs with SQL Data Warehouse][].
 
 ## Next steps
 For the performance overview, see [performance overview][].

@@ -91,8 +91,6 @@ The following tutorials show how to configure App Service to leverage different 
 
 If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-You can also find some more detail on the above flows in the [App Service authentication overview](app-service-authentication-overview.md). This topic also includes information about the App Service Gateway, which is no longer used in Mobile Apps, but the conceptual content still applies.
-
 [Add authentication to your iOS app]: app-service-mobile-ios-get-started-users.md
 [Add authentication to your Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Add authentication to your Xamarin.Android app]: app-service-mobile-xamarin-android-get-started-users.md

@@ -63,15 +63,13 @@ As mentioned above, there may be applications that haven't been managed by your 
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) and [Password based single sign on](active-directory-appssoaccess-whatis.md).
 
 ### Enabling SSO with Azure AD App Proxy
-With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD. See [Enabling SSO with Azure AD App Proxy](active-directory-appssoaccess-enable-hybrid-access.md) and [Publishing new applications with Azure AD App Proxy](active-directory-application-proxy-configure.md).
+With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
 
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
 
 - [Determining which Active Directory to use](active-directory-administer.md)
-- [Integrating with existing applications](active-directory-sso-integrate-existing-apps.md)
-- [Publishing new applications with Azure AD App Proxy](active-directory-application-proxy-configure.md)
-- [Using applications in the Azure application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
+- [Using applications in the Azure application gallery](active-directory-appssoaccess-whatis.md)
 - [Integrating SaaS applications tutorials list](active-directory-saas-tutorial-list.md)
 
 ## Managing access to applications

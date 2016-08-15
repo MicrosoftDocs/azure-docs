@@ -19,12 +19,6 @@
 
 # Create and preconfigure a Linux virtual machine using Azure Powershell
 
-> [AZURE.SELECTOR]
-- [Azure CLI](virtual-machines-linux-cli-create.md)
-- [PowerShell](virtual-machines-linux-classic-createpowershell.md)
-
-
-<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
  
@@ -36,7 +30,7 @@ For the companion topic for Windows-based virtual machines, see [Use Azure Power
 
 ## Install Azure PowerShell
 
-If you haven't done so already, [install and configure Azure PowerShell](powershell-install-configure.md). Then, open an Azure PowerShell command prompt.
+If you haven't done so already, [install and configure Azure PowerShell](../powershell-install-configure.md). Then, open an Azure PowerShell command prompt.
 
 ## Set your subscription and storage account
 
@@ -275,7 +269,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[How to install and configure Azure PowerShell](powershell-install-configure.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md)
 
