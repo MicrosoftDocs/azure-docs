@@ -47,7 +47,7 @@ These settings can be configured via the “Export” option in the Activity Log
 You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
-2. 
+
 ![Navigate to Activity Logs in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
 
 2. Click the **Export** button at the top of the blade.
