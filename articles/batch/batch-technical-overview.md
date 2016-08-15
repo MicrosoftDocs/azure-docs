@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/12/2016"
+	ms.date="08/15/2016"
 	ms.author="marsma"/>
 
 # Basics of Azure Batch
@@ -48,7 +48,7 @@ For a comparison between Batch and other HPC solution options in Azure, see [Bat
 
 Processing parallel workloads with Batch is typically done programmatically by using one of the [Batch APIs](#batch-development-apis). With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service.
 
-You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks—on demand, or on a schedule—on one, hundreds, or even thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or even thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
 
 > [AZURE.TIP] When you're ready to dig in to the Batch API for a more in-depth understanding of the features it provides, check out the [Batch feature overview for developers](batch-api-basics.md).
 
@@ -86,11 +86,11 @@ In addition to the client APIs, you can also use the following to manage resourc
 
 ### Batch tools
 
-While not required to build solutions using Batch, these tools can be valuable while building and debugging your Batch applications and services.
+While not required to build solutions using Batch, here are some valuable tools to use while building and debugging your Batch applications and services.
 
- - [Azure portal][portal]: You can create pools, jobs, and tasks in the portal. You can also view task information and download files from compute nodes. Use the portal to download
+ - [Azure portal][portal]: You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal's Batch blades. You can view the status information for these and other resources while you run you jobs, and even download files from the compute nodes in your pools (download a failed task's `stderr.txt` while troubleshooting, for example). You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
 
- - [Azure Batch Explorer][batch_explorer]: Batch Explorer is one of the Batch .NET sample applications available on [GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2015 or above. Use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
+ - [Azure Batch Explorer][batch_explorer]: Batch Explorer provides similar Batch resource management functionality as the Azure portal, but in a standalone Windows Presentation Foundation (WPF) client application. One of the Batch .NET sample applications available on [GitHub][github_samples], you can build it with Visual Studio 2015 or above and use it to browse and manage the resources in your Batch account while you develop and debug your Batch solutions. View job, pool, and task details, download files from compute nodes, and connect to nodes remotely by using Remote Desktop (RDP) files you can download with Batch Explorer.
 
  - [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
