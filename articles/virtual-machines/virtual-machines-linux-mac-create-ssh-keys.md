@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-With an SSH keypair you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to login.  Passwords can be guessed and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment. This removes a post deployment configuration step while delivering a faster time to the first login.  If you are connecting to a Linux VM from Windows, see [this document.](/virtual-machines-linux-ssh-from-windows.md)
+With an SSH keypair you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration.  If you are connecting to a Linux VM from Windows, see [this document.](/virtual-machines-linux-ssh-from-windows.md)
 
 ## Quick Command Listing
 
@@ -64,15 +64,15 @@ $
 
 ## Introduction
 
-Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key can have a [ password](https://www.xkcd.com/936/) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key so that the private key is usable without the password to unlock it.  If an attacker stole your private key and it did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
+Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily. Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key can have a [password](https://www.xkcd.com/936/) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key so that the private key is usable without the password to unlock it.  If an attacker stole your private key and it did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
 
-This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager and required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
+This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
 
 
 ## Create the SSH Keys
 
-Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys` and that is used to challenge the SSH client to match the corresponding private key on an SSH login connection.
+Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys`.  SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.
 
 
 ## Using ssh-keygen
@@ -152,7 +152,7 @@ Key Password:
 
 ## Using ssh-agent to store your private key password
 
-To avoid typing your private key file password with every SSH login, you can use `ssh-agent` to cache your private key file password allowing for quick and secure logins to your Linux VM. If you are using a Mac, the OSX Keychain securely stores the private key passwords when you invoke `ssh-agent`.
+To avoid typing your private key file password with every SSH login, you can use `ssh-agent` to cache your private key file password. If you are using a Mac, the OSX Keychain securely stores the private key passwords when you invoke `ssh-agent`.
 
 First verify that `ssh-agent` is running
 
@@ -206,20 +206,20 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 ```
 
-This SSH config gives you sections for each service to enable each to have its own dedicated key pair. The default settings (`Host *`) are for any hosts that do not match any of the specific hosts higher up in the config file.
+This SSH config gives you sections for each server to enable each to have its own dedicated key pair. The default settings (`Host *`) are for any hosts that do not match any of the specific hosts higher up in the config file.
 
 
 ### Config file explained
 
 `Host` = the name of the host being called on the terminal.  `ssh fedora22` tells `SSH` to use the values in the settings block labeled `Host fedora22`  NOTE: This can be any label that is logical for your usage and does not represent the actual hostname of any server.
 
-`Hostname 102.160.203.241` = the IP address or DNS name for the server being logged into.
+`Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
 
-`User git` = the remote user account to use when logging into the Azure VM.
+`User git` = the remote user account to use.
 
 `PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa` = this tells SSH which key pair to present to the server to authenticate the log in.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = the SSH private key and corresponding public key to use for authentication.
 
 
 ## SSH into Linux without a password
