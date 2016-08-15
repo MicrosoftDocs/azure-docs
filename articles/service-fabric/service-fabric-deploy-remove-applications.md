@@ -108,7 +108,7 @@ The [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt1258
 
 ## Create the application
 
-You can instantiate an application by using any application type version that has been registered successfully through the [New-ServiceFabricApplication](https://msdn.microsoft.com/en-us/library/mt125913.aspx) command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are created at this time.
+You can instantiate an application by using any application type version that has been registered successfully through the [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx) command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. Any default services defined in the application manifest of the target application type are created at this time.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
