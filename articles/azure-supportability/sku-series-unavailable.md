@@ -33,7 +33,7 @@ To request access to a SKU that has been restricted from your subscription, crea
 This helps expedite the support process.
 
 ![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
-
+ 
 3. On the Contact Information page, enter your contact details and click "Create".
 
 ![Contact Information](./media/SKU-series-unavailable/ContactInformation.png)
