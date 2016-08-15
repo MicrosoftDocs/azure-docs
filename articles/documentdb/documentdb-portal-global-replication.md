@@ -2,6 +2,7 @@
 	pageTitle="DocumentDB global database replication | Microsoft Azure"
 	description="Learn how to manage the global replication of your DocumentDB account via the Azure portal."
 	services="documentdb"
+    keywords="global database, replication"
 	documentationCenter=""
 	authors="mimig1"
 	manager="jhubbard"
@@ -13,18 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="08/15/2016"
 	ms.author="mimig"/>
 
 # How to perform DocumentDB global database replication using the Azure portal
 
 Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure DocumentDB. 
 
-For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 > [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now. 
 
-## <a id="addregion"></a>Add regions
+## <a id="addregion"></a>Add global database regions
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
@@ -37,7 +38,7 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 
     ![Click the regions in the map to add or remove them][2]
 
-### Selecting regions
+### Selecting global database regions
 
 When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
 
@@ -61,9 +62,9 @@ While all regions associated with your DocumentDB database account can serve rea
 
 ## <a id="next"></a>Next steps
 
-Learn how to manage consistency of your globally replicated account by reading [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
+Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
 
-For information about how global distribution works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
