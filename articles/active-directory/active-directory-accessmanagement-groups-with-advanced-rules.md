@@ -206,7 +206,7 @@ You can also create a rule that selects device objects for membership in a group
 
 | Properties           | Allowed values                  | Usage                                                |
 |----------------------|---------------------------------|------------------------------------------------------|
-| displayName          | any string value                | (device.displayName -eq "Rob Iphone”                 |
+| displayName          | any string value                | (device.displayName -eq "Rob Iphone”)                 |
 | deviceOSType         | any string value                | (device.deviceOSType -eq "IOS")                      |
 | deviceOSVersion      | any string value                | (device.OSVersion -eq "9.1")                         |
 | isDirSynced          | true false null                 | (device.isDirSynced -eq "true")                      |
