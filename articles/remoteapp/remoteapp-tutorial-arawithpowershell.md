@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 
 
 # Use Windows PowerShell cmdlets with Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
  You can use the Azure RemoteApp PowerShell cmdlets to administer and maintain your collections. Use the following information to get started.
 
