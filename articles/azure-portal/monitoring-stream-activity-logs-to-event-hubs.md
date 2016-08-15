@@ -67,4 +67,4 @@ The Service Bus Rule ID is a string with this format: {service bus resource ID}/
 
 ## Next Steps
 - [Read the overview of Activity Logs](./overview-of-activity-logs.md)
-- [article2](./insights-auditlog-to-webhook-email.md)
+- [Set up an alert based on an Activity Log event](./insights-auditlog-to-webhook-email.md)
