@@ -18,10 +18,15 @@
 
 
 
-#Debug U-SQL jobs 
+#Debug C# code in U-SQL jobs 
 
 Learn how to debug failed U-SQL jobs that are caused by bugs inside the user code using the Azure Data Lake Visual Studio tools. 
 The Data Lake Visual Studio tool allows users to download compiled code and necessary vertex data from  cluster to trace and debug failed jobs .
+
+Big data systems usually provide extensibility model through languages such as Java, C#, Python, etc., however the failures in the customized code are hard to debug. Some of the errors can be identified in local development time or compile time, but some of the errors can only be identified during actual running time in the cloud. Due to lack of information during cloud run time, it is thus harder to debug run time errors for big data solutions in customized code.
+
+In Azure Data Lake Analytics and U-SQL, we are working hard to reduce developers’ time to solve development problems and hope to provide developers a more advanced tool. In the latest Azure Data Lake Tools for Visual Studio release, we have a feature called “Failed Vertex Debug”, where you can debug failed customized C# code using the same runtime and exact input data from the cloud. Developers can easily download the runtime and data which causes the code failure from cloud to local develop machine, run those resources locally to reproduce where goes wrong in the cloud, and be able to set breakpoints to see more detailed information. After that, developers can also iteratively debug the customized C# code, fix it, and then re-run the new piece of code in cloud.
+
 
 >[AZURE.NOTE] Visual Studio may hang or crash if you don’t have the following two windows upgrades: [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682), 
 [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
