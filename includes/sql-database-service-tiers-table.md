@@ -10,7 +10,6 @@
 | Max concurrent sessions | 300 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
-|||
 
 
 ### Standard service tier
@@ -26,7 +25,7 @@
 | Max concurrent sessions | 600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
-|||
+
 
 ### Premium service tier
 
@@ -41,4 +40,4 @@
 | Max concurrent sessions | 2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
-|||
+
