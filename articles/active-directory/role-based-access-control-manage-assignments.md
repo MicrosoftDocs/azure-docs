@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure resource access assignments | Microsoft Azure"
+	pageTitle="View Azure resource access assignments | Microsoft Azure"
 	description="View and manage all the Role-Based Access Control assignments for any user or group in the Azure portal"
 	documentationCenter=""
 	authors="kgremban"
@@ -15,7 +15,7 @@
 	ms.date="08/15/2016"
 	ms.author="kgremban"/>
 
-# Manage access assignments for users and groups in the Azure portal
+# View access assignments for users and groups in the Azure portal
 
 With Role-Based Access Control (RBAC), you can manage access to your Azure resources. Access assigned this way is fine-grained because there are two ways you can restrict the permissions:
 
@@ -42,6 +42,11 @@ To look up the access assignments for a single user or group, start in Azure Act
 
 If you think there are additional access assignments that aren't showing up, consider your own access permissions. If you don't have read access for a resource, then you can't see assignments within it.
 
-## Manage access assignments
+## Delete access assignments
 
-You can delete assignments from this view, but you need to go to the resource itself to add or modify assignments.
+You can only add or modify assignments in the resource itself, but you can delete access assignments from this view.
+
+1. From the list of all the access assignments for a user or group, select the one you want to delete.  
+2. Select **Remove** and then **Yes** to confirm.
+
+  ![Remove access assignment - screenshot](./media/delete_assignment.png)
