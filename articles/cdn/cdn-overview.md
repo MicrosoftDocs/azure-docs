@@ -64,7 +64,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -75,7 +75,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 
 To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 

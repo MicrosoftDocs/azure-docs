@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # How to use your Office 365 subscription with Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 Did you know that you can use your existing Office 365 subscription in Azure RemoteApp to share Office apps from the cloud? Read on for information on your Office 365 + Azure RemoteApp options, including links to articles about Office 365 that help you make the most of your subscription.
 
