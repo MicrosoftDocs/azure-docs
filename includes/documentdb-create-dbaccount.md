@@ -12,7 +12,7 @@
 
 	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new resource group is created. For more information, see [Using the Azure portal to manage your Azure resources](./azure-portal/resource-group-portal.md).
+	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new resource group is created. For more information, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 	- Use **Location** to specify the geographic location in which to host your DocumentDB account. 
 	
@@ -27,7 +27,7 @@
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking **Default Consistency** in the menu. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](./azure-portal/resource-group-portal.md)
+5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking **Default Consistency** in the menu. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](../azure-portal/resource-group-portal.md)
 
     ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
