@@ -1,4 +1,6 @@
-| Service tier | Basic |
+### Basic service tier
+
+|  |  |
 |---|---|
 | Max DTUs | 5 |
 | Max Database Size | 2 |
@@ -11,8 +13,9 @@
 |||
 
 
+### Standard service tier
 
-| Service tier | Standard |
+|   |  |
 |---|:---:|
 || **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3**|
 | Max DTUs | &nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
@@ -25,8 +28,9 @@
 | Disaster recovery | Active Geo-Replication |
 |||
 
+### Premium service tier
 
-| Service tier | Premium |
+|   |  |
 |---|:---:|
 || **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15**|
 | Max DTUs | 125 &nbsp;&nbsp; 250 &nbsp;&nbsp; 500 &nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; 1750 &nbsp;&nbsp; 4000 |

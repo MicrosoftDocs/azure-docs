@@ -3,8 +3,23 @@
 
 ### Basic pool limits
 
+| Elastic Pool | Basic |
+|---|---|
+| Max eDTUs per pool | 5 |
+| Max storage per pool (GB)*| 2 |
+| Max number of databases per pool |  |
+| Max in-memory OLTP storage (GB) per pool| N/A |
+| Max concurrent workers per pool |  |
+| Max concurrent logins per pool | 30 |
+| Max concurrent sessions per pool | 300 |
+| Max eDTUs per database |  |
+| Min eDTUs per database |  |
+| Max storage per database (GB)* |  |
+| Point-in-time-restore | Any point last 7 days |
+| Disaster recovery | Active Geo-Replication |
+
 |Elastic Pool| Basic | 
-|:---:|:---:|
+|---|:---:|
 |eDTUs per pool|&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200|
 |Max storage per pool (GB)*|&nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117|
 |Max number of databases per pool|&nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400|
