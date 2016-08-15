@@ -74,7 +74,7 @@ Next you set up the predictive experiment from which you will deploy your web se
 6.	In properties pane, select **Azure SQL Database** in the data destination dropdown.
 7.	In the **Database server name**, **Database name**, **Server user account name**, and **Server user account password** fields, enter the appropriate information for your database.
 8.	In the **Comma separated list of columns to be saved** field, type Scored Labels.
-9.	In the **Data table name field**, type dbo.ScoredLabels. Note: If the table does not exist, it is created when the experiment is run or the web service is called.
+9.	In the **Data table name field**, type dbo.ScoredLabels. If the table does not exist, it is created when the experiment is run or the web service is called.
 10.	In the **Comma separated list of datatable columns** field, type ScoredLabels.
 
 When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, you can use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [AzureML Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) on the Cortana Intelligence and Machine Learning Blog.
