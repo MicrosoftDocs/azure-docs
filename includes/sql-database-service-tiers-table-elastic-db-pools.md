@@ -1,6 +1,5 @@
-![Service tiers for elastic pools](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png) 
 
-> [AZURE.IMPORTANT] * Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
 
 |Elastic Pool| Basic | 
