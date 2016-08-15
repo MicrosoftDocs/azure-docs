@@ -24,12 +24,12 @@
 - [Authentication](sql-data-warehouse-authentication.md)
 - [Drivers](sql-data-warehouse-connection-strings.md)
 
-To connect to SQL Data Warehouse you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
+To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
 For more information on security and how to enable connections to your data warehouse, see [Secure a database in SQL Data Warehouse][].
 
 ## SQL authentication
-To connect to SQL Data Warehouse you will need to provide the following information:
+To connect to SQL Data Warehouse, you must provide the following information:
 
 - Fully qualified servername
 - Specify SQL authentication
