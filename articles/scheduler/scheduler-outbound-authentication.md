@@ -51,6 +51,44 @@ When a request is sent with authentication info, the response contains the follo
 |_certificateSubjectName_ |The subject distinguished name of the certificate.|
 |_certificateExpiration_ |The expiration date of the certificate.|
 
+## Sample Request & Response for ClientCertificate Authentication
+
+```
+PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+User-Agent: Fiddler
+Host: management.azure.com
+Authorization: Bearer sometoken
+Content-Type: application/json; charset=utf-8
+
+{
+  "properties": {
+    "startTime": "2015-05-14T14:10:00Z",
+    "action": {
+      "request": {
+        "uri": "https://mywebserviceendpoint.com",
+        "method": "GET",
+		"headers": {
+          "x-ms-version": "2013-03-01"
+        },
+		"authentication": {
+          "type": "clientcertificate",
+          "password": "pass@word1",
+          "pfx": "pfx key"
+        }
+      },
+      "type": "http"
+    },
+    "recurrence": {
+      "frequency": "minute",
+      "endTime": "2016-04-10T08:00:00Z",
+      "interval": 1
+    },
+    "state": "enabled",
+  }
+}
+```
+
+
 ## Request Body for Basic Authentication
 
 When adding authentication using the `Basic` model, specify the following additional elements in the request body.
