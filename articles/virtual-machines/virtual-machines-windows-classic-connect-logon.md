@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Log on to a VM | Microsoft Azure"
+	pageTitle="Log on to a classic Azure VM | Microsoft Azure"
 	description="Use the Azure classic portal to log on to a Windows virtual machine created with the classic deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 
@@ -24,8 +24,9 @@ In the Azure classic portal, you use the **Connect** button to start a Remote De
 
 Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-classic-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-log-on.md).
+Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
 
 ## Video walkthrough
 
@@ -44,7 +45,7 @@ Here's a video walkthrough of the steps in this tutorial. It also covers endpoin
 
 	![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 	
-> [AZURE.TIP] If the Connect button isn't available, see the troubleshooting tips at the end of this article.
+> [AZURE.TIP] If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
 
 ## Log on to the virtual machine
 

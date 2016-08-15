@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using Node.js"
+	pageTitle="Connect to SQL Database by using Node.js | Microsoft Azure"
 	description="Presents a Node.js code sample you can use to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 # Connect to SQL Database by using Node.js
@@ -37,3 +37,13 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 ## Step 4: Run sample code
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
+
+## Next Steps
+
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
+
+## Additional resources 
+
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)

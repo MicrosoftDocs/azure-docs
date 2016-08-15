@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="08/11/2016"
+	ms.author="glenga"/>
 
 # Add authentication to your Apache Cordova app
 
@@ -29,15 +29,14 @@ tutorial is based on the [Get started with Mobile Apps] tutorial, which you must
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
+
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then run your application
+Now, you can verify that anonymous access to your backend has been disabled. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then run your application
 in the **Google Android Emulator** and verify that an Unexpected Connection Failure is shown after the app starts.
-
-    This happening becuase the app attempts to access the backend as an unauthenticated user.  The backend redirects the user to an authentication
-    page using OAuth.  However, the application does not trust the OAuth endpoint.
 
 Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
 

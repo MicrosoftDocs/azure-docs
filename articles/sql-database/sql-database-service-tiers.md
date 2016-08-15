@@ -4,9 +4,9 @@
 	keywords="database options,database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/25/2016"
+	ms.date="08/10/2016"
 	ms.author="carlrab"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) has multiple service tiers to handle different workloads. You can change service tiers at any time with zero downtime to your application. You can also [create a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-create-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for single databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for single databases and elastic databases.
+[Azure SQL Database](sql-database-technical-overview.md) has multiple service tiers to handle different workloads. You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under 4 seconds). You can also [create a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-create-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for single databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for single databases and elastic databases.
 
 ## Service tiers and database options
 Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. The following table provides examples of the tiers best suited for different application workloads.
@@ -33,7 +33,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 >[AZURE.NOTE] Web and Business editions are retired. Please read the [Sunset FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business editions.
 
 ## Single database service tiers and performance levels
-For single databases there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database, **with zero downtime for your application.** See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
+For single databases there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
 Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple databases, your database still gets a guaranteed set of resources, and the expected performance characteristics of your database are not affected.
 
@@ -52,14 +52,42 @@ The following table describes the characteristics of pool service tiers.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 2400 - 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
+Each database within a pool also adheres to the single-database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 4800 - 28800, but an individual database within that pool has a database limit of 300 sessions (the limit for a single Basic database as specified in the previous section).
 
 ## Understanding DTUs
 
 [AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
+
+## Choosing a service tier
+
+To decide on a service tier, start by determining whether the database will be a standalone database or will be part of an elastic pool. 
+
+### Choosing a service tier for a standalone database
+
+To decide on a service tier for a standalone database, start by determining the database features that you need in order to choose your SQL Database edition:
+
+- Database size (5 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
+- Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
+
+Once you have determined the SQL Database edition, you are ready to determine the performance level for the database (the number of DTUs). You can guess and then [scale up or down dynamically](sql-database-scale-up.md) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
+
+### Choosing a service tier for an elastic database pool.
+
+To decide on the service tier for an elastic database pool, start by determining the database features that you need in order to choose the service tier for your pool.
+
+- Database size (2 GB for Basic, 250 GB for Standard, and 500 GB for Premium)
+- Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
+- Number of databases per pool (400 for Basic, 400 for Standard, and 50 for Premium)
+- Maximum storage per pool (117 GB for Basic, 1200 for Standard, and 750 for Premium)
+
+Once you have determined the service tier for your pool, you are ready to determine the performance level for the pool (eDTUs). You can guess and then [scale up or scale down dynamically](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed for an individual database within the pool to help you set the upper limit for the pool.
 
 ## Next steps
 - Find out more about the pricing for these tiers on [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 - Learn the details of [elastic database pools](sql-database-elastic-pool-guidance.md) and [price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
 - Learn how to [Monitor, manage, and resize elastic pools](sql-database-elastic-pool-manage-portal.md) and [Monitor the performance of single databases](sql-database-single-database-monitor.md).
 - Now that you know about the SQL Database tiers, try them out with a [free account](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md).
+
+## Additional resources
+
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

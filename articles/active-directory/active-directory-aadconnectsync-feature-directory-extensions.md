@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Directory extensions
@@ -26,8 +26,8 @@ You configure which additional attributes you want to synchronize in the custom 
 The installation will show the following attributes, which are valid candidates:
 
 - User and Group object types
-- Single-valued attributes
-- Strings, Integer, Binary
+- Single-valued attributes: String, Boolean, Integer, Binary
+- Multi-valued attributes: String, Binary
 
 An object can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, it will be truncated by the sync engine.
 

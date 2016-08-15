@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # How Reliable Actors use the Service Fabric platform
@@ -173,7 +173,20 @@ class MyActorService : ActorService, IMyActorService
 
     public Task BackupActorsAsync()
     {
-        return this.BackupAsync(new BackupDescription(...));
+        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
+    }
+    
+    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
+    {
+        try
+        {
+           // store the contents of backupInfo.Directory
+           return true;
+        }
+        finally
+        {
+           Directory.Delete(backupInfo.Directory, recursive: true);
+        }
     }
 }
 ```
@@ -238,7 +251,7 @@ When using GUIDs and strings, the values are hashed to an Int64. However, when e
  - [Actor state management](service-fabric-reliable-actors-state-management.md)
  - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
  - [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+ - [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->

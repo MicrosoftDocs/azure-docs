@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,43 +13,96 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="07/29/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
 
 In this topic, you will learn about Azure Resource Manager and classic deployment models, the state of your resources, and why your resources were deployed with one or the other. The Resource Manager deployment model contains important differences from the classic deployment model, and the two models are not completely compatible with each other. To simplify the deployment and management of resources, Microsoft recommends that you use Resource Manager for new resources, and, if possible, re-deploy existing resources through Resource Manager.
 
-For most resources, you can transition to Resource Manager without any issues. However, a few resource providers offer two versions of the resource (one for classic, and one for Resource Manager) because of the architectural differences between the models. The resource providers that differentiate between the two models are:
+If you are completely new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
 
-- **Compute** - Supports instances of virtual machines and optional availability sets.
-- **Storage** - Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.
-- **Network** - Supports required NICs, virtual machine IP addresses, and subnets within virtual networks and optional load balancers, load balancer IP addresses, and Network Security Groups.
+## History of the deployment models
 
-For these resource types, you must be aware of which version you are using because the supported operations will differ. To understand which model was used to deploy your resources, let's review the two models.
+Azure originally provided only the classic deployment model. In this model, each resource existed independently; there was no way to group related resources together. Instead, you had to manually track which resources made up your solution or application, and remember to manage them in a coordinated approach. To deploy a solution, you had to either create each resource individually through the classic portal or create a script that deployed all of the resources in the correct order. To delete a solution, you had to delete each resource individually. You could not easily apply and update access control policies for related resources. Finally, you could not apply tags to resources to label them with terms that help you monitor your resources and manage billing.
+
+In 2014, Azure introduced Resource Manager which added the concept of a resource group. A resource group is a container for resources that share a common lifecycle. The Resource Manager deployment model provides several benefits:
+
+- You can deploy, manage, and monitor all of the services for your solution as a group, rather than handling these services individually.
+- You can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state.
+- You can apply access control to all resources in your resource group, and those policies are automatically applied when new resources are added to the resource group.
+- You can apply tags to resources to logically organize all of the resources in your subscription.
+- You can use JavaScript Object Notation (JSON) to define the infrastructure for your solution. The JSON file is known as a Resource Manager template.
+- You can define the dependencies between resources so they are deployed in the correct order.
+
+When Resource Manager was added, all resources were retroactively added to default resource groups. If you create a resource through classic deployment now, the resource is automatically created within a default resource group for that service, even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resource Manager model. We'll look at how each service handles the two deployment models in the next section. 
+
+## Understanding support for the models 
+
+When deciding which deployment model to use for your resources, there are three scenarios to be aware of:
+
+1. The service supports Resource Manager and provides only a single type.
+2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This applies only to virtual machines, storage accounts, and virtual networks.
+3. The service does not support Resource Manager.
+
+To discover whether or not a service supports Resource Manager, see [Resource Manager supported providers](resource-manager-supported-services.md).
+
+If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
+
+If the service supports Resource Manager and **is not** a virtual machine, storage account or virtual network, you can use Resource Manager without any complications.
+
+For virtual machines, storage accounts, and virtual networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations. If the virtual machine, storage account, or virtual network was created through Resource Manager deployment, you must continue using Resource Manager operations. This distinction can get particularly confusing when your subscription contains a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
+
+In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
+
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+
+It will return the virtual machine:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
+
+However, the Resource Manager cmdlet **Get-AzureRmVM** only returns virtual machines deployed through Resource Manager. The following command does not return the virtual machine created through classic deployment.
+
+    Get-AzureRmVM -ResourceGroupName ExampleGroup
+
+There are some other important considerations when working with virtual machines.
+
+- Virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with Resource Manager.
+- Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
+- Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
+
+To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
+
+Only resources created through Resource Manager support tags. You cannot apply tags to classic resources. For more information about using tags in Resource Manager, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## Resource Manager characteristics
 
-Resources created through Resource Manager share the following characteristics:
+To help you understand the two models, let's review the characteristics of Resource Manager types:
 
-- Created through one of the following methods:
+- Created through the [Azure portal](https://portal.azure.com/).
 
-  - The [Azure portal](https://portal.azure.com/).
+     ![Azure portal](./media/resource-manager-deployment-model/portal.png)
 
-        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
+     For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+     ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
+- Created with the Resource Manager version of the Azure PowerShell cmdlets. These commands have the format *Verb-AzureRmNoun*, as shown below.
 
-  - For Azure PowerShell, use the Resource Manager version of commands. These commands have the format *Verb-AzureRmNoun*, as shown below.
+        New-AzureRmResourceGroupDeployment
 
-            Get-AzureRmResourceGroupDeployment
+- Created through the [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) for REST operations.
 
-  - [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx) for REST operations.
-  - Azure CLI commands run in the **arm** mode.
+- Created through Azure CLI commands run in the **arm** mode.
 
-            azure config mode arm
+        azure config mode arm
+        azure group deployment create 
 
 - The resource type does not include **(classic)** in the name. The image below shows the type as **Storage account**.
 
@@ -57,7 +110,7 @@ Resources created through Resource Manager share the following characteristics:
 
 The application shown in the following diagram shows how resources deployed through Resource Manager are contained in a single resource group.
 
-  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+  ![Resource Manager architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
 
 Additionally, there are relationships between the resources within the resource providers:
 
@@ -71,109 +124,50 @@ Additionally, there are relationships between the resources within the resource 
 
 You may also know the classic deployment model as the Service Management model.
 
-In Azure Service Management, the compute, storage, or network resources for hosting virtual machines are provided by:
-
-- A required cloud service that acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
-- A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).
-- An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).
-
 Resources created in the classic deployment model share the following characteristics:
 
-- Created through one of the following methods:
+- Created through the [classic portal](https://manage.windowsazure.com)
 
-  - [Classic portal](https://manage.windowsazure.com)
+     ![Classic portal](./media/resource-manager-deployment-model/classic-portal.png)
 
-        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
+     Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
-        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+     ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
+- Created through the Service Management version of the Azure PowerShell cmdlets. These command names have the format *Verb-AzureNoun*, as shown below.
 
-  - For Azure PowerShell, use the Service Management version of commands. These command names have the format *Verb-AzureNoun*, as shown below.
+        New-AzureVM 
 
-            Get-AzureDeployment
+- Created through the [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) for REST operations.
+- Created through Azure CLI commands run in **asm** mode.
 
-  - [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) for REST operations.
-  - Azure CLI commands run in **asm** or default mode.
+        azure config mode asm
+        azure vm create 
+
 - The resource type includes **(classic)** in the name. The image below shows the type as **Storage account (classic)**.
 
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)
 
 You can still use the Azure portal to manage resources that were created through classic deployment.
 
+In Azure Service Management, the compute, storage, or network resources for hosting virtual machines are provided by:
+
+- A required cloud service that acts as a container for hosting virtual machines (compute). Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure. Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.
+- A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).
+- An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).
+
 Here are the components and their relationships for Azure Service Management.
 
-  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+  ![classic architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
 
-## Benefits of using Resource Manager and resource groups
+## Migrating from classic to Resource Manager
 
-Resource Manager added the concept of the resource group. Every resource you create through Resource Manager exists within a resource group. The Resource Manager deployment model provide several benefits:
+If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-- You can deploy, manage, and monitor all of the services for your solution as a group, rather than handling these services individually.
-- You can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
-- You can use declarative templates to define your deployment.
-- You can define the dependencies between resources so they are deployed in the correct order.
-- You can apply access control to all resources in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
-- You can apply tags to resources to logically organize all of the resources in your subscription.
-
-
-Prior to Resource Manager, every resource you created through classic deployment did not exist within a resource group. When Resource Manager was added, all resources were retroactively added to default resource groups. If you create a resource through classic deployment now, the resource is automatically created within a default resource group for that service, even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resource Manager model. For Virtual Machines, Storage, and Virtual Networks, if the resource was created through classic deployment, you must continue to operate on it through classic operations.
-
-You can move resources to a different resource group, and add new resources to an existing resource group. So, your resource group can contain a mix of resources created through Resource Manager and classic deployment. This combination of resources can create unexpected results because the resources do not support the same operations.
-
-By using declarative templates, you might be able to simplify your scripts for deployment. Instead of attempting to convert existing scripts from Service Management to Resource Manager, consider re-working your deployment strategy to take advantage of defining your infrastructure and configuration in the template.
-
-## Using tags
-
-Tags enable you to logically organize your resources. Only resources created through Resource Manager support tags. You cannot apply tags to classic resources.
-
-For more information about using tags in Resource Manager, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
-
-## Supported operations for the deployment models
-
-The resources you created in the classic deployment model do not support Resource Manager operations. In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative tasks such as moving a classic resource to another resource group, but these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains Virtual Machines that were created with Resource Manager and classic. If you run the following PowerShell command: 
-
-    Get-AzureRmResourceGroup -Name ExampleGroup
-
-It will return all of the Virtual Machines:
-
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-However, if you run the **Get-AzureRmVM** command: 
-
-    Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-You will only get Virtual Machines that were created with Resource Manager.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
-
-In general, you should not expect resources created through classic deployment to work with Resource Manager commands.
-
-When working with resources created through Resource Manager, you should use Resource Manager operations and not switch back to Service Management operations.
-
-## Considerations for Virtual Machines
-
-There are some important considerations when working with Virtual Machines.
-
-- Virtual machines deployed with the classic deployment model cannot be included in a virtual network deployed with Resource Manager.
-- Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
-- Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
-
-If you can afford downtime for your Virtual Machines, you can transition them from classic deployment to Resource Manager with the [ASM2ARM PowerShell scripts](https://github.com/fullscale180/asm2arm).
-
-For a list of equivalent Azure CLI commands when transitioning from classic deployment to Resource Manager, see [Equivalent Resource Manager and Service Management commands for VM operations](./virtual-machines/virtual-machines-linux-cli-manage.md).
-
-For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
-
-To learn about connecting virtual networks from different deployment models, see [Connecting classic VNets to new VNets](./virtual-network/virtual-networks-arm-asm-s2s.md).
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](./virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](./virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## Next steps
 

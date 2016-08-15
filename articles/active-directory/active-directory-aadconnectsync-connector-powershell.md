@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
-# WIndows PowerShell Connector technical reference
+# Windows PowerShell Connector technical reference
 
 This article describes the Windows PowerShell Connector. The article applies to the following products:
 
@@ -61,16 +61,16 @@ You can configure the following Connectivity parameters:
 
 **Connectivity**
 
-| Parameter | Default Value | Purpose |
-| --- | --- | --- |
-| Server | <Blank> | Server name that the connector should connect to. |
-| Domain | <Blank> | Domain of the credential to store for use when the connector is run. |
-| User | <Blank> | Username of the credential to store for use when the connector is run. |
-| Password | <Blank> | Password of the credential to store for use when the connector is run. |
-| Impersonate Connector Account | False | When true, the synchronization service will execute the Windows PowerShell scripts in the context of the credentials supplied above. When possible, it is recommended that the $Credentials parameter passed to each script is used in lieu of impersonation. For more information on additional permissions that are required to use this parameter, see Additional Configuration for Impersonation. |
-| Load User Profile When Impersonating | False | Instructs Windows to load the user profile of the connector’s credentials during impersonation. If the user to be impersonated has a roaming profile, the connector will not load the roaming profile. For more information on additional permissions that are required to use this parameter, see Additional Configuration for Impersonation. |
-| Logon Type When Impersonating | None | Logon type during impersonation. For more information, refer to the [dwLogonType][dw] documentation. |
-| Signed Scripts Only | False | If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted. |
+Parameter | Default Value | Purpose
+--- | --- | ---
+Server | <Blank> | Server name that the connector should connect to.
+Domain | <Blank> | Domain of the credential to store for use when the connector is run.
+User | <Blank> | Username of the credential to store for use when the connector is run.
+Password | <Blank> | Password of the credential to store for use when the connector is run.
+Impersonate Connector Account | False | When true, the synchronization service will execute the Windows PowerShell scripts in the context of the credentials supplied above. When possible, it is recommended that the $Credentials parameter passed to each script is used in lieu of impersonation. For more information on additional permissions that are required to use this parameter, see Additional Configuration for Impersonation.
+Load User Profile When Impersonating | False | Instructs Windows to load the user profile of the connector’s credentials during impersonation. If the user to be impersonated has a roaming profile, the connector will not load the roaming profile. For more information on additional permissions that are required to use this parameter, see Additional Configuration for Impersonation.
+Logon Type When Impersonating | None | Logon type during impersonation. For more information, refer to the [dwLogonType][dw] documentation.
+Signed Scripts Only | False | If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted.
 
 **Common Module**
 
@@ -94,11 +94,11 @@ The Validation Script is an optional Windows PowerShell script that can be used 
 
 The validation script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameterPage | [ConfigParameterPage][cpp] | The configuration tab or dialog that triggered the validation request. |
-| ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameterPage | [ConfigParameterPage][cpp] | The configuration tab or dialog that triggered the validation request.
+ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
 
 The validation script should return a single ParameterValidationResult object to the pipeline.
 
@@ -108,10 +108,10 @@ The Schema Discovery script is mandatory. This script returns the object type(s)
 
 The schema discovery script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
 
 The script must return a single [Schema][schema] object to the pipeline. The Schema object is comprised of [SchemaType][schemaT] objects that represent object types (e.g. users, groups, etc.). The SchemaType object holds a collection of [SchemaAttribute][schemaA] objects that represent the attributes (e.g. given name, surname, postal address, etc.) of the type.
 
@@ -129,25 +129,25 @@ The capabilities tab of the Management Agent Designer defines the behavior and f
 
 ![Capabilities](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| Capability | Description |
-| --- | --- |
-| [Distinguished Name Style][dnstyle] | Indicates if the connector will support distinguished names and if so, what style. |
-| [Export Type][exportT] | Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all of the attributes for an object when any attribute changes</li> |
-| [Data Normalization][DataNorm] | Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts. |
-| [Object Confirmation][oconf] | Configures the pending import behavior in the Synchronization Service. <li>Normal – default behavior that expects all exported changes to be confirmed via import</li><li>NoDeleteConfirmation – when an object is deleted, there is no pending import generated.</li><li>NoAddAndDeleteConfirmation – when an object is created or deleted, there is no pending import generated.</li>
-| Use DN as Anchor | If the Distinguished Name Style is set to LDAP, the anchor attribute for the connector space is also the distinguished name. |
-| Concurrent Operations of Several Connectors | When checked, multiple Windows PowerShell connectors can run simultaneously. |
-| Partitions | When checked, the connector supports multiple partitions and partition discovery. |
-| Hierarchy | When checked, the connector supports an LDAP style hierarchical structure. |
-| Enable Import | When checked, the connector will import data via import scripts. |
-| Enable Delta Import | When checked, the connector can request deltas from the import scripts. |
-| Enable Export | When checked, the connector will export data via export scripts. |
-| Enable Full Export | When checked, the export scripts support exporting the entire connector space. To use this option, Enable Export must also be checked.|
-| No Reference Values In First Export Pass | When checked, reference attributes are exported in a second export pass. |
-| Enable Object Rename | When checked, distinguished names can be modified. |
-| Delete-Add As Replace | When checked, delete-add operations are exported as a single replacement. |
-| Enable Password Operations | When checked, password synchronization scripts are supported. |
-| Enable Export Password in First Pass | When checked, passwords set during provisioning are exported when the object is created. |
+Capability | Description |
+--- | --- |
+[Distinguished Name Style][dnstyle] | Indicates if the connector will support distinguished names and if so, what style.
+[Export Type][exportT] | Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all of the attributes for an object when any attribute changes</li>
+[Data Normalization][DataNorm] | Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts.
+[Object Confirmation][oconf] | Configures the pending import behavior in the Synchronization Service. <li>Normal – default behavior that expects all exported changes to be confirmed via import</li><li>NoDeleteConfirmation – when an object is deleted, there is no pending import generated.</li><li>NoAddAndDeleteConfirmation – when an object is created or deleted, there is no pending import generated.</li>
+Use DN as Anchor | If the Distinguished Name Style is set to LDAP, the anchor attribute for the connector space is also the distinguished name.
+Concurrent Operations of Several Connectors | When checked, multiple Windows PowerShell connectors can run simultaneously.
+Partitions | When checked, the connector supports multiple partitions and partition discovery.
+Hierarchy | When checked, the connector supports an LDAP style hierarchical structure.
+Enable Import | When checked, the connector will import data via import scripts.
+Enable Delta Import | When checked, the connector can request deltas from the import scripts.
+Enable Export | When checked, the connector will export data via export scripts.
+Enable Full Export | When checked, the export scripts support exporting the entire connector space. To use this option, Enable Export must also be checked.
+No Reference Values In First Export Pass | When checked, reference attributes are exported in a second export pass.
+Enable Object Rename | When checked, distinguished names can be modified.
+Delete-Add As Replace | When checked, delete-add operations are exported as a single replacement.
+Enable Password Operations | When checked, password synchronization scripts are supported.
+Enable Export Password in First Pass | When checked, passwords set during provisioning are exported when the object is created.
 
 ### Global Parameters
 
@@ -159,10 +159,10 @@ A partition is a separate namespace within one shared schema. For example in Act
 
 The partition discovery script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters  | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters  | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
 
 The script must return a either a single [Partition][part] object or a List[T] of Partition objects to the pipeline.
 
@@ -172,11 +172,11 @@ The hierarchy discovery script is only used when the Distinguished Name Style ca
 
 The hierarchy discovery script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| ParentNode | [HierarchyNode][hn] | The root node of the hierarchy under which the script should return direct children. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+ParentNode | [HierarchyNode][hn] | The root node of the hierarchy under which the script should return direct children.
 
 The script must return a either a single child HierarchyNode object or a List[T] of child HierarchyNode objects to the pipeline.
 
@@ -190,12 +190,12 @@ The begin import script is run at the beginning of an import run step. During th
 
 The begin import script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
-| Types | [Schema][schema] | Schema for the connector space that will be imported. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+Types | [Schema][schema] | Schema for the connector space that will be imported.
 
 The script must return a single [OpenImportConnectionResults][oicres] object to the pipeline. The sample code below demonstrates how to return an OpenImportConnectionResults object to the pipeline:
 
@@ -207,13 +207,13 @@ The import data script is called by the connector until the script indicates tha
 
 The import data script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| GetImportEntriesRunStep | [ImportRunStep][irs] | Holds the watermark (CustomData) that can be used during paged imports and delta imports. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size. |
-| Types | [Schema][schema] | Schema for the connector space that will be imported. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+GetImportEntriesRunStep | [ImportRunStep][irs] | Holds the watermark (CustomData) that can be used during paged imports and delta imports.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+Types | [Schema][schema] | Schema for the connector space that will be imported.
 
 The import data script must write a List[[CSEntryChange][csec]] object to the pipeline. This collection is comprised of CSEntryChange attributes that represent each object being imported. During a Full Import run, this collection should have a full set of CSEntryChange objects that have all of the attributes for each individual object. During a Delta Import, the CSEntryChange object should either contain the attribute level deltas for each object to import, or a complete representation of the objects that have changed (Replace mode).
 
@@ -223,12 +223,12 @@ At the conclusion of the import run, the End Import script will be run. This scr
 
 The end import script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size. |
-| CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | Informs the script about the reason the import was ended. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | Informs the script about the reason the import was ended.
 
 The script must return a single [CloseImportConnectionResults][cicres] object to the pipeline. The sample code below demonstrates how to return a CloseImportConnectionResults object to the pipeline:
 `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
@@ -243,12 +243,12 @@ The begin export script is run at the beginning of an export run step. During th
 
 The begin export script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size. |
-| Types | [Schema][schema] | Schema for the connector space that will be exported. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size.
+Types | [Schema][schema] | Schema for the connector space that will be exported.
 
 The script should not return any output to the pipeline.
 
@@ -258,13 +258,13 @@ The Synchronization Service will call the Export Data script as many times as is
 
 The export data script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.|
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.|
-| CSEntries | IList[CSEntryChange][csec] | List of all the connector space objects with pending exports to be processed during this pass. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size. |
-| Types | [Schema][schema] | Schema for the connector space that will be exported. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+CSEntries | IList[CSEntryChange][csec] | List of all the connector space objects with pending exports to be processed during this pass.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size.
+Types | [Schema][schema] | Schema for the connector space that will be exported.
 
 The export data script must return a [PutExportEntriesResults][peeres] object to the pipeline. This object does not need to include result information for each exported connector unless an error or a change to the anchor attribute occurs.
 
@@ -277,12 +277,12 @@ At the conclusion of the export run, the End Export script will be run. This scr
 
 The end export script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size. |
-| CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | Informs the script about the reason the export was ended. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size.
+CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | Informs the script about the reason the export was ended.
 
 The script should not return any output to the pipeline.
 
@@ -292,16 +292,16 @@ Windows PowerShell connectors can be used as a target for password changes/reset
 
 The password script receives the following parameters from the connector:
 
-| Name | Data Type | Description |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
-| Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| Partition | [Partition][part] | Directory partition that the CSEntry is in. |
-| CSEntry | [CSEntry][cse] | Connector space entry for the object that is received a password change or reset. |
-| OperationType | String | Indicates if the operation is a reset (**SetPassword**) or a change (**ChangePassword**). |
-| PasswordOptions | [PasswordOptions][pwdopt] | Flags that specify the intended password reset behavior. This parameter is only available if OperationType is **SetPassword**. |
-| OldPassword | String | Populated with the object’s old password for password changes. This parameter is only available if OperationType is **ChangePassword**. |
-| NewPassword | String | Populated with the object’s new password that the script should set. |
+Name | Data Type | Description
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
+Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
+Partition | [Partition][part] | Directory partition that the CSEntry is in.
+CSEntry | [CSEntry][cse] | Connector space entry for the object that is received a password change or reset.
+OperationType | String | Indicates if the operation is a reset (**SetPassword**) or a change (**ChangePassword**).
+PasswordOptions | [PasswordOptions][pwdopt] | Flags that specify the intended password reset behavior. This parameter is only available if OperationType is **SetPassword**.
+OldPassword | String | Populated with the object’s old password for password changes. This parameter is only available if OperationType is **ChangePassword**.
+NewPassword | String | Populated with the object’s new password that the script should set.
 
 The password script is not expected to return any results to the Windows PowerShell pipeline. If an error occurs in the password script, the script should throw one of the following exceptions to inform the Synchronization Service about the problem:
 

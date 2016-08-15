@@ -34,7 +34,7 @@ This simple PowerShell statement can be run on any Windows VM to allow ICMP (Pin
 **Note:** If you use the below scripts, this firewall rule addition is the first statement.
 
 ## IIS01 - Web Application Installation Script
-This script will;
+This script will:
 
 1.	Open IMCPv4 (Ping) on the local server windows firewall for easier testing
 2.	Install IIS and the .Net Framework v4.5
@@ -140,7 +140,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
 
 
 ## AppVM01 - File Server Installation Script
-This script sets up the back end for this simple application. This script will;
+This script sets up the back end for this simple application. This script will:
 
 1.	Open IMCPv4 (Ping) on the firewall for easier testing
 2.	Create a new directory

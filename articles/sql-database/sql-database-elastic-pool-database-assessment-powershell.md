@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -60,7 +60,7 @@ If you run into the following warnings while running the script you can ignore t
 When the script completes, it outputs the estimated number of eDTUs needed for a pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring the pool. Once the pool is created and databases moved into the pool, monitor the pool closely for a few days and make any adjustments to the pool eDTU configuration as necessary. See [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/

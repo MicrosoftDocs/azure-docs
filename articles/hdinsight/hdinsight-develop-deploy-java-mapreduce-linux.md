@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="07/26/2016"
 	ms.author="larryfr"/>
 
-# Develop Java MapReduce programs for Hadoop on HDInsight
+# Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
-
-This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster. For information on using a Windows-based Hadoop on HDInsight cluster, see [Develop Java MapReduce programs for Hadoop on HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
+This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
 
 ##<a name="prerequisites"></a>Prerequisites
 
@@ -33,7 +31,9 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
+- **Azure CLI**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configure environment variables
 
@@ -248,13 +248,13 @@ This copies the files from the local system to the head node.
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
-		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/wordcountout
 
-	This will use the WordCount MapReduce application to count the words in the davinci.txt file, and store the results to __wasb:///example/data/wordcountout__. Both the input file and output are stored to the default storage for the cluster.
+	This will use the WordCount MapReduce application to count the words in the davinci.txt file, and store the results to __wasbs:///example/data/wordcountout__. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following to view the results:
 
-		hdfs dfs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasbs:///example/data/wordcountout/*
 
 	You should receive a list of words and counts, with values similar to the following:
 

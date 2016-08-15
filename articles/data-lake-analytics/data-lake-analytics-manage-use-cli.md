@@ -3,7 +3,7 @@
    description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure CLI" 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
 
@@ -177,7 +177,7 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-The types include database, schema, assembly, externaldatasource, table, tablevaluedfunction or tablestatistics.
+The types include database, schema, assembly, external data source, table, table valued function or table statistics.
 
 ###Create catalog secret
 
@@ -203,7 +203,7 @@ template can work for different environments such as testing, staging and produc
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
 Resource Manager Overview](../resource-group-overview.md). 
 
-A Data Lake Analtyics service can include the following components:
+A Data Lake Analytics service can include the following components:
 
 - Azure Data Lake Analytics account
 - Required default Azure Data Lake Storage account

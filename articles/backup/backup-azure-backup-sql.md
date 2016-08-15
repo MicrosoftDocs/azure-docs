@@ -3,8 +3,8 @@
 	description="An introduction to backing up SQL Server databases using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.date="07/01/2016"
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Azure Backup for SQL Server workloads using DPM
@@ -30,7 +30,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
-Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introduction/#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. The prerequisites cover tasks such as creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.
+Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. The prerequisites cover tasks such as creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.
 
 ## Create a backup policy to protect SQL Server databases to Azure
 
@@ -62,7 +62,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Short term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] At 8:00 PM (according to the screen input ) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM – then the point is created by replaying the logs from the last express full backup point (8pm in this case).
+    >[AZURE.NOTE] At 8:00 PM (according to the screen input) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM – then the point is created by replaying the logs from the last express full backup point (8pm in this case).
 
 8. Click **Next**
 

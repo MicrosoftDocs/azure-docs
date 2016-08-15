@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -35,7 +35,7 @@ You can switch between different Azure AD directories by selecting the currently
 
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Identity Health Agent on the ADFS servers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Identity Health Agent on ADFS servers or domain controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
 
 The numbers below are an approximation.
 
@@ -73,6 +73,13 @@ Select Advanced IF you have different proxy ports for HTTP and HTTPS/Secure.<br>
 No. A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.
 
 
+**Q: What version of AD DS are supported by Azure AD Connect Health for AD DS?**
+
+Monitoring of AD DS is supported while installed on the following OS Versions: 
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## Operations Questions
 
@@ -86,7 +93,7 @@ No, auditing does not need to be enabled on AD FS Application Proxy Servers or W
 
 **Q: How do Azure AD Connect Health Alerts get resolved?**
 
-Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 48 hours from alert generation, the alert is automatically resolved.
+Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time based. That is if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
 
 
 
@@ -108,4 +115,5 @@ Also, if you re-imaged a server or created a new server with the same details(su
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md) 
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)

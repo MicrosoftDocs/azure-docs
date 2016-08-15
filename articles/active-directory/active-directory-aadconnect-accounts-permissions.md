@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -28,18 +28,18 @@ The Azure AD Connect installation wizard offers two different paths:
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics.
 
-| Topic |  |
-| --------- | --------- |
-| Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
-| Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+Topic |  
+--------- | ---------
+Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 ## Express settings installation
 In Express settings the installation wizard will ask for AD DS Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You will also need Azure AD Global Administrator credentials.
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |-------------
 N/A|User running the installation wizard| Administrator of the local server| <li>Creates the local account that will be used as the [sync engine service account](#azure-ad-connect-sync-service-account).
 Connect to Azure AD| Azure AD directory credentials | Global administrator role in Azure AD | <li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the [Azure AD account](#azure-ad-service-account) that will be used for on-going sync operations in Azure AD.</li>
 Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory| <li>Creates an [account](#active-directory-account) in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization.</li>
@@ -53,14 +53,14 @@ These credentials are only used during the installation and will not be used aft
 ### Permissions for the created AD DS account for express settings
 The [account](#active-directory-account) created for reading and writing to AD DS will have the following permissions when created by express settings:
 
-| Permission | Used for |
-| ---- | ---- |
-| <li>Replicate Directory Changes</li><li>Replicate Directory Changes All | Password sync |
-| Read/Write all properties User | Import and Exchange hybrid |
-| Read/Write all properties iNetOrgPerson | Import and Exchange hybrid |
-| Read/Write all properties Group | Import and Exchange hybrid |
-| Read/Write all properties Contact | Import and Exchange hybrid |
-| Reset password | Preparation for enabling password writeback |
+Permission | Used for
+---- | ----
+<li>Replicate Directory Changes</li><li>Replicate Directory Changes All | Password sync
+Read/Write all properties User | Import and Exchange hybrid
+Read/Write all properties iNetOrgPerson | Import and Exchange hybrid
+Read/Write all properties Group | Import and Exchange hybrid
+Read/Write all properties Contact | Import and Exchange hybrid
+Reset password | Preparation for enabling password writeback
 
 ## Custom settings installation
 When using custom settings the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account).
@@ -81,22 +81,22 @@ When you install Azure AD Connect the account you specify on the **Connect your 
 
 Which permissions you require depends on the optional features you enable. If you have multiple domains, the permissions must be granted for all domains in the forest. If you do not enable any of these features the default **Domain User** permissions will be sufficient.
 
-| Feature | Permissions |
-| ------ | ------ |
-| Password sync | <li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
-| Exchange hybrid deployment | Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
-| Password writeback | Write permissions to the attributes documented in [Getting started with password management](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users. |
-| Device writeback | Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md).|
-| Group writeback | Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located.|
+Feature | Permissions
+------ | ------
+Password sync | <li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All
+Exchange hybrid deployment | Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts.
+Password writeback | Write permissions to the attributes documented in [Getting started with password management](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) for users.
+Device writeback | Permissions granted with a PowerShell script as described in [device writeback](active-directory-aadconnect-feature-device-writeback.md).
+Group writeback | Read, Create, Update, and Delete group objects in the OU where the distributions groups should be located.
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you will need the following permissions:
 
-| Principal | Permissions required | Used for |
-| ---- | ---- | ---- |
-| User running the installation wizard | Administrator of the local server | Update binaries. |
-| User running the installation wizard | Member of ADSyncAdmins | Make changes to Sync Rules and other configuration. |
-| User running the installation wizard | If using a full SQL server: DBO (or similar) of the sync engine database | Make database level changes, such as updating tables with new columns. |
+Principal | Permissions required | Used for
+---- | ---- | ----
+User running the installation wizard | Administrator of the local server | Update binaries.
+User running the installation wizard | Member of ADSyncAdmins | Make changes to Sync Rules and other configuration.
+User running the installation wizard | If using a full SQL server: DBO (or similar) of the sync engine database | Make database level changes, such as updating tables with new columns.
 
 ## More about the created accounts
 
@@ -113,7 +113,7 @@ A local service account is created by the installation wizard (unless you specif
 
 The account is created with a long complex password which does not expire.
 
-This account is used to store the passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection (DPAPI). You should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons.
+This account is used to store the passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection API (DPAPI). You should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons.
 
 If you use a full SQL Server then the service account will be the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login will also be created.
 

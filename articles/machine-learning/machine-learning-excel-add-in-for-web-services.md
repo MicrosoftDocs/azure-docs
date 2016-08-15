@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="machine-learning"
-    	ms.devlang="na"
+    ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/12/2016"
+	ms.date="07/06/2016"
 	ms.author="tedway;garye" />
 
 # Excel Add-in for Azure Machine Learning web services
@@ -28,7 +28,7 @@ Excel makes it easy to call web services directly without the need to write any 
 
     ![Select web service][01]
 
-3. This will take you to the **Predict** section.  This workbook already contains sample data, but for a blank workbook you may also select a cell in Excel and click **Use sample data**.
+3. This will take you to the **Predict** section.  This workbook already contains sample data, but for a blank workbook you can select a cell in Excel and click **Use sample data**.
 4. Select the data with headers and click the input data range icon.  Make sure the "My data has headers" box is checked.
 5. Under **Output**, enter the cell number where you want the output to be, e.g. "H1" here.
 6. Click **Predict**.
@@ -37,32 +37,48 @@ Excel makes it easy to call web services directly without the need to write any 
 
 ## Steps to Add a New Web Service
 
+Publish a web service ([this page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it) or use an existing web service.
+
+Get the API key for your web service. Where you do this depends on whether you published a classic web service of a new web service.
+
+**Classic Web Service** 
+
+1. In Machine Learning Studio, click the **WEB SERVICES** section in the left pane, and then select the web service.
+
+	![Studio select web service][04]
+
+2. Copy the API key for the web service.
+
+	![Studio API key][05]
+
+3. On the **DASHBOARD** tab for the web service, click the **REQUEST/RESPONSE** link.
+4. Look for the **Request URI** section.  Copy and save the URL.
+
+**New Web Service**
+
+1. In the Azure Machine Learning Web services portal, click **Web Services**, then select your web service. 
+2. Click **Consume**.
+3. Look for the **Basic consumption info** section.  Copy and save the **Primary Key** and the **Request-Response** URL.
+
+
+## Steps to Add a New Web Service
+
 1. Publish a web service ([this page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it) or use an existing web service.
 2. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).
 
 	![Go to web service selection][03]
-
 3. Click **Add Web Service**.
-4. In Machine Learning Studio, click the **WEB SERVICES** section in the left pane, and then select the web service.
+4. Paste the URL into the Excel add-in text box labeled **URL**.
+5. Paste the API/Primary key into the text box labeled **API key**.
+6. Click **Add**.
 
-	![Studio select web service][04]
-
-5. Copy the API key for the web service.
-
-	![Studio API key][05]
-
-6. Paste the API key into the Excel add-in text box labeled **API key**.
-7. On the **DASHBOARD** tab for the web service, click the **REQUEST/RESPONSE** link.
-8. Look for the **OData Endpoint Address** section.  Copy the URL and paste that into the text box labeled **URL**.
-9. Click **Add**.
-
-	![URL and API key][06]
+	![URL and API key for a classic web service.][06]
 
 10.	To use the web service, follow the directions above, "Steps to Use an Existing Web Service".
 
 ## Sharing Your Workbook
 
-If you save your workbook, then the API keys for the web services you have added will also be saved.  That means you should only share the workbook with individuals you trust.
+If you save your workbook, then the API/Primary key for the web services you have added is also saved. That means you should only share the workbook with individuals you trust.
 
 Ask any questions below or on our [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 

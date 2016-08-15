@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Support | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Support | Microsoft Azure"
 	description="How to file support requests for Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: File Support Requests
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: File Support Requests
 
 You can file support requests for Azure Active Directory (Azure AD) B2C on the Azure portal using the following steps:
 
@@ -47,7 +45,7 @@ You can file support requests for Azure Active Directory (Azure AD) B2C on the A
 6. In the **Problem** blade, use these details and click **Next**.
 
     - Choose the appropriate **Severity** level.
-    - **Problem type** is **B2C Preview**.
+    - **Problem type** is **B2C**.
     - Choose the appropriate **Category**.
 	- Describe your issue in the **Details** field. Provide details such as the B2C tenant name, description of the problem, error messages, correlation IDs (if available), and so on.
     - In the **Time frame** field, provide the date and time (including time zone) that the issue occurred.
@@ -55,7 +53,7 @@ You can file support requests for Azure Active Directory (Azure AD) B2C on the A
 
     ![Support - Problem](./media/active-directory-b2c-support/support-problem.png)
 
-7. In the **Contact information** blade, add your contact information. Click **Create**. *Note: During preview, support for Azure AD B2C is only available in English.*
+7. In the **Contact information** blade, add your contact information. Click **Create**.
 
     ![Support - Contact](./media/active-directory-b2c-support/support-contact.png)
 

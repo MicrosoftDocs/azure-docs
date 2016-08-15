@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 
-This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database.
-
-For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
+This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
 
 
 ## Create a new database and a set of filegroups
@@ -31,7 +29,7 @@ For big data loading/transfer to an SQL database, importing data to the SQL DB a
 
 - Add one or more files (as needed) to each database filegroup
 
- > [AZURE.NOTE] Specify the target filegroup which will hold data for this partition and the physical database file name(s) where the filegroup data will be stored.
+ > [AZURE.NOTE] Specify the target filegroup which hold data for this partition and the physical database file name(s) where the filegroup data will be stored.
  
 The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each. The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance. For more information about the default file locations, see [File Locations for Default and Named Instances of SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -92,6 +90,7 @@ Create partitioned table(s) according to the data schema, mapped to the database
 	    ON <TablePScheme>(<partition_field>)
 
 - For more information, see [Create Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms188730.aspx).
+
 
 ## Bulk import the data for each individual partition table
 
@@ -166,6 +165,7 @@ The following PowerShell script is an example of parallel data loading using BCP
     While (Get-Job -State "Running") { Start-Sleep 10 }
     date
 
+
 ## Create indexes to optimize joins and query performance
 
 - If you will extract data for modeling from multiple tables, create indexes on the join keys to improve the join performance.
@@ -180,6 +180,7 @@ or,
 	    ON <TablePScheme>(<partition)field>)
 
  > [AZURE.NOTE] You may choose to create the indexes before bulk importing the data. Index creation before bulk importing will slow down the data loading.
+
 
 ## Advanced Analytics Process and Technology in Action Example
 

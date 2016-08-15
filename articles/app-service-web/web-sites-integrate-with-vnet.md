@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Integrate your app with an Azure Virtual Network #
@@ -59,7 +59,9 @@ Here are some things to keep in mind before connecting your web app to a virtual
 
 ## Enabling VNET Integration ##
 
-You have the option to connect to a new or existing virtual network.  If you create a new network then in addition to just creating the VNET, a dynamic routing gateway will be pre-configured for you and Point to Site VPN will be enabled.  
+This document is focused primarily on using the Azure Portal for VNET Integration.  To enable VNET Integration with your app using PowerShell, follow the directions here: [Connect your app to your virtual network by using PowerShell][IntPowershell].
+
+You have the option to connect your app to a new or existing virtual network.  If you create a new network as a part of your integration then in addition to just creating the VNET, a dynamic routing gateway will be pre-configured for you and Point to Site VPN will be enabled.  
 
 >[AZURE.NOTE] Configuring a new virtual network integration can take several minutes.  
 
@@ -290,3 +292,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/

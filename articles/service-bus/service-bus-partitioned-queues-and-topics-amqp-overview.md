@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="07/08/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # AMQP 1.0 support for Service Bus partitioned queues and topics 
@@ -24,11 +24,13 @@ Azure Service Bus now supports the Advanced Message Queuing Protocol (**AMQP**) 
 
 **Partitioned queues and topics**, also known as *partitioned entities*, offer higher availability, reliability and throughput over conventional non-partitioned queues and topics. For more information about partitioned entities, see [Partitioned Messaging Entities](service-bus-partitioning.md).
 
-The addition of AMQP 1.0 as a protocol for communicating with partitioned queues and topics enables you to build interoperable applications that can take advantage of the higher availability, reliability, and throughout offered by Service Bus partitioned entities.    
+The addition of AMQP 1.0 as a protocol for communicating with partitioned queues and topics enables you to build interoperable applications that can take advantage of the higher availability, reliability, and throughout offered by Service Bus partitioned entities.
+
+For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bus implements and builds on the OASIS AMQP technical specification, see the [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide](service-bus-amqp-protocol-guide.md).    
 
 ## Use AMQP with partitioned queues
 
-Queues are useful for scenarios that require temporal decoupling, load leveling, load balancing, and loose coupling. With a queue, publishers send messages to the queue and consumers receive messages from the queue, in situations where a message can only be received once. A good example of this is an inventory system in which point-of-sale terminals publish data to a queue instead of directly to the inventory management system. The inventory management system then consumes the data at any time to manage stock replenishment. This has several advantages, including the inventory management system not having to be online at all times. For more details about Service Bus queues, see [Create applications that use Service Bus queues](service-bus-create-queues.md) 
+Queues are useful for scenarios that require temporal decoupling, load leveling, load balancing, and loose coupling. With a queue, publishers send messages to the queue and consumers receive messages from the queue, in situations where a message can only be received once. A good example of this is an inventory system in which point-of-sale terminals publish data to a queue instead of directly to the inventory management system. The inventory management system then consumes the data at any time to manage stock replenishment. This has several advantages, including the inventory management system not having to be online at all times. For more details about Service Bus queues, see [Create applications that use Service Bus queues](service-bus-create-queues.md). 
 
 A partitioned queue further increases the availability, reliability, and throughput for applications, as these queues are partitioned across multiple message brokers and messaging stores.     
 
@@ -66,9 +68,9 @@ receivedMessage.Complete();
 
 ## Use AMQP with partitioned topics
 
-Topics are conceptually similar to queues, but topics can route a copy of the same message to multiple subscribers. In a topic, publishers send messages to the topic and consumers receive messages from *subscriptions*. In the inventory system point-of-sale scenario, terminals publish data to the topic. The inventory management system then receives messages from a subscription. In addition, a monitoring system can receive the same message from a different subscription. For more details about Service Bus topics and subscriptions, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) 
+Topics are conceptually similar to queues, but topics can route a copy of the same message to multiple *subscriptions*. In a topic, publishers send messages to the topic and consumers receive messages from subscriptions. In the inventory system point-of-sale scenario, terminals publish data to the topic. The inventory management system then receives messages from a subscription. In addition, a monitoring system can receive the same message from a different subscription. For more details about Service Bus topics and subscriptions, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md). 
 
-A partitioned topic further increases the availability, reliability, and throughput for applications, as these topics and their subscriptions are partitioned across multiple message brokers and messaging stores. 
+As with queues, partitioned topics further increase the availability, reliability, and throughput for applications, as these topics and their subscriptions are partitioned across multiple message brokers and messaging stores. 
 
 ### Create partitioned topics
 
@@ -108,11 +110,12 @@ receivedMessage.Complete();
 
 ## Next steps
 
-See the following additional information to learn more about partitioned messaging entities.
+See the following additional information to learn more about partitioned messaging entities as well as AMQP.
 
 *    [Partitioned messaging entities](service-bus-partitioning.md)
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [AMQP 1.0 support in Service Bus](service-bus-amqp-overview.md)
+*    [AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide](service-bus-amqp-protocol-guide.md)
 *    [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Architecture on Microsoft Azure" 
+	pageTitle="Application Architecture on Microsoft Azure | Microsoft Azure" 
 	description="Architecture overview that covers common design patterns" 
 	services="" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="05/19/2016" 
 	ms.author="robb"/>
 
 #Application Architecture on Microsoft Azure

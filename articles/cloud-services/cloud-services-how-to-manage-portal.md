@@ -13,24 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="08/02/2016"
 	ms.author="adegeo"/>
 
 
 # How to Manage Cloud Services
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
 - [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
 
-In the **Cloud Services** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
+Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
 
+More information about how to scale your cloud service is available [here](cloud-services-how-to-scale-portal.md).
 
 ## How to: Update a cloud service role or deployment
 
-If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
+If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
 
-1. In the [Azure portal][], select the cloud service you want to update. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to update. This step opens the cloud service instance blade.
 
 2. In the blade, click the **Update** button.
 
@@ -42,25 +43,23 @@ If you need to update the application code for your cloud service, use **Update*
 
 4. **Optionally** update the deployment label and the storage account. 
 
-5. If the update changes the number of roles or the size of any role, select the **Allow update if role sizes or number of roles changes** check box to enable the update to proceed. 
+5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
 
-	>[AZURE.WARNING] Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
+	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
 
-6. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
+6. Check **Start deployment** to have the update applied after the upload of the package has finished.
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
-
-8. Click **OK** to begin updating the service.
+7. Click **OK** to begin updating the service.
 
 
 
 ## How to: Swap deployments to promote a staged deployment to production
 
-Use **Swap** to promote a staging deployment of a cloud service to production. When you decide to deploy a new release of a cloud service, you can stage and test your new release in your cloud service staging environment while your customers are using the current release in production. When you're ready to promote the new release to production, you can use **Swap** to switch the URLs by which the two deployments are addressed. 
+When you decide to deploy a new release of a cloud service, stage and test your new release in your cloud service staging environment. Use **Swap** to switch the URLs by which the two deployments are addressed and promote a new release to production. 
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
-1. In the [Azure portal][], select the cloud service you want to update. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to update. This step opens the cloud service instance blade.
 
 2. In the blade, click the **Swap** button.
 
@@ -74,21 +73,21 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 	The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
-	To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
+	To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected.
 
 ## How to: Link a resource to a cloud service
 
-The Azure portal does not link resources together like the current Azure classic portal does. Instead, you must deploy additional resources to the same resource group being used by the Cloud Service.
+The Azure portal does not link resources together like the current Azure classic portal does. Instead, deploy additional resources to the same resource group being used by the Cloud Service.
 
 ## How to: Delete deployments and a cloud service
 
 Before you can delete a cloud service, you must delete each existing deployment.
 
-To save compute costs, you can delete your staging deployment after you verify that your production deployment is working as expected. You are billed compute costs for role instances even if a cloud service is not running.
+To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected. You are billed for compute costs for deployed role instances that are stopped.
 
 Use the following procedure to delete a deployment or your cloud service. 
 
-1. In the [Azure portal][], select the cloud service you want to delete. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to delete. This step opens the cloud service instance blade.
 
 2. In the blade, click the **Delete** button.
 
@@ -103,7 +102,7 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 > [AZURE.NOTE]
-> If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
+> When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
 
 [Azure portal]: https://portal.azure.com
 

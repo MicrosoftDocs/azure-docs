@@ -45,7 +45,7 @@ Screenshots are currently encouraged if it's not possible to include repro steps
 Use the following guidelines when creating and including art files:
 - Do not share art files across documents. Copy the file you need and add it to the media folder for your specific topic. Sharing between files is discouraged because  it is easier to remove deprecated content and images which keeps the repo clean.
 
-- .png files are highly preferred over other formats.
+- File formats: Use .png files - they are higher quality and maintain their quality during the localization process. Other file formats do not maintain their quality as well. The .jpeg format is permitted, but not preferred.  No animated GIF files.
 
 - Use red squares of the default width provided in Paint (5 px) to call attention to particular elements in screenshots.  
 
@@ -53,11 +53,15 @@ Use the following guidelines when creating and including art files:
 
     ![This is an example of a red square used as a callout.](./media/create-images-markdown/gs13noauth.png)
 
+- When it makes sense, feel free to crop images so the UI elements will be displayed in full size. Make sure that the context is clear to users, though.
+
 - Avoid whitespace on edges of screenshots. If you crop a screenshot in a way that leaves white background at the edges, add a single pixel gray border around the image.  If using Paint, use the lighter gray in the default color pallete (0xC3C3C3). If using some other graphic app, the RGB color is R195, G195, 195. You can easily add a gray border around an image in Visio--to do this, select the image, select Line, and ensure the the correct color is set, and then change the line weight to 1 1/2 pt.  Screenshots should have a 1-pixel-wide gray border so that white areas of the screenshot do not blur into the web page.
 
     Example:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
+    
+    For a tool to help automate the process of adding the required border to images, see [AddACOMBorder tool - How to automate the process of adding the required 1 pixel grey border to ACOM images](https://github.com/Azure/Azure-CSI-Content-Tools/tree/master/Tools/AddACOMImageBorder).
 
 - Conceptual images with whitespace do not need a gray border.  
 

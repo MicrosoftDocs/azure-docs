@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"
 />
 
@@ -95,7 +95,7 @@ Below is a table for the throughput of the Stream Analytics job for different SU
 
 By now, you should already have a good understanding of how Machine Learning functions in Stream Analytics work. You likely also understand that Stream Analytics jobs “pull” data from data sources and each “pull” returns a batch of events for the Stream Analytics job to process. How does this pull model impact the Machine Learning web service requests?
 
-Normally, the batch size we set for Machine Learning functions won’t exactly be divisible by the number of events returned by each Stream Analytics job “pull”. When this occurs the Machine Learning web service will be called with “partial” batches. This is done to not incur additional job latency overhead in coalesing events from pull to pull.
+Normally, the batch size we set for Machine Learning functions won’t exactly be divisible by the number of events returned by each Stream Analytics job “pull”. When this occurs the Machine Learning web service will be called with “partial” batches. This is done to not incur additional job latency overhead in coalescing events from pull to pull.
 
 ## New function-related monitoring metrics
 

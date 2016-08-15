@@ -11,15 +11,13 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Troubleshooting Azure Linux VM extension failures
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
@@ -73,4 +71,3 @@ Where "publsher-name" corresponds to the extension type from the output of "azur
 and name is the name of the extension resource from the template
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
-

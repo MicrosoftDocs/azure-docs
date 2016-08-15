@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using the Hybrid Connection Manager | Microsoft Azure App Service" 
-	description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Azure App Service" 
+	pageTitle="Using the Hybrid Connection Manager | Microsoft Azure" 
+	description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Logic Apps" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -8,19 +8,19 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="07/28/2016" 
 	ms.author="mandia"/>
 
-# Connect to on-premises connectors in Azure App Service using the Hybrid Connection Manager
+# Connect to on-premises connectors using the Hybrid Connection Manager
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. Logic Apps general availability (GA) uses a gateway for on-premises connectivity. Read more about the new [gateway](app-service-logic-gateway-connection.md) and [Logic Apps GA](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. 
+To use an on-premises system, Logic Apps uses the Hybrid Connection Manager. Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. 
 
 The Hybrid Connection Manager (HCM) is a click-once installer that is installed on an IIS server within your network, behind your firewall. Using an Azure Service Bus relay, HCM authenticates the on-premises system with the Connector in Azure. 
 
@@ -101,7 +101,7 @@ On-prem system port | On the on-premises system, open the port used by the syste
  - In IIS Manager (inetmgr), the ***MicrosoftAzureBizTalkHybridListener*** website should be listed and be running. 
  - This website uses the ***HybridListenerAppPool*** that runs as the *NetworkService* local built-in user account. This AppPool should also be started.
 3. On the IIS server, confirm the connector is installed and running: 
- - A website is created for your App Service connector. For example, if you created a SQL connector, there is a ***MicrosoftSqlConnector_nnn*** website. In IIS Manager (inetmgr), confirm this website is listed and started. 
+ - A website is created for your connector. For example, if you created a SQL connector, there is a ***MicrosoftSqlConnector_nnn*** website. In IIS Manager (inetmgr), confirm this website is listed and started. 
  - This website uses its own IIS application pool named ***HybridAppPoolnnn***. This AppPool runs as the *NetworkService* local built-in user account. This website and AppPool should both be started. 
  - Browse the local connector. For example, if your connector website uses port 6569, browse to http://localhost:6569. A default document is not configured so an `HTTP Error 403.14 - Forbidden error` is expected.
 4. In your firewall, confirm the TCP Ports listed in this topic are open.
@@ -123,15 +123,17 @@ On-prem system port | On the on-premises system, open the port used by the syste
 
 ## FAQ
 
-**Question**: There are two Hybrid Connection Managers. What's the difference?<br/>
+**QUESTION**: There are two Hybrid Connection Managers. What's the difference? 
+
 **Answer**: There’s the [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) technology that is used primarily by Web  Apps (formerly websites) and Mobile Apps (formerly mobile services) to connect to on-premises. This Hybrid Connections Manager is its own [setup](../biztalk-services/integration-hybrid-connection-create-manage.md) and uses an Azure BizTalk Service (behind the scenes). It supports TCP and HTTP protocols only.
 
 With Azure App Service connectors, we also have a Hybrid Connection Manager.  This Hybrid Connection Manager does *not* use an Azure BizTalk Service (behind the scenes) and supports more than the TCP and HTTP protocols. See the [Connectors and API Apps List](app-service-logic-connectors-list.md).
 
 Both use Azure Service Bus to connect to the on-premises system.
 
-**Question**: When I create a custom API App, can I use the App Service Hybrid Connection Manager to connect to on-premises? <br/>
-**Answer**: Not in the traditional sense. You can use a built-in connector, configure the App Service Hybrid Connection Manager to connect to the on-premises system. Then, use this connector with your custom API App, possibly using a Logic App. Currently, you cannot develop or create your own hybrid API App (like the SQL Connector or File Connector).
+**QUESTION**: When I create a custom API App, can I use the App Service Hybrid Connection Manager to connect to on-premises? 
+
+**Answer**: Not in the traditional sense. You can use a built-in connector, configure the App Service Hybrid Connection Manager to connect to the on-premises system. Then, use this connector with your custom API App, possibly using a Logic App. Currently, you cannot develop or create your own hybrid API App (like the SQL connector or File connector).
 
 If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and its Hybrid Connection Manager. In this scenario, an Azure BizTalk Service is used. [Connect to on-premises SQL Server from a web app](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) may help.  
 

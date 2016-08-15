@@ -3,8 +3,8 @@
 	description="This topic shows how to use .NET to encode an asset using Media Encoder Strandard." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+ 	ms.date="07/18/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #How to encode an asset using Media Encoder Standard
@@ -37,12 +37,15 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 
 Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-###MES Input and output metadata
+###Input and output metadata
 
-The encoders input metadata is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
 
-The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: <asset_id>_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where <asset_id> is the AssetId value of the input asset. The schema of this input metadata XML is described [here](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
+The output asset also contains a file with metadata about the output asset. The name of the metadata XML file has the following format: <source_file_name>_manifest.xml (for example, BigBuckBunny_manifest.xml). The schema of this output metadata XML is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+
+If you want to examine either of the two metadata files, you can create a SAS locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file Using the Media Services .NET SDK Extensions.
 
 ##Download sample
 

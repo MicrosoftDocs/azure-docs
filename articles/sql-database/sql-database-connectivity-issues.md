@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 
@@ -94,7 +94,7 @@ You might also want to set a maximum number of retries before the program self-t
 
 Code samples with retry logic, in a variety of programming languages, are available at:
 
-- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md)
+- [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -421,11 +421,6 @@ Retry logic for handling transient errors is one area in which EntLib60 can assi
 - [4 - Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-A short C# code sample that uses EntLib60 in its retry logic is available at:
-
-- [Code sample: Retry logic from Enterprise Library 6, in C# for connecting to SQL Database](sql-database-develop-entlib-csharp-retry-windows.md)
-
-
 > [AZURE.NOTE] The source code for EntLib60 is available for public [download](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
@@ -562,7 +557,7 @@ public bool IsTransient(Exception ex)
 
 ## Next steps
 
-- For troubleshooting other common Azure SQL Database connection issues, visit [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
+- For troubleshooting other common Azure SQL Database connection issues, visit [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 
 - [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 

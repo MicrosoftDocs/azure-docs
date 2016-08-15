@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Back up your StorSimple Virtual Array
 
 ## Overview 
 
-This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release.
+This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later versions.
 
 The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
 
@@ -64,7 +64,7 @@ In addition to scheduled backups, you can take a manual (on-demand) backup at an
 
     ![backup job created](./media/storsimple-ova-backup/image7.png)
 
-3. To track the progress of the job, click the **View Job** icon.
+3. To track the progress of the job, click **View Job**.
 
 4. After the backup job is finished, go to the **Backup catalog** tab. You should see your completed backup.
 

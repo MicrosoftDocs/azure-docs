@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/09/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with ADP eTime
 
-The objective of this tutorial is to show you how to integrate ADP eTime with Azure Active Directory (Azure AD).<br>Integrating ADP eTime with Azure AD provides you with the following benefits:
+The objective of this tutorial is to show you how to integrate ADP eTime with Azure Active Directory (Azure AD).  
+Integrating ADP eTime with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to ADP eTime
 - You can enable your users to automatically get signed-on to ADP eTime (Single Sign-On) with their Azure AD accounts
@@ -46,7 +47,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding ADP eTime from the gallery
@@ -58,27 +59,36 @@ To configure the integration of ADP eTime into Azure AD, you need to add ADP eTi
 
 **To add ADP eTime from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+	![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]<br>
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]<br>
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]<br>
-6. In the search box, type **ADP eTime**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_01.png)<br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+	![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+	![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+	![Applications][4]
+
+6. In the search box, type **ADP eTime**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_01.png)
+
 7. In the results pane, select **ADP eTime**, and then click **Complete** to add the application.
-<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_06.png)<br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_06.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with ADP eTime based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in ADP eTime to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in ADP eTime needs to be established.<br>
+For single sign-on to work, Azure AD needs to know what the counterpart user in ADP eTime to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in ADP eTime needs to be established.  
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ADP eTime.
 
 To configure and test Azure AD single sign-on with ADP eTime, you need to complete the following building blocks:
@@ -94,7 +104,8 @@ To configure and test Azure AD single sign-on with ADP eTime, you need to comple
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your ADP eTime application.
 
 Your ADP eTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"PersonImmutableID"** and the value of which we have mapped to ExtensionAttribute2 which contains the EmployeeID of the user. Here the user mapping fron Azure AD to ADP eTime will be done on the EmployeeID but you can map this to a different value also based on your application settings. So please work with ADP eTime team first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim.  
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_02.png) <br>
+
+![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_02.png) 
 
 Before you can configure the SAML assertion, you need to contact your ADP eTime support team and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application.
 
@@ -102,21 +113,25 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 **To configure Azure AD single sign-on with ADP eTime, perform the following steps:**
 
 1. In the Azure classic portal, on the **ADP eTime** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-<br><br> ![Configure Single Sign-On][6] <br>
+
+	![Configure Single Sign-On][6] 
 
 2. On the **How would you like users to sign on to ADP eTime** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_03.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_03.png) 
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_04.png) 
 
 
-    a. In the Reply URL textbox, type the URL used by your users to sign-on to your ADP eTime application using the following pattern: **“https://\<SERVERNAME\>.adp.com/affwebservices/public/saml2assertionconsumer”**.
+    a. In the **Reply URL** textbox, type the URL used by your users to sign-on to your ADP eTime application using the following pattern: `https://<server name>.adp.com/affwebservices/public/saml2assertionconsumer`.
 
     b. Click **Next**.
 
 4. On the **Configure single sign-on at ADP eTime** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_05.png) 
 
     a. Click **Download metadata**, and then save the file on your computer.
 
@@ -125,35 +140,43 @@ Before you can configure the SAML assertion, you need to contact your ADP eTime 
 
 5. To get SSO configured for your application, contact your ADP eTime support team and email the attach downloaded metadata file, so that they can be configured for SSO integration.
 
-> [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring you can test the integration and it will work. So please note that this is important configuration for this application integration to work.
+    > [AZURE.NOTE] After **ADP eTime** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring you can test the integration and it will work. So please note that this is important configuration for this application integration to work.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-<br><br>![Azure AD Single Sign-On][10]<br>
+
+	![Azure AD Single Sign-On][10]
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
-  <br><br>![Azure AD Single Sign-On][11]
+
+	![Azure AD Single Sign-On][11]
 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
+In the Users list, select **Britta Simon**.
+
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_09.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_03.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_03.png) 
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_05.png) 
 
     a. As **Type Of User**, select **New user in your organization**.
 
@@ -162,7 +185,8 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_06.png) 
 
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -175,10 +199,12 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_07.png) 
 
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-adpetime-tutorial/create_aaduser_08.png) 
 
     a. Write down the value of the **New Password**.
 
@@ -198,29 +224,34 @@ The objective of this section is to create a user called Britta Simon in ADP eTi
 ### Assigning the Azure AD test user
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to ADP eTime.
-<br><br>![Assign User][200] <br>
+
+![Assign User][200] 
 
 **To assign Britta Simon to ADP eTime, perform the following steps:**
 
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-<br><br>![Assign User][201] <br>
+
+	![Assign User][201] 
 
 2. In the applications list, select **ADP eTime**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_50.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-adpetime-tutorial/tutorial_adpetime_50.png) 
 
 1. In the menu on the top, click **Users**.
-<br><br>![Assign User][203] <br>
+
+	![Assign User][203] 
 
 1. In the Users list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
-<br><br>![Assign User][205]
+
+	![Assign User][205]
 
 
 
 ### Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.<br>
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
 When you click the ADP eTime tile in the Access Panel, you should get automatically signed-on to your ADP eTime application.
 
 
