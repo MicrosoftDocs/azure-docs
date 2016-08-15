@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/12/2016"
 	ms.author="helaw"/>
 
 # Microsoft Azure Stack troubleshooting
@@ -332,10 +332,10 @@ If you see "orphan" VHDs (that have not been touched for more than 2 days), it i
 
 Example flow:
 
-- Day 1 : Create a storage account and VM with VHDs in this storage account.
-- Day 2 : Delete VM – VHDs remain, per design.
-- Day 3 : Delete storage account (directly or via resource group) – which should be allowed since there is no VM still “attached” to the disks in the storage account.
-- Day 3 + 2 (maximum, depending on last garbage collector run) : VHDs should be deleted.
+- Day 1: Create a storage account and VM with VHDs in this storage account.
+- Day 2: Delete VM – VHDs remain, per design.
+- Day 3: Delete storage account (directly or via resource group) – which should be allowed since there is no VM still “attached” to the disks in the storage account.
+- Day 3 + 2 (maximum, depending on last garbage collector run): VHDs should be deleted.
 
 The garbage collector lets the Storage service administrator "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document).
 
