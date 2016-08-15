@@ -31,6 +31,8 @@ It's recommended that you use the latest version of SSMS whenever you work with 
 
 > [AZURE.IMPORTANT] You must use the latest version of SQL Server Management Studio (SSMS) to remain synchronized with updates to Microsoft Azure and SQL Database. An older version of SSMS will not work successfully with SQL Database so visit [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to get it.
 
+
+
 ## Create and manage Azure SQL databases
 
 While connected to the **master** database, you can create new

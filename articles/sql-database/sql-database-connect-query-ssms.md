@@ -25,9 +25,7 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-This article shows you how to connect to an Azure SQL database using the most recent version of SQL Server Management Studio (SSMS) and perform a simple query with Transact-SQL (T-SQL) statements.
-
-[AZURE.INCLUDE [Sign in](../../includes/azure-getting-started-portal-login.md)]
+This article shows you how to connect to an Azure SQL database using the most recent version of SQL Server Management Studio (SSMS). After connecting we will perform a simple query with Transact-SQL (T-SQL) statements to verify communication with the database.
 
 [AZURE.INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
 
