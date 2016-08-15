@@ -14,16 +14,17 @@
 
 ### Basic service tier
 
-|| Basic | 
+| blah | Basic |
 |---|---|
-|Max DTUs|5|
-|Max Database Size|2|
-|Max in-memory OLTP storage (GB)|N/A|
-|Max concurrent workers|30|
-|Max concurrent logins|30|
-|Max concurrent sessions|300|
-|Point-in-time-restore|Any point last 7 days|
-|Disaster recovery|Active Geo-Replication|
+| Max DTU | 5 |
+| Max Database Size | 2 |
+| Max in-memory OLTP storage (GB) | N/A |
+| Max concurrent workers | 30 |
+| Max concurrent logins | 30 |
+| Max concurrent sessions | 300 |
+| Point-in-time-restore | Any point last 7 days |
+| Disaster recovery | Active Geo-Replication |
+
 
 ### Standard service tier
 
