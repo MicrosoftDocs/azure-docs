@@ -172,3 +172,5 @@ Instructions for Android phones or tablets are coming soon.
 
 ## Next steps
 
+[Azure Active Directory conditional access](active-directory-conditional-access.md)
+
