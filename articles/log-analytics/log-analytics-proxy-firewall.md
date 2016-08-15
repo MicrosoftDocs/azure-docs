@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/06/2016"
-	ms.author="banders"/>
+	ms.date="08/10/2016"
+	ms.author="banders;magoedte"/>
 
 # Configure proxy and firewall settings in Log Analytics
 
@@ -25,11 +25,12 @@ Actions needed to configure proxy and firewall settings for Log Analytics in OMS
 
 For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
 
-|**Agent Resource**|**Ports**|
-|--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|*.oms.opinsights.azure.com|Port 443|
-|*.blob.core.windows.net|Port 443|
+|**Agent Resource**|**Ports**|**Bypass HTTPS inspection**|
+|--------------|-----|--------------|
+|\*.ods.opinsights.azure.com|443|Yes|
+|\*.oms.opinsights.azure.com|443|Yes|
+|\*.blob.core.windows.net|443|Yes|
+|ods.systemcenteradvisor.com|443| |
 
 You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -39,7 +40,7 @@ You can use the following procedure to configure proxy settings for the Microsof
 
 2. Open **Microsoft Monitoring Agent**.
 
-3. Click the **Proxy Settings** tab.  
+3. Click the **Proxy Settings** tab.<br>  
   ![proxy settings tab](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
 4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
@@ -48,33 +49,31 @@ Use the following procedure to create a PowerShell script that you can run to se
 
 ### To configure proxy settings for the Microsoft Monitoring Agent using a script
 
+Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
 
-- Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
+        
+    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
 
+    # First we get the Health Service configuration object.  We need to determine if we
+    #have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 
-```
-param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
 
-# First we get the Health Service configuration object.  We need to determine if we
-# have the right update rollup with the API we need.  If not, no need to run the rest of the script.
-$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+    if (!$proxyMethod)
+    {
+         Write-Output 'Health Service proxy API not present, will not update settings.'
+         return
+    }
 
-$proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+    Write-Output "Clearing proxy settings."
+    $healthServiceSettings.SetProxyInfo('', '', '')
 
-if (!$proxyMethod)
-{
-    Write-Output 'Health Service proxy API not present, will not update settings.'
-    return
-}
+    $ProxyUserName = $cred.username
 
-Write-Output "Clearing proxy settings."
-$healthServiceSettings.SetProxyInfo('', '', '')
-
-$ProxyUserName = $cred.username
-
-Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
-$healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
-```
+    Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
+    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+        
 
 ## Configure proxy and firewall settings with Operations Manager
 
@@ -90,36 +89,38 @@ The following tables list the ports related to these tasks.
 
 >[AZURE.NOTE] Some of the following resources mention Advisor and Operational Insights, both were previous versions of OMS. However, the listed resources will change in the future.
 
-Here's a list of agent resources and ports:
+Here's a list of agent resources and ports:<br>
 
-|**Agent Resource**|**Ports**|
+|**Agent resource**|**Ports**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|*.oms.opinsights.azure.com|Port 443|
-|*.blob.core.windows.net/|Port 443|
+|\*.ods.opinsights.azure.com|443|
+|\*.oms.opinsights.azure.com|443|
+|\*.blob.core.windows.net/\*|443|
+|ods.systemcenteradvisor.com|443|
+<br>
+Here's a list of management server resources and ports:<br>
 
-Here's a list of management server resources and ports:
-
-|**Management server resource**|**Ports**|
-|--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
-|service.systemcenteradvisor.com|Port 443|
-|scadvisor.accesscontrol.windows.net|Port 443|
-|scadvisorservice.accesscontrol.windows.net|Port 443|
-|*.blob.core.windows.net|Port 443|
-|data.systemcenteradvisor.com|Port 443|
-|*.systemcenteradvisor.com|Port 443|
-
-Here's a list of OMS and Operations Manager console resources and ports.
+|**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
+|--------------|-----|--------------|
+|service.systemcenteradvisor.com|443| |
+|\*.service.opinsights.azure.com|443| |
+|\*.blob.core.windows.net|443|Yes| 
+|data.systemcenteradvisor.com|443| | 
+|ods.systemcenteradvisor.com|443| | 
+|\*.ods.opinsights.azure.com|443|Yes| 
+<br>
+Here's a list of OMS and Operations Manager console resources and ports.<br>
 
 |**OMS and Operations Manager console resource**|**Ports**|
 |----|----|
-|*.systemcenteradvisor.com|Port 80 and 443|
-|*.live.com|Port 80 and 443|
-|*.microsoftonline.com|Port 80 and 443|
+|service.systemcenteradvisor.com|443|
+|\*.service.opinsights.azure.com|443|
+|\*.live.com|Port 80 and 443|
+|\*.microsoft.com|Port 80 and 443|
+|\*.microsoftonline.com|Port 80 and 443|
+|\*.mmms.microsoft.com|Port 80 and 443|
 |login.windows.net|Port 80 and 443|
-
-
+<br>
 
 Use the following procedures to register your Operations Manager management group with the OMS service. If you are having communication problems between the management group and the OMS service, use the validation procedures to troubleshoot data transmission to the OMS service.
 
@@ -133,11 +134,11 @@ Use the following procedures to register your Operations Manager management grou
 
 1. Open the Operations Manager console and select the **Administration** workspace.
 
-2. Expand **Operational Insights**, and then select **Operational Insights Connection**.  
+2. Expand **Operational Insights**, and then select **Operational Insights Connection**.<br>  
     ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. In the OMS Connection view, click **Configure Proxy Server**.  
+3. In the OMS Connection view, click **Configure Proxy Server**.<br>  
     ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.  
+4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.<br>  
     ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
@@ -162,9 +163,9 @@ Use the following procedures to register your Operations Manager management grou
 
 ### To validate that OMS management packs are downloaded
 
-- If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
+If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
     ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
-- Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
+Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
     ```
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
@@ -180,13 +181,7 @@ Use the following procedures to register your Operations Manager management grou
     ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 
-## Azure Automation Hybrid Runbook Worker
-
-There are no inbound firewall requirements to support Hybrid Runbook Workers.
-
-For the on-premises machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
-
-## Next Steps
+## Next steps
 
 - [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
 - Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.

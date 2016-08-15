@@ -14,75 +14,74 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="08/04/2016"
    ms.author="telmos"/>
 
 # Implementing a highly available hybrid network architecture
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel. 
+This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
 - Hybrid applications where workloads are distributed between an on-premises network and Azure.
+
 - Applications running large-scale, mission-critical workloads that require a high degree of scalability.
+
 - Large-scale backup and restore facilities for data that must be saved off-site.
+
 - Handling Big Data workloads.
+
 - Using Azure as a disaster-recovery site.
 
-Keep in mind that if the ExpressRoute circuit is unavailable, the VPN gateway will only handle private peering connections. Public peering and Microsoft peering connections will be done through the public Internet.
+Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet.
 
-## Architecture blueprint
+## Architecture diagram
+
+>[AZURE.NOTE] The [Azure VPN Gateway service][azure-vpn-gateway] implements two types of virtual network gateways; VPN virtual network gateways and ExpressRoute virtual network gateways. Throughout this document, the term *VPN Gateway* refers to the Azure service, while the phrases *VPN virtual network gateway* and *ExpressRoute virtual network gateway* are used to refer to the VPN and ExpressRoute implementations of the gateway respectively.
+
 
 The following diagram highlights the important components in this architecture:
 
-![IaaS: multi-tier](./media/guidance-hybrid-network-expressroute-vpn-failover/figure1.png)
+![[0]][0]
 
-- **Azure Virtual Networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs). 
+- **Azure Virtual Networks (VNets).** Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet  and/or network security groups (NSGs).
 
 - **On-premises corporate network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. 
+- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012.
 
     > [AZURE.NOTE] For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
 
-- **[Azure VPN gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+- **VPN virtual network gateway.** The VPN virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
-- **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements.
+- **ExpressRoute virtual network gateway.** The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
-- **Virtual network gateway.** This is a resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
-
-- **Local network gateway.** This is an abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
+- **Gateway subnet.** The virtual network gateways are held in the same subnet.
 
 - **VPN connection.** The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
 - **ExpressRoute circuit.** This is a layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
-- **Azure ExpressRoute gateway.** The ExpressRoute gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network. 
-
 - **N-tier cloud application.** This is the application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
 
-## Implementing this architecture
+## Recommendations
 
-The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes that you have already created a VNet for hosting the cloud application, that you have created the on-premises network, that your on-premises network has a VPN appliance, and that your organization has met the [ExpressRoute prerequisite requirements][expressroute-prereq] for connecting to Azure.
+### VNet and GatewaySubnet
 
-1. If you already have a VPN gateway in your Azure VNet remove the VPN gateway, as shown below.
+- Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named **GatewaySubnet**
 
-	```powershell
-	Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-	```
-
-2. Make sure your **GatewaySubnet** has a /27 mask. If it does not, remove the existing subnet as shown below.
+- If the VNet already includes a subnet named **GatewaySubnet**, ensure that it has a /27 or larger address space. If the existing subnet is too small, then remove it as follows and create a new one as shown in the next bullet:
 
 	```powershell
-	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
 	Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 	```
 
-3. If needed, add a **GatewaySubnet** that has a /27 mask or larger, as shown below.
+- If the VNet does not contain a subnet named **GatewaySubnet**, then create a new one as follows:
 
 	```powershell
 	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
@@ -90,30 +89,39 @@ The following high-level steps outline a process for implementing this architect
 	$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 	```
 
-4. Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
+### VPN and ExpressRoute gateways
 
-5. Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN gateway connection.
+- Verify that your organization meets the [ExpressRoute prerequisite requirements][expressroute-prereq] for connecting to Azure.
 
-## Testing your solution
+- If you already have a VPN virtual network gateway in your Azure VNet, remove it, as shown below.
 
-Once the connections are established, test the environment as following:
+	```powershell
+	Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+	```
 
-1. Make sure you can connect from your on-premises network to your Azure VNet.
-2. Remove the ExpressRoute connection.
+- Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
 
-```powershell
-Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
-```
+- Follow the instructions in [Implementing a hybrid network architecture with Azure and On-premises VPN][implementing-vpn] to establish your VPN virtual network gateway connection.
 
-3. Verify that the you can still connect from your on-premises network to your Azure VNet.
+- After you have established the virtual network gateway connections, test the environment as following:
 
-4. Reestablish the ExpressRoute connection.
+	1. Make sure you can connect from your on-premises network to your Azure VNet.
 
-```powershell
-New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
-```
+	2. Temporarily remove the ExpressRoute virtual network gateway connection.
 
-## Availability, Security, Scalability, Monitoring, and Troubleshooting
+		```powershell
+		Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
+		```
+
+	3. Verify that the you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
+
+	4. Reestablish the ExpressRoute connection.
+
+		```powershell
+		New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
+		```
+
+## Availability, Security, Scalability, Monitoring, and Troubleshooting considerations
 
 For ExpressRoute recommendations, see the appropriate section of the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
@@ -121,13 +129,15 @@ For Site-to-Site VPN recommendations, see the appropriate section of the [Implem
 
 For general Azure security recommendations, see [Microsoft cloud services and network security][best-practices-security].
 
-## Deploying the sample solution
+## Solution Deployment
 
-The Azure PowerShell commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection, and a VPN gateway. This script assumes that you're using a layer 3 ExpressRoute connection.
+<!-- This section to be updated when the new ARM templates are available -->
+
+The Azure PowerShell commands in this section show how to connect an on-premises network to an Azure VNet by using an ExpressRoute connection, and a VPN virtual network gateway. This script assumes that you're using a layer 3 ExpressRoute connection.
 
 To use the script below, execute the following steps:
 
-1. Copy the [sample script][script] and paste it into a new file.
+1. Copy the sample script and paste it into a new file.
 2. Save the file as a .ps1 file.
 3. Open a PowerShell command shell.
 4. Run the script with the necessary parameters to create a VNet in Azure, as shown below.
@@ -154,10 +164,11 @@ To use the script below, execute the following steps:
 
 	```powershell
 	.\<<scriptfilename>>.ps1 -SubscriptionId <<subscription-id>> -BaseName <<prefix-for-resources>> -Location <<azure-location>> -CreateVNetGateway -OnPremisesPublicIpAddress <<onpremvpnapplianceipaddress>> -OnPremisesAddressPrefix <<azurevnetaddressprefix>>
+	```
 
 ## Sample solution script
 
-The deployment steps above use the following sample script.
+The deployment steps above use the following PowerShell script.
 
 ```powershell
 param(
@@ -181,7 +192,7 @@ param(
 
     [Parameter(Mandatory=$true, ParameterSetName="CreateVNet")]
     [switch]$CreateVNet,
-    
+
     [Parameter(Mandatory=$false, ParameterSetName="CreateVNet")]
     [string]$VnetAddressPrefix = "10.20.0.0/16",
 
@@ -307,10 +318,10 @@ switch($PSCmdlet.ParameterSetName) {
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
-[script]: #sample-solution-script
 [expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
 [implementing-vpn]: ./guidance-hybrid-network-vpn.md#implementing-this-architecture
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [guidance-vpn]: ./guidance-hybrid-network-vpn.md
 [best-practices-security]: ../best-practices-network-security.md
+[0]: ./media/guidance-hybrid-network-expressroute-vpn-failover/figure1.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
