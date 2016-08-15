@@ -14,7 +14,7 @@
 
 ### Basic service tier
 
-| blah | Basic |
+|  | Basic |
 |---|---|
 | Max DTU | 5 |
 | Max Database Size | 2 |
@@ -24,6 +24,9 @@
 | Max concurrent sessions | 300 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
+
+### Standard service tier
+
 
 
 ### Standard service tier
