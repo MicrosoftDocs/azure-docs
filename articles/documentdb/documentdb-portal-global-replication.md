@@ -33,7 +33,7 @@ DocumentDB is available in most [Azure regions] [azureregions]. After selecting 
 3. In the account blade, click **Add/Remove Regions** from the menu.
     ![Add regions under DocumentDB Account > Add/Remove Regions][1]
 
-5. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally) article for more information.
+5. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
 
     ![Click the regions in the map to add or remove them][2]
 

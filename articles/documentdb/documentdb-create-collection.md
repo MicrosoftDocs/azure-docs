@@ -50,7 +50,7 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
     If you use the Standard pricing tier, you can return to this blade at any time and change the throughput of your collection.  
 
-7. Select the **Throughput** for the collection. For information on estimating your throughput needs, see [Estimating throughput needs](documentdb-request-units/#estimating-throughput-needs) and the [Capacity planner](https://www.documentdb.com/capacityplanner).  
+7. Select the **Throughput** for the collection. For information on estimating your throughput needs, see [Estimating throughput needs](documentdb-request-units.md#estimating-throughput-needs) and the [Capacity planner](https://www.documentdb.com/capacityplanner).  
 
 8. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
