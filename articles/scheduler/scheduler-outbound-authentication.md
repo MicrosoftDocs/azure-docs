@@ -51,7 +51,7 @@ When a request is sent with authentication info, the response contains the follo
 |_certificateSubjectName_ |The subject distinguished name of the certificate.|
 |_certificateExpiration_ |The expiration date of the certificate.|
 
-## Sample Request for ClientCertificate Authentication
+## Sample REST Request for ClientCertificate Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -88,7 +88,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample Response for ClientCertificate Authentication
+## Sample REST Response for ClientCertificate Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -166,7 +166,7 @@ When a request is sent with authentication info, the response contains the follo
 |_type_ |Type of authentication. For Basic authentication, the value is `Basic`.|
 |_username_ |The authenticated username.|
 
-## Sample Request for Basic Authentication
+## Sample REST Request for Basic Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -204,7 +204,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample Response for Basic Authentication
+## Sample REST Response for Basic Authentication
 
 ```
 HTTP/1.1 200 OK
@@ -288,7 +288,7 @@ When a request is sent with authentication info, the response contains the follo
 |_audience_ |This is set to https://management.core.windows.net/.|
 |_clientId_ |The client identifier for the Azure AD application.|
 
-## Sample Request for ActiveDirectoryOAuth Authentication
+## Sample REST Request for ActiveDirectoryOAuth Authentication
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -328,7 +328,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## Sample Response for ActiveDirectoryOAuth Authentication
+## Sample REST Response for ActiveDirectoryOAuth Authentication
 
 ```
 HTTP/1.1 200 OK
