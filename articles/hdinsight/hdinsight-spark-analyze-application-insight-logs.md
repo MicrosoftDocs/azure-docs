@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/11/2016"
+ms.date="08/15/2016"
 ms.author="larryfr"/>
 
 # Analyze Application Insights telemetry logs with Spark on HDInsight
@@ -42,7 +42,7 @@ The following were used in developing and testing this document:
 
 ## Architecture and planning
 
-The following diagram illustrates the overall architecture of this example:
+The following diagram illustrates the service architecture of this example:
 
 ![diagram showing data flowing from Application Insights to blob storage, then being processed by Spark on HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
@@ -54,7 +54,7 @@ An HDInsight cluster can directly access block blobs from an Azure storage accou
 
 * __Blob type__: HDInsight only supports block blobs. Application Insights defaults to using block blobs, so should work by default with HDInsight.
 
-* __Access permissions__: If you use the same storage account for both Application Insights continuous export and HDInsight's default storage, HDInsight has full access to the Application Insight telemetry data. If you use the same storage account, it is possible to delete the telemetry data from the HDInsight cluster.
+* __Access permissions__: If you use the same storage account for both Application Insights continuous export and HDInsight's default storage, HDInsight has full access to the Application Insight telemetry data. This means that it is possible to delete the telemetry data from the HDInsight cluster.
 
     Instead, it is recommended that you use separate storage accounts for HDInsight and Application Insights telemetry, and [use Shared Access Signatures (SAS) to restrict access to the data from HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md). Using an SAS allows you to grant HDInsight read-only access to the telemetry data.
 
@@ -62,17 +62,17 @@ An HDInsight cluster can directly access block blobs from an Azure storage accou
 
 Application Insights provides [export data model](../application-insights/app-insights-export-data-model.md) information for the telemetry data format exported to blobs. The steps in this document use Spark SQL to work with the data. Spark SQL can automatically generate a schema for the JSON data structure logged by Application Insights, so you do not have to manually define the schema when performing analysis.
 
-## Configure Application Insights to export telemetry
+## Export telemetry data
 
 Follow the steps in [Configure Continuous Export](../application-insights/app-insights-export-telemetry.md) to configure your Application Insights to export telemetry information to an Azure storage blob.
 
-## Configure HDInsight to access the stored telemetry data
+## Configure HDInsight to access the data
 
 Use the information in [Use Shared Access Signatures (SAS) to restrict access to the data from HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) to create a SAS for the blob container that holds the exported telemetry data. The SAS should provide read-only access to the data.
 
 The Shared Access Signature document provides information on how you can add the SAS storage to an existing Linux-based HDInsight cluster. It also provides information on how to add it when creating a new HDInsight cluster.
 
-## Analyze the data from Spark SQL using Python (PySpark)
+## Analyze the data using Python (PySpark)
 
 1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
 
@@ -110,7 +110,7 @@ The Shared Access Signature document provides information on how you can add the
     
     The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use __SHIFT+ENTER__ to run the cell again. This time, the results should display the directories that contain telemetry data.
 
-    > [AZURE.NOTE] For the remainder of the steps in this document, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app. If you are using telemetry data that does not include a requests directory, pick another directory and adjust the rest of the steps to use that directory and the schema for the data stored within it.
+    > [AZURE.NOTE] For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app. If you are using telemetry data that does not include a requests directory, pick another directory and adjust the rest of the steps to use that directory and the schema for the data stored within it.
 
 6. In the next cell, enter the following. Replace __WASB\_PATH__ with the path from the previous step.
 
@@ -207,7 +207,7 @@ The Shared Access Signature document provides information on how you can add the
         ...
         +---------+
 
-## Analyze the data from Spark SQL using Scala
+## Analyze the data using Scala
 
 1. From the [Azure portal](https://portal.azure.com), select your Spark on HDInsight cluster. From the __Quick Links__ section, select __Cluster Dashboards__, and then select __Jupyter Notebook__ from the Cluster Dashboard__ blade.
 
@@ -245,7 +245,7 @@ The Shared Access Signature document provides information on how you can add the
     
     The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use __SHIFT+ENTER__ to run the cell again. This time, the results should display the directories that contain telemetry data.
 
-    > [AZURE.NOTE] For the remainder of the steps in this document, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app. If you are using telemetry data that does not include a requests directory, pick another directory and adjust the rest of the steps to use that directory and the schema for the data stored within it.
+    > [AZURE.NOTE] For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app. If you are using telemetry data that does not include a requests directory, pick another directory and adjust the rest of the steps to use that directory and the schema for the data stored within it.
 
 6. In the next cell, enter the following. Replace __WASB\_PATH__ with the path from the previous step.
 
