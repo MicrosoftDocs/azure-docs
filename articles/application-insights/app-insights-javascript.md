@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # Application Insights for web pages
@@ -205,9 +205,9 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 
-> [Learn more about diagnostic search](app-insights-diagnostic-search.md)
+You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
 
 ### Page view properties
 
