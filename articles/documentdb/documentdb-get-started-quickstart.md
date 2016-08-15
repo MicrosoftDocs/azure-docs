@@ -38,7 +38,7 @@ Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting t
 
 | 1. Download the sample project from GitHub.|[![Get QuickStart Project][quickstartbutton]](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/archive/master.zip) |
 | 2. Use the Azure portal to create a DocumentDB account.|[![Create DocumentDB account][createaccountbutton]](documentdb-create-account.md) |
-| 3. In the App.config file, replace the EndpointUri and PrimaryKey value with the values retrieved from the [Azure portal](https://portal.azure.com/). More Services->DocumentDB Accounts->Account name->Keys.|![Screen shot of the EndpointUri and PrimaryKey value to replace in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)|
+| 3. In the App.config file, replace the EndpointUri and PrimaryKey value with the values retrieved from the [Azure portal](https://portal.azure.com/).<br><br>DocumentDB Accounts blade/Account name/Keys.|![Screen shot of the EndpointUri and PrimaryKey value to replace in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)|
 | 4. Build the project. The console window shows the new resources being created, queried, and then cleaned up.|![Screen shot of the console output](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)|
 |---|---|
 
