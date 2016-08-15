@@ -25,7 +25,8 @@ You can retrieve events from your Activity Logs using the Azure portal, CLI, Pow
 
 ## What you can do with Activity Logs
 Here are some of the things you can do with Activity Logs:
-- Query and view them in the **Azure p**.
+
+- Query and view them in the **Azure portal**.
 - Query them via REST API, PowerShell Cmdlet, or CLI.
 - [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
 - Save them to a **Storage Account** for archival or manual inspection. You can specify the retention time (in days) using **Log Profiles**.
@@ -34,25 +35,30 @@ Here are some of the things you can do with Activity Logs:
 
 ## Export Activity Logs with Log Profiles
 A **Log Profile** controls how your Activity Logs are exported. Using a Log Profile, you can configure:
+
 - Where Activity Logs should be sent (Storage Account or Event Hubs)
 - Which event categories (eg. Write, Delete, Action) should be sent
 - Which regions (locations) should be exported
 - How long Activity Logs should be retained in a Storage Account – a retention of zero days means logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
-These settings can be configured via the “Export” option in the Activity Logs blade in the portal, or programmatically using the REST API, PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+These settings can be configured via the “Export” option in the Activity Logs blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
 ### Configure log profiles using the Azure portal
-You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal. 
+You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
 ![Navigate to Activity Logs in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
+
 2. Click the **Export** button at the top of the blade.
 ![Export button in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export.png)
+
 3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 ![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
+
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
-#### Get existing Log Profile
+#### Get existing log profile
 ```
 Get-AzureRmLogProfile
 ```
@@ -107,6 +113,7 @@ azure insights logprofile delete --name my_log_profile
 
 ## Event schema
 Each event in Activity Logs has a JSON blob like this one:
+
 ```
 {
   "value": [ {
@@ -187,6 +194,7 @@ Each event in Activity Logs has a JSON blob like this one:
 "nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
 }
 ```
+
 | Element Name         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | authorization        | Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties.                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -210,6 +218,7 @@ Each event in Activity Logs has a JSON blob like this one:
 | submissionTimestamp  | Timestamp when the event became available for querying.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | subscriptionId       | Azure Subscription Id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | nextLink             | Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records.                                                                                                                                                                                                                                                                                                                                                           |
+
 ## Next Steps
 - [Learn more about Activity (formerly Audit) Logs](../resource-group-audit.md)
 - [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-to-event-hubs.md)
