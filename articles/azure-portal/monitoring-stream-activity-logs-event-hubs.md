@@ -17,7 +17,7 @@
 	ms.author="johnkem"/>
 
 # Stream Azure Activity Logs to Event Hubs
-[**Azure Activity Logs**](./monitoring-overview-of-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule Id in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
+[**Azure Activity Logs**](./monitoring-overview-activity-logs.md) can be streamed in near real time to any application using the built-in “Export” option in the portal, or by enabling the Service Bus Rule Id in a Log Profile via the Azure PowerShell Cmdlets or Azure CLI.
 
 ## What you can do with Activity Logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Activity Logs:
@@ -31,13 +31,13 @@ You can enable streaming of Activity Logs either programmatically or via the por
 ### Via Azure portal 
 1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
 
-    ![Navigate to Activity Logs in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
+    ![Navigate to Activity Logs in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
 
-    ![Export button in portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export.png)
+    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select the regions for which you would like to stream events and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
-    ![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
+    ![Export Activity Logs blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 
@@ -68,8 +68,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 The Service Bus Rule ID is a string with this format: `{service bus resource ID}/authorizationrules/{key name}`.
  
 ## How do I consume the log data from Event Hubs?
-[The schema for Activity Logs is available here](./monitoring-overview-of-activity-logs.md). Each event is in an array of JSON blobs called “records.”
+[The schema for Activity Logs is available here](./monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called “records.”
 
 ## Next Steps
-- [Read the overview of Activity Logs](./monitoring-overview-of-activity-logs.md)
+- [Read the overview of Activity Logs](./monitoring-overview-activity-logs.md)
 - [Set up an alert based on an Activity Log event](./insights-auditlog-to-webhook-email.md)
