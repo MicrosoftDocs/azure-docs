@@ -26,4 +26,6 @@ If you use a parameter file to pass the parameter values to your template during
        }
     }
 
+If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/resource-manager-keyvault-parameter.md). 
+
 The size of the parameter file cannot be more than 64 KB.

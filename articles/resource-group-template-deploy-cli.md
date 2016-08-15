@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure CLI

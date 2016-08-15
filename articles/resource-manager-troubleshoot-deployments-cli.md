@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="06/13/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # View deployment operations with Azure CLI

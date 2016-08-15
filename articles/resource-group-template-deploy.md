@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure PowerShell
@@ -113,7 +113,7 @@ To learn more about options for deployment that might be better suited to your s
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
 
-     4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file).
+     4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file). You cannot mix inline parameter values with an external parameter file. For more information, see [Parameter precedence](#parameter-precendence).
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
 
@@ -183,6 +183,12 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
 For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
+
+## Parameter precedence
+
+You can use inline parameters and a local parameter file in the same deployment. If you provide the same value in the local parameter file and inline, the inline value takes precedence.
+
+However, you cannot use inline parameters with an external parameter file. When you specify a URI for a parameter file, all inline parameters are ignored. If you need to pass a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or provide all of the parameter values inline.
 
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
