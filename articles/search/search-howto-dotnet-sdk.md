@@ -31,7 +31,7 @@ The client library defines classes like `Index`, `Field`, and `Document`, as wel
 
 The current version of the Azure Search .NET SDK is now generally available. If you would like to provide feedback for us to incorporate in the next version, please visit our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
 
-The .NET SDK supports version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). This version now includes support for the Lucene query syntax and Microsoft language analyzers. Newer features that are *not* part of this version, such as support for the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](search-latest-updates.md) for status updates on either feature.
+The .NET SDK supports version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). This version now includes support for the Lucene query syntax and Microsoft language analyzers. Newer features that are *not* part of this version, such as support for the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) for status updates on either feature.
 
 Other features not supported in this SDK include:
 

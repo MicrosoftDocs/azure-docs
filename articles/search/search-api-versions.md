@@ -59,7 +59,7 @@ The .NET SDK is now generally available and work is already underway on the next
 
 ##About Preview and Generally Available versions
 
-Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK. A list of preview features can be found in [What’s New in Azure Search](search-latest-updates.md).
+Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 
 Preview features are not guaranteed to be migrated to a GA release. Whereas features in a GA version are considered stable and unlikely to change with the exception of small backward-compatible fixes and enhancements, preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation. 
 
