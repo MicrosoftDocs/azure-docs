@@ -31,7 +31,7 @@ The Recommendations API currently supports two build types: *recommendation* and
 
 The recommendation build type uses matrix factorization to provide recommendations. It generates [latent feature](https://en.wikipedia.org/wiki/Latent_variable) vectors based on your transactions to describe each item, and then uses those latent vectors to compare items that are similar.
 
-If you train the model based on purchases made in your electronics store and provide a Lumia 650 phone as the input to the model, the model will return a set of items that tend to be purchased by people who are likely to purchase a Lumia 650 phone. Note that the items may not be complementary. In this example, it is possible that the model will return other phones because people who like the Lumia 650 may like other phones.
+If you train the model based on purchases made in your electronics store and provide a Lumia 650 phone as the input to the model, the model will return a set of items that tend to be purchased by people who are likely to purchase a Lumia 650 phone. The items may not be complementary. In this example, it is possible that the model will return other phones because people who like the Lumia 650 may like other phones.
 
 The recommendation build has two capabilities that make it attractive:
 
@@ -39,13 +39,13 @@ The recommendation build has two capabilities that make it attractive:
 
  Items that do not have significant usage are called cold items. For instance, if you receive a shipment of a phone you have never sold before, the system cannot infer recommendations for this product on transactions alone. This means that the system should learn from information about the product itself.
 
- If you want to use cold item placement you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
+ If you want to use cold item placement, you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
 
-> 6CX-00001,Surface Pro2, Surface,, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
+> 6CX-00001, Surface Pro2, Surface,, Type=Hardware, Storage=128 GB,  Memory=4G, Manufacturer=Microsoft
 
-> 73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
+> 73H-00013, Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
 
-> WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
+> WAH-0F05, Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
 
 > ...
 
@@ -69,8 +69,8 @@ The recommendation build has two capabilities that make it attractive:
 
 | Name  | 	Description |	 Type, <br>  valid values <br> (default value)
 |-------|-------------------|------------------
-| *NumberOfModelIterations* |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the more accurate the model, but the compute time will take longer.  |	 Integer, <br> 	10 to 50 <br>(40)
-| *NumberOfModelDimensions* |	The number of dimensions relates to the number of features the model will try to find within your data. Increasing the number of dimensions will allow better fine tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	Integer, <br> 10 to 40 <br>(20) |
+| *NumberOfModelIterations* |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the more accurate the model, but the compute time takes longer.  |	 Integer, <br> 	10 to 50 <br>(40)
+| *NumberOfModelDimensions* |	The number of dimensions relates to the number of features the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	Integer, <br> 10 to 40 <br>(20) |
 | *ItemCutOffLowerBound* |	Defines the minimum number of usage points an item should be in for it to be considered part of the model. |		Integer, <br> 2 or more <br> (2) |
 | *ItemCutOffUpperBound* | 	Defines the maximum number of usage points an item should be in for it to be considered part of the model. |  Integer, <br>2 or More<br> (2147483647) |
 |*UserCutOffLowerBound* |	Defines the minimum number of transactions a user must have performed to be considered part of the model. |	Integer, <br> 2 or more <br> (2)
@@ -80,9 +80,9 @@ The recommendation build has two capabilities that make it attractive:
 | *AllowColdItemPlacement* |	Indicates if the recommendation should also push cold items via feature similarity.	| Boolean <br> Default: False
 | *EnableFeatureCorrelation*	| Indicates if features can be used in reasoning. |	Boolean <br> Default: False
 | *ReasoningFeatureList* |	Comma-separated list of feature names to be used for reasoning sentences, such as recommendation explanations. It depends on the features that are important to customers. | String, up to 512 chars
-| *EnableU2I* |	Enable personalized recommendations, also called user to item (U2I)  recommendations. | Boolean <br>Default: True
-|*EnableModelingInsights* |	Defines whether offline evaluation should be performed to gather modeling insights (i.e., precision and diversity metrics). If set to true, a subset of the data will not be used for training because it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
-| *SplitterStrategy* | If enable modeling insights is set to *true*, this is the way in which data should be split for evaluation purposes.  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter
+| *EnableU2I* |	Enable personalized recommendations, also called user to item (U2I) recommendations. | Boolean <br>Default: True
+|*EnableModelingInsights* |	Defines whether offline evaluation should be performed to gather modeling insights (that is, precision and diversity metrics). If set to true, a subset of the data will not be used for training because it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
+| *SplitterStrategy* | If enable modeling insights is set to *true*, this is how data should be split for evaluation purposes.  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter
 
 
 <a name="FBTBuild"></a>
@@ -90,7 +90,7 @@ The recommendation build has two capabilities that make it attractive:
 
 The frequently bought together (FBT) build does an analysis that counts the number of times two or three different products co-occur together. It then sorts the sets based on a similarity function (co-occurrences, Jaccard, Lift).
 
-Think of Jaccard and Lift as ways to normalize the co-occurrences.  This means that the items will only be returned if they where purchased together with the seed item.
+Think of Jaccard and Lift as ways to normalize the co-occurrences.  This means that the items will be returned only if they where purchased together with the seed item.
 
 In our Lumia 650 phone example, phone X will be returned only if phone X was purchased in the same session as the Lumia 650 phone. Because this may be unlikely, we would expect items complementary to the Lumia 650 to be returned; for instance, a screen protector, or a power adapter for the Lumia 650.
 
@@ -140,12 +140,12 @@ The following table represents the output of the precision-at-k offline evaluati
 |Users not considered |	0 |	0 |	0 |	0 |	0
 
 #### K
-In the preceding table, *k* represents the number of recommendations shown to the customer. The table reads as follows: “If during the test period, only one recommendation was shown to the customers, only 13.75 of the users would have actually purchased that recommendation.” This statement is based on the assumption that the model was trained with purchase data. Another way to say this is that the precision at 1 is 13.75.
+In the preceding table, *k* represents the number of recommendations shown to the customer. The table reads as follows: “If during the test period, only one recommendation was shown to the customers, only 13.75 of the users would have purchased that recommendation.” This statement is based on the assumption that the model was trained with purchase data. Another way to say this is that the precision at 1 is 13.75.
 
 You will notice that as more items are shown to the customer, the likelihood of the customer purchasing a recommended item goes up. For the preceding experiment, the probability almost doubles to 26.61 percent when 5 items are recommended.
 
 #### Percentage
-The percentage of users that interacted with at least one of the k recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendations over the total number of users considered. See Users considered for more information.
+The percentage of users that interacted with at least one of the k recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation over the total number of users considered. See Users considered for more information.
 
 #### Users in test
 The total number of users in the test dataset.
@@ -154,7 +154,7 @@ The total number of users in the test dataset.
 A user is only considered if the system recommended at least k items based on the model generated using the training dataset.
 
 #### Users not considered
-Any users not considered; the users that did not receive at least k recommended items.
+Any users not considered. The users that did not receive at least k recommended items.
 
 User not considered = users in test – users considered
 
@@ -187,8 +187,8 @@ The precision and diversity offline metrics may be useful when you select which 
 *RandomSplitter* splits the usage data in train and test sets based on the given *randomSplitterParameters* test percent and random seed values.
 *LastEventSplitter* splits the usage data in train and test sets based on the last transaction for each user.
 
-This will trigger a build that uses only a subset of the data for training and uses the rest of the data  to compute evaluation metrics.  After the build is completed, to get the output of the evaluation,
- you just need to call the [Get build metrics API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f),
+This will trigger a build that uses only a subset of the data for training and uses the rest of the data to compute evaluation metrics.  After the build is completed, to get the output of the evaluation,
+ you need to call the [Get build metrics API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f),
  passing the respective *modelId* and *buildId*.
 
  Following is the JSON output for the sample evaluation.
