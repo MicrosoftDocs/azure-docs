@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="jeedes" />
 
 
@@ -120,18 +120,22 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
 
+	|                                                            |
+	| ---                                                        |
 	| `https://<company name>.successfactors.com/<company name>` |
-	| `https://<company name>.sapsf.com/<company name>` |
-	| `https://<company name>.successfactors.eu/<company name>` |
-	| `https://<company name>.sapsf.eu` |
+	| `https://<company name>.sapsf.com/<company name>`          |
+	| `https://<company name>.successfactors.eu/<company name>`  |
+	| `https://<company name>.sapsf.eu`                          |
 
 	b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
 	
+	|                                                            |
+	| ---                                                        |
 	| `https://<company name>.successfactors.com/<company name>` |
-	| `https://<company name>.sapsf.com/<company name>` |
-	| `https://<company name>.successfactors.eu/<company name>` |
-	| `https://<company name>.sapsf.eu` |
-	| `https://<company name>.sapsf.eu/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>`          |
+	| `https://<company name>.successfactors.eu/<company name>`  |
+	| `https://<company name>.sapsf.eu`                          |
+	| `https://<company name>.sapsf.eu/<company name>`           |
 
 	c. Click **Next**. 
 
@@ -150,7 +154,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configuring single sign-on on app side][11]
 
-	> [AZURE.Note] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF. You don’t need to use the same value each time. You don’t even need to know what you typed.
+
+	> [AZURE.Note] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 8. Native to below screenshot and perform the following actions.
 
@@ -173,6 +178,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	h. Select **No** as **Enforce Certificate Valid Period**.
 
 	i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
+
 
 	> [AZURE.Note] the certificate content needs begin certificate and end certificate tags.
 
@@ -201,6 +207,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	c.Click **Save**.
 	
 	![Configure Single Sign-On][29]
+
 
 	> [AZURE.Note] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
 
