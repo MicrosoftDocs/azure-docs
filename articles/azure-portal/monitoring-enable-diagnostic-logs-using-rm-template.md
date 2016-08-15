@@ -20,6 +20,7 @@
 In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
+
 - **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
@@ -36,6 +37,7 @@ Below we give an example of the template JSON file you need to generate for non-
 For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name and service bus rule id (enabling archival of Diagnostic Logs in a storage account and/or streaming of logs to Event Hubs).
+
 ```
 "storageAccountName": {
   "type": "string",
@@ -51,6 +53,7 @@ For non-Compute resources, you will need to do two things:
 }
 ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
+
 ```
 "resources": [
   {
