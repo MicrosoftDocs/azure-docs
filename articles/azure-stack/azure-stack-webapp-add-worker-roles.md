@@ -16,9 +16,7 @@
 	ms.date="08/09/2016"
 	ms.author="kathm"/>
 
-#   Web Apps:
-
-#  Adding more web worker roles
+#   Web Apps: Adding more web worker roles
 
 This document provides instructions about how to scale Web Apps web worker roles. It contains steps for creating additional web worker roles to support web apps offerings of any size.
 
@@ -36,8 +34,7 @@ The following steps are required to scale web worker roles:
 
 4.  [Configure app service plans](#step-4-configure-app-service-plans)
 
-Step 1: Create a new VM to support the new instance size
-========================================================
+##Step 1: Create a new VM to support the new instance size
 
 Create a virtual machine as described in [this article](azure-stack-provision-vm.md),ensuring that the following selections are made:
 
@@ -49,8 +46,7 @@ Create a virtual machine as described in [this article](azure-stack-provision-vm
 
 > [AZURE.NOTE]Store the virtual machines for worker roles in the same resource group as the Web Apps application is deployed to. (This is recommended for this release.)
 
-Step 2: Configure the Virtual Machine
-=====================================
+##Step 2: Configure the Virtual Machine
 
 Once the deployment has completed, the following configuration is required to support the web worker role:
 
@@ -73,9 +69,7 @@ Once the deployment has completed, the following configuration is required to su
 
 > [AZURE.NOTE]Note: These are minimum requirements for Web Apps. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
 
-Step 3: Configure the web worker role in the Azure Stack portal
-===============================================================
- 
+##Step 3: Configure the web worker role in the Azure Stack portal
 
 1.  Open the portal as the service administrator on **ClientVM**.
 
@@ -111,8 +105,7 @@ Step 3: Configure the web worker role in the Azure Stack portal
 
  ![](media/azure-stack-webapp-add-worker-roles/webappmgmtconsole.png)
 
-Step 4: Configure app service plans
-===================================
+##Step 4: Configure app service plans
 
 > [AZURE.NOTE]In the current release of Web Apps, app service plans must be stored in separate resource groups. Build a resource group for each size of web app, and place the application plans in their appropriate resource groups.
 
@@ -134,8 +127,7 @@ The following shows an example of the multiple plans available:
 
  ![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
 
-Final Web App service VM configuration
-======================================
+##Final Web App service VM configuration
 
 The image below provides a view of the environment once you have scaled the web worker roles. The green items represent the new role additions.
 
