@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2016"
+   ms.date="08/15/2016"
    ms.author="cherylmc" />
 
 # Working with self-signed certificates for Point-to-Site connections
 
 This article helps you create a self-signed certificate using makecert, and then generate client certificates from it. The steps are written for makecert on Windows 10. Makecert has been validated to create certificates that are compatible with P2S connections. 
 
-For P2S connections, the preferred method for certificates is to use your enterprise certificate solution, making to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
+For P2S connections, the preferred method for certificates is to use your enterprise certificate solution, making sure to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
 
 If you don't have an enterprise solution, a self-signed certificate is necessary to allow P2S clients to connect to a virtual network. We are aware that makecert has been deprecated, but it is still a valid method for creating self-signed certificates that are compatible with P2S connections.
 
@@ -38,13 +38,11 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 	
 		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
 
-3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate. 
-
-	Note: If you run the following example with no changes, the result is a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
+3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator, where *CertificateName* is the name that you want to use for the certificate.<br><br>If you run the following example with no changes, the result is a certificate and the corresponding file *CertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
     	makecert -sky exchange -r -n "CN=CertificateName" -pe -a sha1 -len 2048 -ss My "CertificateName.cer"
 
-4. The self-signed certificate is used to create client certificates. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using. Any computer with a client certificate installed that's also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed, and that this self-signed certificate is backed up and stored safely.
+4. The self-signed certificate is used to create client certificates. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using.<br><br>Any computer with a client certificate installed that's also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed, and that this self-signed certificate is backed up and stored safely.
  
 
 ## Create and install client certificates
