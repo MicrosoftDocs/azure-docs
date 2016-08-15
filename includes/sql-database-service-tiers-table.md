@@ -14,13 +14,13 @@
 ### Standard service tier
 
 |  | Standard |
-|---|---|
+|---|:---:|
 | Max DTUs | &nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp; 20 &nbsp;&nbsp;&nbsp;&nbsp; 50 &nbsp;&nbsp; 100 |
-| Max Database Size | 2 |
+| Max Database Size | 250 |
 | Max in-memory OLTP storage (GB) | N/A |
-| Max concurrent workers | 30 |
-| Max concurrent logins | 30 |
-| Max concurrent sessions | 300 |
+| Max concurrent workers | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
+| Max concurrent logins | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
+| Max concurrent sessions | 600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
 | Point-in-time-restore | Any point last 7 days |
 | Disaster recovery | Active Geo-Replication |
 
