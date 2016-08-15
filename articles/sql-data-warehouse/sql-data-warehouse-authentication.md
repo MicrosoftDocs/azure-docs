@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/15/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
@@ -62,6 +62,7 @@ Benefits include the following:
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Data Warehouse.
+- When Azure Active Directory authentication is configured, SQL Server Management Studio supports Multi-Factor authentication through Active Directory Universal Authentication. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 
 ### Configuration steps
