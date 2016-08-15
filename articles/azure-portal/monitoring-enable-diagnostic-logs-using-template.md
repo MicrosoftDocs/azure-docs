@@ -54,32 +54,32 @@ For non-Compute resources, you will need to do two things:
 ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
 
-```
-"resources": [
-  {
-    "type": "providers/diagnosticSettings",
-    "name": "Microsoft.Insights/service",
-    "dependsOn": [
-      "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
-    ],
-    "apiVersion": "2015-07-01",
-    "properties": {
-      "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-      "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
-      "logs": [ 
-        {
-          "category": "/* log category name */",
-          "enabled": true,
-          "retentionPolicy": {
-            "days": 0,
-            "enabled": false
-          }
+    ```
+    "resources": [
+      {
+        "type": "providers/diagnosticSettings",
+        "name": "Microsoft.Insights/service",
+        "dependsOn": [
+          "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
+        ],
+        "apiVersion": "2015-07-01",
+        "properties": {
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "logs": [ 
+            {
+              "category": "/* log category name */",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 0,
+                "enabled": false
+              }
+            }
+          ]
         }
-      ]
-    }
-  }
-]
-```
+      }
+    ]
+    ```
 
 The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
