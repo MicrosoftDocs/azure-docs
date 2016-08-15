@@ -52,6 +52,7 @@ For non-Compute resources, you will need to do two things:
   }
 }
 ```
+
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
 
 ```
