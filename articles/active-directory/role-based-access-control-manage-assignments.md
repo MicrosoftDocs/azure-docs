@@ -1,6 +1,7 @@
 <properties
 	pageTitle="View Azure resource access assignments | Microsoft Azure"
 	description="View and manage all the Role-Based Access Control assignments for any user or group in the Azure portal"
+	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
 	manager="femila"
