@@ -40,6 +40,7 @@ You can enable streaming of Activity Logs either programmatically or via the por
 
 ### Via PowerShell Cmdlets
 If a log profile already exists, you will first need to remove that profile.
+
 1. Use `Get-AzureRmLogProfile` to identify if a log profile exists
 2. If so, use `Remove-AzureRmLogProfile` to remove it.
 3. Use `Set-AzureRmLogProfile` to create a new profile:
@@ -52,6 +53,7 @@ The Service Bus Rule ID will be a string with this format: {service bus resource
 
 ### Via Azure CLI
 If a log profile already exists, you first need to remove that profile.
+
 1. Use `azure insights logprofile list` to identify if a log profile exists
 2. If so, use `azure insights logprofile delete` to remove it.
 3. Use `azure insights logprofile add` to create a profile:
