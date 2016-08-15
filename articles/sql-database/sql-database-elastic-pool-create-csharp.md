@@ -3,7 +3,7 @@
     description="Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # Create a new elastic database pool with C&#x23;
 
@@ -24,13 +24,13 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
+Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C#;. 
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
 The examples below use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), so you need to install this library before continuing if it is not already installed. You can install this library by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Create a new pool
 
@@ -74,7 +74,7 @@ Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/m
 
 To move an existing database into a pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Example: Create a pool using C&#x23
+## Example: Create a pool using C&#x23;
 
 This example creates a new Azure resource group, a new Azure SQL Server instance, and a new elastic pool. 
  
@@ -82,7 +82,7 @@ This example creates a new Azure resource group, a new Azure SQL Server instance
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md). Use the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet to retrieve the value for the subscriptionId.

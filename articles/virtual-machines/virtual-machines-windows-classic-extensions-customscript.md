@@ -19,14 +19,12 @@
 
 # Custom Script extension for Windows virtual machines
 
-This article gives an overview of using the Custom Script extension on Windows VMs using Azure PowerShell cmdlets.
+This article gives an overview of using the Custom Script extension on Windows VMs using Azure PowerShell cmdlets with Azure Service Management APIs.
 
 Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see
 [Azure VM extensions and features](virtual-machines-windows-extensions-features.md).
 
-Link:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-classic-extensions-customscript.md).
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-extensions-customscript.md).
 
 ## Custom Script extension overview
 
@@ -35,7 +33,7 @@ Custom Script extension for Windows allows you to run PowerShell scripts on a re
 ### Prerequistes for running Custom Script Extension
 
 1. Install Azure PowerShell cmdlets version 0.8.0 or later from <a href="http://azure.microsoft.com/downloads" target="_blank">here</a>.
-2. If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> to install one. (If you are provisioning the VM from Azure gallery then VM agents are enabled by default , you don’t have to enable them)
+2. If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM. If it was not installed then follows the steps [here](virtual-machines-windows-classic-agents-and-extensions.md) to install VM Agent.If the VM is created from Portal, than VM Agent is install by default.
 3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single container or multiple storage containers.
 4. The script should be authored in such a way that the entry script, which is started by the extension, starts other scripts.
 
@@ -88,7 +86,7 @@ Custom Script Extension can be uninstalled from the VM using the following comma
 
 ### Using Custom Script extension with templates
 
-To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-windows-classic-extensions-customscript.md).
+To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png

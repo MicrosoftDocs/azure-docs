@@ -22,41 +22,6 @@ These release notes summarize changes from previous releases and known issues.
 
 >[AZURE.NOTE] We want to hear from our customers and focus on fixing problems that affect you. To report a problem or ask questions, please post in the [Azure Media Services MSDN Forum].
 
-- [Currently Known Issues](#issues)
-- [REST API Version History](#rest_version_history)
-- [July 2016 Release](#july_changes16)
-- [April 2016 Release](#apr_changes16)
-- [February 2016 Release](#feb_changes16)
-- [January 2016 Release](#jan_changes_16)
-- [December 2015 Release](#dec_changes_15)
-- [November 2015 Release](#nov_changes_15)
-- [October 2015 Release](#oct_changes_15)
-- [September 2015 Release](#september_changes_15)
-- [August 2015 Release](#august_changes_15)
-- [July 2015 Release](#july_changes_15)
-- [June 2015 Release](#june_changes_15)
-- [May 2015 Release](#may_changes_15)
-- [April 2015 Release](#april_changes_15)
-- [March 2015 Release](#march_changes_15)
-- [February 2015 Release](#february_changes_15)
-- [January 2015 Release](#january_changes_15)
-- [December 2014 Release](#december_changes_14)
-- [November 2014 Release](#november_changes_14)
-- [October 2014 Release](#october_changes_14)
-- [September 2014 Release](#september_changes_14)
-- [August 2014 Release](#august_changes_14)
-- [July 2014 Release](#july_changes_14)
-- [May 2014 Release](#may_changes_14)
-- [April 2014 Release](#april_changes_14) 
-- [January/February 2014 Releases](#jan_feb_changes_14) 
-- [December 2013 Release](#december_changes_13)
-- [November 2013 Release](#november_changes_13)
-- [August 2013 Release](#august_changes_13)
-- [June 2013 Release](#june_changes_13)
-- [December 2012 Release](#december_changes_12)
-- [November 2012 Release](#november_changes_12)
-- [June 2012 Preview Release](#june_changes_12)
-
 
 ##<a id="issues"></a>Currently Known Issues
 
@@ -69,13 +34,8 @@ Encoding an asset with a file name that contains escape characters (for example,
 The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.|Media Services generates SAS URLs based on the [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.
 Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.|For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
 When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. | You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-Some clients can come aross a repeat tag issue in the Smooth Streaming manifest.|For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
-
-### <a id="dotnet_issues"></a>Media Services SDK for .NET Issues
-
-Issue|Description
----|---
-Media Services objects in the SDK cannot be serialized and as a result do not work with Azure Caching.|If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.
+Some clients can come across a repeat tag issue in the Smooth Streaming manifest.|For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
+Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching.|If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.
 
 ##<a id="rest_version_history"></a>REST API Version History
 

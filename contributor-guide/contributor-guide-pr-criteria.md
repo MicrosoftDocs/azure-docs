@@ -46,3 +46,9 @@ For these items, pull request reviewers provide feedback and instructions for th
 |Style conventions|All titles and headings are sentence case, per Azure style.|
 |Process|If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically).|
 |Process|When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: <https://github.com/Azure/azure-content/blob/master/contributor-guide/retire-or-rename-an-article.md> .*|
+
+## Related
+
+- [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)

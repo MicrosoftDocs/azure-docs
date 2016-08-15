@@ -48,8 +48,28 @@ Define the following resource in the Resource section of the template
      }
 
 In the example above, replace the file URL and the file name with your own settings.
-
 After authoring the template, you can deploy it using Azure Powershell.
+
+In many scenarios customers want to keep the script urls and parameters as private. This can be achieved by keeping the script URL as a private so that can be accessed only with a storage account name and key , sent as protected settings. In addition the script parameters can also be provided as protected settings with version 1.7 or above for the windows custom script extension.
+
+## Template example for a Windows VM with protected settings
+
+        {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.7",
+        "settings": {
+        "fileUris": [
+        "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
+        ]
+        },
+        "protectedSettings": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
+        "storageAccountName": "yourStorageAccountName",
+        "storageAccountKey": "yourStorageAccountKey"
+        }
+        }
+For information on the schema of the latest versions of custom script extension, please refer to the documentation [here](virtual-machines-windows-extensions-configuration-samples.md)
 
 Please refer to the example below for a complete samples of configuring applications on a VM using Custom Script extension.
 

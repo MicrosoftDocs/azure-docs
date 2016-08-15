@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="03/18/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app

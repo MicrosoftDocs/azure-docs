@@ -3,6 +3,14 @@
 
 This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
 
+## Can I migrate my VM created in the classic deployment model to the new Resource Manager model?
+
+Yes. For instructions on how to migrate, see:
+
+- [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md).
+
+- [Migrate from classic to Azure Resource Manager using Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+
 ## What can I run on an Azure VM?
 
 All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
@@ -137,6 +145,8 @@ For any standalone VM (meaning the VM isn’t part of an availability set), Azur
 You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
+
+
 
 ## Additional resources
 

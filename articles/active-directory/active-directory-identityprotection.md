@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -34,9 +34,10 @@ The preview of Azure Active Directory Identity Protection is currently available
 
 The preview of Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
 
-- Security policies do not work for federated domains
+- Only Sign-in risk security policy works for federated domains. Currently, user risk security policy does not work for federated domains 
 
-- Risk events are are only detected for apps federating with Azure Active Directory
+- Risk events are only detected for apps federating with Azure Active Directory
+
 
 ##Getting Started
 

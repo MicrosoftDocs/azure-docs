@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@ Polybase allows you to leverage your data from different sources by using famili
 
 ## Next steps
 
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][] and [load sample data][]. Or, take a look at some of these other SQL Data Warehouse Resources.  
+Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][] and [load sample data][]. If you are new to Azure, you may find the [Azure glossary][] helpful as you encounter new terminology. Or, take a look at some of these other SQL Data Warehouse Resources.  
 
 - [Blogs]
 - [Feature Requests]
@@ -169,6 +169,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [SQL Data Warehouse solution partners]: sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 

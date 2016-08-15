@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="08/01/2016"
    ms.author="aglick"/>
 
 #High availability checklist

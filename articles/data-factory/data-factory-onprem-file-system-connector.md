@@ -25,7 +25,7 @@ Data factory supports connecting to and from on-premises File System via the Dat
 > [AZURE.NOTE] 
 > Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System.
 > 
-> See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Linux file share 
 
@@ -107,7 +107,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -115,7 +115,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -123,7 +123,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ]
@@ -168,7 +168,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -176,7 +176,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -184,7 +184,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -345,7 +345,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -353,7 +353,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -361,7 +361,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%HH"
+	            "format": "HH"
 	          }
 	        }
 	      ]

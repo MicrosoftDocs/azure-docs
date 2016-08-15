@@ -162,7 +162,7 @@ Azure Disk Encryption is supported on the following Windows client SKU’s - Win
 
 - To prepare a pre-encrypted Windows VHD, see section **Preparing a pre-encrypted Windows VHD** in the Appendix of this article.
 
-- To prepare a pre-encrypted  Linux VHD, see section **Preparing a pre-encrypted Linux VHD** in the Appendix of this article.
+- To prepare a pre-encrypted Linux VHD, see section **Preparing a pre-encrypted Linux VHD** in the Appendix of this article.
 
 - Azure platform needs access to the encryption keys or secrets in customer Azure Key Vault in order to make them available to the VM to boot and decrypt the virtual machine OS volume. To grant permissions to Azure platform to access the Key Vault, **enabledForDiskEncryption** property must be set on the Key Vault for this requirement. Refer to section **Setting and Configuring Azure Key Vault for Azure disk encryption usage** in the Appendix of this article for more details.
 
@@ -198,7 +198,7 @@ Azure Disk Encryption is supported on the following Windows client SKU’s - Win
 
 - Use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell version 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) and above
 
-**Note:**Azure Disk Encryption is not supported on [Azure PowerShell SDK version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). If you are receiving an error related to using Azure PowerShell 1.1.0, please see the article [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
+**Note:** Azure Disk Encryption is not supported on [Azure PowerShell SDK version 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). If you are receiving an error related to using Azure PowerShell 1.1.0, please see the article [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx).
 
 - To run any of the Azure CLI commands and associate it with your Azure subscription, you must first install Azure CLI version:
 
@@ -254,7 +254,7 @@ Use the PowerShell cmdlet below to create a new Azure AD app:
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
-**Note:** $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret  is the client Secret that you should use later to enable ADE.You should safeguard the Azure AD client secret appropriately.
+**Note:** $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret  is the client Secret that you should use later to enable ADE. You should safeguard the Azure AD client secret appropriately.
 
 
 ##### Provisioning the Azure AD client ID and secret from the Azure Service Management Portal
@@ -367,7 +367,7 @@ After finishing uploading the PFX, use the steps below to deploy a certificate i
     $sourceVaultId = (Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName).ResourceId
     $vm = Get-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore "My" -CertificateUrl $certUrl
-    Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
+    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 
 
 #### Setting Key Vault Access policy for the Azure AD Application
@@ -386,7 +386,7 @@ Use the terminology table as reference to understand some of the common terms us
 | Terminology           | Definition                                                                                                                                                                                                                                   |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure AD                   | Azure AD is [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Azure AD account is a pre-requisite for authenticating, storing, and retrieving secrets from the Key Vault.                                                                                                        |
-| Azure Key Vault [AKV] | Azure Key Vault is a cryptographic key management service based on FIPS-validated Hardware Security Modules to safeguard your cryptographic keys and sensitive secrets securely.,Refer to [Key Vault](https://azure.microsoft.com/services/key-vault/) documentation for more details.          |
+| Azure Key Vault [AKV] | Azure Key Vault is a cryptographic key management service based on FIPS-validated Hardware Security Modules to safeguard your cryptographic keys and sensitive secrets securely. Refer to [Key Vault](https://azure.microsoft.com/services/key-vault/) documentation for more details.          |
 | ARM                   | Azure Resource Manager                                                                                                                                                                                                                       |
 | BitLocker             | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) is an industry recognized Windows volume encryption technology used to enable disk encryption on Windows IaaS VMs                                                                                                                  |
 | BEK                   | BitLocker Encryption Keys are used to encrypt the OS boot volume and data volumes. The BitLocker keys are safeguard in customer’s Azure key vault as secrets.                                                                              |
@@ -427,7 +427,7 @@ You can see the ARM template parameters details for new VM from Azure gallery sc
 
 ### Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
 
-In this scenario you can enable encrypting by using the ARM template, PowerShell cmdletsor CLI commands. The sections below will explain in more details the ARM template and CLI commands.
+In this scenario you can enable encrypting by using the ARM template, PowerShell cmdlets or CLI commands. The sections below will explain in more details the ARM template and CLI commands.
 
 #### Using ARM Template
 
@@ -591,13 +591,13 @@ You can disable encryption on a running Windows IaaS VM via the Azure disk encr
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using ARM template
 
-Disk encryption can be disabled on running Windows IaaS VM using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
+Disk encryption can be disabled on running Windows IaaS VM using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 ARM template parameters details for disabling encryption on running Windows IaaS VM:
 
 | ​vmName         | ​Name of the VM on which encryption operation is to be performed                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. |
+| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All".<br>**Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. |
 | sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk decryption operation is performed on the same VM                                                                                          |
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using PS cmdlet

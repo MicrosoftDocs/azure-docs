@@ -44,6 +44,8 @@ Although push notifications are supported on Android Emulators, we have found th
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
+[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
+
 ##Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
@@ -125,7 +127,7 @@ Initially, we will include some minimal code for Android. Later, we will make so
 		      ios: { alert: 'true', badge: 'true', sound: 'true' },
 		      wns: {}
 		  });
-		
+
 		// Handle the registration event.
 		pushRegistration.on('registration', function (data) {
 		  // Get the native platform of the device.
@@ -152,11 +154,11 @@ Initially, we will include some minimal code for Android. Later, we will make so
 		      });
 		  }
 		});
-		
+
 		pushRegistration.on('notification', function (data, d2) {
 		  alert('Push Received: ' + data.message);
 		});
-		
+
 		pushRegistration.on('error', handleError);
 		}
 
@@ -171,6 +173,8 @@ Complete this section to enable push notifications for Android.
 Since we are targeting the Google Android platform initially, you must enable Google Cloud Messaging.  Similarly, if you were targeting Microsoft Windows devices, you would enable WNS support.
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+
+[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
 
 ####<a name="configure-backend"></a>Configure the Mobile App backend to send push requests using GCM
 
@@ -264,6 +268,8 @@ Later, use this identifier when you create an App ID on Apple's developer portal
 
 [AZURE.INCLUDE [Notification Hubs Xamarin Enable Apple Push Notifications](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
+[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
+
 ####Configure Azure to send push notifications
 
 1. Log into the [Azure portal](https://portal.azure.com/). Click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**. Your service is now configured to work with push notifications for iOS.
@@ -307,6 +313,8 @@ This section is for running the Apache Cordova app project on Windows 10 devices
 To use the Store options in Visual Studio, select a Windows target from the Solution Platforms list, like **Windows-x64** or **Windows-x86** (avoid **Windows-AnyCPU** for push notifications).
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
+
+[Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push)
 
 ####Configure the notification hub for WNS
 

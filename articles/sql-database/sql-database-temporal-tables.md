@@ -3,7 +3,7 @@
    description="Learn how to get started with using Temporal Tables in Azure SQL Database."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

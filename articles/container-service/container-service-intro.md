@@ -37,17 +37,17 @@ Using Azure Container Service
 -----------------------------
 
 Our goal with Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
+hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator (DC/OS or Docker Swarm). By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
 
 Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster via the portal (search for 'Azure Container Service'), by using an Azure Resource Manager template ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) or [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)) or with the [CLI](/documentation/articles/xplat-cli-install/). The provided quickstart templates can be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 Deploying an application
 ------------------------
 
-Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration.
+Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration. How you deploy your application depends on your choice of orchestrator.
 
 ### Using DC/OS
 
@@ -60,7 +60,7 @@ users and contributors.
 
 DC/OS and Apache Mesos include an impressive feature set:
 
--   Scalability to 10,000's of nodes
+-   Proven scalability
 
 -   Fault-tolerant replicated master and slaves using Apache ZooKeeper
 
@@ -74,18 +74,20 @@ DC/OS and Apache Mesos include an impressive feature set:
 
 -   A web UI for viewing cluster state
 
-By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads.
+By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads. However, included with the DC/OS deployment of ACS is the Mesosphere Universe of services that can be added to your service, these include Spark, Hadoop, Cassandra and much more.
+
+![DC/OS Universe in Azure Container Service](media/dcos/universe.png)
 
 #### Using Marathon
 
 Marathon is a cluster-wide init and control system for services in
-cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to [Chronos](https://mesos.github.io/chronos/), which is a fault-tolerant job scheduler for DC/OS that handles dependencies and time-based schedules.
-
-Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like
+cgroups--or, in the case of Azure Container Service, Docker-formatted containers. Marathon provides a web UI from which you can deploy your applications. You can access this at a URL that looks something like
 `http://DNS_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
 
-You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
+![Marathon Applications List](media/dcos/marathon-applications-list.png)
+
+You can also use the REST APIs for communicating with Marathon. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for Marathon. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 
@@ -109,9 +111,6 @@ to, the following:
 
 Videos
 ------
-AzureCon announcement:
-
-> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
 
 Getting started with Azure Container Service:  
 

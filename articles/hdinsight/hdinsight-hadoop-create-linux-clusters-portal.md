@@ -164,7 +164,7 @@ The Azure portal exposes most of the cluster properties. Using Azure ARM templat
 ##Customize clusters
 
 - See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+- See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ##Delete the cluster
 

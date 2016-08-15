@@ -19,7 +19,7 @@
 
 # How to Attach a Data Disk to a Linux Virtual Machine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you'll need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 
@@ -181,6 +181,9 @@ There are two ways to enable TRIM support in your Linux VM. As usual, please con
 
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
+
+## Troubleshooting
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 
 ## Next Steps

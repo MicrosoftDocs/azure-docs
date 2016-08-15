@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Create your first Azure Service Fabric application in Visual Studio
@@ -42,7 +42,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	![New project dialog in Visual Studio][1]
 
-4. On the next page, you will be asked to choose the first service type to include in your application. For the purposes of this tutorial, we will choose **Stateful**. Name it and click **OK**.
+4. On the next page, choose **Stateful** as the first service type to include in your application. Name it and click **OK**.
 
 	![New service dialog in Visual Studio][2]
 
@@ -56,51 +56,51 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	- **Publish profiles**: Used to manage tooling preferences for different environments.
 
-	- **Scripts**: Includes a PowerShell script for deploying/upgrading your application. This script is used behind-the-scenes by Visual Studio and can be invoked directly at the command line.
+	- **Scripts**: Includes a PowerShell script for deploying/upgrading your application. Visual Studio uses the script behind-the-scenes by Visual Studio. The script can also be invoked directly at the command line.
 
-	- **Application definition**: Includes the application manifest under *ApplicationPackageRoot* and associated application parameter files under *ApplicationParameters* that define the application and allow you to configure it specifically for a given environment.
+	- **Application definition**: Includes the application manifest under *ApplicationPackageRoot*. Associated application parameter files are under *ApplicationParameters*, which define the application and allow you to configure it specifically for a given environment.
 
     For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Deploy and debug the application
 
-Now that you have an application, you can try running it.
+Now that you have an application, try running it.
 
 1. Press F5 in Visual Studio to deploy the application for debugging.
 
-	>[AZURE.NOTE] This will take a while the first time, as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you will build on in a multi-machine cluster, just on a single machine. You will see the cluster creation status in the Visual Studio output window.
+	>[AZURE.NOTE] Deploying takes a while the first time, as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you will build on in a multi-machine cluster, just on a single machine. The cluster creation status displays in the Visual Studio output window.
 
-	When the cluster is ready, you will get a notification from the local cluster system tray manager application that is included with the SDK.
+	When the cluster is ready, you will get a notification from the local cluster system tray manager application included with the SDK.
 
 	![Local cluster system tray notification][4]
 
-2. Once the application starts, Visual Studio will automatically bring up the Diagnostics Event Viewer, where you can see trace output from the service.
+2. Once the application starts, Visual Studio automatically brings up the Diagnostics Event Viewer, where you can see trace output from the service.
 
 	![Diagnostic events viewer][5]
 
-	In the case of the stateful service template, the messages simply show the counter value that is being incremented in the `RunAsync` method of MyStatefulService.cs.
+	In the case of the stateful service template, the messages simply show the counter value incrementing in the `RunAsync` method of MyStatefulService.cs.
 
 3. Expand one of the events to see more details, including the node where the code is running. In this case, it is _Node_2, though it may differ on your machine.
 
 	![Diagnostic events viewer detail][6]
 
-	The local cluster contains five nodes that are hosted on a single machine. It mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster to simulate the loss of a machine and exercise the Visual Studio debugger at the same time.
+	The local cluster contains five nodes hosted on a single machine. It mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster in order to simulate the loss of a machine while exercising the Visual Studio debugger at the same time.
 
-    >[AZURE.NOTE] The application diagnostic events that are emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+    >[AZURE.NOTE] The application diagnostic events emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-4. Find the class in your service project that derives from StatefulService (e.g. MyStatefulService) and set a breakpoint on the first line of the `RunAsync` method.
+4. Find the class in your service project that derives from StatefulService (for example, MyStatefulService) and set a breakpoint on the first line of the `RunAsync` method.
 
 	![Breakpoint in stateful service RunAsync method][7]
 
-5. Right-click the Local Cluster Manager system tray app and choose **Manage Local Cluster** to launch Service Fabric Explorer.
+5. Right-click the Local Cluster Manager system tray app and choose **Manage Local Cluster** in order to launch Service Fabric Explorer.
 
     ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
 
-    Service Fabric Explorer offers a visual representation of a cluster--including the set of deployed applications that are deployed to it and the set of physical nodes that make it up. To learn more about Service Fabric Explorer, see [Visualizing your cluster](service-fabric-visualizing-your-cluster.md).
+    Service Fabric Explorer offers a visual representation of a cluster--including the set of applications deployed to it and the set of physical nodes that make it up. To learn more about Service Fabric Explorer, see [Visualizing your cluster](service-fabric-visualizing-your-cluster.md).
 
 6. In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
 
-7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting. (Note you can also do this in a context menu in the node list view in the left pane by selecting the three dots.)
+7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting. (Note you can also deactivate from the context menu in the node list view in the left pane.)
 
 	![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
@@ -112,11 +112,11 @@ Now that you have an application, you can try running it.
 
 ## Cleaning up
 
-  Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger will remove your application instance and unregister the application type.  The cluster will continue to run in the background, however. You have several options to manage this:
+  Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
 
   1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+  2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
 ## Next steps
 

@@ -4,7 +4,7 @@
    services="data-catalog"
    documentationCenter=""
    authors="spelluru"
-   manager=""
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/10/2016"
-   ms.author="spelluru"/>  
+   ms.date="07/25/2016"
+   ms.author="derrickv"/>  
 
 # Azure Data Catalog developer concepts
 
@@ -117,7 +117,7 @@ These properties apply to all non-singleton annotation types (i.e. annotations w
 
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog. For each root type there is a view defined which describes asset and annotations included in the view. View name should be used in the corresponding {view_name} url segment when publishing an asset using REST API.
 
-<table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
+<table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
 <tr><td>Report ("reports")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
 
 ### Annotation types
@@ -165,6 +165,10 @@ Annotation types represent types of metadata that can be assigned to other types
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>An array of column data profiles.</td></tr>
+
+<tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>The name of the column this classification refers to.</td></tr>
+<tr><td></td><td>classification</td><td>String</td><td>The classification of the data in this column.</td></tr>
 
 <tr><td>Documentation ("documentation")</td><td></td><td></td><td>A given asset can have only one documentation associated with it.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
@@ -323,6 +327,7 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 
   **Assign owners and restrict visibility for an existing root item**
   **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+
 	{
 		"roles": [
 			{

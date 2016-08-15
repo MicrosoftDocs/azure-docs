@@ -13,7 +13,7 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="06/29/2016" 
+	ms.date="07/22/2016" 
 	ms.author="alokkirpal"/>
 
 
@@ -34,7 +34,9 @@ This APIs can detect the following types of anomalous patterns in time series da
 These machine learning detectors track such changes in values over time and reports ongoing changes in their values as anomaly scores. They do not require adhoc threshold tuning and their scores can be used to control false positive rate. The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage monitoring through metrics such as number of searches, numbers of clicks, performance monitoring through counters like memory, CPU, file reads, etc. over time.
 
 The Anomaly Detection offering comes with useful tools to get you started. 
+
 * The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your  data. 
+
 * The [sample code](http://adresultparser.codeplex.com/) shows how to programmatically access the API and parse the results in C#.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
@@ -157,10 +159,10 @@ The anomaly detection API supports detectors in 3 broad categories. Details on s
 |Detector Category|Detector|Description|Input Parameters|Outputs
 |---|---|---|---|---|
 |Spike Detectors|TSpike Detector|Detect spikes and dips  as per the set sensitivity|*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; The higher the less sensitive|TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
-|ZSpike Detector|Detect spikes and dips as per the set sensitivity|*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; The higher the less sensitive|ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
-|Slow Trend Detector|Slow Trend Detector|Detect slow positive trend as per the set sensitivity|*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|tscore: floating number representing anomaly score on trend|
-|Level Change Detectors|Unidirectional Level Change Detector|Detect upward level change as per the set sensitivity|Same as Slow Trend Detector|pscore: floating number representing anomaly score on upward level change|
-|Bidirectional Level Change Detector|Detect both upward and downward level change as per the set sensitivity|Same as Slow Trend Detector|rpscore: floating number representing anomaly score on upward and downward level change
+||ZSpike Detector|Detect spikes and dips as per the set sensitivity|*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; The higher the less sensitive|ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise|
+|Slow Trend Detector|Slow Trend Detector|Detect slow positive trend as per the set sensitivity|*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|TScore: floating number representing anomaly score on trend|
+|Level Change Detectors|Unidirectional Level Change Detector|Detect upward level change as per the set sensitivity|*upleveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|PScore: floating number representing anomaly score on upward level change|
+||Bidirectional Level Change Detector|Detect both upward and downward level change as per the set sensitivity|*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive)|RPScore: floating number representing anomaly score on upward and downward level change
 
 ###Parameters
 

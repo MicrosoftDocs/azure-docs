@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/25/2016"
 	ms.author="mahender"/>
 
 # Upgrade your existing .NET Azure Mobile Service to App Service
 
 App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.
+This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service 
+Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.   If you
+need to upgrade a Node.js backend application, refer to [Upgrading your Node.js Mobile Services](./app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
 When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
 

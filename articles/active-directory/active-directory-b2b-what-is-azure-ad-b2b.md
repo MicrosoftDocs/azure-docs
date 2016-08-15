@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
-   manager="cliffdi"
+   manager="femila"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="05/09/2016"
-   ms.author="viviali"/>
+   ms.date="08/09/2016"
+   ms.author="femila"/>
 
 # Azure AD B2B collaboration preview: Simple, secure cloud partner integration
 
@@ -23,9 +23,10 @@ As companies focus more on their core business, the need to partner with other b
 
 - **Simple**: Each partner user uses an existing Azure AD account or one that is easily created during invitation acceptance. You can provide this user with direct access to your chosen corporate app or a set of applications through the App Access Panel.
 
-- **Secure**: Your admin controls all access to your corporate apps through your Azure AD directory. When collaboration is terminated, partner users can be removed from your Azure AD and their access to your apps is immediately revoked. Additionally, when the partner user leaves the partner organization, access is lost automatically.
+- **Secure**: Your admin controls all access to your corporate apps through your Azure AD directory. When collaboration is terminated, partner users can be removed 
+- from your Azure AD and their access to your apps is immediately revoked. Additionally, when the partner user leaves the partner organization, access is lost automatically.
 
-- **Free**: Azure AD B2B collaboration is a free feature that comes with Azure AD. The partner companies who need access to your corporate apps **do not need to have Azure AD.** Azure AD B2B collaboration provides a simple user sign-up experience to provide these partners with immediate access to your apps.
+- **Seamless**: The partner companies who need access to your corporate apps **do not need to have Azure AD.** Azure AD B2B collaboration provides a simple user sign-up experience to provide these partners with immediate access to your apps.
 
 Check out [the blog post announcing public preview](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) and [this deep dive video](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) walking through Azure AD B2B collaboration.
 

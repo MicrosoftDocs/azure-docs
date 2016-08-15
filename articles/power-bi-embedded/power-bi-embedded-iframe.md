@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/19/2016"
    ms.author="owend"/>
 
 # Embed a Power BI report with an IFrame
@@ -60,18 +60,6 @@ To call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
 {
-    //Get an app token to generate a JSON Web Token (JWT). An app token flow is a claims-based design pattern.
-    //To learn how you can code an app token flow to generate a JWT, see the PowerBIToken class.
-    var appToken = PowerBIToken.CreateDevToken(workspaceName, workspaceId);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = appToken.Generate(accessKey);
-
-    //Set app token textbox to JWT string to show that the JWT was generated
-    appTokenTextbox.Text = jwt;
-
     //Construct reports uri resource string
     var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
 
@@ -82,7 +70,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 
     //Set the WebRequest header to AppToken, and jwt
     //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppToken {0}", jwt));
+    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
 
     //Get reports response from request.GetResponse()
     using (var response = request.GetResponse() as System.Net.HttpWebResponse)
@@ -104,6 +92,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
         }
     }
 }
+
 ```
 
 <a name="EmbedReport"/>

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/25/2016"
    ms.author="bwren" />
 
 # Custom logs in Log Analytics
@@ -100,6 +100,16 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
 Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](log-analytics-custom-fields.md) documentation for this information.
+
+## Disabling a custom log
+
+You cannot remove a custom log definition once it's been created, but you can disable it by removing all of its collection paths.
+
+1.	In the OMS portal, go to **Settings**.
+2.	Click on **Data** and then **Custom logs**.
+3.	Click **Details** next to the custom log definition to disable.
+4.	Remove each of the collection paths for the custom log definition.
+
 
 ## Data collection
 

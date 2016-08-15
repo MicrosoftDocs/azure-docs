@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transactions in SQL Data Warehouse
@@ -56,19 +56,21 @@ To optimize and minimize the amount of data written to the log please refer to t
 ## Transaction state
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This means that the transaction has failed and is marked for rollback only
 
-> [AZURE.NOTE] The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an un-committable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as un-committable. For example SELECT 1/0 would cause an error but not force a transaction into an un-committable state. SQL Server also permits reads in the un-committable transaction. However, in SQLDW this is not the case. If an error occurs inside a SQLDW transaction it will automatically enter the -2 state: including SELECT 1/0 errors. It is therefore important to check that your application code to see if it uses  XACT_STATE().
+> [AZURE.NOTE] The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an un-committable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as un-committable. For example `SELECT 1/0` would cause an error but not force a transaction into an un-committable state. SQL Server also permits reads in the un-committable transaction. However, SQL Data Warehouse does not let you do this. If an error occurs inside a SQL Data Warehouse transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
 
-In SQL Server you might see a code fragment that looks like this:
+For example, in SQL Server you might see a transaction that looks like this:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -76,27 +78,50 @@ BEGIN TRAN
         ,       ERROR_PROCEDURE() AS ErrProcedure
         ,       ERROR_MESSAGE()   AS ErrMessage
         ;
-
-        ROLLBACK TRAN;
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
     END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Notice that the `SELECT` statement occurs before the `ROLLBACK` statement. Also note that the setting of the `@xact` variable uses DECLARE and not `SELECT`.
+If you leave your code as it is above then you will get the following error message:
 
-In SQL Data Warehouse the code would need to look like this:
+Msg 111233, Level 16, State 1, Line 1
+111233;The current transaction has aborted, and any pending changes have been rolled back. Cause: A transaction in a rollback-only state was not explicitly rolled back before a DDL, DML or SELECT statement.
+
+You will also not get the output of the ERROR_* functions.
+
+In SQL Data Warehouse the code needs to be slightly altered:
 
 ```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
-        SET     @i = CONVERT(int,'ABC');
+        SET     @i = CONVERT(INT,'ABC');
     END TRY
     BEGIN CATCH
-
-        ROLLBACK TRAN;
-
-        DECLARE @xact smallint = XACT_STATE();
+        SET @xact_state = XACT_STATE();
+        
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
         ,       ERROR_SEVERITY()  AS ErrSeverity
@@ -106,10 +131,18 @@ BEGIN TRAN
         ;
     END CATCH;
 
-SELECT @xact;
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
 ```
 
-Notice that the rollback of the transaction has to happen before the read of the error information in the `CATCH` Block.
+The expected behavior is now observed. The error in the transaction is managed and the ERROR_* functions provide values as expected.
+
+All that has changed is that the `ROLLBACK` of the transaction had to happen before the read of the error information in the `CATCH` block.
 
 ## Error_Line() function
 It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code you will need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. Please refer to the [LABEL][] article for more details on this feature.
@@ -129,6 +162,8 @@ They are as follows:
 - No distributed transactions
 - No nested transactions permitted
 - No save points allowed
+- No named transactions
+- No marked transactions
 - No support for DDL such as `CREATE TABLE` inside a user defined transaction
 
 ## Next steps

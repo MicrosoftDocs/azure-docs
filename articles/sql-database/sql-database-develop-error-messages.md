@@ -33,7 +33,7 @@ This article lists SQL error codes for SQL Database client applications, includi
 
 ## Database connection errors, transient errors, and other temporary errors
 
-The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
+The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database. For getting started tutorials on how to connect to Azure SQL Database, see [Connecting to Azure SQL Database](sql-database-libraries.md).
 
 ### Most common database connection errors and transient fault errors
 

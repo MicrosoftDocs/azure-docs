@@ -26,7 +26,7 @@ You may encounter a situation in which you accidentally modified some data in a 
 
 	**Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
 
-2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md).
+2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 	**Notes**:
 	- The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to let the user verify the restored database before they drop their current database and rename the restored database for production use.

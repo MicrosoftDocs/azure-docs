@@ -22,7 +22,7 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, West India, and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
 
 ## How it works
 
@@ -92,11 +92,11 @@ Elastic databases generally support the same [business continuity features](sql-
 
 ### Point in time restore
 
-Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md)
+Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### Geo-Restore
 
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md) 
+Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) 
 
 ### Active Geo-Replication
 

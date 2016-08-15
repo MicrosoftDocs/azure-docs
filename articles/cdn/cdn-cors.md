@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Using Azure CDN with CORS"
+	pageTitle="Using Azure CDN with CORS | Microsoft Azure"
 	description="Learn how to use the Azure Content Delivery Network (CDN) to with Cross-Origin Resource Sharing (CORS)."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Using Azure CDN with CORS     

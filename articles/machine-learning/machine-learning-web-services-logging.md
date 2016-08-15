@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="05/10/2016"
+	ms.date="08/09/2016"
 	ms.author="raymondl;garye"/>
 
 #Enable logging for Machine Learning web services  

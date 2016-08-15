@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="07/27/2016"
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters

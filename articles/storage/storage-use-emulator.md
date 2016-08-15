@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="08/03/2016" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing

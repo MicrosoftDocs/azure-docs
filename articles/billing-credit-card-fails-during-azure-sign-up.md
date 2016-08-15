@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Credit or debit card declined at sign-up | Microsoft Azure"
 	description="Discusses common causes of Microsoft Azure sign-up issues like your credit or debit card was declined."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="credit card declined, debit card declined, your credit card was declined, do not honor credit card"/>
 
 <tags

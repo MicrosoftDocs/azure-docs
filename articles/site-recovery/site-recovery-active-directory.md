@@ -58,7 +58,7 @@ Enable protection of the domain controller/DNS virtual machine in Site Recovery.
 
 ###Configure virtual machine network settings
 
-For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example if you're replicating Hyper-V VMs to Azure you can select the the VM in the VMM cloud or in the protect group to configure the network settings as shown below
+For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example, if you're replicating Hyper-V VMs to Azure you can select the VM in the VMM cloud or in the protection group to configure the network settings as shown below
 
 ![VM Network Settings](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
@@ -78,19 +78,19 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 
 ## Test failover considerations
 
-Test failover occurs in a network that's isolated from production network so that there's no impact to production workloads.
+Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
-Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
+Most applications also require the presence of a domain controller and a DNS server to function, so before the application's failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to enable protection on the domain controller/DNS virtual machine with Site Recovery, and run a test failover of that virtual machine, before running a test failover of the recovery plan for the application. Here's how you do that:
 
 1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
-2. Create an isolated network. Any virtual network created in Azure by default is isolated from other network. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
+2. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
 3. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during an planned or unplanned failover, if the IP address is available in the test failover network. If it isn't then the virtual machine  receive a different IP address that is available in the test failover network.
+>[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't then the virtual machine  receives a different IP address that is available in the test failover network.
 
 4. On the domain controller virtual machine run a test failover of it in the isolated network.
 5. Run a test failover for the application recovery plan.
-6. After testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete'on the **Jobs** tab in the Site Recovery portal.
+6. After testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
 
 ### DNS and domain controller on different machines
 
@@ -105,7 +105,7 @@ You can use a fresh DNS server and create all the required zones. For example, i
 	- The zone must be enabled for secure and non-secure updates.
 	- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
 
-2. Run the following command on domain controller virtual machine directory:
+2. Run the following command on domain controller virtual machine:
 
 	`nltest /dsregdns`
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/02/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -865,9 +865,16 @@ The PCase function converts the first character of each space delimited word in 
 **Syntax:**  
 `String PCase(string)`
 
+**Remarks:**
+
+- This function does not currently provide proper casing to convert a word that is entirely uppercase, such as an acronym.
+
 **Example:**  
 `PCase("TEsT")`  
 Returns "Test".
+
+`PCase(LCase("TEST"))`  
+Returns "Test"
 
 ----------
 ### RandomNum

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
 	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="vikdesai"
 	manager="msmbaldwin"

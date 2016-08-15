@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="sedusch"/>
 
 # Using SAP on Linux virtual machines in Azure

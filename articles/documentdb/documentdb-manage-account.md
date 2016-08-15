@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/20/2016"
 	ms.author="anhoh"/>
 
 # How to manage a DocumentDB account
@@ -33,9 +33,8 @@ Selecting the right consistency level depends on the semantics of your applicati
 
 3. In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
     ![Default consistency session][6]
-
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
 
 > [AZURE.NOTE] It can take several minutes before a change to the default
 consistency setting takes effect across your DocumentDB account.
@@ -44,7 +43,7 @@ consistency setting takes effect across your DocumentDB account.
 
 DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Select  "Azure DocumentDB - Multi-region database Account" in the Marketplace to create a multi-region account. Accounts created prior to June 13th will be enabled for global availability in the near future. 
+> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now. 
 
 1. In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
 2. In the **DocumentDB Account** blade, select the database account to modify.

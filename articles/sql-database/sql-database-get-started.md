@@ -4,7 +4,7 @@
 	keywords="sql database tutorial, create a sql database"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 

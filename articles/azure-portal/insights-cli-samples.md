@@ -4,23 +4,22 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="ashwink"/>
 
 # Azure Insights Cross-platform CLI quick start samples
 
 This article shows you sample command line interface (CLI) commands that will help you access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
->[AZURE.NOTE] Some of the latest bug fixes for Azure Insights CLI are not yet complete. Because of this, some of the latest features are not yet available in the current Azure CLI version. Meanwhile, you can use the latest Azure Insights CLI that includes the fixes by downloading the latest tarball from the development branch at [Azure XPLAT CLI tarball](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz) and then follow the instructions at [Microsoft Azure Cross Platform Command Line repository](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository) to install it using the tarball that you download. Azure Insights will include the bug fixes for Azure CLI when it is updated soon. We'll update this document when the changes are available in the main branch of Azure CLI.
 
 ## Prerequisites
 

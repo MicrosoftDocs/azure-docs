@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

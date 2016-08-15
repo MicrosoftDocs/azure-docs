@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Monitoring resources in Operations Management Suite Security and Audit Solution
@@ -48,9 +48,9 @@ In a defense in depth approach, every layer of protection is important for the o
 
 	![Security and Audit](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig1.png)
 
-2. In the **Security and Audit** dashboard, click **Antimalware Assessment** under **Security Domains**. The **Malware Assessment** dashboard appears as shown below:
+2. In the **Security and Audit** dashboard, click **Antimalware Assessment** under **Security Domains**. The **Antimalware Assessment** dashboard appears as shown below:
 
-![Malware assessment](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig2-new.png)
+![Malware assessment](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig2-ga.png)
 
 You can use the **Malware Assessment** dashboard to identify the following security issues:
 
@@ -68,7 +68,7 @@ Applying the most recent security updates is a security best practice and it sho
 Logic is applied to the update data and the cloud service records the data. If missing updates are found, they are shown on the **Updates** dashboard. You can use the **Updates** dashboard to work with missing updates and develop a plan to apply them to the servers that need them. Follow the steps below to access the **Updates** dashboard:
 
 1. In the **Microsoft Operations Management Suite** main dashboard click **Security and Audit** tile.
-2. In the **Security and Audit **dashboard, click **Update Assessment **under **Security Domains**. The Update dashboard appears as shown below:
+2. In the **Security and Audit** dashboard, click **Update Assessment** under **Security Domains**. The Update dashboard appears as shown below:
 
 ![update assessment](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig4.png)
 
@@ -89,9 +89,9 @@ Attackers will stay in the network, using freely available tooling to extract cr
 It is possible to identify these intruders before they compromise a privilege account. You can leverage **OMS Security and Audit Solution** to monitor identity and access. Follow the steps below to access the **Identity and Access** dashboard:
 
 1. In the **Microsoft Operations Management Suite** main dashboard click Security and Audit tile.
-2. In the **Security and Audit** dashboard, click **Identity and Access (Preview)** under **Security Domains**. The **Identity and Access (Preview)** dashboard appears as shown below:
+2. In the **Security and Audit** dashboard, click **Identity and Access** under **Security Domains**. The **Identity and Access** dashboard appears as shown below:
 
-![identity and access](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig6.png)
+![identity and access](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig6-ga.png)
 
 As part of your regular monitoring strategy, you must include identity monitoring. IT Admin should look if there is a specific valid username that has many attempts. This might indicate either attacker that acquired the real username and try to brute force or an automatic tool that uses hard-coded password that expired.
 
@@ -101,7 +101,7 @@ This dashboard enable IT to quickly identify potential threats related to identi
 
 The report generated for this computer brings valuable details about this pattern. Noticed that the **ACCOUNT** column gives you the user account that was used to try to access the system, the **TIMEGENERATED** column gives you the time interval in which the attempt was done and the **LOGONTYPENAME** column gives you the location where this attempt was done. If these attempts were performed locally in the system by a program, the **PROCESS** column would be showing the process’s name. In scenarios where the logon attempt is coming from a program, you already have the process name available and now you can perform further investigation in the target system.
 
-## Next steps
+## See also
 
 In this document, you learned how to use OMS Security and Audit solution to monitor your resources. To learn more about OMS Security, see the following articles:
 

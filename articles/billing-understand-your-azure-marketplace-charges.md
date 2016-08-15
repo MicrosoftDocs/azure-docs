@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Understand your Azure Marketplace charges | Microsoft Azure"
 	description="Describes how to understand charges related to your Marketplace orders."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"

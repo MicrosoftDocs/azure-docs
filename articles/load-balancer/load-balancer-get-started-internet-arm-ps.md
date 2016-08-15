@@ -160,7 +160,7 @@ You need to create Network Interfaces (or modify existing ones) and associate th
 
 ### Step 1 
 
-Get the Virtual Network and Virtual Network Subnet, where the NICs ned to be created.
+Get the Virtual Network and Virtual Network Subnet, where the NICs need to be created.
 
 	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 

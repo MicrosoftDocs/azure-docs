@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Intro to Azure | Microsoft Azure"
+	pageTitle="Intro to Microsoft Azure | Microsoft Azure"
 	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful."
 	services=" "
 	documentationCenter=".net"
-	authors="Rboucher"
-	manager="jwhit"
+	authors="rboucher"
+	manager=""
 	editor=""/>
 
 <tags
@@ -57,7 +57,7 @@ You can use these technologies separately or combine them as needed to create th
 ![Azure Virtual Machines ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png)   
 *Figure: Azure Virtual Machines gives you full control over virtual machine instances in the cloud.*
 
-The ability to create a virtual machine on demand, whether from a standard image or from one you supply, can be very useful. This approach, commonly known as Infrastructure as a Service (IaaS), is what Azure Virtual Machines provides. Figure 2 shows a combination of how an Virtual Machine (VM) runs and how to create one from a VHD.  
+The ability to create a virtual machine on demand, whether from a standard image or from one you supply, can be very useful. This approach, commonly known as Infrastructure as a Service (IaaS), is what Azure Virtual Machines provides. Figure 2 shows a combination of how a Virtual Machine (VM) runs and how to create one from a VHD.  
 
 To create a VM, you specify which VHD to use and the VM's size.  You then pay for the time that the VM is running. You pay by the minute and only while it's running, though there is a minimal storage charge for keeping the VHD available. Azure offers a gallery of stock VHDs (called "images") that contain a bootable operating system to start from. These include Microsoft and partner options, such as Windows Server and Linux, SQL Server, Oracle and many more. You're free to create VHDs and images, and then upload them yourself. You can even upload VHDs that contain only data and then access them from your running VMs.
 
@@ -70,7 +70,7 @@ This quite general approach to cloud computing can be used to address many diffe
 **Virtual Machine Scenarios**
 
 1.	**Dev/Test** - You might use them to create an inexpensive development and test platform that you can shut down when you've finished using it. You might also create and run applications that use whatever languages and libraries you like. Those applications can use any of the data management options that Azure provides, and you can also choose to use SQL Server or another DBMS running in one or more virtual machines.
-2.	**Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving you application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
+2.	**Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving your application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
 3.	**Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie your local network and your network in Azure together.
 
 
@@ -173,7 +173,7 @@ An application that stores video, massive files, or other binary information can
 
 *Figure: Azure Import / Export provides the ability to ship a physical hard drive to or from Azure for faster and cheaper bulk data import or export.*  
 
-Sometimes you want to move a lot of data into Azure. That would take a long time, perhaps days, and use a lot of bandwidth. In these cases you can use Azure Import/Export, which allows you to ship Bitlocker-encrypted 3.5" SATA hard drives directly to Azure data centers, where Microsoft will transfer the data into blob storage for you.  After the upload is completed, Microsoft ships the drives back to you.  You can also request that large amounts of data from Blob Storage be exported onto hard drives and sent back to you via mail.
+Sometimes you want to move a lot of data into Azure. That would take a long time, perhaps days, and use a lot of bandwidth. In these cases, you can use Azure Import/Export, which allows you to ship Bitlocker-encrypted 3.5" SATA hard drives directly to Azure data centers, where Microsoft will transfer the data into blob storage for you.  After the upload is completed, Microsoft ships the drives back to you.  You can also request that large amounts of data from Blob Storage be exported onto hard drives and sent back to you via mail.
 
 **Scenarios for Import / Export**
 
@@ -208,7 +208,7 @@ Azure runs today in many datacenters spread across the world. When you run an ap
 ### Virtual Network
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)   
 
-*Figure: Virtual Networks provides a private network in the cloud so different services can talk to each other, or to on-premises resources if you set up a VPN connection.a cross-premises connection.*  
+*Figure: Virtual Networks provides a private network in the cloud so different services can talk to each other, or to on-premises resources if you set up a VPN cross-premises connection.*  
 
 
 One useful way to use a public cloud is to treat it as an extension of your own datacenter.
@@ -235,7 +235,7 @@ For more information about ExpressRoute, see [ExpressRoute Technical Overview](.
 
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)   
 
-*Figure : Azure Traffic Manager allows you to route global traffic to your service based on intelligent rules.*
+*Figure: Azure Traffic Manager allows you to route global traffic to your service based on intelligent rules.*
 
 If your Azure application is running in multiple datacenters, you can use Azure Traffic Manager to route requests from users intelligently across instances of the application. You can also route traffic to services not running in Azure as long as they are accessible from the internet.  
 
@@ -258,7 +258,7 @@ Along with helping you build Azure applications, these SDKs also provide client 
 
 ### Visual Studio Team Services
 
-Visual Studio Team Services is an marketing name covering a number services which help to develop applications in the Azure.
+Visual Studio Team Services is a marketing name covering a number services which help to develop applications in the Azure.
 
 To avoid confusion - It does not provide a hosted or Web-based version of Visual Studio. You still need your local running copy of Visual Studio. But it provides many other tools which can be very helpful.
 
@@ -284,7 +284,7 @@ When you have published your app - whether it runs on mobile devices, desktops, 
 
 When you develop a new feature, plan to measure its success with users. By analysing usage patterns, you understand what works best for your customers and enhance your app in every development cycle.
 
-Although it's hosted in Azure, Application Insights works for a wide and growing range of apps, both on an off Azure. Both J2EE and ASP.NET web apps are covered, as well as iOS, Android, OSX and Windows applications. Telemetry is sent from an SDK built with the app, to be analyzed and displayed in the Application Insights service in Azure.
+Although it's hosted in Azure, Application Insights works for a wide and growing range of apps, both on and off Azure. Both J2EE and ASP.NET web apps are covered, as well as iOS, Android, OSX and Windows applications. Telemetry is sent from an SDK built with the app, to be analyzed and displayed in the Application Insights service in Azure.
 
 If you want more specialized analytics, export the telemetry stream to a database, or to Power BI, or any other tools.
 
@@ -369,7 +369,7 @@ While you can certainly build the backend for a mobile app using Virtual Machine
 
 ![Mobile Apps](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
 
-*Figure : Mobile Apps provides functionality commonly required by applications which interface with mobile devices.*
+*Figure: Mobile Apps provides functionality commonly required by applications which interface with mobile devices.*
 
 Azure Mobile Apps provides many useful functions that can save you time when building a backend for a Mobile application. It allows you to do simple provisioning and management of data stored in a SQL Database. With server-side code you can easily use additional data storage options like blob storage or MongoDB. Mobile Apps  provides support for notifications, though in certain cases you can instead use Notification Hubs as described next.  The service also has a REST API that your mobile application can call to get work done. Mobile Apps also provides the ability to authenticate users through Microsoft and Active Directory as well as other well-known identity providers like Facebook, Twitter, and Google.   
 
@@ -386,7 +386,7 @@ Because Azure supports massive scale already, you can handle the traffic as your
 
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)  
 
-*Figure : Notification Hubs provides functionality commonly required by applications which interface with mobile devices.*
+*Figure: Notification Hubs provides functionality commonly required by applications which interface with mobile devices.*
 
 While you can write code to do notifications in Azure Mobile Apps, Notification Hubs is optimized to broadcast millions of highly personalized push notifications within minutes.  You don't have to worry about details like mobile carrier or device manufacturer. You can target individual or millions of users with a single API call.
 
@@ -409,7 +409,7 @@ Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect imp
 
 It monitors the health of your services continuously and helps automate the orderly recovery of services in the event of a site outage at the primary datacenter. Virtual machines can be brought up in an orchestrated fashion to help restore service quickly, even for complex multi-tier workloads.
 
-Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn. Check out [Azure Site Recovery overview](site-recovery/site-recovery-overview.md) for more details.
+Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server Always On. Check out [Azure Site Recovery overview](site-recovery/site-recovery-overview.md) for more details.
 
 ### Azure Backup
 ![Azure Backup](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)  
@@ -476,12 +476,12 @@ Service Bus provides a Publish-and-subscribe mechanism called Topics and Subscri
 
 **Service Bus Topics and Subscriptions Scenarios**
 
-Anytime your are setting up where there are many messages that are all important, but various downstream systems only need to listen to differing subsets of those communications, Service Bus Topic and Subscriptions are a good option.
+Anytime you are setting up where there are many messages that are all important, but various downstream systems only need to listen to differing subsets of those communications, Service Bus Topic and Subscriptions are a good option.
 
 
 ### BizTalk Services
 ![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
- *Figure:BizTalk Services provides the ability to transform XML messages formats in the cloud.*
+ *Figure: BizTalk Services provides the ability to transform XML messages formats in the cloud.*
 
 Sometimes you need connect systems which communicate using different messaging formats. It’s common for business to have different database schemas and XML messaging formats, even when a common standard is available. Rather than write a lot of custom code, you can use BizTalk Server on-premises to integrate various systems.  Azure BizTalk Services provides the same type of service, but in the cloud. You can pay for only what you use and not worry about scale like you would have to on-premises.
 
@@ -540,7 +540,7 @@ An application that repeatedly reads a product catalog might benefit from using 
 
 ### Content Delivery Network
 ![Azure CDN](./media/fundamentals-introduction-to-azure/CDNIntroNew.png)   
- **Figure:Copies of a blob can be cached at sites around the world.**
+ **Figure: Copies of a blob can be cached at sites around the world.**
 
 Suppose you need to store blob data that will be accessed by users around the world. Maybe it's a video of the latest World Cup match, for instance, or driver updates, or a popular e-book. Storing a copy of the data in multiple Azure datacenters will help, but if there are lots of users, it's probably not enough. For even better performance, you can use the Azure CDN.
 
@@ -593,7 +593,7 @@ As the figure shows, Media Services provides a set of components for application
 
 Applications that use this platform can run on Azure or elsewhere. For example, a desktop application for a video production house might let its users upload video to Media Services, then process it in various ways. Alternatively, a cloud-based content management service running on Azure might rely on Media Services to process and distribute video. Wherever it runs and whatever it does, each application chooses which components it needs to use, accessing them through RESTful interfaces.
 
-To distribute what it produces, an application can use the Azure CDN, another CDN, or just send bits directly to users. However it gets there, video created using Media Services can be consumed by various client systems, including Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash, and Silverlight. The goal is to make it easier to create modern media applications.
+To distribute what it produces, an application can use the Azure CDN, another CDN, or just send bits directly to users. However, it gets there, video created using Media Services can be consumed by various client systems, including Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash, and Silverlight. The goal is to make it easier to create modern media applications.
 
 **References**
 
@@ -606,12 +606,12 @@ The rise of Software as a Service is transforming how we create applications. It
 ![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Figure: Azure Marketplace and Azure Store let you find and buy Azure applications and commercial datasets and use them as part of your Azure applications.**
 
-The difference between the two is that Marketplace is outside of the Azure Management Portal, but the Store can be accessed from inside the portal. Potential customers can search to find Azure applications that meet their needs.. Customers can search for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor, directly through the Marketplace or Store web locations or in some cases from the Management Portal. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
+The difference between the two is that Marketplace is outside of the Azure Management Portal, but the Store can be accessed from inside the portal. Potential customers can search to find Azure applications that meet their needs. Customers can search for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor, directly through the Marketplace or Store web locations or in some cases from the Management Portal. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
 
 
 **Commerce Scenarios**
 
-SendGrid is an application in the Azure Store that allows you to send email. It offers additional functionality like reliable delivery and statistics.  You can buy this application and related services rather then try to build such an infrastructure yourself.  
+SendGrid is an application in the Azure Store that allows you to send email. It offers additional functionality like reliable delivery and statistics.  You can buy this application and related services rather than try to build such an infrastructure yourself.  
 
 
 ## Getting Started

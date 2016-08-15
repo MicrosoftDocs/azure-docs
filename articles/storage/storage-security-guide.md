@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 #Azure Storage security guide
@@ -196,7 +196,7 @@ Note: it is recommended to use only one of the keys in all of your applications 
 
 ##Data Plane Security
 
-Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We’ve seen methods to encrypt the data and security during transit of the data, but how to you go about allowing access to the objects?
+Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We’ve seen methods to encrypt the data and security during transit of the data, but how do you go about allowing access to the objects?
 
 There are basically two methods for controlling access to the data objects themselves. The first is by controlling access to the storage account keys, and the second is using Shared Access Signatures to grant access to specific data objects for a specific amount of time.
 
@@ -497,7 +497,7 @@ You can see that you can use the logs to track any kind of calls to a storage ac
 
 ####What are all of those fields for?
 
-These is an article listed in the resources below that provides the list of the many fields in the logs and what they are used for. Here is the list of fields in order:
+There is an article listed in the resources below that provides the list of the many fields in the logs and what they are used for. Here is the list of fields in order:
 
 ![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
 
@@ -539,7 +539,7 @@ You can use the Microsoft Message Analyzer to view and analyze these logs. It in
 
 -   [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md)
 
-	This articles talks about troubleshooting using the Storage Analytics and shows how to use the Microsoft Message Analyzer.
+	This article talks about troubleshooting using the Storage Analytics and shows how to use the Microsoft Message Analyzer.
 
 -   [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)
 

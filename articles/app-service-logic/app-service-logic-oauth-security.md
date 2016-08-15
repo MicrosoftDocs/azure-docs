@@ -1,14 +1,14 @@
 <properties
 	pageTitle="OAUTH Security in SaaS Connectors and API Apps | Azure"
 	description="Read about OAUTH security in the Connectors and API Apps in Azure App Service; microservices architecture; saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

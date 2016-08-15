@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,17 +23,17 @@
 - [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
-This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azurte blob storage using the [Azure portal](https://portal.azure.com).
+This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.com).
 
-When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later inmported back into Azure SQL Database or into a SQL Server on-premises installation. 
+When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database or into a SQL Server on-premises installation. 
 
 ***Considerations***
 
 - For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
-- The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+- The maximum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 - Archiving to Azure premium storage using a BACPAC file is not supported.
 - If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
- - Tempporarily increase your service level 
+ - Temporarily increase your service level 
  - Cease all read and write activity during the export
  - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
 
@@ -63,7 +63,7 @@ Open the SQL Database blade for the database you want to export.
     ![export database][2]
 
 6. Select your authentication type. 
-7.  Enter the appropriate authentication credentuials for the Azure SQL server containing the database you are exporting.
+7.  Enter the appropriate authentication credentials for the Azure SQL server containing the database you are exporting.
 8.  Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export will take depends on the size and complexity of your database, and your service level. You will receive a notification.
 
     ![export notification][3]
@@ -87,14 +87,9 @@ Open the SQL Database blade for the database you want to export.
 
 ## Next steps
 
-- [Import a BACPCAC to an Azure SQL database](sql-database-import.md)
-- [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
+- To learn about importing a BACPAC to an Azure SQL Database, see [Import a BACPCAC to an Azure SQL database](sql-database-import.md)
+- To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
 
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->

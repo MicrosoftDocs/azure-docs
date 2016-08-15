@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell
@@ -24,6 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 This article will walk you through the steps to create a connection between virtual networks using the Resource Manager deployment model and PowerShell. The virtual networks can be in the same or different regions, from the same or different subscriptions.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **About Azure deployment models**
@@ -120,7 +122,7 @@ For this exercise, use the following values for the VNets:
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Resource Group: TestRG4
 - Location: West US
 - DNS Server: 8.8.8.8

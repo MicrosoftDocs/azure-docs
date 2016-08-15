@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
@@ -37,7 +37,7 @@ In order to give your users the best possible experience, we recommend that you 
 | How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-managment-look-and-feel) |
+| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-management-look-and-feel) |
 
 
 ## Password management look and feel
@@ -851,7 +851,7 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
                   <li class="unordered">
-												This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
+												This notification is sent via an email to the user’s User Principal Name, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
                 </ul>
               </td>
             </tr>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # How to protect a Web API backend with Azure Active Directory and API Management
@@ -143,12 +143,11 @@ Replace the generated controller class with the following code. This code implem
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-HttpResponseMessage response = Request.CreateResponse();
-response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-return response;
-}
-}
-
+    	    HttpResponseMessage response = Request.CreateResponse();
+    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+    	    return response;
+    	}
+    }
 
 Press **F6** to build and verify the solution.
 

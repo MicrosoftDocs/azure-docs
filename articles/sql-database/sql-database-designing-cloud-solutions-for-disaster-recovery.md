@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/25/2016"
+   ms.date="07/20/2016"
    ms.author="sashan"/>
 
 # Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database
@@ -164,7 +164,7 @@ Your specific cloud disaster recovery strategy can combine or extend these desig
 ## Next steps
 
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 - To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

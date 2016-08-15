@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Drivers](sql-data-warehouse-connection-strings.md)
 
 
-You can connect to SQL Data Warehouse using any of the following application protocols:
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-Below are some examples of connections strings for each protocol.  You can also use the Azure portal to help you set up your connection string.  Simply navigate to your database on the Azure portal.  Under *Essentials* click on *Show database connection strings*. 
+You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][], [ODBC][], [PHP][] and [JDBC][]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 
@@ -57,6 +50,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 ```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
+
+> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
 
 ## Next steps
 

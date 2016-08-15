@@ -62,7 +62,7 @@ To complete the steps in this article, you will need the following:
 
 2. To submit a MapReduce job, use the following command:
 
-		curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasb:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasb:///example/data/gutenberg/davinci.txt -d arg=wasb:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+		curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasbs:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasbs:///example/data/gutenberg/davinci.txt -d arg=wasbs:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request will start a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
@@ -85,7 +85,7 @@ To complete the steps in this article, you will need the following:
 
     > [AZURE.NOTE] This Curl request returns a JSON document with information about the job; jq is used to retrieve only the state value.
 
-4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasb:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
+4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
 You can list and download these files by using the [Azure CLI](../xplat-cli-install.md). For example, to list files in the **example/curl**, use the following command:
 

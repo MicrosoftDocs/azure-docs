@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/15/2016"
+   ms.date="07/26/2016"
    ms.author="vturecek"/>
 
 # Service Fabric Reverse Proxy
@@ -142,7 +142,7 @@ Once you have the template for the cluster that you want to deploy(either from t
         }
     },
     ```
-2. Specify that port in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
 
     ```json
     {
@@ -151,9 +151,14 @@ Once you have the template for the cluster that you want to deploy(either from t
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         ...
+       "nodeTypes": [
+          {
+           ...
+           "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
         ...
-        "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-        ...
+        ],
         ...
     }
     ```

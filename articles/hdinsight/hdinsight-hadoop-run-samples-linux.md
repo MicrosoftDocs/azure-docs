@@ -99,9 +99,9 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
     	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    Input for this job is read from **wasb:///example/data/gutenberg/davinci.txt**.
+    Input for this job is read from **wasbs:///example/data/gutenberg/davinci.txt**.
 
-    Output for this example will be stored in **wasb:///example/data/davinciwordcount**.
+    Output for this example will be stored in **wasbs:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
@@ -196,11 +196,11 @@ This sample uses three sets of MapReduce programs:
 
 Use the following steps to generate data, sort, and then validate the output:
 
-1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasb:///example/data/10GB-sort-input**:
+1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasbs:///example/data/10GB-sort-input**:
 
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasb:///example/data/10GB-sort-input**.
+	The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasbs:///example/data/10GB-sort-input**.
 
 2. Use the following command to sort the data:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/02/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced configuration for Azure Mobile Engagement Android SDK

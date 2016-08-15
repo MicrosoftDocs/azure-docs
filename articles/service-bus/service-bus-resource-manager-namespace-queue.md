@@ -27,9 +27,9 @@ For the complete template, see the [Service Bus namespace and queue template][] 
 >[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
 >
 >-    [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Create a Service Bus namespace with an Event Hub and consumer group](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
+>-    [Create a Event Hub namespace with an Event Hub and consumer group](service-bus-resource-manager-namespace-event-hub.md)
 >
 >To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
 

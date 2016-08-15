@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Enable auditing on SQL databases in Azure Security Center
@@ -24,7 +24,7 @@ Once you’ve turned on auditing you can configure Threat Detection settings and
 
 This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
@@ -39,7 +39,7 @@ This recommendation applies to the Azure SQL service only; doesn't include SQL r
 
 5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
-## Next steps
+## See also
 
 This article showed you how to implement the Security Center recommendation "Enable auditing on SQL databases." To learn more about securing your SQL database, see the following:
 

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
 
-> [AZURE.NOTE] View this article's accompanying video: [How to set security in DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
+> [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
 ## Overview
 DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.

@@ -399,9 +399,9 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 ##Send notifications to your app
 
 
-You can test receiving notifications in your app by sending notifications in the Azure Classic Portal via the debug tab on the notification hub, as shown in the screen below.
+You can quickly test receiving notifications in your app by sending notifications in the [Azure Portal](https://portal.azure.com/) using the **Test Send** button on the notification hub, as shown in the screen below.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end.
 
