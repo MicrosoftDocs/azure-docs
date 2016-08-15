@@ -22,7 +22,7 @@
 ## What you can do with Activity Logs and Event Hubs
 Here are just a few ways you might use the streaming capability for Activity Logs:
 
-- **Stream logs to third party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Activity Logs into third party SIEMs and log analytics solutions.
+- **Stream logs to third-party logging and telemetry systems** – Over time, Event Hubs streaming will become the mechanism to pipe your Activity Logs into third-party SIEMs and log analytics solutions.
 - **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest activity logs. [See Dan Rosanova’s guide to using Event Hubs in a global scale telemetry platform here.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## Enable streaming of Activity Logs
@@ -39,17 +39,17 @@ You can enable streaming of Activity Logs either programmatically or via the por
 
 
 ### Via PowerShell Cmdlets
-If a log profile already exists, you will first need to remove that profile.
+If a log profile already exists, you first need to remove that profile.
 
 1. Use `Get-AzureRmLogProfile` to identify if a log profile exists
 2. If so, use `Remove-AzureRmLogProfile` to remove it.
-3. Use `Set-AzureRmLogProfile` to create a new profile:
+3. Use `Set-AzureRmLogProfile` to create a profile:
 
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-The Service Bus Rule ID will be a string with this format: {service bus resource ID}/authorizationrules/{key name}, for example 
+The Service Bus Rule ID is a string with this format: {service bus resource ID}/authorizationrules/{key name}, for example 
 
 ### Via Azure CLI
 If a log profile already exists, you first need to remove that profile.
