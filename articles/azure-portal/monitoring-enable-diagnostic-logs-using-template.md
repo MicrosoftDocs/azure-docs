@@ -38,20 +38,20 @@ For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name and service bus rule id (enabling archival of Diagnostic Logs in a storage account and/or streaming of logs to Event Hubs).
 
-```
-"storageAccountName": {
-  "type": "string",
-  "metadata": {
-    "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
-  }
-},
-"serviceBusRuleId": {
-  "type": "string",
-  "metadata": {
-    "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
-  }
-}
-```
+    ```
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+      }
+    },
+    "serviceBusRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+      }
+    }
+    ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
 
     ```
