@@ -20,6 +20,8 @@
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
 
+## Frequently asked questions
+
 **Q: I'm already using the Microsoft Authenticator application for security codes. How do I switch to one-click push notifications?**
 
 If you use a Microsoft account for your personal account, and want to switch over to push notifications, you need to add your account again. This is because the app uses a one-time password. Re-register the device with your account, and set up push notifications.
@@ -32,4 +34,4 @@ This feature is in beta until the end of August, when it becomes broadly availab
 
 **Q: Do one-click push notifications work for non-Microsoft accounts?**
 
-No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature. 
+No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature.
