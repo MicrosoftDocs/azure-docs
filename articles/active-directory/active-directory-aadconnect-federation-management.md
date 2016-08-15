@@ -42,7 +42,7 @@ Azure AD Connect provides various tasks related to AD FS that can be performed b
 Azure AD Connect can check for the current health of the AD FS and Azure Active Directory trust and take appropriate actions to repair the trust. Follow these steps to repair your Azure AD and AD FS trust.
 
 1. Select **Repair AAD and ADFS Trust** from the list of additional tasks.
-![Repair AAD and ADFS trust](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
+![Repair AAD and ADFS Trust](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
 2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD, and click **Next**.
 ![Connect to Azure AD](media\active-directory-aadconnect-federation-management\RepairADTrust2.PNG)
@@ -98,7 +98,7 @@ Azure AD Connect can check for the current health of the AD FS and Azure Active 
 2. Provide the Azure global administrator credentials.
 ![Connect to Azure AD](media\active-directory-aadconnect-federation-management\wapserver2.PNG)
 
-3. On the **Specify SSL certificate** page, you need to provide the password for the PFX file that you provided when configuring the AD FS farm with Azure AD Connect.
+3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when configuring the AD FS farm with Azure AD Connect.
 ![Certificate password](media\active-directory-aadconnect-federation-management\WapServer3.PNG)
 
     ![Specify SSL certificate](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
@@ -172,16 +172,16 @@ Azure AD Connect lets you specify an attribute to be used as a source anchor whe
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
-In this rule, you are querying the values of **ms-ds-consistencyguid** and **objectGuid** for the user from Active Directory. Change the store name to an appropriate store name in your ADFS deployment. Also change the claims type to a proper claims type for your federation as defined for **objectGuid** and **ms-ds-consistencyguid**.
+In this rule, you are querying the values of **ms-ds-consistencyguid** and **objectGuid** for the user from Active Directory. Change the store name to an appropriate store name in your AD FS deployment. Also change the claims type to a proper claims type for your federation as defined for **objectGuid** and **ms-ds-consistencyguid**.
 
-Also, by using **add** and not **issue**, you avoid adding an outgoing issue for the entity and can use the values as intermediate values. You will issue the claim in a later rule once you establish which value to use as the immutable ID.
+Also, by using **add** and not **issue**, you avoid adding an outgoing issue for the entity and can use the values as intermediate values. You will issue the claim in a later rule after you establish which value to use as the immutable ID.
 
 **Rule 2: Check if ms-ds-consistencyguid exists for the user**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, ADFS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there is no **ms-ds-concistencyguid** populated for the user. The logic behind this is the fact that AD FS does not allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it is not populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
@@ -190,7 +190,7 @@ This rule defines a temporary flag called **idflag** that is set to **useguid** 
 
 This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You will have to change this to the appropriate claim type for immutable ID in your environment.
 
-**Rule 4: Issue **objectGuid** as immutable ID if ms-ds-consistencyGuid is not present**
+**Rule 4: Issue objectGuid as immutable ID if ms-ds-consistencyGuid is not present**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
