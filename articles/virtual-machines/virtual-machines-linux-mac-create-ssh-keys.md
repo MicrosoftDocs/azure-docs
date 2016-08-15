@@ -72,7 +72,7 @@ This article creates *ssh-rsa* formatted key files which are recommended for dep
 
 ## Create the SSH Keys
 
-Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys we will use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created the public key is copied to `~/.ssh/authorized_keys` and that is used to challenge the SSH client to match the corresponding private key on a SSH login connection.
+Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys we will use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created the public key is copied to `~/.ssh/authorized_keys` and that is used to challenge the SSH client to match the corresponding private key on an SSH login connection.
 
 
 ## Using ssh-keygen
@@ -170,7 +170,7 @@ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 The private key password is now stored in `ssh-agent`.
 
-## Create and configure a SSH config file
+## Create and configure an SSH config file
 
 It is a recommended best practice to create and configure an `~/.ssh/config` file to speed up log ins and for optimizing your SSH client behavior.
 
@@ -219,14 +219,14 @@ This SSH config gives you sections for each service to enable each to have its o
 
 `User git` = the remote user account to use when logging into the Azure VM.
 
-`PubKeyAuthentication yes` = tells SSH you want to use a SSH key to log in.
+`PubKeyAuthentication yes` = tells SSH you want to use an SSH key to log in.
 
 `IdentityFile /home/ahmet/.ssh/id_id_rsa` = this tells SSH which key pair to present to the server to authenticate the log in.
 
 
 ## SSH into Linux without a password
 
-Now that you have a SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using a SSH key the command prompts you for the passphrase for that key file.
+Now that you have an SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using an SSH key the command prompts you for the passphrase for that key file.
 
 ```bash
 ssh fedora22
@@ -238,7 +238,7 @@ When `ssh fedora22` is executed SSH first locates and loads any settings from th
 
 ## Next Steps
 
-Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with a SSH public key as the login are better secured than those created with the default login method passwords.  Azure VMs using SSH keys for logins are by default configured to disable password logins, avoiding brute-forced break in attempts.
+Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than those created with the default login method passwords.  Azure VMs using SSH keys for logins are by default configured to disable password logins, avoiding brute-forced break in attempts.
 
 - [Create a secure Linux VM using a Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Create a secure Linux VM using the Azure portal](virtual-machines-linux-quick-create-portal.md)
