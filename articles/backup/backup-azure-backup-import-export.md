@@ -97,6 +97,7 @@ The *Azure Disk Preparation tool* is available within installation directory of 
       If necessary, the *copy machine* can be the same as the *source machine*.
 
 2. Open an elevated command prompt on the copy machine with the Azure Disk Preparation tool directory as the current directory and run the following command 
+
       *.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]
 
 | Parameter | Description
@@ -107,8 +108,10 @@ The *Azure Disk Preparation tool* is available within installation directory of 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the *copy machine* and *source machine* are different
 
     On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
+    
       ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png)
       
+
 3. Enter the **drive letter** for the mounted disk without the trailing colon, that you wish to prepare for transfer to Azure. Thereafter, provide confirmation for the formatting of the drive when prompted
 
       The tool then begins preparing the disk with the backup-data. You may need to attach additional disks when prompted by the tool, in case the disk provided does not have sufficient space to accommodate the backup data. 
