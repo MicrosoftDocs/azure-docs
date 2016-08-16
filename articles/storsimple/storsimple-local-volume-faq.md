@@ -33,23 +33,23 @@ Questions and answers are arranged into the following categories
 
 **Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
 
-**A** You can provision locally pinned volumes up to 8 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 20 TB or tiered volumes up to 500 TB.
+**A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
 
 **Q.** I recently upgraded my 8100 device to Update 2 and when I try to create a locally pinned volume, the maximum available size is only 6 TB and not 8 TB. Why can’t I create a 8 TB volume?
 
-**A** You can provision locally pinned volumes up to 8 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will  be correspondingly reduced to 4 TB (half of the maximum locally pinned volume capacity).
+**A** You can provision locally pinned volumes up to 8.5 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will  be correspondingly reduced to 4 TB (roughly half of the maximum locally pinned volume capacity).
 
 Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume will be reduced if the device has tiered volumes. Conversely, creating a locally pinned volume will proportionally reduce the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
 
 |Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 175 TB | 475 TB|
-|4 TB | 100 TB | 400 TB |
-|8 TB | 0 TB | 300 TB|
-|10 TB | NA | 250 TB |
-|15 TB | NA	| 125 TB |
-|20 TB | NA | 0 TB |
+|1 TB | 176.5 TB | 477.8 TB|
+|4 TB | 105.9 TB | 411.1 TB |
+|8.5 TB | 0 TB | 311.1 TB|
+|10 TB | NA | 277.8 TB |
+|15 TB | NA	| 166.7 TB |
+|22.5 TB | NA | 0 TB |
 
 
 **Q.** Why is locally pinned volume creation a long running operation? 
