@@ -52,7 +52,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 	If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-crmonline#create-the-connection) in this topic lists the steps. 
 
-	> [AZURE.NOTE] In this example, the logic app runs when a a record is created. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 *Send an enmail* action that emails you when the new record is added. 
+	> [AZURE.NOTE] In this example, the logic app runs when a record is created. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 *Send an email* action that emails you when the new record is added. 
 
 3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
