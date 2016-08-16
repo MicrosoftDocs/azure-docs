@@ -66,12 +66,12 @@ The information provided in this section is for completing the **Offline Backup*
     
     > [AZURE.NOTE] If you have registered your server to a Recovery Services Vault from the [new Azure portal](https://ms.portal.azure.com) for your backups and are not on a Cloud Service Provider (CSP) subscription, you can still create a Classic Storage account from the new Azure portal and use it for the Offline-backup workflow.
     
-   Save all this information separately as this information needs to reentered in following steps. Only the *staging location* is required if the *Azure Disk Preparation tool* is used to prepare the disks    
-   
+    Save all this information separately as this information needs to reentered in following steps. Only the *staging location* is required if the *Azure Disk Preparation tool* is used to prepare the disks    
+    
+
 2. Complete the workflow and select **Back Up Now** in the Azure Backup management console in order to initiate the offline backup copy. The initial backup is written to the staging area as part of this step.
 
     ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
-
     The corresponding workflow in SCDPM is enabled by right-clicking on the **Protection Group** and choosing the **Create recovery point** option. This step is followed by choosing the **Online Protection** option.
 
     ![DPM Backup now](./media/backup-azure-backup-import-export/dpmbackupnow.png)
@@ -83,7 +83,7 @@ The information provided in this section is for completing the **Offline Backup*
 ###Prepare SATA Drive and Create Azure Import Job using *Azure Disk Preparation Tool*
 The *Azure Disk Preparation tool* is available within installation directory of the Microsoft Azure Recovery Services agent (August 2016 update & above) in the following path.
 
-   <Installation root>\Microsoft Azure Recovery Services Agent\Utils\
+   \Microsoft Azure Recovery Services Agent\Utils\
 
 1. Navigate to the directory above and copy the **AzureOfflineBackupDiskPrep** directory to a *copy machine* on which the drives to be prepared are mounted. Ensure the following with regards to the *copy machine*
 
@@ -93,21 +93,21 @@ The *Azure Disk Preparation tool* is available within installation directory of 
       
       - The machine has access to Azure portal
       
-   If necessary, the *copy machine* can be the same as the *source machine*.
+      If necessary, the *copy machine* can be the same as the *source machine*.
 
 2. Open an elevated command prompt on the copy machine with the Azure Disk Preparation tool directory as the current directory and run the following command 
 
       *.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]
-      
-   | Parameter | Description
-   |-------------|-------------|
-   |s:<*Staging Location Path*>| Mandatory input, used to provide the Path to the Staging Location entered during Initiation of Offline Backup|
-   |p:<*Path to PublishSettingsFile*>| Optional input, used to provide the path to the Publish Settings File entered during Initiation of Offline Backup|
+
+
+| Parameter | Description
+|-------------|-------------|
+|s:<*Staging Location Path*> | Mandatory input, used to provide the Path to the Staging Location entered during Initiation of Offline Backup |
+|p:<*Path to PublishSettingsFile*> | Optional input, used to provide the path to the Publish Settings File entered during Initiation of Offline Backup |
 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the copy machine and source machine are different
 
-   On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears
-   
+   On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
       ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png)
 
 3. Enter the **drive letter** for the mounted disk without the trailing colon, that you wish to prepare for transfer to Azure. Thereafter, provide confirmation for the formatting of the drive when prompted
