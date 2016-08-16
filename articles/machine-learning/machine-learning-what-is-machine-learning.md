@@ -92,7 +92,7 @@ Machine learning terms can be confusing. Here are definitions of key terms to he
 ### Model training and evaluation
 A machine learning model is an abstraction of the question you are trying to answer or the outcome you want to predict. Models are trained and evaluated from existing data.
 
-#### Training from data
+#### Training data
 When you train a model from data, you use a known data set and make adjustments to the model based on the data characteristics to get the most accurate answer. In Azure Machine Learning, a model is built from an algorithm module that processes training data and functional modules, such as a scoring module.
 
 In supervised learning, if you're training a fraud detection model, you use a set of transactions that are labeled as either fraudulent or valid. You split your data set randomly, and use part to train the model and part to test or evaluate the model.
@@ -100,9 +100,10 @@ In supervised learning, if you're training a fraud detection model, you use a se
 #### Evaluation data
 Once you have a trained model, evaluate the model using the remaining test data. You use data you already know the outcomes for, so that you can tell whether your model predicts accurately.
 
-### Other common machine learning terms
+## Other common machine learning terms
 
 * **algorithm**: A self-contained set of rules used to solve problems through data processing, math, or automated reasoning.
+* **anomaly detection**: A model that flags unusual events or values and helps you discover problems. For example, credit card fraud detection looks for unusual purchases.
 * **categorical data**: Data that is organized by categories and that can be divided into groups. For example a categorical data set for autos could specify year, make, model, and price.
 * **classification**: A model for organizing data points into categories based on a data set for which category groupings are already known.
 * **feature engineering**: The process of extracting or selecting features related to a data set in order to enhance the data set and improve outcomes. For instance, airfare data could be enhanced by days of the week and holidays. See [Feature selection and engineering in Azure Machine Learning](machine-learning-feature-selection-and-engineering.md).
