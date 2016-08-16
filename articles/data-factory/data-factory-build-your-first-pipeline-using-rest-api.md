@@ -236,6 +236,15 @@ In Azure PowerShell, execute the following commands after replacing the values w
 
 > [AZURE.IMPORTANT] See [Prerequisites](#prerequisites) section for instructions on getting client ID, client secret, tenant ID, and subscription ID.   
 
+## Authenticate with AAD
+
+	$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+	$responseToken = Invoke-Command -scriptblock $cmd;
+	$accessToken = (ConvertFrom-Json $responseToken).access_token;
+	
+	(ConvertFrom-Json $responseToken) 
+
+
 ## Create data factory
 
 In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Run the following commands to create the data factory: 
@@ -341,21 +350,7 @@ Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** f
 5. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
 ## Monitor pipeline
-In this step, you use Data Factory REST API to monitor what’s going on in an Azure data factory.
-
-###List Datasets
-
-	$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets?api-version=2015-10-01};
-
-	$results1 = Invoke-Command -scriptblock $cmd;
-	
-	IF ((ConvertFrom-Json $results1).value -ne $NULL) {
-	    ConvertFrom-Json $results1 | Select-Object -Expand value | Format-Table
-	} else {
-	        (convertFrom-Json $results1).RemoteException
-	}
-
-###List Slices in a DataSet
+In this step, you use Data Factory REST API to monitor slices being produced by the pipeline.
 
 	$ds ="AzureBlobOutput"
 
