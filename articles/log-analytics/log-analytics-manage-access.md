@@ -126,8 +126,8 @@ Use the following steps to add a user or group to an OMS workspace. The user or 
 
     >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-7. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
-8. Click **Add**.
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+6. Click **Add**.
 
   If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
   If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
@@ -203,7 +203,7 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
     ![link existing](./media/log-analytics-manage-access/manage-access-link-azure02.png)
 5.	Click **Configure required settings**.  
     ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6.	You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.
+6.	You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.  
     ![select workspaces](./media/log-analytics-manage-access/manage-access-link-azure04.png)
 7.	If needed, you can change values for the following items:
     - Subscription
