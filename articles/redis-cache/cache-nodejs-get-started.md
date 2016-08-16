@@ -36,7 +36,7 @@ Install [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you can use any Node.js client listed at [http://redis.io/clients](http://redis.io/clients).
+This tutorial uses [node_redis](https://github.com/mranney/node_redis). For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](http://redis.io/clients#nodejs).
 
 ## Create a Redis cache on Azure
 
@@ -45,15 +45,6 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 ## Retrieve the host name and access keys
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
-
-
-## Enable the non-SSL endpoint
-
->[AZURE.IMPORTANT] The latest builds of [node_redis](https://github.com/mranney/node_redis)
-
-Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [node_redis](https://github.com/mranney/node_redis) client doesn't support SSL. 
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
 ## Connect to the cache securely using SSL
 
