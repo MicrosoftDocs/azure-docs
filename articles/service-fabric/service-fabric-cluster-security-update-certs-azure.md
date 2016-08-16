@@ -38,18 +38,20 @@ To add another certificate as a secondary, you must upload the certificate to an
 >[AZURE.NOTE]
 Unlike during the cluster creation workflow, We do not take in the details on the keyvault information here, because, it is assumed that by the time you are on this blade, you have already deployed the certificate to the VMs and the certificate is already available in the local cert store in the VMSS instance.
 
-6. Click **Certificate**. A deployment gets started, and a blue Status bar will show up on the Cluster Security Blade.
+Click **Certificate**. A deployment gets started, and a blue Status bar will show up on the Cluster Security Blade.
+
 ![Screen shot of certificate thumbprints in the portal][SecurityConfigurations_02]
-7. And on successful completion of that deployment, you will be able to use either the primary or the secondary certificate to perform management operations on the cluster.
+
+And on successful completion of that deployment, you will be able to use either the primary or the secondary certificate to perform management operations on the cluster.
 
 ![Screen shot of certificate deployment in progress][SecurityConfigurations_03]
 
-8. Here is a screen shot on how the security blade looks once the deployment is complete.
+Here is a screen shot on how the security blade looks once the deployment is complete.
 
 ![Screen shot of certificate thumbprints after deployment][SecurityConfigurations_08]
 
 
-9. You can now use the new certificate you just added to connect and perform operations on the cluster.
+You can now use the new certificate you just added to connect and perform operations on the cluster.
 
 >[AZURE.NOTE]
 Currently there is no way to swap the primary and secondary certificates on the portal, that feature is in the works. As long as there is a valid cluster certificate, the cluster will operate fine.
@@ -132,14 +134,14 @@ Select-AzureRmSubscription -SubscriptionId <Subcription ID>
 
 ```
 
-3. Test the template prior to deploying it. Use the same Resource Group that your cluster is currently deployed to.
+Test the template prior to deploying it. Use the same Resource Group that your cluster is currently deployed to.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-4.  Deploy the template to your resource group. Use the same Resource Group that your cluster is currently deployed to. Run the New-AzureRmResourceGroupDeployment command. You do not need to specify the mode, since the default value is **incremental**.
+Deploy the template to your resource group. Use the same Resource Group that your cluster is currently deployed to. Run the New-AzureRmResourceGroupDeployment command. You do not need to specify the mode, since the default value is **incremental**.
 
 >[AZURE.NOTE]
 If you set Mode to Complete, you can inadvertently delete resources that are not in your template. So do not use it in this scenario.
