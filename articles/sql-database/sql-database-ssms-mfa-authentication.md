@@ -76,7 +76,7 @@ When verification is complete, SSMS connects normally presuming valid credential
 
 ##Next steps  
 
-Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)
+Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)  
 Make sure others can connect through the firewall: [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)
 
 
