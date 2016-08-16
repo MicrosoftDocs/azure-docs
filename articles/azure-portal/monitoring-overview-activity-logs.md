@@ -19,40 +19,46 @@
 # Overview of Azure Activity Logs
 **Azure Activity Logs** are logs that provide insight into the operations that were performed on resources in your subscription. Activity Logs were previously known as “Audit Logs” or “Operational Logs,” since they report control-plane events for your subscriptions. Using Activity Logs, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. Activity Logs do not include read (GET) operations.
 
-Activity Logs differ from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+Activity Logs differ from [Diagnostic Logs](./monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
 
-You can retrieve events from your Activity Logs using the Azure Portal, CLI, PowerShell cmdlets, and Insights REST API.
+You can retrieve events from your Activity Logs using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
 
 ## What you can do with Activity Logs
 Here are some of the things you can do with Activity Logs:
-- Query and view them in the **Azure Portal**.
+
+- Query and view them in the **Azure portal**.
 - Query them via REST API, PowerShell Cmdlet, or CLI.
-- [Create an email or webhook alert that triggers off of an Activity Log event.](./insights-auditlog-to-webhook-email.md)
+- [Create an email or webhook alert that triggers off an Activity Log event.](./insights-auditlog-to-webhook-email.md)
 - Save them to a **Storage Account** for archival or manual inspection. You can specify the retention time (in days) using **Log Profiles**.
 - Analyze them in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Stream them to an **Event Hub**](monitoring-stream-activity-logs-to-event-hubs.md) for ingestion by a 3rd party service or custom analytics solution such as PowerBI.
+- [Stream them to an **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
 
 ## Export Activity Logs with Log Profiles
 A **Log Profile** controls how your Activity Logs are exported. Using a Log Profile, you can configure:
+
 - Where Activity Logs should be sent (Storage Account or Event Hubs)
 - Which event categories (eg. Write, Delete, Action) should be sent
 - Which regions (locations) should be exported
-- How long Activity Logs should be retained in a Storage Account – a retention of zero days will mean logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies will have no effect.
+- How long Activity Logs should be retained in a Storage Account – a retention of zero days means logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
-These settings can be configured via the “Export” option in the Activity Logs blade in the Portal, or programmatically using the REST API, PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+These settings can be configured via the “Export” option in the Activity Logs blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
-### Configure Log Profiles using the Azure Portal
-You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure Portal. 
-1. Navigate to the **Activity Logs** blade using the menu on the left side of the Portal.
-![Navigate to Activity Logs in Portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-navigate.png)
+### Configure log profiles using the Azure portal
+You can stream Activity Logs to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+
+1. Navigate to the **Activity Logs** blade using the menu on the left side of the portal.
+
+    ![Navigate to Activity Logs in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
-![Export button in Portal](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you would to retain these events in storage), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
-![Export Activity Logs blade](./media/monitoring-overview-of-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings will immediately be applied to your subscription.
 
-### Configure Log Profiles using the Azure PowerShell Cmdlets
-#### Get existing Log Profile
+    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+
+    ![Export Activity Logs blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+
+### Configure log profiles using the Azure PowerShell Cmdlets
+#### Get existing log profile
 ```
 Get-AzureRmLogProfile
 ```
@@ -76,7 +82,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### Configure Log Profiles Using the Azure Cross-Platform CLI
+### Configure log profiles Using the Azure Cross-Platform CLI
 #### Get existing log profile
 ```
 azure insights logprofile list
@@ -97,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId        | No       | Resource ID of the Storage Account to which Activity Logs should be saved.                                                                                                                    |
 | serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
 | locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.                                                                                                      |
-| retentionInDays  | Yes      | Number of days for which events should be retained. A value of zero will store the logs indefinitely.                                                                                         |
+| retentionInDays  | Yes      | Number of days for which events should be retained. A value of zero stores the logs indefinitely.                                                                                         |
 | categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                                                             |
 
 #### Remove a log profile
@@ -106,7 +112,8 @@ azure insights logprofile delete --name my_log_profile
 ```
 
 ## Event schema
-Each event in Activity Logs will have a JSON blob like this one:
+Each event in Activity Logs has a JSON blob like this one:
+
 ```
 {
   "value": [ {
@@ -187,12 +194,13 @@ Each event in Activity Logs will have a JSON blob like this one:
 "nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
 }
 ```
+
 | Element Name         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | authorization        | Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | caller               | Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability.                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | channels             | One of the following values: “Admin”, “Operation”                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| correlationId        | Usually a GUID in the string format. Events that share the same correlationId belong to the same uber action.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| correlationId        | Usually a GUID in the string format. Events that share a correlationId belong to the same uber action.                                                                                                                                                                                                                                                                                                                                                                                                               |
 | description          | Static text description of an event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | eventDataId          | Unique identifier of an event.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | eventSource          | Name of the Azure service or infrastructure that has generated this event.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -203,13 +211,14 @@ Each event in Activity Logs will have a JSON blob like this one:
 | resourceUri          | Resource id of the impacted resource.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | operationId          | A GUID shared among the events that correspond to a single operation.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | operationName        | Name of the operation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| properties           | Set of <Key, Value> pairs (i.e. Dictionary) describing the details of the event.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| properties           | Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | status               | String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved.                                                                                                                                                                                                                                                                                                                                                                                                |
 | subStatus            | Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
 | eventTimestamp       | Timestamp when the event was generated by the Azure service processing the request corresponding the event.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | submissionTimestamp  | Timestamp when the event became available for querying.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | subscriptionId       | Azure Subscription Id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | nextLink             | Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records.                                                                                                                                                                                                                                                                                                                                                           |
+
 ## Next Steps
-- [Learn more about Activity (formerly Audit) Logs](.,/resource-group-audit.md)
-- [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-to-event-hubs.md)
+- [Learn more about Activity (formerly Audit) Logs](../resource-group-audit.md)
+- [Stream Azure Activity Logs to Event Hubs](./monitoring-stream-activity-logs-event-hubs.md)

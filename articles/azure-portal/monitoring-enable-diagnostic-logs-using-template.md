@@ -17,66 +17,69 @@
 	ms.author="johnkem"/>
 
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
-In this article we will show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
+In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
-- **Non-Compute** resources (eg. Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+
+- **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-In this article we will describe how to configure diagnostics using either method.
+In this article we describe how to configure diagnostics using either method.
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the resource and enable diagnostics.
 2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
 
-Below we give an example of the template JSON file you will need to generate for non-Compute and Compute resources.
+Below we give an example of the template JSON file you need to generate for non-Compute and Compute resources.
 
-## Non-Compute resource template file
+## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
 1. Add parameters to the parameters blob for the storage account name and service bus rule id (enabling archival of Diagnostic Logs in a storage account and/or streaming of logs to Event Hubs).
-```
-"storageAccountName": {
-  "type": "string",
-  "metadata": {
-    "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
-  }
-},
-"serviceBusRuleId": {
-  "type": "string",
-  "metadata": {
-    "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
-  }
-}
-```
-2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
-```
-"resources": [
-  {
-    "type": "providers/diagnosticSettings",
-    "name": "Microsoft.Insights/service",
-    "dependsOn": [
-      "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
-    ],
-    "apiVersion": "2015-07-01",
-    "properties": {
-      "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-      "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
-      "logs": [ 
-        {
-          "category": "/* log category name */",
-          "enabled": true,
-          "retentionPolicy": {
-            "days": 0,
-            "enabled": false
-          }
-        }
-      ]
+
+    ```
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+      }
+    },
+    "serviceBusRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+      }
     }
-  }
-]
-```
+    ```
+2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
+
+    ```
+    "resources": [
+      {
+        "type": "providers/diagnosticSettings",
+        "name": "Microsoft.Insights/service",
+        "dependsOn": [
+          "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
+        ],
+        "apiVersion": "2015-07-01",
+        "properties": {
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "logs": [ 
+            {
+              "category": "/* log category name */",
+              "enabled": true,
+              "retentionPolicy": {
+                "days": 0,
+                "enabled": false
+              }
+            }
+          ]
+        }
+      }
+    ]
+    ```
 
 The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
@@ -155,7 +158,7 @@ Here is a full example that creates a Network Security Group and turns on stream
 ```
 
 ## Compute resource template
-To enable diagnostics on a Compute resource, for example a Virtual Machine or Service Fabric cluster, you will need to:
+To enable diagnostics on a Compute resource, for example a Virtual Machine or Service Fabric cluster, you need to:
 
 1. Add the Azure Diagnostics extension to the VM resource definition.
 2. Specify a storage account and/or event hub as a parameter.
