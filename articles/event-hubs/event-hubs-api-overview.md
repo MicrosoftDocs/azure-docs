@@ -23,7 +23,7 @@ Monitoring scenarios span both management and run-time. For detailed reference d
 
 ## Management APIs
 
-To perform the following management operations you must have **Manage** permissions on the Event Hubs namespace:
+To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
 
 ### Create
 

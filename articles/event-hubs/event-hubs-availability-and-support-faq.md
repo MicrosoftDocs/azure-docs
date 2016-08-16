@@ -17,9 +17,9 @@
 
 # Event Hubs availability and support FAQ
 
-Event Hubs provides large-scale intake, persistence and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for [Internet of Things (IoT)](https://azure.microsoft.com/services/iot-hub/) scenarios.
+Event Hubs provides large-scale intake, persistence, and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for [Internet of Things (IoT)](https://azure.microsoft.com/services/iot-hub/) scenarios.
 
-This article discusses Event Hubs availability information and answers some frequently-asked questions:
+This article discusses Event Hubs availability information and answers some frequently asked questions:
 
 ## Pricing information
 
@@ -27,13 +27,13 @@ For complete information about Event Hubs pricing, see the [Event Hubs pricing d
 
 ## How are Event Hubs ingress events calculated?
 
-Each event sent to an Event Hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64KB. Any event that is less than or equal to 64KB in size is considered to be one billable event. If the event is greater than 64KB, the number of billable events is calculated according to the event size, in multiples of 64KB. For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.
+Each event sent to an Event Hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.
 
 Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ## What are Event Hubs throughput units?
 
-Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
+You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 - Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
 
@@ -57,7 +57,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 
 ## Is there a charge for retaining Event Hubs events for more than 24 hours?
 
-The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of 30 days. If the size of the total amount of stored events exceeds the storage allowance for the number of selected throughput units (84GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.
+The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of 30 days. If the size of the total number of stored events exceeds the storage allowance for the number of selected throughput units (84 GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate. The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.
 
 ## What is the maximum retention period?
 
@@ -69,7 +69,7 @@ The total size of all stored events, including any internal overhead for event h
 
 ## Can I use a single AMQP connection to send and receive from Event Hubs and Service Bus queues/topics?
 
-Yes, as long as all the Event Hubs, queues, and topics are in the same namespace. As such, you can implement bi-directional, brokered connectivity to many devices, with sub-second latencies, in a cost-effective and highly scalable way.
+Yes, as long as all the Event Hubs, queues, and topics are in the same namespace. As such, you can implement bi-directional, brokered connectivity to many devices, with subsecond latencies, in a cost-effective and highly scalable way.
 
 ## Do brokered connection charges apply to Event Hubs?
 
@@ -77,7 +77,7 @@ For senders, connection charges apply only when the AMQP protocol is used. There
 
 ## What is the difference between Event Hubs Basic and Standard tiers?
 
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Geographic availability
 
@@ -96,7 +96,7 @@ Event Hubs is available in the following regions:
 
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
 
-To learn more about our SLA, please visit the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
+To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
 ## Next steps
 

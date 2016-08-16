@@ -36,7 +36,7 @@ This article shows you how to configure Azure Diagnostics with Event Hubs from e
 
 ## Prerequisites
 
-Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric  starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
+Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
 
 - Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
 - [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -47,7 +47,7 @@ Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Vir
 
 ## Connect Azure Diagnostics to Event Hubs sink
 
-Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the followign path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
+Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
 
 ```
 <SinksConfig>

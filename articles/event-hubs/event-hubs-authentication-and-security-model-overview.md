@@ -105,7 +105,7 @@ In the absence of SAS authentication for individual consumer groups, you can use
 
 ACS supports multiple ways to create service identities, relying parties, and rules, but the easiest way to do this is by using the [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). For example:
 
-1. Create a service identity for an **EventHubSender**. This returns the name of the service identity that was created and its key:
+1. Create a service identity for an **EventHubSender**. This operation returns the name of the service identity that was created and its key:
 
 	```
 	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
