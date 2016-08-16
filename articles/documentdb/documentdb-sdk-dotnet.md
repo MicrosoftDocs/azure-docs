@@ -40,11 +40,12 @@
 ## Release Notes
 
 ### <a name="1.9.3"/>[1.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
+> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+
   - Fixed an issue that caused long running queries to fail with error: Authorization token is not valid at the current time.
   - Fixed an issue that removed the original SqlParameterCollection from cross partition top/order-by queries.
 
 ### <a name="1.9.2"/>[1.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
-> [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
 
   - Added support for parallel queries for partitioned collections.
   - Added support for cross partition ORDER BY and TOP queries for partitioned collections.
