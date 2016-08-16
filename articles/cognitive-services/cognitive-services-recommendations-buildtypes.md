@@ -35,7 +35,7 @@ If you train the model based on purchases made in your electronics store and pro
 
 The recommendation build has two capabilities that make it attractive:
 
-**The recommendation build supports *cold item* placement.**
+**The recommendation build supports *cold item* placement**
 
 Items that do not have significant usage are called cold items. For instance, if you receive a shipment of a phone you have never sold before, the system cannot infer recommendations for this product on transactions alone. This means that the system should learn from information about the product itself.
 
@@ -55,7 +55,7 @@ You also need to set the following build parameters:
 |*allowColdItemPlacement*	| Set to **true**. Indicates if the recommendation should also push cold items via feature similarity.
 | *modelingFeatureList*   | Comma-separated list of feature names to be used in the recommendation build to enhance the recommendation. For instance, “Language,Storage” for the preceding example.
 
-**The recommendation build supports user recommendations.**
+**The recommendation build supports user recommendations**
 
 A recommendation build supports [user recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). This means that it can provide personalized recommendations for users based on their transaction histories. For user recommendations, you might provide the user ID or the recent history of transactions for that user.
 
@@ -65,12 +65,12 @@ You might also want to apply a recommendations build type when the user is about
 
 #### Recommendations build parameters
 
-| Name  | 	Description |	 Type, <br>  valid values <br> (default value)
+| Name  | 	Description |	 Type, <br>  valid values, <br> (default value)
 |-------|-------------------|------------------
 | *NumberOfModelIterations* |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the more accurate the model, but the compute time takes longer.  |	 Integer, <br> 	10 to 50 <br>(40)
 | *NumberOfModelDimensions* |	The number of dimensions relates to the number of features the model will try to find within your data. Increasing the number of dimensions will allow better fine-tuning of the results into smaller clusters. However, too many dimensions will prevent the model from finding correlations between items. |	Integer, <br> 10 to 40 <br>(20) |
 | *ItemCutOffLowerBound* |	Defines the minimum number of usage points an item should be in for it to be considered part of the model. |		Integer, <br> 2 or more <br> (2) |
-| *ItemCutOffUpperBound* | 	Defines the maximum number of usage points an item should be in for it to be considered part of the model. |  Integer, <br>2 or More<br> (2147483647) |
+| *ItemCutOffUpperBound* | 	Defines the maximum number of usage points an item should be in for it to be considered part of the model. |  Integer, <br>2 or more<br> (2147483647) |
 |*UserCutOffLowerBound* |	Defines the minimum number of transactions a user must have performed to be considered part of the model. |	Integer, <br> 2 or more <br> (2)
 | *UserCutOffUpperBound* |	Defines the maximum number of transactions a user must have performed to be considered part of the model. |	Integer, <br>2 or more <br> (2147483647)|
 | *UseFeaturesInModel* |	Indicates if features can be used to enhance the recommendation model. | 	 Boolean<br> Default: True
@@ -86,9 +86,9 @@ You might also want to apply a recommendations build type when the user is about
 <a name="FBTBuild"></a>
 ### FBT build type ###
 
-The frequently bought together (FBT) build does an analysis that counts the number of times two or three different products co-occur together. It then sorts the sets based on a similarity function (co-occurrences, Jaccard, Lift).
+The frequently bought together (FBT) build does an analysis that counts the number of times two or three different products co-occur together. It then sorts the sets based on a similarity function (**co-occurrences**, **Jaccard**, **lift**).
 
-Think of Jaccard and Lift as ways to normalize the co-occurrences.  This means that the items will be returned only if they where purchased together with the seed item.
+Think of **Jaccard** and **lift** as ways to normalize the co-occurrences.  This means that the items will be returned only if they where purchased together with the seed item.
 
 In our Lumia 650 phone example, phone X will be returned only if phone X was purchased in the same session as the Lumia 650 phone. Because this may be unlikely, we would expect items complementary to the Lumia 650 to be returned; for instance, a screen protector, or a power adapter for the Lumia 650.
 
@@ -99,19 +99,19 @@ FBT builds do not support cold items, because by definition they expect two item
 
 #### FBT build parameters
 
-| Name  | 	Description |		Type,  <br> valid values <br> (default value)
+| Name  | 	Description |		Type,  <br> valid values, <br> (default value)
 |-------|---------------|-----------------------
 | *FbtSupportThreshold* | How conservative the model is. Number of co-occurrences of items to be considered for modeling. |  Integer, <br> 3-50 <br> (6)
 | *FbtMaxItemSetSize* | Bounds the number of items in a frequent set.| Integer	<br> 2-3 <br> (2)
 | *FbtMinimalScore* | Minimal score that a frequent set should have to be included in the returned results. The higher the better. | Double <br> 0 and above <br> (0)
-| *FbtSimilarityFunction* | Defines the similarity function to be used by the build. Lift favors serendipity, co-occurrence favors predictability, and Jaccard is a compromise between the two. | String,  <br>  <i>cooccurrence, lift, jaccard</i><br> Default: <i>jaccard</i>
+| *FbtSimilarityFunction* | Defines the similarity function to be used by the build. **Lift** favors serendipity, **co-occurrence** favors predictability, and **Jaccard** is a compromise between the two. | String,  <br>  <i>cooccurrence, lift, jaccard</i><br> Default: <i>jaccard</i>
 
 <a name="SelectBuild"></a>
 ## Select the build to use ##
 
-This guidance might help you determine whether you should use a recommendations build or an FBT build, but it does not provide a definitive answer in cases where you could use either of them. Also, even if you know that you want to use an FBT build type, you might still want to choose Jaccard or Lift as the similarity function.
+This guidance might help you determine whether you should use a recommendations build or an FBT build, but it does not provide a definitive answer in cases where you could use either of them. Also, even if you know that you want to use an FBT build type, you might still want to choose **Jaccard** or **lift** as the similarity function.
 
-The best way to select among two different builds is to test them in the real world (online evaluation) and track a conversion rate for the different builds. The conversion rate could be measured based on recommendation clicks, the number actual purchases from recommendations shown, or even on the actual purchase amounts when the different recommendations were shown. You may select your conversion rate metric based on your business objective.
+The best way to select between two different builds is to test them in the real world (online evaluation) and track a conversion rate for the different builds. The conversion rate could be measured based on recommendation clicks, the number actual purchases from recommendations shown, or even on the actual purchase amounts when the different recommendations were shown. You may select your conversion rate metric based on your business objective.
 
 In some cases, you may want to evaluate the model offline before you put it in production. While offline evaluation is not a replacement for online evaluation, it can serve as a metric.
 
@@ -121,7 +121,7 @@ In some cases, you may want to evaluate the model offline before you put it in p
 The goal of an offline evaluation is to predict precision (the number of users that will purchase one of the recommended items) and the diversity of recommendations (the number of items that are recommended).
 As part of the precision and diversity metrics evaluation, the system finds a sample of users and splits  the transactions for those users into two groups: the training dataset and the test dataset.
 
-> [AZURE.NOTE] To use offline metrics, you are required to have timestamps in your usage data.
+> [AZURE.NOTE] To use offline metrics, you must have timestamps in your usage data.
 > Time data is required to split usage correctly between training and test datasets.
 
 > Also, offline evaluation may not yield results for small usage files. For the evaluation to be thorough, there should be a minimum of 1,000 usage points in the test dataset.
@@ -143,16 +143,16 @@ In the preceding table, *k* represents the number of recommendations shown to th
 You will notice that as more items are shown to the customer, the likelihood of the customer purchasing a recommended item goes up. For the preceding experiment, the probability almost doubles to 26.61 percent when 5 items are recommended.
 
 #### Percentage
-The percentage of users that interacted with at least one of the k recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation over the total number of users considered. See Users considered for more information.
+The percentage of users that interacted with at least one of the *k* recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation over the total number of users considered. See Users considered for more information.
 
 #### Users in test
 The total number of users in the test dataset.
 
 #### Users considered
-A user is only considered if the system recommended at least k items based on the model generated using the training dataset.
+A user is only considered if the system recommended at least *k* items based on the model generated using the training dataset.
 
 #### Users not considered
-Any users not considered. The users that did not receive at least k recommended items.
+Any users not considered. The users that did not receive at least *k* recommended items.
 
 User not considered = users in test – users considered
 
@@ -172,9 +172,9 @@ Unique items recommended: 954
 #### Percentile buckets
 Each percentile bucket is represented by a span (minimum and maximum values that range between 0 and 100). The items close to 100 are the most popular items, and the items close to 0 are the least popular. For instance, if the percentage value for the 99-100 percentile bucket is 10.6, it means that 10.6 percent of the recommendations returned only the top one percent most popular items. The percentile bucket minimum value is inclusive, and the maximum value is exclusive, except for 100.
 #### Unique items recommended
-The unique items recommended metric is the number of distinct items that were returned for evaluation.
+The unique items recommended metric shows the number of distinct items that were returned for evaluation.
 #### Total items recommended
-The total items recommended metric is number of items recommended. Some may be duplicates.
+The total items recommended metric shows the number of items recommended. Some may be duplicates.
 
 <a name="ImplementingEvaluation"></a>
 ### To get offline evaluations ###
