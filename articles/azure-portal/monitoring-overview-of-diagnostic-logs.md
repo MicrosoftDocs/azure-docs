@@ -43,7 +43,7 @@ Collection of Diagnostic Logs can be enabled as part of creating a resource or a
 
 > [AZURE.TIP] These instructions may not apply directly to every resource. See the  schema links at the bottom of this page to understand special steps that may apply to certain resource types.
 
-[This article shows how you can use a resource template to enable Diagnostic Settings when creating a resource](./monitoring-enable-diagnostic-logs-using-template.md])
+[This article shows how you can use a resource template to enable Diagnostic Settings when creating a resource](./monitoring-enable-diagnostic-logs-using-template.md)
 
 ### Enable Diagnostic Logs in the portal
 You can enable Diagnostic Logs in the Azure Portal when you create some resource types by doing the following:
