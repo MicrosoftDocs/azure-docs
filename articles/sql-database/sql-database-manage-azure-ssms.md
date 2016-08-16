@@ -82,7 +82,7 @@ The **master** database contains logins and which logins have permission to crea
 
 -   To give login1 permissions to a database called **myTestDB**, complete the following steps:
 
- 1.  To refresh Object Explorer to view the **myTestDB** database that you just created, right-click the server name in Object Explorer and then click **Refresh**.  
+ 1.  To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
 
      If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
 
@@ -96,13 +96,13 @@ The **master** database contains logins and which logins have permission to crea
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace  **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
+-   Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
 
         ALTER LOGIN login1
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement  deletes the **login1** login.
+-   Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
 
         DROP LOGIN login1;
 
