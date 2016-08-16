@@ -21,18 +21,19 @@
 
 You can access Proactive Detection alerts both from the emails you receive, and from the Proactive Detection blade.
 
-Here's a typical email alert:
-
-
-![Email alert](./media/app-insights-proactive-diagnostics/03.png)
 
 
 ## Review your Proactive Detections
 
 You can discover detections in two ways:
 
-* You receive an email from Application Insights. Click the button to see more detail in the portal.
-* The Proactive Detection tile on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
+* **You receive an email** from Application Insights. Here's a typical example:
+
+    ![Email alert](./media/app-insights-proactive-diagnostics/03.png)
+
+    Click the big button to open more detail in the portal.
+
+* **The Proactive Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
 
 ![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
 
