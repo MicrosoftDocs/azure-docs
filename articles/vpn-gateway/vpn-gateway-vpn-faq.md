@@ -42,7 +42,7 @@ The following cross-premises connections are supported:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
-For more information about cross-premises connections, see [About secure cross-premises connectivity](vpn-gateway-cross-premises-options.md).
+For more information about connections, see [VPN Gateway connection diagrams](vpn-gateway-topology.md).
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 
