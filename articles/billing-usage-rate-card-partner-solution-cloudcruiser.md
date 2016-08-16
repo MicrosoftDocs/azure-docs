@@ -54,7 +54,7 @@ To demonstrate this use case, imagine a workload of several instances running on
 
 Cloud Cruiser workbooks provide an automated way to collect and process information from the RateCard API.  ETL (extract-transform-load) workbooks allow you to configure the collection, transformation, and publishing of data into the Cloud Cruiser database.
 
-Each workbook can have one or multiple collections. This allows you to correlate information from different sources to complement or augment the usage data. In the two screenshots below, we showing creating a new *collection* in an existing workbook, and importing information into the *collection* from the RateCard API:
+Each workbook can have one or multiple collections. This allows you to correlate information from different sources to complement or augment the usage data. The two screenshots below show how to create a new *collection* in an existing workbook, and importing information into the *collection* from the RateCard API:
 
 ![Figure 1 - Creating a new collection][1]
 
@@ -162,12 +162,12 @@ ensure a consistent and auditable charging process.
  
 
 ### Creating a Resource Group with tags on Microsoft Azure
-The first step in this tutorial is to create a new Resource Group on the Azure Portal and then create new tags to associate to the resources. For this example, we will be creating
+The first step in this tutorial is to create a new Resource Group on the Azure portal and then create new tags to associate to the resources. For this example, we will be creating
 the following tags: Department, Environment, Owner, Project.
 
-The screenshot below of the Azure Portal shows a sample Resource Group with the associated tags.
+The screenshot below of the Azure portal shows a sample Resource Group with the associated tags.
 
-![Figure 11 - Resource Group with associated tags on Azure Portal][11]
+![Figure 11 - Resource Group with associated tags on Azure portal][11]
 
 The next step is to pull the information from the Usage API into Cloud Cruiser. The Usage API currently provides responses in JSON format. Here is a sample of the data retrieved:
 
@@ -259,7 +259,7 @@ insights from your cloud usage.
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 - Workbook scheduling"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 - Sample Report for the Workload cost comparison scenario"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figure 10 - Report with breakdowns using tags"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 - Resource Group with associated tags on Azure Portal"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figure 11 - Resource Group with associated tags on Azure portal"
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 - Usage API data imported into the UsageAPI sheet"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 - Create new fields for the tag information"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 - Populating the account structure with the information from the lookups"
