@@ -20,8 +20,7 @@
 
 In typical Internet of Things (IoT) scenarios, you have devices that you can program to push data to Azure, 
 either to an Azure Event Hub or an IoT hub. Both of those hubs are entry points into Azure for storing, 
-analyzing, and visualizing with a myriad of tools made available on Microsoft Azure. However, they both require
-that you push data to them, formatted as JSON and secured in specific ways. 
+analyzing, and visualizing with a myriad of tools made available on Microsoft Azure. However, they both require that you push data to them, formatted as JSON and secured in specific ways. 
 This brings up the following question. What do you do if you want to bring in data from either public or private
 sources where the data is exposed as a web service or feed of some sort, but you do not have the ability to 
 change how the data is published? Consider the weather, or traffic, or stock quotes - you can't tell NOAA, 
@@ -30,12 +29,12 @@ a small cloud sample that you can modify and deploy that will pull the data from
 it to your Event Hub. From there, you can do whatever you want with it, subject, of course, to the license 
 terms from the producer. You can find the application [here](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/).
 
-Note that the code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. This is NOT intended to be a production application, and no attempts have been made to make it suitable for use in such an environment - it is stricly a DIY, developer-focused example only. Furthermore, the existence of this sample is NOT tantamount to a recommendation that you should **pull** data into Azure rather than **push** it. You should review security, performance, functionality, and cost factors before settling on an end-to-end architecture.
+Note that the code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. This is NOT intended to be a production application, and no attempts have been made to make it suitable for use in such an environment - it is strictfly a DIY, developer-focused example only. Furthermore, the existence of this sample is NOT tantamount to a recommendation that you should **pull** data into Azure rather than **push** it. You should review security, performance, functionality, and cost factors before settling on an end-to-end architecture.
 
 ## Application structure
 
 The application is written in C#, and the [sample description](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contains all the information you need to
-modify, build, and publish the application. The following sections provide a high level overview of what the 
+modify, build, and publish the application. The following sections provide a high-level overview of what the 
 application does.
 
 We start with the assumption that you have access to a data feed. For example, you might want to pull in the
@@ -50,8 +49,8 @@ in JSON, such as those referenced by WSDOT [here](http://www.wsdot.wa.gov/Traffi
 2. Credentials for the URL, if needed. Many public sources do not need credentials, or you can put the credentials
 in the URL string. Others require that you supply separately. (Note that you can only specify one set of credentials
 in this application, so it will only work if you specify only one URL, not a list of URLs.)
-3. The Service Bus connection string and the name of the Event Hub in that Service Bus namespace, to which you will push the data. You can
-find this information in the Azure classic portal.
+3. The connection string and the name of the Event Hub in that Event Hubs namespace, to which you will push the data. You can
+find this information in the Azure portal.
 4. A sleep interval, in milliseconds, for the interval between polling the public data site. Setting this requires
 some thought. If you poll too infrequently, you may miss data; on the other hand, if you poll too frequently, you may
 get a lot of repetitive data, or worse yet, you may be blocked as a nefarious bot. Consider how often the data 
