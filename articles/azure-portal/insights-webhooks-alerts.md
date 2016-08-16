@@ -74,8 +74,6 @@ The POST operation will contain the following JSON payload and schema for all me
 }
 ```
 
->[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
-
 
 | Field | Mandatory? | Fixed Set of Value(s)? | Notes |
 | :-------------| :-------------   | :-------------   | :-------------   |
