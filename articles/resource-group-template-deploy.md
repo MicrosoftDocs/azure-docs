@@ -113,9 +113,11 @@ To learn more about options for deployment that might be better suited to your s
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
 
-     4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file). You cannot mix inline parameter values with an external parameter file. For more information, see [Parameter precedence](#parameter-precendence).
+     4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file). 
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
+
+        When you use an external parameter file, you cannot pass other values either inline or from a local file. For more information, see [Parameter precedence](#parameter-precendence).
 
      After the resources have been deployed, you will see a summary of the deployment.
 
@@ -186,13 +188,14 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 
 ## Parameter precedence
 
-You can use inline parameters and a local parameter file in the same deployment. If you provide the same value in the local parameter file and inline, the inline value takes precedence.
+You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-However, you cannot use inline parameters with an external parameter file. When you specify a URI for a parameter file, all inline parameters are ignored. If you need to pass a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or provide all of the parameter values inline.
+However, you cannot use inline parameters with an external parameter file. When you specify a parameter file in the **TemplateParameterUri** parameter, all inline parameters are ignored. You must provide all parameter values in the external file. If your template includes a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or dynamically provide all parameter values inline.
+
+For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
 - To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 - For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
-- For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
