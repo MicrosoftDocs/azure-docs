@@ -52,8 +52,6 @@ For more information about connections, see [VPN Gateway connection diagrams](vp
 
 You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, provided that you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
-For more information, see [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
-
 ### What is ExpressRoute?
 
 ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as a MPLS VPN provided by a network service provider).
