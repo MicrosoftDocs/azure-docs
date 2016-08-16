@@ -11,7 +11,7 @@ Use the following steps to connect to Azure SQL Database with SSMS using SQL Ser
 
  - **Server type**: The default is database engine; do not change this value.
  - **Server name**: Enter the fully qualified name of your Azure SQL Database server in the following format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](sql-database-aad-authentication/#connect-using-active-directory-integrated-authentication), and [Connect using Active Directory password authentication](sql-database-aad-authentication/#connect-using-active-directory-password-authentication).
+ - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), and [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication).
  - **User name**: Enter the name of a user with access to a database on the server (for example, the *server admin* you set up when creating the Azure SQL server). 
  - **Password**: Enter the password for the specified user (for example, the *password* you set up when creating the server).
    
