@@ -35,11 +35,6 @@ From your app's overview blade in Application Insights, select Proactive Detecti
 
 Select an alert to see its details.
 
-## Configure email alert recipients
-
-By default, emails are sent to subscription administrators. Open Settings to add additional or alternative recipients, or to switch off email alerts.
-
-![Configure email recipients](./media/app-insights-proactive-diagnostics/05.png)
 
 
 
