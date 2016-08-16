@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/15/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 
@@ -180,9 +180,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
 
 
-	> [AZURE.Note] the certificate content needs begin certificate and end certificate tags.
+	> [AZURE.NOTE] The certificate content must have begin certificate and end certificate tags.
 
-9. Native to below screenshot and perform the following actions.
+9. Navigate to SAML V2, and then perform the following steps:
 
 	![Configuring single sign-on on app side][13]
 
