@@ -32,7 +32,7 @@ For a brief overview, try the video series [Data Science for Beginners](machine-
 
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. When you use the Azure cloud to run machine learning experiments or build solutions, you don't have to buy expensive hardware or infrastructure.
 
-Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.
+Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.
 
 ![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -46,7 +46,7 @@ Azure Machine Learning is a particularly powerful way to do predictive analytics
 
 ## Build complete machine learning solutions in the cloud
 
-Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud from a large algorithm library, to a studio for building models, to an easy way to deploy your model as a web service.
+Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud, from a large algorithm library, to a studio for building models, to an easy way to deploy your model as a web service.
 
 ### Machine Learning Studio: Create predictive models
 
@@ -54,8 +54,8 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md), you can qui
 
 ![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-* In [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) you can try analytics solutions authored by others or contribute your own using Azure services including Machine Learning, HDInsight (Hadoop), Stream Analytics, and Data Lake Analytics, as well as Azure big data stores and data management services. Post questions or comments about experiments to the community, or share links to experiments via social networks such as LinkedIn and Twitter.
-* Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
+* In [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can try analytics solutions authored by others or contribute your own. Post questions or comments about experiments to the community, or share links to experiments via social networks such as LinkedIn and Twitter.
+* Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
 
 
 	![Try predictive experiments or contribute your own in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
@@ -77,7 +77,7 @@ Machine learning terms can be confusing. Here are definitions of key terms to he
 
 ### Data exploration, descriptive analytics, and predictive analytics
 
-**Data exploration** is the process of gathering information about a large and often unstructured data set in order find characteristics for focused analysis. **Data mining** refers to automated data exploration.
+**Data exploration** is the process of gathering information about a large and often unstructured data set in order to find characteristics for focused analysis. **Data mining** refers to automated data exploration.
 
 **Descriptive analytics** is the process of analyzing a data set in order to summarize what happened. The vast majority of business analytics - such as sales reports, web metrics, and social networks analysis - are descriptive.
 
@@ -95,7 +95,7 @@ A machine learning model is an abstraction of the question you are trying to ans
 #### Training from data
 When you train a model from data, you use a known data set and make adjustments to the model based on the data characteristics to get the most accurate answer. In Azure Machine Learning, a model is built from an algorithm module that processes training data and functional modules, such as a scoring module.
 
-In supervised learning, if you're training a fraud detection model, you'll use a set of transactions that are labeled as either fraudulent or valid. You'll split your data set randomly, and use part to train the model and part to test or evaluate the model.
+In supervised learning, if you're training a fraud detection model, you use a set of transactions that are labeled as either fraudulent or valid. You split your data set randomly, and use part to train the model and part to test or evaluate the model.
 
 #### Evaluation data
 Once you have a trained model, evaluate the model using the remaining test data. You use data you already know the outcomes for, so that you can tell whether your model predicts accurately.
@@ -106,11 +106,11 @@ Once you have a trained model, evaluate the model using the remaining test data.
 * **categorical data**: Data that is organized by categories and that can be divided into groups. For example a categorical data set for autos could specify year, make, model, and price.
 * **classification**: A model for organizing data points into categories based on a data set for which category groupings are already known.
 * **feature engineering**: The process of extracting or selecting features related to a data set in order to enhance the data set and improve outcomes. For instance, airfare data could be enhanced by days of the week and holidays. See [Feature selection and engineering in Azure Machine Learning](machine-learning-feature-selection-and-engineering.md).
-* **module**: A functional part in a Machine Learning Studio model, such as the Enter Data module which enables entering and editing small data sets. An algorithm is also a type of module in Machine Learning Studio.
-* **model**: For supervised learning, a model is the product of a machine learning experiment comprised of a training data set, an algorithm module, and functional modules, such as a Score Model module.
+* **module**: A functional part in a Machine Learning Studio model, such as the Enter Data module that enables entering and editing small data sets. An algorithm is also a type of module in Machine Learning Studio.
+* **model**: A supervised learning model is the product of a machine learning experiment comprised of training data, an algorithm module, and functional modules, such as a Score Model module.
 * **numerical data**: Data that has meaning as measurements (continuous data) or counts (discrete data). Also referred to as *quantitative data*.
 * **partition**: The method by which you divide data into samples. See [Partition and Sample](https://msdn.microsoft.com/library/azure/dn905960.aspx) for more information.
-* **prediction**: A prediction is a forecast of a value or values from a machine learning model. You might also see the term "predicted score"; however, predicted scores are not the final output of a model. An evaluation of the model follows the score.
+* **prediction**: A prediction is a forecast of a value or values from a machine learning model. You might also see the term "predicted score". However, predicted scores are not the final output of a model. An evaluation of the model follows the score.
 * **regression**: A model for predicting a value based on independent variables, such as predicting the price of a car based on its year and make.
 * **score**: A predicted value generated from a trained classification or regression model, using the [Score Model module](https://msdn.microsoft.com/library/azure/dn905995.aspx) in Machine Learning Studio. Classification models also return a score for the probability of the predicted value. Once you've generated scores from a model, you can evaluate the model's accuracy using the [Evaluate Model module](https://msdn.microsoft.com/library/azure/dn905915.aspx).
 * **sample**: A part of a data set intended to be representative of the whole. Samples can be selected randomly or based on specific features of the data set.
