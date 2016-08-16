@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights: Proactive diagnostics" 
+	pageTitle="Proactive diagnostics in Application Insights | Microsoft Azure" 
 	description="Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -15,7 +15,7 @@
 	ms.date="08/15/2016" 
 	ms.author="awills"/>
 
-#  Application Insights: Proactive Diagnostics
+#  Proactive Diagnostics in Application Insights
 
  Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
