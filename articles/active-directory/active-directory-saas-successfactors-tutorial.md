@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	![Configuring single sign-on on app side][11]
 
 
-	> [AZURE.Note] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
+	> [AZURE.NOTE] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 8. Native to below screenshot and perform the following actions.
 
@@ -209,7 +209,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	![Configure Single Sign-On][29]
 
 
-	> [AZURE.Note] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
+	> [AZURE.NOTE] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
 
 11.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
