@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/03/2016"
+    ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
 # Event Hubs authentication and security model overview
@@ -37,7 +37,7 @@ All tokens are signed with a SAS key. Typically, all tokens are signed with the 
 
 ### Create the SAS key
 
-When creating a namespace, Service Bus generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
+When creating an Event Hubs namespace, Azure Event Hubs generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
 
 The following example creates a send-only key when creating the Event hub:
 

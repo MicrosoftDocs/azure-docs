@@ -57,7 +57,7 @@ Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage
 </SinksConfig>
 ```
 
-In this example, the Event Hub URL is set to the fully qualified namespace of the Event Hub: Service Bus namespace  + “/” + Event Hub name.  
+In this example, the Event Hub URL is set to the fully qualified namespace of the Event Hub: Event Hubs namespace  + "/" + Event Hub name.  
 
 The Event Hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
@@ -74,7 +74,7 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 </PrivateConfig>
 ```
 
-The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Service Bus/Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
+The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
 
 > [AZURE.WARNING] The Event Hubs SAS key is stored in plain text in the *.wadcfgx* file. Often, this key is checked in to source code control or is available as an asset in your build server, so you should protect it as appropriate. We recommend that you use a SAS key here with *Send only* permissions so that a malicious user can write to the Event Hub, but not listen to it or manage it.
 

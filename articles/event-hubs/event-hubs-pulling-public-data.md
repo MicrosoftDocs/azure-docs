@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="spyros;sethm" />
 
 # Pulling public data into Azure Event Hubs
@@ -50,8 +50,8 @@ in JSON, such as those referenced by WSDOT [here](http://www.wsdot.wa.gov/Traffi
 2. Credentials for the URL, if needed. Many public sources do not need credentials, or you can put the credentials
 in the URL string. Others require that you supply separately. (Note that you can only specify one set of credentials
 in this application, so it will only work if you specify only one URL, not a list of URLs.)
-3. The Service Bus connection string and the name of the Event Hub in that Service Bus namespace, to which you will push the data. You can
-find this information in the Azure classic portal.
+3. The connection string and the name of the Event Hub in that Event Hubs namespace, to which you will push the data. You can
+find this information in the Azure portal.
 4. A sleep interval, in milliseconds, for the interval between polling the public data site. Setting this requires
 some thought. If you poll too infrequently, you may miss data; on the other hand, if you poll too frequently, you may
 get a lot of repetitive data, or worse yet, you may be blocked as a nefarious bot. Consider how often the data 

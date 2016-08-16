@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/14/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Event Hubs availability and support FAQ
@@ -33,7 +33,7 @@ Events consumed from an Event Hub, as well as management operations and control 
 
 ## What are Event Hubs throughput units?
 
-Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:
+Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 - Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
 
@@ -49,7 +49,7 @@ If the total ingress throughput or the total ingress event rate across all Event
 
 If the total egress throughput or the total event egress rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event Hub.
 
-Note that the throughput unit selection is independent of the number of Event Hubs partitions. While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves. The charge is for the aggregated throughput units on all Event Hubs in a Service Bus namespace. With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.
+Note that the throughput unit selection is independent of the number of Event Hubs partitions. While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves. The charge is for the aggregated throughput units on all Event Hubs in an Event Hubs namespace. With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.
 
 ## Is there a limit on the number of throughput units that can be selected?
 
@@ -69,7 +69,7 @@ The total size of all stored events, including any internal overhead for event h
 
 ## Can I use a single AMQP connection to send and receive from Event Hubs and Service Bus queues/topics?
 
-Yes, as long as all the Event Hubs, queues, and topics are in the same Service Bus namespace. As such, you can implement bi-directional, brokered connectivity to many devices, with sub-second latencies, in a cost-effective and highly scalable way.
+Yes, as long as all the Event Hubs, queues, and topics are in the same namespace. As such, you can implement bi-directional, brokered connectivity to many devices, with sub-second latencies, in a cost-effective and highly scalable way.
 
 ## Do brokered connection charges apply to Event Hubs?
 

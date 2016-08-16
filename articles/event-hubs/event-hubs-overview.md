@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Azure Event Hubs overview
@@ -23,7 +23,7 @@ Many modern solutions intend to provide adaptive customer experiences or to impr
 
 Azure Event Hubs is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability. This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. Event Hubs provides a message stream handling capability and though an Event Hub is an entity similar to queues and topics, it has characteristics that are very different from traditional enterprise messaging. Enterprise messaging scenarios commonly require a number of sophisticated capabilities such as sequencing, dead-lettering, transaction support, and strong delivery assurances, while the dominant concern for event intake is high throughput and processing flexibility for event streams. Therefore, Event Hubs capabilities differ from Service Bus topics in that they are strongly biased towards high throughput and event processing scenarios. As such, Event Hubs do not implement some of the messaging capabilities that are available for topics. If you need those capabilities, topics remain the optimal choice.
 
-An Event Hub is created at the namespace level in Service Bus, similar to queues and topics. Event Hubs uses AMQP and HTTP as its primary API interfaces. The following diagram shows the relationship between Event Hubs and Service Bus.
+An Event Hub is created at the Event Hubs namespace level, similar to Service Bus queues and topics. Event Hubs uses AMQP and HTTP as its primary API interfaces. The following diagram shows the relationship between Event Hubs and Service Bus.
 
 ![Event Hubs](./media/event-hubs-overview/IC741188.png)
 
@@ -134,9 +134,9 @@ The throughput capacity of Event Hubs is controlled by throughput units. Through
 
 Ingress is throttled to the amount of capacity provided by the number of throughput units purchased. Sending data above this amount results in a "quota exceeded" exception. This amount is either 1 MB per second or 1000 events per second, whichever comes first. Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit. If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created. To obtain more throughput units, you can adjust the setting on the **Namespaces** page on the **Scale** tab in the [Azure classic portal][]. You can also change this setting using the Azure APIs.
 
-While partitions are a data organization concept, throughput units are purely a capacity concept. Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for a Service Bus namespace, and there is an Azure account limit of 20 throughput units. These throughput units are shared across all Event Hubs in a given namespace.
+While partitions are a data organization concept, throughput units are purely a capacity concept. Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace, and there is an Azure account limit of 20 throughput units. These throughput units are shared across all Event Hubs in a given namespace.
 
-Throughput units are provisioned on a best effort basis and may not always be available for immediate purchase. If you require a specific capacity, it is recommended that you purchase those throughput units ahead of time. If you require more than 20 throughput units, you can contact Service Bus support to purchase more throughput units on a commitment basis in blocks of 20, up to the first 100 throughput units. Beyond that, you can also purchase blocks of 100 throughput units.
+Throughput units are provisioned on a best effort basis and may not always be available for immediate purchase. If you require a specific capacity, it is recommended that you purchase those throughput units ahead of time. If you require more than 20 throughput units, you can contact Azure support to purchase more throughput units on a commitment basis in blocks of 20, up to the first 100 throughput units. Beyond that, you can also purchase blocks of 100 throughput units.
 
 It is recommended that you carefully balance throughput units and partitions in order to achieve optimal scale with Event Hubs. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an Event Hub.
 

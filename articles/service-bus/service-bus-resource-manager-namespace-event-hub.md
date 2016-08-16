@@ -1,14 +1,14 @@
 <properties
-    pageTitle="Create an Event Hub namespace with Event Hub and consumer group using an Azure Resource Manager template | Microsoft Azure"
-    description="Create an Event Hub namespace with Event Hub and consumer group using Azure Resource Manager template"
-    services="service-bus"
+    pageTitle="Create an Event Hubs namespace with Event Hub and consumer group using an Azure Resource Manager template | Microsoft Azure"
+    description="Create an Event Hubs namespace with Event Hub and consumer group using Azure Resource Manager template"
+    services="event-hubs"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus"
+    ms.service="event-hubs"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
