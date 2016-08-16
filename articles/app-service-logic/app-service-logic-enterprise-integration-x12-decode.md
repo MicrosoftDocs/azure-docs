@@ -71,7 +71,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 	* Schema validation of the envelope against the control schema.
 	* Schema validation of the transaction-set data elements against the message schema.
 	* EDI validation performed on transaction-set data elements 
-* Verifies that the interchange, group, and transaction set control numbers are not duplicates, if the checks are enabled in the X12 agreement send settings.
+* Verifies that the interchange, group, and transaction set control numbers are not duplicates
 	* Checks the interchange control number against previously received interchanges.
 	* Checks the group control number against other group control numbers in the interchange.
 	* Checks the transaction set control number against other transaction set control numbers in that group.
