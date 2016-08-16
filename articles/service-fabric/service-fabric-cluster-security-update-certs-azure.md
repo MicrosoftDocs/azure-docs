@@ -125,11 +125,13 @@ Edit the Resource Manager Template parameter File, add the new parameters for th
 1. You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
 2. Login to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
+
 ```powershell
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
 
 ```
+
 3. Test the template prior to deploying it. Use the same Resource Group that your cluster is currently deployed to.
 
 ```powershell
