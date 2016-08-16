@@ -35,13 +35,13 @@ To configure an App Service Environment refer to [our documentation](app-service
 Barracuda has a [detailed article](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) on deploying its WAF on a virtual machine in Azure. But because we want redundancy and not introduce a single point of failure, you want to deploy at least 2 WAF instance VMs into the same Cloud Service when following these instructions.
 
 ### Adding Endpoints to Cloud Service ###
-Once you have 2 or more WAF VM instances in your Cloud Service you can use the [Azure Portal](https://portal.azure.com/) to add HTTP and HTTPS endpoints that are used by your application as shown in the image below.
+Once you have 2 or more WAF VM instances in your Cloud Service you can use the [Azure portal](https://portal.azure.com/) to add HTTP and HTTPS endpoints that are used by your application as shown in the image below.
 
 ![Configure Endpoint][ConfigureEndpoint]
 
 If your applications use other endpoints, make sure to add those to this list as well. 
 
-### Configuring Barracuda WAF through its Managment Portal ###
+### Configuring Barracuda WAF through its Management Portal ###
 Barracuda WAF uses TCP Port 8000 for configuration through its management portal. Since we have multiple instances of the WAF VMs you will need to repeat the steps here for each VM instance. 
 
 
