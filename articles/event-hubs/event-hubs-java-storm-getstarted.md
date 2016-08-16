@@ -28,7 +28,7 @@ For more information, see the [Event Hubs Overview][].
 
 This tutorial describes how to collect messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
 
-In order to complete this tutorial you will need the following:
+To complete this tutorial, you will need the following:
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
 

@@ -28,7 +28,7 @@ For more information, please see [Event Hubs overview].
 
 In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using Apache Storm.
 
-In order to complete this tutorial you will need the following:
+To complete this tutorial, you will need the following:
 
 + A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
