@@ -19,14 +19,7 @@
 
 # Buy and Configure a custom domain name in Azure App Service
 
-> [AZURE.SELECTOR]
-- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
-- [Web Apps with External Domains](web-sites-custom-domain-name.md)
-- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
-- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
-
-
-
+[AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
