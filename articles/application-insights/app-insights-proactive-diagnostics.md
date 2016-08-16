@@ -33,7 +33,7 @@ From your app's overview blade in Application Insights, select Proactive Detecti
 
 ![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
 
-Select an alert in order to see its details.
+Select an alert to see its details.
 
 ## Configure email alert recipients
 
@@ -48,7 +48,7 @@ By default, emails are sent to subscription administrators. Open Settings to add
 There are three kinds of detection:
 
 * [Near-real time failure alerts](app-insights-nrt-proactive-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Anomalous behavior](app-insights-proactive-detection.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, time of day, and so on.
+* [Anomalous behavior](app-insights-proactive-detection.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
 * [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 
