@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/15/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site VPN connection to a VNet using the classic portal
@@ -73,7 +73,7 @@ The configuration for a Point-to-Site connection is broken down into four sectio
  - **Address Space**: Include the Starting IP and CIDR (Address Count).
  - **Add address space**: Add address space only if it is required for your network design.
 
-7. On the **Virtual Network Address Spaces** page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.<br><br>It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+7. On the **Virtual Network Address Spaces** page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.<br><br>It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You must coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
 8. Enter the following information, and then click the checkmark to begin creating your virtual network.
  - **Address Space**: Add the internal IP address range that you want to use for this virtual network, including Starting IP and Count. It's important to select a range that does not overlap with any of the ranges that are used for your on-premises network. 
@@ -116,7 +116,7 @@ Add a trusted certificate to Azure. When you add a Base64-encoded X.509 (.cer) f
 
 ### <a name="createclientcert"></a>Part 3: Generate a client certificate
 
-Next, generate the client certificates. You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use the certificate to authenticate.
+Next, generate the client certificates. You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use the certificate to authenticate.
 
 - If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the NetBIOS 'DOMAIN\username' format. 
 

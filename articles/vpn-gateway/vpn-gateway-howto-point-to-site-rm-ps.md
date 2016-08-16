@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/15/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -229,7 +229,7 @@ You can revoke client certificates. The certificate revocation list allows you t
 		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
 		-VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
 
-3. Verify that the thumbprint was added to the certificate revocation list. You need to add one thumbprint at a time.
+3. Verify that the thumbprint was added to the certificate revocation list. You must add one thumbprint at a time.
 
 		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
