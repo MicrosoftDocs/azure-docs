@@ -50,7 +50,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 	![](./media/connectors-create-api-crmonline/select-organization.png)
 
-	If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-crmonline#create-the-connection) in this topic lists the steps. 
+	If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic lists the steps. 
 
 	> [AZURE.NOTE] In this example, the logic app runs when a record is created. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 *Send an email* action that emails you when the new record is added. 
 
@@ -79,7 +79,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 	![](./media/connectors-create-api-crmonline/sample-action.png)
 
-	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
+	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic describes these properties. 
 
 	> [AZURE.NOTE] In this example, we update an existing record in CRM Online. You can use output from another trigger to update the record. For example, add the SharePoint *When an existing item is modified* trigger. Then add the CRM Online *Update a record* action that uses the SharePoint fields to update the existing record in CRM Online. 
 
