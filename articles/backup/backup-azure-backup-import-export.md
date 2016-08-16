@@ -51,7 +51,7 @@ The information provided in this section is for completing the **Offline Backup*
 1. As part of scheduling a backup, you encounter the following screen (in Windows Server, Windows client or SCDPM).
 
     ![ImportScreen](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
-
+    
     The corresponding screen in SCDPM looks as follows. <br/>
     ![DPM Import screen](./media/backup-azure-backup-import-export/dpmoffline.png)
 
@@ -115,9 +115,8 @@ The *Azure Disk Preparation tool* is available within installation directory of 
    The tool then begins preparing the disk with the backup-data. You may need to attach additional disks when prompted by the tool, in case the disk provided does not have sufficient space to accommodate the backup data. 
 
    At the end of successful execution of the tool, one or more disks you provided are prepared for shipping to Azure and an Import Job by the name you provided during the **Initiate Offline Backup** workflow is created on Azure Classic Portal. Additionally, the tool displays the Shipping Address to the Azure Datacenter where the disks need to be shipped as well as the link to locate the Import Job on Azure Classic Portal. 
-   
       ![Azure Disk Preparation Complete](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)
-      
+
 4. Ship the disks to the address provided by the tool and keep the tracking number for future reference
 5. On navigating to the link displayed by the tool, you are taken to the **Azure Storage Account** specified during the Offline-backup workflow. Here you are able to see the newly created import job in the **IMPORT/EXPORT** tab of the Storage Account
 
