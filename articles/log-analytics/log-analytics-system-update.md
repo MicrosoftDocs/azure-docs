@@ -18,7 +18,6 @@
 
 # System Update Assessment solution in Log Analytics
 
-
 You can use the System Updates solution in Log Analytics to help you apply missing updates to servers in your infrastructure. After you install the solution, you can view the updates that are missing from your monitored servers by using the **System Update Assessment** tile on the **Overview** page in OMS.
 
 If missing updates are found, details are shown on the **Updates** dashboard. You can use the **Updates** dashboard to work with missing updates and develop a plan to apply them to the servers that need them.
