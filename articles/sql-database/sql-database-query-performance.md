@@ -50,11 +50,11 @@ The following [role-based access control](../active-directory/role-based-access-
 
 Query Performance Insight is easy to use:
 
-- Open [Azure Portal](https://portal.azure.com/) and find database that you want to examine. 
-    - From left hand side menu, under support and troubleshooting, select “Query Performance Insight”.
-- On the first tab review the list of top resource-consuming queries.
+- Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
+    - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+- On the first tab, review the list of top resource-consuming queries.
 - Select an individual query to view its details.
-- Open [SQL Azure Database Advisor](sql-database-advisor.md)  and check if any recommendations are available.
+- Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
 - Use sliders or zoom icons to change observed interval.
 
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
@@ -73,7 +73,7 @@ In the [portal](http://portal.azure.com) do the following:
 
     The top queries view opens and the top CPU consuming queries are listed.
 
-1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents 1 day).
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
 
     ![top queries][2]
 
@@ -89,7 +89,7 @@ In the [portal](http://portal.azure.com) do the following:
 1. If your data becomes stale, click the **Refresh** button.
 1. You can use sliders and zoom buttons to change observation interval and investigate spikes:
     ![settings](./media/sql-database-query-performance/zoom.png)
-1. Optionally, if you want a different view, you can click on **Custom** tab and set:
+1. Optionally, if you want a different view, you can select **Custom** tab and set:
     - Metric (CPU, duration, execution count)
     - Time interval (Last 24 hours, Past week, Past month). 
     - Number of queries.
@@ -110,7 +110,6 @@ To view query details:
     - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
     - Second chart shows total duration by the selected query.
     - Bottom chart shows total number of executions by the selected query.
-1. Review the data to see detailed metrics including duration, number of executions, and resource utilization percentage for each interval the query was running.
     
     ![query details][3]
 
@@ -118,25 +117,29 @@ To view query details:
 
 ## Review top queries per duration
 
-In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
-Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
-To identify long running queries:
+>In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
+
+>Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
+
+>To identify long running queries:
 
 1. Open **Custom** tab in Query Performance Insight for selected database
 1. Change metrics to be **duration**
 1. Select number of queries and observation interval
 1. Select aggregation function
-    - **Sum** will add up all query execution time during whole observation interval.
-    - **Max** will find queries which execution time was maximum at whole observation interval.
-    - **Avg** will find average execution time of all query executions and show you the top out of these averages. 
+    - **Sum** adds up all query execution time during whole observation interval.
+    - **Max** finds queries which execution time was maximum at whole observation interval.
+    - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
     ![query duration][4]
 
 ## Review top queries per execution count
 
-High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
-In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
-For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
+>High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
+
+>In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
+
+>For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
 To identify frequently executed queries (“chatty”) queries:
 
@@ -148,11 +151,11 @@ To identify frequently executed queries (“chatty”) queries:
 
 ## Understanding performance tuning annotations 
 
-While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you will get basic information about the action:
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 
     ![query annotation][6]
 
-If you want to know more or apply advisor recommendation, click on the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
+If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
     ![query annotation details][7]
 
@@ -172,7 +175,7 @@ During your use of Query Performance Insight, you might encounter the following 
 These messages usually appear when Query Store is not able to collect new data. 
 
 First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store. 
-    
+
     ![qds off][8]
 
 Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
@@ -192,7 +195,7 @@ Capture policy could be set to:
 - **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
 - **None** – Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
 	
-We recommend to set all policies to AUTO and clean policy to 30 days:
+We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
