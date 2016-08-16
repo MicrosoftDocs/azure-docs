@@ -3,7 +3,7 @@
    description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
-   authors="saurse"
+   authors="saurabhsensharma"
    manager="shivamg"
    editor=""/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;saurse;nkolli;trinadhk"/>
+   ms.author="jimpark;saurabhsensharma;nkolli;trinadhk"/>
 
 # Offline Backup workflow in Azure Backup
 Azure Backup has several efficiencies built-in to save network and storage costs during the initial ‘full’ backups of data to Azure.  Initial “full” backups typically transfer large amounts of data and hence require more network bandwidth, as compared to subsequent backups that only transfer the deltas/incrementals. Not only does Azure backup compress the initial backups but through the process of Offline-seeding, provides a mechanism to upload the compressed initial backup data offline to Azure through disks.  
