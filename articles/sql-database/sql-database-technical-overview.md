@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # What is SQL Database? Introduction to SQL Database

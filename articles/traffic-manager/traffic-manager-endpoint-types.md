@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Traffic Manager Endpoint Types | Microsoft Azure"
    description="This article explains different types of endpoints that can be used with Azure Traffic Manager"
    services="traffic-manager"
@@ -6,7 +6,7 @@
    authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -41,7 +41,7 @@ Azure endpoints are used to configure Azure-based services in Traffic Manager.  
 
 - ‘Classic’ IaaS VMs and PaaS cloud services.
 - Web Apps
-- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer)
+- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). Note that the publicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
 PublicIPAddress resources are Azure Resource Manager resources, they do not exist in the Azure Service Management APIs.  Thus they are only supported in Traffic Manager’s Azure Resource Manager experiences.  The other endpoint types are supported via both Resource Manager and Service Management experiences in Traffic Manager.
 
@@ -129,7 +129,7 @@ Typically, Traffic Manager is used to direct traffic to applications deployed in
 
 In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.  The following steps provide a workaround to this constraint:
 
-1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile. 
+1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile.
 2.	Assuming each Web App is in a different scale unit, add your vanity domain name as a custom hostname to each Web App.  This requires all Web Apps to belong to the same subscription.
 3.	Add one (and only one) Web App endpoint as you normally would to your Traffic Manager profile, as an Azure endpoint.
 4.	Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint.  This requires you to use the Resource Manager experience for Traffic Manager, not the Service Management experience.
@@ -143,5 +143,3 @@ In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more 
 - Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
 - Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
-
-

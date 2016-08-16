@@ -356,7 +356,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
 [iostat]: https://en.wikipedia.org/wiki/Iostat
