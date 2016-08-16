@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Tutorial: Get started with the preconfigured solutions
@@ -23,7 +23,7 @@
 
 Azure IoT Suite [preconfigured solutions][lnk-preconfigured-solutions] combine multiple Azure IoT services to deliver end-to-end solutions that implement common IoT business scenarios. The *remote monitoring* preconfigured solution connects to and monitors your devices. This enables you to analyze the stream of data from your devices and to improve business outcomes by making processes respond automatically to that stream of data.
 
-This tutorial shows you how to provision the remote monitoring preconfigured solution. It also walks you through the basic features of the remote monitoring preconfigured solution. You can access many of these features through the solution dashboard that deploys along with the preconfigured solution:
+This tutorial shows you how to provision the remote monitoring preconfigured solution. It also walks you through the basic features of the remote monitoring solution. You can access many of these features through the solution dashboard that deploys along with the preconfigured solution:
 
 ![Remote monitoring preconfigured solution dashboard][img-dashboard]
 
@@ -125,7 +125,7 @@ The following steps show you how to add a new simulated device to the solution:
 
 ## Edit the device metadata
 
-When are device first connects to the solution, it sends its metadata to the solution. When you edit the device metadata through the solution dashboard, it sends the new metadata values to the device and stores the new values in the solution DocumentDB database. For more information, see [Device identity registry and DocumentDB][lnk-devicemetadata].
+When a device first connects to the solution, it sends its metadata to the solution. When you edit the device metadata through the solution dashboard, it sends the new metadata values to the device and stores the new values in the solution DocumentDB database. For more information, see [Device identity registry and DocumentDB][lnk-devicemetadata].
 
 1.  Navigate back to the device list.
 
@@ -143,7 +143,7 @@ When are device first connects to the solution, it sends its metadata to the sol
 
 ## Add a rule for the new device
 
-There are no rules for the new device you just added. In this section you'll add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
+There are no rules for the new device you just added. In this section you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
 1.  Navigate back to the device list.
 
@@ -189,7 +189,7 @@ You can disable a device, and after it is disabled you can remove it:
 
 ## Behind the scenes
 
-When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you chose for your preconfigured solution:
+When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you choose for your preconfigured solution:
 
 ![Preconfigured solution in the Azure portal][img-portal]
 

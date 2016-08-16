@@ -45,9 +45,7 @@ In order to complete this tutorial you'll need the following:
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
 
-5. In NuGet Package Manager, search for **Microsoft.Azure.Common**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
-
-6. In Program.cs, replace the existing **using** statements with the following:
+5. In Program.cs, replace the existing **using** statements with the following:
 
     ```
     using System;
@@ -57,7 +55,7 @@ In order to complete this tutorial you'll need the following:
     using Microsoft.Rest;
     ```
     
-7. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Your storage account name** is the name of the Azure storage account where you will store your template files. **Resource group name** is the name of the resource group you will use when you create the IoT Hub, it can be a pre-existing resource group or a new one. **Deployment name** is a name for the deployment, such as **Deployment_01**.
+6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Your storage account name** is the name of the Azure storage account where you will store your template files. **Resource group name** is the name of the resource group you will use when you create the IoT Hub, it can be a pre-existing resource group or a new one. **Deployment name** is a name for the deployment, such as **Deployment_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -129,11 +127,11 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
 5. In **Server Explorer**, connect to your Azure subscription, and in your storage account create a new container called **templates**. In the **Properties** panel, set the **Public Read Access** permissions for the **templates** container to **Blob**.
 
-6. In **Server Explorer**, right-click on the **templates** container and then click **View BLob Container**. Click the **Upload Blob** button, select the two files, **parameters.json** and **templates.json**, and then click **Open** to upload the JSON files to the **templates** container. The URLs of the blobs containing the JSON data are:
+6. In **Server Explorer**, right-click on the **templates** container and then click **View Blob Container**. Click the **Upload Blob** button, select the two files, **parameters.json** and **templates.json**, and then click **Open** to upload the JSON files to the **templates** container. The URLs of the blobs containing the JSON data are:
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
-    https://{Your storage account name}.windows.net/templates/template.json
+    https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
 
 7. Add the following method to Program.cs:
