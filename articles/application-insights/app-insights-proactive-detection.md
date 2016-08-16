@@ -15,7 +15,7 @@
 	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
-#  Application Insights: Anomalous Behavior Detection
+#  Application Insights: Proactive Detection
 
 *Application Insights is in preview.*
 
@@ -23,9 +23,9 @@
 Application Insights performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email.
 
 
-## What is Anomalous Behavior Detection?
+## What is Proactive Detection?
 
-Anomalous Behavior Detection discovers performance anomalies in your app by analyzing the telemetry it sends to Application Insights. 
+Proactive Detection discovers performance anomalies in your app by analyzing the telemetry it sends to Application Insights. 
 
 In particular, it finds performance issues that only affect some of your users, or only affect your users in some cases.
 
@@ -39,7 +39,7 @@ You don't have to set any thresholds or configure rules. Machine learning and da
 
 We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback trough Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
 
-## About the alert email
+## About the proactive alert
 
 * *Why have I received this email?*
  * Proactive detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application. 

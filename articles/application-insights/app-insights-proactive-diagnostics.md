@@ -17,7 +17,7 @@
 
 #  Application Insights: Proactive Diagnostics
 
- Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you'll get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
+ Proactive Diagnostics automatically warns you of potential performance problems in your web application. It performs smart analysis of the telemetry that your app sends to [Visual Studio Application Insights](app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
 You can access Proactive Detection alerts both from the emails you receive, and from the Proactive Detection blade.
 
@@ -33,7 +33,7 @@ From your app's overview blade in Application Insights, select Proactive Detecti
 
 ![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
 
-Select an alert to see its details.
+Select an alert in order to see its details.
 
 ## Configure email alert recipients
 
@@ -47,8 +47,8 @@ By default, emails are sent to subscription administrators. Open Settings to add
 
 There are three kinds of detection:
 
-* [Near-real time failure alerts](app-insights-nrt-proactive-diagnostics.pd). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Anomalous behavior](app-insights-proactive-detection.pd). We search for anomalous patterns in response times and failure rates on a daily basis, correlating these issues with properties such as location, browser, client OS, server instance, time of day, and so on.
+* [Near-real time failure alerts](app-insights-nrt-proactive-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
+* [Anomalous behavior](app-insights-proactive-detection.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, time of day, and so on.
 * [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 
