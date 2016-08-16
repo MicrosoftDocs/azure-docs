@@ -216,13 +216,9 @@ To do this, you will need to convert your project to a maven project by completi
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
 
-		                    // Configure the new collection performance tier to S1.
-		                    RequestOptions requestOptions = new RequestOptions();
-		                    requestOptions.setOfferType("S1");
-
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
-		                            collectionDefinition, requestOptions).getResource();
+		                            collectionDefinition, null).getResource();
 		                } catch (DocumentClientException e) {
 		                    // TODO: Something has gone terribly wrong - the app wasn't
 		                    // able to query or create the collection.
