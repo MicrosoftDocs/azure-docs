@@ -30,7 +30,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 ###Connect to Decode EDIFACT Message using the following steps:
 
-1. Create a Logic App. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
+1. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "edifact" in the search box.  Select Decode EDIFACT Message
 
@@ -71,17 +71,17 @@ Validates EDI and partner-specific properties, generates XML document for each t
 	* Validation of the structure of the interchange envelope.
 	* Schema validation of the envelope against the control schema.
 	* Schema validation of the transaction-set data elements against the message schema.
-	* EDI validation performed on transaction-set data elements. This is performed if enabled in the agreement properties.
-* Verifies that the interchange, group, and transaction set control numbers are not duplicates, if the checks are enabled in the EDIFACT agreement send settings. 
+	* EDI validation performed on transaction-set data elements
+* Verifies that the interchange, group, and transaction set control numbers are not duplicates (if configured) 
 	* Checks the interchange control number against previously received interchanges. 
 	* Checks the group control number against other group control numbers in the interchange. 
 	* Checks the transaction set control number against other transaction set control numbers in that group.
 * Generates an XML document for each transaction set.
-* Converts the entire interchange to XML if the EDIFACT agreement receive settings configured to one of the Preserve Interchange.  
+* Converts the entire interchange to XML 
 	* Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends only those transaction sets. 
 	* Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange.
 	* Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. EDIFACT Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
 	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange, 
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
 	* A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
-	* A functional acknowledgment is used to acknowledge accept or reject a received interchange or a group
+	* A functional acknowledgment acknowledges accept or reject a received interchange or a group

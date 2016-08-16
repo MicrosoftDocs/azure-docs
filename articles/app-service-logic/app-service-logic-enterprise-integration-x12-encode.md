@@ -18,7 +18,7 @@
 
 # Get started with Encode X12 Message
 
-Validates EDI and partner specific properties, converts XML-encoded messages into EDI transaction sets in the interchange and requests a Technical and/or Functional acknowledgment
+Validates EDI and partner-specific properties, converts XML-encoded messages into EDI transaction sets in the interchange and requests a Technical and/or Functional acknowledgment
 
 ## Create the connection
 
@@ -30,7 +30,7 @@ Validates EDI and partner specific properties, converts XML-encoded messages int
 
 ### Connect to Encode X12 Message using the following steps:
 
-1. Create a Logic App. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example
+1. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select either X12 - Encode X12 Message by agreement name or X12 - Encode to X 12 message by identities.  
 
@@ -61,13 +61,13 @@ Validates EDI and partner specific properties, converts XML-encoded messages int
 
 #### X12 - Encode X12 Message by agreement name
 
-7. Select X12 agreement from the drop down and xml message to encode.
+7. Select X12 agreement from the drop-down and xml message to encode.
 
 	![](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png) 
 
 #### X12 - Encode X12 Message by identities
 
-7.	Provide sender identifier, sender qualifier, receiver identifier and receiver qualifier as configured in the X12 agreement.  Select xml message to encode
+7.	Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the X12 agreement.  Select xml message to encode
 
 	![](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png) 
 
@@ -76,9 +76,9 @@ Validates EDI and partner specific properties, converts XML-encoded messages int
 * Agreement resolution by matching sender and receiver context properties.
 * Serializes the EDI interchange, converting XML-encoded messages into EDI transaction sets in the interchange.
 * Applies transaction set header and trailer segments
-* Generates an interchange control number, a group control number and a transaction set control number for each outgoing interchange
+* Generates an interchange control number, a group control number, and a transaction set control number for each outgoing interchange
 * Replaces separators in the payload data
-* Validates EDI and partner-specific properties. This includes
+* Validates EDI and partner-specific properties
 	* Schema validation of the transaction-set data elements against the message Schema
 	* EDI validation performed on transaction-set data elements.
 	* Extended validation performed on transaction-set data elements

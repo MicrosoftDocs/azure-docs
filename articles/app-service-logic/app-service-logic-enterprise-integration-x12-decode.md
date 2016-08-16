@@ -18,7 +18,7 @@
 
 # Get started with Decode X12 Message
 
-Validates EDI and partner specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
+Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
 
 ## Create the connection
 
@@ -65,22 +65,21 @@ Validates EDI and partner specific properties, generates XML document for each t
 
 * Validates the envelope against trading partner agreement
 * Generates an XML document for each transaction set.
-* Validates EDI and partner-specific properties. This includes
+* Validates EDI and partner-specific properties
 	* EDI structural validation, and extended schema validation
 	* Validation of the structure of the interchange envelope.
 	* Schema validation of the envelope against the control schema.
 	* Schema validation of the transaction-set data elements against the message schema.
-	* Validation of the types of transaction sets within a single group based on the transaction set -group mapping provided by X12 standards.
-	* EDI validation performed on transaction-set data elements. This is performed if enabled in the agreement properties.
+	* EDI validation performed on transaction-set data elements 
 * Verifies that the interchange, group, and transaction set control numbers are not duplicates, if the checks are enabled in the X12 agreement send settings.
 	* Checks the interchange control number against previously received interchanges.
 	* Checks the group control number against other group control numbers in the interchange.
 	* Checks the transaction set control number against other transaction set control numbers in that group.
-* Converts the entire interchange to XML if the X12 agreement receive settings configured to one of the Preserve Interchange.
-	* Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then X12 Decode suspends only those transaction sets.
-	* Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then X12 Decode suspends the entire interchange.
+* Converts the entire interchange to XML 
+	* Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, X12 Decode suspends only those transaction sets.
+	* Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange.
 	* Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. X12 Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then X12 Decode suspends the entire interchange, 
+	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, X12 Decode suspends the entire interchange, 
 * Generates a Technical and/or Functional acknowledgment (if configured).
 	* A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
 	* A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document

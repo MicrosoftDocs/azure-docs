@@ -18,7 +18,7 @@
 
 # Get started with Encode AS2 Message
 
-Connect to Encode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, encryption and acknowledgements via Message Disposition Notifications (MDN), which also leads to support for Non-Repudiation.
+Connect to Encode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, encryption, and acknowledgements via Message Disposition Notifications (MDN), which also leads to support for Non-Repudiation.
 
 ## Create the connection
 

@@ -18,7 +18,7 @@
 
 # Get started with Decode AS2 Message
 
-Connect to Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, decryption and acknowledgements via Message Disposition Notifications (MDN).
+Connect to Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, decryption, and acknowledgements via Message Disposition Notifications (MDN).
 
 ## Create the connection
 
@@ -26,7 +26,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* * An Itegration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
+* * An Integration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
 
 ### Connect to Decode AS2 Message using the following steps:
 
