@@ -1,21 +1,3 @@
-<properties
-	pageTitle="Azure Insights: Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets | Microsoft Azure"
-	description="Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
-
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="ashwink"/>
-
 # Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
 
 You can scale out and in Virtual Machine Scale Sets (VMSS) based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough will show an example of configuring all of the above using a Resource Manager template on a VM Scale Set.
