@@ -107,31 +107,26 @@ The *Azure Disk Preparation tool* is available within installation directory of 
 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the *copy machine* and *source machine* are different
 
-    On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
+On running the command, the tool requests the selection of the Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
 
-      ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png)
-      
+   ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
+3. Enter the **drive letter** for the mounted disk without the trailing colon, that you wish to prepare for transfer to Azure. Thereafter, provide confirmation for the formatting of the drive when prompted.
 
-3. Enter the **drive letter** for the mounted disk without the trailing colon, that you wish to prepare for transfer to Azure. Thereafter, provide confirmation for the formatting of the drive when prompted
+The tool then begins preparing the disk with the backup-data. You may need to attach additional disks when prompted by the tool, in case the disk provided does not have sufficient space to accommodate the backup data. <br/>
 
-      The tool then begins preparing the disk with the backup-data. You may need to attach additional disks when prompted by the tool, in case the disk provided does not have sufficient space to accommodate the backup data. 
-      
-      At the end of successful execution of the tool, one or more disks you provided are prepared for shipping to Azure and an Import Job by the name you provided during the **Initiate Offline Backup** workflow is created on Azure Classic Portal. Additionally, the tool displays the Shipping Address to the Azure Datacenter where the disks need to be shipped as well as the link to locate the Import Job on Azure Classic Portal. 
-      
-      ![Azure Disk Preparation Complete](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)
-      
-4. Ship the disks to the address provided by the tool and keep the tracking number for future reference
+At the end of successful execution of the tool, one or more disks you provided are prepared for shipping to Azure and an Import Job by the name you provided during the **Initiate Offline Backup** workflow is created on Azure Classic Portal. Additionally, the tool displays the Shipping Address to the Azure Datacenter where the disks need to be shipped as well as the link to locate the Import Job on Azure Classic Portal. 
+
+   ![Azure Disk Preparation Complete](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
+4. Ship the disks to the address provided by the tool and keep the tracking number for future reference.<br/>
 5. On navigating to the link displayed by the tool, you are taken to the **Azure Storage Account** specified during the Offline-backup workflow. Here you are able to see the newly created import job in the **IMPORT/EXPORT** tab of the Storage Account
-      
-      ![Created Import Job](./media/backup-azure-backup-import-export/ImportJobCreated.png)
 
+   ![Created Import Job](./media/backup-azure-backup-import-export/ImportJobCreated.png)<br/>
 6. Click **SHIPPING INFO** at the bottom of the page to update your **Contact Details** as shown below. Microsoft uses this info to ship your disks back to you once the Import Job is complete.
 
-      ![Contact Info](./media/backup-azure-backup-import-export/contactInfoAddition.PNG)
-      
+   ![Contact Info](./media/backup-azure-backup-import-export/contactInfoAddition.PNG)<br/>
 7. Enter the **Shipping details** on the next screen as shown below. Provide the Delivery Carrier and Tracking Number details corresponding to the disks you shipped to the Azure Datacenter
    
-      ![Shipping Info](./media/backup-azure-backup-import-export/shippingInfoAddition.PNG)
+   ![Shipping Info](./media/backup-azure-backup-import-export/shippingInfoAddition.PNG)<br/>
 
 ### Completing the workflow
 Once the Import Job completes, initial backup data is available in your storage account. The Microsoft Azure Recovery Services agent then copies the contents of the data from this account to the Backup Vault or Recovery Services Vault, whichever is applicable. In the next scheduled backup time, the Azure Backup agent performs the incremental backup over the initial backup copy.
