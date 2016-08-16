@@ -84,7 +84,7 @@ The information provided in this section is for completing the **Offline Backup*
 ###Prepare SATA Drive and Create Azure Import Job using *Azure Disk Preparation Tool*
 The *Azure Disk Preparation tool* is available within installation directory of the Microsoft Azure Recovery Services agent (August 2016 update & above) in the following path.
 
-      *\Microsoft Azure Recovery Services Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
 
 1. Navigate to the directory above and copy the **AzureOfflineBackupDiskPrep** directory to a *copy machine* on which the drives to be prepared are mounted. Ensure the following with regards to the *copy machine*
 
@@ -106,7 +106,7 @@ The *Azure Disk Preparation tool* is available within installation directory of 
 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the *copy machine* and *source machine* are different
 
-   On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
+    On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
       ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png)
       
 3. Enter the **drive letter** for the mounted disk without the trailing colon, that you wish to prepare for transfer to Azure. Thereafter, provide confirmation for the formatting of the drive when prompted
@@ -144,7 +144,7 @@ Once the Import Job completes, initial backup data is available in your storage 
 
     *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
     
-    > [AZURE.NOTE] If you have installed the August 2016 update of Azure Backup (or above), ensure that the staging location entered is the same as the one displayed on the **Back Up Now** screen, and contains *AIB* and *Base Blob* files.
+    > [AZURE.NOTE] If you have installed the August 2016 update of Azure Backup (or above), ensure that the *staging location* entered is the same as the one displayed on the **Back Up Now** screen, and contains *AIB* and *Base Blob* files.
 
 | Parameter | Description
 |-------------|-------------|
