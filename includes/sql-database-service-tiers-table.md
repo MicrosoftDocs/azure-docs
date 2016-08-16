@@ -23,7 +23,7 @@
 | Max concurrent workers | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
 | Max concurrent logins | 60 &nbsp;&nbsp;&nbsp; 90 &nbsp;&nbsp;&nbsp; 120 &nbsp;&nbsp;&nbsp; 200 |
 | Max concurrent sessions | 600 &nbsp; 900 &nbsp; 1200 &nbsp; 2400 |
-| Point-in-time-restore | Any point last 7 days |
+| Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
 
 
@@ -38,6 +38,6 @@
 | Max concurrent workers | &nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
 | Max concurrent logins | &nbsp; 200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp; 2400 &nbsp;&nbsp; 6400 |
 | Max concurrent sessions | 2400 &nbsp;4800 &nbsp; 9600 &nbsp;19200 &nbsp;32000 &nbsp;32000 |
-| Point-in-time-restore | Any point last 7 days |
+| Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
 

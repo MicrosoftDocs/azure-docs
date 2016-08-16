@@ -33,7 +33,7 @@
 | Max eDTUs per database | 10, 20, 50, 100 |
 | Min eDTUs per database | 0, 10, 20, 50, 100 |
 | Max storage per database (GB)* | 250 |
-| Point-in-time-restore | Any point last 7 days |
+| Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
 
 
@@ -51,6 +51,6 @@
 | Max eDTUs per database | 125, 250, 500, 1000 |
 | Min eDTUs per database | 0, 125, 250, 500, 1000 |
 | Max storage per database (GB)* | 500 |
-| Point-in-time-restore | Any point last 7 days |
+| Point-in-time-restore | Any point last 35 days |
 | Disaster recovery | Active Geo-Replication |
 
