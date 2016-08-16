@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/16/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -54,7 +54,7 @@ These charts show the amount of data written to StorSimple volumes before the da
 
 When you view the primary storage volume capacity utilization charts for all volumes versus each of the individual volumes and sum up the primary data in both these cases, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
 
-- **Snapshot data included for all volumes**: The primary data shown for all the volumes is the sum of the primary data for each volume and the snapshot data. The primary data shown for a given volume corresponds to only the amount of data allocated on the volume (and does not include the corresponding volume snapshot data).
+- **Snapshot data included for all volumes**: This behavior is seen only if you are running version earlier than Update 3. The primary data shown for all the volumes is the sum of the primary data for each volume and the snapshot data. The primary data shown for a given volume corresponds to only the amount of data allocated on the volume (and does not include the corresponding volume snapshot data).
 
 	This can also be explained by the following equation:
 
@@ -63,6 +63,12 @@ When you view the primary storage volume capacity utilization charts for all vol
 	*where, Primary data (volume i) = Size of primary data allocated to volume i*
  
 	If the snapshots are deleted through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the snapshot deletion. 
+
+    If running Update 3 or later, then the snapshot data is not included in the volume data. And the primary utilization is calculated as follows:
+
+    *Primary data (All volumes) = Sum of (Primary data (volume i)
+    
+    *where, Primary data (volume i) = Size of primary data allocated to volume i*
  
 - **Volumes with monitoring disabled included in all volumes**: If you have volumes on your device for which monitoring is turned off, the monitoring data for these individual volumes will not be available in the charts. However, the data for all volumes in the chart will include the volumes for which monitoring is turned off. 
  
