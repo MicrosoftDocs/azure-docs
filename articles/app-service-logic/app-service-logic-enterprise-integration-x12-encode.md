@@ -26,7 +26,7 @@ Validates EDI and partner specific properties, converts XML-encoded messages int
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [X12 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-x12/)
+* An Integration Account is required to use Encode x12 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-x12.md)
 
 ### Connect to Encode X12 Message using the following steps:
 

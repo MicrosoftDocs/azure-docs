@@ -26,7 +26,7 @@ Validates EDI and partner-specific properties
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [EDIFACT agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-edifact/)
+* An Integration Account is required to use Encode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-edifact.md)
 
 ### Connect to Decode EDIFACT Message using the following steps:
 

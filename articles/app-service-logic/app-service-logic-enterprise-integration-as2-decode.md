@@ -26,7 +26,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Itegration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and an [AS2 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-as2/)
+* * An Itegration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
 
 ### Connect to Decode AS2 Message using the following steps:
 
