@@ -3,7 +3,7 @@
 	description="How to vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
