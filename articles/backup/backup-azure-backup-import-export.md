@@ -24,14 +24,14 @@ The Offline seeding process of Azure Backup is tightly integrated with the [Azur
 
 With Azure Backup’s Offline seeding capability and Azure Import/Export, it is simple and straightforward to upload the data offline to Azure through disks. Instead of transferring the initial full copy over the network, the backup data is written to a *staging location*. Once the initial copy to the *staging location* is completed, using the *Azure Import/Export tool*, this data is written to one or more SATA drives, depending on the size of the initial backup. These drives are eventually shipped to the nearest Azure data center. 
 
-The [August 2016 update of Azure Backup (and above)](http://go.microsoft.com/fwlink/?LinkID=229525&clcid=0x409), ships with an Azure Disk Preparation tool named **AzureOfflineBackupDiskPrep** that:
+The [August 2016 update of Azure Backup (and above)](http://go.microsoft.com/fwlink/?LinkID=229525&clcid=0x409), ships with an *Azure Disk Preparation tool* named **AzureOfflineBackupDiskPrep** that:
 
    - Assists you in preparing your drives for Azure Import with ease, using the Azure Import/Export tool
    - Automatically creates an Azure Import Job for the Azure Import/Export service on [Azure Classic Portal](https://manage.windowsazure.com) as opposed to creating the same manually with older versions of Azure Backup
 
 Once the upload of the backup data to Azure is complete, Azure Backup copies the backup data to the backup vault and the incremental backups are scheduled.
 
-  > [AZURE.NOTE] To use the *Azure Disk Preparation tool*, ensure that you have installed the August 2016 update of Azure Backup (or above), and perform all the steps of the workflow with it. If you are using an older version of Azure Backup, you can prepare the SATA drive using *Azure Import/Export tool* as detailed in later sections of this article.
+  > [AZURE.NOTE] To use the Azure Disk Preparation tool, ensure that you have installed the August 2016 update of Azure Backup (or above), and perform all the steps of the workflow with it. If you are using an older version of Azure Backup, you can prepare the SATA drive using *Azure Import/Export tool* as detailed in later sections of this article.
 
 ## Prerequisites
 
@@ -50,26 +50,22 @@ The information provided in this section is for completing the **Offline Backup*
 
 1. As part of scheduling a backup, you encounter the following screen (in Windows Server, Windows client or SCDPM).
 
-    ![ImportScreen](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png )
+    ![ImportScreen](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     The corresponding screen in SCDPM looks as follows. <br/>
     ![DPM Import screen](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     The description of the inputs is as follows:
 
-    - **Staging Location** - Refers to the temporary storage location to which the initial backup copy is written. This could be on a network share or on the local machine.
-    
-    > [AZURE.NOTE] If the disks are intended to be prepared on a different machine than the one where offline backup is initiated then specifying the full network path of the staging location is recommended 
-    
+    - **Staging Location** - Refers to the temporary storage location to which the initial backup copy is written. This could be on a network share or on the local machine. If the *copy machine* and *source machine* are different, then it is recommended to specify the full network path of the staging location.
     - **Azure Import Job Name** - Refers to the unique name by which Azure Import service and Azure Backup tracks the transfer of data sent using disks to Azure. 
     - **Azure Publish Settings** - XML file that contains information about your subscription profile. It also contains secure credentials associated to your subscription. The file can be downloaded from [here](https://manage.windowsazure.com/publishsettings). Provide the local path to the publish settings file.
     - **Azure Subscription ID** - The Azure subscription id in which you plan to initiate the Azure Import job. If you have multiple Azure subscriptions, use the ID with which you wish to associate the Import Job.
     - **Azure Storage Account** - The “Classic” type storage account in the provided Azure Subscription, that will be associated with the Azure Import job. 
+    - **Azure Storage Container** - The name of the destination storage blob in the Azure Storage Account where this job’s data is imported.
     
     > [AZURE.NOTE] If you have registered your server to a Recovery Services Vault from the [new Azure portal](https://ms.portal.azure.com) for your backups and are not on a Cloud Service Provider (CSP) subscription, you can still create a Classic Storage account from the new Azure portal and use it for the Offline-backup workflow.
     
-    - **Azure Storage Container** - The name of the destination storage blob in the Azure Storage Account where this job’s data is imported.
-
    Save all this information separately as this information needs to reentered in following steps. Only the *staging location* is required if the *Azure Disk Preparation tool* is used to prepare the disks    
    
 2. Complete the workflow and select **Back Up Now** in the Azure Backup management console in order to initiate the offline backup copy. The initial backup is written to the staging area as part of this step.
@@ -85,9 +81,9 @@ The information provided in this section is for completing the **Offline Backup*
     ![Output](./media/backup-azure-backup-import-export/opbackupnow.png)
 
 ###Prepare SATA Drive and Create Azure Import Job using *Azure Disk Preparation Tool*
-The *Azure Disk Preparation tool* is available within installation directory of the Microsoft Azure Recovery Services agent (August 2016 update & above) in the path below.
+The *Azure Disk Preparation tool* is available within installation directory of the Microsoft Azure Recovery Services agent (August 2016 update & above) in the following path.
 
-      <Installation root>\Microsoft Azure Recovery Services Agent\Utils\
+   <Installation root>\Microsoft Azure Recovery Services Agent\Utils\
 
 1. Navigate to the directory above and copy the **AzureOfflineBackupDiskPrep** directory to a *copy machine* on which the drives to be prepared are mounted. Ensure the following with regards to the *copy machine*
 
@@ -99,14 +95,14 @@ The *Azure Disk Preparation tool* is available within installation directory of 
       
    If necessary, the *copy machine* can be the same as the *source machine*.
 
-2.	Open an elevated command prompt on the copy machine with the Azure Disk Preparation tool directory as the current directory and run the following command 
+2. Open an elevated command prompt on the copy machine with the Azure Disk Preparation tool directory as the current directory and run the following command 
 
       *.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]
       
    | Parameter | Description
    |-------------|-------------|
-   |s:<*Staging Location Path*>|Mandatory input, used to provide the Path to the Staging Location entered during Initiation of Offline Backup|
-   |p:<*Path to PublishSettingsFile*>|Optional input, used to provide the path to the Publish Settings File entered during Initiation of Offline Backup|
+   |s:<*Staging Location Path*>| Mandatory input, used to provide the Path to the Staging Location entered during Initiation of Offline Backup|
+   |p:<*Path to PublishSettingsFile*>| Optional input, used to provide the path to the Publish Settings File entered during Initiation of Offline Backup|
 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the copy machine and source machine are different
 
