@@ -29,13 +29,14 @@ Here's a typical email alert:
 
 ## Review your Proactive Detections
 
-From your app's overview blade in Application Insights, select Proactive Detection to see a list of recent alerts. Or click the button in the email.
+You can discover detections in two ways:
+
+* You receive an email from Application Insights. Click the button to see more detail in the portal.
+* The Proactive Detection tile on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
 
 ![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
 
 Select an alert to see its details.
-
-
 
 
 ## What problems are detected?
