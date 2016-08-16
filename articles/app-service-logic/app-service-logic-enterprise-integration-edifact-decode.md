@@ -28,9 +28,9 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 * An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-edifact.md)
 
-###Connect to Decode EDIFACT Message using the following steps:
+### Connect to Decode EDIFACT Message using the following steps:
 
-1. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
+1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example.
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select Decode EDIFACT Message
 
