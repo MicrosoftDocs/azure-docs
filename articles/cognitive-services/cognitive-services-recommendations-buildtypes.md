@@ -35,11 +35,11 @@ If you train the model based on purchases made in your electronics store and pro
 
 The recommendation build has two capabilities that make it attractive:
 
--	The recommendation build supports *cold item* placement.
+**The recommendation build supports *cold item* placement.**
 
-  Items that do not have significant usage are called cold items. For instance, if you receive a shipment of a phone you have never sold before, the system cannot infer recommendations for this product on transactions alone. This means that the system should learn from information about the product itself.
+Items that do not have significant usage are called cold items. For instance, if you receive a shipment of a phone you have never sold before, the system cannot infer recommendations for this product on transactions alone. This means that the system should learn from information about the product itself.
 
-  If you want to use cold item placement, you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
+If you want to use cold item placement, you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
 
   > 6CX-00001, Surface Pro2, Surface,, Type=Hardware, Storage=128 GB,  Memory=4G, Manufacturer=Microsoft
 
@@ -47,7 +47,7 @@ The recommendation build has two capabilities that make it attractive:
 
   > WAH-0F05, Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
 
- You also need to set the following build parameters:
+You also need to set the following build parameters:
 
 | Build parameter	      | Notes
 |------------------     |-----------
@@ -55,13 +55,13 @@ The recommendation build has two capabilities that make it attractive:
 |*allowColdItemPlacement*	| Set to **true**. Indicates if the recommendation should also push cold items via feature similarity.
 | *modelingFeatureList*   | Comma-separated list of feature names to be used in the recommendation build to enhance the recommendation. For instance, “Language,Storage” for the preceding example.
 
--	The recommendation build supports user recommendations.
+**The recommendation build supports user recommendations.**
 
- A recommendation build supports [user recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). This means that it can provide personalized recommendations for users based on their transaction histories. For user recommendations, you might provide the user ID or the recent history of transactions for that user.
+A recommendation build supports [user recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). This means that it can provide personalized recommendations for users based on their transaction histories. For user recommendations, you might provide the user ID or the recent history of transactions for that user.
 
- One classic example of where you might want to apply user recommendations is at sign-in on the welcome page. There you can promote content that applies to the specific user.
+One classic example of where you might want to apply user recommendations is at sign-in on the welcome page. There you can promote content that applies to the specific user.
 
- You might also want to apply a recommendations build type when the user is about to check out. At that point, you have the list of items the user is about to purchase, and you can provide recommendations based on the current market basket.
+You might also want to apply a recommendations build type when the user is about to check out. At that point, you have the list of items the user is about to purchase, and you can provide recommendations based on the current market basket.
 
 #### Recommendations build parameters
 
