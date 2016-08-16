@@ -30,7 +30,7 @@ A scale set uses storage accounts to store the OS disks of the VMs in the set. W
 
 ## Overprovisioning
 
-Starting with the "2016-03-30" API version, VM Scale Sets defaults to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs that spun up last. Overprovisioning improves provisioning success rates because if even one VM does not provision successfully, the entire deployment is considered "Failed" by Azure Resource Manager. You are not billed for these extra VMs, and they do not count toward your quota limits.
+Starting with the "2016-03-30" API version, VM Scale Sets defaults to "overprovisioning" VMs. With overprovisioning turned on, the scale set actually spins up more VMs than you asked for, then deletes the extra VMs that spun up last. Overprovisioning improves provisioning success rates. You are not billed for these extra VMs, and they do not count toward your quota limits.
 
 While overprovisioning does improve provisioning success rates, it can cause confusing behavior for an application that is not designed to handle VMs disappearing unannounced. To turn overprovisioning off, ensure you have the following string in your template: "overprovision": "false". More details can be found in the [VM Scale Set REST API documentation](https://msdn.microsoft.com/library/azure/mt589035.aspx).
 
