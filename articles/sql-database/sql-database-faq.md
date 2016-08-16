@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="05/25/2016"
+   ms.date="08/16/2016"
    ms.author="sashan;carlrab"/>
 
 # SQL Database FAQ
