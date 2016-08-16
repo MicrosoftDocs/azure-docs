@@ -26,7 +26,10 @@ The Enterprise Integration Pack makes it easy to validate and process XML docume
 - [Flat file encoding and flat file decoding](./app-service-logic-enterprise-integration-flatfile.md "Learn about flat file encoding/decoding") - Flat file encoding/decoding provides the ability to encode or decode a flat file. 
 - [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Provides the ability to enrich a message and extract specific properties from the message. The extracted properties can then be used to route the message to a destination or an intermediary endpoint.    
 
+## Try it for yourself
+
+Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) to deploy a fully operational logic app of your own using the XML features of Logic Apps 
+
 ## Learn more
 
 [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-
