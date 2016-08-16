@@ -143,7 +143,7 @@ In the preceding table, *k* represents the number of recommendations shown to th
 You will notice that as more items are shown to the customer, the likelihood of the customer purchasing a recommended item goes up. For the preceding experiment, the probability almost doubles to 26.61 percent when 5 items are recommended.
 
 #### Percentage
-The percentage of users that interacted with at least one of the *k* recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation over the total number of users considered. See Users considered for more information.
+The percentage of users that interacted with at least one of the *k* recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation by the total number of users considered. See Users considered for more information.
 
 #### Users in test
 The total number of users in the test dataset.
