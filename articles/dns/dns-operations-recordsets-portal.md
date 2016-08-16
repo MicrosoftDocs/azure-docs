@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Manage DNS records and record sets by using the Azure portal
@@ -61,7 +61,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 3. In the corner, you will see that the record is saving.
 
-	![Saving  record set](./media/dns-operations-recordsets-portal/saving150.png)
+	![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
 
 After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
 
