@@ -86,7 +86,7 @@ The process to configure and work with a staging deployment looks generally like
 
 When you have existing functions that you have created and maintained in the portal, you need to download your existing function code files using FTP or the local Git repository before you can set-up continuous deployment as described above. You can do this in the App Service settings for your function app. After your files are downloaded, you can upload them to your chosen continuous deployment source.
 
->[AZURE.NOTE]After you configure continuous integration, you will no longer be able to edit your source files in the portal.
+>[AZURE.NOTE]After you configure continuous integration, you will no longer be able to edit your source files in the Functions portal.
 
 ####How to: Configure deployment credentials
 Before you can download files from your function app, you must configure your credentials to access the site, which you can do from the portal. Credentials are set at the Function app level.
@@ -101,13 +101,30 @@ Before you can download files from your function app, you must configure your cr
 
 1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Go to App Service settings** > **Properties** and copy the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**.  
 **FTP/Deployment User** must be entered as displayed in the portal, including the app name in order to provide proper context for the FTP server.
+
+	![Get your deployment information](./media/functions-continuous-deployment/get-deployment-credentials.png)
     
 2. From your FTP client, use the connection information you gathered to connect to your app and download the source files for your functions.
 
-####How to: download files using the built-in Git repo
+####How to: download files using the local Git repository
 
-###Deploy custom NuGet packages
+1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Configure continuous integration** > **Setup**.
 
+2. In the Deployments blade, click **Choose source**, **Local Git repository**, then click **OK**.
+ 
+3. Click **Go to App Service settings** > **Properties** and note the value of Git URL. 
+    
+	![Setup continuous deployment](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
+
+4. Clone the repo on your local machine using a Git-aware command line or your favorite Git tool. The Git clone command looks like the following:
+
+		git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
+
+5. Fetch files from your function app to the clone on your local computer, as in the following example:
+
+		git pull origin master
+
+	If requested, supply the username and password for your function app deployment.  
 
 ##Next steps
 
