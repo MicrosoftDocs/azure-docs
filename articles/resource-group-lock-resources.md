@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
@@ -35,21 +35,7 @@ To create or delete management locks, you must have access to **Microsoft.Author
 
 ## Creating a lock through the portal
 
-1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
-
-      ![select lock](./media/resource-group-lock-resources/select-lock.png)
-
-2. To add a lock, select **Add**. If you want to instead create a lock at a parent level which will be inherited by the currently selected resource, select the parent (such as subscription shown below).
-
-      ![add lock](./media/resource-group-lock-resources/add-lock.png) 
-
-3. Give the lock a name and lock level. Optionally, you can add notes that describe why the lock is needed.
-
-      ![set lock](./media/resource-group-lock-resources/set-lock.png) 
-
-4. To delete the lock, select the ellipsis and **Delete** from the available options.
-
-      ![delete lock](./media/resource-group-lock-resources/delete-lock.png) 
+[AZURE.INCLUDE [resource-manager-lock-resources](../includes/resource-manager-lock-resources.md)]
 
 ## Creating a lock in a template
 
