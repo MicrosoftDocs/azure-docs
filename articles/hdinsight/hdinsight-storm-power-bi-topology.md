@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/27/2016"
+ ms.date="08/16/2016"
  ms.author="larryfr"/>
 
 # Use Power BI to visualize data from an Apache Storm topology
