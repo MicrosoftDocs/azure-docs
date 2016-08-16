@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 #Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
@@ -65,7 +65,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 3. Enter the following statement.
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 
 	This command loads the contents of the sample.log file into LOGS. You can view the contents of the file by using the following.
 
@@ -99,7 +99,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following saves the `RESULT` to the **/example/data/pigout** directory on the default storage container for your cluster.
 
-		STORE RESULT into 'wasb:///example/data/pigout';
+		STORE RESULT into 'wasbs:///example/data/pigout';
 
 	> [AZURE.NOTE] The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error.
 
@@ -117,7 +117,7 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 4. Type or paste the following lines, and then use Ctrl+D when finished.
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LOGS = LOAD 'wasbs:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
 		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

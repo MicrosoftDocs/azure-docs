@@ -3,8 +3,8 @@
 	description="Learn how to download and install the Azure SDK for PHP."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 #Download the Azure SDK for PHP
 
@@ -31,11 +31,11 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> [AZURE.NOTE] You must have PHP 5.3 or higher to use the PHP client libraries for Azure.
+> [AZURE.NOTE] You must have PHP 5.5 or higher to use the PHP client libraries for Azure.
 
 ##PHP client libraries for Azure
 
-The PHP Client Libraries for Azure provide an interface for accessing Azure features, such as data management services and cloud services, from any operating system. These libraries can be installed via the Composer or PEAR package managers or manually.
+The PHP Client Libraries for Azure provide an interface for accessing Azure features, such as data management services and cloud services, from any operating system. These libraries can be installed via the Composer.
 
 For information about how to use the PHP Client Libraries for Azure, see [How to Use the Blob Service][blob-service], [How to Use the Table Service][table-service] and [How to Use the Queue Service][queue-service].
 
@@ -49,18 +49,9 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
         {
-            "repositories": [
-                {
-                    "type": "pear",
-                    "url": "http://pear.php.net"
-                }
-            ],
-            "require": {
-                "pear-pear.php.net/mail_mime" : "*",
-                "pear-pear.php.net/http_request2" : "*",
-                "pear-pear.php.net/mail_mimedecode" : "*",
-                "microsoft/windowsazure": "*"
-            }
+			"require": {
+				"microsoft/windowsazure": "^0.4"
+			}
         }
 
 3. Download **[composer.phar][composer-phar]** in your project root.
@@ -68,30 +59,6 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 4. Open a command prompt and execute this in your project root
 
 		php composer.phar install
-
-###Install as a PEAR package
-
-To install the PHP Client Libraries for Azure as a PEAR package, follow these steps:
-
-1. [Install PEAR][install-pear].
-2. Set-up the Azure PEAR channel:
-
-		pear channel-discover pear.windowsazure.com
-3. Install the PEAR package:
-
-		pear install pear.windowsazure.com/WindowsAzure-0.4.1
-
-After the installation completes, you can reference class libraries from your application.
-
-###Install manually
-
-To download and install the PHP Client Libraries for Azure manually, follow these steps:
-
-1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
-
-	> [AZURE.NOTE] The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
-
-2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application.
 
 ##Azure PowerShell and Azure Emulators
 
@@ -113,11 +80,6 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
 [composer-phar]: http://getcomposer.org/composer.phar
-[pear-net]: http://pear.php.net/
-[http-request2-package]: http://pear.php.net/package/HTTP_Request2
-[mail-mimedecode-package]: http://pear.php.net/package/Mail_mimeDecode
-[mail-mime-package]: http://pear.php.net/package/Mail_mime
-[install-pear]: http://pear.php.net/manual/en/installation.getting.php
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 [download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Hadoop Streaming Activity
@@ -191,3 +191,11 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
 	        "end": "2014-01-05T00:00:00Z"
 	    }
 	}
+
+## See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [Pig Activity](data-factory-pig-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Invoke Spark programs](data-factory-spark.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+

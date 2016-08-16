@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*

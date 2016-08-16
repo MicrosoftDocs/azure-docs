@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="07/25/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- `moreLikeThis` query parameter in [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
+- `moreLikeThis` query parameter in the [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
 
 A few additional parts of the `2015-02-28-Preview` REST API are documented separately. These include:
 
@@ -52,6 +52,10 @@ Azure Search service API supports two URL syntaxes for API operations: simple an
 [Get Index Statistics](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Test Analyzer](#TestAnalyzer)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Delete an Index](#DeleteIndex)
 
@@ -169,6 +173,7 @@ The main parts of an index include the following:
 - `fields` that will be fed into this index, including name, data type, and properties that define allowable actions on that field.
 - `suggesters` used for auto-complete or type-ahead queries.
 - `scoringProfiles` used for custom search score ranking. See [Add scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` used to define how your documents/queries are broken into indexable/searchable tokens. See [Analysis in Azure Search](https://aka.ms//azsanalysis) for details.
 - `defaultScoringProfile` used to overwrite the default scoring behaviors.
 - `corsOptions` to allow cross-origin queries against your index.
 
@@ -234,6 +239,10 @@ The syntax for structuring the request payload is as follows. A sample request i
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -262,8 +271,6 @@ The following attributes can be set when creating an index. For details about sc
   - **Note**: Fields of type `Edm.String` that are `filterable`, `sortable`, or `facetable` can be at most 32KB in length. This is because such fields are treated as a single search term, and the maximum length of a term in Azure Search is 32KB. If you need to store more text than this in a single string field, you will need to explicitly set `filterable`, `sortable`, and `facetable` to `false` in your index definition.
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`,  or`facetable`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
-
-`suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it, see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
 
 `key` - Marks the field as containing unique identifiers for documents within the index. Exactly one field must be chosen as the `key` field and it must be of type `Edm.String`. Key fields can be used to look up documents directly via the [Lookup API](#LookupAPI).
 
@@ -810,6 +817,10 @@ The schema syntax used to create an index is reproduced here for convenience. Se
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -823,6 +834,14 @@ The schema syntax used to create an index is reproduced here for convenience. Se
 For a successful request: "204 No Content".
 
 By default the response body will be empty. However, if the `Prefer` request header is set to `return=representation`, the response body will contain the JSON for the index definition that was updated. In this case, the success status code will be "200 OK".
+
+**Updating index definition with custom analyzers**
+
+Once an analyzer, a tokenizer, a token filter or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request: 
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes.
 
 <a name="ListIndexes"></a>
 ## List Indexes
@@ -963,6 +982,8 @@ The **Get Index Statistics** operation returns from Azure Search a document coun
 	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
+> [AZURE.NOTE] Statistics on document count and storage size are collected every few minutes, not in real time. Therefore, the statistics returned by this API may not reflect changes caused by recent indexing operations.
+
 **Request**
 
 HTTPS is required for all services requests. The **Get Index Statistics** request can be constructed using the GET method.
@@ -993,6 +1014,100 @@ The response body is in the following format:
     {
       "documentCount": number,
 	  "storageSize": number (size of the index in bytes)
+    }
+
+<a name="TestAnalyzer"></a>
+## Test Analyzer
+
+The **Analyze API** shows how an analyzer breaks text into tokens.
+
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+
+**Request**
+
+HTTPS is required for all services requests. The **Analyze API** request can be constructed using the POST method.
+
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
+
+
+**Request Headers**
+
+The following list describes the required and optional request headers.
+
+- `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Analyze API** request must include an `api-key` set to an admin key (as opposed to a query key).
+
+You will also need the index name and the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+
+**Request Body**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "analyzer_name"
+    }
+
+or
+
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
+
+The `analyzer_name`, `tokenizer_name`, `token_filter_name` and `char_filter_name` need to be valid names of predefined or custom analyzers, tokenizers, token filters and char filters for the index. To learn more about the process of lexical analysis see [Analysis in Azure Search](https://aka.ms/azsanalysis).
+
+**Response**
+
+Status Code: 200 OK is returned for a successful response.
+
+The response body is in the following format:
+
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
+
+**Analyze API example**
+
+**Request**
+
+    {
+      "text": "Text to analyze",
+      "analyzer": "standard"
+    }
+
+**Response**
+
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
     }
 
 ________________________________________
@@ -1062,35 +1177,112 @@ The body of the request contains one or more documents to be indexed. Documents 
 
 **Response**
 
-Status code: 200 OK is returned for a successful response, meaning that all items have been successfully indexed (as indicated by the 'status' field set to true for all items):
+Status code 200 (OK) is returned for a successful response, meaning that all items have been successfully indexed. This is indicated by the `status` property being set to true for all items, as well as the `statusCode` property being set to either 201 (for newly uploaded documents) or 200 (for merged or deleted documents):
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-Status code: 207 is returned when at least one item was not successfully indexed (as indicated by the 'status' field set to false for items that have not been indexed):
+Status code 207 (Multi-Status) is returned when at least one item was not successfully indexed. Items that have not been indexed have the `status` field set to false. The `errorMessage` and `statusCode` properties will indicate the reason for the indexing error:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-The `errorMessage` property will indicate the reason for the indexing error if possible.
+The following table explains the various per-document status codes that can be returned in the response. Note that some indicate problems with the request itself, while others indicate temporary error conditions. The latter you should retry after a delay.
 
-**Note**: If your client code frequently encounters a 207 response, one possible reason is that the system is under load. You can confirm this by checking the `errorMessage` property. If this is the case, we recommend ***throttling indexing requests***. Otherwise, if indexing traffic doesn't subside, the system could start rejecting all requests with 503 errors.
+<table style="font-size:12">
+    <tr>
+		<th>Status code</th>
+		<th>Meaning</th>
+		<th>Retryable</th>
+		<th>Notes</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>Document was successfully modified or deleted.</td>
+		<td>n/a</td>
+		<td>Delete operations are <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. That is, even if a document key does not exist in the index, attempting a delete operation with that key will result in a 200 status code.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>Document was successfully created.</td>
+		<td>n/a</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>There was an error in the document that prevented it from being indexed.</td>
+		<td>No</td>
+		<td>The error message in the response will indicate what is wrong with the document.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>The document could not be merged because the given key doesn't exist in the index.</td>
+		<td>No</td>
+		<td>This error does not occur for uploads since they create new documents, and it does not occur for deletes because they are <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>A version conflict was detected when attempting to index a document.</td>
+		<td>Yes</td>
+		<td>This can happen when you're trying to index the same document more than once concurrently.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>The index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'.</td>
+		<td>Yes</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>Your search service is temporarily unavailable, possibly due to heavy load.</td>
+		<td>Yes</td>
+		<td>Your code should wait before retrying in this case or you risk prolonging the service unavailability.</td>
+	</tr>
+</table> 
 
-Status code: 429 indicates that you have exceeded your quota on the number of documents per index. You must either create a new index or upgrade for higher capacity limits.
+**Note**: If your client code frequently encounters a 207 response, one possible reason is that the system is under load. You can confirm this by checking the `statusCode` property for 503. If this is the case, we recommend ***throttling indexing requests***. Otherwise, if indexing traffic doesn't subside, the system could start rejecting all requests with 503 errors.
+
+Status code 429 indicates that you have exceeded your quota on the number of documents per index. You must either create a new index or upgrade for higher capacity limits.
 
 **Example:**
 
@@ -1252,9 +1444,13 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 `scoringProfile=[string]` (optional) - The name of a scoring profile to evaluate match scores for matching documents in order to sort the results.
 
-`scoringParameter=[string]` (zero or more) - Indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zero or more) - Indicates the values for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format `name-value1,value2,...`.
 
-> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `scoringParameters` instead of `scoringParameter`. Also, you specify it as a JSON array of strings where each string is a separate name:value pair.
+- For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be `&scoringParameter=mylocation--122.2,44.8`. The first dash separates the name from the value list, while the second dash is part of the first value (longitude in this example).
+- For scoring parameters such as for tag boosting that can contain commas, you can escape any such values in the list using single quotes. If the values themselves contain single quotes, you can escape them by doubling.
+  - For example, if you have a tag boosting parameter called "mytag" and you want to boost on the tag values "Hello, O'Brien" and "Smith", the query string option would be `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Note that quotes are only required for values that contain commas.
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `scoringParameters` instead of `scoringParameter`. Also, you specify it as a JSON array of strings where each string is a separate `name-values` pair.
 
 `minimumCoverage` (optional, defaults to 100) - a number between 0 and 100 indicating the percentage of the index that must be covered by a search query in order for the query to be reported as a success. By default, the entire index must be available or `Search` will return HTTP status code 503. If you set `minimumCoverage` and `Search` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
 
@@ -1370,7 +1566,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
@@ -1415,7 +1611,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
@@ -1426,7 +1622,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 Note that you can only query one index at a time. Do not create multiple indexes for each language unless you plan to query one at a time.
@@ -1463,7 +1659,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10)  Retrieve documents matching a specific filter expression
@@ -1495,19 +1691,19 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Find documents in the index using [simple query syntax](https://msdn.microsoft.com/library/dn798920.aspx). This query returns hotels where searchable fields contain the terms "comfort" and "location" but not "motel":

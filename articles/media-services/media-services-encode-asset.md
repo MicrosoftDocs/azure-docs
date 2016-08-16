@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/25/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -160,7 +160,7 @@ MP3 (MPEG-1 Audio Layer 3)|Yes|Yes
 Windows Media Audio|Yes|Yes
 WAV/PCM|Yes|Yes
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Yes|No
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Yes|No
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |Yes|No
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Yes|No
 
 
@@ -221,7 +221,7 @@ ErrorCancelingTask|Category of errors to cover failures when attempting to cance
 TransientError|Category of errors to cover transient issues (eg. temporary networking issues with Azure Storage)
 
 
-To get help from the **Media Services** team, open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To get help from the **Media Services** team, open a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 

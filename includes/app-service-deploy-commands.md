@@ -5,4 +5,4 @@ see:
 - [Using Azure PowerShell with Azure Resource Manager](../articles/powershell-azure-resource-manager.md)
 - [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/xplat-cli-azure-resource-manager.md).
 
-The examples below assume you already have a resource group in your account with the specified name. 
+The following examples assume you already have a resource group in your account with the specified name. 

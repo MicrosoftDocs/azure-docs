@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Service Bus architecture | Microsoft Azure"
-   description="Describes the message processing architecture of Azure Service Bus."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Service Bus architecture | Microsoft Azure"
+    description="Describes the message and relay processing architecture of Azure Service Bus."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="07/11/2016"
+    ms.author="sethm" />
 
 # Service Bus architecture
 
-This article describes the message processing architecture of Azure Service Bus.
+This article describes the message and relay processing architecture of Azure Service Bus.
 
 ## Service Bus scale units
 
@@ -29,13 +29,9 @@ A Service Bus namespace is mapped to a scale unit. The scale unit handles all t
 
 - **A set of messaging broker nodes.** Messaging broker nodes process requests concerning messaging entities.
 
-- **A set of notification nodes.** Notification nodes send push notifications to all registered devices.
-
 - **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
 
-- **Many messaging stores.** The messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
-
-- **Multiple registration stores.** The registration stores contain device registrations for all notification hubs that are defined in this scale unit. The registration stores are implemented on top of SQL Azure databases.
+- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
 
 ## Containers
 
@@ -55,15 +51,9 @@ When the relay connection is established, the clients can exchange messages via 
 
 ![Processing of Incoming Relay Requests](./media/service-bus-architecture/IC690645.png)
 
-## Processing of incoming notification hub requests
-
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. If the request is a device registration for an existing notification hub, the gateway node writes the registration to the registration store and sends a reply to the calling device. If the request is a notification message, the gateway node enqueues the message into a notification queue. One of the notification nodes dequeues the message from the notification queue and sends the message to all devices that are registered in the registration store. If a message is to be received by a large number of devices, multiple notification nodes participate in sending the messages to the devices.
-
-![Processing of Incoming Notification Hub Requests](./media/service-bus-architecture/IC690646.png)
-
 ## Next steps
 
-Now that you've read an overview of how Service Bus works, to get started visit the following links:
+Now that you've read an overview of Service Bus architecture, to get started visit the following links:
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)

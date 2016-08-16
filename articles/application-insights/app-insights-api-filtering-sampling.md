@@ -3,7 +3,7 @@
 	description="Write plug-ins for the SDK to filter, sample or add properties to the data before the telemetry is sent to the Application Insights portal." 
 	services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
+	authors="beckylino" 
 	manager="douge"/>
  
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
-	ms.author="awills"/>
+	ms.date="05/19/2016" 
+	ms.author="borooji"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
 
@@ -30,13 +30,10 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
-* Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
+* Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app. 
 
 
 ## Sampling
-
-*This feature is in beta.*
 
 [Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
@@ -47,6 +44,8 @@ Before you start:
 ### To enable ingestion sampling
 
 From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
+
+Ingestion doesn't operate if the SDK is performing fixed or adaptive sampling. While the sampling rate at the SDK is less than 100%, the ingestion sampling setting is ignored.
 
 ### To enable adaptive sampling
 
@@ -77,7 +76,8 @@ To get fixed-rate sampling on the data from web pages, put an extra line in the 
 
 [Learn more about sampling](app-insights-sampling.md).
 
-## Filtering
+<a name="filtering"></a>
+## Filtering: ITelemetryProcessor
 
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
 
@@ -89,7 +89,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 ### Create a telemetry processor
 
-1. Update the Application Insights SDK to the latest version (2.0.0-beta2 or later). Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web.
+1. Verify that the Application Insights SDK in your project is  version 2.0.0 or later. Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
 
 1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer and telemetry channel. 
 
@@ -237,8 +237,13 @@ public void Process(ITelemetry item)
 
 ```
 
+#### Diagnose dependency issues
 
-## Add properties
+[This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
+
+
+<a name="add-properties"></a>
+## Add properties: ITelemetryInitializer
 
 Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
 
@@ -365,6 +370,15 @@ For a summary of the non-custom properties available on the telemetryItem, see t
 
 You can add as many initializers as you like. 
 
+
+## ITelemetryProcessor and ITelemetryInitializer
+
+What's the difference between telemetry processors and telemetry initializers?
+
+* There are some overlaps in what you can do with them: both can be used to add properties to telemetry.
+* TelemetryInitializers always run before TelemetryProcessors.
+* TelemetryProcessors allow you to completely replace or discard a telemetry item.
+* TelemetryProcessors don't process performance counter telemetry.
 
 ## Reference docs
 

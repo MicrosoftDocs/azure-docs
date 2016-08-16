@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="06/16/2016"
 	ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Xamarin.Android Apps
@@ -25,7 +25,7 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 
 This tutorial requires the following:
 
-+ [Xamarin Studio](http://xamarin.com/studio) [You can also use Visual Studio with Xamarin extension but this tutorial uses Xamarin Studio for instructions]
++ [Xamarin Studio](http://xamarin.com/studio). You can also use Visual Studio with Xamarin but this tutorial uses Xamarin Studio. For installation instructions, see [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 + [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
@@ -109,6 +109,20 @@ Xamarin Studio will create the app in which we will integrate Mobile Engagement.
 In order to start sending data and ensuring the users are active, you must send at least one screen to the Mobile Engagement backend. For doing this - ensure that the `MainActivity` inherits from `EngagementActivity` instead of `Activity`.
 
 	public class MainActivity : EngagementActivity
+	
+Alternatively, if you cannot inherit from `EngagementActivity` then you must add `.StartActivity` and `.EndActivity` methods in `OnResume` and `OnPause` respectively.  
+
+		protected override void OnResume()
+	        {
+	            EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+	            base.OnResume();             
+	        }
+	
+	        protected override void OnPause()
+	        {
+	            EngagementAgent.EndActivity();
+	            base.OnPause();            
+	        }
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 

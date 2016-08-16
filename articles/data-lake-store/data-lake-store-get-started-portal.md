@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/06/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using the Azure Portal
@@ -23,6 +23,7 @@
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
@@ -43,6 +44,13 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 3. In the **New Data Lake Store** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
 
 	![Sign up for Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
+
+## Do you learn fast with videos?
+
+Watch the following videos to get started with Data Lake Store.
+
+* [Create a Data Lake Store account](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Create an Azure Data Lake Store account
 
@@ -128,3 +136,4 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)

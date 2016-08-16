@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/18/2016" 
 	ms.author="naziml"/>	
 
 # Configuring a Web Application Firewall (WAF) for App Service Environment
@@ -78,7 +78,7 @@ To forward the Traffic Manager pings from your WAF to your application, you need
 
 ![Website Translations][WebsiteTranslations]
 
-## Securing Traffic to App Service Environment Using Network Resource Groups##
+## Securing Traffic to App Service Environment Using Network Security Groups (NSG)##
 Follow the [Control Inbound Traffic documentation](app-service-app-service-environment-control-inbound-traffic.md) for details on restricting traffic to your App Service Environment from the WAF only by using the VIP address of your Cloud Service. Here's a sample Powershell command for performing this task for TCP port 80.
 
 

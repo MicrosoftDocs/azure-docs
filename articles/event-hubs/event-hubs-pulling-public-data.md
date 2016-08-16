@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Pulling public data into Azure Event Hubs | Microsoft Azure"
-   description="Overview of the Event Hubs import from web sample"
-   services="event-hubs"
-   documentationCenter="na"
-   authors="spyrossak"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Pulling public data into Azure Event Hubs | Microsoft Azure"
+    description="Overview of the Event Hubs import from web sample"
+    services="event-hubs"
+    documentationCenter="na"
+    authors="spyrossak"
+    manager="timlt"
+    editor=""/>
 
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/05/2016"
-   ms.author="spyros;sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/31/2016"
+    ms.author="spyros;sethm" />
 
 # Pulling public data into Azure Event Hubs
 

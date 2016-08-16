@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="07/27/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using cURL and the Azure REST API
@@ -36,7 +36,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 - __Azure CLI__. The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API.
 
-    For information on installing the CLI, see [Install the Azure CLI](../xplat-cli-install.md).
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - __cURL__. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -44,7 +44,7 @@ The Azure REST API allows you to perform management operations on services hoste
     > 
     > To remove this alias, use the following from the PowerShell prompt:
     >
-    > ```Remove-item alias:curl`
+    > `Remove-item alias:curl`
     >
     > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
 
@@ -66,7 +66,7 @@ Templates are usually provided in two parts; the template itself, and a paramete
         }
     }
 
-For example, the following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+For example, the following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
 
     {
         "properties": {
@@ -262,54 +262,117 @@ This example will be used in the steps in this document. You must replace the pl
 
 ##Login to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the `azure login` command.
 
 ##Create a service principal
 
-> [AZURE.IMPORTANT] When following the steps in the article linked below, you must make the following change:
-> 
-> * When the steps say to use a value of __reader__, you must instead use __owner__. This will create a service principal that can make changes to services on your subscription, which is required for the creation of an HDInsight cluster.
->
-> You must also save the following information used in this process:
-> 
-> * Subscription ID - received when using `azure account list`
-> * Tenant ID - received when using `azure account list`
-> * Application ID - returned when creating the service principal
-> * Password for the service principal - used when creating the service principal
+> [AZURE.NOTE] These steps are an abridged version of the information provided in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
 
-Follow the steps in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) document. This will create a new service principal that can be used to authenticate the cluster creation request.
+1. From the command prompt, terminal session, or shell, use the following command to list your Azure subscriptions.
+
+        azure account list
+        
+    In the list, select the subscription that you want to use and note the __Id__ column. This is the __subscription ID__ and will be used in most of the steps in this document.
+
+2. Create a new application in Azure Active Directory.
+
+        azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
+        
+    Replace the values for the `--name`, `--home-page`, and `--identifier-uris` with your own values. Provide a password for the new Active Directory entry.
+    
+    > [AZURE.NOTE] Since you are creating this application for authentication through a service principal, the `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet; they just need to be unique URIs.
+    
+    From the data returned, save the __AppId__ value.
+    
+        data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
+        data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
+        data:    DisplayName:    exampleapp
+        ...
+        info:    ad app create command OK
+    
+3. Create a service principal using the __AppId__ value returned previously.
+
+        azure ad sp create 4fd39843-c338-417d-b549-a545f584a745
+        
+     From the data returned, save the __Object Id__ value.
+     
+        info:    Executing command ad sp create
+        - Creating service principal for application 4fd39843-c338-417d-b549-a545f584a74+
+        data:    Object Id:        7dbc8265-51ed-4038-8e13-31948c7f4ce7
+        data:    Display Name:     exampleapp
+        data:    Service Principal Names:
+        data:                      4fd39843-c338-417d-b549-a545f584a745
+        data:                      https://www.contoso.org/example
+        info:    ad sp create command OK
+        
+4. Assign the __Owner__ role to the service principal using the __Object ID__ value returned previously. You must also use the __subscription ID__ you obtained earlier.
+    
+        azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
+        
+    Once this command completes, the service principal now has Owner access to the specified subscription ID.
 
 ##Get an authentication token
 
-Use the following to get a new token from Azure. Replace __TENANTID__, __APPLICATIONID__, and __PASSWORD__ with the information save while creating a service principal:
+1. Use the following to find the __Tenant ID__ for your subscription.
 
-    curl -X "POST" "https://login.microsoftonline.com/TENANTID/oauth2/token" \
-    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=APPLICATIONID" \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=PASSWORD" \
-    --data-urlencode "resource=https://management.azure.com/"
+        azure account show -s <subscription ID>
+        
+    From the data returned, find the __Tenant ID__.
+    
+        info:    Executing command account show
+        data:    Name                        : MyAzureAccount
+        data:    ID                          : 45a1014d-0f27-25d2-b838-b8f373d6d52e
+        data:    State                       : Enabled
+        data:    Tenant ID                   : 22f988bf-56f1-41af-91ab-3d7cd011db47
+        data:    Is Default                  : true
+        data:    Environment                 : AzureCloud
+        data:    Has Certificate             : No
+        data:    Has Access Token            : Yes
+        data:    User name                   : myname@contoso.org
+        data:    
+        info:    account show command OK
 
-If this request is successful, you will receive a 200 series response and the response body will contain a JSON document.
+2. Generate a new token using the Azure REST API.
 
-> [AZURE.IMPORTANT] The JSON document returned by this request will contain an element named __access_token__; the value of this element is the access token you must use to authentication the requests used in the next sections of this document.
+        curl -X "POST" "https://login.microsoftonline.com/TenantID/oauth2/token" \
+        -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        --data-urlencode "client_id=AppID" \
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_secret=password" \
+        --data-urlencode "resource=https://management.azure.com/"
+    
+    Replace __TenantID__, __AppID__, and __password__ with the values obtained or used previously.
+
+    If this request is successful, you will receive a 200 series response and the response body will contain a JSON document.
+
+    The JSON document returned by this request will contain an element named __access_token__; the value of this element is the access token you must use to authentication the requests used in the next sections of this document.
+    
+        {
+            "token_type":"Bearer",
+            "expires_in":"3599",
+            "expires_on":"1463409994",
+            "not_before":"1463406094",
+            "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
+        }
 
 ##Create a resource group
 
 Use the following to create a new resource group. You must create the group first before you can create the resources such as the HDInsight cluster. 
 
-* Replace __SUBSCRIPTIONID__ with the subscription ID received while creating the service principal.
-* Replace __ACCESSTOKEN__ with the access token received in the previous step.
-* Replace __DATACENTERLOCATION__ with the data center you wish to create the resource group, and resources, in. For example, 'South Central US'. 
-* Replace __GROUPNAME__ with the name you wish to use for this group:
+* Replace __SubscriptionID__ with the subscription ID received while creating the service principal.
+* Replace __AccessToken__ with the access token received in the previous step.
+* Replace __DataCenterLocation__ with the data center you wish to create the resource group, and resources, in. For example, 'South Central US'. 
+* Replace __ResourceGroupName__ with the name you wish to use for this group:
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME?api-version=2015-01-01" \
-        -H "Authorization: Bearer ACCESSTOKEN" \
-        -H "Content-Type: application/json" \
-        -d $'{
-    "location": "DATACENTERLOCATION"
-    }’
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DataCenterLocation"
+}'
+```
 
 If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the group. The `"provisioningState"` element will contain a value of `"Succeeded"`.
 
@@ -317,18 +380,20 @@ If this request is successful, you will receive a 200 series response and the re
 
 Use the following to deploy the cluster configuration (template and parameter values,) to the resource group.
 
-* Replace __SUBSCRIPTIONID__ and __ACCESSTOKEN__ with the values used previously. 
-* Replace __GROUPNAME__ with the resource group name you created in the previous section.
-* Replace __DEPLOYMENTNAME__ with the name you wish to use for this deployment.
+* Replace __SubscriptionID__ and __AccessToken__ with the values used previously. 
+* Replace __ResourceGroupName__ with the resource group name you created in the previous section.
+* Replace __DeploymentName__ with the name you wish to use for this deployment.
 
-    curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \
-    -H "Authorization: Bearer ACCESSTOKEN" \
-    -H "Content-Type: application/json" \
-    -d "{set your body string to the template and parameters}"
+```
+curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
-> [AZURE.NOTE] If you have saved the JSON document containing the template and parameters to a file, you can use the following instead of `-d "{ template and parameters}"':
+> [AZURE.NOTE] If you have saved the JSON document containing the template and parameters to a file, you can use the following instead of `-d "{ template and parameters}"`:
 >
-> ```--data-binary "@/path/to/file.json"```
+> `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the deployment operation.
 
@@ -338,12 +403,14 @@ If this request is successful, you will receive a 200 series response and the re
 
 To check the status of the deployment, use the following:
 
-* Replace __SUBSCRIPTIONID__ and __ACCESSTOKEN__ with the values used previously. 
-* Replace __GROUPNAME__ with the resource group name you created in the previous section.
+* Replace __SubscriptionID__ and __AccessToken__ with the values used previously. 
+* Replace __ResourceGroupName__ with the resource group name you created in the previous section.
 
-    curl -X "GET" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \
-    -H "Authorization: Bearer ACCESSTOKEN" \
-    -H "Content-Type: application/json"
+```
+curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json"
+```
 
 This will return information a JSON document containing information about the deployment operation. The `"provisioningState"` element will contain the status of the deployment; if this contains a value of `"Succeeded"`, then the deployment has completed successfully. At this point, your cluster should be available for use.
 

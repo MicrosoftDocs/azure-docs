@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a VM running MySQL | Microsoft Azure"
-	description="Create an Azure virtual machine created with the classic deployment model running Windows Server 2012 R2, and then install and configure the MySQL database on it."
+	description="Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,29 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="07/25/2016"
 	ms.author="cynthn"/>
 
 
 # Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2012 R2
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. This tutorial shows you how to install and run the community version of MySQL 5.6.23 as a MySQL Server on a virtual machine running Windows Server 2012 R2. For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure classic portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
+## Create a virtual machine running Windows Server 2012 R2
 
-For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
-
-This tutorial shows you how to:
-
-- Use the Azure classic portal to create a virtual machine running Windows Server 2012 R2.
-
-- Install and run the community version of MySQL 5.6.23 as a MySQL Server on the virtual machine.
-
-
-## Create a virtual machine running Windows Server
-
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+If you don't already have a VM running Windows Server 2012 R2, you can use this [tutorial](virtual-machines-windows-classic-tutorial.md) to create the virtual machine. 
 
 ## Attach a data disk
 
@@ -46,9 +36,7 @@ See [How to attach a data disk to a Windows virtual machine](virtual-machines-wi
 
 ## Log on to the virtual machine
 
-Next, you'll log on to the virtual machine so you can install MySQL.
-
-[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon.md) so you can install MySQL.
 
 ##Install and run MySQL Community Server on the virtual machine
 
@@ -134,6 +122,6 @@ To test your remote connection to the MySQL Server service running on the Azure 
 		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-## Additional resources
+## Next steps
 
-For information on MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
+To learn more about running MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).

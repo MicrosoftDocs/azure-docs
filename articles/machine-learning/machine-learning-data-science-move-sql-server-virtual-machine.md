@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
-	ms.author="fashah;mohabib;bradsev" /> 
+	ms.date="06/14/2016" 
+	ms.author="fashah;bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
 
-## Introduction
-
-**This document** outlines the options for moving data either from flat files (CSV or TSV formats) or from an on-premise SQL Server to SQL Server on an Azure virtual machine. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
+This topic outlines the options for moving data either from flat files (CSV or TSV formats) or from an on-premise SQL Server to SQL Server on an Azure virtual machine. These tasks for moving data to the cloud are part of the Team Data Science Process.
 
 For a topic that outlines the options for moving data to an Azure SQL Database for Machine Learning, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
+The **menu** below links to topics that describe how to ingest data into other target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -86,6 +84,7 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
 > **Optimizing BCP Inserts** Please refer the following article ['Guidelines for Optimizing Bulk Import'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) to optimize such inserts.
+
 
 ### <a name="insert-tables-bulkquery-parallel"></a>Parallelizing Inserts for Faster Data Movement
 
@@ -163,6 +162,7 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 - For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
 - For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/library/ms141209.aspx)
 
+
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premises SQL Server to SQL Server on an Azure VM
 
 You can also use the following migration strategies:
@@ -176,7 +176,7 @@ We describe each of these below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
 
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
@@ -220,9 +220,9 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 ## Resources
 
-[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md)
 
-[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
+[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png

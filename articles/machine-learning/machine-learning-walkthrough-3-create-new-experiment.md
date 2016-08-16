@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye"/>
 
 
@@ -46,26 +46,26 @@ You can view the first 100 rows of the data and some statistical information for
 
 Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they will make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
 
-We can add column headings using the [Metadata Editor][metadata-editor] module.
-You use the [Metadata Editor][metadata-editor] module to change metadata associated with a dataset. In this case, it can provide more friendly names for column headings. 
+We can add column headings using the [Edit Metadata][edit-metadata] module.
+You use the [Edit Metadata][edit-metadata] module to change metadata associated with a dataset. In this case, it can provide more friendly names for column headings. 
 
-To use [Metadata Editor][metadata-editor], you first specify which columns to modify (in this case, all of them), then you specify the action to be performed on those columns (in this case, changing column headings).
+To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them), then you specify the action to be performed on those columns (in this case, changing column headings).
 
-1.	In the module palette, type "metadata" in the **Search** box. You'll see [Metadata Editor][metadata-editor] appear in the module list.
-2.	Click and drag the [Metadata Editor][metadata-editor] module onto the canvas and drop it below the dataset we added earlier.
-3.	Connect the dataset to the [Metadata Editor][metadata-editor]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Metadata Editor][metadata-editor] (the small circle at the top of the module), then release the mouse button. The dataset and module will remain connected even if you move either around on the canvas.
+1.	In the module palette, type "metadata" in the **Search** box. You'll see [Edit Metadata][edit-metadata] appear in the module list.
+2.	Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset we added earlier.
+3.	Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module will remain connected even if you move either around on the canvas.
 
     The experiment should now look something like this:  
 
-    ![Adding Metadata Editor][2]
+    ![Adding Edit Metadata][2]
     
     The red exclamation mark indicates that we haven't set the properties for this module yet. We'll do that next.
     
-    > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Metadata Editor][metadata-editor] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. Click the down-arrow on the module to display the comment.
+    > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. Click the down-arrow on the module to display the comment.
 
-4.	Select [Metadata Editor][metadata-editor], then in the **Properties** pane to the right of the canvas, click **Launch column selector**.
-5.	In the **Select columns** dialog, set the **Begin With** field to "All columns".
-6.	The row beneath **Begin With** allows you to include or exclude specific columns for [Metadata Editor][metadata-editor] to modify. Since we want to modify *all* columns, delete this row by clicking the minus sign ("-") to the right of the row. The dialog should look like this:
+4.	Select [Edit Metadata][edit-metadata], then in the **Properties** pane to the right of the canvas, click **Launch column selector**.
+5.	In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
+The dialog should look like this:
     ![Column Selector with all columns selected][4]
 7.	Click the **OK** checkmark.
 8.	Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
@@ -74,16 +74,16 @@ To use [Metadata Editor][metadata-editor], you first specify which columns to mo
 
     The Properties pane will look like this:
 
-    ![Properties for Metadata Editor][1]
+    ![Properties for Edit Metadata][1]
 
-> [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green checkmark will appear on [Metadata Editor][metadata-editor]), click the output port of the [Metadata Editor][metadata-editor] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+> [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green checkmark will appear on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
 ##Create training and test datasets
 The next step of the experiment is to generate separate datasets that we'll use for both training and testing our model.
 
 To do this, we use the [Split Data][split] module.  
 
-1.	Find the [Split Data][split] module, drag it onto the canvas, and connect it to the last [Metadata Editor][metadata-editor] module.
+1.	Find the [Split Data][split] module, drag it onto the canvas, and connect it to the last [Edit Metadata][edit-metadata] module.
 2.	By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data will be output through one port of the [Split Data][split] module, and half through the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and testing data. For this example we'll leave them as-is.
 	> [AZURE.TIP] The property **Fraction of rows in the first output dataset**  determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
 3. Double-click the [Split Data][split] module and enter the comment, "Training/testing data split 50%". 
@@ -130,5 +130,5 @@ For more information on using R scripts in your experiments, see [Extend your ex
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

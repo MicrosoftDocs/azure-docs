@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/01/2016"
 	ms.author="apurvajo"/>
 
 #Buy and Configure an SSL Certificate for your Azure App Service
 
 > [AZURE.SELECTOR]
-- [Buy SSL Certificate for Web Apps](web-sites-purchase-ssl-web-site.md)
-- [Enable SSL for your custom domain](web-sites-configure-ssl-certificate.md)  
+- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
+- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
 
 By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** already enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. 
 Azure App Service now provides you a really simplified way to purchase and manage an SSL certificate right from Azure Portal without ever leaving the portal.  
@@ -203,7 +203,7 @@ At this point, you should be able to visit your app using HTTPS:// instead of HT
     ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
-4. You will not be charged for the Rekeing for the lifetime of the certificate. 
+4. You will not be charged for the Rekeying for the lifetime of the certificate. 
 5. Rekeying your certificate will go through Pending Issuance state. 
 6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
 7. Sync option is not available for Certificates that are not yet assigned to the Web App. 

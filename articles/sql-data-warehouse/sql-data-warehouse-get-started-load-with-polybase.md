@@ -3,7 +3,7 @@
    description="Learn what PolyBase is and how to use it for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # Load data with PolyBase in SQL Data Warehouse
@@ -27,7 +27,7 @@
 This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 
 - Use AzCopy to copy data to Azure blob storage
-- Create database objects to define the external data
+- Create database objects to define the data
 - Run a T-SQL query to load the data
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
@@ -72,7 +72,7 @@ To prepare a sample text file:
 
 To find your blob service endpoint:
 
-1. From the Azure Classic Portal select **Browse** > **Storage Accounts**.
+1. From the Azure Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
 
@@ -86,7 +86,7 @@ To find your blob service endpoint:
 
 To find your Azure storage key:
 
-1. From the home screen, select **Browse** > **Storage Accounts**.
+1. From the Azure Portal, select **Browse** > **Storage Accounts**.
 2. Click on the storage account you want to use.
 3. Select **All settings** > **Access keys**.
 4. Click the copy box to copy one of your access keys to the clipboard.
@@ -128,7 +128,7 @@ To see the file you uploaded to blob storage:
 
 In this section we create an external table that defines the sample data.
 
-PolyBase uses external tables to access data in Azure blob storage or Hadoop. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
+PolyBase uses external tables to access data in Azure blob storage. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
 
 The example in this step uses these Transact-SQL statements to create an external table.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -252,15 +253,13 @@ To learn more, see [Statistics][].
 See the [PolyBase guide][] for further information you should know as you develop a solution that uses PolyBase.
 
 <!--Image references-->
-[1]:./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png
+
 
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-get-started-load-with-polybase.md
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[Statistics]: sql-data-warehouse-develop-statistics.md
-[PolyBase guide]: sql-data-warehouse-load-polybase-guide.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
 [Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
 

@@ -3,8 +3,8 @@
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="masashin"
-   manager="masimms"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
    
 # Tuning data aggregation and query performance with Elasticsearch on Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 

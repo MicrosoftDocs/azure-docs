@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Sharing state in Azure Resource Manager templates
@@ -377,7 +377,7 @@ You can use this expression in either the outputs section or the resources secti
         "type": "string"
       }
      
-For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Define authentication settings for virtual machine
 

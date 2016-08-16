@@ -1,14 +1,14 @@
 <properties
-	pageTitle="How to configure Azure alerts to send to other systems"
+	pageTitle="How to configure Azure alerts to send to other systems | Microsoft Azure"
 	description="Reroute Azure alerts to other non-Azure systems."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

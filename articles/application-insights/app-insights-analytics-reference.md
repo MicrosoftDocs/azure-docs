@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Reference in Analytics in Application Insights" 
+	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
 	description="Reference for statements in Analytics, 
 	             the powerful search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,32 +22,109 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
-| | | | | 
-|---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[range](#range)|[summarize op](#summarize-operator)
-|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range op](#range-operator)|[take op](#take-operator)
-|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
-|[argmin](#argmin)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
-|[Arithmetic ops](#arithmetic-operators)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[Array and object literals](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Scalar comparisons](#scalar-comparisons)|[toint](#toint)
-|[arraylength](#arraylength)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[sort op](#sort-operator)|[tolong](#tolong)
-|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
-|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[top op](#top-operator)
-|[Boolean Literals](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
-|[Boolean ops](#boolean-operators)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
-|[buildschema](#buildschema)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
-|[Casts](#casts)|[isempty](#isempty)|[parse op](#parse-operator)|[strcat](#strcat)|[union op](#union-operator)
-|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[variance](#variance)
-|[count op](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String Literals](#string-literals)|[where op](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
-|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[substring](#substring)
-|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
+
+## Index
+
+
+**Let and set** [let](#let-clause) | [set](#set-clause)
+
+
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Scalars** [Boolean Literals](#boolean-literals) | [Boolean operators](#boolean-operators) | [Casts](#casts) | [Scalar comparisons](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+## Let and set
+
+### let clause
+
+**Tabular let - naming a table**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Scalar let - naming a value**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Lambda let - naming a function**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
+A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
+
+**Syntax**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
+
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain_query:* A query not prefixed by a let-clause.
+
+**Examples**
+
+    let rows = (n:long) { range steps from 1 to n step 1 };
+    rows(10) | ...
 
 
+Self-join:
+
+    let Recent = events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+### Set clause
+
+The set clause sets an option for the duration of the query. Query options control how a query executes and returns results. They can be Boolean flags (off by default), or have some integer value. A query may contain zero, one, or more set statements. Set statements affect only the tabular expression statements that trail them in program order.
+
+    set OptionName [= OptionValue] ; query
+
+
+|Name | Implication if set to true
+|---|---
+|querytrace| Increases the level of debug traces generated by a query. 
+|noexecute| Disables the actual execution of the query (just query planning phase is run). 
+|perftrace| Enables performance tracing. 
+|notruncation| Disables result-set truncation. 
+|truncationmaxsize| Limit query result data size (In Bytes). 
+|truncationmaxrecords| Limit query result record number. 
+|nostreaming |Disables result-set streaming. 
+
+**Example**
+
+```
+
+    set querytrace;
+    requests | take 100
+```
 
 ## Queries and operators
 
@@ -55,12 +132,15 @@ A query over your telemetry is made up of a reference to a source stream, follow
 
 
 ```AIQL
-requests
-| where client_City == "London" and timestamp > ago(3d)
-| count
+requests // The request table starts this pipeline.
+| where client_City == "London" // filter the records
+   and timestamp > ago(3d)
+| count 
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](#scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+
+Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
 A query may be prefixed by one or more [let clauses](#let-clause), which define scalars, tables, or functions that can be used within the query.
 
@@ -100,6 +180,229 @@ This function returns a table with a single record and column of type
 requests | count
 ```
 
+### evaluate operator
+
+`evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
+
+`evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
+
+**Syntax**
+
+    T | evaluate autocluster( arguments )
+
+**Returns**
+
+AutoCluster returns a (usually small) set of patterns that capture portions of the data with shared common values across multiple discrete attributes. Each pattern is represented by a row in the results. 
+
+The first two columns are the count and percentage of rows out of the original query that are captured by the pattern. The remaining columns are from the original query and their value is either a specific value from the column or '*' meaning variable values. 
+
+Note that the patterns are not disjoint: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use `where` and `project` in the input pipe to reduce the data to just what you're interested in.
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your `where` filter.
+
+**Arguments (all optional)**
+
+* `output=all | values | minimal` 
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `all` - all the columns from the input are output
+ * `values` - filters out columns with only '*' in the results
+ * `minimal` - also filters out columns that are identical for all the rows in the original query. 
+
+
+* `min_percent=`*double* (default: 1)
+
+    The minimum percentage coverage of the generated rows.
+
+    Example: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (default: 25) 
+
+    The number of seeds determines the number of initial local search points of the algorithm. In some cases, depending on the structure of the data, increasing the number of seeds increases the number (or quality) of the results through increased search space at slower query tradeoff. The num_seeds argument has diminishing results in both directions so decreasing it below 5 will achieve negligible performance improvements and increasing above 50 will rarely generate additional patterns.
+
+    Example: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (default: 0.5)
+
+    Gives you some control over the balance between generic (high coverage) and informative (many shared values). Increasing size_weight usually reduces the number of patterns, and each pattern tends to cover a larger percentage. Decreasing size_weight usually produces more specific patterns with more shared values and smaller percentage coverage. The under the hood formula is a weighted geometric mean between the normalized generic score and informative score with size_weight and 1-size_weight as the weights. 
+
+    Example: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: `T | evaluate autocluster("weight_column=sample_Count")` 
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+
+**Returns**
+
+All patterns appearing in more than a specified fraction (default 0.05) of the events.
+
+**Arguments (all optional)**
+
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
+
+    Example: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: T | evaluate basket("weight_column=sample_Count")
+
+
+* `max_dims=` *1<int* (default: 5)
+
+    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
+
+
+* `output=minimize` | `all` 
+
+    The format of the results. The Count and Percent columns always appear in the results.
+
+ * `minimize` - filters out columns with only '*' in the results.
+ * `all` - all the columns from the input are output.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
+
+**Syntax**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Returns**
+
+Diffpatterns returns a (usually small) set of patterns that capture different portions of the data in the two sets (i.e. a pattern capturing a large percentage of the rows in the first data set and low percentage of the rows in the second set). Each pattern is represented by a row in the results.
+
+The first four columns are the count and percentage of rows out of the original query that are captured by the pattern in each set, the fifth column is the difference (in absolute percentage points) between the two sets. The remaining columns are from the original query and their value is either a specific value from the column or * meaning variable values. 
+
+Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use where and project in the input pipe to reduce the data to just what you're interested in.
+
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your where filter.
+
+**Arguments**
+
+* `split=` *column name* (required)
+
+    The column must have precisely two values. If necessary, create such a column:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/>
+    `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Tells the algorithm to only look for patterns which have higher percentage in the target data set, the target must be one of the two values of the split column.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal pattern (ratio) difference between the two sets.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `minimize` - filters out columns with only '*' in the results
+ * `all` - all the columns from the input are output
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'). A common use of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
+
+
+* `max_columns=` *int* (default: 10) 
+
+    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=` *double* (default: 10.0) 
+
+    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (default: true) 
+
+    If true the name of the complex column will be added as a prefix to the extracted columns names.
+
+
+* `prefix_delimiter=` *string* (default: "_") 
+
+    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/>
+    `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (default: false) 
+
+    If true the original (json) columns will be kept in the output table.
+
+
+* `output=query | table` 
+
+    The format of the results. 
+
+ * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
+ * `query` - The output is a string representing the query you would make to get the result as table. 
+
+
 
 
 ### extend operator
@@ -116,7 +419,7 @@ Append one or more calculated columns to a table.
 **Arguments**
 
 * *T:* The input table.
-* *ColumnName:* The name of a columns to add. 
+* *ColumnName:* The name of a columns to add. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Expression:* A calculation over the existing columns.
 
 **Returns**
@@ -207,56 +510,6 @@ Get extended activities from a log in which some entries mark the start and end 
 
 ```
 
-### let clause
-
-**Tabular let - naming a table**
-
-    let recentReqs = requests | where timestamp > ago(3d); 
-    recentReqs | count
-
-**Scalar let - naming a value**
-
-    let interval = 3d; 
-    requests | where timestamp > ago(interval)
-
-**Lambda let - naming a function**
-
-    let Recent = 
-       (interval:timespan) { requests | where timestamp > ago(interval) };
-    Recent(3h) | count
-
-A let clause binds a name to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
-
-**Syntax**
-
-    let name = scalar_constant_expression ; query
-
-    let name = query ; query
-
-    let name = (parameterName : type [, ...]) { plain_query }; query
-
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
-* *plain_query:* A query not prefixed by a let-clause.
-
-**Examples**
-
-
-
-
-    let rows(n:long) = range steps from 1 to n step 1;
-    rows(10) | ...
-
-
-Self-join:
-
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
 
 ### limit operator
 
@@ -348,102 +601,129 @@ Splits an exception record into rows for each item in the details field.
 
 ### parse operator
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind=relaxed
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Extracts values from a string. Can use simple or regular expression matching.
 
-The elements in the `with` clause are matched against the source string in turn. Each element chews off a chunk of the source text. If it's a plain string, the matching cursor moves along as far as the match. If it's a column with a type name, the cursor moves along far enough to parse the specified type. (String matches move along until a match to the next element is found.) If it's a regex, the regular expression is matched (and the resulting column always has string type).
-
 **Syntax**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
 
-* *T:* The input table.
-* *kind:* simple or regex. The default is simple.
-* *StringExpression:* An expression that evaluates to or can be converted to a string.
-* *SimpleMatch:* A string that matches the next part of the text.
-* *Column:* Specifies the new column to assign a match to.
-* *Type:* Specifies how to parse the next part of the source string.
-* *Regex:* A regular expression to match the next part of the string. 
+* `T`: The input table.
+* `kind`: 
+ * `simple` (default): the `Match` strings are plain strings.
+ * `relaxed`: if the text doesn't parse as the type of a column, the column is set to null and the parse continues 
+ * `regex`: the `Match` strings are regular expressions.
+* `Text`: A column or other expression that evaluates to or can be converted to a string.
+* *Match:* Match the next part of the string, and discard it.
+* *Column:* Assign the next part of the string to this column. The column is created if it does not exist.
+* *Type:* Parse the next part of the string as the specified type, such as int, date, double. 
+
 
 **Returns**
 
 The input table, extended according to the list of Columns.
 
+The elements in the `with` clause are matched against the source text in turn. Each element chews off a chunk of the source text: 
+
+* A literal string or regular expression moves the matching cursor by the length of the match.
+* In a regex parse, a regular expression can use the minimization operator '?' to move as soon as possible to the following match.
+* A column name with a type parses the text as the specified type. Unless kind=relaxed, an unsuccessful parse invalidates matching the whole pattern.
+* A column name without a type, or with the type 'string', copies the minimum number of characters to get to the following match.
+* ' * ' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
+
+All of the elements in a parse pattern must match correctly; otherwise, no results will be produced. The exception to this rule is that when kind=relaxed, if parsing a typed variable fails, the rest of the parse continues.
 
 **Examples**
 
-The `parse` operator provides a streamlined way to `extend` a table
-by using multiple `extract` applications on the same `string` expression.
-This is most useful when the table has a `string` column that contains
-several values that you want to break into individual columns, such as a
-column that was produced by a developer trace ("`printf`"/"`Console.WriteLine`")
-statement.
-
-In the example below, assume that the column `EventNarrative` of table `StormEvents` contains
-strings of the form `{0} at {1} crested at {2} feet around {3} on {4} {5}`. The operation
-below will extend the table with two columns: `SwathSize`, and `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12. Flood stage at Brownsville is 18 feet. Minor flooding occurs at this level. The river overflows lock walls and some of the lower banks, along with some agricultural bottom land.|
-|The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12. Flood stage at Boston is 35 feet. Minor flooding occurs at this level, with some agricultural bottom land covered.|
-|The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
-|The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
+*Simple:*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|Location|Height|Time|Month|Day|
-|---|---|---|---|---|---|
-|The Green River | Woodbury |36.7| 0600EST | December|16|
-|The Rolling Fork River | Boston |39.3| 1700EST | December|12|
-|The Green River | Brownsville |18.8| 0930EST | December|12|
-|The Ohio River | Tell City |39| 7 AM EST | December|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-It is also possible to match using regular expressions. This produces the same result but all the result columns have string type:
+*Relaxed:*
+
+When the input contains a correct match for every typed column, a relaxed parse produces the same results as a simple parse. But if one of the typed columns doesn't parse correctly, a relaxed parse continues to process the rest of the pattern, whereas a simple parse stops and fails to generate any result.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x  | present | Year
+---|---|---
+1 |  socks | 63
+
+
+*Regex:*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\\)"
+| project-away x, s
+```
+
+resource | slice | lock | release | previous
+---|---|---|---|---
+Scheduler | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### project operator
 
@@ -459,7 +739,7 @@ Select the columns to include, rename or drop, and insert new computed columns. 
 **Arguments**
 
 * *T:* The input table.
-* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. 
+* *ColumnName:* The name of a column to appear in the output. If there is no *Expression*, a column of that name must appear in the input. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Expression:* Optional scalar expression referencing the input columns. 
 
     It is legal to return a new calculated column with the same name as an existing column in the input.
@@ -476,13 +756,18 @@ using the `project` operator. The input table `T` has three columns of type `int
 ```AIQL
 T
 | project
-    X=C,                       // Rename column C to X
-    A=2*B,                     // Calculate a new column A from the old B
+    X=C,               // Rename column C to X
+    A=2*B,             // Calculate a new column A from the old B
     C=strcat("-",tostring(C)), // Calculate a new column C from the old C
-    B=2*B                      // Calculate a new column B from the old B
+    B=2*B,              // Calculate a new column B from the old B
+    ['where'] = client_City // rename, using a keyword as a column name
 ```
 
+### project-away operator
 
+    T | project-away column1, column2, ...
+
+Exclude specified columns. The result contains all the input columns except those you name.
 
 ### range operator
 
@@ -556,7 +841,7 @@ a small, ad-hoc, dimension table which is then used to introduce zeros where the
 Tries to group together similar records. For each group, the operator outputs the `Pattern` it thinks best describes that group, and the `Count` of records in that group.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Syntax**
 
@@ -588,6 +873,15 @@ For example, the result of `reduce by city` might include:
 
 Render directs the presentation layer how to show the table. It should be the last element of the pipe. It's a convenient alternative to using the controls on the display, allowing you to save a query with a particular presentation method.
 
+### restrict clause 
+
+Specifies the set of table names available to operators that follow. For example:
+
+    let e1 = requests | project name, client_City;
+    let e2 =  requests | project name, success;
+    // Exclude predefined tables from the union:
+    restrict access to (e1, e2);
+    union * |  take 10 
 
 ### sort operator 
 
@@ -641,7 +935,7 @@ A table that shows how many items have prices in each interval  [0,10.0], [10.0,
 
 **Arguments**
 
-* *Column:* Optional name for a result column. Defaults to a name derived from the expression. 
+* *Column:* Optional name for a result column. Defaults to a name derived from the expression. [Names](#names) are case-sensitive and can contain alphabetic, numeric or '_' characters. Use `['...']` or `["..."]` to quote keywords or names with other characters.
 * *Aggregation:* A call to an aggregation function such as `count()` or `avg()`, with column names as arguments. See [aggregations](#aggregations).
 * *GroupExpression:* An expression over the columns, that provides a set of distinct values. Typically it's either a column name that already provides a restricted set of values, or `bin()` with a numeric or time column as argument. 
 
@@ -670,14 +964,14 @@ Alias of [limit](#limit-operator)
 
 ### top operator
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Returns the first *N* records sorted by the specified columns.
 
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Arguments**
 
@@ -685,11 +979,32 @@ Returns the first *N* records sorted by the specified columns.
 * *Sort_expression:* An expression by which to sort the rows. It's typically just a column name. You can specify more than one sort_expression.
 * `asc` or `desc` (the default) may appear to control whether
 selection is actually from the "bottom" or "top" of the range.
+* `nulls first` or `nulls last` controls where null values appear. `First` is the default for `asc`, `last` is the default for `desc`.
 
 
 **Tips**
 
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
+
+### top-nested operator
+
+    requests 
+    | top-nested 5 of name by count()  
+    , top-nested 3 of performanceBucket by count() 
+    , top-nested 3 of client_CountryOrRegion by count()
+    | render barchart 
+
+Produces hierarchical results, where each level is a drill-down from the previous level. It's useful for answering questions that sound like "What are the top 5 requests, and for each of them, what are the top 3 performance buckets, and for each of them, which are the top 3 countries the requests come from?"
+
+**Syntax**
+
+   T | top-nested N of COLUMN by AGGREGATION [, ...]
+
+**Arguments**
+
+* N:int - number of rows to return or pass to the next level. In a query with three levels where N is 5, 3, and 3, the total number of rows will be 45.
+* COLUMN - A column to group by for aggregation. 
+* AGGREGATION - An [aggregation function](#aggregations) to apply to each group of rows. The results of these aggregations will determine the top groups to be displayed.
 
 
 ### union operator
@@ -707,9 +1022,9 @@ Takes two or more tables and returns the rows of all of them.
 **Arguments**
 
 * *Table1*, *Table2* ...
- *  The name of a table, such as `events`; or
- *  A query expression, such as `(events | where id==42)`
- *  A set of tables specified with a wildcard. For example, `E*` would form the union of all the tables in the database whose names begin `E`.
+ *  The name of a table, such as `requests`, or a table defined in a [let clause](#let-clause); or
+ *  A query expression, such as `(requests | where success=="True")`
+ *  A set of tables specified with a wildcard. For example, `e*` would form the union of all the tables defined in previous let clauses whose name began with 'e', together with the 'exceptions' table.
 * `kind`: 
  * `inner` - The result has the subset of columns that are common to all of the input tables.
  * `outer` - The result has all the columns that occur in any of the inputs. Cells that were not defined by an input row are set to `null`.
@@ -718,7 +1033,7 @@ called *ColumnName* whose value indicates which source table has contributed eac
 
 **Returns**
 
-A table with as many rows as there are in all the input tables.
+A table with as many rows as there are in all the input tables, and as many columns as there are unique column names in the inputs.
 
 **Example**
 
@@ -800,7 +1115,11 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 
 
-## Aggregrations and summarize
+## Aggregations
+
+Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
+
+    requests | summarize dcount(name) by success
 
 ### any 
 
@@ -849,7 +1168,7 @@ Find the lowest value of each metric, together with its timestamp and other data
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -955,8 +1274,17 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
 
-> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
-   
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points retained in Application Insights will be less than the number of original events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
+
+### countif
+
+    countif(Predicate)
+
+Returns a count of rows for which *Predicate* evaluates to `true`.
+
+**Perf tip**: use `summarize countif(filter)` instead of `where filter | summarize count()`
+
+> [AZURE.NOTE] Avoid using countif() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
 
 ### dcount
 
@@ -973,10 +1301,30 @@ Returns an estimate of the number of distinct values of *Expr* in the group. (To
 **Example**
 
     pageViews 
-    | summarize countries=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
+
+
+### dcountif
+
+    dcountif( Expression, Predicate [ ,  Accuracy ])
+
+Returns an estimate of the number of distinct values of *Expr* of rows in the group for which *Predicate* is true. (To list the distinct values, use [`makeset`](#makeset).)
+
+*Accuracy*, if specified, controls the balance between speed and accuracy.
+
+ * `0` = the least accurate and fastest calculation.
+ * `1` the default, which balances accuracy and calculation time; about 0.8% error.
+ * `2` = most accurate and slowest calculation; about 0.4% error.
+
+**Example**
+
+    pageViews 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
+      by client_CountryOrRegion
+
 
 ### makelist
 
@@ -997,10 +1345,10 @@ Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes
 **Example**
 
     pageViews 
-    | summarize countries=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 See also the [`mvexpand` operator](#mvexpand-operator) for the opposite function.
 
@@ -1020,15 +1368,25 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentilew"></a>
+<a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Weighted percentile. Use this for pre-aggregated data.  `WeightExpression` is an integer that indicates how many original rows are represented by each aggregated row.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Like `percentilew()`, but calculates a number of percentile values.
 
 **Examples**
 
@@ -1049,10 +1407,9 @@ Simultaneously calculate several percentiles for different request names:
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
-
 
 Calculate multiple statistics:
 
@@ -1063,7 +1420,43 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Estimation error in percentiles
+#### Weighted percentiles
+
+Use the weighted percentile functions in cases where the data has been pre-aggregated. 
+
+For example, suppose your app performs many thousands of operations per second, and you want to know their latency. The simple solution would be to generate an Application Insights request or custom event for each operation. This would create a lot of traffic, although adaptive sampling would take effect to reduce it. But you decide to implement an even better solution: you will write some code in your app to aggregate the data before sending it to Application Insights. The aggregated summary will be sent at regular intervals, reducing the data rate perhaps to a few points per minute.
+
+Your code takes a stream of latency measurements in milliseconds. For example:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+It counts the measurements in the following bins: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodically, it makes a series of TrackEvent calls, one for each bucket, with custom measurements in each call: 
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, you see one such group of events like this:
+
+`opCount` | `latency`| meaning
+---|---|---
+8 | 10 | = 8 operations in the 10ms bin
+6 | 20 | = 6 operations in the 20ms bin
+3 | 30 | = 3 operations in the 30ms bin
+1 | 40 | = 1 operations in the 40ms bin
+
+To get an accurate picture of the original distribution of event latencies, we use `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+The results are the same as if we had used plain `percentiles` on the original set of measurements.
+
+> [AZURE.NOTE] Weighted percentiles are not applicable to [sampled data](app-insights-sampling.md), where each sampled row represents a random sample of original rows, rather than a bin. The plain percentile functions are appropriate for sampled data.
+
+#### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
@@ -1095,7 +1488,7 @@ Returns the sum of *Expr* over the group.
 
 [casts](#casts) | [comparisons](#scalar-comparisons)
 <br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[gettype](#gettype) | [hash](#hash) | [iff](#iff) |  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 The supported types are:
 
@@ -1125,6 +1518,11 @@ You can cast from one type to another. In general, if the conversion makes sense
     tostring(42.5)
     todynamic("{a:10, b:20}")
 
+Check whether a string can be converted to a specific type:
+
+    iff(notnull(todouble(customDimensions.myValue)),
+       ..., ...)
+
 ### Scalar comparisons
 
 ||
@@ -1145,7 +1543,7 @@ You can cast from one type to another. In general, if the conversion makes sense
 
 **Returns**
 
-A string representing the underlying storage type of its single argument. This is particularly useful when have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
+A string representing the underlying storage type of its single argument. This is particularly useful when you have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
 
 **Examples**
 
@@ -1153,7 +1551,7 @@ A string representing the underlying storage type of its single argument. This i
 ---|---
 `gettype("a")` |`"string" `
 `gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
+`gettype(1==1)` |`"int8"`
 `gettype(now())` |`"datetime" `
 `gettype(1s)` |`"timespan" `
 `gettype(parsejson('1'))` |`"int" `
@@ -1163,8 +1561,7 @@ A string representing the underlying storage type of its single argument. This i
 `gettype(123.45)` |`"real" `
 `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
 `gettype(parsejson(''))` |`"null"`
-
-
+`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1257,10 +1654,33 @@ Notice that there are other ways of achieving this effect:
 
     T | summarize count(PossiblyNull)
 
+### toscalar
+
+Evaluates a query or an expression and returns the result as a single value. This function is useful for staged calculations; for example, calculating a total count of events and then using that as a baseline.
+
+**Syntax**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**Returns**
+
+The evaluated argument. If the argument is a table, returns the first column of the first row. (Good practice is to arrange that the argument has only one column and row.)
+
+**Example**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 
 
-## Boolean 
 
 ### Boolean Literals
 
@@ -1278,7 +1698,7 @@ Notice that there are other ways of achieving this effect:
 
 ## Numbers
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
 | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Numeric literals
@@ -1306,9 +1726,22 @@ Notice that there are other ways of achieving this effect:
 |`!=`|Not Equals 
 
 
+### abs
 
+**Syntax**
 
-### bin
+	abs(x)
+
+**Arguments**
+
+* x - an integer, real or timespan
+
+**Returns**
+
+    iff(x>0, x, -x)
+
+<a name="bin"></a><a name="floor"></a>
+### bin, floor
 
 Rounds values down to an integer multiple of a given bin size. Used a lot in the [`summarize by`](#summarize-operator) query. If you have a scattered set of values, they will be grouped into a smaller set of specific values.
 
@@ -1317,6 +1750,7 @@ Alias `floor`.
 **Syntax**
 
      bin(value, roundTo)
+     floor(value, roundTo)
 
 **Arguments**
 
@@ -1346,10 +1780,27 @@ with a bucket size of 1 second:
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
 
+### exp
+
+    exp(v)   // e raised to the power v
+    exp2(v)  // 2 raised to the power v
+    exp10(v) // 10 raised to the power v
+
+
+
 ### floor
 
 An alias for [`bin()`](#bin).
 
+
+### log
+
+    log(v)    // Natural logarithm of v
+    log2(v)   // Logarithm base 2 of v
+    log10(v)  // Logarithm base 10 of v
+
+
+`v` should be a real number > 0. Otherwise, null is returned.
 
 ### rand
 
@@ -1411,7 +1862,7 @@ The square root function.
 ## Date and time
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 ### Date and time literals
 
@@ -1486,6 +1937,39 @@ All rows with a timestamp in the past hour:
     T | where timestamp > ago(1h)
 ```
 
+### datepart
+
+    datepart("Day", datetime(2015-12-14)) == 14
+
+Extracts a specified part of a date as an integer.
+
+**Syntax**
+
+    datepart(part, datetime)
+
+**Arguments**
+
+* `part:String` - {"Year", "Month", "Day", "Hour", "Minute", "Second", "Millisecond", "Microsecond", "Nanosecond"}
+* `datetime`
+
+**Returns**
+
+Long representing the specified part.
+
+
+### dayofmonth
+
+    dayofmonth(datetime("2016-05-15")) == 15 
+
+The ordinal number of the day in the month.
+
+**Syntax**
+
+    dayofmonth(a_date)
+
+**Arguments**
+
+* `a_date`: A `datetime`.
 
 
 ### dayofweek
@@ -1512,6 +1996,32 @@ The `timespan` since midnight at the beginning of the preceding Sunday, rounded 
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
+
+### dayofyear
+
+    dayofyear(datetime("2016-05-31")) == 152 
+    dayofyear(datetime("2016-01-01")) == 1 
+
+The ordinal number of the day in the year.
+
+**Syntax**
+
+    dayofyear(a_date)
+
+**Arguments**
+
+* `a_date`: A `datetime`.
+
+<a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
+### endofday, endofweek, endofmonth, endofyear
+
+    dt = datetime("2016-05-23 12:34")
+
+    endofday(dt) == 2016-05-23T23:59:59.999
+    endofweek(dt) == 2016-05-28T23:59:59.999 // Saturday
+    endofmonth(dt) == 2016-05-31T23:59:59.999 
+    endofyear(dt) == 2016-12-31T23:59:59.999 
+
 
 ### getmonth
 
@@ -1562,17 +2072,16 @@ Determines the interval since the event identified by the predicate:
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
-### startofmonth
+<a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
+### startofday, startofweek, startofmonth, startofyear
 
-    startofmonth(date)
+    date=datetime("2016-05-23 12:34:56")
 
-The start of the month containing the date.
+    startofday(date) == datetime("2016-05-23")
+    startofweek(date) == datetime("2016-05-22") // Sunday
+    startofmonth(date) == datetime("2016-05-01")
+    startofyear(date) == datetime("2016-01-01")
 
-### startofyear
-
-    startofyear(date)
-
-The start of the year containing the date.
 
 
 ### todatetime
@@ -1581,11 +2090,17 @@ Alias `datetime()`.
 
      todatetime("2016-03-28")
      todatetime("03/28/2016")
-     todatetime("2016-03-28 14:34")
+     todatetime("2016-03-28 14:34:00")
      todatetime("03/28/2016 2:34pm")
      todatetime("2016-03-28T14:34.5Z")
-     todatetime(a[0])  // cast a dynamic type
-     todatetime(b.c)   // cast a dynamic type
+     todatetime(a[0]) 
+     todatetime(b.c) 
+
+Check whether a string is a valid date:
+
+     iff(notnull(todatetime(customDimensions.myDate)),
+         ..., ...)
+
 
 ### totimespan
 
@@ -1594,6 +2109,14 @@ Alias `timespan()`.
     totimespan("21d")
     totimespan("21h")
     totimespan(request.duration)
+
+### weekofyear
+
+    weekofyear(datetime("2016-05-14")) == 21
+    weekofyear(datetime("2016-01-03")) == 1
+    weekofyear(datetime("2016-12-31")) == 53
+
+The integer result represents the week number by the ISO 8601 standard. The first day of a week is Sunday, and the first week of the year is the week that contains that year's first Thursday. (The last days of a year can therefore contain some of the days of week 1 of the next year, or the first days can contain some of week 52 or 53 of the previous year.)
 
 
 ## String
@@ -1630,20 +2153,28 @@ h"hello"
 Operator|Description|Case-Sensitive|True example
 ---|---|---|---
 `==`|Equals |Yes| `"aBc" == "aBc"`
-`<>`|Not equals|Yes| `"abc" <> "ABC"`
+`<>` `!=`|Not equals|Yes| `"abc" <> "ABC"`
 `=~`|Equals |No| `"abc" =~ "ABC"`
 `!~`|Not equals |No| `"aBc" !~ "xyz"`
 `has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
 `!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
-`contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS is a prefix of a term in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS is not a prefix of any term in LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS is a suffix of a term in LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS is not a suffix of any term in LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS occurs as a substring of LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
+`containscs` | RHS occurs as a substring of LHS|Yes| `"FabriKam" contains "Kam"`
 `!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
+`startswith`|RHS is an initial substring of LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS is not an initial substring of LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS is a terminal substring of LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS is not a terminal substring of LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
+`in`|Equal to any of the elements|Yes|`"abc" in ("123", "345", "abc")`
+`!in`|Not equal to any of the elements|Yes|`"bc" !in ("123", "345", "abc")`
 
-
-Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains` or `startswith`. The first of these queries runs faster:
+Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1666,7 +2197,7 @@ Counts occurrences of a substring in a string. Plain string matches may overlap;
 **Arguments**
 
 * *text:* A string.
-* *search:* The plain string or [regular expression](app-analytics-reference.md#regular-expressions) to match inside *text*.
+* *search:* The plain string or regular expression to match inside *text*.
 * *kind:* `"normal"|"regex"` Default `normal`. 
 
 **Returns**
@@ -1898,7 +2429,7 @@ Converts a string to upper case.
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -1912,7 +2443,7 @@ Converts a string to upper case.
 
 Here's the result of a query on an Application Insights exception. The value in `details` is an array.
 
-![](./media/app-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indexing:** Index arrays and objects just as in JavaScript:
 
@@ -1944,7 +2475,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** To find all the paths in a complex object:
@@ -1954,7 +2485,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand path
 
 
-![](./media/app-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** To find the minimum schema that admits all values of the expression in the table:
 
@@ -2008,7 +2539,7 @@ T
 ```
 
 
-## Dynamic object functions
+### Dynamic object functions
 
 |||
 |---|---|
@@ -2018,15 +2549,15 @@ T
 |[`extractjson(`path,object`)`](#extractjson)|Uses path to navigate into object.
 |[`parsejson(`source`)`](#parsejson)| Turns a JSON string into a dynamic object.
 |[`range(`from,to,step`)`](#range)| An array of values
-|[`mvexpand` listColumn](app-analytics-queries.md#mvexpand-operator) | Replicates a row for each value in a list in a specified cell.
-|[`summarize buildschema(`column`)`](app-analytics-queries.md#summarize-operator) |Infers the type schema from column content
-|[`summarize makelist(`column`)` ](app-analytics-queries.md#summarize-operator)| Flattens groups of rows and puts the values of the column in an array.
-|[`summarize makeset(`column`)`](app-analytics-queries.md#summarize-operator) | Flattens groups of rows and puts the values of the column in an array, without duplication.
+|[`mvexpand` listColumn](#mvexpand-operator) | Replicates a row for each value in a list in a specified cell.
+|[`summarize buildschema(`column`)`](#buildschema) |Infers the type schema from column content
+|[`summarize makelist(`column`)` ](#makelist)| Flattens groups of rows and puts the values of the column in an array.
+|[`summarize makeset(`column`)`](#makeset) | Flattens groups of rows and puts the values of the column in an array, without duplication.
 
 ### Dynamic objects in let clauses
 
 
-[Let clauses](app-analytics-queries.md#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
+[Let clauses](#let-clause) store dynamic values as strings, so these two clauses are equivalent, and both need the `parsejson` (or `todynamic`) before being used:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2217,7 +2748,28 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
+### Names
 
+Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
+
+Quote a name using [' ... '] or [" ... "] to include other characters or use a keyword as a name. For example:
+
+```AIQL
+
+    requests | 
+    summarize  ["distinct urls"] = dcount(name) // non-alphanumerics
+    by  ['where'] = client_City, // using a keyword as a name
+        ['outcome!'] = success // non-alphanumerics
+```
+
+
+|||
+|---|---|
+|['path\\file\n\'x\''] | Use \ to escape characters|
+|["d-e.=/f#\n"] | |
+|[@'path\file'] | No escapes - \ is literal|
+|[@"\now & then\"] | |
+|[where] | Using a language keyword as a name|
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

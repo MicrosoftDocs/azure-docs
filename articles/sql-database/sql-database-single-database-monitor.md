@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Monitoring database performance in Azure SQL Database" | Microsoft Azure"
+	pageTitle="Monitoring database performance in Azure SQL Database | Microsoft Azure"
 	description="Learn about the options for monitoring your database with Azure tools and dynamic management views."
 	keywords="database monitoring, cloud database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.date="07/06/2016"
+	ms.author="carlrab"/>
 
 # Monitoring database performance in Azure SQL Database
 Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Monitoring helps you  determine whether your database has excess capacity or is having trouble because resources are maxed out, and then decide whether it's time to adjust the performance level and [service tier](sql-database-service-tiers.md) of your database. You can monitor your database using graphical tools in the [Azure portal](https://portal.azure.com) or using SQL [dynamic management views](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -24,10 +24,10 @@ Monitoring the performance of a SQL database in Azure starts with monitoring the
 
 In the [Azure portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
-- CPU Percentage
-- DTU Percentage
-- Data IO Percentage
-- Storage Percentage
+- CPU percentage
+- DTU percentage
+- Data IO percentage
+- Database size percentage
 
 Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
 

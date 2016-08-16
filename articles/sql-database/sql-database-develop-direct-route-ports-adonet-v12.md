@@ -10,12 +10,12 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="data-management" 
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
-	ms.author="genemi"/>
+	ms.date="04/25/2016" 
+	ms.author="annemill"/>
 
 
 # Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
@@ -112,7 +112,7 @@ The client connection differences between SQL Database V11 and V12 are highlight
 - [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
 
-- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 
 
 - [Azure SQL Database firewall](sql-database-firewall-configure.md)

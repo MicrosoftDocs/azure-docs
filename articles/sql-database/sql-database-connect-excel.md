@@ -5,8 +5,8 @@
 	keywords="connect excel to sql, import data to excel"
 	documentationCenter=""
 	authors="joseidz"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="07/05/2016"
 	ms.author="joseidz"/>
 
 
 # SQL Database tutorial: Connect Excel to an Azure SQL database and create a report
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 

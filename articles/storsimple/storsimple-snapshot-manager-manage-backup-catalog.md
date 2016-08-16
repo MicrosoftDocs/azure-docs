@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to manage the backup catalog
 
 ## Overview
 
-The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of Azure StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group and then by local snapshot or cloud snapshot. 
+The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group and then by local snapshot or cloud snapshot. 
+
+This tutorial describes how you can use the **Backup Catalog** node to complete the following tasks:
+
+- Restore a volume 
+- Clone a volume or volume group 
+- Delete a backup 
+- Recover a file
+- Restore the Storsimple Snapshot Manager database
 
 You can view the backup catalog by expanding the **Backup Catalog** node in the **Scope** pane, and then expanding the volume group.
 
@@ -33,7 +41,7 @@ You can view the backup catalog by expanding the **Backup Catalog** node in the 
 
     - **Owner** – the content owner. 
 
-    - **Available** – whether the snapshot is currently available. True indicates that the snapshot is available and can be restored; False indicates that the snapshot is no longer available. 
+    - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
 
     - **Imported** – whether the backup was imported. **True** indicates that the backup was imported from the StorSimple Manager service at the time the device was configured in StorSimple Snapshot Manager; **False** indicates that it was not imported, but was created by StorSimple Snapshot Manager. (You can easily identify an imported volume group because a suffix is added that identifies the device from which the volume group was imported.)
 
@@ -49,13 +57,6 @@ You can view the backup catalog by expanding the **Backup Catalog** node in the 
 
     - **Available** – whether the snapshot is currently available. **True** indicates that the snapshot is available and can be restored; **False** indicates that the snapshot is no longer available. 
 
-This tutorial describes how you can use the **Backup Catalog** node to complete the following tasks:
-
-- Restore a volume 
-- Clone a volume or volume group 
-- Delete a backup 
-- Recover a file
-- Restore the Storsimple Snapshot Manager database
 
 ## Restore a volume
 

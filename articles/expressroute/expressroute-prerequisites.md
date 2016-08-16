@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,61 +12,53 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
-# ExpressRoute prerequisites   
+# ExpressRoute prerequisites & checklist  
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to verify that the following requirements listed in the sections below have been met.
 
-## Account requirements
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+## Azure account
 
 - A valid and active Microsoft Azure account. This is required to setup the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and CRM online.
 - An active Office 365 subscription (if using Office 365 services). See the [Office 365 specific requirements](#office-365-specific-requirements) section of this article for more information.
 
-## Connectivity provider relationship
+## Connectivity provider
+- You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md#howtoconnect). 
+- If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#nonpartners).
 
-- A relationship with a connectivity provider from the supported list through whom connectivity needs to be facilitated. You must have an existing business relationship with your connectivity provider. You will need to make sure that the service you have with the connectivity provider is compatible with ExpressRoute.
-- If you want to use a connectivity provider that is not in the supported list, you can still create a connection to Microsoft cloud services through an exchange.
-	- Check with your connectivity provider to see if they are present in any of the exchange locations appearing in supported list.
-	- Have the connectivity provider extend your network to the exchange location of choice.
-	- Order an ExpressRoute circuit with the exchange as the connectivity provider.
+## Network requirements
+- **Redundant connectivity**: there is no redundancy requirement on physical connectivity between you and your provider. Microsoft does require redundant BGP sessions to be set up between Microsoft’s routers and the peering routers, even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink). 
+- **Routing**: depending on how you connect to the Microsoft Cloud, you or your provider need to set up and manage the BGP sessions for [routing domains](expressroute-circuit-peerings.md). Some Ethernet connectivity provider or cloud exchange provider may offer BGP management as a value-add service.
+- **NAT**: Microsoft only accepts public IP addresses through Microsoft peering. If you are using private IP addresses in your on-premises network, you or your provider need to translate the private IP addresses to the public IP addresses [using the NAT](expressroute-nat.md).
+- **QoS**: Skype for Business has various services (e.g. voice, video, text) that require differentiated QoS treatment. You and your provider should follow the [QoS requirements](expressroute-qos.md).
+- **Network Security**: you should consider [network security](../best-practices-network-security.md) when connecting to the Microsoft Cloud via ExpressRoute.
+ 
+## Office 365
 
-## Physical connectivity between your network and the connectivity provider
+If you plan to enable Office 365 on ExpressRoute, please review the following documents for more information about Office 365 requirements.
 
-Refer to the connectivity models section for details on connectivity models. Customers must ensure that their on-premises infrastructure is physically connected to the service provider infrastructure through one of the models described. 
 
-## Redundancy requirements for connectivity
+- [Overview of ExpressRoute for Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+- [Routing with ExpressRoute for Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+- [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+- [Network planning and performance tuning for Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
+- [Network bandwidth calculators and tools](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
+- [Office 365 integration with on-premises environments](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 
-There are no redundancy requirements on physical connectivity between the customer infrastructure and the service provider infrastructure. 
-Microsoft does require redundancy in Layer 3. Microsoft does require redundant routing to be setup between Microsoft’s edge and the customer’s network through the service provider for each of the peerings to be enabled. If routing sessions are not configured in a redundant manner, the service availability SLA will be void.
+## CRM Online 
+If you plan to enable CRM Online on ExpressRoute, please review the following documents for more information about CRM Online
 
-## IP addresses and routing considerations
-
-Customers/Connectivity Providers are responsible for setting up redundant BGP sessions with the Microsoft edge infrastructure.  Customers choosing to connect through IP VPN providers will typically rely on the connectivity providers to manage routing configurations. Customers co-located with an exchange or connecting to Microsoft through a point-to-point Ethernet provider will have to configure redundant BGP sessions per peering to meet availability SLA requirements. Connectivity providers may offer this as a value added service. 
-Refer to the routing domains table in the [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) article for more information on limits.
-
-## Security and firewalling
-
-Please refer to this document, [Microsoft Cloud Services and Network Security](../best-practices-network-security.md), for security and firewalling information.
-
-## NAT configuration for Azure public and Microsoft peerings
-
-Refer to [ExpressRoute NAT requirements](expressroute-nat.md) for detailed guidance about requirements and configurations. Check with your connectivity provider to see if they will manage NAT setup and management for you. Typically, Layer 3 connectivity providers will manage NAT for you.
-
-## Office 365 specific requirements
-
-Review the following resources for more information about Office 365 requirements.
-
-- [Network planning and performance tuning for Office 365](http://aka.ms/tune)
-- [Office 365 network traffic management](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
-- Refer to the [ExpressRoute Quality of Service (QoS) requirements](expressroute-qos.md) article for detailed guidance on QoS requirements and configurations. Check with your connectivity provider to see if they offer multiple classes of service for your VPN. 
+- [CRM Online URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473)
 
 ## Next steps
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-- Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
+- Find an ExpressRoute connectivity provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 - Refer to requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
 - Configure your ExpressRoute connection.
 	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)

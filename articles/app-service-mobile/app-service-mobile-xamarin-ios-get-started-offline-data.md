@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.iOS mobile app
@@ -24,17 +24,9 @@
 
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Xamarin.iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
-In this tutorial, you will update the Xamarin.iOS app project from the tutorial [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In this tutorial, you will update the Xamarin.iOS app project from [Create a Xamarin iOS app] to support the offline features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
-
-## Requirements
-
-This tutorial requires the following:
-
-* Visual Studio 2013
-* Visual Studio [Xamarin extension] **or** [Xamarin Studio] on OS X
-* Completion of the tutorial [Create a Xamarin iOS app]. This tutorial uses the completed app covered in that tutorial.
 
 ## Review the client sync code
 
@@ -131,7 +123,7 @@ In this section, you will modify the client project to simulate an offline scena
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data will be synced to your mobile backend.
 
-1. Open `QSTodoService.cs`. Correct the `applicationURL` and `gatewayURL` to point to the correct URLs.
+1. Open `QSTodoService.cs`. Correct the `applicationURL` to point to the correct URL.
 
 2. Rebuild and run the client app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exceptions logged in the debug console.
 
@@ -159,12 +151,7 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin iOS app]: ../app-service-mobile-xamarin-ios-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
-
-[How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin extension]: http://xamarin.com/visual-studio
-
+[Create a Xamarin iOS app]: app-service-mobile-xamarin-ios-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri

@@ -27,6 +27,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
+<br>
 
 > [AZURE.NOTE] If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-classic-log-on.md).
 
@@ -40,9 +41,11 @@ And on CentOS, type:
 
     #sudo yum install waagent
 
-For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
+
+For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 Then, to install the latest version of the Azure Linux Agent, type:
+
 
     #sudo yum install WALinuxAgent
 
@@ -50,21 +53,21 @@ If you don't find the add-on repository you can simply add these lines at the en
 
 For Oracle Linux 6 virtual machines:
 
-  [ol6_addons]
-  name=Add-Ons for Oracle Linux $releasever ($basearch)
-  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-  gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
-  gpgcheck=1
-  enabled=1
+    [ol6_addons]
+    name=Add-Ons for Oracle Linux $releasever ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+    gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+    gpgcheck=1
+    enabled=1
 
 For Oracle Linux 7 virtual machines:
 
-  [ol7_addons]
-  name=Oracle Linux $releasever Add ons ($basearch)
-  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
-  gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-  gpgcheck=1
-  enabled=0
+    [ol7_addons]
+    name=Oracle Linux $releasever Add ons ($basearch)
+    baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+    gpgcheck=1
+    enabled=0
 
 Then type:
 

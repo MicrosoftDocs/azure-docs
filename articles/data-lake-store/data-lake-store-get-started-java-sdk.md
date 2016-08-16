@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="05/12/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -23,10 +23,18 @@
 - [PowerShell](data-lake-store-get-started-powershell.md)
 - [.NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [REST API](data-lake-store-get-started-rest-api.md)
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Learn how to use the Azure Data Lake Store Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
+
+## Azure Data Lake Store Java SDK
+
+Following links provide you the download location for the Java SDK for Data Lake Store and the Java SDK reference. For this tutorial you do not need to download the SDK or follow the reference document. These links are for your information only.
+
+* The source code for the Java SDK for Data Lake Store is available on [GitHub](https://github.com/Azure/azure-sdk-for-java).
+* Java SDK Reference for Data Lake Store is available at [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
 
 ## Prerequisites
 
@@ -34,7 +42,17 @@ Learn how to use the Azure Data Lake Store Java SDK to create an Azure Data Lake
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Reply URI**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
+* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+	* **For interactive authentication** - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID** and **redirect URI** for the application
+		- Set delegated permissions
+
+	* **For non-interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Set delegated permissions
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. 
+
+	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
 
 ## How do I authenticate using Azure Active Directory?
 
@@ -44,41 +62,62 @@ You will need to give your application permission to create resources in Azure f
 
 ## Create a Java aplication
 
-1. Open IntelliJ and create a new Java project using the **Command Line App** template.
+1. Open IntelliJ and create a new Java project using the **Command Line App** template. Complete the wizard to create the project.
 
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 
-3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **</version>** tag and the **</project>** tag:
+3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
-    NOTE: This step is temporary until the Azure Data Lake Store SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >[AZURE.NOTE] This step is temporary until the Azure Data Lake Store SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
 
         <repositories>
-            <repository>
-                <id>adx-snapshots</id>
-                <name>Azure ADX Snapshots</name>
-                <url>http://adxsnapshots.azurewebsites.net/</url>
-                <layout>default</layout>
-                <snapshots>
-                    <enabled>true</enabled>
-                </snapshots>
-            </repository>
-        </repositories>
-        <dependencies>
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-client-authentication</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-mgmt-datalake-store</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
+        	<repository>
+	            <id>adx-snapshots</id>
+	            <name>Azure ADX Snapshots</name>
+	            <url>http://adxsnapshots.azurewebsites.net/</url>
+	            <layout>default</layout>
+	            <snapshots>
+                	<enabled>true</enabled>
+            	</snapshots>
+        	</repository>
+        	<repository>
+	            <id>oss-snapshots</id>
+	            <name>Open Source Snapshots</name>
+	            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+	            <layout>default</layout>
+	            <snapshots>
+	                <enabled>true</enabled>
+	                <updatePolicy>always</updatePolicy>
+	            </snapshots>
+        	</repository>
+    	</repositories>
+    	<dependencies>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-authentication</artifactId>
+	            <version>1.0.0-20160513.000802-24</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-client-runtime</artifactId>
+	            <version>1.0.0-20160513.000812-28</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.rest</groupId>
+	            <artifactId>client-runtime</artifactId>
+	            <version>1.0.0-20160513.000825-29</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>com.microsoft.azure</groupId>
+	            <artifactId>azure-mgmt-datalake-store</artifactId>
+	            <version>1.0.0-SNAPSHOT</version>
+	        </dependency>
+    	</dependencies>
 
-4. Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**. Select **Build Tools**, **Maven**, **Importing**. Then check **Import Maven projects automatically**.
 
-5. Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
+4. Go to **File**, then **Settings**, then **Build, Execution, and Deployment**. Expand **Build Tools**, **Maven**, and then expand **Importing**. Select the check box for **Import Maven projects automatically**. Click **Apply** and then click **OK**.
+
+5. From the left pane, navigate to **src**, **main**, **java**, **\<package name>**, and then open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
 
     This code goes through the process of creating a Data Lake Store account, creating files in the store, concatenating files, downloading a file, and finally deleting the account.
 
@@ -169,7 +208,6 @@ You will need to give your application permission to create resources in Azure f
                 _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClientImpl(creds);
         
                 _adlsClient.setSubscriptionId(_subId);
-                _adlsFileSystemClient.setSubscriptionId(_subId);
             }
         
             // Helper function to show status and wait for user input
@@ -202,46 +240,46 @@ You will need to give your application permission to create resources in Azure f
         
             // Create file
             public static void CreateFile(String path) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName);
+                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path);
             }
         
             // Create file with contents
             public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
         
-                _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName, bytesContents, force);
+                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path, bytesContents, force);
             }
         
             // Append to file
             public static void AppendToFile(String path, String contents) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
         
-                _adlsFileSystemClient.getFileSystemOperations().append(path, _adlsAccountName, bytesContents);
+                _adlsFileSystemClient.getFileSystemOperations().append(_adlsAccountName, path, bytesContents);
             }
         
             // Concatenate files
             public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().concat(destFilePath, _adlsAccountName, srcFilePaths);
+                _adlsFileSystemClient.getFileSystemOperations().concat(_adlsAccountName, destFilePath, srcFilePaths);
             }
         
             // Delete concatenated file
             public static void DeleteFile(String filePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().delete(filePath, _adlsAccountName);
+                _adlsFileSystemClient.getFileSystemOperations().delete(_adlsAccountName, filePath);
             }
         
             // Get file or directory info
             public static FileStatusProperties GetItemInfo(String path) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(path, _adlsAccountName).getBody().getFileStatus();
+                return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(_adlsAccountName, path).getBody().getFileStatus();
             }
         
             // List files and directories
             public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(directoryPath, _adlsAccountName).getBody().getFileStatuses().getFileStatus();
+                return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(_adlsAccountName, directoryPath).getBody().getFileStatuses().getFileStatus();
             }
         
             // Download file
             public static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException {
-                InputStream stream = _adlsFileSystemClient.getFileSystemOperations().open(srcPath, _adlsAccountName).getBody();
+                InputStream stream = _adlsFileSystemClient.getFileSystemOperations().open(_adlsAccountName, srcPath).getBody();
         
                 PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
         

@@ -3,7 +3,7 @@
 	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="HeathL17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.date="08/10/2016"
+	ms.author="helaw"/>
 
 # What is Azure Stack Technical Preview 1?
 
@@ -33,3 +33,5 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
 ## Next steps
 
 [Key features and concepts](azure-stack-key-features.md)
+
+[Taking the cloud to your datacenter whitepaper (pdf)](http://download.microsoft.com/download/3/F/3/3F3811C0-969D-422C-9EDA-42CB79BABA96/Bring-the-cloud-to-your-datacenter-Microsoft-Azure-Stack.pdf)

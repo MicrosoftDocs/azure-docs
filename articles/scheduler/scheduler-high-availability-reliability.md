@@ -1,6 +1,6 @@
 <properties
  pageTitle="Scheduler High-Availability and Reliability"
- description=""
+ description="Scheduler High-Availability and Reliability"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 
@@ -30,7 +30,7 @@ Azure Scheduler is available via the UI in almost every geo region that's in Azu
 
 Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
 
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. [For an in-depth explanation of Azure's geo-replication capabilities, refer to this topic.](../sql-database/sql-database-business-continuity-design.md)
+For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. 
 
 ![][1]
 

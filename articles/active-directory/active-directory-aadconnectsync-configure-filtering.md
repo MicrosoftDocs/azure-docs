@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="06/27/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD Connect sync: Configure Filtering
@@ -51,6 +51,14 @@ The filtering configurations will be retained when you install or upgrade to a n
 If you have more than one forest, then the filtering configurations described in this topic must be applied to every forest (assuming you want the same configuration for all of them).
 
 ### Disable scheduled task
+To disable the built-in scheduler which will trigger a synchronization cycle every 30 minutes, follow these steps:
+
+1. Go to a PowerShell prompt.
+2. Run `Set-ADSyncScheduler -SyncCycleEnabled $False` to disable the scheduler.
+3. Make the changes as documented in this topic.
+4. Run `Set-ADSyncScheduler -SyncCycleEnabled $True` to enable the scheduler again.
+
+**If you use an Azure AD Connect build before 1.1.105.0**  
 To disable the scheduled task which will trigger a synchronization cycle every 3 hours, follow these steps:
 
 1. Start **Task Scheduler** from the start menu.

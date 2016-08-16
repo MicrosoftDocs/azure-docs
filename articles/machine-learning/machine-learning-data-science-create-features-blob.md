@@ -13,23 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
-	ms.author="fashah;garye;bradsev" /> 
+	ms.date="06/14/2016" 
+	ms.author="bradsev;garye" /> 
 
 #Create features for Azure blob storage data using Panda
 
-
-##Introduction
-
-This document covers how to create features for data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package. After outlining how to load into a Panda data frame, it shows how to generate categorical features with indicator values and binning features, both using Python scripts.
+This document shows how to create features for data that is stored in Azure blob container using the [Pandas](http://pandas.pydata.org/) Python package. After outlining how to load the data into a Panda data frame, it shows how to generate categorical features using Python scripts with indicator values and binning features.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Prerequisites
-This article assumes that you have:
-
-* Created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
+This article assumes that you have created an Azure blob storage account and have stored your data there. If you need instructions to set up an account, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
 
 
 ## Load the data into a Pandas data frame
@@ -135,7 +131,7 @@ Note that additional features can be created in the Azure Machine Learning Studi
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Now the data can be read from the blob using the Azure Machine Learning [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module as shown in the screen below:
  
 ![reader blob](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 

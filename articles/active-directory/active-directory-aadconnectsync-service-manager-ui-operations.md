@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 
 # Azure AD Connect sync: Synchronization Service Manager
 
-| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
@@ -31,13 +31,13 @@ The top half shows all runs in a chronical order. By default the operations log 
 
 The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
 
-| Status | Comment |
-| --- | --- |
-| stopped-* | The run could not complete. For example if the remote system is down and cannot be contacted. |
-| stopped-error-limit | There are more than 5,000 errors. The run was automatically stopped due to the large number of errors. |
-| completed-*-errors | The run completed, but there are errors (fewer than 5,000) which should be investigated. |
-| completed-*-warnings | The run completed, but some data is not in the expected state. If you have errors, then this is usually only a symptom. Until you have addressed errors, you should not investigate warnings. |
-| success | No issues. |
+Status | Comment
+--- | ---
+stopped-* | The run could not complete. For example if the remote system is down and cannot be contacted.
+stopped-error-limit | There are more than 5,000 errors. The run was automatically stopped due to the large number of errors.
+completed-\*-errors | The run completed, but there are errors (fewer than 5,000) which should be investigated.
+completed-\*-warnings | The run completed, but some data is not in the expected state. If you have errors, then this is usually only a symptom. Until you have addressed errors, you should not investigate warnings.
+success | No issues.
 
 When you select a row, the bottom will update to show the details of that run. To the far left of the bottom you might have a list saying **Step #**. This will only appear if you have multiple domains in your forest where each domain is represented by a step. The domain name can be found under the heading **Partition**. Under **Synchronization Statistics** you can find more information about the number of changes which were processed. You can click on the links to get a list of the changed objects. If you have objects with an error, those will show up under **Synchronization Errors**.
 

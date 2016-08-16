@@ -3,8 +3,8 @@
 	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jennieHubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/11/2016"
 	ms.author="jhubbard"/>
 
 
@@ -49,7 +49,7 @@ Be sure that you have the following installed on the computer where you install 
 
 - **.NET Framework 4.0**
 
- You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
+ Install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
 
 - **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
@@ -195,7 +195,7 @@ To synchronize on a schedule, you configure the sync group.
 
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
-## Next Steps
+## Next steps
 For additional information on SQL Database and SQL Data Sync see:
 
 * [Download the complete SQL Data Sync technical documentation](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)

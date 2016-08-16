@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="huvalo;bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 
 
-The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in workspace.
+The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
 
 This topic provides instructions on how to:
 
@@ -108,7 +108,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
 
 	![Notebook][ipython-dataset]
 
-### <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
+## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
 
 After an experiment is run in the Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 

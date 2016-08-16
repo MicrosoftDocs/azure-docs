@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="How to Manage Data Assets | Microsoft Azure"
    description="How-to article highlighting how to control visibility and ownership of data assets registered in Azure Data Catalog."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 

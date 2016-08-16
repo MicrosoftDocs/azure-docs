@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Analyze Twitter data using Hive in HDInsight
@@ -27,23 +27,23 @@ on Azure HDInsight to get a list of Twitter users who sent the most tweets that 
 to a Linux-based cluster, see [Analyze Twitter data using Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 
-
-> [AZURE.TIP] A similar sample is in the HDInsight Sample Gallery. Watch the Channel 9 video: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analyze Twitter trends using Apache Hive in HDInsight</a>.
-
-###Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. See [Install and use Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. 
 
-	Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
+    To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
-		Login-AzureRmAccount
+    Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
 
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+        Login-AzureRmAccount
 
-		Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
+    If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
+        Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
+
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - **An Azure HDInsight cluster**. For instructions on cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters] [hdinsight-provision]. You will need the cluster name later in the tutorial.
 
@@ -75,11 +75,11 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 2. Click **Create New App**.
 3. Enter **Name**, **Description**, **Website**. You can make up a URL for the **Website** field. The following table shows some sample values to use:
 
-Field|Value
----|---
-Name|MyHDInsightApp
-Description|MyHDInsightApp
-Website|http://www.myhdinsightapp.com
+	Field|Value
+	---|---
+	Name|MyHDInsightApp
+	Description|MyHDInsightApp
+	Website|http://www.myhdinsightapp.com
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial.
@@ -116,7 +116,7 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 
 		#region - Connect to Azure subscription
 		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		Add-AzureAccount
+		Login-AzureRmAccount
 		#endregion
 
 		#region - Create a block blob object for writing tweets into Blob storage
@@ -129,7 +129,7 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 		Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
 
 		Write-Host "Define the Azure storage connection string ..." -ForegroundColor Green
-		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName |  %{ $_.Key1 }
+		$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
 		Write-Host "`tThe connection string is $storageConnectionString." -ForegroundColor Yellow
 
@@ -225,16 +225,16 @@ In this tutorial, you will use Windows PowerShell to make the web service call. 
 3. Set the first five to eight variables in the script:
 
 
-Variable|Description
----|---
-$clusterName|This is the name of the HDInsight cluster where you want to run the application.
-$oauth_consumer_key|This is the Twitter application **consumer key** you wrote down earlier when you created the Twitter application.
-$oauth_consumer_secret|This is the Twitter application **consumer secret** you wrote down earlier.
-$oauth_token|This is the Twitter application **access token** you wrote down earlier.
-$oauth_token_secret|This is the Twitter application **access token secret** you wrote down earlier.
-$destBlobName|This is the output blob name. The default value is **tutorials/twitter/data/tweets.txt**. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.
-$trackString|The web service will return tweets related to these keywords. The default value is **Azure, Cloud, HDInsight**. If you change the default value, you will update the Windows PowerShell scripts accordingly.
-$lineMax|The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.
+	Variable|Description
+	---|---
+	$clusterName|This is the name of the HDInsight cluster where you want to run the application.
+	$oauth_consumer_key|This is the Twitter application **consumer key** you wrote down earlier when you created the Twitter application.
+	$oauth_consumer_secret|This is the Twitter application **consumer secret** you wrote down earlier.
+	$oauth_token|This is the Twitter application **access token** you wrote down earlier.
+	$oauth_token_secret|This is the Twitter application **access token secret** you wrote down earlier.
+	$destBlobName|This is the output blob name. The default value is **tutorials/twitter/data/tweets.txt**. If you change the default value, you will need to update the Windows PowerShell scripts accordingly.
+	$trackString|The web service will return tweets related to these keywords. The default value is **Azure, Cloud, HDInsight**. If you change the default value, you will update the Windows PowerShell scripts accordingly.
+	$lineMax|The value determines how many tweets the script will read. It takes about three minutes to read 100 tweets. You can set a larger number, but it will take more time to download.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
@@ -408,7 +408,7 @@ The HiveQL script will perform the following:
 		Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 		
 		Write-Host "Define the connection string ..." -ForegroundColor Green
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName | %{$_.key1}
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 		
 		Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
@@ -436,13 +436,13 @@ The HiveQL script will perform the following:
 
 4. Set the first two variables in the script:
 
-Variable|Description
----|---
-$clusterName|Enter the HDInsight cluster name where you want to run the application.
-$subscriptionID|Enter your Azure subscription ID.
-$sourceDataPath|The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.
-$outputPath|The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.
-$hqlScriptFile|The location and the file name of the HiveQL script file. You don't need to change this variable.
+	Variable|Description
+	---|---
+	$clusterName|Enter the HDInsight cluster name where you want to run the application.
+	$subscriptionID|Enter your Azure subscription ID.
+	$sourceDataPath|The Azure Blob storage location where the Hive queries will read the data from. You don't need to change this variable.
+	$outputPath|The Azure Blob storage location where the Hive queries will output the results. You don't need to change this variable.
+	$hqlScriptFile|The location and the file name of the HiveQL script file. You don't need to change this variable.
 
 5. Press **F5** to run the script. If you run into problems, as a workaround, select all the lines, and then press **F8**.
 6. You shall see "Complete!" at the end of the output. Any error messages will be displayed in red.
@@ -458,7 +458,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
->[AZURE.NOTE] To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+>[AZURE.NOTE] To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 	#region variables and constants
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
@@ -475,7 +475,7 @@ Use the following Windows PowerShell script to run the Hive script. You will nee
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
@@ -492,7 +492,7 @@ Use the following Windows PowerShell script to run the Hive script. You will nee
 	
 	Write-Host "Display the standard error log ... " -ForegroundColor Green
 	$jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
-	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -StandardError
+	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
 	#endregion
 
 ### Check the results
@@ -510,7 +510,7 @@ Use the following Windows PowerShell script to check the Hive job output. You wi
 	$myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $myCluster.ResourceGroup
 	$defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
 	$defaultBlobContainerName = $myCluster.DefaultStorageContainer
 	
 	Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow

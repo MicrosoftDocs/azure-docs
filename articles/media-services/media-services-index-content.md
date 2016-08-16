@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="06/22/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -69,7 +69,7 @@ Note that if no configuration file is specified, the media file will be indexed 
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 
 	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
+	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
 	    // Read configuration from file if specified.
@@ -272,7 +272,7 @@ Code | Name | Possible Reasons
 2005 | Unsupported file type | Input media file type is not supported.
 2006 | Too many input files | There are more than 10 files in the input manifest.
 3000 | Failed to decode media file | Unsupported media codec <br/>or<br/> Corrupted media file <br/>or<br/> No audio stream in input media.
-4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.
+4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="#output_files">Output files</a>.
 other | Internal errors | Please contact support team. indexer@microsoft.com
 
 
@@ -290,13 +290,10 @@ Currently, the English and Spanish languages are supported. For more information
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-
 ## Related links
+
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Using AIB Files with Azure Media Indexer and SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-<!-- Anchors. -->
-
-<!-- Images. -->
-
-<!-- URLs. -->
+[Indexing Media Files with Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)

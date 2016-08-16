@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -115,5 +115,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md

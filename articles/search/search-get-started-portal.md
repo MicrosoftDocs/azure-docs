@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,19 +14,16 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search in the portal
-> [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
 
 This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 
 The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
-> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
+> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). 
  
 ## Find your service
 
@@ -69,7 +66,7 @@ Click **OK** to complete this step of the wizard.
 
 #### Step 2: Define the index
 
-Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
+Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name, and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
 
   ![][3]
 
@@ -83,7 +80,7 @@ Before you leave this page, mark the fields in your index to use the following o
 	
 Field | Type | Options |
 ------|------|---------|
-key | Edm.String | |
+id | Edm.String | |
 albumTitle | Edm.String | Retrievable, Searchable |
 albumUrl | Edm.String | Retrievable, Searchable |
 genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
@@ -160,20 +157,22 @@ The following instructions give you general guidance, but are not exhaustive. If
 
 1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
 2. Add DocumentDB to your subscription and then open the service dashboard.
-2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in a database list further down the page after it's created.
+2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in the database tile further down the page after it's created.
 2. Click on the database name to open the database blade.
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
 3. Click **Document Explorer**.
-4. Click **Add Documents**.
-5. In **Add Document**, upload JSON files in batches of 100 or fewer.
+4. Click **Upload**.
+5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
 	- 386.json
 	- 387.json
 	- . . .
-6. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
+	- 486.json
+6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
+7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
 
-An easy way to do this is to modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset), or you can write `select * from musicstorecoll`, and then click **Run Query**.
+An easy way to do this is to use the default query, but you can alos modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
 
-You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import wizard**.
+You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
 
 
 <!--Image references-->

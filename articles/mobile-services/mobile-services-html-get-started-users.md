@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
@@ -109,7 +109,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 9. Go back to the browser where your app is running, and refresh the page. 
 
-	   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 	>[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the **Security** tab of **Internet Options**, click **Local Intranet**, click **Sites**, and disable **Automatically detect intranet network**. Remember to change this setting back when you are done testing.
 

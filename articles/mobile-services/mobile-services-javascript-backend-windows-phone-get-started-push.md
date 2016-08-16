@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add push notifications to your Mobile Services app (Windows Phone) | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Phone app." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add push notifications to your Mobile Services app (Windows Phone) | Microsoft Azure"
+	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Phone app."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
@@ -25,9 +25,9 @@
 
 This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Phone Silverlight app. In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
-This tutorial is based on the TodoList sample app. Before you start this tutorial, you must first complete the topic [Add Mobile Services to an existing app] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard can create this connection for you. 
+This tutorial is based on the TodoList sample app. Before you start this tutorial, you must first complete the topic [Add Mobile Services to an existing app] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard can create this connection for you.
 
->[AZURE.NOTE]To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) version of this tutorial.
+>[AZURE.NOTE] To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md) version of this tutorial.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
@@ -38,7 +38,7 @@ Before your app can receive push notifications, you must register a notification
         using Microsoft.Phone.Notification;
 
 3. Add the following to App.xaml.cs:
-	
+
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
         private void AcquirePushChannel()
@@ -70,21 +70,21 @@ Before your app can receive push notifications, you must register a notification
 
         AcquirePushChannel();
 
-	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
+	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
-  
+
 6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
    	![Enable notifications in VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
-   	This makes sure that your app can raise toast notifications. 
+   	This makes sure that your app can raise toast notifications.
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
 Finally, you must update the script registered to the insert operation on the TodoItem table to send notifications.
 
-1. Click **TodoItem**, click **Script** and select **Insert**. 
+1. Click **TodoItem**, click **Script** and select **Insert**.
 
 2. Replace the insert function with the following code, and then click **Save**:
 
@@ -92,9 +92,9 @@ Finally, you must update the script registered to the insert operation on the To
 		// Define a payload for the Windows Phone toast notification.
 		var payload = '<?xml version="1.0" encoding="utf-8"?>' +
 		    '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
 		    '</wp:Text2></wp:Toast></wp:Notification>';
-		
+
 		request.execute({
 		    success: function() {
 		        // If the insert succeeds, send a notification.
@@ -140,16 +140,16 @@ Finally, you must update the script registered to the insert operation on the To
 
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
-+ [Send broadcast notifications to subscribers](../notification-hubs-windows-phone-send-breaking-news.md)
++ [Send broadcast notifications to subscribers](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Send platform-agnostic notifications to subscribers](../notification-hubs-aspnet-cross-platform-notify-users.md)
++ [Send platform-agnostic notifications to subscribers](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md)
 	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs-diagnosing.md)
+* [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs/notification-hubs-push-notification-fixer.md)
 	<br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
@@ -181,6 +181,4 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[What are Notification Hubs?]: ../notification-hubs-overview.md
-
- 
+[What are Notification Hubs?]: ../notification-hubs/notification-hubs-overview.md

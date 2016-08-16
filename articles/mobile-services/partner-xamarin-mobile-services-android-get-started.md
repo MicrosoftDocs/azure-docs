@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Get started with Mobile Services
@@ -37,7 +37,7 @@ A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this tutorial requires [Xamarin.Android], which installs Xamarin Studio and a Visual Studio plug-in (on Windows) as well as the latest Android platform. Android 4.2 SDK or a later version is required.
+Completing this tutorial requires XCode and Xamarin Studio for OS X or Visual Studio on Windows with a networked Mac. Complete installation instructions are on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). 
 
 The downloaded quickstart project contains the Azure Mobile services component for Xamarin.Android. While this project targets Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
@@ -141,7 +141,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with offline data sync]: mobile-services-xamarin-android-get-started-offline-data.md
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [Azure classic portal]: https://manage.windowsazure.com/

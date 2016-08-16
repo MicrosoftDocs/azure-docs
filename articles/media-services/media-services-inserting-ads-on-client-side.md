@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -21,9 +21,9 @@
 
 This topic contains information on how to insert various types of ads on the client side.
 
-For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-manage-channels-overview.md#cc_and_ads).
+For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
->[AZURE.NOTE] Azure Media Player does not currently support Ads. 
+>[AZURE.NOTE] Azure Media Player does not currently support Ads.
 
 ##<a id="insert_ads_into_media"></a>Inserting Ads into your Media
 

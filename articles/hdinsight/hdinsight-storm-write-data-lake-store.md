@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/28/2016"
+ms.date="06/17/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
@@ -27,9 +27,9 @@ Azure Data Lake Store is an HDFS compatible cloud storage service that provides 
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * An Azure subscription
-* A Storm on HDInsight cluster. To create a new Storm on HDInsight cluster, use the steps in the [Use HDInsight with Data Lake Store using Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.  
+* A Storm on HDInsight cluster version 3.2. To create a new Storm on HDInsight cluster, use the steps in the [Use HDInsight with Data Lake Store using Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.  
 
-    > [AZURE.IMPORTANT] When you create the HDInsight cluster, you must select __Storm__ as the cluster type. The OS can be either Windows or Linux.  
+    > [AZURE.IMPORTANT] When you create the HDInsight cluster, you must select __Storm__ as the cluster type, and __3.2__ as the version. The OS can be either Windows or Linux.  
 
 ###Configure environment variables
 

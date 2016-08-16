@@ -3,8 +3,8 @@
 	description="Get started with SQL database auditing"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="ronitr"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="jeffreyg; ronitr"/>
- 
+	ms.date="07/10/2016"
+	ms.author="CarlRabeler; ronitr"/>
+
 # Get started with SQL database auditing
 Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.
 
@@ -57,7 +57,7 @@ Audit logs are stored in your Azure storage account. You can define an audit log
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
 
-Before setting up auditing check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Before setting up auditing check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Auditing.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -140,7 +140,7 @@ In production you are likely to refresh your storage keys periodically. When ref
 3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and click **SAVE**.
 
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (in preparation for the next keys refresh cycle).
-  
+
 ##<a id="subheading-7"></a>Automation
 There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database:
 
@@ -174,6 +174,3 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 [6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_classic_portal_events.png
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
-
-
- 

@@ -10,17 +10,17 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/01/2016"
+   ms.date="05/24/2016"
    ms.author="rclaus"/>
 
 # Azure and Linux
 Microsoft Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web — ideal for hosting your solutions.  Microsoft Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
  
 ## Azure Virtual Machines
-Azure virtual machines allow you deploy a wide range of computing solutions in an agile way. Deploy a Windows or Linux virtual machine from the image gallery or a custom created one from any one of our growing list of partners.  You can deploy virtually any workload and any language on nearly any operating system. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises. 
+Azure virtual machines allow you to deploy a wide range of computing solutions in an agile way. You can deploy virtually any workload and any language on nearly any operating system - Windows, Linux, or a custom created one from any one of our growing list of partners. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises. 
  
 ## Getting Started with Linux in Microsoft Azure
 
@@ -29,7 +29,7 @@ Use Microsoft Azure Virtual Machines, Storage, and Networking together to provid
 1. A free trial account. [Go get one](https://azure.microsoft.com/pricing/free-trial/).
 2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). [Install it](../xplat-cli-install.md).
 3. A Linux VM. [Create it](virtual-machines-linux-quick-create-cli.md).
-4. More information about Linux and Azure, including how to qualify for the Service Level Agreement (SLA). **Read this document, even if you hate legal documents**.
+4. More information about Linux and Azure, including how to qualify for the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). **Read this document, even if you hate legal documents**.
 
 ## Logistics: Regions, Distributions, Availability, VM Sizes and Quotas
 ### Regions
@@ -53,7 +53,7 @@ Here are some basic guidelines for selecting a VM size from one of our series (A
 * Dv2-series, is the latest version of our D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 * G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
-Note: DS-series and GS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see **[Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage-preview-portal.md)**.
+Note: DS-series and GS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see **[Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md)**.
 
 Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  This quota limits can be raised by filing a support ticket requesting a limit increase.  For more details on quota limits, please see **[Azure Subscription Service Limits](../azure-subscription-service-limits.md)**
 

@@ -1,6 +1,6 @@
 <properties
  pageTitle="HPC Pack cluster for Excel and SOA | Microsoft Azure"
- description="Get started with an HPC Pack cluster in Azure to run large-scale Excel and SOA workloads"
+ description="Get started running large-scale Excel and SOA workloads on an HPC Pack cluster in Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/19/2016"
+ ms.date="05/25/2016"
  ms.author="danlep"/>
 
 # Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads
@@ -46,7 +46,7 @@ We'll show you two ways to set up the cluster: first, using an Azure quickstart 
 ### Use a quickstart template
 Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
 
->[AZURE.TIP]If you want, use an [Azure Markeplace template](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
+>[AZURE.TIP]If you want, use an [Azure Markeplace template](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
 
 1.  Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 
