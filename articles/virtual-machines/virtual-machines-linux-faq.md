@@ -20,7 +20,7 @@
 # Frequently asked question about Linux Virtual Machines 
 
 
-This article addresses some common questions users ask about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md)
+This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md)
 
 ## What can I run on an Azure VM?
 
@@ -45,7 +45,7 @@ If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connecti
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 
-You shouldn’t use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage, you would risk losing data that can’t be recovered. 
+Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage You risk losing data that can’t be recovered. 
 
 ## Can I copy or clone an existing Azure VM?
 
@@ -53,9 +53,9 @@ Yes. For instructions, see [How to create a copy of a Linux virtual machine in t
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
-The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration will be done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region the new regions should be available for subsequent virtual machines.
+The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Can I add a NIC to my VM after it's created?
 
-No. This can currently be done only at creation time.
+No. Adding a NIC can only be done at creation time.
 
