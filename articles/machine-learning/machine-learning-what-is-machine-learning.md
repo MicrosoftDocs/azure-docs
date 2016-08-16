@@ -32,9 +32,9 @@ For a brief overview, try the video series [Data Science for Beginners](machine-
 
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. When you use the Azure cloud to run machine learning experiments or build solutions, you don't have to buy expensive hardware or infrastructure.
 
-Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.
-
 ![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
+Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -73,7 +73,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md), you can qui
 
 ## Key machine learning terms and concepts
 
-Machine learning terms can be confusing. Here are definitions of key terms to help you. Use comments below to tell us about any other term you'd like defined.
+Machine learning terms can be confusing. Here are definitions of key terms to help you. Use comments following to tell us about any other term you'd like defined.
 
 ### Data exploration, descriptive analytics, and predictive analytics
 
