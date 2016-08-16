@@ -18,7 +18,7 @@
 
 # Get started with Decode AS2 Message
 
-Connect to Applicability Statement 2 (AS2) - Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing and decryption as well as acknowledgements via Message Disposition Notifications (MDN).
+Connect to Decode AS2 Message to establish security and reliability while transmitting messages. It provides digital signing, decryption and acknowledgements via Message Disposition Notifications (MDN).
 
 ## Create the connection
 
@@ -26,13 +26,13 @@ Connect to Applicability Statement 2 (AS2) - Decode AS2 Message to establish sec
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Itegration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and an [AS2 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-as2/) to it.
+* An Itegration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and an [AS2 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-as2/)
 
 ### Connect to Decode AS2 Message using the following steps:
 
-1. Create a Logic App.  [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
+1. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop down list and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message
 
 	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
@@ -45,7 +45,7 @@ Connect to Applicability Statement 2 (AS2) - Decode AS2 Message to establish sec
 	| Property   | Details |
 	| --------   | ------- |
 	| Connection Name *    | Enter any name for your connection |
-	| Integration Account * | Enter the Integration Account name; Be sure your Integration Account and Logic app are in the same Azure location |
+	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
 
   	Once complete, your connection details look similar to the following
 
@@ -64,14 +64,13 @@ Connect to Applicability Statement 2 (AS2) - Decode AS2 Message to establish sec
 ## The AS2 Decode does the following
 
 * Processes AS2/HTTP headers
-* Verifies the signature, if the message was signed
-* Decrypts the messages, if the message was encrypted (for an EDI/AS2 message, not an MDN)
-* Decompresses the message, if the message was compressed
+* Verifies the signature (if configured)
+* Decrypts the messages (if configured)
+* Decompresses the message (if configured)
 * Reconciles a received MDN with the original outbound message
 * Updates and correlates records in the non-repudiation database
 * Writes records for AS2 status reporting
 * The output payload contents are base64 encoded
 * Determines whether an MDN is required, and whether the MDN should be synchronous or asynchronous based on configuration in AS2 agreement
-* Generates an synchronous or asynchronous MDN (based on agreement configurations)
-* If the MDN is synchronous, sets the sendMDNAsynchronously value False; if asynchronous, sets it True.
+* Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN

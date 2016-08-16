@@ -18,7 +18,7 @@
 
 # Get started with Decode EDIFACT Message
 
-Validates EDI and partner specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
+Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
 
 ## Create the connection
 
@@ -26,13 +26,13 @@ Validates EDI and partner specific properties, generates XML document for each t
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [EDIFACT agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-edifact/) to it.
+* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [EDIFACT agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-edifact/)
 
 ###Connect to Decode EDIFACT Message using the following steps:
 
-1. Create a Logic App.  [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
+1. Create a Logic App. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example.
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop down list and then enter “edifact” in the search box.  Select Decode EDIFACT Message
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "edifact" in the search box.  Select Decode EDIFACT Message
 
 	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
 	
@@ -45,7 +45,7 @@ Validates EDI and partner specific properties, generates XML document for each t
 	| Property | Details |
 	| -------- | ------- |
 	| Connection Name * | Enter any name for your connection |
-	| Integration Account * | Enter the Integration Account name; Be sure your Integration Account and Logic app are in the same Azure location |
+	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
 
 	Once complete, your connection details look similar to the following
 
@@ -63,11 +63,11 @@ Validates EDI and partner specific properties, generates XML document for each t
 
 ## EDIFACT Decode does following
 
-* Resolve the agreement by matching the sender qualifier & identifier, and the receiver qualifier & identifier, in the interchange header with those in the properties of an agreement.
+* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier
 * Splits multiple interchanges in a single message into separate.
 * Validates the envelope against trading partner agreement
 * Disassembles the interchange.
-* Validates EDI and partner-specific properties. This includes 
+* Validates EDI and partner-specific properties includes
 	* Validation of the structure of the interchange envelope.
 	* Schema validation of the envelope against the control schema.
 	* Schema validation of the transaction-set data elements against the message schema.
@@ -81,7 +81,7 @@ Validates EDI and partner specific properties, generates XML document for each t
 	* Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends only those transaction sets. 
 	* Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange.
 	* Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. EDIFACT Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. EDIFACT Decode suspends the entire interchange, if one or more transaction sets in the interchange fail validation
+	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange, 
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
 	* A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
-	* A functional acknowledgment is used to acknowledge a received interchange, group, and message; accept or reject a received interchange, group, and message; and to list any syntactical errors or unsupported functionality contained in them
+	* A functional acknowledgment is used to acknowledge accept or reject a received interchange or a group

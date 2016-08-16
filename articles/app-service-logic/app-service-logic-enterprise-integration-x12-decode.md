@@ -26,13 +26,13 @@ Validates EDI and partner specific properties, generates XML document for each t
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [AS2 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-x12/) to it
+* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-accounts/), [partners](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-partners/) and [X12 agreement](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-enterprise-integration-x12/)
 
 ### Connect to Decode X12 Message using the following steps:
 
-1. Create a Logic App.  [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example
+1. [Create a Logic App](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-create-a-logic-app/) provides an example
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
 
 	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
 
@@ -45,7 +45,7 @@ Validates EDI and partner specific properties, generates XML document for each t
 	| Property | Details |
 	| -------- | ------- |
 	| Connection Name * | Enter any name for your connection |
-	| Integration Account * | Enter the Integration Account name; Be sure your Integration Account and Logic app are in the same Azure location |
+	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
 
 	Once complete, your connection details look similar to the following
 	
@@ -80,7 +80,7 @@ Validates EDI and partner specific properties, generates XML document for each t
 	* Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then X12 Decode suspends only those transaction sets.
 	* Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then X12 Decode suspends the entire interchange.
 	* Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. X12 Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. X12 Decode suspends the entire interchange, if one or more transaction sets in the interchange fail validation
+	* Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then X12 Decode suspends the entire interchange, 
 * Generates a Technical and/or Functional acknowledgment (if configured).
 	* A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
 	* A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
