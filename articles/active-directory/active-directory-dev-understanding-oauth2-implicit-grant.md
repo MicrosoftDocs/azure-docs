@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/76/2016"
+   ms.date="08/17/2016"
    ms.author="vittorib;bryanla"/>
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
