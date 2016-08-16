@@ -108,7 +108,7 @@ The *Azure Disk Preparation tool* is available within installation directory of 
    > [AZURE.NOTE] Publish Settings File is a mandatory input when the *copy machine* and *source machine* are different
 
     On running the command, the tool requests the selection of an Azure Import Job corresponding to which drives need to be prepared. If there is only a single Import Job associated with the provided Staging Location, then a screen such as the one below appears.
-    
+
       ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png)
       
 
