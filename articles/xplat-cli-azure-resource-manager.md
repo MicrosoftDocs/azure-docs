@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="08/18/2016"
 	ms.author="danlep"/>
 
 # Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
