@@ -115,7 +115,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 ## Reference Architectures
 
 Our reference architectures are arranged by scenario, with multiple related architectures grouped together.
-Each individual architecture offers recommended practices and prescriptive steps, as well as an executable component that embodies the recommendations.
+Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
 
 The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
 
