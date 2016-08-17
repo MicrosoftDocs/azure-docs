@@ -35,7 +35,7 @@ For information about firewall rules, see [How to: Configure Firewall Settings (
 
 ## Run sample queries
 
-After you connect to your logical server, you can connect to a database and run a sample query. 
+After you connect to your server, you can connect to a database and run a sample query. If you are new to writing Transact-SQL statements, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx)
 
 1. In **Object Explorer**, navigate to a database on the server, such as the **AdventureWorks** sample database.
 2. Right-click the database and then select **New Query**.
@@ -63,3 +63,5 @@ You can use T-SQL statements to create and manage databases in Azure in much the
 If you're new to T-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
 
 To get started with creating database users and database user administrators, see [Get Started with Azure SQL Database security](sql-database-get-started-security.md)
+
+For more information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
