@@ -74,7 +74,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
 
-    Guidance on tracking the how users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+    Guidance on tracking how users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
 
 - [Recommended naming conventions][naming-conventions] 
 
