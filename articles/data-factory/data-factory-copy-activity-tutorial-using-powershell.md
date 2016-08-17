@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 The [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tutorial shows you how to create and monitor an Azure data factory using the [Azure Portal][azure-portal]. 

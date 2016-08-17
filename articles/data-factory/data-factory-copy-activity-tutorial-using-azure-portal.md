@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 
