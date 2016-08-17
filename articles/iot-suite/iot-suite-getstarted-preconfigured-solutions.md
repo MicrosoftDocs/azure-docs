@@ -163,7 +163,7 @@ There are no rules for the new device you just added. In this section, you add a
 
     ![Add a device rule][img-adddevicerule3]
 
-7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47 degree threshold:
+7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47-degree threshold:
 
     ![Add a device rule][img-adddevicerule4]
 
@@ -193,7 +193,7 @@ When you deploy a preconfigured solution, the deployment process creates multipl
 
 ![Preconfigured solution in the Azure portal][img-portal]
 
-You can view the settings of each resource by selecting it in the list of resources in the resource group. The previous screenshot shows the settings for the IoT hub used in the preconfigured solution.
+You can view the settings of each resource by selecting it in the list of resources in the resource group.
 
 You can also view the source code for the preconfigured solution. The remote monitoring preconfigured solution source code is in the [azure-iot-remote-monitoring][lnk-rmgithub] GitHub repository:
 
