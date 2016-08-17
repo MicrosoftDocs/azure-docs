@@ -18,7 +18,7 @@
 
 #Why DevTest Labs?
 
-> [AZURE.TIP]
+> [AZURE.NOTE]
 > This article is part 2 of a 3 part series:
 > 
 > 1. [What is DevTest Labs?](devtest-lab-overview.md)
