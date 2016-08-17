@@ -24,6 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 In this tutorial, you’ll build your first Azure data factory with a data pipeline that processes data by running Hive script on an Azure HDInsight (Hadoop) cluster. 
 

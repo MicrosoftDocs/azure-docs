@@ -23,6 +23,7 @@
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 In this article, you will learn how to use an Azure Resource Manager (ARM) template to create your first Azure data factory. 
