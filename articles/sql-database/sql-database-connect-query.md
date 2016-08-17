@@ -77,7 +77,7 @@ To connect to SQL Database using Visual Studio, you need the following:
 
 
 
-## Step 2:  Run a sample query
+## Run a sample query
 
 Now that we're connected to the database, the following steps show how to run a simple query:
 
@@ -101,6 +101,8 @@ Now that we're connected to the database, the following steps show how to run a 
 
 ## Next steps
 
-[Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) 
+- Opening SQL databases in Visual Studio uses SQL Server Data Tools. For more details, see [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- To connect to a SQL database using code, see [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md).
+
 
 
