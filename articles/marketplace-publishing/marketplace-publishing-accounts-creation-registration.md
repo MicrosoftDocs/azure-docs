@@ -193,7 +193,7 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 2. Navigate to **Publishers** -> select your account -> **Administrators** -> **Co-Admins**.
 3. Click on the **X** button next to the co-admin you want tot delete (screenshot given below).
 
-    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_05.png)
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## Next steps
 Now that your account is created and registered, ensure you fulfill or meet all of the non-technical pre-requisites to publish your offer by reviewing [Non-technical pre-requisites](marketplace-publishing-pre-requisites.md).
