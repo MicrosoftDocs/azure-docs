@@ -455,5 +455,4 @@ At this time, Power BI Embedded only shows the report in the iframe. But, keep a
 
 
 ## See also
-- [Embed a Power BI report with an iframe](power-bi-embedded-iframe.md)
 - [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
