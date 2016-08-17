@@ -34,12 +34,12 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 1. In Visual Studio's Solution Explorer, open index.js and replace the following code
 
       var client,             // Connection to the Azure Mobile App backend
-        todoItemTable;      // Reference to a table endpoint on backend
+          todoItemTable;      // Reference to a table endpoint on backend
 
-  with this code:
+    with this code:
 
       var client,             // Connection to the Azure Mobile App backend
-        todoItemTable, syncContext; // Reference to table and sync context
+          todoItemTable, syncContext; // Reference to table and sync context
 
 2. Next, replace the following code:
 
@@ -53,13 +53,13 @@ The offline sync code must be added to the app. Offline sync requires the cordov
       var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
 
       store.defineTable({
-        name: 'todoitem',
-        columnDefinitions: {
-        id: 'string',
-        text: 'string',
-        deleted: 'boolean',
-        complete: 'boolean'
-        }
+          name: 'todoitem',
+          columnDefinitions: {
+              id: 'string',
+              text: 'string',
+              deleted: 'boolean',
+              complete: 'boolean'
+          }
       });
 
       // Get the sync context from the client
@@ -75,7 +75,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
       todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
-  with this code:
+    with this code:
 
       // todoItemTable = client.getTable('todoitem');
 
@@ -86,17 +86,17 @@ The offline sync code must be added to the app. Offline sync requires the cordov
         todoItemTable = client.getSyncTable('todoitem');
 
         syncContext.pushHandler = {
-          onConflict: function (serverRecord, clientRecord, pushError) {
-              // Handle the conflict.
-              console.log("Sync conflict! " + pushError.getError().message);
-              // Update failed, revert to server's copy.
-              pushError.cancelAndDiscard();
-          },
-          onError: function (pushError) {
-              // Handle the error
-              // In the simulated offline state, you get "Sync error! Unexpected connection failure."
-              console.log("Sync error! " + pushError.getError().message);
-          }
+            onConflict: function (serverRecord, clientRecord, pushError) {
+                // Handle the conflict.
+                console.log("Sync conflict! " + pushError.getError().message);
+                // Update failed, revert to server's copy.
+                pushError.cancelAndDiscard();
+              },
+              onError: function (pushError) {
+                  // Handle the error
+                  // In the simulated offline state, you get "Sync error! Unexpected connection failure."
+                  console.log("Sync error! " + pushError.getError().message);
+              }
         };
 
         // Call a function to perform the actual sync
@@ -119,17 +119,17 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
       function syncBackend() {
 
-        // Sync local store to Azure table when app loads, or when login complete.
-        syncContext.push().then(function () {
-          //
+          // Sync local store to Azure table when app loads, or when login complete.
+          syncContext.push().then(function () {
+              // Push completed
 
-        });
+          });
 
-        // Pull items from the Azure table after syncing to Azure.
-        syncContext.pull(new WindowsAzure.Query('todoitem'));
+          // Pull items from the Azure table after syncing to Azure.
+          syncContext.pull(new WindowsAzure.Query('todoitem'));
       }
 
-  You decide when to push changes to the Mobile App backend by calling **push** on the **syncContext** object used by the client. For example, you could add a call to **syncBackend** to a button event handler in the app such as a new Sync button, or you could add the call to the **addItemHandler** function to sync whenever a new item is added.
+    You decide when to push changes to the Mobile App backend by calling **push** on the **syncContext** object used by the client. For example, you could add a call to **syncBackend** to a button event handler in the app such as a new Sync button, or you could add the call to the **addItemHandler** function to sync whenever a new item is added.
 
 ##Offline sync considerations
 
