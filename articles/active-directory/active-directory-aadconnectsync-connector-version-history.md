@@ -19,9 +19,10 @@
 # Connector Version Release History
 The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM) are updated frequently.
 
->[Azure.Note] This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
+>[AZURE.NOTE]
+This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
 
-This article is designed to help you keep track of the versions that have been released. It will also help you understand if you need to update to the newest version or not.
+This topic list all versions of the Connectors that have been released.
 
 Related links:
 
@@ -46,14 +47,14 @@ Initial release of the [Generic SQL Connector](active-directory-aadconnectsync-c
     - Updated the csEntryChangeResult activity and setImportErrorCode activity to allow object level errors to be returned back to the sync engine.
     - Updated the SAP6 and SAP6User templates to use the new object level error functionality.
 - Lotus Domino Connector:
-    - For export you need one certifier per address book. You can now use the same password for all certifiers to make the management easier.
+    - For export, you need one certifier per address book. You can now use the same password for all certifiers to make the management easier.
 
 **Fixed issues:**
 
 - Generic LDAP Connector:
     - For IBM Tivoli DS, some reference attributes were not detected correctly.
     - For Open LDAP during a delta import, whitespaces at the beginning and end of strings were truncated.
-    - For Novell and NetIQ, an export that both moved an object between OUs/containers and at the same time renamed the object failed.
+    - For Novell and NetIQ, an export that moved an object between OUs/containers and at the same time renamed the object failed.
 - Web Services Connector:
     - If the web service had multiple end-points for same binding, then the Connector did not correctly discover these end-points.
 - Lotus Domino Connector:
