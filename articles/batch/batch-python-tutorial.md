@@ -119,7 +119,7 @@ You can find your Batch and Storage account credentials within the account blade
 
 In the following sections, we analyze the steps used by the scripts to process a workload in the Batch service. We encourage you to refer regularly to the scripts in your editor while you work your way through the rest of the article.
 
-Navigate to the following line in **python_tutorial_client.py** in order to start with Step 1:
+Navigate to the following line in **python_tutorial_client.py** to start with Step 1:
 
 ```python
 if __name__ == '__main__':
