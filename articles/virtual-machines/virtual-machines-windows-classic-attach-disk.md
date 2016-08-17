@@ -25,10 +25,27 @@ If you need an additional data disk, you can attach an empty disk or an existing
 
 For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-windows-about-disks-vhds.md).
 
-## Video walkthrough
+## Attach a disk using the Azure portal
 
-Here's a [video walkthrough](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) of the steps in this tutorial.
+1. Open the [Azure portal](https://portal.azure.com).
 
+2. Click **Virtual machines** and then select the virtual machine.
+
+	![Screenshot of the VM settings menu where you select Disks](./media/virtual-machines-windows-classic-attach-disk/disk.png)
+
+3. On the **Settings** menu for the VM, select **Disks**
+
+4. On the Diosks blade, select **Attach new** or **Attach existing**.
+
+
+Attach a new disk
+
+	![Screenshot of the VM settings menu where you select Disks](./media/virtual-machines-windows-classic-attach-disk/attach-new.png)
+
+
+
+
+## Attach a disk using the classi portal 
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
