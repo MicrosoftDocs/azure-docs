@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configure web proxy for your StorSimple device
