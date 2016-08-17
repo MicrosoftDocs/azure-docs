@@ -27,7 +27,7 @@ This tutorial shows you how to provision the remote monitoring preconfigured sol
 
 ![Remote monitoring preconfigured solution dashboard][img-dashboard]
 
-ITo complete this tutorial, you need an active Azure subscription.
+To complete this tutorial, you need an active Azure subscription.
 
 > [AZURE.NOTE]  If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
@@ -163,7 +163,7 @@ There are no rules for the new device you just added. In this section, you add a
 
     ![Add a device rule][img-adddevicerule3]
 
-7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47 degree threshold:
+7.  Navigate back to the solution dashboard. After a short time, you will see a new entry in the **Alarm History** pane when the temperature reported by your new device exceeds the 47-degree threshold:
 
     ![Add a device rule][img-adddevicerule4]
 
