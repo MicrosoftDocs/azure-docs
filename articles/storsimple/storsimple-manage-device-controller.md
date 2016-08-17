@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
