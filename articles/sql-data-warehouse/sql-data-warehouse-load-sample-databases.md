@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Load sample data into SQL Data Warehouse
@@ -46,7 +46,7 @@ This script will...
 
 ##Query sample data
 
-Once you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries.  To run a query, connect to your newly created Adventure Works database in Azure SQL DW using Visual Studio and SSDT, as described in the [connect][] document.
+Once you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries.  To run a query, connect to your newly created Adventure Works database in Azure SQL DW using Visual Studio and SSDT, as described in the [query with Visual Studio][] document.
 
 Example of simple select statement to get all the info of the employees:
 
@@ -81,13 +81,13 @@ Now that you've had a chance to try some queries with sample data, check out how
 <!--Image references-->
 
 <!--Article references-->
-[migrate]: ./sql-data-warehouse-overview-migrate.md
-[develop]: ./sql-data-warehouse-overview-develop.md
-[load]: ./sql-data-warehouse-overview-load.md
-[connect]: ./sql-data-warehouse-get-started-connect.md
-[migrate code]: ./sql-data-warehouse-migrate-code.md
-[install bcp]: ./sql-data-warehouse-load-with-bcp.md
-[install sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[query with Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[migrate code]: sql-data-warehouse-migrate-code.md
+[install bcp]: sql-data-warehouse-load-with-bcp.md
+[install sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
