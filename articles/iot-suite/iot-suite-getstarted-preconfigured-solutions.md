@@ -193,7 +193,7 @@ When you deploy a preconfigured solution, the deployment process creates multipl
 
 ![Preconfigured solution in the Azure portal][img-portal]
 
-You can view the settings of each resource by selecting it in the list of resources in the resource group. The previous screenshot shows the settings for the IoT hub used in the preconfigured solution.
+You can view the settings of each resource by selecting it in the list of resources in the resource group.
 
 You can also view the source code for the preconfigured solution. The remote monitoring preconfigured solution source code is in the [azure-iot-remote-monitoring][lnk-rmgithub] GitHub repository:
 

@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/18/2016"
+ ms.date="08/17/2016"
  ms.author="dobett"/>
 
 # Remote monitoring preconfigured solution walkthrough
@@ -101,28 +101,28 @@ This job sends its output to an Event Hub for further processing.
 WITH AlarmsData AS 
 (
 SELECT
-     Stream.DeviceID,
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
      'Temperature' as ReadingType,
      Stream.Temperature as Reading,
      Ref.Temperature as Threshold,
      Ref.TemperatureRuleOutput as RuleOutput,
      Stream.EventEnqueuedUtcTime AS [Time]
 FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
 WHERE
      Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
 
 UNION ALL
 
 SELECT
-     Stream.DeviceID,
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
      'Humidity' as ReadingType,
      Stream.Humidity as Reading,
      Ref.Humidity as Threshold,
      Ref.HumidityRuleOutput as RuleOutput,
      Stream.EventEnqueuedUtcTime AS [Time]
 FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
 WHERE
      Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
 )
@@ -146,33 +146,38 @@ WITH
 AS (
     SELECT
         *
-    FROM 
-      [IoTHubStream] 
+    FROM [IoTHubStream]
     WHERE
         [ObjectType] IS NULL -- Filter out device info and command responses
 ) 
 
 SELECT
-    *
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    Temperature,
+    Humidity,
+    ExternalTemperature,
+    EventProcessedUtcTime,
+    PartitionId,
+    EventEnqueuedUtcTime,
+    * 
 INTO
     [Telemetry]
 FROM
     [StreamData]
 
 SELECT
-    DeviceId,
-    AVG (Humidity) AS [AverageHumidity], 
-    MIN(Humidity) AS [MinimumHumidity], 
-    MAX(Humidity) AS [MaxHumidity], 
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    AVG (Humidity) AS [AverageHumidity],
+    MIN(Humidity) AS [MinimumHumidity],
+    MAX(Humidity) AS [MaxHumidity],
     5.0 AS TimeframeMinutes 
 INTO
     [TelemetrySummary]
-FROM
-    [StreamData]
+FROM [StreamData]
 WHERE
     [Humidity] IS NOT NULL
 GROUP BY
-    DeviceId, 
+    IoTHub.ConnectionDeviceId,
     SlidingWindow (mi, 5)
 ```
 

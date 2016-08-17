@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/17/2016"
  ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution walkthrough
@@ -83,7 +83,7 @@ You can view your provisioned resources by browsing to the Azure portal and th
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to this Machine Learning workspace from the[azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to this Machine Learning workspace from the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
 
 ![][img-machine-learning]
 

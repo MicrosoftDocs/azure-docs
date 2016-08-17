@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="08/10/2016"
+  ms.date="08/16/2016"
   ms.author="araguila"/>
   
 # Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution
@@ -37,17 +37,17 @@ To begin, set up the logic app to use with the preconfigured solution.
 
 2. Search for __Logic App__, select it and then click **Create**.
 
-3. Fill out the __Name__ and use the same **Subscription**, **Resource group**, and **App Service Plan** that you used when you provisioned your remote monitoring solution. Click __Create__.
+3. Fill out the __Name__ and use the same **Subscription** and **Resource group** that you used when you provisioned your remote monitoring solution. Click __Create__.
 
     ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
 
 4. When your deployment completes, you will see the Logic App is now listed as a resource in your resource group.
 
-5. Click on the Logic App to navigate to the Logic App blade, this immediately opens the **Logic Apps Designer**.
+5. Click on the Logic App to navigate to the Logic App blade, select the **Blank Logic App** template to open the **Logic Apps Designer**.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 
-6. Select __Manual – When an HTTP request is received__. This specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
+6. Select __Request__. This specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
 
 7. Paste the following into the Request Body JSON Schema:
 
@@ -80,7 +80,7 @@ To begin, set up the logic app to use with the preconfigured solution.
     
     Note: you can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
 
-8. Click __(+)__ under your manual trigger. Then click **Add an action**.
+8. Click __+ New step__ under your manual trigger. Then click **Add an action**.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
 
@@ -88,7 +88,7 @@ To begin, set up the logic app to use with the preconfigured solution.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
 
-10. Enter a name for the connection, such as **SendGridConnection**, enter the **SendGrid Api Key** you created when you set up your SendGrid account, and click **Create connection**.
+10. Enter a name for the connection, such as **SendGridConnection**, enter the **SendGrid Api Key** you created when you set up your SendGrid account, and click **Create**.
 
     ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
 
@@ -98,7 +98,7 @@ To begin, set up the logic app to use with the preconfigured solution.
 
 12. Click __Save__ in the top menu.
 
-13. Click the **When an HTTP request is received** trigger and copy the __Http Post to this URL__ value. You will need this URL later in this tutorial.
+13. Click the **Request** trigger and copy the __Http Post to this URL__ value. You will need this URL later in this tutorial.
 
 > [AZURE.NOTE] Logic Apps enable you to run [many different types of action][lnk-logic-apps-actions] including actions in Office 365. 
 
