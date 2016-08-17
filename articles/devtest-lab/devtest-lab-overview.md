@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher"/>
 
 #What is DevTest Labs?
@@ -21,7 +21,7 @@
 > [AZURE.TIP]
 > This article is part 1 of a 3 part series:
 > 
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
+> 1. **[What is DevTest Labs?](devtest-lab-overview.md)**
 > 1. [Why DevTest Labs?](devtest-lab-why.md)
 > 1. [DevTest Labs Concepts](devtest-lab-concepts.md)
 
