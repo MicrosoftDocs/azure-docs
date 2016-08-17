@@ -34,6 +34,12 @@ Perform the following two steps to use a Linux file share with the File Server L
 - Install [Samba](https://www.samba.org/) on your Linux Server.
 - Install and configure Data Management Gateway on a Windows server. Installing gateway on a Linux server is not supported. 
  
+## Copy data wizard
+The easiest way to create a pipeline that copies data to/from on-premises file system is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from on-premises file system and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+
+
 ## Sample: Copy data from on-premises file system to Azure Blob
 
 This sample shows how to copy data from an on-premises file system to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  

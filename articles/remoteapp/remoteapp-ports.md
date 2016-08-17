@@ -14,12 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # List of Ports and URLs to permit access for Azure RemoteApp Deployed in customer Virtual Network 
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 The following applies to Azure RemoteApp a cloud or hybrid collection if you are deploying it in a virtual network (VNET). For more information on virtual networks, please read [Virtual Network Overview](../virtual-network/virtual-networks-overview.md). If you have created a network security group (NSG) restricting traffic to your virtual network resources which you have chosen for Azure RemoteApp, please make sure the following are accessible and allowed through the security policies on the virtual network. For more information on network security groups, please read [What is a Network Security Group? (NSG)](../virtual-network/virtual-networks-nsg.md).
 

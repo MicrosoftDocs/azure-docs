@@ -317,7 +317,7 @@ switch($PSCmdlet.ParameterSetName) {
 [azure-vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
-[getting-started-with-azure-security]: ./../azure-security-getting-started.md
+[getting-started-with-azure-security]: ./../security/azure-security-getting-started.md
 [expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
 [implementing-vpn]: ./guidance-hybrid-network-vpn.md#implementing-this-architecture
