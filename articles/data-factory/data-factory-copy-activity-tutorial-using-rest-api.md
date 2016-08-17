@@ -30,13 +30,13 @@ This tutorial shows you how to create and monitor an Azure data factory using th
 The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.NOTE] 
-> This article does not cover all the Data Factory REST API. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
+> This article does not cover all the Data Factory REST API. See [Data Factory REST API Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
   
 
 ## Prerequisites
 
-- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **pre-requisite **steps before performing this tutorial.
-- Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory. 
+- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
 	1. Create a Web application named **ADFCopyTutotiralApp** in Azure Active Directory.
 	2. Get **client ID** and **secret key**. 
@@ -328,11 +328,11 @@ Linked services link data stores or compute services to an Azure data factory. A
 In this step, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. AzureStorageLinkedService linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the data factory: **ADFCopyTutorialDF**. You create a pipeline later in this tutorial that copies data from a blob container in AzuretStorageLinkedService to a SQL table in AzureSqlLinkedService.
 
 ### Create Azure Storage linked service
-In this step, you link your Azure Storage account to your data factory. With this tutorial, you use the Azure Storage account to store input data.
+In this step, you link your Azure Storage account to your data factory. With this tutorial, you use the Azure Storage account to store input data. 
 
 1. Assign the command to variable named **cmd**. 
 
-		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/reso$df urcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
  
 		$results = Invoke-Command -scriptblock $cmd;
