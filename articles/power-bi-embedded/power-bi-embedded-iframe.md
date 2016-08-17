@@ -1,213 +1,459 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded - Embed a Power BI report with an IFrame"
-   description="Microsoft Power BI Embedded - Essential code to integrate a report into your app, how to authenticate with Power BI Embedded app token, how to get reports"
+   pageTitle="How to use Power BI Embedded with REST | Microsoft Azure"
+   description="Learn how to use Power BI Embedded with REST "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="tsmatsuz"
    manager="NA"
    editor=""
    tags=""/>
 <tags
    ms.service="power-bi-embedded"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/19/2016"
+   ms.date="08/02/2016"
    ms.author="owend"/>
 
-# Embed a Power BI report with an IFrame
-This article shows you essential code to use the **Power BI Embedded** REST API, app tokens, an IFrame, and some JavaScript to integrate, or embed, a report into your app.
+# How to use Power BI Embedded with REST
 
-In [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md), you learn how to configure a **Workspace Collection** to hold one or more **Workspaces** for your report content. Then, in [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) you import a report into a **Workspace**.
 
-In this article,  we'll go through the steps to embed a report into your app. To follow along with this article, you should download the [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub. This sample is a simple ASP.NET web form app intended to illustrate essential C# and JavaScript code you need to integrate a report. For a more advanced sample that uses the Model-View-Controller (MVC) design pattern to integrate a report, see the [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493) on GitHub.
+## Power BI Embedded: What it is and what it's for
+An overview of Power BI Embedded is described in the official [Power BI Embedded site](https://azure.microsoft.com/services/power-bi-embedded/), but let's take a quick look before we get into the details about using it with REST.
 
-To integrate a report, here are the steps we'll go through:
+It's quite simple, really. An ISV often wants to use the dynamic data visualizations of [Power BI](https://powerbi.microsoft.com) in their own application as UI building blocks.
 
-- Step 1: [Get a report in a workspace](#GetReport). In this step, you use an app token flow to get an access token to call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation. Once you get a report from the **Get Reports** list, you embed the report into an app with an **IFrame** element.
-- Step 2: [Embed a report into an app](#EmbedReport). In this step, you use an embed token for a report, some JavaScript, and an IFrame to integrate, or embed, a report into a web app.
+But, you know, embedding Power BI reports or tiles into your web page is already possible without the Power BI Embedded Azure service, by using the **Power BI API**. When you want to share your reports in your same organization, you can embed the reports with Azure AD authentication. The user who views the reports must login using their own Azure AD account. When you want to share your reports for all users (including external users), you can simply embed with anonymous access.
 
-If you want to run the sample, download the [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub, and configure three Web.Config settings:
+But you see, this simple embed solution doesn’t quite meet the needs of an ISV application.
+Most ISV applications need to deliver the data for their own customers, not necessarily users in their own organization. For example, if you're delivering some service for both company A and company B, users in company A should only see data for their own company A. That is, the multi-tenancy is needed for the delivery.
 
-- **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report.
-- **Workspace Collection Name**: Identifies the workspace.
-- **Workspace Id**: A unique ID for the workspace
+The ISV application might also be offering its own authentication methods such as forms auth, basic auth, etc.. Then, the embedding solution must collaborate with this existing authentication methods safely. It's also necessary for users to be able to use those ISV applications without the extra purchase or licensing of a Power BI subscription.
 
-To learn how to get an Access Key, Workspace Collection Name, and Workspace Id from Azure Portal, see [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+ **Power BI Embedded** is designed for precisely these kinds of ISV scenarios. So now that we have that quick introduction out of the way, let's get into some details
 
-<a name="GetReport"/>
-## Get a report in a workspace
+You can use .NET \(C#) or Node.js SDK, to easily build your application with Power BI Embedded. But, in this article, we'll explain about HTTP flow \(incl. AuthN) of Power BI without SDKs. Understanding this flow, you can build your application **with any programming language**, and you can understand deeply the essence of Power BI Embedded.
 
-To integrate a report into an app, you need a report **ID** and **embedUrl**. To get them, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list.
+## Create Power BI workspace collection, and get access key \(Provisioning)
+Power BI Embedded is one of the Azure services. Only the ISV who uses Azure Portal is charged for usage fees \(per hourly user session), and the user who views the report isn't charged or even require an Azure subscription.
+Before starting our application development, we must create the **Power BI workspace collection** by using Azure Portal.
 
-### Get reports JSON response
+Each workspace of Power BI Embedded is the workspace for each customer (tenant), and we can add many workspaces in each workspace collection. The same access key is used in each workspace collection. In-effect, the workspace collection is the security boundary for Power BI Embedded.
+
+![](media\power-bi-embedded-iframe\create-workspace.png)
+
+When we finish creating the workspace collection, copy the access key from Azure Portal.
+
+![](media\power-bi-embedded-iframe\copy-access-key.png)
+
+> [AZURE.NOTE] We can also provision the workspace collection and get access key via REST API. To learn more, see [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx).
+
+## Create .pbix file with Power BI Desktop
+Next, we must create the data connection and reports to be embedded.
+For this task, there’s no programming or code. We just use Power BI Desktop.
+In this article, we won't go through the details about how to use Power BI Desktop. If you need some help here, see [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). For our example, we'll just use the [Retail Analysis Sample](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
+
+![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
+
+## Create a Power BI workspace
+
+Now that the provisioning is all done, let’s get started creating a customer’s workspace in the workspace collection via REST APIs. The following HTTP POST Request (REST) is creating the new workspace in our existing workspace collection. In our example, the workspace collection name is **mypbiapp**.
+We just set the access key, which we previously copied, as **AppKey**. It’s very simple authentication!
+
+**HTTP Request**
+
 ```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP Response**
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+Location: https://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces
+RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
+
 {
-  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/$metadata#workspaces/$entity",
+  "workspaceId": "32960a09-6366-4208-a8bb-9e0678cdbb9d",
+  "workspaceCollectionName": "mypbiapp"
+}
+```
+
+The returned **workspaceId** is used for the following subsequent API calls. Our application must retain this value.
+
+## Import .pbix file into the workspace
+Each workspace can host a single Power BI Desktop file with a dataset \(including datasource settings) and reports. We can import our .pbix file to the workspace as shown in the code below. As you can see, we can upload the binary of .pbix file using MIME multipart in http.
+
+The uri fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** is the workspaceId, and query parameter **datasetDisplayName** is the dataset name to create. The created dataset holds all data related artifacts in .pbix file such as imported data, the pointer to the data source, etc..
+
+```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports?datasetDisplayName=mydataset01
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: multipart/form-data; boundary="A300testx"
+
+--A300testx
+Content-Disposition: form-data
+
+{the content (binary) of .pbix file}
+--A300testx--
+```
+
+This import task might run for a while. When complete, our application can ask the task status using import id. In our example, the import id is **4eec64dd-533b-47c3-a72c-6508ad854659**.
+
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/json; charset=utf-8
+Location: https://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659?tenantId=myorg
+RequestId: 658bd6b4-b68d-4ec3-8818-2a94266dc220
+
+{"id":"4eec64dd-533b-47c3-a72c-6508ad854659"}
+```
+
+The following is asking status using this import id:
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/imports/4eec64dd-533b-47c3-a72c-6508ad854659
+Authorization: AppKey MpaUgrTv5e...
+```
+
+If the task isn't complete, the HTTP response could be like this:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+RequestId: 614a13a5-4de7-43e8-83c9-9cd225535136
+
+{
+  "id": "4eec64dd-533b-47c3-a72c-6508ad854659",
+  "importState": "Publishing",
+  "createdDateTime": "2016-07-19T07:36:06.227",
+  "updatedDateTime": "2016-07-19T07:36:06.227",
+  "name": "mydataset01"
+}
+```
+
+If the task is complete, the HTTP response could be more like this:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
+
+{
+  "id": "4eec64dd-533b-47c3-a72c-6508ad854659",
+  "importState": "Succeeded",
+  "createdDateTime": "2016-07-19T07:36:06.227",
+  "updatedDateTime": "2016-07-19T07:36:06.227",
+  "reports": [
     {
-      "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
-    },{
-      "id":"1d7cff58-…-380610e263a9","name":"Sample Report 2","webUrl":"https://embedded.powerbi.com/reports/1d7cff58-...-380610e263a9","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=1d7cff58-...-380610e263a9"
+      "id": "2027efc6-a308-4632-a775-b9a9186f087c",
+      "name": "mydataset01",
+      "webUrl": "https://app.powerbi.com/reports/2027efc6-a308-4632-a775-b9a9186f087c",
+      "embedUrl": "https://app.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "458e0451-7215-4029-80b3-9627bf3417b0",
+      "name": "mydataset01",
+      "tables": [
+      ],
+      "webUrl": "https://app.powerbi.com/datasets/458e0451-7215-4029-80b3-9627bf3417b0"
+    }
+  ],
+  "name": "mydataset01"
+}
+```
+
+## Data source connectivity \(and multi-tenancy of data)
+While almost all of the artifacts in .pbix file are imported into our workspace, the  credentials for data sources are not. As a result, when using **DirectQuery mode**, the embedded report cannot be shown correctly. But, when using **Import mode**, we can view the report using the existing imported data. In such a case, we must set the credential using the following steps via REST calls.
+
+First, we must get the gateway datasource. We know the dataset **id** is the previously returned id.
+
+**HTTP Request**
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.GetBoundGatewayDatasources
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP Response**
+
+```
+GET HTTP/1.1 200 OK
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
+
+{
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/$metadata#gatewayDatasources",
+  "value": [
+    {
+      "id": "5f7ee2e7-4851-44a1-8b75-3eb01309d0ea",
+      "gatewayId": "ca17e77f-1b51-429b-b059-6b3e3e9685d1",
+      "datasourceType": "Sql",
+      "connectionDetails": "{\"server\":\"testserver.database.windows.net\",\"database\":\"testdb01\"}"
     }
   ]
 }
-
 ```
 
-To call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, you'll use an app token. To learn more about the app token flow, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md). The following code describes how to get a JSON list of reports.
+Using the returned gateway id and datasource id \(see the previous **gatewayId** and **id** in the returned result), we can change the credential of this datasource as follows:
+
+**HTTP Request**
 
 ```
-protected void getReportsButton_Click(object sender, EventArgs e)
+PATCH https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/gateways/ca17e77f-1b51-429b-b059-6b3e3e9685d1/datasources/5f7ee2e7-4851-44a1-8b75-3eb01309d0ea
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: application/json; charset=utf-8
+
 {
-    //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+  "credentialType": "Basic",
+  "basicCredentials": {
+    "username": "demouser",
+    "password": "P@ssw0rd"
+  }
+}
+```
 
-    //Configure reports request
-    System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
-    request.Method = "GET";
-    request.ContentLength = 0;
+**HTTP Response**
 
-    //Set the WebRequest header to AppToken, and jwt
-    //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
+```
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
+```
 
-    //Get reports response from request.GetResponse()
-    using (var response = request.GetResponse() as System.Net.HttpWebResponse)
+In production, we can also set the different connection string for each workspace using REST API. \(i.e, we can separate the database for each customers.)
+
+The following is changing the connection string of datasource via REST.
+
+```
+POST https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/datasets/458e0451-7215-4029-80b3-9627bf3417b0/Default.SetAllConnections
+Authorization: AppKey MpaUgrTv5e...
+Content-Type: application/json; charset=utf-8
+
+{
+  "connectionString": "data source=testserver02.database.windows.net;initial catalog=testdb02;persist security info=True;encrypt=True;trustservercertificate=False"
+}
+```
+
+Or, we can use Row Level Security in Power BI Embedded and we can separate the data for each users in one report. As a result, we can provision each customer report with same .pbix \(UI, etc.) and different data sources.
+
+> [AZURE.NOTE] If you’re using **Import mode** instead of **DirectQuery mode**, there’s no way to refresh models via API. And, on-premises datasources through Power BI gateway isn't yet supported in Power BI Embedded. However, you'll really want to keep an eye on the [Power BI blog](https://powerbi.microsoft.com/blog/) for what's new and what's coming in future releases.
+
+## Authentication and hosting (embedding) reports in our web page
+
+In the previous REST API, we can use the access key **AppKey** itself as the authorization header. Because these calls can be handled on the backend server side, it's safe.
+
+But, when we embed the report in our web page, this kind of security information would be handled using JavaScript \(frontend). Then the authorization header value must be secured. If our access key is discovered by a malicious user or malicious code, they can call any operations using this key.
+
+When we embed the report in our web page, we must use the computed token instead of access key **AppKey**. Our application must create the OAuth Json Web Token \(JWT) which consists of the claims and the computed digital signature. As illustrated below, this OAuth JWT is dot-delimited encoded string tokens.
+
+![](media\power-bi-embedded-iframe\oauth-jwt.png)
+
+First, we must prepare the input value, which is signed later. This value is the base64 url encoded (rfc4648) string of the following json, and these are delimited by the dot \(.) character. Later, we'll explain how to get the report id.
+
+> [AZURE.NOTE] If we want to use Row Level Security (RLS) with Power BI Embedded, we must also specify **username** and **roles** in the claims.
+
+```
+{
+  "typ":"JWT",
+  "alg":"HS256"
+}
+```
+
+```
+{
+  "wid":"{workspace id}",
+  "rid":"{report id}",
+  "wcn":"{workspace collection name}",
+  "iss":"PowerBISDK",
+  "ver":"0.2.0",
+  "aud":"https://analysis.windows.net/powerbi/api",
+  "nbf":{start time of token expiration},
+  "exp":{end time of token expiration}
+}
+```
+
+Next, we must create the base64 encoded string of HMAC \(the signature) with SHA256 algorithm. This signed input value is the previous string.
+
+Last, we must combine the input value and signature string using period \(.) character. The completed string is the app token for the report embedding. Even if the app token is discovered by a malicious user, they cannot get the original access key. This app token will expire quickly.
+
+Here's a PHP example for these steps:
+
+```
+<?php
+// 1. power bi access key
+$accesskey = "MpaUgrTv5e...";
+
+// 2. construct input value
+$token1 = "{" .
+  "\"typ\":\"JWT\"," .
+  "\"alg\":\"HS256\"" .
+  "}";
+$token2 = "{" .
+  "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
+  "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
+  "\"wcn\":\"mypbiapp\"," . // workspace collection name
+  "\"iss\":\"PowerBISDK\"," .
+  "\"ver\":\"0.2.0\"," .
+  "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
+  "\"nbf\":" . date("U") . "," .
+  "\"exp\":" . date("U" , strtotime("+1 hour")) .
+  "}";
+$inputval = rfc4648_base64_encode($token1) .
+  "." .
+  rfc4648_base64_encode($token2);
+
+// 3. get encoded signature
+$hash = hash_hmac("sha256",
+	$inputval,
+	$accesskey,
+	true);
+$sig = rfc4648_base64_encode($hash);
+
+// 4. show result (which is the apptoken)
+$apptoken = $inputval . "." . $sig;
+echo($apptoken);
+
+// helper functions
+function rfc4648_base64_encode($arg) {
+  $res = $arg;
+  $res = base64_encode($res);
+  $res = str_replace("/", "_", $res);
+  $res = str_replace("+", "-", $res);
+  $res = rtrim($res, "=");
+  return $res;
+}
+?>
+```
+
+## Finally, embed the report into the web page
+
+For embedding our report, we must get the embed url and report **id** using the following REST API.
+
+**HTTP Request**
+
+```
+GET https://api.powerbi.com/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/reports
+Authorization: AppKey MpaUgrTv5e...
+```
+
+**HTTP Response**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; odata.metadata=minimal; odata.streaming=true
+RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
+
+{
+  "@odata.context": "http://wabi-us-east2-redirect.analysis.windows.net/v1.0/collections/mypbiapp/workspaces/32960a09-6366-4208-a8bb-9e0678cdbb9d/$metadata#reports",
+  "value": [
     {
-        //Get reader from response stream
-        using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
-        {
-            //Deserialize JSON string into PBIReports
-            PBIReports PBIReports = JsonConvert.DeserializeObject<PBIReports>(reader.ReadToEnd());
-
-            //Clear Textbox
-            tb_reportsResult.Text = string.Empty;
-
-            //Get each report
-            foreach (PBIReport rpt in PBIReports.value)
-            {
-                tb_reportsResult.Text += String.Format("{0}\t{1}\t{2}\n", rpt.id, rpt.name, rpt.embedUrl);
-            }
-        }
+      "id": "2027efc6-a308-4632-a775-b9a9186f087c",
+      "name": "mydataset01",
+      "webUrl": "https://app.powerbi.com/reports/2027efc6-a308-4632-a775-b9a9186f087c",
+      "embedUrl": "https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c",
+      "isFromPbix": false
     }
-}
-
-```
-
-<a name="EmbedReport"/>
-## Embed a report into an app
-
-Before you can embed a report into your app, you need an embed token for a report. This token is similar to an app token used to call Power BI Embedded REST operations, but is generated for a report resource rather than a REST resource. The following is the code to get an app token for a report.
-
-<a name="EmbedReportToken"/>
-### Get an app token for a report
-
-```
-protected void getReportAppTokenButton_Click(object sender, EventArgs e)
-{
-    //Get an embed token for a report.
-    var token = PowerBIToken.CreateReportEmbedToken(workspaceName, workspaceId, getReportAppTokenTextBox.Text);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = token.Generate(accessKey);
-
-    //Set textbox to JWT string. The JavaScript embed code uses the embed jwt for a report.
-    reportAppTokenTextbox.Text = jwt;
+  ]
 }
 ```
 
-<a name="EmbedReportJS"/>
-### Embed report into your app
+We can embed the report in our web app using the previous app token.
+If we look at the next sample code, the former part is the same as the previous example. In the latter part, this sample shows the **embedUrl** \(see the previous result) in the iframe, and is posting the app token into the iframe.
 
-To embed a **Power BI** report into you app, you use an IFrame and some JavaScript code. The following is an example IFrame, and JavaScript code to embed a report. To see all of the sample code to embed a report, see [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub.
-
-![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
-
+> [AZURE.NOTE] You'll need to change the report id value to one of your own. Also, due to a bug in our content management system, the iframe tag in the code sample is read literally. Remove the capped text from the tag if you copy and paste this sample code.
 
 ```
-window.onload = function () {
-    // Client side click to embed a selected report.
-    var el = document.getElementById("bEmbedReportAction");
-    if (el.addEventListener) {
-        el.addEventListener("click", updateEmbedReport, false);
-    } else {
-        el.attachEvent('onclick', updateEmbedReport);
+    <?php
+    // 1. power bi access key
+    $accesskey = "MpaUgrTv5e...";
+
+    // 2. construct input value
+    $token1 = "{" .
+      "\"typ\":\"JWT\"," .
+      "\"alg\":\"HS256\"" .
+      "}";
+    $token2 = "{" .
+      "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
+      "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
+      "\"wcn\":\"mypbiapp\"," . // workspace collection name
+      "\"iss\":\"PowerBISDK\"," .
+      "\"ver\":\"0.2.0\"," .
+      "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
+      "\"nbf\":" . date("U") . "," .
+      "\"exp\":" . date("U" , strtotime("+1 hour")) .
+      "}";
+    $inputval = rfc4648_base64_encode($token1) .
+      "." .
+      rfc4648_base64_encode($token2);
+
+    // 3. get encoded signature value
+    $hash = hash_hmac("sha256",
+    	$inputval,
+    	$accesskey,
+    	true);
+    $sig = rfc4648_base64_encode($hash);
+
+    // 4. get apptoken
+    $apptoken = $inputval . "." . $sig;
+
+    // helper functions
+    function rfc4648_base64_encode($arg) {
+      $res = $arg;
+      $res = base64_encode($res);
+      $res = str_replace("/", "_", $res);
+      $res = str_replace("+", "-", $res);
+      $res = rtrim($res, "=");
+      return $res;
     }
-
-};
-
-// Update embed report
-function updateEmbedReport() {
-    // Check if the embed url was selected
-    var embedUrl = document.getElementById('tb_EmbedURL').value;
-
-    // To load a report do the following:
-    // 1: Set the url
-    // 2: Add a onload handler to submit the auth token
-    var iframe = document.getElementById('iFrameEmbedReport');
-    iframe.src = embedUrl;
-    iframe.onload = postActionLoadReport;
-}
-
-// Post the auth token to the iFrame.
-function postActionLoadReport() {
-
-    // Get the app token.
-    accessToken = document.getElementById('MainContent_reportAppTokenTextbox').value;
-
-    // Construct the push message structure
-    var m = { action: "loadReport", accessToken: accessToken };
-    message = JSON.stringify(m);
-
-    // Push the message.
-    iframe = document.getElementById('iFrameEmbedReport');
-    iframe.contentWindow.postMessage(message, "*");
-}
-```
-After you have a report embedded into your app, you can filter the report. The next section shows you how to filter a report using a URL syntax.
-
-## Filter a report
-
-You can filter an embedded report using a URL syntax. To do this, you add a query string parameter to your iFrame src url with the filter specified. You can  **Filter by a value** and **Hide the Filter Pane**.
-
-
-**Filter by a value**
-
-To filter by a value, you use a **$filter** query syntax with an **eq** operator as follows:
-
-```
-https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-...-ee9655d54a4a&
-$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Test page</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <button id="btnView">View Report !</button>
+      <div id="divView">
+        <**REMOVE THIS CAPPED TEXT IF COPIED** iframe id="ifrTile" width="100%" height="400"></iframe>
+      </div>
+      <script>
+        (function () {
+          document.getElementById('btnView').onclick = function() {
+            var iframe = document.getElementById('ifrTile');
+            iframe.src = 'https://embedded.powerbi.com/appTokenReportEmbed?reportId=2027efc6-a308-4632-a775-b9a9186f087c';
+            iframe.onload = function() {
+              var msgJson = {
+                action: "loadReport",
+                accessToken: "<?=$apptoken?>",
+                height: 500,
+                width: 722
+              };
+              var msgTxt = JSON.stringify(msgJson);
+              iframe.contentWindow.postMessage(msgTxt, "*");
+            };
+          };
+        }());
+      </script>
+    </body>
 ```
 
-For example, you could filter where the Store Chain is 'Lindseys'. The filter part of the url would look like this:
+And here's our result:
 
-```
-$filter=Store/Chain%20eq%20'Lindseys'
-```
+![](media\power-bi-embedded-iframe\view-report.png)
 
-> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.
+At this time, Power BI Embedded only shows the report in the iframe. But, keep an eye on the [Power BI Blog](). Future improvements could use new client side APIs that will let us send information into the iframe as well as get information out. Exciting stuff!
 
-**Hide the Filter Pane**
 
-To hide the **Filter Pane**, you add **filterPaneEnabled** to the report query string as follows:
-
-```
-&filterPaneEnabled=false
-```
-
-## Additional resources
-
-In this article, you were introduced to the code to integrate a **Power BI** report into your app. Be sure to check out these additional samples on GitHub:
-
-- [Integrate a report with an IFrame sample](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
-
-## See Also
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+## See also
+- [Embed a Power BI report with an iframe](power-bi-embedded-iframe.md)
+- [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
