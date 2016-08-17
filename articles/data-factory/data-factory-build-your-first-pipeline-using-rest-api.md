@@ -307,6 +307,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.  
 
 		$results
+
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
