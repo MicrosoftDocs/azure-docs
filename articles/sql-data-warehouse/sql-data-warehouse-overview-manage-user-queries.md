@@ -34,7 +34,7 @@ Overview of the considerations, best practices, and tasks for monitoring user qu
 
 ## Next steps
 
-For more management tips head over to the [Management overview][].
+For more management tips, head over to the [Management overview][].
 
 <!--Image references-->
 
