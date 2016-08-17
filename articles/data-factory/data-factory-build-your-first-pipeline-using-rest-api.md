@@ -59,6 +59,7 @@ Create following JSON files in the folder where curl.exe is located.
 	}  
 
 ### azurestoragelinkedservice.json
+> [AZURE.IMPORTANT] Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 	{
 	    "name": "AzureStorageLinkedService",
@@ -70,7 +71,6 @@ Create following JSON files in the folder where curl.exe is located.
 	    }
 	}
 
-> [AZURE.IMPORTANT] Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ### hdinsightondemandlinkedservice.json
 
@@ -169,6 +169,8 @@ The following table provides descriptions for the JSON properties used in the sn
 The JSON defines a dataset named **AzureBlobOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
 ### pipeline.json
+> [AZURE.IMPORTANT] Replace **storageaccountname** with name of your Azure storage account. 
+
 
 	{
 		"name": "MyFirstPipeline",
@@ -207,8 +209,6 @@ The JSON defines a dataset named **AzureBlobOutput**, which represents output da
 		}
 	}
 
-> [AZURE.IMPORTANT] Replace **storageaccountname** with name of your Azure storage account. 
-
 In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process data on a HDInsight cluster.
 
 The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
@@ -223,7 +223,9 @@ In the activity JSON, you specify that the Hive script runs on the compute speci
 
 ## Set global variables
 
-In Azure PowerShell, execute the following commands after replacing the values with your own: 
+In Azure PowerShell, execute the following commands after replacing the values with your own:
+
+> [AZURE.IMPORTANT] See [Prerequisites](#prerequisites) section for instructions on getting client ID, client secret, tenant ID, and subscription ID.   
 
 	$client_id = "<client ID of application in AAD>"
 	$client_secret = "<client key of application in AAD>"
@@ -234,7 +236,6 @@ In Azure PowerShell, execute the following commands after replacing the values w
 	$adf = "FirstDataFactoryREST"
 
 
-> [AZURE.IMPORTANT] See [Prerequisites](#prerequisites) section for instructions on getting client ID, client secret, tenant ID, and subscription ID.   
 
 ## Authenticate with AAD
 
