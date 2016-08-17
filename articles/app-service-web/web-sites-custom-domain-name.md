@@ -225,7 +225,7 @@ domain name (FQDN) of your custom domain to the list.
 
 6.  Click **Save**.
 
-7.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. You should now see your app running and your custom domain name is working successfully.
+7.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
 <a name="verify"></a>
 ## Verify DNS propagation
