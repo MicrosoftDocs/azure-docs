@@ -59,9 +59,8 @@ Issue following **pip** command to install the Batch and Storage packages:
 
 Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_storage] Python packages manually:
 
-`pip install azure-batch==0.30.0rc4`
-
-`azure-storage==0.30.0`
+`pip install azure-batch==0.30.0rc4`<br/>
+`pip install azure-storage==0.30.0`
 
 > [AZURE.TIP] You may need to prefix your commands with `sudo` if you are using an unprivileged account. For example, `sudo pip install -r requirements.txt`. For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
 
