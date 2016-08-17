@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory reporting - preview
@@ -32,6 +32,8 @@ Depending on the scope of the data you are looking for, you can access these rep
  
 
 ## Sign-in activities
+
+### User sign-in activities 
 
 With the information provided by the user sign-in report, you find answers to questions such as:
 
@@ -70,6 +72,7 @@ Each row in the sign-in activities list gives you the detailed information about
 While the overview section provides you with an aggregated view of all user sign-ins, you can also scope the data around a specific user, groups or applications.
 
 
+### Usage of managed applications
 
 With an application centric view of your sign-in data, you can answer questions such as:
 
@@ -79,11 +82,42 @@ With an application centric view of your sign-in data, you can answer questions 
 
 - I have recently rolled-out an application. How is it doing?
 
+
 Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
  ![Reporting](./media/active-directory-reporting/06.png "Reporting")
 
+
+The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+
+![Reporting](./media/active-directory-reporting/top3apps.png "Reporting")
+
+If you want to, you can set the focus on a specific application. 
+
+![Reporting](./media/active-directory-reporting/single_spp_usage_graph.png "Reporting")
+
+
+When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
+
+
+![Reporting](./media/active-directory-reporting/top_app_sign_ins.png "Reporting")
+
+
+
+The Usage option gives you a complete overview of all sign-in events to your applications.
+
+![Reporting](./media/active-directory-reporting/sign-ins_from_left_nav.png "Reporting")
+
+By using the column chooser, you can select the data fields you want to display.
+
+![Reporting](./media/active-directory-reporting/column_chooser.png "Reporting")
+
+
 Like in the case of user sign-in data, you can scope the application data around specific applications.
+
+![Reporting](./media/active-directory-reporting/sign_ins_search.png "Reporting")
+
+
 
 
 ## System activities
