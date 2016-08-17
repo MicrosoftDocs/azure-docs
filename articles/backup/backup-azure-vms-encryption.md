@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Backup - Backup of Azure IaaS VMs with encrypted disks | Microsoft Azure"
    description="Learn how Azure Backup handles data encrypted using BitLocker or dmcrypt during IaaS VM backup. This article prepares you for the differences in backup and restore experiences when dealing with encrypted disks."
    services="backup"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Dealing with encrypted disks during VM backup
 
-For enterprises looking to encrypt their VM data in Azure, the solution is to use [Azure Disk Encryption](../azure-security-disk-encryption.md) or Bitlocker on Windows and dmcrypt on Linux machines. 
+For enterprises looking to encrypt their VM data in Azure, the solution is to use [Azure Disk Encryption](../security/azure-security-disk-encryption.md) or Bitlocker on Windows and dmcrypt on Linux machines. 
 
 > [AZURE.NOTE]  Azure Backup supports backup and restore of VMs encrypted using Azure Disk Encryption (ADE). <br>
 1. This is supported using PowerShell if VM is encrypted using BEK and KEK. <br>

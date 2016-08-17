@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/24/2016"
- ms.author="stevehob"/>
+ ms.date="08/17/2016"
+ ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution overview
 
