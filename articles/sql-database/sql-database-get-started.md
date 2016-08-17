@@ -37,6 +37,8 @@ Use these links to perform these same tasks using either [C#](sql-database-get-s
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
+<a name="create-logical-server-bk"></a>
+
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-portal.md)]
