@@ -112,34 +112,14 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
     This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Under development
+## Reference Archictectures
 
-We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
+Our reference architectures are arranged by scenario, with multiple related architectures grouped together.
+Each individual architecture offers recommended practices and prescriptive steps, as well as an executable component that embodies the recommendations.
 
-Running virtual machines on Azure:
+The current libary of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
 
-- [Running a Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running a Linux VM on Azure][ref-arch-single-vm-linux]
-- [Running multiple VMs for scalability and availability][ref-arch-multi-vm]
-- [Running VMs for an N-tier architecture][ref-arch-3-tier]
-- [Adding reliability to an N-tier architecture (Windows)][ref-arch-n-tier-windows]
-- [Adding reliability to an N-tier architecture (Linux)][ref-arch-n-tier-linux]
-- [Running VMs in multiple regions for high availability (Windows)][ref-arch-multi-dc-windows]
-- [Running VMs in multiple regions for high availability (Linux)][ref-arch-multi-dc-linux]
 
-Hybrid network architectures:
-
-- [Implementing a hybrid network architecture with Azure and on-premises VPN](guidance-hybrid-network-vpn.md)
-- [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
-- [Implementing a highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a DMZ between Azure and your on-premises datacenter](guidance-iaas-ra-secure-vnet-hybrid.md)
-- [Implementing a DMZ between Azure and the Internet](guidance-iaas-ra-secure-vnet-dmz.md)
-
-Web applications (PaaS):
-
-- [Basic web application](guidance-web-apps-basic.md)
-- [Improving scalability in a web application](guidance-web-apps-scalability.md)
-- [Web application with high availability](guidance-web-apps-multi-region.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
