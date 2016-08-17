@@ -84,7 +84,7 @@ Compute | Unassociated virtual machine disks.
 Compute | Virtual machine images.
 Network | Endpoint ACLs.
 Network | Virtual network gateways (site to site, Azure ExpressRoute, application gateway, point to site).
-Network | Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering] (./virtual-network/virtual-network-peering-overview.md).
+Network | Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering] (../virtual-network/virtual-network-peering-overview.md).
 Network | Traffic Manager profiles.
 
 ### Unsupported configurations
