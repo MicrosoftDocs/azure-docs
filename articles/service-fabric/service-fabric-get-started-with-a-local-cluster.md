@@ -178,7 +178,7 @@ Before wrapping up, it's important to remember that the local cluster is real. A
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
 
-    Or, delete the application from the **ACTIONS** menu of Service Fabric Exploreer or the context menu in the application list view of the left-hand pane.
+    Or, delete the application from the **ACTIONS** menu of Service Fabric Explorer or the context menu in the application list view of the left-hand pane.
 
     ![Delete an application is Service Fabric Explorer][sfe-delete-application]
 
