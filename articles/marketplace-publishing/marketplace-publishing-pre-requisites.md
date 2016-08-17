@@ -49,7 +49,7 @@ Admins of the Publishing portal can add the other members of the company, who ar
 2. Navigate to **Publishers** -> select your account -> **Administrators** -> **Co-Admins**.
 3. Click on the **X** button next to the co-admin you want tot delete (screenshot given below).
 
-    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_05.png)
+    ![drawing](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
 
 > [AZURE.IMPORTANT] You do not have to complete company tax and bank information if you are planning to publish only free offers (or bring your own license).
 
