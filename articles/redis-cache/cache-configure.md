@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/25/2016"
+	ms.date="08/18/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -35,9 +35,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 -	[General settings](#general-settings)
 	-	[Properties](#properties)
 	-	[Access keys](#access-keys)
-	-	[Access ports](#access-ports)
-	-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
-	-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+	-	[Advanced settings](#advanced-settings)
 	-	[Redis Cache Advisor](#redis-cache-advisor)
 -	[Scale settings](#scale-settings)
 	-	[Pricing tier](#pricing-tier)
@@ -76,9 +74,7 @@ The settings in the **General** section allow you to access and configure the fo
 
 -	[Properties](#properties)
 -	[Access keys](#access-keys)
--	[Access ports](#access-ports)
--	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
--	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+-	[Advanced settings](#advanced-settings)
 -	[Redis Cache Advisor](#redis-cache-advisor)
 
 ### Properties
@@ -93,15 +89,29 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 
 ![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
+
+
+
+
+
+### Advanced settings
+
+Click **Advanced settings** to configure the following settings.
+
+-	[Access Ports](#access-ports)
+-	[Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+-	[Keyspace notifications (advanced settings)](#keyspace-notifications-advanced-settings)
+
+
 ### Access Ports
 
-By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **Access Ports** blade and then click **No**.
+By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings blade** and then click **Save**.
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy and maxmemory-reserved
 
-Click **Maxmemory policy** to configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
+**Maxmemory policy** and **maxmemory-reserved** configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
