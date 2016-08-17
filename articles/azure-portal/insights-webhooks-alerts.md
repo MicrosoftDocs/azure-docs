@@ -65,7 +65,7 @@ The POST operation will contain the following JSON payload and schema for all me
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",

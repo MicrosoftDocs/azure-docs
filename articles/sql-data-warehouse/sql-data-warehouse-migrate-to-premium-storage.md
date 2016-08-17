@@ -191,14 +191,14 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Azure paired region]: ./best-practices-availability-paired-regions.md
-[main documentation site]: ./services/sql-data-warehouse.md
-[Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
-[Restore]: ./sql-data-warehouse-manage-database-restore-portal.md
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: best-practices-availability-paired-regions.md
+[main documentation site]: services/sql-data-warehouse.md
+[Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: ./sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 

@@ -79,10 +79,10 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Interxion** | Supported | Supported | Amsterdam, London, Paris |
 | **Jisc** | Coming soon | Coming soon | London+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
+| **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
-| **NTT Communications** | Supported | Supported | London, Osaka, Tokyo |
+| **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Tokyo |
 | **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Supported | Singapore |
@@ -106,7 +106,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
-| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Coming soon | Chicago, New York+, Washington DC |
+| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
 
 #### China
