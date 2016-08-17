@@ -16,7 +16,7 @@
     ms.date="08/17/2016"
     ms.author="cgronlun;chhavib;olgali"/>
 
-# Use sample experiments to create new experiments
+# Use sample experiments to create new machine learning experiments
 Learn how to start with sample experiments from [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the samples to build your own machine learning solution.
 
 In the gallery are sample experiments by the Microsoft Azure Machine Learning team as well as samples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
