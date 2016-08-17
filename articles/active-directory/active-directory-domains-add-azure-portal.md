@@ -74,7 +74,7 @@ A domain name can be verified only after the DNS records have propagated. This p
 
 4. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select **Verify** to complete the verification.
 
-Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md).
+Now you can [assign user names that include your custom domain name](active-directory-create-users-azure-portal.md).
 
 ## Troubleshooting
 
