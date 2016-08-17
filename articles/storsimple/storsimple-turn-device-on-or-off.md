@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Turn your StorSimple device on or off 
