@@ -181,7 +181,7 @@ In this section, you will modify the client project to simulate an offline scena
 	In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
 
 
-## (Optional) Test the reconnect to your mobile backend
+## (Optional) Test the reconnection to your mobile backend
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you login, data will be synced to your mobile backend.
 
