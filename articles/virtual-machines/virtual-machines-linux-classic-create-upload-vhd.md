@@ -91,10 +91,10 @@ azure vm image create UbuntuLTS --blob-url https://teststorage.blob.core.windows
 You create a VM using `azure vm create` in the same way as a regular VM. Specify the name you gave your image in the previous step. In the following example, we use the **UbuntuLTS** image name given in the previous step:
 
 ```bash
-azure vm create --userName ops --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
+azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
 ```
 
-To create your own VMs, provide your own image name, location, and DNS name.
+To create your own VMs, provide your own username + password, location, DNS name, and image name.
 
 ## Next steps
 
