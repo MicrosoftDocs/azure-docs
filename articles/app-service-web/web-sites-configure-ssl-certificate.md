@@ -503,13 +503,10 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
 3.	Click the name of your app to which you want to assign this certificate. 
 4.	In the **Settings**, Click **SSL certificates**
 5.	Click **Upload Certificate**
-
 6.	Select the .pfx file that you exported in [Step 1](#bkmk_getcert) and specify the password that you create before. 
 Then, click **Upload** to upload the certificate. You should now see your uploaded certificate back in the 
 **SSL certificate** blade.
-
 7. In the **ssl bindings** section Click on **Add bindings**
-
 8. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
     ![insert image of SSL Bindings](./media/web-sites-configure-ssl-certificate/sslbindings.png)
@@ -517,7 +514,7 @@ Then, click **Upload** to upload the certificate. You should now see your upload
        •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
        •	SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
      
-7. Click **Add Binding** to save the changes and enable SSL.
+9. Click **Add Binding** to save the changes and enable SSL.
 
 ## Step 3. Change your domain name mapping (IP based SSL only)
 
