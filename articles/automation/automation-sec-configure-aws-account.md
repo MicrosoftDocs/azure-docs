@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/10/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte"/>
 
 # Authenticate Runbooks with Amazon Web Services
@@ -32,6 +32,6 @@ After you have created and copied your AWS security keys, you will need to creat
 1. In the **Name** box, enter **AWScred** or an appropriate value following your naming standards.  
 2. In the **User name** box type your **Access ID** and your **Secret Access Key** in the **Password** and **Confirm password** box.   
 
-## Next Steps
+## Next steps
 
 - Reivew the solution article [Automating deployment of a VM in Amazon Web Services](../automation/automation-scenario-aws-deployment.md) to learn how to create runbooks to automate tasks in AWS.
