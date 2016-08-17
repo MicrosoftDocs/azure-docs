@@ -25,35 +25,39 @@
 - [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-The [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory you create in this tutorial uses a Copy Activity to copy data from an Azure blob to an Azure SQL database.
+This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
 The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
-> [AZURE.IMPORTANT] 
-> Go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the pre-requisite steps before performing this tutorial.
->   
+> [AZURE.NOTE] 
 > This article does not cover all the Data Factory REST API. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
   
 
 ## Prerequisites
 
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article. This article helps you understand the basic concepts of Azure Data Factory. 
+- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **pre-requisite **steps before performing this tutorial.
 - Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
-	1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
+	1. Create a Web application named **ADFCopyTutotiralApp** in Azure Active Directory.
 	2. Get **client ID** and **secret key**. 
 	3. Get **tenant ID**. 
-	4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.  
+	4. Assign the **ADFCopyTutotiralApp** application to the **Data Factory Contributor** role.  
 - Install [Azure PowerShell](../powershell-install-configure.md).  
 - Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-	1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
-	2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
-	3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
-3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.  
+	1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+	
+			Login-AzureRmAccount   
+	2. Run the following command to view all the subscriptions for this account.
 
-		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+			Get-AzureRmSubscription 
+	3. Run the following command to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
 
-	Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
+			Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext
+	1. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.  
+
+			New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+		Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
   
 ## Create JSON definitions
 Create following JSON files in the folder where curl.exe is located. 
@@ -126,19 +130,18 @@ Create following JSON files in the folder where curl.exe is located.
 	  }
 	}
 
-The JSON defines a dataset named **AzureBlobInput**, which represents input data for an activity in the pipeline. In addition, it specifies that the input data is located in the blob container called **adftutorial** and the file name is **emp.txt**.
+The JSON definition defines a dataset named **AzureBlobInput**, which represents input data for an activity in the pipeline. In addition, it specifies that the input data is located in the file **emp.txt** that is in blob container **adftutorial**. 
 
  Note the following: 
 
 - dataset **type** is set to **AzureBlob**.
-- **linkedServiceName** is set to **AzureStorageLinkedService**. You had created this linked service in Step 2.
-- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
+- **linkedServiceName** is set to **AzureStorageLinkedService**. 
+- **folderPath** is set to the **adftutorial** container and **fileName** is set to **emp.txt**.  
 - format **type** is set to **TextFormat**
 - There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
-- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**), so the Data Factory service looks for input data every hour in the root folder in the blob container (**adftutorial**) you specified. 
+- The **availability** is set to **hourly** (frequency is set to hour and interval is set to 1), so the Data Factory service looks for input data every hour in the root folder in the blob container (**adftutorial**) you specified. 
 
-
-if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
+if you don't specify a **fileName** for an input dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered as an input.
 
 If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -183,12 +186,12 @@ To set **folderPath** and **fileName** dynamically based on the **SliceStart** t
 	}
 
 
-The JSON defines a dataset named **AzureSqlOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the table: **emp**. The **availability** section specifies that the output dataset is produced on an hourly (frequency: hour and interval: 1) basis.
+The JSON definition defines a dataset named **AzureSqlOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the table: **emp** in the database represented by the AzureSqlLinkedService. The **availability** section specifies that the output dataset is produced on an hourly (frequency: hour and interval: 1) basis.
 
 Note the following: 
 
 - dataset **type** is set to **AzureSQLTable**.
-- **linkedServiceName** is set to **AzureSqlLinkedService** (you had created this linked service in Step 2).
+- **linkedServiceName** is set to **AzureSqlLinkedService**.
 - **tablename** is set to **emp**.
 - There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 - The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
@@ -241,7 +244,7 @@ Note the following:
 Note the following:
 
 - In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
-- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
+- Input for the activity is set to **AzureBlobInput** and output for the activity is set to **AzureSqlOutput**.
 - In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
 Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2015-02-03", which is equivalent to "2015-02-03T00:00:00Z"
@@ -252,7 +255,6 @@ If you do not specify value for the **end** property, it is calculated as "**sta
 
 In the example above, there are 24 data slices as each data slice is produced hourly.
 	
-
 > [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the example above.
 
 ## Set global variables
@@ -269,7 +271,8 @@ In Azure PowerShell, execute the following commands after replacing the values w
 	$rg = "ADFTutorialResourceGroup"
 	$adf = "ADFCopyTutorialDF"
 
-## Authenticate with AAD
+## Authenticate with AAD 
+Run the following command to authenticate with Azure Active Directory (AAD). 
 
 	$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
 	$responseToken = Invoke-Command -scriptblock $cmd;
@@ -293,7 +296,12 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 
 Note the following:
  
-- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, change the name (for example, yournameADFCopyTutorialDF) in the JSON file and in the above command. Use this name in place of **ADFCopyTutorialDF** while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, do the following:  
+	1. Change the name (for example, yournameADFCopyTutorialDF) in the **datafactory.json** file.
+	2. In the first command where the **$cmd** variable is assigned a value, replace ADFCopyTutorialDF with the new name and run the command. 
+	3. Run the next two commands to invoke the REST API to create the data factory and print the results of the operation. 
+	
+	See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 - To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
@@ -307,7 +315,7 @@ Note the following:
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
-Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with an activity that uses these datasets.
+Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link source and destination data stores to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with an activity that uses these datasets.
 
 ## Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database, or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes input data and produces output data. 
@@ -344,14 +352,12 @@ In this step, you link your Azure SQL database to your data factory. With this t
 
 In the previous step, you created linked services **AzureStorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFCopyTutorialDF**. In this step, you create datasets that represent the input and output data for the Copy Activity in the pipeline you create in the next step. 
 
-A table is a rectangular dataset and it is the only type of dataset that is supported currently. The input table in this tutorial refers to a blob container in the Azure Storage that AzureStorageLinkedService points to and the output table refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
+The input dataset in this tutorial refers to a blob container in the Azure Storage that AzureStorageLinkedService points to and the output dataset refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
 
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
-Skip this step if you have gone through the tutorial from [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article. 
-
 Perform the following steps to prepare the Azure blob storage and Azure SQL database for this tutorial. 
  
-* Create a blob container named **adftutorial** in the Azure blob storage that **StorageLinkedService** points to. 
+* Create a blob container named **adftutorial** in the Azure blob storage that **AzureStorageLinkedService** points to. 
 * Create and upload a text file, **emp.txt**, as a blob to the **adftutorial** container. 
 * Create a table named **emp** in the Azure SQL Database in the Azure SQL database that **AzureSqlLinkedService** points to.
 
@@ -437,7 +443,7 @@ In this step, you use Data Factory REST API to monitor slices being produced by 
     	    (convertFrom-Json $results2).RemoteException
 	}
 
-Run the Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in your Azure SQL database for the output data. 
+Run these commands until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in your Azure SQL database for the output data. 
 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
