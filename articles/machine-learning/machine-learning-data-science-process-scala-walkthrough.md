@@ -41,7 +41,7 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 
 -	You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
--	You need an Azure HDInsight 3.4 Spark 1.6 cluster to complete the following procedures. To create a cluster, see the instructions in [Get started: Create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Set the cluster type and version in the **Select Cluster Type** menu.
+-	You need an Azure HDInsight 3.4 Spark 1.6 cluster to complete the following procedures. To create a cluster, see the instructions in [Get started: Create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Set the cluster type and version on the **Select Cluster Type** menu.
 
 ![HDInsight cluster type configuration](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -237,7 +237,7 @@ The following code sample specifies the location of the input data to be read an
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 8 seconds.
 
@@ -260,7 +260,7 @@ Next, query the table for fare, passenger, and tip data; filter out corrupt and 
 	# SHOW ONLY THE TOP THREE ROWS
 	sqlResultsDF.show(3)
 
-**OUTPUT:**
+**Output:**
 
 fare_amount|passenger_count|tip_amount|tipped
 -----------|---------------|----------|------
@@ -304,7 +304,8 @@ You can plot by using Python code after the data frame is in local context as a 
 
 
  The Spark kernel automatically visualizes the output of SQL (HiveQL) queries after you run the code. You can choose between several types of visualizations:
--	Table
+ 
+- Table
 - Pie
 - Line
 - Area
@@ -342,7 +343,7 @@ Here's the code to plot the data:
 	plt.show()
 
 
-**OUTPUT:**
+**Output:**
 
 ![Tip amount histogram](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png)
 
@@ -430,7 +431,7 @@ For indexing, use `StringIndexer()`, and for one-hot encoding, use `OneHotEncode
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 4 seconds.
 
@@ -473,7 +474,7 @@ Add a random number (between 0 and 1) to each row (in a "rand" column) that can 
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 2 seconds.
 
@@ -519,7 +520,7 @@ In this code, you specify the target (dependent) variable and the features to us
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 4 seconds.
 
@@ -626,7 +627,7 @@ Load, score, and save the results.
 	println("ROC on test data = " + ROC)
 
 
-**OUTPUT:**
+**Output:**
 
 ROC on test data = 0.9827381497557599
 
@@ -666,7 +667,7 @@ Use Python on local Pandas data frames to plot the ROC curve.
 	plt.show()
 
 
-**OUTPUT:**
+**Output:**
 
 ![Tip or no tip ROC curve](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
@@ -702,7 +703,7 @@ Next, create a random forest classification model by using the Spark ML `RandomF
 	println("ROC on test data = " + ROC)
 
 
-**OUTPUT:**
+**Output:**
 
 ROC on test data = 0.9847103571552683
 
@@ -761,7 +762,7 @@ Next, create a GBT classification model by using MLlib's `GradientBoostedTrees()
 	println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
 
-**OUTPUT:**
+**Output:**
 
 Area under ROC curve: 0.9846895479241554
 
@@ -770,8 +771,8 @@ Area under ROC curve: 0.9846895479241554
 
 In this section, you create two types of regression models to predict the tip amount:
 
-- A **regularized linear regression model** by using the Spark ML `LinearRegression()` function; you'll save the model and evaluate the model on test data
-- A **gradient-boosting tree regression model** by using Spark ML `GBTRegressor() `function
+- A **regularized linear regression model** by using the Spark ML `LinearRegression()` function. You'll save the model and evaluate the model on test data.
+- A **gradient-boosting tree regression model** by using the Spark ML `GBTRegressor()` function.
 
 
 ### Create a regularized linear regression model
@@ -817,7 +818,7 @@ In this section, you create two types of regression models to predict the tip am
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 13 seconds.
 
@@ -849,7 +850,7 @@ Time to run the cell: 13 seconds.
 	println("R-sqr on test data = " + r2)
 
 
-**OUTPUT:**
+**Output:**
 
 R-sqr on test data = 0.5960320470835743
 
@@ -890,7 +891,7 @@ Create plots by using Python matplotlib.
 	plt.axis([-1, 15, -1, 8])
 	plt.show(ax)
 
-**OUTPUT:**
+**Output:**
 
 ![Tip amount: Actual vs. predicted](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
@@ -926,7 +927,7 @@ Create a GBT regression model by using the Spark ML `GBTRegressor()` function, a
 	println("Test R-sqr is: " + Test_R2);
 
 
-**OUTPUT:**
+**Output:**
 
 Test R-sqr is: 0.7655383534596654
 
@@ -988,7 +989,7 @@ Next, split data into train and validation sets, use hyper-parameter sweeping on
 	println("Test R-sqr is: " + Test_R2);
 
 
-**OUTPUT:**
+**Output:**
 
 Test R-sqr is: 0.6226484708501209
 
@@ -1034,7 +1035,7 @@ This section shows you how to optimize a binary classification model by using cr
 	println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 33 seconds.
 
@@ -1151,7 +1152,7 @@ Next, optimize the model by using custom code, and identify the best model param
 	val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
 
-**OUTPUT:**
+**Output:**
 
 Time to run the cell: 61 seconds.
 
