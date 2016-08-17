@@ -34,11 +34,11 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select Decode EDIFACT Message
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
+	![search edifact](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
 	
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)  
+	![create integraiton account](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)  
 
 4. Enter the Integration Account details.  Properties with an asterisk are required
 
@@ -49,17 +49,17 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 	Once complete, your connection details look similar to the following
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)  
+	![integration account created](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)  
 
 5. Select **Create**
 
 6. Notice the connection has been created
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+	![integration account connection details](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
 
 7. Select EDIFACT flat file message to decode
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
 
 ## EDIFACT Decode does following
 
@@ -85,3 +85,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
 	* A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
 	* A functional acknowledgment acknowledges accept or reject a received interchange or a group
+
+## Next steps
+
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

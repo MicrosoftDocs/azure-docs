@@ -34,11 +34,11 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
+	![Search AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage2.png)
+	![Create integration connection](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage2.png)
 
 4. Enter the Integration Account details.  Properties with an asterisk are required
 
@@ -49,17 +49,17 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 
   	Once complete, your connection details look similar to the following
 
-  	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage3.png)
+  	![integration connection](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage3.png)
 
 5. Select **Create**
 	
 6. Notice the connection has been created.  Now, proceed with the other steps in your Logic App
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage4.png)
+	![integration connection created](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage4.png) 
 
 7. Select Body and Headers from Request outputs
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage5.png)
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage5.png) 
 
 ## The AS2 Decode does the following
 
@@ -74,3 +74,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 * Determines whether an MDN is required, and whether the MDN should be synchronous or asynchronous based on configuration in AS2 agreement
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
+
+## Next steps
+
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

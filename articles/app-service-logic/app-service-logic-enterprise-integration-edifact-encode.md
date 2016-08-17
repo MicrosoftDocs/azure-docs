@@ -34,11 +34,11 @@ Validates EDI and partner-specific properties
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select either Encode EDIFACT Message by agreement name or Encode to EDIFACT message by identities.
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
+	![search edifact](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)  
+	![create integration account connection](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)  
 
 4. Enter the Integration account details.  Properties with an asterisk are required
 
@@ -49,25 +49,25 @@ Validates EDI and partner-specific properties
 
 	Once complete, your connection details look similar to the following
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)
+	![integration account connection](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)
 	
 5. Select **Create**
 	
 6. Notice the connection has been created
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
+	![integration account connection details](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
 	
 #### Encode EDIFACT Message by agreement name
 
 7.	Provide EDIFACT agreement name and xml message to encode.
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
 	
 #### Encode EDIFACT Message by identities
 
-8. Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the EDIFACT agreement.  Select xml message to encode
+7. Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the EDIFACT agreement.  Select xml message to encode
 
-	![](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
 	
 ## X12 Encode does following
 
@@ -84,3 +84,7 @@ Validates EDI and partner-specific properties
 * Requests a Technical and/or Functional acknowledgment (if configured).
 	* As a technical acknowledgment, the CONTRL message indicates receipt of an interchange.
 	* As a functional acknowledgment, the CONTRL message indicates acceptance or rejection of the received interchange, group, or message, with a list of errors or unsupported functionality
+
+## Next steps
+
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

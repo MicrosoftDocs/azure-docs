@@ -34,11 +34,11 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
 
-	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
+	![search x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
-	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png) 	
+	![integration account connection](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage4.png) 	
 
 4. Enter the Integration Account details.  Properties with an asterisk are required
 
@@ -49,17 +49,17 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 	Once complete, your connection details look similar to the following
 	
-	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png) 
+	![integration account connection created](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage5.png) 
 
 5. Select **Create**
 	
 6. Notice the connection has been created.
 
-	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png) 
+	![integration account connection details](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage6.png) 
 
 7. Select X12 flat file message to decode
 
-	![](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png) 
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage7.png) 
 
 ## X12 Decode does following
 
@@ -84,6 +84,8 @@ Validates EDI and partner-specific properties, generates XML document for each t
 	* A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
 	* A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
 
+## Next steps
 
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
 
 

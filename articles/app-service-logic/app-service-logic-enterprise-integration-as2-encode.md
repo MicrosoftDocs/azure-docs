@@ -34,11 +34,11 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
+	![search AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 	
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)  
+	![create connection to integration account](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage1.png)  
 
 4. Enter the Integration Account details.  Properties with an asterisk are required
 
@@ -49,13 +49,13 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 
   	Once complete, your connection details look similar to the following
 
-  	![](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)  
+  	![integration connection established](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage2.png)  
 
 5. Select **Create**
 
 6. Notice the connection has been created.  Provide AS2-From, AS2-To identifiers (as configured in agreement) and Body (the message payload) details. 
 
-	![](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)
+	![provide mandatory fields](./media/app-service-logic-enterprise-integration-AS2connector/as2encodeimage3.png)
 
 ## The AS2 Encode does the following
 
@@ -63,4 +63,8 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 * Signs outgoing messages (if configured)
 * Encrypts outgoing messages (if configured)
 * Compresses the message (if configured)
+
+## Next steps
+
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
 
