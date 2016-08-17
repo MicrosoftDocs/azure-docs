@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Connector Version Release History | Microsoft Azure"
+   pageTitle="Connector Version Release History | Microsoft Azure"
    description="This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)"
    services="active-directory"
    documentationCenter=""
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="andkjell"/>
 
-# Azure AD Connect sync: Connector Version Release History
+# Connector Version Release History
 The Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM) are updated frequently.
+
+>[Azure.Note] This topic is on FIM and MIM only. These Connectors are not supported on Azure AD Connect.
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
