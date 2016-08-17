@@ -49,7 +49,7 @@ To connect to SQL Database using Visual Studio, you need the following:
 1. Log in to the [Azure portal](https://portal.azure.com/).
 
 2. Click **More Services** > **SQL databases**
-3. Open the adventureworks database blade by locating and clicking the *AdventureWorks* database.
+3. Open the **AdventureWorks** database blade by locating and clicking the *AdventureWorks* database.
 
 6. Click the **Tools** button at the top of the database blade:
 
@@ -67,7 +67,7 @@ To connect to SQL Database using Visual Studio, you need the following:
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
 
-8. If you do not have a firewall rule set up for your computer's IP address, you will get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
+8. If you do not have a firewall rule set up for your computer's IP address, you get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
 
 
 9. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
