@@ -27,7 +27,7 @@ This tutorial shows you how to provision the remote monitoring preconfigured sol
 
 ![Remote monitoring preconfigured solution dashboard][img-dashboard]
 
-ITo complete this tutorial, you need an active Azure subscription.
+To complete this tutorial, you need an active Azure subscription.
 
 > [AZURE.NOTE]  If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
