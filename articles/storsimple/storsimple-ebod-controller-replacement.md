@@ -77,19 +77,19 @@ The following procedure and table explain how to install an EBOD controller modu
 
     ![Installing EBOD controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-    **Figure 2** Installing the EBOD controller module
+    **Figure 2**  Installing the EBOD controller module
 
 3. Close the latch. You should hear a click as the latch engages.
 
     ![Releasing EBOD latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-    **Figure 3** Closing the EBOD module latch
+    **Figure 3**  Closing the EBOD module latch
 
 4. Reconnect the cables. Use the exact configuration that was present before the replacement. See the following diagram and table for details about how to connect the cables.
 
     ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figure 4**  Reconnecting cables
+    **Figure 4**. Reconnecting cables
 
     |Label|Description|
     |:----|:----------|
