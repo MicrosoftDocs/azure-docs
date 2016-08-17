@@ -152,13 +152,15 @@ To identify frequently executed queries (“chatty”) queries:
 
 ## Understanding performance tuning annotations 
 
-While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
 
-    ![query annotation][6]
+These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
+
+![query annotation][6]
 
 If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
-    ![query annotation details][7]
+![query annotation details][7]
 
 ### Multiple annotations. ###
 
@@ -177,11 +179,11 @@ These messages usually appear when Query Store is not able to collect new data.
 
 First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
 
-    ![performance dashboard](./media/sql-database-query-performance/qds-off.png)
+![qds button][8]
 
 Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
-    ![performance dashboard](./media/sql-database-query-performance/qds-button.png)
+![qds button][9]
 
 ### Recommended retention and capture policy
 
