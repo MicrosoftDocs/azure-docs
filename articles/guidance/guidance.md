@@ -110,14 +110,14 @@ These articles provide an in-depth discussion of important concepts commonly ass
     
 - [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
 
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Reference Archictectures
+## Reference Architectures
 
 Our reference architectures are arranged by scenario, with multiple related architectures grouped together.
 Each individual architecture offers recommended practices and prescriptive steps, as well as an executable component that embodies the recommendations.
 
-The current libary of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
 
 
 
