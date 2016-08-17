@@ -6,7 +6,7 @@
 
      ![Tag resources with name/value pairs](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. To view your taxonomy of tags in the portal, select **Browse** and **Tags**.
+1. To view your taxonomy of tags in the portal, select **More Services** and **Tags**.
 
      ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
 
