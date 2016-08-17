@@ -24,7 +24,7 @@ Azure Container Service divides agents into multiple pools. And while each virtu
 
 ### Private agents
 
-Private agent nodes run through a non-routable network that is only accessible from the admin zone or through the edge router from the public zone. By default, DC/OS launches apps on the private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
+Private agent nodes run through a non-routable network. This network is only accessible from the admin zone or through the public zone edge router. By default, DC/OS launches apps on private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
 
 ### Public agents
 
