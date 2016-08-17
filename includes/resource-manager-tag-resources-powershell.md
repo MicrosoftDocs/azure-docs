@@ -1,16 +1,18 @@
-### Cmdlet changes in latest PowerShell version
+### Tag cmdlet changes in latest PowerShell version
 
 The August 2016 release of Azure PowerShell includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
 
-    Get-Module -Name AzureRm.Resources
     (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
 
-Your results should look like either:
+If you last updated your Azure PowerShell before August 2016, your results should show a version less than 3.0.
 
     Version : 2.0.2
     Name    : AzureRM.Resources
 
-Or, 
+Or, if you have updated Azure PowerShell since August 2016, your results should show a version of 3.0.
+
+    Version : 3.0.1
+    Name    : AzureRM.Resources
 
 If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
 
@@ -19,16 +21,18 @@ In the latest release, the **Tags** parameter name changed to **Tag**, and the t
 To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example.
 
     # Old
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location -Tags @{ Name = "testtag"; Value = "testval" }
+    New-AzureRmResourceGroup -Tags @{ Name = "testtag"; Value = "testval" } -Name $resourceGroupName -Location $location
 
     # New
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location -Tag @{ testtag = "testval" }
+    New-AzureRmResourceGroup -Tag @{ testtag = "testval" } -Name $resourceGroupName -Location $location 
 
-However, you should note that the **Tags** property in the returned metadata has not changed.
+However, you should note that resource groups and resources still return a **Tags** property in their metadata. This property is not changed.
 
 ### Version 3.0.1 or later
 
-Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. Let's start with a resource group.
+Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. 
+
+Let's start with a resource group.
 
     Get-AzureRmResourceGroup -Name testrg1
 
@@ -43,7 +47,7 @@ This cmdlet returns several bits of metadata on the resource group including wha
                     Dept         Finance
                     Environment  Production
 
-For module version 3.0.1 or later, the resource metadata displays tags.
+To retrieve the resource metadata including tags, use the following example.
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
@@ -54,7 +58,7 @@ You see the tag names in the results.
     ResourceName      : tfsqlserver
     ResourceType      : Microsoft.Sql/servers
     Kind              : v12.0
-    ResourceGroupName : tag-demo-group
+    ResourceGroupName : testrg1
     Location          : westus
     SubscriptionId    : {guid}
     Tags              : {Dept, Environment}
@@ -70,21 +74,19 @@ Which returns the following results:
     Dept                   Finance
     Environment            Production
 
-
-
 Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
-For version 3.0.1 or later, use the following format.
+To retrieve resource groups with a tag value, use the following format.
 
-    (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).name 
+    (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 
 To get all the resources with a particular tag and value, use the **Find-AzureRmResource** cmdlet.
 
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
     
 To add a tag to a resource group that has no existing tags, simply use the **Set-AzureRmResourceGroup** command and specify a tag object.
 
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+    Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept"IT"; Environment="Test" }
 
 Which returns the resource group with its new tag values.
 
@@ -99,12 +101,12 @@ Which returns the resource group with its new tag values.
                     
 You can add tags to a resource that has no existing tags by using the **Set-AzureRmResource** command 
 
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
+    Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
 Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
 
     $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
+    $tags += @{Status="approved"}
     Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 To remove one or more tags, simply save the array without the ones you want to remove.
@@ -114,10 +116,13 @@ The process is the same for resources except you use the **Get-AzureRmResource**
 To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
 
     Get-AzureRmTag
+    
+Which returns tag names and a count of the number of resources and resource groups with the tag
+
     Name                      Count
     ----                      ------
-    env                       8
-    project                   1
+    Dept                       8
+    Environment                8
 
 You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
 
@@ -171,3 +176,13 @@ For versions earlier than 3.0.1, use the following format.
 
     Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
     
+To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
+
+    Get-AzureRmTag
+    
+Which returns tag names and a count of the number of resources and resource groups with the tag
+
+    Name                      Count
+    ----                      ------
+    Dept                       8
+    Environment                8
