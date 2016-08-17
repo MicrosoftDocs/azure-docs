@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
 	description="Learn how to buy a custom domain name with a web app in Azure App Service."
@@ -18,10 +17,10 @@
 	ms.author="robmcm"/>
 
 # Buy and Configure a custom domain name in Azure App Service
-
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure App Service Web Apps a snap.
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
