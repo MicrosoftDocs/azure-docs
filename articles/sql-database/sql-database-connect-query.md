@@ -26,12 +26,12 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Learn how to connect to an Azure SQL Database in Visual Studio. 
+Learn how to connect to an Azure SQL database in Visual Studio. 
 
 ## Prerequisites
 
 
-To connect to SQL Database using Visual Studio, you need the following: 
+To connect to a SQL database using Visual Studio, you need the following: 
 
 
 - A SQL database to connect to. This article uses the **AdventureWorks** sample database. To get the AdventureWorks sample database, see [Create the demo database](sql-database-get-started.md).
