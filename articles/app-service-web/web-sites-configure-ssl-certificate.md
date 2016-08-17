@@ -496,33 +496,28 @@ Before you move on, review the [What you need](#bkmk_domainname) section and ver
 - you have a custom domain that maps to your Azure app,
 - your app is running in **Basic** tier or higher, and
 - you have an SSL certificate for the custom domain from a CA.
- 
-1.	In the [Azure portal](https://portal.azure.com), go to the **Custom domains and SSL** blade for your app.
 
-7.	Click **More** > **Upload Certificates**.
 
-	![](./media/web-sites-configure-ssl-certificate/sslupload.png)
+1. In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
+2.	Click the **App Service** option on the left side of the page.
+3.	Click the name of your app to which you want to assign this certificate. 
+4.	In the **Settings**, Click **SSL certificates**
+5.	Click **Upload Certificate**
 
-8.	Select the .pfx file that you exported in [Step 1](#bkmk_getcert) and specify the password that you create before. 
-Then, click **Save** to upload the certificate. You should now see your uploaded certificate back in the 
-**Custom domains and SSL** blade.
+6.	Select the .pfx file that you exported in [Step 1](#bkmk_getcert) and specify the password that you create before. 
+Then, click **Upload** to upload the certificate. You should now see your uploaded certificate back in the 
+**SSL certificate** blade.
 
-	![](./media/web-sites-configure-ssl-certificate/sslcertview.png)
+7. In the **ssl bindings** section Click on **Add bindings**
 
-9. In the **SSL bindings** section, select the domain name and the SSL certificate bind together. 
-You may also select whether to use SNI SSL or IP based SSL.
+8. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
-	![](./media/web-sites-configure-ssl-certificate/sslbindcert.png)
+    ![insert image of SSL Bindings](./media/web-sites-configure-ssl-certificate/SSLBindings.png)
 
-	* **IP based SSL** binds a certificate with a domain name a dedicated public IP address of the 
-	app to the domain name. It is the traditional method of SSL bindings, and App Service creates
-	a dedicated IP address for the binding.
-
-	* [**SNI SSL**](https://en.wikipedia.org/wiki/Server_Name_Indication) allows bindings of 
-	multiple certificates to multiple domains. Most modern browsers (including Internet Explorer, Chrome, 
-	Firefox, and Safari) support it, but older browsers may not support it.
- 
-10. Click **Save** to finish.
+       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
+       •	SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+     
+7. Click **Add Binding** to save the changes and enable SSL.
 
 ## Step 3. Change your domain name mapping (IP based SSL only)
 
@@ -536,11 +531,9 @@ further if:
 you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point 
 to the dedicated IP address by following these steps:
 
-	1. After you have configured an IP based SSL binding, find the new IP address in the **Settings** > 
-	**Properties** blade of your app (the virtual IP address shown in the **Bring External Domains** blade
-	may not be current):
+	1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
     
-	    ![Virtual IP address](./media/web-sites-configure-ssl-certificate/staticip.png)
+	    ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
 
 	2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
 
