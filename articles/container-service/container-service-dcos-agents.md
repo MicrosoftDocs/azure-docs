@@ -24,7 +24,7 @@ Azure Container Service divides agents into multiple pools. And while each virtu
 
 ### Private agents
 
-Private agent nodes run through a non-routable network that is only accessible from the admin zone or through the edgerouter from the public zone. By default, DC/OS launches apps on the private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
+Private agent nodes run through a non-routable network that is only accessible from the admin zone or through the edge router from the public zone. By default, DC/OS launches apps on the private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
 
 ### Public agents
 
@@ -32,5 +32,5 @@ Public agent nodes run DC/OS apps and services through a publicly accessible net
 
 ## Using agent pools
 
-By default, **Marathon** will deploy any new application to the *private* agent nodes. You must explicitly deploy the application to the *public* node. Unfortunately this is not as straight forward as checking a box. During the creation of a new application, go to the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles**. This is documentated [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
+By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node. Unfortunately deploying to the public node is not as straight forward as checking a box. During the creation of a new application, go to the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles**. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
 
