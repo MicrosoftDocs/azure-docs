@@ -50,12 +50,14 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 	2. Run the following command to view all the subscriptions for this account.
 
 			Get-AzureRmSubscription 
-	3. Run the following command to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
+	3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
 
-			Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext
+			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 	1. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.  
 
 			New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+		If the resource group already exists, you specify whether to update it (Y) or keep it as it as (N). 
 
 		Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
   
@@ -63,6 +65,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 Create following JSON files in the folder where curl.exe is located. 
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] Name must be globally unique, so you may want to prefix/suffix ADFCopyTutorialDF to make it a unique name. 
 
 	{  
 	    "name": "ADFCopyTutorialDF",  
@@ -286,6 +289,8 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 
 1. Assign the command to variable named **cmd**. 
 
+	Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
+
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
 
@@ -327,7 +332,7 @@ In this step, you link your Azure Storage account to your data factory. With thi
 
 1. Assign the command to variable named **cmd**. 
 
-		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/reso$df urcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
  
 		$results = Invoke-Command -scriptblock $cmd;
@@ -340,7 +345,7 @@ In this step, you link your Azure SQL database to your data factory. With this t
 
 1. Assign the command to variable named **cmd**. 
 
-		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuressqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
  
 		$results = Invoke-Command -scriptblock $cmd;
@@ -431,11 +436,12 @@ In this step, you create a pipeline with a **Copy Activity** that uses **AzureBl
 ## Monitor pipeline
 In this step, you use Data Factory REST API to monitor slices being produced by the pipeline.
 
-	$ds ="AzureBlobOutput"
+	$ds ="AzureSqlOutput"
 
 	$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 
 	$results2 = Invoke-Command -scriptblock $cmd;
+
 
 	IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 	    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
@@ -443,19 +449,20 @@ In this step, you use Data Factory REST API to monitor slices being produced by 
     	    (convertFrom-Json $results2).RemoteException
 	}
 
-Run these commands until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in your Azure SQL database for the output data. 
+Run these commands until you see a slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **emp** table in your Azure SQL database for the output data. 
 
-See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+For each slice, two rows of data from the source file are copied to the emp table in the Azure SQL database. Therefore, you see 24 new records in the emp table when all the slices are successfully processed (in Ready state). 
+
 
 ## Summary
-In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used PowerShell to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
+In this tutorial, you used REST API to create an Azure data factory to copy data from an Azure blob to an Azure SQL database. Here are the high-level steps you performed in this tutorial:  
 
 1.	Created an Azure **data factory**.
 2.	Created **linked services**:
-	1. An **Azure Storage** linked service to link your Azure Storage account that holds input data. 	
-	2. An **Azure SQL** linked service to link your Azure SQL database that holds the output data. 
+	1. An Azure Storage linked service to link your Azure Storage account that holds input data. 	
+	2. An Azure SQL linked service to link your Azure SQL database that holds the output data. 
 3.	Created **datasets**, which describe input data and output data for pipelines.
-4.	Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink. 
+4.	Created a **pipeline** with a Copy Activity with BlobSource as source and SqlSink as sink. 
 
 ## See Also
 | Topic | Description |
