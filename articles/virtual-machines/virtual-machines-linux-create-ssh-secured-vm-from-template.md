@@ -19,7 +19,7 @@
 
 # Create a Linux VM using an Azure template
 
-To create a Linux VM from a template you need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+To create a Linux VM from a template, you need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Command Summary
 
@@ -29,9 +29,9 @@ azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <U
 
 ## Detailed Walkthrough
 
-Templates allow you to create VMs on Azure with settings that you want to customize during the launch, settings like usernames and hostnames. For this article we are launching an Azure template with an Ubuntu VM along with a network security group (NSG) with only port 22 open for SSH.
+Templates allow you to create VMs on Azure with settings that you want to customize during the launch, settings like usernames and hostnames. For this article, we are launching an Azure template utilizing an Ubuntu VM along with a network security group (NSG) with port 22 open for SSH.
 
-Azure Resource Manager templates are JSON files that can be used for simple one-off tasks -- like launching an Ubuntu VM as done in this article -- or to construct complex Azure configurations of entire environments like a testing, dev or production deployment from the networking to the OS to application stack deployment.
+Azure Resource Manager templates are JSON files that can be used for simple one-off tasks like launching an Ubuntu VM as done in this article.  Azure Templates can also be used to construct complex Azure configurations of entire environments like a testing, dev, or production deployment from the networking to the OS to application stack deployment.
 
 ## Create the Linux VM
 
@@ -60,8 +60,8 @@ data:
 info:    group create command OK
 ```
 
-You can create a new resource group and deploy a VM using the `--template-uri` parameter, or you can download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
+You can create a new resource group and deploy a VM using the `--template-uri` parameter.  You can also download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
 
 ## Next steps
 
-Once you create Linux VMs with templates, you'll want to see what other app frameworks are available to use with templates. Search the [templates gallery](https://azure.microsoft.com/documentation/templates/) to discover what app frameworks to deploy next.
+Search the [templates gallery](https://azure.microsoft.com/documentation/templates/) to discover what app frameworks to deploy next.
