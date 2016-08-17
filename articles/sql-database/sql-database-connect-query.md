@@ -18,6 +18,7 @@
 	ms.author="stevestein"/>
 
 
+
 # Connect to a SQL Database with Visual Studio
 
 > [AZURE.SELECTOR]
@@ -72,9 +73,7 @@ To connect to SQL Database using Visual Studio, you need the following:
 
 9. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
 
-
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
-
 
 
 ## Run a sample query

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrate Your Data
@@ -30,7 +30,7 @@ PolyBase also provides a very high performance option for loading the data. Howe
 
 > [AZURE.NOTE] PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
 
-Head over to the following article for some great [ADF Copy examples][].
+Head over to the following article for some great [ADF samples][].
 
 ## Integration Services ##
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -174,9 +174,9 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-copy-activity.md
-[ADF Copy examples]: ../data-factory/data-factory-copy-activity-examples.md
-[development overview]: sql-data-warehouse-develop-overview.md
+[ADF samples]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
