@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Quick start guide: Machine Learning Recommendations API | Microsoft Azure"
-	description="Azure Machine Learning Recommendations - Quick Start Guide"
+	pageTitle="Quick Start Guide: Machine Learning Recommendations API | Microsoft Azure"
+	description="Azure machine learning recommendations--Quick Start Guide"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -23,8 +23,7 @@
 
 The Recommendations API currently supports two build types: *recommendation* and *FBT*. Each is built using different algorithms, and each has different strengths. This document describes each of these builds and techniques for comparing the quality of the models generated.
 
-
-> If you have not done so already, we recommend that you complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+If you have not done so already, we recommend that you complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Recommendation build type ###
@@ -41,11 +40,11 @@ Items that do not have significant usage are called cold items. For instance, if
 
 If you want to use cold item placement, you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
 
-  > 6CX-00001,Surface Pro2, Surface,, Type=Hardware, Storage=128 GB, Memory=4G, Manufacturer=Microsoft
+  6CX-00001,Surface Pro2, Surface,, Type=Hardware, Storage=128 GB, Memory=4G, Manufacturer=Microsoft
 
-  > 73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
+  73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
 
-  > WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
+  WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
 
 You also need to set the following build parameters:
 
@@ -107,7 +106,7 @@ FBT builds do not support cold items, because by definition they expect two item
 | *FbtSimilarityFunction* | Defines the similarity function to be used by the build. **Lift** favors serendipity, **co-occurrence** favors predictability, and **Jaccard** is a compromise between the two. | String,  <br>  <i>cooccurrence, lift, jaccard</i><br> Default: <i>jaccard</i>
 
 <a name="SelectBuild"></a>
-## Select the build to use ##
+## Build evaluation and selection ##
 
 This guidance might help you determine whether you should use a recommendations build or an FBT build, but it does not provide a definitive answer in cases where you could use either of them. Also, even if you know that you want to use an FBT build type, you might still want to choose **Jaccard** or **lift** as the similarity function.
 
@@ -146,13 +145,13 @@ You will notice that as more items are shown to the customer, the likelihood of 
 The percentage of users that interacted with at least one of the *k* recommendations is shown. The percentage is calculated by dividing the number of users that interacted with at least one recommendation by the total number of users considered. See Users considered for more information.
 
 #### Users in test
-The total number of users in the test dataset.
+Data in this row represents the total number of users in the test dataset.
 
 #### Users considered
 A user is only considered if the system recommended at least *k* items based on the model generated using the training dataset.
 
 #### Users not considered
-Any users not considered. The users that did not receive at least *k* recommended items.
+Data in this row represents any users not considered. The users that did not receive at least *k* recommended items.
 
 User not considered = users in test – users considered
 
@@ -177,7 +176,7 @@ The unique items recommended metric shows the number of distinct items that were
 The total items recommended metric shows the number of items recommended. Some may be duplicates.
 
 <a name="ImplementingEvaluation"></a>
-### To get offline evaluations ###
+### Offline evaluation metrics ###
 The precision and diversity offline metrics may be useful when you select which build to use. At build time, as part of the respective FBT or recommendation build parameters:
 
 -	Set the *enableModelingInsights* build parameter to **true**.
