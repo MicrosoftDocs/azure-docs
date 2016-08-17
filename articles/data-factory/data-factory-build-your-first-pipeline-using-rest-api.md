@@ -39,9 +39,9 @@ In this article, you learn how to use Data Factory REST API to create your first
 	4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.  
 - Install [Azure PowerShell](../powershell-install-configure.md).  
 - Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-	- Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
-	- Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
-	- Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
+	1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
+	2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
+	3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
 3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.  
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
