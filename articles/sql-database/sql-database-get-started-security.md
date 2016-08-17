@@ -29,7 +29,7 @@ In this tutorial, you learn how to use SQL Server Management Studio (SSMS) to:
 
 - Log in to SQL Database using a server-level principal login.
 - Create a SQL Database user account.
-- Grant a SQL Database user account dbo permissions within a user database.
+- Grant a SQL Database user account [db_owner permissions](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0) within a user database.
 - Connect to a SQL database with a user account that is not a server-level principal.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
