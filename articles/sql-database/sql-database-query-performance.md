@@ -23,9 +23,9 @@ Managing and tuning the performance of relational databases is a challenging tas
 
 - Deeper insight into your databases resource (DTU) consumption. 
 - The top CPU consuming queries, which can potentially be tuned for improved performance. 
-    - CPU
-    - Duration
-    - Execution count
+  - CPU
+  - Duration
+  - Execution count
 - The ability to drill down into the details of a query, view its text and history of resource utilization. 
 - Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
@@ -51,7 +51,7 @@ The following [role-based access control](../active-directory/role-based-access-
 Query Performance Insight is easy to use:
 
 - Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
-    - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+  - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
 - On the first tab, review the list of top resource-consuming queries.
 - Select an individual query to view its details.
 - Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
@@ -79,10 +79,10 @@ In the [portal](http://portal.azure.com) do the following:
 
     The bottom grid represents aggregated information for the visible queries.
 
-    -	Query ID – unique identifier of query inside database.
-    -	CPU per query during observable interval (depends on aggregation function).
-    -	Duration per query (depends on aggregation function).
-    -	Total number of executions for a particular query.
+  -	Query ID – unique identifier of query inside database.
+  -	CPU per query during observable interval (depends on aggregation function).
+  -	Duration per query (depends on aggregation function).
+  -	Total number of executions for a particular query.
 
     Select or clear individual queries to include or exclude them from the chart using checkboxes.
 
@@ -90,10 +90,11 @@ In the [portal](http://portal.azure.com) do the following:
 1. You can use sliders and zoom buttons to change observation interval and investigate spikes:
     ![settings](./media/sql-database-query-performance/zoom.png)
 1. Optionally, if you want a different view, you can select **Custom** tab and set:
-    - Metric (CPU, duration, execution count)
-    - Time interval (Last 24 hours, Past week, Past month). 
-    - Number of queries.
-    - Aggregation function.
+  
+  - Metric (CPU, duration, execution count)
+  - Time interval (Last 24 hours, Past week, Past month). 
+  - Number of queries.
+  - Aggregation function.
 
     ![settings](./media/sql-database-query-performance/custom-tab.png)
 
@@ -107,9 +108,9 @@ To view query details:
 
 1. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
 1. Click around the chart for details.
-    - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
-    - Second chart shows total duration by the selected query.
-    - Bottom chart shows total number of executions by the selected query.
+  - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
+  - Second chart shows total duration by the selected query.
+  - Bottom chart shows total number of executions by the selected query.
     
     ![query details][3]
 
@@ -117,29 +118,29 @@ To view query details:
 
 ## Review top queries per duration
 
->In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
+In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
 
->Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
 
->To identify long running queries:
+To identify long running queries:
 
 1. Open **Custom** tab in Query Performance Insight for selected database
 1. Change metrics to be **duration**
 1. Select number of queries and observation interval
 1. Select aggregation function
-    - **Sum** adds up all query execution time during whole observation interval.
-    - **Max** finds queries which execution time was maximum at whole observation interval.
-    - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
+  - **Sum** adds up all query execution time during whole observation interval.
+  - **Max** finds queries which execution time was maximum at whole observation interval.
+  - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
     ![query duration][4]
 
 ## Review top queries per execution count
 
->High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
+High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
 
->In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
+In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
 
->For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
+For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
 To identify frequently executed queries (“chatty”) queries:
 
@@ -174,13 +175,13 @@ During your use of Query Performance Insight, you might encounter the following 
 
 These messages usually appear when Query Store is not able to collect new data. 
 
-First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store. 
+First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
 
-    ![qds off][8]
+    ![performance dashboard](./media/sql-database-query-performance/qds-off.png)
 
 Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
-    ![qds button][9]
+    ![performance dashboard](./media/sql-database-query-performance/qds-button.png)
 
 ### Recommended retention and capture policy
 
