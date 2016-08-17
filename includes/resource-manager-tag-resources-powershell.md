@@ -9,7 +9,7 @@ If you last updated your Azure PowerShell before August 2016, your results shoul
     Version : 2.0.2
     Name    : AzureRM.Resources
 
-Or, if you have updated Azure PowerShell since August 2016, your results should show a version of 3.0.
+If you have updated Azure PowerShell since August 2016, your results should show a version of 3.0.
 
     Version : 3.0.1
     Name    : AzureRM.Resources
@@ -86,9 +86,9 @@ To get all the resources with a particular tag and value, use the **Find-AzureRm
 
     (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
     
-To add a tag to a resource group that has no existing tags, simply use the **Set-AzureRmResourceGroup** command and specify a tag object.
+To add a tag to a resource group that has no existing tags, use the **Set-AzureRmResourceGroup** command and specify a tag object.
 
-    Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept"IT"; Environment="Test" }
+    Set-AzureRmResourceGroup -Name test-group -Tag @{ Dept="IT"; Environment="Test" }
 
 Which returns the resource group with its new tag values.
 
