@@ -34,7 +34,7 @@ Validates EDI and partner-specific properties
 
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select either Encode EDIFACT Message by agreement name or Encode to EDIFACT message by identities.
 
-	![search edifact](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
+	![search EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
 
