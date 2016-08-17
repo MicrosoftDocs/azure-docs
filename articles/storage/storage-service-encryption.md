@@ -37,11 +37,7 @@ After you click the Encryption setting, you can enable or disable Storage Servic
 
 ##Availability
 
-For Standard Storage, this feature is currently available in Australia Southeast, Canada Central, Canada East, Central US, East Asia, East US, East US 2, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
-
-For Premium Storage, this feature is currently available in Australia Southeast, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, and West US. 
-
-We will update this document as we roll this feature out in additional regions.
+This feature is currently available in all regions for both Standard and Premium Storage.
 
 ##Encryption Scenarios
 
