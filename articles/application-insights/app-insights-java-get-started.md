@@ -114,7 +114,7 @@ Manually add the SDK:
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
- * Download the latest [Application Insights SDK for Java](https://aka.ms/aijavasdk/sdk.zip) and replace the old ones.
+ * Download the latest [Application Insights SDK for Java](https://aka.ms/qqkaq6) and replace the old ones.
  * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
