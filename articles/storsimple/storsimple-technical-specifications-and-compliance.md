@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
