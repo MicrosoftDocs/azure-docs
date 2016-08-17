@@ -100,7 +100,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
         };
 
         // Call a function to perform the actual sync
-        // syncBackend();
+        syncBackend();
 
         // Refresh the todoItems
         refreshDisplay();
@@ -169,6 +169,8 @@ In this section, you will modify the client project to simulate an offline scena
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
 2. In index.html, update the CSP `<meta>` element with the same invalid URL.
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
 3. Build and run the client app and notice that an exception is logged in the console when the app attempts to sync with the backend after login. Any new items you add will exist only in the local store until they can be pushed to the mobile backend. The client app behaves as if is connected to the backend, supporting all create, read, update, delete (CRUD) operations.
 
