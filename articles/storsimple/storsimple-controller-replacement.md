@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/31/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device
@@ -51,7 +51,7 @@ You need to remove a controller module if it has failed. One or both the control
 
 ## Replace a single controller
 
-When one of the two controllers on the  Microsoft Azure StorSimple device has failed, is malfunctioning, or is missing, you need to replace a single controller. 
+When one of the two controllers on the Microsoft Azure StorSimple device has failed, is malfunctioning, or is missing, you need to replace a single controller. 
 
 ### Single controller replacement logic
 
@@ -108,7 +108,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 ## Replace both controllers
 
-When both controllers on the  Microsoft Azure StorSimple device have failed, are malfunctioning, or are missing, you need to replace both controllers. 
+When both controllers on the Microsoft Azure StorSimple device have failed, are malfunctioning, or are missing, you need to replace both controllers. 
 
 ### Dual controller replacement logic
 
@@ -136,7 +136,7 @@ In a dual controller replacement, you first remove both failed controllers and t
 
 ### Dual controller replacement steps
 
-This workflow is required when both of the controllers in your Microsoft Azure StorSimple device have failed. This could happen in a datacenter in which the cooling system stops working, and as a result, both the controllers fail within a short period of time. Depending on whether the StorSimple device is turned off or on, and whether you are using a 8600 or a 8100 model, a different set of steps is required.
+This workflow is required when both of the controllers in your Microsoft Azure StorSimple device have failed. This could happen in a datacenter in which the cooling system stops working, and as a result, both the controllers fail within a short period of time. Depending on whether the StorSimple device is turned off or on, and whether you are using an 8600 or an 8100 model, a different set of steps is required.
 
 >[AZURE.IMPORTANT] It can take 45 minutes to 1 hour for the controller to restart and completely recover from a dual controller replacement procedure. The total time for the entire procedure, including attaching the cables, is approximately 2.5 hours.
 
@@ -144,11 +144,11 @@ This workflow is required when both of the controllers in your Microsoft Azure S
 
 1. If the device is turned off, skip this step and proceed to the next step. If the device is turned on, turn off the device.
 										
-    1. If you are using a 8600 model, turn off the primary enclosure first, and then turn off the EBOD enclosure.
+    1. If you are using an 8600 model, turn off the primary enclosure first, and then turn off the EBOD enclosure.
 
     2. Wait until the device has shut down completely. All the LEDs in the back of the device will be off.
 
-2. Remove all the network cables that are connected to the data ports. If you are using a 8600 model, also remove the SAS cables that connect the primary enclosure to the EBOD enclosure.
+2. Remove all the network cables that are connected to the data ports. If you are using an 8600 model, also remove the SAS cables that connect the primary enclosure to the EBOD enclosure.
 
 3. Remove both controllers from the StorSimple device. For more information, see [remove a controller](#remove-a-controller).
 
@@ -156,7 +156,7 @@ This workflow is required when both of the controllers in your Microsoft Azure S
 
 5. While the controller replacement logic progresses in the background, reconnect the cables. Take care to connect all the cables exactly the same way that they were connected before the replacement. See the detailed instructions for your model in the Cable your device section of [install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-6. Turn on the StorSimple device. If you are using a 8600 model:
+6. Turn on the StorSimple device. If you are using an 8600 model:
 
     1. Make sure that the EBOD enclosure is turned on first.
 
