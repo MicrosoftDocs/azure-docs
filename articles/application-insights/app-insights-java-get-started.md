@@ -103,7 +103,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
@@ -114,7 +114,7 @@ Manually add the SDK:
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
- * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
+ * Download the latest [Application Insights SDK for Java](https://aka.ms/aijavasdk/sdk.zip) and replace the old ones.
  * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
