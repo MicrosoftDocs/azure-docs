@@ -19,9 +19,9 @@
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] You can also [upload a custom disk image using Azure Resource Manager](virtual-machines-linux-upload-vhd.md).
 
-This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. Learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image.
+This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. Learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image. 
 
 **Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
 
@@ -29,7 +29,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) so you
 ## Prerequisites
 This article assumes that you have the following items:
 
-- **Linux operating system installed in a .vhd file**  - You have installed an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
+- **Linux operating system installed in a .vhd file** - You have installed an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
 	- Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
 	- You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -94,11 +94,11 @@ You create a VM using `azure vm create` in the same way as a regular VM. Specify
 azure vm create --userName ops --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
 ```
 
-Enter your own image name, location, and DNS name to create your own VMs in the same way.
+To create your own VMs, provide your own image name, location, and DNS name.
 
 ## Next steps
 
-For more information, see [Azure CLI reference for Azure Service Management](../virtual-machines-command-line-tools.md).
+For more information, see [Azure CLI reference for the Azure classic deployment model](../virtual-machines-command-line-tools.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
