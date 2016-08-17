@@ -120,10 +120,10 @@ Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] When using PolyBase to load your tables define your tables so that the maximum row size does not exceed 32,767 bytes. It is important to remember that the maximum row size includes the full length of any variable length columns. While you can define a row with variable length data that exceeds this figure you cannot to use PolyBase to load this data today. As an interim measure, use BCP to load wide rows. Finally, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] Define your tables so that the maximum row size does not exceed 32,767 bytes when using PolyBase to perform the load. It is important to remember that the maximum row size includes the full length of any variable length columns. While you can define a row with variable length data that exceeds this figure, you cannot use PolyBase to load this data today. As an interim measure, use BCP to load wide rows. Finally, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Next steps
-Once you have successfully migrated your database schema to SQLDW proceed to one of the following articles:
+Once you have successfully migrated your database schema to SQL Data Warehouse, proceed to one of the following articles:
 
 - [Migrate your data][]
 - [Migrate your code][]
