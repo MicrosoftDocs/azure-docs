@@ -108,10 +108,10 @@ For details and examples on connecting to your SQL Data Warehouse with different
 <!--Image references-->
 
 <!--Article references-->
-[Connect to SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
-[Get started with SQL Database Auditing]: ./sql-data-warehouse-overview-auditing.md
+[Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Get started with SQL Database Auditing]: ./sql-data-warehouse-auditing-overview.md
 [Get started with Transparent Data Encryption (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
