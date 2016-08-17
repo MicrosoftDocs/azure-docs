@@ -33,26 +33,26 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
 1. In Visual Studio's Solution Explorer, open index.js and replace the following code
 
-      var client,             // Connection to the Azure Mobile App backend
+        var client,            // Connection to the Azure Mobile App backend
           todoItemTable;      // Reference to a table endpoint on backend
 
     with this code:
 
-      var client,             // Connection to the Azure Mobile App backend
+        var client,             // Connection to the Azure Mobile App backend
           todoItemTable, syncContext; // Reference to table and sync context
 
 2. Next, replace the following code:
 
-      client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
+        client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
 	with this code:
 
-      client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
+        client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
-      // Note: Requires at least version 2.0.0-beta6 of the Azure Mobile Apps plugin
-      var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
+        // Note: Requires at least version 2.0.0-beta6 of the Azure Mobile Apps plugin
+        var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
 
-      store.defineTable({
+        store.defineTable({
           name: 'todoitem',
           columnDefinitions: {
               id: 'string',
@@ -60,10 +60,10 @@ The offline sync code must be added to the app. Offline sync requires the cordov
               deleted: 'boolean',
               complete: 'boolean'
           }
-      });
+        });
 
-      // Get the sync context from the client
-      syncContext = client.getSyncContext();
+        // Get the sync context from the client
+        syncContext = client.getSyncContext();
 
   The preceding code additions initialize the local store and define a local table that matches the column values used in your Azure back end. (You don't need to include all column values in this code.)
 
@@ -73,14 +73,14 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
 3. Next, replace this code:
 
-      todoItemTable = client.getTable('todoitem'); // todoitem is the table name
+        todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
     with this code:
 
-      // todoItemTable = client.getTable('todoitem');
+        // todoItemTable = client.getTable('todoitem');
 
-      // Initialize the sync context with the store
-      syncContext.initialize(store).then(function () {
+        // Initialize the sync context with the store
+        syncContext.initialize(store).then(function () {
 
         // Get the local table reference.
         todoItemTable = client.getSyncTable('todoitem');
@@ -117,7 +117,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
 4. Next, add this function to perform the actual sync.
 
-      function syncBackend() {
+        function syncBackend() {
 
           // Sync local store to Azure table when app loads, or when login complete.
           syncContext.push().then(function () {
@@ -127,7 +127,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
           // Pull items from the Azure table after syncing to Azure.
           syncContext.pull(new WindowsAzure.Query('todoitem'));
-      }
+        }
 
     You decide when to push changes to the Mobile App backend by calling **push** on the **syncContext** object used by the client. For example, you could add a call to **syncBackend** to a button event handler in the app such as a new Sync button, or you could add the call to the **addItemHandler** function to sync whenever a new item is added.
 
