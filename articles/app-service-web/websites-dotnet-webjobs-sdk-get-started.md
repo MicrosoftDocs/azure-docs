@@ -602,11 +602,10 @@ Then it gets a reference to the *images* blob container, creates the container i
 		        });
 		}
 
-Similar code gets a reference to the *blobnamerequest* queue and creates a new queue. In this case no permissions change is needed. The [ResolveBlobName](#resolveblobname) section later in the tutorial explains why the queue that the web application writes to is used just for getting blob names and not for generating thumbnails.
-<---!Loc Comment: Bookmark ResolveBlobName is not working--->
+Similar code gets a reference to the *thumbnailrequest* queue and creates a new queue. In this case no permissions change is needed. 
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
+		var imagesQueue = queueClient.GetQueueReference("thumbnailrequest");
 		imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - _Layout.cshtml
