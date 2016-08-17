@@ -1,6 +1,16 @@
-The August 2016 release of Azure PowerShell (version 2.0.1) includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
+### Cmdlet changes in latest PowerShell version
+
+The August 2016 release of Azure PowerShell includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
 
     Get-Module -Name AzureRm.Resources
+    (Get-Module -ListAvailable | Where-Object{ $_.Name -eq 'AzureRm.Resources' }) | Select Version, Name | Format-List
+
+Your results should look like either:
+
+    Version : 2.0.2
+    Name    : AzureRM.Resources
+
+Or, 
 
 If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
 
@@ -13,6 +23,10 @@ To update existing script, change the **Tags** parameter to **Tag**, and change 
 
     # New
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location -Tag @{ testtag = "testval" }
+
+However, you should note that the **Tags** property in the returned metadata has not changed.
+
+### Version 3.0.1 or later
 
 Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. Let's start with a resource group.
 
@@ -56,40 +70,13 @@ Which returns the following results:
     Dept                   Finance
     Environment            Production
 
-For versions earlier than module 3.0.1, the resource metadata does not directly display tags. 
 
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
-
-You see in the results that the tags are only displayed as Hashtable object.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-You can view the actual tags by retrieving the **Tags** property.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Which returns formatted results:
-    
-    Dept: Finance
-    Environment: Production
 
 Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
 For version 3.0.1 or later, use the following format.
 
     (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).name 
-
-For versions earlier than 3.0.1, use the following format.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
 
 To get all the resources with a particular tag and value, use the **Find-AzureRmResource** cmdlet.
 
@@ -135,3 +122,52 @@ To get a list of all tags within a subscription using PowerShell, use the **Get-
 You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
 
 Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
+
+### Versions earlier than 3.0.1
+
+Tags exist directly on resources and resource groups. To see the existing tags, view a resource with **Get-AzureRmResource** or a resource group with **Get-AzureRmResourceGroup**. Let's start with a resource group.
+
+    Get-AzureRmResourceGroup -Name testrg1
+
+This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
+
+    ResourceGroupName : testrg1
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+                    Name         Value
+                    ===========  ==========
+                    Dept         Finance
+                    Environment  Production
+                    
+For versions earlier than module 3.0.1, the resource metadata does not directly display tags. 
+
+    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
+
+You see in the results that the tags are only displayed as Hashtable object.
+
+    Name              : tfsqlserver
+    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
+    ResourceName      : tfsqlserver
+    ResourceType      : Microsoft.Sql/servers
+    Kind              : v12.0
+    ResourceGroupName : tag-demo-group
+    Location          : westus
+    SubscriptionId    : {guid}
+    Tags              : {System.Collections.Hashtable}
+
+You can view the actual tags by retrieving the **Tags** property.
+
+    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+   
+Which returns formatted results:
+    
+    Dept: Finance
+    Environment: Production
+    
+Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
+
+For versions earlier than 3.0.1, use the following format.
+
+    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    
