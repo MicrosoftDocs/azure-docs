@@ -21,7 +21,7 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 
     ![New IoT hub status][3]
 
-5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click the **Keys** icon.
+5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
 
     ![New IoT hub blade][4]
 
