@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/17/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -28,7 +28,8 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
-- Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
+- Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
+- Azure Active Directory supports connection from SQL Server Management Studio that use Active Directory Universal Authentication which includes Multi-Factor Authentication.  This includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -89,7 +90,6 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=11774) supports Azure Active Directory authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
 - Some tools like BI and Excel are not supported.
-- Multi-factor Authentication (MFA/2FA) or other forms of interactive authentication are not supported.
 - Azure Active Directory authentication is supported for SQL Database by the Azure Portal **Import Database** and **Export Database** blades. Import and export using Azure Active Directory authentication is also supported from the PowerShell command.
 
 
