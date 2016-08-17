@@ -160,7 +160,7 @@ Now, the app will sync with the Azure backend when you run the app instead of wh
 
 With offline sync now enabled, you can now run the client application at least once on each platform to populate the local store database. Later, you will simulate an offline scenario and modify the data in the local store while the app is offline.
 
-## Update the sync behavior of the client app
+## (Optional) Test the sync behavior of the client app
 
 In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
 
@@ -181,7 +181,7 @@ In this section, you will modify the client project to simulate an offline scena
 	In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
 
 
-## Update the client app to reconnect your mobile backend
+## (Optional) Test the reconnect to your mobile backend
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you login, data will be synced to your mobile backend.
 
