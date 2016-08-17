@@ -59,11 +59,9 @@ Once the deployment has completed, the following configuration is required to su
 
 4.  Copy and paste each of the following commands (one at a time) into the PowerShell window, and press enter:
 
- netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-
- netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes
-
- reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f
+	```netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes```
+	```netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes```
+	```reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f```
 
 5.  Reboot the virtual machine.
 
@@ -75,19 +73,19 @@ Once the deployment has completed, the following configuration is required to su
 
 2.  Navigate to **Resource Providers** &gt; **WEBAPPS-LOCAL**.
 
- ![](media/azure-stack-webapp-add-worker-roles/WebApp-ResourceMgmt.png)
+	![](media/azure-stack-webapp-add-worker-roles/WebApp-ResourceMgmt.png)
  
 3.  Click **Go to Resource Provider Management**.
 
 4.  Click **Roles**.
 
- ![](media/azure-stack-webapp-add-worker-roles/WebApp-Roles.png)
+	![](media/azure-stack-webapp-add-worker-roles/WebApp-Roles.png)
  
 5.  Click **Add Role Instance**.
 
 6.  Click the **Tier** you would like to deploy the new instance to (small, medium, large, or shared).
 
- ![](media/azure-stack-webapp-add-worker-roles/WebApp-Tiers.png)
+	![](media/azure-stack-webapp-add-worker-roles/WebApp-Tiers.png)
  
 7.  Configure the following:
  - ServerName: Provide the IP address of the server you created earlier (in section 1).
@@ -103,7 +101,7 @@ Once the deployment has completed, the following configuration is required to su
 11. Click the server name that you just deployed. Review the status column, and wait to move to the next step until the status
     is "Ready".
 
- ![](media/azure-stack-webapp-add-worker-roles/webappmgmtconsole.png)
+	![](media/azure-stack-webapp-add-worker-roles/webappmgmtconsole.png)
 
 ##Step 4: Configure app service plans
 
@@ -125,10 +123,10 @@ Once the deployment has completed, the following configuration is required to su
 
 The following shows an example of the multiple plans available:
 
- ![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
+	![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
 
 ##Final Web App service VM configuration
 
 The image below provides a view of the environment once you have scaled the web worker roles. The green items represent the new role additions.
 
- ![](media/azure-stack-webapp-add-worker-roles/WebAppsWWRoles.png)
+	![](media/azure-stack-webapp-add-worker-roles/WebAppsWWRoles.png)
