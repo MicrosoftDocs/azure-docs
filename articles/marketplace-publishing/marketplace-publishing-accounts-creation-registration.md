@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -173,7 +173,7 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-## Steps to add a co-admin in the Publishing portal
+## 4. Steps to add a co-admin in the Publishing portal
 **Assuming that you are the admin,** given below are the steps to add a co-admin.
 
 >[AZURE.NOTE] **For the new users,** before you add a co-admin in the Publishing portal, ensure that you have created at least one application in the Publishing portal. This is required as the **PUBLISHERS** tab appear only after creating at least one application in the Publishing portal.
@@ -185,6 +185,15 @@ If you are added as a co-admin in the Publishing portal, then you can sign in wi
 5. Navigate to Publishers->select your account->Administrators->Add the co-admin (screenshot given below)
 
   ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+
+## 5. Steps to delete a co-admin in the Publishing portal
+**Assuming that you are the admin,** given below are the steps to delete a co-admin.
+
+1. Login to the Publishing portal with the admin email id.
+2. Navigate to **Publishers** -> select your account -> **Administrators** -> **Co-Admins**.
+3. Click on the **X** button next to the co-admin you want tot delete (screenshot given below).
+
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_05.png)
 
 ## Next steps
 Now that your account is created and registered, ensure you fulfill or meet all of the non-technical pre-requisites to publish your offer by reviewing [Non-technical pre-requisites](marketplace-publishing-pre-requisites.md).

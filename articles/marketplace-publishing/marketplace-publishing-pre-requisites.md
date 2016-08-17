@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="08/01/2016"
+  ms.date="08/18/2016"
   ms.author="hascipio"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -41,6 +41,15 @@ Admins of the Publishing portal can add the other members of the company, who ar
 6. Ensure that email ids provided at the various stages of the publishing process (e.g. Dev Center, Publishing portal) are monitored for any communication from Microsoft.
 7. For Dev Center registration, avoid using an account associated with a single person. This is suggested for removing dependency from one individual.
 8. If you face any issues with Dev Center registration, then please raise a ticket using this [link](https://developer.microsoft.com/en-us/windows/support).
+
+## Steps to delete a co-admin in the Publishing portal
+**Assuming that you are the admin,** given below are the steps to delete a co-admin.
+
+1. Login to the Publishing portal with the admin email id.
+2. Navigate to **Publishers** -> select your account -> **Administrators** -> **Co-Admins**.
+3. Click on the **X** button next to the co-admin you want tot delete (screenshot given below).
+
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_05.png)
 
 > [AZURE.IMPORTANT] You do not have to complete company tax and bank information if you are planning to publish only free offers (or bring your own license).
 
