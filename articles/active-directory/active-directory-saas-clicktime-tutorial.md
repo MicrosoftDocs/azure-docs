@@ -175,7 +175,7 @@ In the case of ClickTime, provisioning is a manual task.
     
     b.  In the **full name** textbox, type the name of your Azure AD account.  
 
-   >[AZURE.NOTE] If you want to, you can set additional properties of the new person object.
+    >[AZURE.NOTE] If you want to, you can set additional properties of the new person object.
 
     c.  Click **Save**.
 
