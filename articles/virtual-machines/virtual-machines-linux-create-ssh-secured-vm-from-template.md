@@ -19,7 +19,7 @@
 
 # Create a Linux VM using an Azure template
 
-To create a Linux VM from a template, you need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+To create a Linux VM from a template, you need [the Azure CLI](../xplat-cli-install.md) in Resource Manager mode (`azure config mode arm`).
 
 ## Quick Command Summary
 
@@ -60,7 +60,7 @@ data:
 info:    group create command OK
 ```
 
-You can create a new resource group and deploy a VM using the `--template-uri` parameter.  You can also download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
+That example deployed a VM using the `--template-uri` parameter.  You can also download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
 
 ## Next steps
 
