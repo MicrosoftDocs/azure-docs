@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="08/17/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -74,7 +74,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
 
-    Guidance on tracking how users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
 
 - [Recommended naming conventions][naming-conventions] 
 
@@ -114,7 +114,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 ## Reference Architectures
 
-Our reference architectures are arranged by scenario, with multiple related architectures grouped together.
+Our reference architectures are arranged by scenario.
 Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
 
 The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
