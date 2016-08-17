@@ -50,11 +50,11 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
-    A discussion of authentication and authorization concerns (e.g., token types, authorization protocols, authorization flows and threat mitigation).
+    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
 
 - [Autoscaling guidance][AutoscalingGuidance] 
 
-    A summary of considerations for taking advantage of the elasticity of cloud-hosted environments without the need for manual intervention.
+    A summary of considerations for scaling solutions without the need for manual intervention.
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
@@ -74,7 +74,7 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
 
-    Guidance on how to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+    Guidance on tracking the how users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
 
 - [Recommended naming conventions][naming-conventions] 
 
@@ -92,25 +92,25 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Running Elasticsearch on Azure][elasticsearch] 
     
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
+    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
 
 - [Identity management for multitenant applications][identity-multitenant] 
     
-    Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
+    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
 - [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
 
-    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
     
 ## Patterns
 
 - [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
 
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into the big picture of cloud application architectures.
+    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
     
 - [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
 
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
 ## Reference Architectures
 
