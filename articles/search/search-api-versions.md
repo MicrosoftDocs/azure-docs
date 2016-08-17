@@ -31,7 +31,7 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 Interfaces|Most recent major version|Status
 ----------|-------------------------|------
 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1.1|Generally Available, released February 2016
-[.NET SDK Preview](https://msdn.microsoft.com/library/mt761536(v=azure.103).aspx)|2.0-preview|Preview, released August 2016
+[.NET SDK Preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2.0-preview|Preview, released August 2016
 [Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Generally Available
 [Service REST API Preview](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Preview
 [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Generally Available
