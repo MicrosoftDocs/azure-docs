@@ -38,12 +38,17 @@ To look up the access assignments for a single user or group, start in Azure Act
 4. Select **Azure Subscription Resources** on the user blade. All the access assignments for that user appear.  
 	![View Azure Subscription Resources assignments - screenshot](./media/role-based-access-control-manage-assignments/azure_subscription_resources.png)
 
-If you think there are additional access assignments that aren't showing up, consider your own access permissions. If you don't have read access for a resource, then you can't see assignments within it.
+This page only shows the access assignments that you have permission to read. For example, you have read access to subscription A and go to the Azure resources blade to check a user's assignments. You can see her access assignments for subscription A, but won't see that she also has access assignments on subscription B. 
 
 ## Delete access assignments
 
-You can only add or modify assignments in the resource itself, but you can delete access assignments from this view.
+From this blade, you can delete access assignments that were assigned directly to a user or group. If the access assignment was inherited from a parent group, you need to go to the resource or subscription and manage the assignment there. 
 
 1. From the list of all the access assignments for a user or group, select the one you want to delete.  
 2. Select **Remove** and then **Yes** to confirm.  
 	![Remove access assignment - screenshot](./media/role-based-access-control-manage-assignments/delete_assignment.png)
+
+## Related topics
+
+- Get started with Role-Based ACcess Control to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md)  
+- See the [RBAC built-in roles](role-based-access-built-in-roles.md) 
