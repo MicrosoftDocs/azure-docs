@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/16/2016"
+	ms.date="08/17/2016"
 	ms.author="sstein;carlrab" />
 
 # Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query
@@ -35,7 +35,7 @@ For information about firewall rules, see [How to: Configure Firewall Settings (
 
 ## Run sample queries
 
-After you connect to your server, you can connect to a database and run a sample query. If you are new to writing Transact-SQL statements, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx)
+After you connect to your server, you can connect to a database and run a sample query. If you are new to writing queries, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx)
 
 1. In **Object Explorer**, navigate to a database on the server, such as the **AdventureWorks** sample database.
 2. Right-click the database and then select **New Query**.
