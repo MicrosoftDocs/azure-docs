@@ -301,7 +301,7 @@ The **Tags** section helps you organize your resources. For more information, se
 
 The **Locks** section allows you to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
 
-The **Users** section provides support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure Portal](../active-directory/role-based-access-control-configure.md).
+The **Users** section provides support for role-based access control (RBAC) in the Azure portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure portal](../active-directory/role-based-access-control-configure.md).
 
 Click **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../resource-group-template-deploy.md).
 
@@ -313,7 +313,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal or command line management tools such as Azure CLI or PowerShell.
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal or command line management tools such as Azure CLI or PowerShell.
 
 |Setting|Default value|Description|
 |---|---|---|
