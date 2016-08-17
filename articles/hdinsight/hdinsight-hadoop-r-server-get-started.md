@@ -375,7 +375,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 3. From the __Submit script action__ blade, provide the following information.
 
     * __Name__: A friendly name to used to identify this script
-    * __Bash script URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
+    * __Bash script URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
     * __Head__: This should be __unchecked__
     * __Worker__: This should be __Checked__
     * __Zookeeper__: This should be __Unchecked__
