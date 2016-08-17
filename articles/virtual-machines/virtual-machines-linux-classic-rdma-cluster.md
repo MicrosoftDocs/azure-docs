@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/17/2016"
  ms.author="danlep"/>
 
 # Set up a Linux RDMA cluster to run MPI applications
@@ -21,9 +21,9 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Learn how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up a cluster of size A8 and A9 VMs to run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with size A8 and A9 virtual machines to run parallel Message Passing Interface (MPI) applications. When you set up a cluster of size A8 and A9 VMs to run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
->[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on size A8 or A9 VMs created from a SUSE Linux Enterprise Server (SLES) 12 HPC image or a CentOS-based 6.5 or 7.1 HPC image in the Azure Marketplace. The Centos-based HPC Marketplace images install Intel MPI version 5.1.3.181. 
+>[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on size A8 or A9 VMs created from a SUSE Linux Enterprise Server (SLES) 12 HPC image or a CentOS-based 6.5 or 7.1 HPC image in the Azure Marketplace. See [About the A8, A9, A10 and A11 instances](virtual-machines-linux-a8-a9-a10-a11-specs.md) for more information and considerations.  
 
 
 
@@ -33,9 +33,9 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **HPC Pack** - Create a Microsoft HPC Pack cluster in Azure and add size A8 or A9 compute nodes that run supported Linux distributions to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a virtual network and the other necessary components to create a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so if you are deploying many compute nodes it might take several minutes to complete the deployment.
+* **Azure CLI scripts** - As shown in the steps in the rest of this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a virtual network and the other necessary components to create a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so if you are deploying many compute nodes it might take several minutes to complete the deployment. In the classic deployment model, A8 or A9 VMs have to be deployed in the same cloud service to connect through the RDMA network.
 
-* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster.
+* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability to connect through the RDMA network.
 
 ## Sample deployment in classic model
 
@@ -70,9 +70,9 @@ Type the following to list all the subscriptions you are authorized to use:
 
     azure account list
 
-The current active subscription will be identified with `Current` set to `true`. If this is not the subscription you want to use to create the cluster, set the appropriate subscription number as the active subscription:
+The current active subscription will be identified with `Current` set to `true`. If this is not the subscription you want to use to create the cluster, set the appropriate subscription Id as the active subscription:
 
-    azure account set <subscription-number>
+    azure account set <subscription-Id>
 
 To see the publicly available SLES 12 HPC images in Azure, run a command similar to the following, assuming your shell environment supports **grep**:
 
@@ -87,11 +87,11 @@ where
 
 * the size (A9 in this example) can be A8 or A9
 
-* the external SSH port number (22 in this example, which is the SSH default) is any valid port number; the internal SSH  port number will be set to 22
+* the external SSH port number (22 in this example, which is the SSH default) is any valid port number; the internal SSH port number will be set to 22
 
 * a new cloud service will be created in the Azure region specified by the location; specify a location such as "West US" in which the A8 and A9 instances are available
 
-* the SLES 12 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (charges apply)
+* the SLES 12 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (additional charges apply)
 
     >[AZURE.NOTE]If you want to use a CentOS-based HPC image, the current image names are `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408` and `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408`.
 
@@ -302,7 +302,7 @@ source /opt/intel/impi_latest/bin64/mpivars.sh
 
 ### Run a simple MPI command
 
-Run a simple MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes  nodes.
+Run a simple MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes.
 
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
