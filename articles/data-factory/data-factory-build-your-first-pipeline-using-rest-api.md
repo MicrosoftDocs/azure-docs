@@ -30,23 +30,23 @@ In this article, you learn how to use Data Factory REST API to create your first
 
 ## Prerequisites
 
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
-- Install [Curl](https://curl.haxx.se/dlwiz/) on your machine.
+- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article. This article helps you understand the basic concepts of Azure Data Factory. 
+- Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to do the following: 
 	1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
 	2. Get **client ID** and **secret key**. 
 	3. Get **tenant ID**. 
 	4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.  
-- Install PowerShell.  
-- Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
+- Install [Azure PowerShell](../powershell-install-configure.md).  
+- Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
 	- Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
 	- Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureRmSubscription NameOfSubscription** to select the subscription that you want to work with. 
-3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command.  
+	- Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
+3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.  
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-	Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use it in place of ADFTutorialResourceGroup in this tutorial.
+	Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 
 ## Create JSON definitions
 Create following JSON files in the folder where curl.exe is located. 
@@ -70,7 +70,7 @@ Create following JSON files in the folder where curl.exe is located.
 	    }
 	}
 
-> [AZURE.IMPORTANT] Replace **accountname>** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> [AZURE.IMPORTANT] Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ### hdinsightondemandlinkedservice.json
 
@@ -199,7 +199,7 @@ The JSON defines a dataset named **AzureBlobOutput**, which represents output da
 					"interval": 1
 				},
 				"name": "RunSampleHiveActivity",
-				"linkedServiceName": "HDInsightOnDemandLinkedService "
+				"linkedServiceName": "HDInsightOnDemandLinkedService"
 			}],
 			"start": "2016-07-10T00:00:00Z",
 			"end": "2016-07-11T00:00:00Z",
@@ -207,9 +207,9 @@ The JSON defines a dataset named **AzureBlobOutput**, which represents output da
 		}
 	}
 
-> [AZURE.IMPORTANT] Replace **storageaccountname>** with name of your Azure storage account. 
+> [AZURE.IMPORTANT] Replace **storageaccountname** with name of your Azure storage account. 
 
-In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
+In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process data on a HDInsight cluster.
 
 The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 
@@ -243,6 +243,7 @@ In Azure PowerShell, execute the following commands after replacing the values w
 	$accessToken = (ConvertFrom-Json $responseToken).access_token;
 	
 	(ConvertFrom-Json $responseToken) 
+
 
 
 ## Create data factory
@@ -364,12 +365,13 @@ In this step, you use Data Factory REST API to monitor slices being produced by 
     	    (convertFrom-Json $results2).RemoteException
 	}
 
-You can keep running Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
+Run the Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
 
 ![output data](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
-
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
+
+You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md##monitor-pipeline) details.  
 
 ## Summary 
 In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:  
