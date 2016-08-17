@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/16/2016"
 	ms.author="kgremban"/>
 
 # Microsoft Authenticator application FAQ
@@ -30,7 +30,7 @@ If your account does not have two-step verification enabled, see [About two-step
 
 **Q: When will I be able to use one-click push notifications on iPhone or iPad?**
 
-This feature is in beta until the end of August, when it becomes broadly available for Microsoft accounts. If you want to join our beta program, send email to andypick@microsoft.com. Include your first name, last name, and Apple ID in your message.
+This feature is in beta until the end of August, when it becomes broadly available for Microsoft accounts. If you want to join our beta program, send email to msauthenticator@microsoft.com. Include your first name, last name, and Apple ID in your message.
 
 **Q: Do one-click push notifications work for non-Microsoft accounts?**
 

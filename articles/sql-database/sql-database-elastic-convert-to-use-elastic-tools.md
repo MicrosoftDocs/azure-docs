@@ -3,7 +3,7 @@
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Migrate existing databases to scale-out
 
