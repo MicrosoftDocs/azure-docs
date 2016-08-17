@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/15/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
@@ -24,12 +24,12 @@
 - [Authentication](sql-data-warehouse-authentication.md)
 - [Drivers](sql-data-warehouse-connection-strings.md)
 
-To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  
+To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
 For more information on security and how to enable connections to your data warehouse, see [Secure a database in SQL Data Warehouse][].
 
 ## SQL authentication
-To connect to SQL Data Warehouse you will need to provide the following information:
+To connect to SQL Data Warehouse, you must provide the following information:
 
 - Fully qualified servername
 - Specify SQL authentication
@@ -37,19 +37,19 @@ To connect to SQL Data Warehouse you will need to provide the following informat
 - Password
 - Default database (optional)
 
-By default your connection will connect to the master database and not your user database. To connect to your user database you can choose to do one of two things:
+By default your connection connects to the master database and not your user database. To connect to your user database, you can choose to do one of two things:
 
-1. Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example by including the InitialCatalog parameter for an ODBC connection.
-2. First highlight the user database prior to creating a session in SSDT.
+- Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, by including the InitialCatalog parameter for an ODBC connection.
+- First highlight the user database before creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [Query with Visual Studio][] article.
+> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
 
 It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection
 
 
 ## Azure Active Directory (AAD) authentication
 
-[Azure Active Directory][What is Azure Active Directory] authentication is a mechanism of connecting to Microsoft Azure SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. 
+[Azure Active Directory][What is Azure Active Directory] authentication is a mechanism of connecting to Microsoft Azure SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. 
 
 ### Benefits
 
@@ -62,6 +62,7 @@ Benefits include the following:
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Data Warehouse.
+- When Azure Active Directory authentication is configured, SQL Server Management Studio supports Multi-Factor authentication through Active Directory Universal Authentication. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 
 ### Configuration steps

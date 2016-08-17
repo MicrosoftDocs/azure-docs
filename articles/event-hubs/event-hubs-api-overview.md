@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/11/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Event Hubs API overview
@@ -23,7 +23,7 @@ Monitoring scenarios span both management and run-time. For detailed reference d
 
 ## Management APIs
 
-To perform the following management operations you must have **Manage** permissions on the Service Bus namespace:
+To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
 
 ### Create
 
