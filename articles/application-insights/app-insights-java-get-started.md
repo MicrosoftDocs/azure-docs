@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -193,7 +193,7 @@ To get the most accurate results, the filter should be mapped before all other f
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### If you're using MVC 3.1 or later
+#### If you're using Spring Web MVC 3.1 or later
 
 Edit these elements to include the Application Insights package:
 
