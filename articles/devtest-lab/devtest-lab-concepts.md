@@ -18,6 +18,13 @@
 
 #DevTest Labs concepts
 
+> [AZURE.TIP]
+> This article is part 3 of a 3 part series:
+> 
+> 1. [What is DevTest Labs?](devtest-lab-overview.md)
+> 1. [Why DevTest Labs?](devtest-lab-why.md)
+> 1. [DevTest Labs Concepts](devtest-lab-concepts.md)
+
 ##Overview
 
 The following list contains key DevTest Labs concepts and definitions:
