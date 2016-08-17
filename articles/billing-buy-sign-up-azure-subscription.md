@@ -15,10 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # How to sign up, purchase, upgrade or Activate Azure
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
 
 Azure provides various offers to suit your business needs and get started using Azure. Visit [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) for a complete listing of all active offers with details on each offer about what they cover, benefits and availability by countries/region.
 
@@ -61,10 +63,10 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
     You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button. [See this for more details](billing-troubleshoot-azure-sign-up-issues.md#i-am-not-getting-text-messages-or-calls-during-account-verification-when-i-try-to-sign-up).
 
     >[AZURE.NOTE] You cannot use a VOIP phone number for the phone verification process.
- 
+
     ![Enter a valid phone number to verify your phone](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)
-    
-    If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help. 
+
+    If you don't receive a text message or a call, try using a different phone number or contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
 
 5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
 
@@ -75,17 +77,17 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**. The agreement form may vary by country.
 
     ![The English version of the agreement. The agreement form may vary by country.](./media/billing-buy-sign-up-azure-subscription/Signup.png)
- 
+
     It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
- 
+
     > [AZURE.NOTE] If you get an error message, follow the steps in the message to resolve the issue. A typical error message is:
 
-    > **Sorry, we could not complete the operation. Please try again later or reload the web page** 
+    > **Sorry, we could not complete the operation. Please try again later or reload the web page**
 
     > In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.
 
 7. When the subscription is ready, select **Start managing my service** to begin.
- 
+
     ![Welcome to your Azure subscription](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 ### Additional resources
@@ -102,7 +104,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
     ![Notice to upgrade from Free Trial to Pay-As-You-Go](./media/billing-buy-sign-up-azure-subscription/billpage.png)
 
-3. Select **Yes**, and then select **Upgrade now**. 
+3. Select **Yes**, and then select **Upgrade now**.
 
     ![Confirmation for upgrading your subscription](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
 
@@ -118,3 +120,5 @@ If you bought **Azure in Open** credits from a reseller and got a activation key
 2. Select **Azure in Open**. In the [Azure in Open License key](https://azure.microsoft.com/offers/ms-azr-0111p/) page, select **Activate a new subscription or existing subscription**.
 
 3. Enter the product key, and then check the agreement option.
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.

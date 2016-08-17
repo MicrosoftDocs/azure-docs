@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
 
 This article answers some of the most common questions about Azure Billing and Subscription.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
 
 ## Account Administration
 
@@ -134,7 +136,7 @@ For both single- and multi-instance configurations, Azure sends email communicat
 
 >[AZURE.NOTE] For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-#### Unplanned maintenance 
+#### Unplanned maintenance
 
 In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -294,9 +296,9 @@ You can sign up for a trial subscription [here](http://azure.microsoft.com/prici
 
 ### What resources are available when using a Free Trial?
 
-You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details. 
+You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
 
-You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/). 
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/).
 
 Also see the [Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
@@ -313,3 +315,5 @@ Free Trial subscriptions are not eligible for quota increases. If you have a Fre
 ### Where can I get more details on Free Trial?
 
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.

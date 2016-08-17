@@ -35,6 +35,10 @@ _Select one of the following disclaimers depending on your scenario. If your art
 - _The Summary section is a good place to use different keywords from those in the title, but make sure to not make it very wordy. The sentences should flow well and be easy to understand._
 - _Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, ” Linux/OSS scenarios aren't covered in this article”._
 
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the bottom of this article):_
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+
+_If it is NOT a billing article, use the following reference:_
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Symptom
@@ -60,3 +64,6 @@ _Select one of the following disclaimers depending on your scenario. If your art
 
 ## Next steps
 _Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant/ important._
+
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the beginning of this article):_
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
