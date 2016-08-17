@@ -33,7 +33,7 @@ Use the following steps to connect to Azure SQL Database with SSMS using SQL Ser
      
 ## Troubleshoot connection failures
 
-The most common reasons for connection failures are mistakes in the server name. Remember, <*servername*> is the name of the server, not the database), and you need to provide the fully qualified server name: `<servername>.database.windows.net`. Also, verify the user name and password do not contain any typos (user names are not case sensitive, but passwords are). 
+The most common reasons for connection failures are mistakes in the server name. Remember, <*servername*> is the name of the server, not the database), and you need to provide the fully qualified server name: `<servername>.database.windows.net`. Also, verify the user name and password do not contain any typos (user names are not case-sensitive, but passwords are). 
 
 You can also try specifying the protocol and port number with the server name like the following: `tcp:servername.database.windows.net,1433`
 
