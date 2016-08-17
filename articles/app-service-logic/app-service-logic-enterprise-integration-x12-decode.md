@@ -26,7 +26,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-x12.md)
+* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [X12 agreement](./app-service-logic-enterprise-integration-x12.md)
 
 ### Connect to Decode X12 Message using the following steps:
 
