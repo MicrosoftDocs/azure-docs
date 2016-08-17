@@ -23,7 +23,7 @@ This article shows how to use Azure Search to index data stored in Azure Table S
 
 ## Setting up Azure table indexing
 
-To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/en-us/library/mt761536(v=azure.103).aspx) of the .NET SDK. In the future, support for table indexing will be added to the Azure Portal.
+To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536(v=azure.103).aspx) of the .NET SDK. In the future, support for table indexing will be added to the Azure Portal.
 
 A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
 

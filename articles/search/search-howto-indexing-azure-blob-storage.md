@@ -37,7 +37,7 @@ The blob indexer can extract text from the following document formats:
 
 ## Setting up blob indexing
 
-To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/en-us/library/mt761536(v=azure.103).aspx) of the .NET SDK. In the future, support for blob indexing will be added to the Azure Portal.
+To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536(v=azure.103).aspx) of the .NET SDK. In the future, support for blob indexing will be added to the Azure Portal.
 
 To set up an indexer, do the following three steps: create a data source, create an index, configure the indexer.
 
