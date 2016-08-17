@@ -1,4 +1,5 @@
-pageTitle="Add language-specific company branding to your sign-in page"
+<properties
+pageTitle="Add language-specific company branding to your sign-in page | Microsoft Azure"
 description="Learn how to add a language specific company branding pictures and text to an Azure sign-in page"
 services="active-directory"
 documentationCenter=""
@@ -41,7 +42,7 @@ We recommend that you keep the number of language variations low, for maintenanc
 
 4. On the **User management - Custom branding** blade, select the **Add language** command.
 
-    ![Add language-specific branding elements](./media/active-directory-branding-custom-signon-azure-portal/add-language.png)
+    ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
 
 5. Modify the elements you want to customize. All elements are optional.
 

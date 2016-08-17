@@ -1,4 +1,5 @@
-pageTitle="Customize your sign-in page"
+<properties
+pageTitle="Customize your sign-in page | Microsoft Azure"
 description="Learn how to add a company branding to the Azure sign-in page"
 services="active-directory"
 documentationCenter=""
