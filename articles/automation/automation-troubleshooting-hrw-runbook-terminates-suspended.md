@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="08/17/2016"
    ms.author="magoedte" />
 
 # Hybrid Runbook Worker: A runbook job terminates with a status of Suspended
