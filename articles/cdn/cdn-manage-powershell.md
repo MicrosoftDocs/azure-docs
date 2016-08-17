@@ -95,7 +95,7 @@ REMARKS
 The `Get-AzureRmCdnProfile` cmdlet without any parameters retrieves all your existing CDN profiles.
 
 ```powershell
-Get-AzureRMCdnProfile
+Get-AzureRmCdnProfile
 ```
 
 This output can be piped to cmdlets for enumeration.
