@@ -82,7 +82,7 @@ If you need to install Visual Studio, you can:
 
 9. After Visual Studio is installed, on the **Open In Visual Studio** blade click the **Open In Visual Studio** button. Visual Studio opens.
 
-10. For the benefit its **SQL Server Object Explorer** pane, Visual Studio asks you to fill in connection string fields in a dialog.
+10. Visual Studio will prompt you to fill in connection string fields in a dialog.
  - Choose **SQL Server Authentication**, not **Windows Authentication**.
  - Remember to specify your **AdventureWorksLT** database (**Options** > **Connection Properties** in the dialog).
 
@@ -93,7 +93,7 @@ If you need to install Visual Studio, you can:
 
 After you connect to your logical server, you can connect to a database and run a sample query. 
 
-1. In **Object Explorer**, navigate to a databbase on the server to which you have permission, such as the **AdventureWorks** sample database.
+1. In **Object Explorer**, navigate to a database on the server to which you have permission, such as the **AdventureWorks** sample database.
 2. Right-click the database and then select **New Query**.
 
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)

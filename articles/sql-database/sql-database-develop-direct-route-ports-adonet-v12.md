@@ -37,13 +37,13 @@ When your client program uses ADO.NET 4.5 to connect and query with SQL Database
 3. SQL Database sends its response back to the middleware, which forwards the response to ADO.NET to port 1433.
 
 
-**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved we would say the *direct route* was used.
+**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved, we would say the *direct route* was used.
 
 
 ## V12 of SQL Database: Outside vs inside
 
 
-For connections to V12 we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discusses two common scenarios.
+For connections to V12, we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
 
 #### *Outside:* Client runs on your desktop computer
