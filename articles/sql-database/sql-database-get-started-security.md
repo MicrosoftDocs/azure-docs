@@ -25,12 +25,12 @@
 - [Get started tutorial](sql-database-get-started-security.md)
 - [Grant access](sql-database-manage-logins.md)
 
-In this tutorial, you'll learn how to use SQL Server Management Studio (SSMS) to:
+In this tutorial, you learn how to use SQL Server Management Studio (SSMS) to:
 
-- Login to SQL Database using a server-level principal login
-- Create a SQL Database user account
-- Grant a SQL Database user account dbo permissions within a user database
-- Connect to a SQL database with a user account that is not a server-level principal 
+- Log in to SQL Database using a server-level principal login.
+- Create a SQL Database user account.
+- Grant a SQL Database user account dbo permissions within a user database.
+- Connect to a SQL database with a user account that is not a server-level principal .
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
