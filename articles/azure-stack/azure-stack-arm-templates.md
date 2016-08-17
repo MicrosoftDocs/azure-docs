@@ -110,3 +110,4 @@ Example: Web App Template
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 
 [Azure Resource Manager overview](../resource-group-overview.md)
+
