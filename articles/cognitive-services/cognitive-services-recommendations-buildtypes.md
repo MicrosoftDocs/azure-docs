@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Quick Start Guide: Machine Learning Recommendations API | Microsoft Azure"
-	description="Azure machine learning recommendations--Quick Start Guide"
+	pageTitle="Quick start guide: Machine Learning Recommendations API | Microsoft Azure"
+	description="Azure machine learning recommendations--quick start guide"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -40,11 +40,11 @@ Items that do not have significant usage are called cold items. For instance, if
 
 If you want to use cold item placement, you need to provide features information for each of your items in the catalog. Following is what the first few lines of your catalog may look like (note the key=value format for the features).
 
-  6CX-00001,Surface Pro2, Surface,, Type=Hardware, Storage=128 GB, Memory=4G, Manufacturer=Microsoft
+	6CX-00001,Surface Pro2, Surface,, Type=Hardware, Storage=128 GB, Memory=4G, Manufacturer=Microsoft
 
-  73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
+	73H-00013,Wake Xbox 360,Gaming,, Type=Software, Language=English, Rating=Mature
 
-  WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
+	WAH-0F05,Minecraft Xbox 360,Gaming,, * Type=Software, Language=Spanish, Rating=Youth
 
 You also need to set the following build parameters:
 
