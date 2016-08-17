@@ -123,10 +123,10 @@ Once the deployment has completed, the following configuration is required to su
 
 The following shows an example of the multiple plans available:
 
-	![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
+![](media/azure-stack-webapp-add-worker-roles/WebApp-Plans.png)
 
 ##Final Web App service VM configuration
 
 The image below provides a view of the environment once you have scaled the web worker roles. The green items represent the new role additions.
 
-	![](media/azure-stack-webapp-add-worker-roles/WebAppsWWRoles.png)
+![](media/azure-stack-webapp-add-worker-roles/WebAppsWWRoles.png)
