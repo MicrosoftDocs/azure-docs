@@ -77,8 +77,8 @@ In order to use the Key Vault API you need an access token. The Key Vault Client
 Following is the code to get an access token from Azure Active Directory. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
 
 	//add these using statements
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using System.Threading.Tasks;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System.Threading.Tasks;
 	using System.Web.Configuration;
 
 	//this is an optional property to hold the secret after it is retrieved
