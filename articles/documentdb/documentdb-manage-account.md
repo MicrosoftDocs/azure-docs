@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="08/15/2016"
 	ms.author="anhoh"/>
 
 # How to manage a DocumentDB account
 
-Learn how to set global consistency and manage multiple regions for global availability of data in Azure DocumentDB. Also, learn how to work with keys, and how to delete an account in the Azure Portal.
+Learn how to set global consistency, work with keys, and delete a DocumentDB account in the Azure Portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
@@ -28,74 +28,26 @@ Selecting the right consistency level depends on the semantics of your applicati
 ### To specify the default consistency for a DocumentDB account
 
 1. In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account.
-2. In the account blade, if the **Settings** blade is not already opened, click **All settings**.
-![Default consistency session][5]
-
-3. In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
-    ![Default consistency session][6]
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-5. The progress of the operation may be monitored via the Azure Portal Notifications hub.
-
-> [AZURE.NOTE] It can take several minutes before a change to the default
-consistency setting takes effect across your DocumentDB account.
-
-## <a id="addregion"></a>Add regions
-
-DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
-
-> [AZURE.NOTE] At this time, new regions can be added to new DocumentDB Accounts created on or after June 13th, 2016. Select  "Azure DocumentDB - Multi-region database Account" in the Marketplace to create a multi-region account. Accounts created prior to June 13th will be enabled for global availability in the near future. 
-
-1. In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
-2. In the **DocumentDB Account** blade, select the database account to modify.
-3. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
-4. In the **All Settings** blade, click on **Add / Remove Regions**.
-    ![Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
-5. In the **Add/Remove Regions** blade, select the regions to add or remove, and then click **OK**. There is a cost to adding regions, see the pricing page for more information.
-
-    ![Click on the regions in the map to add or remove them][2]
-
-### Select regions
-
-When configuring two or more regions, it is recommended that regions are selected based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr] article.
-
-Specifically, when configuring to multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. For example, if you want to deploy to 4 US regions, you select 2 US regions from the left column and 2 from the right. So, the following would be an appropriate set: West US, East US, North Central US and South Central US.
-
-This guidance is important to follow when only 2 regions are configured for disaster recovery scenarios. For more than 2 regions, following this guidance is good practice, but not critical as long as some of the selected regions adhere to this pairing.
-
-## <a id="selectwriteregion"></a>Select the write region
-
-While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
-
-
-1. In the **DocumentDB Account** blade, select the database account to modify.
-2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
-3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
-4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
+2. In the account blade, click **Default Consistency**.
+3. In the **Default Consistency** blade, select the new consistency level and click **OK**.
+    ![Default consistency session][5]
 
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. 
 
-In the [Microsoft Azure Portal](https://portal.azure.com/), access the **Keys** blade from the **Essentials** bar in your **DocumentDB Account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
+In the [Microsoft Azure Portal](https://portal.azure.com/), access the **Keys** blade from the **DocumentDB Account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
 
 ![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
 
-Another option is to access the **Keys** entry from the **All Settings** blade.
-
-![All Settings, Keys blade](./media/documentdb-manage-account/allsettingskeys.png)
-
 > [AZURE.NOTE] The **Keys** blade also includes primary and secondary connection strings that can be used to connect to your account from the [Data Migration Tool](documentdb-import-data.md).
 
-It also includes read-only keys to provide users with read only-access to DocumentDB. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
+Read-only keys are also available on this blade. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
 
 ### View and copy an access key in the Azure Portal
 
-1. In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
-2. In the **Essentials** bar from the **DocumentDB Account** blade, click **Keys**.
-3. On the **Keys** blade, click the **Copy** button to the right of the
-key you wish to copy.
-   ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
+On the **Keys** blade, click the **Copy** button to the right of the key you wish to copy.
+
+![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerate access keys
 
@@ -105,32 +57,32 @@ You should change the access keys to your DocumentDB account periodically to hel
 
 If you have applications or cloud services using the DocumentDB account, you will lose the connections if you regenerate keys, unless you roll your keys. The following steps outline the process involved in rolling your keys.
 
-1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
-
-2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/),
+1. Update the access key in your application code to reference the secondary access key of the DocumentDB account.
+2. Regenerate the primary access key for your DocumentDB account. In the [Azure Portal](https://portal.azure.com/),
 access your DocumentDB account.
+3. In the **DocumentDB Account** blade, click **Keys**.
+4. On the **Keys** blade, click the **Regenerate Primary** command, then click **Ok** to confirm that you want to generate a new key.
+    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-keys.png)
 
-3. In the **Essentials** bar from the **DocumentDB Account** blade, click **Keys**.
-
-4. On the **Keys** blade, click the **Regenerate Primary** command, then click **Ok** to confirm that you want to generate a new key.
-
-5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
-
-6. Regenerate the secondary access key.
+5. Once you have verified that the new key is available for use (approximately 5 minutes after regeneration), update the access key in your application code to reference the new primary access key.
+6. Regenerate the secondary access key.
+    ![Regenerate access keys](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] It can take several minutes before a newly generated key can be used to access your DocumentDB account.
 
 ## <a id="delete"></a> Delete a DocumentDB account
-To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete** command on the **DocumentDB Account** blade.
+To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.
 
-![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccountconfirmation.png)
+![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccount.png)
 
 
 1. In the [Azure Portal](https://portal.azure.com/), access the DocumentDB Account you wish to delete.
-2. On the **DocumentDB Account** blade, click **Delete Account**.
+2. On the **DocumentDB account** blade, click **More**, and then click **Delete Account**. Or, right-click the name of the database, and click **Delete Account**.
 3. On the resulting confirmation blade, type the DocumentDB Account name to confirm that you want to delete the account.
-4. Click the **Delete** button on the confirmation blade.
+4. Click the **Delete** button.
+
+![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Next steps
 

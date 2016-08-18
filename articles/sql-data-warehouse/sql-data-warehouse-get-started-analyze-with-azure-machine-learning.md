@@ -145,5 +145,5 @@ To learn more about building predictive machine learning models, refer to [Intro
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: sql-data-warehouse-get-started-load-sample-databases.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

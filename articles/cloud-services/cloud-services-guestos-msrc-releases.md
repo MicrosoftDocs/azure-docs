@@ -13,12 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="07/19/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## August Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Cumulative Security Update for Internet Explorer | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-097 | [3177393] | Security Update for Microsoft Graphics Component | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-098 | [3178466] | Security Update for Windows Kernel-Mode Drivers | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-100 | [3179577] | Security Update for Secure Boot | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-101 | [3178465] | Security Update for Windows Authentication Methods | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-102 | [3182248] | Security Update for Microsoft Windows PDF Library | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-077 Re-Release | [3165191] | Security Update for Web Proxy Autodiscovery (WPAD) | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+|  | [3172605] | July 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.54 | Aug 9, 2016 |
+|  | [3172615] | July 2016 update rollup for Windows Server 2012 | 3.42 | Aug 9, 2016 |
+|  | [3172614] | July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.35 | Aug 9, 2016 |
 
 ## July Guest OS 
 
@@ -334,6 +349,17 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
 
 [3169991]: http://support.microsoft.com/kb/3169991
 [3170005]: http://support.microsoft.com/kb/3170005
