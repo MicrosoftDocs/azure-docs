@@ -28,7 +28,7 @@ SSMS now supports:
 
 When the user account is configured for MFA the interactive authentication work flow requires additional user interaction through pop-up dialog boxes, smart card use, etc. When the user account is configured for MFA, the user must select Azure Universal Authentication to connect. If the user account does not require MFA, the user can still use the other two Azure Active Directory Authentication options.
 
-## Active Directory Universal Authentication limitations for SQL Database and SQL Data Warehouse
+## Universal Authentication limitations for SQL Database and SQL Data Warehouse
 
 - SSMS is the only tool currently enabled for MFA through Active Directory Universal Authentication.
 - Only a single Azure Active Directory account can log in for an instance of SSMS using Universal Authentication. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different servers using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
@@ -63,7 +63,7 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 
     > [AZURE.NOTE] For Universal Authentication with an account which does not require MFA, you connect at this point. For users requiring MFA, continue with the following steps.
  
-4. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).
+4. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).  
 ![3mfa-setup][3]
 
 5. The second possible one time dialog box allows you to select the details of your authentication method. The possible options are configured by your administrator.
@@ -74,9 +74,11 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 
 When verification is complete, SSMS connects normally presuming valid credentials and firewall access.
 
-## See also
-[Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)
-[SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)
+##Next steps  
+
+Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](sql-database-manage-logins.md)  
+Make sure others can connect through the firewall: [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md)
+
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
 [2]: ./media/sql-database-ssms-mfa-auth/2mfa-sign-in.png

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/19/2016"
+   ms.date="08/17/2016"
    ms.author="jeffstok"
 />
 
@@ -360,7 +360,7 @@ If you are still using the Spark or MapReduce context, this will return the node
 
 ## Install R packages
 
-If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the egde node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
+If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the edge node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
 
 Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster, or to install additional software. In this case, to install additional R packages. To install additional packages using a Script Action, use the following steps.
 
@@ -374,17 +374,19 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
 3. From the __Submit script action__ blade, provide the following information.
 
-    * __Name__: A friendly name to used to identify this script
-    * __Bash script URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
-    * __Head__: This should be __unchecked__
-    * __Worker__: This should be __Checked__
-    * __Zookeeper__: This should be __Unchecked__
-    * __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
-    * __Persist this script...__: This should be __Checked__
+* __Name__: A friendly name to used to identify this script
+* __Bash script URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+* __Head__: This should be __unchecked__
+* __Worker__: This should be __Checked__
+* __Zookeeper__: This should be __Unchecked__
+* __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
     
-    > [AZURE.IMPORTANT] If the R package(s) you install require system libraries to be added, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-    >
-    >For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).
+    > [AZURE.NOTE] By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, e.g.  `useCRAN bitops, stringr, arules`.    
+    
+* __Persist this script...__: This should be __Checked__   
+    
+    > [AZURE.IMPORTANT] Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+    > For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).    
     
     ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
 

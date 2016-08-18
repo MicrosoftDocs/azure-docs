@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2016"
+   ms.date="08/17/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
 
-Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
+Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 - It provides an alternative to SQL Server authentication.
 - Helps stop the proliferation of user identities across database servers.
@@ -28,7 +28,8 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
-- Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
+- Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
+- Azure Active Directory supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -43,25 +44,25 @@ The configuration steps include the following procedures to configure and use Az
 
 ## Trust architecture
 
-The following high level diagram summarizes the solution architecture of using Azure AD authentication with Azure SQL Database. The same concepts apply to SQL Data Warehouse. To support Azure Active Directory native user password, only the Cloud portion and Azure AD/Azure SQL Database is considered. To support Federated authentication (or user/password for Windows credentials) the communication with ADFS block is required. The arrows indicate communication pathways.
+The following high-level diagram summarizes the solution architecture of using Azure AD authentication with Azure SQL Database. The same concepts apply to SQL Data Warehouse. To support Azure Active Directory native user password, only the Cloud portion and Azure AD/Azure SQL Database is considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
 
 ![aad auth diagram][1]
 
-The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token that was authenticated by an Azure AD, and which is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure Active Directory with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure Active Directory and the same subscription is used to create Azure SQL Database or SQL Data Warehouse server.
+The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure Active Directory with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure Active Directory. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or SQL Data Warehouse.
 
 ![subscription relationship][2]
 
 ## Administrator structure
 
-When using Azure AD authentication there will be two Administrator accounts for the SQL Database server; the original SQL Server administrator and the Azure AD administrator. The same concepts apply to SQL Data Warehouse. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the SQL Server instance. Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in SQL Database. Only one Azure AD administrator (a user or group) can be configured at any time.
+When using Azure AD authentication, there are two Administrator accounts for the SQL Database server; the original SQL Server administrator and the Azure AD administrator. The same concepts apply to SQL Data Warehouse. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the SQL Server instance. Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in SQL Database. Only one Azure AD administrator (a user or group) can be configured at any time.
 
 ![admin structure][3]
 
 ## Permissions
 
-To create new users you must have the **ALTER ANY USER** permission in the database. The **ALTER ANY USER** permission can be granted to any database user. The **ALTER ANY USER** permission is also held by the server administrator accounts, and database users with the **CONTROL ON DATABASE** or **ALTER ON DATABASE** permission for that database, and by members of the **db_owner** database role.
+To create new users, you must have the `ALTER ANY USER` permission in the database. The `ALTER ANY USER` permission can be granted to any database user. The `ALTER ANY USER` permission is also held by the server administrator accounts, and database users with the `CONTROL ON DATABASE` or `ALTER ON DATABASE` permission for that database, and by members of the `db_owner` database role.
 
-To create a contained database user in Azure SQL Database or SQL Data Warehouse you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure Active Directory administrator (who is the owner of the database). This is demonstrated in steps 4 and 5 below. Any Azure Active Directory authentication is only possible if the Azure Active Directory admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server,  existing Azure Active Directory users created previously inside SQL Server cannot anymore to the database using their current Azure Active Directory credentials
+To create a contained database user in Azure SQL Database or SQL Data Warehouse, you must connect to the database using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure Active Directory administrator (who is the owner of the database). This is demonstrated in steps 4 and 5 below. Any Azure Active Directory authentication is only possible if the Azure Active Directory admin was created for Azure SQL Database or SQL Data Warehouse server. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside SQL Server can no longer connect to the database using their Azure Active Directory credentials.
 
 ## Azure AD features and limitations
 
@@ -75,11 +76,11 @@ The following members of Azure Active Directory can be provisioned in Azure SQL 
 
 - Active Directory groups created as security groups.
 
-Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can login to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
+Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other guest accounts (for example gmail.com, yahoo.com) are not supported. If you can log in to [https://login.live.com](https://login.live.com) using the account and password, then you are using a Microsoft account, which is not supported for Azure AD authentication for Azure SQL Database or Azure SQL Data Warehouse.
 
 ### Additional considerations
 
-- To enhance manageability we recommended you provision a dedicated Azure Active Directory group as an administrator.
+- To enhance manageability, we recommended you provision a dedicated Azure Active Directory group as an administrator.
 - Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Server or Azure SQL Data Warehouse at any time.
 - Only an Azure Active Directory administrator for SQL Server can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
@@ -89,16 +90,12 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=11774) supports Azure Active Directory authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
 - Some tools like BI and Excel are not supported.
-- Multi-factor Authentication (MFA/2FA) or other forms of interactive authentication are not supported.
-- Azure Active Directory authentication is supported for SQL Database by the Azure Portal **Import Database** and **Export Database** blades. Import and export using Azure Active Directory authentication is also supported from the PowerShell command.
+- Azure Active Directory authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure Active Directory authentication is also supported from the PowerShell command.
 
 
 ## 1. Create and populate an Azure AD
 
-Create an Azure Active Directory and populate it with users and groups. This includes:
-
-- Create the initial domain Azure AD managed domain.
-- Federate on-premises Active Directory Domain Services with Azure Active Directory.
+Create an Azure Active Directory and populate it with users and groups. The Azure Active Directory can be the initial domain Azure AD managed domain. The Azure Active Directory can also be an on-premises Active Directory Domain Services that is federated with the Azure Active Directory.
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
@@ -106,9 +103,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 Azure Active Directory authentication is supported in the latest SQL Database V12. For information about SQL Database V12 and to learn whether it is available in your region, see [What's new in the Latest SQL Database Update V12](sql-database-v12-whats-new.md). This step is not necessary for Azure SQL Data Warehouse because SQL Data Warehouse is only available in V12.
 
-If you have an existing database, verify it is hosted in SQL Database V12 by connecting to the database (for example using SQL Server Management Studio) and executing `SELECT @@VERSION;` The expected output for a database in SQL Database V12 is at least **Microsoft SQL Azure (RTM) - 12.0**.
-
-If your database is not hosted in SQL Database V12, see [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), and then visit the Azure Classic Portal to migrate the database to SQL Database V12.
+If you have an existing database, verify that it is hosted in SQL Database V12 by connecting to the database (for example using SQL Server Management Studio) and executing `SELECT @@VERSION;`. The expected output for a database in SQL Database V12 is at least **Microsoft SQL Azure (RTM) - 12.0**. If your database is not hosted in SQL Database V12, see [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), and then visit the Azure Classic Portal to migrate the database to SQL Database V12.
 
 Alternatively, you can create a new database in SQL Database V12 by following the steps listed in [Create your first Azure SQL database](sql-database-get-started.md). **Tip**: Read the next step before you select a subscription for your new database.
 
@@ -144,11 +139,11 @@ Each Azure SQL Server (which hosts a SQL Database or SQL Data Warehouse) starts 
 
 When using Azure Active Directory with Geo-Replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users will receive a "Cannot connect" to server error.
 
-> [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account) cannot create Azure AD based users because they do not have permission to validate proposed database users with the Azure AD.
+> [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account) cannot create Azure AD-based users because they do not have permission to validate proposed database users with the Azure AD.
 
-### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure Portal
+### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure portal
 
-1. In the [Azure Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL Server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
+1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL Server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
 
 	![choose-ad][8]
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
@@ -244,13 +239,13 @@ Azure Active Directory authentication requires database users to be created as c
 ### Connect to the user database or data warehouse by using SQL Server Management Studio or SQL Server Data Tools
 
 To confirm the Azure AD administrator is properly set up, connect to the **master** database using the Azure AD administrator account.
-To provision an Azure AD based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
+To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
 
-> [AZURE.IMPORTANT] Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015.
+> [AZURE.IMPORTANT] Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
 
 #### Connect using Active Directory integrated authentication
 
-Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain.
+Use this method if you are logged in to Windows using your Azure Active Directory credentials from a federated domain.
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Integrated Authentication**. No password is needed or can be entered because your existing credentials will be presented for the connection.
 	![Select AD Integrated Authentication][11]
@@ -263,7 +258,7 @@ Use this method if you are logged into Windows using your Azure Active Directory
 
 Use this method when connecting with an Azure AD principal name using the Azure AD managed domain. You can also use it for federated account without access to the domain, for example when working remotely.
 
-Use this method if you are logged into Windows using credentials from a domain that is not federated with Azure, or when using Azure AD authentication using Azure AD based on the initial or the client domain.
+Use this method if you are logged in to Windows using credentials from a domain that is not federated with Azure, or when using Azure AD authentication using Azure AD based on the initial or the client domain.
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory Password Authentication**.
 2. In the **User name** box, type your Azure Active Directory user name in the format **username@domain.com**. This must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
@@ -275,7 +270,7 @@ Use this method if you are logged into Windows using credentials from a domain t
 
 ### Create an Azure AD contained database user in a user database
 
-To create an Azure AD based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity (as described in the previous procedure) as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
+To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity (as described in the previous procedure) as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
 	CREATE USER <Azure_AD_principal_name>
 	FROM EXTERNAL PROVIDER;

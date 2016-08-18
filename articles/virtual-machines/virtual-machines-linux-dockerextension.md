@@ -35,7 +35,7 @@ Using Azure Resource Manager, you can create and deploy templates that define th
 
 ## Deploy a template with the Docker VM Extension:
 
-Let's use an existing quick-start template to show how to deploy an Ubuntu VM that has the Docker VM Extension installed. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+Let's use an existing quick-start template to show how to deploy an Ubuntu VM that has the Docker VM Extension installed. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You also need the [latest Azure CLI](../xplat-cli-install.md) in Resource Manager mode (`azure config mode arm`).
 
 Deploy the template using the Azure CLI, specifying a name for our new resource group (here `myDockerResourceGroup`) along with the template URI:
 
