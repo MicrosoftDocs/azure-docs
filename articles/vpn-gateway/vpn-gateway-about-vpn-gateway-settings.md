@@ -20,7 +20,7 @@
 
 VPN Gateway is a collection of settings that are used to send network traffic between virtual networks and on-premises locations. You can also use VPN Gateway to send traffic between VNets within Azure. The sections in this article discuss settings that relate to VPN Gateway. 
 
-Sometimes it helps to view the available configurations by using connection diagrams. You can find diagrams how to deploy each configuration in the [About VPN Gateway](vpn-gateway-topology.md) article. 
+Sometimes it helps to view the available configurations by using connection diagrams. You can find diagrams how to deploy each configuration in the [About VPN Gateway connections](vpn-gateway-topology.md) section of the article. 
 
 
 ## <a name="gwsku"></a>Gateway SKUs
