@@ -17,12 +17,13 @@ ms.workload="na"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Get started with the Excel connector
 
 <!---
 
 There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
-# Get started with the Excel connector
+
 
 Connect to Excel to insert a row, delete a row, and more. 
 
