@@ -30,13 +30,13 @@ The **Azure Data Catalog** conceptual model is based on four key concepts: The *
 
 ### Catalog
 
-A **Catalog** is the top level container for all the metadata an organization will store. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
+A **Catalog** is the top-level container for all the metadata an organization will store. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
 
 A catalog contains **Users** and **Assets**.
 
 ### Users
 
-Users are security principals that have permissions to perform actions (search the catalog, add, edit or remove items, etc…) in the Catalog.
+Users are security principals that have permissions to perform actions (search the catalog, add, edit or remove items, etc.) in the Catalog.
 
 There are several different roles a user can have. For more information on roles see the section Roles and Authorization.
 
@@ -58,7 +58,7 @@ An **Asset** is made up from its name, location and type as well as annotations 
 
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations are description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
+Examples of annotations are description, tags, schema, documentation, etc., A full list of the asset types and annotation types are in the Asset Object model section.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 
@@ -117,7 +117,7 @@ These properties apply to all non-singleton annotation types (i.e. annotations w
 
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog. For each root type there is a view defined which describes asset and annotations included in the view. View name should be used in the corresponding {view_name} url segment when publishing an asset using REST API.
 
-<table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
+<table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc.   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
 <tr><td>Report ("reports")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
 
 ### Annotation types
@@ -133,13 +133,13 @@ Annotation types represent types of metadata that can be assigned to other types
 <tr><td>Tag ("tags")</td><td></td><td></td><td>This contains a tag for an asset. Each user of the system can add multiple tags for an asset.  Only the user who created Tag objects can edit them.  (Admins and Asset owners can delete the Tag object but not edit it). The system maintains these separately.  Thus there is an array of Tag objects on each asset.</td></tr>
 <tr><td></td><td>tag</td><td>string</td><td>A tag describing the asset.</td></tr>
 
-<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>This contains a friendly name for an asset. FriendlyName is a sigleton annotation - only one FriendlyName can be added to an asset.  Only the user who created FriendlyName object can edit it. (Admins and Asset owners can delete the FriendlyName object but not edit it). The system maintains these separately.</td></tr>
+<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>This contains a friendly name for an asset. FriendlyName is a singleton annotation - only one FriendlyName can be added to an asset.  Only the user who created FriendlyName object can edit it. (Admins and Asset owners can delete the FriendlyName object but not edit it). The system maintains these separately.</td></tr>
 <tr><td></td><td>friendlyName</td><td>string</td><td>A friendly name of the asset.</td></tr>
 
-<tr><td>Schema ("schema")</td><td></td><td></td><td>The Schema describes the structure of the data.  It lists the attribute (i.e. column, attribute, field, etc…) names, types as well other metadata.  This information is all derived from the data source.  Schema is a singleton annotaiton - only one Schema can be added for an asset.</td></tr>
+<tr><td>Schema ("schema")</td><td></td><td></td><td>The Schema describes the structure of the data.  It lists the attribute (i.e. column, attribute, field, etc.) names, types as well other metadata.  This information is all derived from the data source.  Schema is a singleton annotation - only one Schema can be added for an asset.</td></tr>
 <tr><td></td><td>columns</td><td>Column[]</td><td>An array of column objects. They describe the column with information derived from the data source.</td></tr>
 
-<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>This contains a description for a column.  Each user of the system can add their own descriptions for multiple columns (at most one per column). Only the user who created ColumnDescription objects can edit them.  (Admins and Asset owners can delete the ColumnDescription object but not edit it). The system maintains these separately.  Thus there is an array of ColumnDescription objects on each asset (one per column for each user who has contributed their knowledge about the column in addition to possibly one that contains information derived from the data source).  The ColumnDescription is loosely bound to the Schema so it can get out of sync. i.e. the ColumnDescription might describe a column that no longer exist in the schema.  It is up to the writer to keep these in sync.  The data source may also have columns description information. These would be additional ColumnDescription objects that would be created when running the tool.</td></tr>
+<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>This contains a description for a column.  Each user of the system can add their own descriptions for multiple columns (at most one per column). Only the user who created ColumnDescription objects can edit them.  (Admins and Asset owners can delete the ColumnDescription object but not edit it). The system maintains these separately.  Thus there is an array of ColumnDescription objects on each asset (one per column for each user who has contributed their knowledge about the column in addition to possibly one that contains information derived from the data source).  The ColumnDescription is loosely bound to the Schema so it can get out of sync. i.e. the ColumnDescription might describe a column that no longer exists in the schema.  It is up to the writer to keep these in sync.  The data source may also have columns description information. These would be additional ColumnDescription objects that would be created when running the tool.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>The name of the column this description refers to.</td></tr>
 <tr><td></td><td>description</td><td>String</td><td>a short description (2-3 lines) of the column.</td></tr>
 
@@ -155,7 +155,7 @@ Annotation types represent types of metadata that can be assigned to other types
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
-<tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. This could be an URL, an email address, or a set of instructions.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. This could be a URL, an email address, or a set of instructions.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>The number of rows in the data set</td></tr>
@@ -182,11 +182,11 @@ Common types can be used as the types for properties, but are not Items.
 <table>
 <tr><td><b>Common Type</b></td><td><b>Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>string</td><td>Describes the type of data source.  i.e. SQL Server, Oracle Database, etc…  </td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Describes the type of data source.  i.e. SQL Server, Oracle Database, etc.  </td></tr>
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. i.e. Table, View for SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. i.e. "tds" for SQl Server, "oracle" for Oracle, etc… Please refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. i.e. "tds" for SQl Server, "oracle" for Oracle, etc. Please refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
 <tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. This is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. i.e. windows, oauth, etc… </td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
@@ -199,7 +199,7 @@ Common types can be used as the types for properties, but are not Items.
 
 <tr><td>Column</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Name of the column or attribute.</td></tr>
-<tr><td></td><td>type</td><td>string</td><td>data type of the column or attribute. The Allowable types will depend on data sourceType of the asset.  Only a subset of types are supported.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>data type of the column or attribute. The Allowable types will depend on data sourceType of the asset.  Only a subset of types is supported.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>The maximum length allowed for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>The precision for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Whether the column is allowed to have a null value or not. Derived from data source. Only applicable to some source types.</td></tr>
@@ -220,7 +220,7 @@ Common types can be used as the types for properties, but are not Items.
 
 ## Asset identity
 Azure Data Catalog uses "protocol" and identity properties from the "address" property bag of the DataSourceLocation "dsl" property to generate identity of the asset which is used to address the asset inside the Catalog.
-For example, the "tds" protocol has identity properties "server", "database", "schema" and "object"; the combination of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
+For example, the "tds" protocol has identity properties "server", "database", "schema" and "object"; the combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
 Azure Data Catalog provides several built-in data source protocols which are listed at [Data source reference specification - DSL Structure](data-catalog-dsr.md).
 The set of supported protocols can be extended programmatically (please refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The table below describes the properties needed to register a custom protocol.
 
@@ -242,7 +242,7 @@ The set of supported protocols can be extended programmatically (please refer to
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>The name of the identity set.</td></tr>
-<tr><td></td><td>properties</td><td>string[]</td><td>The list of identity properties included into this identity set. It cannot contain duplicates. Each property referenced by identity set must be defined in the list of  "identityProperties" of the protocol.</td></tr>
+<tr><td></td><td>properties</td><td>string[]</td><td>The list of identity properties included into this identity set. It cannot contain duplicates. Each property referenced by identity set must be defined in the list of "identityProperties" of the protocol.</td></tr>
 
 </table>
 
@@ -301,11 +301,11 @@ By default any authenticated user has **Read** right for any item in the catalog
 >
 > **Owner** role only applicable to a root item.
 >
-> By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to <Everyone> special security principal in the **roles** property when item is first published (refer to example below). **Contributor** cannot be changed and stays the same during life-time of an item (i.e. even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is <Everyone>: i.e. **Contributor** can only be a user who created an item or <Everyone>.
+> By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to &lt;Everyone&gt; special security principal in the **roles** property when item is first published (refer to example below). **Contributor** cannot be changed and stays the same during life-time of an item (i.e. even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is &lt;Everyone&gt;: i.e. **Contributor** can only be a user who created an item or &lt;Everyone&gt;.
 
 ###Examples
-**Set Contributor to <Everyone> when publishing an item.**
-Special security principal <Everyone> has objectId "00000000-0000-0000-0000-000000000201".
+**Set Contributor to &lt;Everyone&gt; when publishing an item.**
+Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
   > [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
@@ -325,8 +325,7 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 		]
 	}
 
-  **Assign owners and restrict visibility for an existing root item**
-  **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Assign owners and restrict visibility for an existing root item**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
 	{
 		"roles": [
