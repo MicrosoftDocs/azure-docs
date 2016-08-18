@@ -103,18 +103,18 @@ This section describes the steps you can take to encode your content with Media 
 
 1.  Select the file that you would like to encode.
 
-  If encoding is supported for this file type, the PROCESS button enabled on the bottom of the CONTENT page.
+	If encoding is supported for this file type, the PROCESS button enabled on the bottom of the CONTENT page.
 
-4. In the **Process** dialog, select the **Media Encoder Standard** processor.
-5. Choose from one of the **encoding configurations**.
+2. In the **Process** dialog, select the **Media Encoder Standard** processor.
+3. Choose from one of the **encoding configurations**.
 
 	![Process2][process2]
 
 
 	The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) topic explains what each preset means.
 
-5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
-6. Press OK.
+4. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
+5. Press OK.
 
 After the encoding is done, the CONTENT page contains the encoded file.
 
