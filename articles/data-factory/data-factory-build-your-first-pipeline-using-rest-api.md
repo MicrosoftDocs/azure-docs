@@ -52,6 +52,7 @@ In this article, you learn how to use Data Factory REST API to create your first
 Create following JSON files in the folder where curl.exe is located. 
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] Name must be globally unique, so you may want to prefix/suffix ADFCopyTutorialDF to make it a unique name. 
 
 	{  
 	    "name": "FirstDataFactoryREST",  
@@ -252,6 +253,8 @@ In Azure PowerShell, execute the following commands after replacing the values w
 In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Run the following commands to create the data factory: 
 
 1. Assign the command to variable named **cmd**. 
+
+	Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
 
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
