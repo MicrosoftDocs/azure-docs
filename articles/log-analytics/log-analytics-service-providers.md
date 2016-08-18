@@ -35,8 +35,8 @@ As a *Cloud Solution Provider* you can:
 + Add and remove user access to the workspace using Azure user management. When in a tenant’s workspace in the OMS portal the user management page under Settings is not available
   - Note: OMS does not support role-based access yet - giving a user `reader` permission in the Azure portal allows them to make configuration changes in the OMS portal
 
-To log in to a tenant’s subscription you need to specify the tenant identifier. The tenant identifier is often that last part of the e-mail address used to sign in.
-  - In the OMS portal, add `?tenant=contoso.com` in the URL for the portal. For example `mms.microsoft.com/?tenant=contoso.com`
+To log in to a tenant’s subscription, you need to specify the tenant identifier. The tenant identifier is often that last part of the e-mail address used to sign in.
+  - In the OMS portal, add `?tenant=contoso.com` in the URL for the portal. For example, `mms.microsoft.com/?tenant=contoso.com`
   - In PowerShell, use the `-Tenant contoso.com` parameter when using `Add-AzureRmAccount` cmdlet
   - The tenant identifier is automatically added when you use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace
 
@@ -64,7 +64,7 @@ More details on when and why to create multiple workspaces is described in [mana
 
 Creation and configuration of customer workspaces can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), Resource Manager templates, or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
 
-Each Log Analytics workspace can then be integrated into your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics will regularly check each workspace against the alert criteria you have specified and generate an alert when action is needed. 
+Each Log Analytics workspace can then be integrated into your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed. 
 
 For executive level reports that summarize data across workspaces you can use the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md). If you need to integrate with another reporting system, you can use the Search API (via PowerShell or REST) to run queries and export search results.
 
