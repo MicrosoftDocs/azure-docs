@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2016"
+   ms.date="08/18/2016"
    ms.author="gwallace" />
 
 # Create a Path-based rule for an application gateway by using the portal
