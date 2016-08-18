@@ -96,7 +96,7 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 
 ### Advanced settings
 
-Click **Advanced settings** to configure the following settings.
+The following settings are configure on the **Advanced settings** blade.
 
 -	[Access Ports](#access-ports)
 -	[Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
@@ -111,7 +111,7 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 
 ### Maxmemory-policy and maxmemory-reserved
 
-**Maxmemory policy** and **maxmemory-reserved** configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
+The **Maxmemory policy** and **maxmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -132,7 +132,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB that is
 
 ### Keyspace notifications (advanced settings)
 
-Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allow clients to receive notifications when certain events occur.
+Redis keyspace notifications are configured on the **Advanced settings** blade. Keyspace notifications allow clients to receive notifications when certain events occur.
 
 ![Redis Cache Advanced Settings](./media/cache-configure/redis-cache-advanced-settings.png)
 
