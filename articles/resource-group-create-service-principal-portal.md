@@ -35,7 +35,7 @@ For detailed steps on integrating an application into Azure for managing resourc
 
 ## Create an Active Directory application
 
-1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
+1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 
 2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
    
@@ -45,15 +45,15 @@ For detailed steps on integrating an application into Azure for managing resourc
 
      ![select Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
-3. Select the Active Directory that you want to use for creating the new application. If you have more than one Active Directory, create the application in the default directory for your subscription.   
+3. Select the Active Directory that you want to use for creating the application. If you have more than one Active Directory, create the application in the default directory for your subscription.   
 
      ![choose directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-3. To view the applications in your directory, click on **Applications**.
+3. To view the applications in your directory, select **Applications**.
 
      ![view applications](./media/resource-group-create-service-principal-portal/view-applications.png)
 
-4. If you haven't created an application in that directory before you should see something similar to following image. Click on **ADD AN APPLICATION**
+4. If you haven't created an application in that directory before, you should see something similar to following image. Select **ADD AN APPLICATION**
 
      ![add application](./media/resource-group-create-service-principal-portal/create-application.png)
 
@@ -78,9 +78,9 @@ You have created your application.
 
 ## Get client id and authentication key
 
-When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you will also need an authentication key.
+When programmatically logging in, you need the id for your application. If the application runs under its own credentials, you also need an authentication key.
 
-1. Click on the **Configure** tab to configure your application's password.
+1. Select the **Configure** tab to configure your application's password.
 
      ![configure application](./media/resource-group-create-service-principal-portal/application-configure.png)
 
@@ -88,7 +88,7 @@ When programmatically logging in, you need the id for your application. If the a
   
      ![client id](./media/resource-group-create-service-principal-portal/client-id.png)
 
-3. If the application will run under its own credentials, scroll down to the **Keys** section and select how long you would like your password to be valid.
+3. If the application runs under its own credentials, scroll down to the **Keys** section and select how long you would like your password to be valid.
 
      ![keys](./media/resource-group-create-service-principal-portal/create-key.png)
 
@@ -96,13 +96,13 @@ When programmatically logging in, you need the id for your application. If the a
 
      ![save](./media/resource-group-create-service-principal-portal/save-icon.png)
 
-     The saved key is displayed and you can copy it. You will not be able to retrieve the key later so you will want to copy it now.
+     The saved key is displayed and you can copy it. You are not able to retrieve the key later so copy it now.
 
      ![saved key](./media/resource-group-create-service-principal-portal/save-key.png)
 
 ## Get tenant id
 
-When programmatically logging in, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown below.  
+When programmatically logging in, you need to pass the tenant id with your authentication request. For Web Apps and Web API Apps, you can retrieve the tenant id by selecting **View endpoints** at the bottom of the screen and retrieving the id as shown in the following image.  
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
@@ -116,7 +116,7 @@ Or, Azure CLI:
 
 ## Set delegated permissions
 
-If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You do this in the **permissions to other applications** section of the **Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
+If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You grant this access in the **permissions to other applications** section of the **Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
 
 1. Select **Add application**.
 
@@ -132,11 +132,11 @@ If your application accesses resources on behalf of a signed-in user, you must g
 
 ## Assign application to role
 
-If your application is running under its own credentials, you must assign the application to a role. You must decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
+If your application is running under its own credentials, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
 
-To assign a role to an application, you must have the correct permissions. Specifically, you must have `Microsoft.Authorization/*/Write` access which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. The Contributor role does not have the correct access.
+To assign a role to an application, you must have the correct permissions. Specifically, you must have `Microsoft.Authorization/*/Write` access that is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. The Contributor role does not have the correct access.
 
-You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains).
+You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
 1. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com).
 
@@ -144,11 +144,11 @@ You can set the scope at the level of the subscription, resource group, or resou
 
     ![select my permissions](./media/resource-group-create-service-principal-portal/my-permissions.png)
 
-1. View the assigned permissions for your account. As noted previously, you must belong to the Owner or User Access Administrator roles, or have a customized role that grants write access for Microsoft.Authorization. The following image shows an account that is assign to Contributor role for the subscription, which is not adequate permissions to assign an application to a role.
+1. View the assigned permissions for your account. As noted previously, you must belong to the Owner or User Access Administrator roles, or have a customized role that grants write access for Microsoft.Authorization. The following image shows an account that is assigned to the Contributor role for the subscription, which is not adequate permissions to assign an application to a role.
 
     ![show my permissions](./media/resource-group-create-service-principal-portal/show-permissions.png)
 
-     If you do have the correct permissions to grant access to an application, you must either request that your subscription administrator add you to the User Access Administrator role, or request that the administrator grant access to the application.
+     If you do not have the correct permissions to grant access to an application, you must either request that your subscription administrator adds you to the User Access Administrator role, or request that an administrator grants access to the application.
 
 1. Navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select **Access control**.
 
@@ -173,7 +173,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 6. Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
 
 
-For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
+For more information about assigning users and applications to roles through the portal, see [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Sample applications
 
