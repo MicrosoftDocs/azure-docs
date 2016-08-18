@@ -17,7 +17,7 @@
 
 # ExpressRoute workflows for circuit provisioning and circuit states
 
-This page walks you through the service provisioning and routing configuration workflows at a high level. 
+This page walks you through the service provisioning and routing configuration workflows at a high level.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
