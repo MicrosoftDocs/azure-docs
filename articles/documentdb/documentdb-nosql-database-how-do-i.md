@@ -32,7 +32,7 @@ On read:
 
 - If you are using a non-partitioned collection, you can use the [x-ms-resource-usage header](https://msdn.microsoft.com/library/mt489071.aspx). This header currently only displays accurate results for non-partitioned collections and displays `x-ms-resource-usage: documentSize=0;documentsSize=0;collectionSize=0;` for partitioned collections.
 - You can perform aggregates by pulling the collection client-side and doing a count locally, or by using a stored procedure (to minimize network latency on repeated round trips). For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js).
-- It’s advised to use a query projection (e.g. SELECT VALUE 1 FROM c) rather than a simple “SELECT * FROM c” to maximize the number of documents processed in each page of results (there is a page size limit of ~1mb). 
+- It’s advised to use a query projection (for example, SELECT VALUE 1 FROM c) rather than a simple “SELECT * FROM c” to maximize the number of documents processed in each page of results (there is a page size limit of ~1 mb). 
 
 On write:
 
