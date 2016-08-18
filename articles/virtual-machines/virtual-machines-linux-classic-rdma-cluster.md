@@ -21,9 +21,9 @@ ms.service="virtual-machines-linux"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Learn how to set up a Linux RDMA cluster in Azure with size A8 and A9 virtual machines to run parallel Message Passing Interface (MPI) applications. When Azure A8 and A9 VMs run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network that is based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with size A8 and A9 virtual machines to run parallel Message Passing Interface (MPI) applications. When Azure A8 and A9 VMs run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network based on remote direct memory access (RDMA) technology.
 
->[AZURE.NOTE] Azure Linux RDMA support currently requires Intel MPI Library version 5 on VMs created from SUSE Linux Enterprise Server (SLES) 12 HPC or CentOS-based 6.5 or 7.1 HPC images in the Azure Marketplace. See [About the A8, A9, A10, and A11 instances](virtual-machines-linux-a8-a9-a10-a11-specs.md) for more information and considerations.  
+>[AZURE.NOTE] Azure Linux RDMA support currently requires Intel MPI Library version 5 on VMs created from SUSE Linux Enterprise Server 12 HPC or CentOS-based 6.5 or 7.1 HPC images in the Azure Marketplace. See [About the A8, A9, A10, and A11 instances](virtual-machines-linux-a8-a9-a10-a11-specs.md) for more information and considerations.  
 
 
 
@@ -35,11 +35,11 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **Azure CLI scripts** - As shown later in this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. In the classic deployment model, A8 or A9 VMs have to be deployed in the same cloud service to connect through the RDMA network.
 
-* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs and additional infrastructure for a compute cluster that can take advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
+* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VM in a compute cluster that takes advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
 
 ## Sample deployment in classic model
 
-The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server 12 HPC VM from the Azure Marketplace, install Intel MPI Library and other customizations, and create a custom VM image. THen, use the image to script the deployment of a cluster of A8 or A9 VMs. 
+The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 HPC VM from the Azure Marketplace, install Intel MPI Library and other customizations, and create a custom VM image. Then, use the image to script the deployment of a cluster of A8 or A9 VMs. 
 
 >[AZURE.TIP]  Use similar steps to deploy a cluster of A8 or A9 VMs based on the CentOS-based 6.5 or 7.1 HPC image in the Azure Marketplace. Differences are noted in the steps. For example, because the CentOS-based HPC images include Intel MPI, you do not need to install Intel MPI separately on VMs created from those images.
 
@@ -53,9 +53,9 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 
 *   **Azure CLI** - [Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
-*   **Intel MPI** - To customize a SLES 12 HPC VM image for your cluster, you need to download and install a current Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). Details are later in this article. To prepare for installation, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
+*   **Intel MPI** - To customize a SLES 12 HPC VM image for your cluster, you need to download and install a current Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). Details are later in this article. To prepare for installation, after you register with Intel, copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
-    >[AZURE.NOTE] If you use the CentOS 6.5 or CentOS 7.1 HPC image in the Azure Marketplace to create your cluster nodes, Intel MPI version 5.1.3.181 is preinstalled for you on the VM.
+    >[AZURE.NOTE] If you use the CentOS 6.5 or CentOS 7.1 HPC image in the Azure Marketplace to create your cluster nodes, Intel MPI version 5.1.3.181 is preinstalled.
 
 ### Provision a SLES 12 VM
 
@@ -85,13 +85,13 @@ Now provision a size A9 VM with a SLES 12 HPC image by running a command similar
 
 where
 
-* the size (A9 in this example) can be A8 or A9
+* The size (A9 in this example) can be A8 or A9
 
-* the external SSH port number (22 in this example, which is the SSH default) is any valid port number; the internal SSH port number will be set to 22
+* The external SSH port number (22 in this example, which is the SSH default) is any valid port number. The internal SSH port number is set to 22
 
-* a new cloud service will be created in the Azure region specified by the location; specify a location in which the A8 and A9 instances are available
+* A new cloud service is created in the Azure region specified by the location. Specify a location in which the A8 and A9 instances are available.
 
-* the SLES 12 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (additional charges apply)
+* The SLES 12 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` for SUSE priority support (additional charges apply)
 
     >[AZURE.NOTE]If you want to use a CentOS-based HPC image, the current image names are `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-65-HPC-20160408` and `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-HPC-20160408`.
 
@@ -103,7 +103,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 
 * **Updates** - Install updates using **zypper**. You might also want to install NFS utilities.  
 
-    >[AZURE.IMPORTANT]If you deployed an SLES 12 HPC V, at this time we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
+    >[AZURE.IMPORTANT]If you deployed an SLES 12 HPC VM, we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
     >
     >On the CentOS-based HPC images from the Marketplace, kernel updates are disabled in the **yum** configuration file. Because the Linux RDMA drivers are distributed as an RPM package, driver updates might not work if the kernel is updated.
 
@@ -219,7 +219,7 @@ done
 
 If you deployed a cluster using a CentOS-based HPC image, there are two methods for establishing trust between the compute nodes: host-based authentication and user-based authentication. Host-based authentication is outside of the scope of this article and generally must be done through an extension script during deployment. User-based authentication is convenient for establishing trust after deployment and requires the generation and sharing of SSH keys among the compute nodes in the cluster. This method is commonly known as passwordless SSH login and is required when running MPI jobs. 
 
-A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. You can download and use this script using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
+A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
     
