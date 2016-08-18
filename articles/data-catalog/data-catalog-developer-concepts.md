@@ -30,7 +30,7 @@ The **Azure Data Catalog** conceptual model is based on four key concepts: The *
 
 ### Catalog
 
-A **Catalog** is the top-level container for all the metadata an organization  stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
+A **Catalog** is the top-level container for all the metadata an organization stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
 
 A catalog contains **Users** and **Assets**.
 
@@ -38,7 +38,7 @@ A catalog contains **Users** and **Assets**.
 
 Users are security principals that have permissions to perform actions (search the catalog, add, edit or remove items, etc.) in the Catalog.
 
-There are several different roles a user can have. For information on roles see the section Roles and Authorization.
+There are several different roles a user can have. For information on roles, see the section Roles and Authorization.
 
 Individual users and security groups can be added.
 
@@ -144,11 +144,11 @@ Annotation types represent types of metadata that can be assigned to other types
 <tr><td></td><td>description</td><td>String</td><td>a short description (2-3 lines) of the column.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>This property contains a tag for a column. Each user of the system can add multiple tags for a given column and can add tags for multiple columns. Only the user who created ColumnTag objects can edit them. (Admins and Asset owners can delete the ColumnTag object but not edit it). The system maintains these users'
-column tags separately.  Thus there is an array of ColumnTag objects on each asset.  The ColumnTag is loosely bound to the schema so it can get out of sync. The ColumnTag might describe a column that no longer exists in the schema.  It is up to the writer to keep these in sync.</td></tr>
+column tags separately.  Thus there is an array of ColumnTag objects on each asset.  The ColumnTag is loosely bound to the schema so it can get out of sync. The ColumnTag might describe a column that no longer exists in the schema.  It is up to the writer to keep column tag and schema in sync.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>The name of the column this tag refers to.</td></tr>
 <tr><td></td><td>tag</td><td>String</td><td>A tag describing the column.</td></tr>
 
-<tr><td>Expert ("experts")</td><td></td><td></td><td>This property contains a user who is considered an expert in the data set. The experts’ opinions (descriptions) bubble to the top of the UX when listing descriptions.    Each user can specify their own experts.    Only that user can edit the experts object.  (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
+<tr><td>Expert ("experts")</td><td></td><td></td><td>This property contains a user who is considered an expert in the data set. The experts’ opinions(descriptions) bubble to the top of the UX when listing descriptions. Each user can specify their own experts. Only that user can edit the experts object. (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Preview ("previews")</td><td></td><td></td><td>The preview contains a snapshot of the top 20 rows of data for the asset. Preview only make sense for some types of assets (it makes sense for Table but not for Measure).</td></tr>
@@ -156,13 +156,13 @@ column tags separately.  Thus there is an array of ColumnTag objects on each ass
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
-<tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. This could be a URL, an email address, or a set of instructions.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. The content could be a URL, an email address, or a set of instructions.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>The number of rows in the data set</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>The size in bytes of the data set.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>The last time the schema was modified</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>string</td><td>The last time the data set was modified (data was added, modified or delete)</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>The last time the data set was modified (data was added, modified, or delete)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>An array of column data profiles.</td></tr>
@@ -187,12 +187,12 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. For example: Table, View for SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Please refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
-<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. This is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
 
-<tr><td>SecurityPrincipal</td><td></td><td></td><td>Note that backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
+<tr><td>SecurityPrincipal</td><td></td><td></td><td>The backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of "lastRegisteredBy" property, otherwise optional.</td></tr>
 <tr><td></td><td>objectId</td><td>Guid</td><td>User or security group AAD identity. Optional. Must be specified if upn is not provided, otherwise optional.</td></tr>
 <tr><td></td><td>firstName</td><td>string</td><td>First name of user (for display purposes). Optional. Only valid in the context of "lastRegisteredBy" property. Cannot be specified when providing security principal for "roles", "permissions" and "experts".</td></tr>
@@ -204,7 +204,7 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>maxLength</td><td>int</td><td>The maximum length allowed for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>The precision for the column or attribute. Derived from data source. Only applicable to some source types.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Whether the column is allowed to have a null value or not. Derived from data source. Only applicable to some source types.</td></tr>
-<tr><td></td><td>expression</td><td>string</td><td>If the value is a calculated column this field contains the expression that expresses the value. Derived from data source. Only applicable to some source types.</td></tr>
+<tr><td></td><td>expression</td><td>string</td><td>If the value is a calculated column, this field contains the expression that expresses the value. Derived from data source. Only applicable to some source types.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>The name of the column</td></tr>
@@ -221,9 +221,9 @@ Common types can be used as the types for properties, but are not Items.
 
 ## Asset identity
 Azure Data Catalog uses "protocol" and identity properties from the "address" property bag of the DataSourceLocation "dsl" property to generate identity of the asset, which is used to address the asset inside the Catalog.
-For example, the "tds" protocol has identity properties "server", "database", "schema" and "object"; the combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
+For example, the "tds" protocol has identity properties "server", "database", "schema" and "object". The combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
 Azure Data Catalog provides several built-in data source protocols, which are listed at [Data source reference specification - DSL Structure](data-catalog-dsr.md).
-The set of supported protocols can be extended programmatically (please refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The table below describes the properties needed to register a custom protocol.
+The set of supported protocols can be extended programmatically (Refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The following table describes the properties needed to register a custom protocol.
 
 ### Custom data source protocol specification
 <table>
@@ -260,7 +260,7 @@ The Azure Data Catalog uses two authorization mechanisms:
 
 ### Roles
 
-There are 3 roles: **Administrator**, **Owner**, and **Contributor**.  Each role has its scope and rights which are summarized in the following table.
+There are three roles: **Administrator**, **Owner**, and **Contributor**.  Each role has its scope and rights, which are summarized in the following table.
 
 <table><tr><td><b>Role</b></td><td><b>Scope</b></td><td><b>Rights</b></td></tr><tr><td>Administrator</td><td>Catalog (all assets/annotations in the Catalog)</td><td>Read
 Delete
@@ -282,11 +282,11 @@ Note: all the rights are revoked if the Read right on the item is revoked from t
 
 > [AZURE.NOTE] **Read**, **Update**, **Delete**, **ViewRoles** rights are applicable to any item (asset or annotation) while **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** are only applicable to the root asset.
 >
->**Delete** right applies to an item and any sub-items or single item underneath it. For example, deleting an asset also deletes any annotations for that asset.
+>**Delete** right applies to an item and any subitems or single item underneath it. For example, deleting an asset also deletes any annotations for that asset.
 
 ### Permissions
 
-Permission is as list of access control entries. Each access control entry assigns set of rights to a security principal. Permissions can only be specified on an asset (that is, root item) and apply to the asset and any sub-items.
+Permission is as list of access control entries. Each access control entry assigns set of rights to a security principal. Permissions can only be specified on an asset (that is, root item) and apply to the asset and any subitems.
 
 During the **Azure Data Catalog** preview, only **Read** right is supported in the permissions list to enable scenario to restrict visibility of an asset.
 
@@ -294,7 +294,7 @@ By default any authenticated user has **Read** right for any item in the catalog
 
 ## REST API
 
-**PUT** and **POST** view item requests can be used to control roles and permissions: in addition to item payload two system properties can be specified **roles** and **permissions**.
+**PUT** and **POST** view item requests can be used to control roles and permissions: in addition to item payload, two system properties can be specified **roles** and **permissions**.
 
 > [AZURE.NOTE]
 >
@@ -302,14 +302,14 @@ By default any authenticated user has **Read** right for any item in the catalog
 >
 > **Owner** role only applicable to a root item.
 >
-> By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to &lt;Everyone&gt; special security principal in the **roles** property when item is first published (refer to example below). **Contributor** cannot be changed and stays the same during life-time of an item (even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is &lt;Everyone&gt;: **Contributor** can only be a user who created an item or &lt;Everyone&gt;.
+> By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to &lt;Everyone&gt; special security principal in the **roles** property when item is first published (refer to the following example). **Contributor** cannot be changed and stays the same during life-time of an item (even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is &lt;Everyone&gt;: **Contributor** can only be a user who created an item or &lt;Everyone&gt;.
 
 ###Examples
 **Set Contributor to &lt;Everyone&gt; when publishing an item.**
 Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-  > [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
+  > [AZURE.NOTE] Some HTTP client implementations may automatically reissue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to Azure Data Catalog, you must ensure the Authorization header is still provided when reissuing a request to a redirect location specified by Azure Data Catalog. The following sample code demonstrates it using the .NET HttpWebRequest object.
 
 **Body**
 
