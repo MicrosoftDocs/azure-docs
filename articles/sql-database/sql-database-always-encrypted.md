@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Always Encrypted--Protect sensitive data in Azure SQL Database with database encryption | Microsoft Azure"
+	pageTitle="Always Encrypted: Protect sensitive data in Azure SQL Database with database encryption | Microsoft Azure"
 	description="Protect sensitive data in your SQL database in minutes."
 	keywords="encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted"
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
-# Always Encrypted--Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
+# Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
 
 > [AZURE.SELECTOR]
 - [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
@@ -27,7 +27,7 @@
 
 This article shows you how to secure sensitive data in a SQL database with database encryption by using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
-Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 After configuring the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
@@ -41,10 +41,10 @@ Follow the steps in this article to learn how to set up Always Encrypted for an 
 
 ## Prerequisites
 
-For this tutorial you'll need:
+For this tutorial, you'll need:
 
 - An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
@@ -70,7 +70,7 @@ You will need the connection string later in the tutorial. After the database is
 Open SSMS and connect to the server with the Clinic database.
 
 
-1. Open SSMS (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
+1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
 	![copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
@@ -134,7 +134,7 @@ Verify that **Windows certificate store** is selected and click **Next**.
 
 ### Validation###
 
-You can encrypt the columns now or save a PowerShell script to run later. For this tutorial select **Proceed to finish now** and click **Next**.
+You can encrypt the columns now or save a PowerShell script to run later. For this tutorial, select **Proceed to finish now** and click **Next**.
 
 ### Summary###
 
@@ -149,7 +149,7 @@ After the wizard is finished, your database is set up for Always Encrypted. The 
 
 - Created a CMK.
 - Created a CEK.
-- Configured the selected columns for encryption. Your **Patients** table currently has no data, but any existing data in the selected columns would now be encrypted.
+- Configured the selected columns for encryption. Your **Patients** table currently has no data, but any existing data in the selected columns is now encrypted.
 
 You can verify the creation of the keys in SSMS by going to **Clinic** > **Security** > **Always Encrypted Keys**. You can now see the new keys that the wizard generated for you.
 
@@ -170,14 +170,14 @@ Now that Always Encrypted is set up, you can build an application that performs 
 
 ## Modify your connection string to enable Always Encrypted
 
-This section explains how to enable Always Encrypted in your database connection string. You will modify the console app you just created in the next section, **Always Encrypted sample console application**.
+This section explains how to enable Always Encrypted in your database connection string. You will modify the console app you just created in the next section, "Always Encrypted sample console application."
 
 
 To enable Always Encrypted, you need to add the **Column Encryption Setting** keyword to your connection string and set it to **Enabled**.
 
-You can set this directly in the connection string, or you can set it by using a [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). The sample application in the next section shows how to use the **SqlConnectionStringBuilder**.
+You can set this directly in the connection string, or you can set it by using a [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). The sample application in the next section shows how to use **SqlConnectionStringBuilder**.
 
-> [AZURE.NOTE] This is the only change required in a client application specific to Always Encrypted. If you have an existing application that stores its connection string externally (i.e. in a config file), you might be able to enable Always Encrypted without changing any code.
+> [AZURE.NOTE] This is the only change required in a client application specific to Always Encrypted. If you have an existing application that stores its connection string externally (that is, in a config file), you might be able to enable Always Encrypted without changing any code.
 
 
 ### Enable Always Encrypted in the connection string
@@ -495,7 +495,7 @@ Run the app to see Always Encrypted in action.
 
 ## Verify that the data is encrypted
 
-You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS (use your current connection where the Column Encryption setting is not yet enabled).
+You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS. (Use your current connection where the column encryption setting is not yet enabled.)
 
 Run the following query on the Clinic database.
 
@@ -508,8 +508,8 @@ You can see that the encrypted columns do not contain any plaintext data.
 
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 
-1. In SSMS, right-click your server in **Object Explorer**, then click **Disconnect**.
-2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, then click **Options**.
+1. In SSMS, right-click your server in **Object Explorer**, and then click **Disconnect**.
+2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
 	![new console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
@@ -533,13 +533,13 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
 After you create a database that uses Always Encrypted, you may want to do the following:
 
 - Run this sample from a different computer. It won't have access to the encryption keys, so it will not have access to the plaintext data and will not run successfully.
-- [Rotate and cleanup your Keys](https://msdn.microsoft.com/library/mt607048.aspx).
-- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
-- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the section titled *Making Certificates Available to Applications and Users*).
+- [Rotate and clean up your keys](https://msdn.microsoft.com/library/mt607048.aspx).
+- [Migrate data that is already encrypted with Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
+- [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the "Making Certificates Available to Applications and Users" section).
 
-## Related Information
+## Related information
 
-- [Always Encrypted (client Development)](https://msdn.microsoft.com/library/mt147923.aspx)
+- [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
