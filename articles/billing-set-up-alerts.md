@@ -10,12 +10,12 @@
 	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="08/18/2016"
 	ms.author="vikdesai"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions
