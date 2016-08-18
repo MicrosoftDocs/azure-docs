@@ -1,5 +1,5 @@
 <properties
-pageTitle="Add the Excel connector in PowerApps Enterprise | Microsoft Azure"
+pageTitle="Add the Excel connector | Microsoft Azure"
 description="Overview of the Excel connector with REST API parameters"
 services=""    
 documentationCenter=""     
@@ -14,20 +14,17 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
+
+
+<!---
+
+There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
 # Get started with the Excel connector
 
-Connect to Excel to insert a row, delete a row, and more. The Excel connector can be used from:
-
-- PowerApps
-
-With Excel, you can:
-
-- Add the Excel connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
-
-For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+Connect to Excel to insert a row, delete a row, and more. 
 
 ## Triggers and actions
 Excel includes the following action. There are no triggers. 
@@ -207,4 +204,6 @@ Applies to version: 1.0.
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)
+
+
+-->
