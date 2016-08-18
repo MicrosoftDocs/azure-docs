@@ -71,7 +71,7 @@ The following tables list the common errors that you might encounter when you:
 | 1  | Invoke-HcsSetupWizard: This command can only be run on the active controller. | Configuration was being performed on the passive controller.| Run this command from the active controller. For more information, see [Identify an active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).|
 | 2 | Invoke-HcsSetupWizard: Device not ready. | There are issues with the network connectivity on DATA 0.| Check the physical network connectivity on DATA 0.|
 | 3 | Invoke-HcsSetupWizard: There is an IP address conflict with another system on the network (Exception from HRESULT: 0x80070263). | The IP supplied for DATA 0 was already in use by another system. | Provide a new IP that is not in use.|
-| 4 | Invoke-HcsSetupWizard: A cluster resource failed. (Exception from HRESULT:0x800713AE). | Duplicate VIP. The supplied IP is already in use.| Provide a new IP that is not in use.|
+| 4 | Invoke-HcsSetupWizard: A cluster resource failed. (Exception from HRESULT: 0x800713AE). | Duplicate VIP. The supplied IP is already in use.| Provide a new IP that is not in use.|
 | 5 | Invoke-HcsSetupWizard: Invalid IPv4 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv4 Addressing][1]. |
 | 6 | Invoke-HcsSetupWizard: Invalid IPv6 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv6 Addressing][2].|
 | 7 | Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9) | The cluster functionality is not working. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps.
@@ -88,7 +88,7 @@ The following tables list the common errors that you might encounter when you:
 
 ## Errors related to device administrator and StorSimple Snapshot Manager passwords
 
-The default device administrator password is **Password1**. This password expires after the first log on; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
+The default device administrator password is **Password1**. This password expires after the first logon; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
 
 If you use the StorSimple Snapshot Manager software running on the Windows Server host to manage the device, then you must also provide a StorSimple Snapshot Manager password during first-time registration. 
 
@@ -109,11 +109,11 @@ You may encounter one or more of the following errors when setting up the device
 | 1  | The password exceeds the maximum length. |Use a password that meets these requirements:<ul><li>Your device administrator password must be between 8 and 15 characters long.</li><li>Your StorSimple Snapshot Manager password must be 14 or 15 characters long.</li></ul> | 
 | 2 | The password does not meet the required length. | Use a password that meets these requirements:<ul><li>Your device administrator password must be between 8 and 15 characters long.</li><li>Your StorSimple Snapshot Manager password must be 14 or 15 characters long.</lu></ul> |
 | 3 | The password must contain lowercase characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
-| 4 | The password must contain numeric characters. | Passwords must contain 3  of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
+| 4 | The password must contain numeric characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
 | 5 | The password must contain special characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
 | 6 | The password must contain 3 of the following 4 character types: uppercase, lowercase, numeric, and special. | Your password does not contain the required types of characters. Make sure that your password meets these requirements. |
 | 7 | Parameter does not match confirmation. | Make sure that your password meets all requirements and that you entered it correctly. |
-| 8 | Your password cannot match the default. | The default password is  *Password1*. You need to change this password after you log on for the first time. |
+| 8 | Your password cannot match the default. | The default password is *Password1*. You need to change this password after you log on for the first time. |
 | 9 | The password you have entered does not match the device password. Please retype the password. | Check the password and type it again. |
 
 Passwords are collected before the device is registered, but are applied only after successful registration. The password recovery workflow requires the device to be registered. 
@@ -162,9 +162,9 @@ A support package contains all the relevant logs that can assist the Microsoft S
 
 4. The decrypted support package logs are in etw/etvx format. You can perform the following steps to view these files in Windows Event Viewer:
   1. Run the **eventvwr** command on your Windows client. This will start the Event Viewer.
-  2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the the file as text.
+  2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the file as text.
    
-    > [AZURE.IMPORTANT] You can also use the **Get-WinEvent** cmdlet to open these file in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
+    > [AZURE.IMPORTANT] You can also use the **Get-WinEvent** cmdlet to open these files in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
 
 5. When the logs open in Event Viewer, look for the following logs that contain issues related to the device configuration:
 
@@ -309,7 +309,7 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
 
    - ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: the name resolver service could not resolve the host name. 
    - ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server. 
-   - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
+   - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
    - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
    
     If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
@@ -318,7 +318,7 @@ Use the `Test-HcsmConnection` cmdlet for a device that is already connected to a
 
   - ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: an intermediate proxy server received a bad request from another proxy or from the original server.
   - ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server. 
-  - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
+  - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
   - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
   
     If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Manager service.
