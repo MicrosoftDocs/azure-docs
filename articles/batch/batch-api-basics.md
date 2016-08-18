@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="08/12/2016"
+	ms.date="08/19/2016"
 	ms.author="marsma"/>
 
 # Batch feature overview for developers
 
-In this overview of the core components of the Azure Batch service, we discuss the primary service features that Batch developers can use to build large-scale parallel compute solutions.
+In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
 Whether you're developing a distributed computational application or service that issues direct [Batch REST][batch_rest_api] API calls or you're using one of the [Batch SDKs](batch-technical-overview.md#batch-development-apis), you will use many of the resources and features discussed in this article.
 
@@ -40,13 +40,13 @@ The following high-level workflow is typical of nearly all applications and serv
 
 6. Monitor job progress and retrieve the task output from Azure Storage.
 
-In the following sections, you'll learn about each of the resources that are mentioned in this workflow, as well as many other features of Batch that will enable your distributed computational scenario.
+The following sections discuss these and the other resources of Batch that will enable your distributed computational scenario.
 
 > [AZURE.NOTE] You'll need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-## Batch service components
+## Batch service resources
 
-Some of the following resources--accounts, compute nodes, pools, jobs, and tasks--are required by all solutions that use the Batch service. Others, such as job schedules and application packages, are helpful, but optional, features.
+Some of the following resources--accounts, compute nodes, pools, jobs, and tasks--are required by all solutions that use the Batch service. Others, like job schedules and application packages, are helpful, but optional, features.
 
 - [Account](#account)
 - [Compute node](#compute-node)
@@ -142,7 +142,15 @@ When you create a pool, you can specify the following attributes:
 
 - **Start task** for compute nodes
 
-	The optional *start task* executes on each node as that node joins the pool, as well as each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks will run.
+	The optional *start task* executes on each node as that node joins the pool, as well as each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run on the compute nodes.
+
+- **Application packages**
+
+	You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged.
+
+- ** Network configuration**
+
+	You can specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. Requirements for specifying a VNet for your pool can be found in [Add a pool to an account][vnet] in the Batch REST API reference.
 
 > [AZURE.IMPORTANT] All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You will find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota might be the cause.
 
@@ -194,7 +202,9 @@ When you create a task, you can specify:
 
 - The **constraints** under which the task should execute. For example, the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 
-In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
+- **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. You can minimize data transfer with task application packages if a job's tasks run on a subset of the nodes in the pool.
+
+In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#start-task)
 - [Job manager task](#job-manager-task)
@@ -316,9 +326,11 @@ The root directory contains the following directory structure:
 
 ## Application packages
 
-The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications that are run by your tasks, including binaries and support files. Then you can automatically deploy one or more of these applications to the compute nodes in your pool.
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. You can upload and manage multiple versions of the applications run by your tasks, including their binaries and support files. Then you can automatically deploy one or more of these applications to the compute nodes in your pool.
 
-Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
+You can specify application packages at the pool and task level. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run at least one of the job's tasks.
+
+Batch handles the details of working with Azure Storage to store your application packages and deploy them to compute nodes, so both your code and your management overhead can be simplified.
 
 To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
@@ -470,6 +482,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_online]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.enableschedulingasync.aspx
 [net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
+[vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
 [py_add_user]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.ComputeNodeOperations.add_user
 
