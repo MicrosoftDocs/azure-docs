@@ -3,7 +3,7 @@
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/06/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Running VMs for an N-tier architecture on Azure
 
