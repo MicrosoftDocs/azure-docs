@@ -33,7 +33,9 @@ The following steps show how to connect to an Azure SQL server and database with
      
 ## Troubleshoot connection failures
 
-The most common reasons for connection failures are mistakes in the server name, and network connectivity issues. Remember, <*servername*> is the name of the server, not the database, and you need to provide the fully qualified server name: `<servername>.database.windows.net`. Also, verify the user name and password do not contain any typos or extra spaces (user names are not case-sensitive, but passwords are). 
+The most common reasons for connection failures are mistakes in the server name, and network connectivity issues. Remember, <*servername*> is the name of the server, not the database, and you need to provide the fully qualified server name: `<servername>.database.windows.net`
+
+Also, verify the user name and password do not contain any typos or extra spaces (user names are not case-sensitive, but passwords are). 
 
 You can also explicitly set the protocol and port number with the server name like the following: `tcp:servername.database.windows.net,1433`
 

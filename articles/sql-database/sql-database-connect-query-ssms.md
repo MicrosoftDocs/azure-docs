@@ -31,18 +31,17 @@ This article shows how to connect to an Azure SQL database using SQL Server Mana
 
 [AZURE.INCLUDE [SSMS Connect](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-For information about firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Run sample queries
 
-After you connect to your server, you can connect to a database and run a sample query. If you are new to writing queries, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx)
+After you connect to your server, you can connect to a database and run a sample query. If you are new to writing queries, see [Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx).
 
 1. In **Object Explorer**, navigate to a database on the server, such as the **AdventureWorks** sample database.
-2. Right-click the database and then select **New Query**.
+2. Right-click the database and then select **New Query**:
 
 	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
-3. In the query window, copy and paste the following code.
+3. In the query window, copy and paste the following:
 
 		SELECT
 		CustomerId
@@ -52,7 +51,7 @@ After you connect to your server, you can connect to a database and run a sample
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Click the **Execute** button.  The following screen shot shows a successful query.
+4. Click the **Execute** button:
 
 	![Success. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
