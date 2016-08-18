@@ -19,6 +19,8 @@
 
 # Get started with delivering content on demand using the Azure Portal
 
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Portal.
 
 Azure Media Services in the Azure portal is currently in preview. 
