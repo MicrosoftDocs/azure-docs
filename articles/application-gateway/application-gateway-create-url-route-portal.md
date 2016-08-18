@@ -38,11 +38,11 @@ The scenario assumes that you have already followed the steps to [Create an Appl
 
 ## <a name="createrule"></a>Create the Path-based rule
 
-A Path-based rule requires it's own listener, before creating the rule be sure to verify you have an available listener to use.
+A Path-based rule requires its own listener, before creating the rule be sure to verify you have an available listener to use.
 
 ### Step 1
 
-Navigate to http://portal.azure.com and select an existing application gateway. Click on **Rules**
+Navigate to http://portal.azure.com and select an existing application gateway. Click **Rules**
 
 ![Application Gateway overview][1]
 
@@ -52,17 +52,17 @@ Click **Path-based** button to add a new Path-based rule.
 
 ### Step 3
 
-The **Add path-based rule** blade has two sections. The first section is where you defined the listener, the name of the rule and the default path settings. The default path settings are for routes that do not fall under the custom path based route. 
-The second section of the **Add path-based rule** blade is where you define the path based rules themselves.
+The **Add path-based rule** blade has two sections. The first section is where you defined the listener, the name of the rule and the default path settings. The default path settings are for routes that do not fall under the custom path-based route. 
+The second section of the **Add path-based rule** blade is where you define the path-based rules themselves.
 
 **Basic Settings**
 
 - **Name** - This is a friendly name to the rule that is accessible in the portal.
-- **Listener** - This is the listener that will be used for the rule.
+- **Listener** - This is the listener that is used for the rule.
 - **Default backend pool** - This setting is the setting that defines the back-end to be used for the default rule
 - **Default HTTP settings** - This setting is the setting that defines the HTTP settings to be used for the default rule.
 
-**Path based rules**
+**Path-based rules**
 
 - **Name** - This is a friendly name to path-based rule.
 - **Paths** - This setting defines the path the rule will look for when forwarding traffic
@@ -75,7 +75,7 @@ The second section of the **Add path-based rule** blade is where you define the 
 
 Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
 
-![adding additional pathbased rules][3]
+![adding additional path-based rules][3]
 
 ## Next steps
 

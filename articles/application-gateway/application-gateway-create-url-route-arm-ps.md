@@ -160,7 +160,7 @@ Configure the back-end IP address pool named "pool01"and "pool2" with IP address
 
 	$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.46, 134.170.189.221,134.170.186.50
 
-In this example, there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from URL path "/video" and other pool receive traffic from path "/image". Replace the IP addresses above to add your own application IP address endpoints. 
+In this example, there are two back-end pools to route network traffic based on the URL path. One pool receives traffic from URL path "/video" and other pool receive traffic from path "/image". Replace the preceding IP addresses to add your own application IP address endpoints. 
 
 ### Step 3
 
