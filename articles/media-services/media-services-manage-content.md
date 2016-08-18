@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/27/2016"  
 	ms.author="juliako"/>
 
 
@@ -102,8 +102,9 @@ This section describes the steps you can take to encode your content with Media 
 1.  Select the file that you would like to encode.
 
   If encoding is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
-4. In the **Process** dialog, select the **Media Encoder Standard** processor.
-5. Choose from one of the **encoding configurations**.
+
+2. In the **Process** dialog, select the **Media Encoder Standard** processor.
+3. Choose from one of the **encoding configurations**.
 
 ![Process2][process2]
 
