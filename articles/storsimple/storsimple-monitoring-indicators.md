@@ -81,7 +81,7 @@ LED legend:
 5. DC failure
 6. Battery good  
 
-The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM.You can use the following tables to determine the status of the PCM.  
+The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
 
 ### PCM indicator LEDs for power supply and fan
 | Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
