@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with delivering content on demand using Java | Azure" 
+	pageTitle="Get started with delivering content on demand using Java | Microsoft Azure" 
 	description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -35,11 +35,11 @@ This section contains general prerequisites for Media Services development using
 
 ##How to: Use Media Services with Java
 
-The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator in order to stream your video.
+The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-create-account.md).
+You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-create-account.md).
 
-Substitute your values for the `clientId` and `clientSecret` variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
+Substitute your values for the 'clientId' and 'clientSecret' variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
