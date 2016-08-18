@@ -323,7 +323,8 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Sql/servers/databases/* | Create and manage SQL databases |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | 
+| Microsoft.Sql/servers/databases/* | Create and manage SQL databases |
 | Microsoft.Sql/servers/read | Read SQL Servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
@@ -331,6 +332,7 @@ Can manage SQL databases but not their security related policies
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
+| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records | 
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit security alert policies |
@@ -345,10 +347,12 @@ Can manage the security related policies of SQL servers and databases
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
 | Microsoft.Sql/servers/auditingSettings/* | Create and manage SQL server auditing setting |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Create and manage SQL server database auditing policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Create and manage SQL server database auditing settings |
+| Microsoft.Sql/servers/databases/auditRecords/read | Read audit records | 
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Create and manage SQL server database connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Create and manage SQL server database data masking policies |
 | Microsoft.Sql/servers/databases/read | Read SQL databases |
@@ -370,7 +374,8 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Sql/servers/* | Create and manage SQL servers |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Sql/servers/* | Create and manage SQL servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
 | **NotActions** ||
@@ -379,6 +384,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit SQL server database auditing settings |
+| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records | 
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit SQL server database connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit SQL server database data masking policies |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit SQL server database security alert policies |
