@@ -19,7 +19,7 @@
 
 # Create a Linux VM on Azure using the CLI
 
-> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
+> [AZURE.NOTE] If you have a few moments, help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
 This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept rapidly.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)), and [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`) and in Resource Manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
 
@@ -50,7 +50,7 @@ The Azure CLI `quick-create` command has aliases mapped to the most common OS di
 
 
 
-For the **ImageURN** option (`-Q`), we are using `RHEL` to deploy a RedHat Enterprise Linux 7.2 VM. These seven aliases represent a tiny portion of the available OS on Azure; find more images in the marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
+For the **ImageURN** option (`-Q`), we are using `RHEL` to deploy a RedHat Enterprise Linux 7.2 VM. These `quick-create` aliases represent a tiny portion of the available OS on Azure.  Find more images in the marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
 
 In the following command walk-through, replace the prompts with values from your own environment.
 
