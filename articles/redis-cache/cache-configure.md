@@ -132,7 +132,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB that is
 
 ### Keyspace notifications (advanced settings)
 
-Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allows clients to receive notifications when certain events occur.
+Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allow clients to receive notifications when certain events occur.
 
 ![Redis Cache Advanced Settings](./media/cache-configure/redis-cache-advanced-settings.png)
 
