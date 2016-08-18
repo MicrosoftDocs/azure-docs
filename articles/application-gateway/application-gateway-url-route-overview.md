@@ -86,4 +86,4 @@ Snippet of PathBasedRouting rule:
 	
 ## Next steps 
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) to create an application gateway with URL routing rules.
+After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
