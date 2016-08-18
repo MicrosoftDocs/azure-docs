@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Data Catalog developer concepts"
-   description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
-   services="data-catalog"
-   documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
-   editor=""
-   tags=""/>
+	pageTitle="Azure Data Catalog developer concepts"
+	description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="paulettm"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/25/2016"
-   ms.author="derrickv"/>  
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/25/2016"
+	ms.author="spelluru"/>  
 
 # Azure Data Catalog developer concepts
 
