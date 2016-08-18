@@ -59,7 +59,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
      - If the fan in PCM 1 has failed, the status of either **Cooling 0 for PCM 0** or **Cooling 1 for PCM 0** will be red.
 
-2. Locate the failed PCM on the back of the primary enclosure. If you are running a 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display. The default Unit ID displayed on the primary enclosure is **00**, whereas the default Unit ID displayed on the EBOD enclosure is **01**. The following diagram and table explain the front panel of the LED display.
+2. Locate the failed PCM on the back of the primary enclosure. If you are running an 8600 model, identify the primary enclosure by looking at the System Unit Identification Number shown on the front panel LED display. The default Unit ID displayed on the primary enclosure is **00**, whereas the default Unit ID displayed on the EBOD enclosure is **01**. The following diagram and table explain the front panel of the LED display.
 
     ![System ID on front OPS panel](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
