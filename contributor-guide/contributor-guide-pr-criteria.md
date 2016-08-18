@@ -40,6 +40,7 @@ For these items, pull request reviewers provide feedback and instructions for th
 | Category | Quality review item |
 |----------|---------------------|
 |Content|Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG)|
+|Content|Spelling, grammar, and other writing issues - pull request reviewers may provide feedback on a few minor issues as non-blocking feedback. If there are more than a few editorial issues, reviewers may log an edit request for the article for a post-publication edit.|
 |Images|Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
 |Images|Images include alt text. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
 |Site/design functionality|The H2 headings, when rendered in the on-page TOC, should ideally wrap to no more than 2 lines. Longer headings make the article TOC harder to scan.|
