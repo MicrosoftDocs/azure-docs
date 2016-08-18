@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Quick start guide: Machine Learning Recommendations API | Microsoft Azure"
-	description="Azure machine learning recommendations--quick start guide"
+	description="Azure Machine Learning Recommendations--quick start guide"
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
@@ -78,7 +78,7 @@ You might also want to apply a recommendations build type when the user is about
 | *EnableFeatureCorrelation*	| Indicates if features can be used in reasoning. |	Boolean <br> Default: False
 | *ReasoningFeatureList* |	Comma-separated list of feature names to be used for reasoning sentences, such as recommendation explanations. It depends on the features that are important to customers. | String, up to 512 chars
 | *EnableU2I* |	Enable personalized recommendations, also called user to item (U2I) recommendations. | Boolean <br>Default: True
-|*EnableModelingInsights* |	Defines whether offline evaluation should be performed to gather modeling insights (that is, precision and diversity metrics). If set to true, a subset of the data will not be used for training because it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
+|*EnableModelingInsights* |	Defines whether offline evaluation should be performed to gather modeling insights (that is, precision and diversity metrics). If set to true, a subset of the data will not be used for training because it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation). | Boolean <br> Default: False
 | *SplitterStrategy* | If enable modeling insights is set to *true*, this is how data should be split for evaluation purposes.  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter
 
 
