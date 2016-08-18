@@ -144,7 +144,7 @@ For the proper operation of your equipment and to prevent product damage:
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Observe the following ESD related precautions.
+Observe the following ESD-related precautions.
 
 - Ensure that you have installed and checked a suitable antistatic wrist or ankle strap.
 
