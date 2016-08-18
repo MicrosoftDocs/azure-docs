@@ -29,7 +29,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
 - Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
-- Azure Active Directory supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification
+- Azure Active Directory supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -131,15 +131,15 @@ The following procedures provide step by step instructions on how to change the 
 	![edit-directory-confirm][7]
 7. Click the check to reload the portal.
 
-> [AZURE.NOTE] When you change the directory, access to all co-administrators, Azure AD users and groups, and directory-backed resource users will be removed and they will no longer have access to this subscription or its resources. Only you, as a service administrator, will be able to configure access for principals based on the new directory. This change might take a substantial amount of time to propagate to all resources. Changing the directory will also change the Azure AD administrator for SQL Database and SQL Data Warehouse and disallow database access for any existing Azure AD users. The Azure AD admin must be re-set (as described below) and new Azure AD users must be created.
+> [AZURE.NOTE] When you change the directory, access to all co-administrators, Azure AD users and groups, and directory-backed resource users are removed and they no longer have access to this subscription or its resources. Only you, as a service administrator, can configure access for principals based on the new directory. This change might take a substantial amount of time to propagate to all resources. Changing the directory, also changes the Azure AD administrator for SQL Database and SQL Data Warehouse and disallow database access for any existing Azure AD users. The Azure AD admin must be reset (as described below) and new Azure AD users must be created.
 
 ## 4. Create an Azure AD administrator for Azure SQL Server
 
-Each Azure SQL Server (which hosts a SQL Database or SQL Data Warehouse) starts with a single server administrator account which is the administrator of the entire Azure SQL Server. A second SQL Server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) and the **Logins and Users** section of [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+Each Azure SQL Server (which hosts a SQL Database or SQL Data Warehouse) starts with a single server administrator account that is the administrator of the entire Azure SQL Server. A second SQL Server administrator must be created, that is an Azure AD account. This principal is created as a contained database user in the master database. As administrators, the server administrator accounts are members of the **db_owner** role in every user database, and enter each user database as the **dbo** user. For more information about the server administrator accounts, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) and the **Logins and Users** section of [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 
-When using Azure Active Directory with Geo-Replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users will receive a "Cannot connect" to server error.
+When using Azure Active Directory with Geo-Replication, the Azure Active Directory administrator must be configured for both the primary and the secondary servers. If a server does not have an Azure Active Directory administrator, then Azure Active Directory logins and users receive a "Cannot connect" to server error.
 
-> [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account) cannot create Azure AD-based users because they do not have permission to validate proposed database users with the Azure AD.
+> [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account), cannot create Azure AD-based users, because they do not have permission to validate proposed database users with the Azure AD.
 
 ### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure portal
 
@@ -151,13 +151,13 @@ When using Azure Active Directory with Geo-Replication, the Azure Active Directo
 	![ad settings][9]
 3. In the **Settings** blade, click **Active Directory admin.
 4. In the **Active Directory admin** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
-5. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+5. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 6. At the top of the **Active Directory admin** blade, click **SAVE**.
 	![choose admin][10]
 
-	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
+	The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
-> [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
+> [AZURE.NOTE] When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
 
 To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**, and then click **Save**.
 
@@ -165,7 +165,7 @@ To later remove an Admin, at the top of the **Active Directory admin** blade, cl
 
 To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-To provision an Azure AD admin you must execute the following Azure PowerShell commands:
+To provision an Azure AD admin, execute the following Azure PowerShell commands:
 
 - Add-AzureRmAccount
 - Select-AzureRmSubscription
@@ -188,9 +188,9 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-The **DisplayName** input parameter accepts either the Azure AD display name or the User Principal Name. For example ``DisplayName="John Smith"`` and ``DisplayName="johns@contoso.com"``. For Azure AD groups only the Azure AD display name is supported.
+The **DisplayName** input parameter accepts either the Azure AD display name or the User Principal Name. For example, ``DisplayName="John Smith"`` and ``DisplayName="johns@contoso.com"``. For Azure AD groups only the Azure AD display name is supported.
 
-> [AZURE.NOTE] The Azure PowerShell  command ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` will not prevent you from provisioning Azure AD admins for unsupported users. An unsupported user can be provisioned, but will not be able to connect to a database. (See the list of supported admins in **Azure AD Features and Limitations** above.)
+> [AZURE.NOTE] The Azure PowerShell  command ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` does not prevent you from provisioning Azure AD admins for unsupported users. An unsupported user can be provisioned, but can not connect to a database. (See the list of supported admins in **Azure AD Features and Limitations** above.)
 
 The following example uses the optional **ObjectID**:
 
@@ -232,9 +232,9 @@ On all client machines, from which your applications or users connect to Azure S
 
 ### About contained database users
 
-Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
-> [AZURE.NOTE] Database users (with the exception of administrators) cannot be created using portal and RBAC roles are not propagated to SQL Server, SQL Database, or SQL Data Warehouse. Azure RBAC roles are used for managing Azure Resources and do not apply to database permissions. For example the **SQL Server Contributor** role does not grant access to connect to the SQL Database or SQL Data Warehouse. The access permission must be granted directly in the database using Transact-SQL statements.
+> [AZURE.NOTE] Database users (with the exception of administrators) cannot be created using portal. RBAC roles are not propagated to SQL Server, SQL Database, or SQL Data Warehouse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database or SQL Data Warehouse. The access permission must be granted directly in the database using Transact-SQL statements.
 
 ### Connect to the user database or data warehouse by using SQL Server Management Studio or SQL Server Data Tools
 
@@ -270,7 +270,7 @@ Use this method if you are logged in to Windows using credentials from a domain 
 
 ### Create an Azure AD contained database user in a user database
 
-To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity (as described in the previous procedure) as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
+To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
 	CREATE USER <Azure_AD_principal_name>
 	FROM EXTERNAL PROVIDER;
@@ -288,14 +288,14 @@ To create a contained database user representing an Azure AD or federated domain
 
 	CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 
-To create a contained database user representing an application that will connect using an Azure AD token:
+To create a contained database user representing an application that connects using an Azure AD token:
 
 	CREATE USER [appName] FROM EXTERNAL PROVIDER;
 
 For more information about creating contained database users based on Azure Active Directory identities, see [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
 
-> [AZURE.NOTE] Removing the Azure Active Directory administrator for Azure SQL Server prevents any Azure AD authentication user from connecting to the server. If required, unusable Azure AD users can be dropped manually by a SQL Database administrator.
+> [AZURE.NOTE] Removing the Azure Active Directory administrator for Azure SQL Server prevents any Azure AD authentication user from connecting to the server. If necessary, unusable Azure AD users can be dropped manually by a SQL Database administrator.
 
 When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Windows groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 A federated domain user that is imported into a manage domain, must use the managed domain identity.
@@ -313,7 +313,7 @@ Azure Active Directory authentication supports the following methods of connecti
 
 ### 7.1. Connecting using integrated (Windows) authentication
 
-To use integrated Windows authentication, your domain’s Active Directory must be federated with Azure Active Directory and your client application (or a service) connecting to the database must be running on a domain-joined machine under a user’s domain credentials.
+To use integrated Windows authentication, your domain’s Active Directory must be federated with Azure Active Directory. Your client application (or a service) connecting to the database must be running on a domain-joined machine under a user’s domain credentials.
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to Active Directory Integrated. The following C# code sample uses ADO .NET.
 
@@ -325,7 +325,7 @@ To connect to a database using integrated authentication and an Azure AD identit
 Note that the connection string keyword ``Integrated Security=True`` is not supported for connecting to Azure SQL Database.
 
 ### 7.2. Connecting with an Azure AD principal name and a password
-To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password and the connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
+To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
 
 	string ConnectionString =
 	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
@@ -340,7 +340,7 @@ This authentication method allows middle-tier services to connect to Azure SQL D
 
 1. Register your application with Azure Active Directory and get the client id for your code. 
 2. Create a database user representing the application. (Completed earlier in step 6.)
-3. Create a certificate on the client computer that will run the application.
+3. Create a certificate on the client computer runs the application.
 4. Add the certificate as a key for your application.
 
 Sample connection string:
