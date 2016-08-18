@@ -27,7 +27,7 @@
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) for SQL databases from an application using C# database development techniques.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server, you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
@@ -52,17 +52,17 @@ Get the required management libraries by installing the following packages using
 
 Before you start SQL development in C#, you must complete some tasks in the Azure portal. First enable your application to access the REST API by setting up the required authentication.
 
-The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
+The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier classic deployment model.
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [classic portal](https://manage.windowsazure.com/).
+To authenticate your client application, you must first register your application in the AAD domain in the subscription where the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account, you already have a default AAD domain. Register the application in the [classic portal](https://manage.windowsazure.com/).
 
-To create a new application and register it in the correct active directory do the following:
+To create an application, and register it in the correct active directory do the following:
 
-1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
+1. Locate the **Active Directory** service and open it.
 
     ![C# SQL database development: Active Directory setup][1]
 
-2. Select the directory to authenticate your application and click it's **Name**.
+2. Select the directory to authenticate your application and click its **Name**.
 
     ![Select a directory.][4]
 
@@ -70,7 +70,7 @@ To create a new application and register it in the correct active directory do t
 
     ![Click Applications.][5]
 
-4. Click **ADD** to create a new application.
+4. Click **ADD** to create an application.
 
     ![Click Add button: Create C# application.][6]
 
@@ -84,12 +84,12 @@ To create a new application and register it in the correct active directory do t
 
     ![Add application][8]
 
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id in your code).
+7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you need the client id in your code).
 
     ![Get client ID][9]
 
 
-1. On the bottom of the page click on **Add application**.
+1. On the bottom of the page click **Add application**.
 1. Select **Microsoft Apps**.
 1. Select **Azure Service Management API**, and then complete the wizard.
 2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
@@ -105,7 +105,7 @@ To create a new application and register it in the correct active directory do t
 The domain name is required for your code. An easy way to identify the proper domain name is to:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window. Replace **domain.onmicrosoft.com** in the code snippet below with the value for your account.
+2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window. Replace **domain.onmicrosoft.com** in the code snippet with the value for your account.
 
     ![Identify domain name][3]
 
@@ -118,7 +118,7 @@ Additional information about using Azure Active Directory for authentication can
 
 ### Retrieve the access token for the current user
 
-The client application must retrieve the application access token for the current user. The first time the code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
+The client application must retrieve the application access token for the current user. The first time the code is executed you are prompted to enter your credentials and the resulting token is cached locally. Subsequent executions retrieve the token from the cache and only prompt you to log in if the token has expired.
 
 
     private static AuthenticationResult GetAccessToken()
@@ -143,7 +143,7 @@ The client application must retrieve the application access token for the curren
 
 ## Create a resource group
 
-With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. To create an elastic database pool you need an Azure SQL Database server in an existing resource group. Run the following C# code to create the resource group:
+With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. To create an elastic database pool, you need an Azure SQL Database server in an existing resource group. Run the following C# code to create the resource group:
 
 
     // Create a resource management client
@@ -162,7 +162,7 @@ With Resource Manager, all resources must be created in a resource group. A reso
 
 ## Create a server
 
-Elastic database pools are contained within Azure SQL Database servers so the next step is to create a server. The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. To enable an application to connect to the server you must also create a firewall rule on the server to open access from the client IP address.
+Elastic database pools are contained within Azure SQL Database servers so the next step is to create a server. The server name must be globally unique among all Azure SQL servers so you get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. To enable an application to connect to the server you must also create a firewall rule on the server to open access from the client IP address.
 
 
     // Create a SQL Database management client
@@ -207,7 +207,7 @@ The following example creates a server firewall rule that opens access to the se
 
 
 
-To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
+To allow other Azure services to access a server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This allows Azure traffic from *any* Azure subscription to access the server.
 
 
 ## Create a database

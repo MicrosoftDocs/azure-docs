@@ -24,17 +24,17 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C#;. 
+Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using C# .
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
-The examples below use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), so you need to install this library before continuing if it is not already installed. You can install this library by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), so if it is not already installed, install this library before continuing. You can install this library by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
 
-## Create a new pool
+## Create a pool
 
-Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) instance using values from [Azure Active Directory](sql-database-client-id-keys.md). Create a [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) instance, and call the [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate) method. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) instance using values from [Azure Active Directory](sql-database-client-id-keys.md). Create a [ElasticPoolCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.elasticpoolcreateorupdateparameters) instance, and call the [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate) method. The values for eDTU per pool, min, and max DTUs are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
     ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
@@ -52,7 +52,7 @@ Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azur
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## Create a new database in a pool
+## Create a database in a pool
 
 Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) instance, and set the properties of the new database. Then call the CreateOrUpdate method with the resource group, server name, and new database name.
 
@@ -76,7 +76,7 @@ To move an existing database into a pool, see [Move a database into an elastic p
 
 ## Example: Create a pool using C&#x23;
 
-This example creates a new Azure resource group, a new Azure SQL Server instance, and a new elastic pool. 
+This example creates an Azure resource group, an Azure SQL server, and an elastic pool. 
  
 
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
@@ -242,7 +242,7 @@ Create a console app and replace the contents of Program.cs with the following. 
 
 - [Manage your pool](sql-database-elastic-pool-manage-csharp.md)
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md): Elastic jobs let you run T-SQL scripts against any number of databases in a pool.
-- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale out.
 
 ## Additional Resources
 
