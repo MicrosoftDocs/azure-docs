@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Use portal to create Active Directory application and service principal that can access resources
@@ -37,18 +37,18 @@ For detailed steps on integrating an application into Azure for managing resourc
 
 1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 
+2. Make sure you know the default Active Directory for your subscription. You can only grant access for applications in the same directory as your subscription. Select **Settings** and look for the directory name associated with your subscription.  For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+   
+     ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
+
 2. Select **Active Directory** from the left pane.
 
      ![select Active Directory](./media/resource-group-create-service-principal-portal/active-directory.png)
      
-3. Select the Active Directory that you want to use for creating the new application. If you have more than one Active Directory, you usually want to create the application in the directory where your subscription resides. You can only grant access to resource in your subscription for applications in the same directory as your subscription.  
+3. Select the Active Directory that you want to use for creating the new application. If you have more than one Active Directory, create the application in the default directory for your subscription.   
 
      ![choose directory](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-    If you need to find the directory for your subscription, select **Settings** and look for the directory name.
-   
-     ![find default directory](./media/resource-group-create-service-principal-portal/show-default-directory.png)
-
 3. To view the applications in your directory, click on **Applications**.
 
      ![view applications](./media/resource-group-create-service-principal-portal/view-applications.png)
@@ -130,23 +130,27 @@ If your application accesses resources on behalf of a signed-in user, you must g
 
 4. Save the change.
 
-## Configure multi-tenant application
-
-If users from other Azure Active Directories can consent to the application and sign in to it, you must enable multi-tenancy. In the **Configure** tab, set **Application is multi-tenant** to **Yes**.
-
-![multi-tenant](./media/resource-group-create-service-principal-portal/multi-tenant.png)
-
 ## Assign application to role
 
 If your application is running under its own credentials, you must assign the application to a role. You must decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). 
 
-To assign a role, you must have `Microsoft.Authorization/*/Write` access which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role.
+To assign a role to an application, you must have the correct permissions. Specifically, you must have `Microsoft.Authorization/*/Write` access which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. The Contributor role does not have the correct access.
 
 You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains).
 
 1. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com).
 
-1. In the portal, navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select the **Access** icon.
+1. Check your permissions to make sure you can assign the service principal to a role. Select **My permissions** for your account.
+
+    ![select my permissions](./media/resource-group-create-service-principal-portal/my-permissions.png)
+
+1. View the assigned permissions for your account. As noted previously, you must belong to the Owner or User Access Administrator roles, or have a customized role that grants write access for Microsoft.Authorization. The following image shows an account that is assign to Contributor role for the subscription, which is not adequate permissions to assign an application to a role.
+
+    ![show my permissions](./media/resource-group-create-service-principal-portal/show-permissions.png)
+
+     If you do have the correct permissions to grant access to an application, you must either request that your subscription administrator add you to the User Access Administrator role, or request that the administrator grant access to the application.
+
+1. Navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select **Access control**.
 
      ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
 
@@ -168,7 +172,6 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 6. Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
 
-     ![show](./media/resource-group-create-service-principal-portal/show-app.png)
 
 For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
