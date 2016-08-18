@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Azure Media Services with Java" 
+	pageTitle="Get started with delivering content on demand using Java | Azure" 
 	description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"   
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#How to use Media Services with Java
+# Get started with delivering content on demand using Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
