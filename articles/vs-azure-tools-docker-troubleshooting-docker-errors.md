@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="08/18/2016"
    ms.author="allclark" />
 
 # Troubleshooting Visual Studio Docker Development
@@ -22,7 +22,7 @@ The following are some common issues and resolutions.
 
 ##Failed to configure Program.cs for Docker support
 
-When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` must be added to the WebHostBuilder().
+When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` must be added to the WebHostBuilder().
 If Program.cs the `Main()` function or a new WebHostBuilder class wasn't found, a warning will be displayed.
 `.UseUrls()` is required to enable Kestrel to listen to incoming traffic, beyond localhost when run within a docker container.
 Upon completion, the typical code will look like the following:
