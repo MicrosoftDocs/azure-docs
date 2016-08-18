@@ -55,14 +55,14 @@ For this tutorial, you'll need:
 2. Click **New** > **Data + Storage** > **SQL Database**.
 3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Create a SQL database in minutes](sql-database-get-started.md).
 
-	![create a blank database](./media/sql-database-always-encrypted/create-database.png)
+	![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
 You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
 
-	![copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
+	![Copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
 
 
 ## Connect to the database with SSMS
@@ -73,7 +73,7 @@ Open SSMS and connect to the server with the Clinic database.
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
 
-	![copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
+	![Copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
 
 If the **New Firewall Rule** window opens, sign in to Azure and let SSMS create a new firewall rule for you.
 
@@ -109,9 +109,9 @@ SSMS provides a wizard to easily configure Always Encrypted by setting up the CM
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
+    ![Encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-The Always Encrypted wizard includes the following sections: Column Selection, Master Key Configuration (CMK), Verification, and Summary.
+The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration** (CMK), **Validation**, and **Summary**.
 
 ### Column Selection ###
 
@@ -121,7 +121,7 @@ Encrypt **SSN** and **BirthDate** information for each patient. The **SSN** colu
 
 Set the **Encryption Type** for the **SSN** column to **Deterministic** and the **BirthDate** column to **Randomized**. Click **Next**.
 
-![encrypt columns](./media/sql-database-always-encrypted/column-selection.png)
+![Encrypt columns](./media/sql-database-always-encrypted/column-selection.png)
 
 ### Master Key Configuration###
 
@@ -129,7 +129,7 @@ The **Master Key Configuration** page is where you set up your CMK and select th
 
 Verify that **Windows certificate store** is selected and click **Next**.
 
-![master key configuration](./media/sql-database-always-encrypted/master-key-configuration.png)
+![Master key configuration](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 
 ### Validation###
@@ -140,7 +140,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![summary](./media/sql-database-always-encrypted/summary.png)
+![Summary](./media/sql-database-always-encrypted/summary.png)
 
 
 ### Verify the wizard's actions
@@ -164,7 +164,7 @@ Now that Always Encrypted is set up, you can build an application that performs 
 1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleApp** and click **OK**.
 
-![new console application](./media/sql-database-always-encrypted/console-app.png)
+![New console application](./media/sql-database-always-encrypted/console-app.png)
 
 
 
@@ -503,7 +503,7 @@ Run the following query on the Clinic database.
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![new console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
+   ![New console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
 
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
@@ -512,7 +512,7 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-	![new console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
+	![New console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 
 4. Run the following query on the **Clinic** database.
 
@@ -521,7 +521,7 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
      You can now see the plaintext data in the encrypted columns.
 
 
-	![new console application](./media/sql-database-always-encrypted/ssms-plaintext.png)
+	![New console application](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
 
 
