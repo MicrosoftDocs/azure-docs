@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with delivering content on demand using REST API" 
+	pageTitle="Get started with delivering content on demand using REST | Azure" 
 	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/17/2016" 
 	ms.author="juliako"/>
 
-#Get started with delivering content on demand using REST API
+#Get started with delivering content on demand using REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
