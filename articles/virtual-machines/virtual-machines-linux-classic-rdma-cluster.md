@@ -35,7 +35,7 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **Azure CLI scripts** - As shown later in this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. In the classic deployment model, A8 or A9 VMs have to be deployed in the same cloud service to connect through the RDMA network.
 
-* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VM in a compute cluster that takes advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
+* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs in a compute cluster that takes advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
 
 ## Sample deployment in classic model
 
@@ -131,7 +131,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 
 * **SSH keys for SLES 12 VMs** - Generate SSH keys to establish trust for your user account among all the compute nodes in the SLES 12 HPC cluster when running MPI jobs. (If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in the article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.) 
 
-    Run the following command to create SSH keys. When you are prompted for in put, press Enter to generate the keys in the default location without setting a passphrase.
+    Run the following command to create SSH keys. When you are prompted for input, press Enter to generate the keys in the default location without setting a passphrase.
 
         ssh-keygen
 
