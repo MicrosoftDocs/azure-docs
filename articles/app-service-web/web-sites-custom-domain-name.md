@@ -154,8 +154,8 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>CNAME Host</th>
-    <th>CNAME Value</th>
+    <th>TXT Host</th>
+    <th>TXT Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
