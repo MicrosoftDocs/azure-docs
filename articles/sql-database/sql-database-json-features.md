@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="carlrab"
    ms.workload="NA"
 	ms.topic="article"
@@ -20,19 +20,24 @@
 
 # Getting started with JSON features in Azure SQL Database
 
-Azure SQL Database enables you to parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and to export your relational data as JSON text. JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or NoSQL databases like [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) have REST endpoints that return or consume JSON.
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
 
-Azure SQL Database enables you to easily work with JSON data and integrate your database with modern service.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) have REST endpoints that return or consume JSON.
+
+Azure SQL Database lets you work with JSON data easily and integrate your database with modern services.
 
 ## Overview
 
-Azure SQL Database provides the following functions that enable you to work with JSON data:
+Azure SQL Database provides the following functions for working with JSON data:
 
 ![JSON Functions](./media/sql-database-json-features/image_1.png)
 
-If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted using built-in functions [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), and [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) function enables you to update value inside JSON text. For more advanced querying and analysis, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) clause that enables you to format data stored in your relational tables as JSON text.
+If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), and [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). The [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) clause that lets you format data stored in your relational tables as JSON text.
+
 ## Formatting relational data in JSON format
-If you have a web service that takes data from the database layer and provides response in JSON format, or client-side JavaScript frameworks or libraries that accept data formatted as JSON, you can format your database content as JSON directly in a SQL query. Instead of writing application code that format results from Azure SQL Database as JSON, or including some JSON serialization library to convert tabular query results and then serialize objects to JSON format, you can use FOR JSON clause to format SQL query results as JSON in Azure SQL Database and use it directly in your application. In the following example, rows from Sales.Customer table are formatted as JSON using FOR JSON clause:
+If you have a web service that takes data from the database layer and provides a response in JSON format, or client-side JavaScript frameworks or libraries that accept data formatted as JSON, you can format your database content as JSON directly in a SQL query. You no longer have to write application code that formats results from Azure SQL Database as JSON, or include some JSON serialization library to convert tabular query results and then serialize objects to JSON format. Instead, you can use the FOR JSON clause to format SQL query results as JSON in Azure SQL Database and use it directly in your application.
+
+In the following example, rows from the Sales.Customer table are formatted as JSON by using the FOR JSON clause:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -40,7 +45,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-FOR JSON PATH clause will format results of the query as JSON text. Column names will be used as keys, while the cell values will be generated as JSON values:
+The FOR JSON PATH clause formats the results of the query as JSON text. Column names are used as keys, while the cell values are generated as JSON values:
 
 ```
 [
@@ -50,9 +55,9 @@ FOR JSON PATH clause will format results of the query as JSON text. Column names
 ]
 ```
 
-Result set is formatted as JSON array where each row is formatted as a separate JSON object.
+The result set is formatted as a JSON array where each row is formatted as a separate JSON object.
 
-PATH indicates that you can customize output format of your JSON result using dot notation in column aliases. The following query will change the name of the "CustomerName" key in the output JSON format, and put phone and fax numbers in "Contact" sub-object:
+PATH indicates that you can customize the output format of your JSON result by using dot notation in column aliases. The following query changes the name of the "CustomerName" key in the output JSON format, and puts phone and fax numbers in the "Contact" sub-object:
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -61,7 +66,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-Output of this query might look like:
+The output of this query looks like this:
 
 ```
 {
@@ -73,9 +78,9 @@ Output of this query might look like:
 }
 ```
 
-In this example, we have returned a single JSON object instead of the array by specifying [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) option. You can use this option if you know that you are returning a single object as a result of query.
+In this example we returned a single JSON object instead of an array by specifying the [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) option. You can use this option if you know that you are returning a single object as a result of query.
 
-The main value of FOR JSON clause is the fact that it enables you to return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include Orders that belong to the Customer as a nested Orders array:
+The main value of the FOR JSON clause is that it lets you return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include Orders that belong to the Customer as a nested array of Orders:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -88,7 +93,7 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-Instead of sending separate queries to get Customer data and then to fetch a list of related Orders, you can get all necessary data with a single query as shown in the following example:
+Instead of sending separate queries to get Customer data and then to fetch a list of related Orders, you can get all the necessary data with a single query, as shown in the following sample output:
 
 ```
 {
@@ -105,9 +110,9 @@ Instead of sending separate queries to get Customer data and then to fetch a lis
 
 ## Working with JSON data
 
-If you don�t have strictly structured data, you have complex sub-objects, arrays, or hierarchical data, or your data structures evolve over time, JSON format can help you for represent any complex data structure.
+If you don’t have strictly structured data, if you have complex sub-objects, arrays, or hierarchical data, or if your data structures evolve over time, the JSON format can help you to represent any complex data structure.
 
-JSON is a textual format that can be used as any other string type in Azure SQL Database. You can send or store JSON data as standard NVARCHAR type:
+JSON is a textual format that can be used like any other string type in Azure SQL Database. You can send or store JSON data as a standard NVARCHAR:
 
 ```
 CREATE TABLE Products (
@@ -123,19 +128,19 @@ AS BEGIN
 END
 ```
 
-JSON data used in this example is represented using the NVARCHAR(MAX) type. JSON can be inserted into this table or provided as an argument of the stored procedure using standard TransactSQL syntax:
+The JSON data used in this example is represented by using the NVARCHAR(MAX) type. JSON can be inserted into this table or provided as an argument of the stored procedure using standard Transact-SQL syntax as shown in the following example:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Any client-side language or library that works with string data in Azure SQL Database will also work with JSON data. JSON can be stored in any table that supports NVARCHAR type such as Memory-optimized table or System-versioned table. JSON data do not introduce any constraint either in the client-side code or in the database layer.
+Any client-side language or library that works with string data in Azure SQL Database will also work with JSON data. JSON can be stored in any table that supports the NVARCHAR type, such as a Memory-optimized table or a System-versioned table. JSON does not introduce any constraint either in the client-side code or in the database layer.
 
 ## Querying JSON data
 
-If you have data store in Azure SQL tables formatted as JSON, JSON functions enable you to use these data in any SQL query.
+If you have data formatted as JSON stored in Azure SQL tables, JSON functions let you use this data in any SQL query.
 
-JSON functions that are available in Azure SQL database enable you to treat data formatted as JSON as any other SQL data type. You can easily extract values from the JSON text, and use JSON data in any query:
+JSON functions that are available in Azure SQL database let you treat data formatted as JSON as any other SQL data type. You can easily extract values from the JSON text, and use JSON data in any query:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -147,12 +152,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-JSON_VALUE function extracts a value from JSON text stored in Data column. This function uses JavaScript-like path to reference a value in JSON text that should be extracted. Extracted value can be used in any part of SQL query.
+The JSON_VALUE function extracts a value from JSON text stored in the Data column. This function uses a JavaScript-like path to reference a value in JSON text to extract. The extracted value can be used in any part of SQL query.
 
-JSON_QUERY function is similar to JSON_VALUE. Unlike JSON_VALUE, this function extracts complex sub-object such as arrays or objects that are placed in JSON text.
+The JSON_QUERY function is similar to JSON_VALUE. Unlike JSON_VALUE, this function extracts complex sub-object such as arrays or objects that are placed in JSON text.
 
-JSON_MODIFY function enables you to specify path of the value in the JSON text that should be updated as well as a new value that will overwrite the old one. This way you can easily update JSON text without reparsing entire structure.
-Since JSON is stored in a standard text, there are no guarantees that the values stored in text columns are properly formatted. You can verify that text stored in JSON column is properly formatted using standard Azure SQL Database check constraints and ISJSON function:
+The JSON_MODIFY function lets you specify the path of the value in the JSON text that should be updated, as well as a new value that will overwrite the old one. This way you can easily update JSON text without reparsing the entire structure.
+
+Since JSON is stored in a standard text, there are no guarantees that the values stored in text columns are properly formatted. You can verify that text stored in JSON column is properly formatted by using standard Azure SQL Database check constraints and the ISJSON function:
 
 ```
 ALTER TABLE Products
@@ -160,19 +166,19 @@ ALTER TABLE Products
 		CHECK (ISJSON(Data) > 0)
 ```
 
-If the input text is properly formatted JSON, the ISJSON function returns the value 1 . On every insert or update of JSON column, this constraint will verify that new text value is not malformed JSON.
+If the input text is properly formatted JSON, the ISJSON function returns the value 1. On every insert or update of JSON column, this constraint will verify that new text value is not malformed JSON.
 
 ## Transforming JSON into tabular format
 
-Azure SQL Database enables you to transform JSON collections into tabular format and load or query JSON data.
+Azure SQL Database also lets you transform JSON collections into tabular format and load or query JSON data.
 
-OPENJSON is a table-value function that parses JSON text, locates an array of JSON objects, iterates through the elements of the array, and for each element returns one row in the output result.
+OPENJSON is a table-value function that parses JSON text, locates an array of JSON objects, iterates through the elements of the array, and returns one row in the output result for each element of the array.
 
 ![JSON tabular](./media/sql-database-json-features/image_2.png)
 
-In the example above, we can specify where to locate the JSON array that should be opened (in the $.Orders path), what columns should be returned as result, and where are the JSON values that will be returned as cells.
+In the example above, we can specify where to locate the JSON array that should be opened (in the $.Orders path), what columns should be returned as result, and where to find the JSON values that will be returned as cells.
 
-We can transform a JSON array in the @orders variable into a set of rows, analyze this result set or insert rows into a standard table:
+We can transform a JSON array in the @orders variable into a set of rows, analyze this result set, or insert rows into a standard table:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -190,14 +196,14 @@ AS BEGIN
 
 END
 ```
-Collection of orders formatted as JSON array and provided as parameter to the stored procedure can be parsed and inserted into Orders table.
+The collection of orders formatted as a JSON array and provided as a parameter to the stored procedure can be parsed and inserted into the Orders table.
 
 ## Next steps
 
-To learn how to integrate JSON in your application, check out these resources:
+To learn how to integrate JSON into your application, check out these resources:
 
 - [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
 - [MSDN documentation](https://msdn.microsoft.com/library/dn921897.aspx)
 - [Channel 9 video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-To learn about various scenarios that show how to integrate JSON in your application, see demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find some scenario that might be interesting for your use case in [JSON Blog posts](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+To learn about various scenarios for integrating JSON into your application, see the demos in this [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) or find a scenario that matches your use case in [JSON Blog posts](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
