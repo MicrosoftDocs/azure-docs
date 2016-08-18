@@ -99,13 +99,15 @@ You should define your own target SLAs for each workload in your solution. An SL
 
 The following table shows the potential cumulative downtime for various SLA levels. 
 
-| SLA | Downtime per week | Downtime per month | Downtime per year | 
-|-----|-------------------|--------------------|-------------------|
-| 99% | 1.68 hours | 7.2 hours | 3.65 days |
-| 99.9% | 10.1 minutes | 43.2 minutes | 8.76 hours |
-| 99.95% | 5 minutes | 21.6 minutes | 4.38 hours |
-| 99.99% | 1.01 minutes | 4.32 minutes | 52.56 minutes | 
-| 99.999% | 6 seconds | 25.9 seconds | 5.26 minutes |
+
+| SLA     | Downtime per week | Downtime per month | Downtime per year |
+|---------|-------------------|--------------------|-------------------|
+| 99%     | 1.68 hours        | 7.2 hours          | 3.65 days         |
+| 99.9%   | 10.1 minutes      | 43.2 minutes       | 8.76 hours        |
+| 99.95%  | 5 minutes         | 21.6 minutes       | 4.38 hours        |
+| 99.99%  | 1.01 minutes      | 4.32 minutes       | 52.56 minutes     |
+| 99.999% | 6 seconds         | 25.9 seconds       | 5.26 minutes      |
+
 
 Of course, higher availability is better, everything else being equal. But as you strive for more 9s, the cost and complexity to achieve that level of availability grows. An uptime of 99.99% translates to about 5 minutes of total downtime per month. Is it worth the additional complexity and cost to reach five 9s? The answer depends on the business requirements. 
 
@@ -194,11 +196,11 @@ For a structured approach to this process, see the paper [Resilience by design f
 **Failure point:** Call to an external web service / API.
 
 | Failure mode | Detection strategy |
-|--------------|--------------------| 
+|--------------|--------------------|
 | Service is unavailable | HTTP 5xx |
 | Throttling | HTTP 429 (Too Many Requests) | 
-| Authentication | HTTP 401 (Unauthorized)  | 
-| Slow response | Request times out | 
+| Authentication | HTTP 401 (Unauthorized) | 
+| Slow response | Request times out |
 
 
 ## Implementing resiliency strategies
