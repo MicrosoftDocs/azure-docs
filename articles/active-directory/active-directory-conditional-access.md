@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -106,11 +106,13 @@ The following content map lists documents that you need to refer to learn more a
 - [What kind of applications are supported](active-directory-conditional-access-supported-apps.md)
 
 
-### Device policies
+### Device-based conditional access
 
 - [How to set Device-based Conditional Access policy for access control to Azure Active Directory connected applications](active-directory-conditional-access-policy-connected-applications.md)
 
 - [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [User remediation when accessing Azure AD device-based conditional access protected applications](active-directory-conditional-access-device-remediation.md) 
 
 - [Help protect your data requiring Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 

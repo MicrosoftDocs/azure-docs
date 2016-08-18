@@ -54,7 +54,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 ## <a name="sdk"></a> Install the SDK in your application
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Usage

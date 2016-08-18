@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -103,7 +103,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
@@ -114,7 +114,7 @@ Manually add the SDK:
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
- * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
+ * Download the latest [Application Insights SDK for Java](https://aka.ms/qqkaq6) and replace the old ones.
  * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
@@ -159,7 +159,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
 * Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
-* The Application Insight key can be passed dynamically from Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure Appsettings. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This helps in managing different InstrumentationKeys for different environment dynamically.
+* The Application Insights key can be passed dynamically from the Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure App Settings. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This sequence helps you to manage different InstrumentationKeys for different environments dynamically.
 
 ### Alternative ways to set the instrumentation key
 
@@ -193,7 +193,7 @@ To get the most accurate results, the filter should be mapped before all other f
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### If you're using MVC 3.1 or later
+#### If you're using Spring Web MVC 3.1 or later
 
 Edit these elements to include the Application Insights package:
 
