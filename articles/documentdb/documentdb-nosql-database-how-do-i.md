@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB: How do I? | Microsoft Azure" 
-	description="Get answers to frequently asked questions about DocumentDB development. Learn how to perform aggregate functions using stored procedures." 
-	keywords="aggregate functions, count, aggregation"
+	description="Get answers to frequently asked questions about DocumentDB development. Learn how to perform aggregation functions like count and sum using stored procedures." 
+	keywords="aggregation function, count, aggregation"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -24,20 +24,20 @@ This article provides answers to commonly asked questions about developing with 
 
 Do you have a common question that should be shown here? If so, add a Disqus comment below with a link to the thread on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) or the [MSDN forum](http://go.microsoft.com/fwlink/?LinkId=631655).
 
-## How do I get a count of documents or perform aggregate functions?
+## How do I get a count of documents or perform aggregation functions?
 
-Although aggregate functions are not supported by the native DocumentDB SQL syntax, you can achieve the same results using different methods.  
+Native support for aggregate functions is in the works, but if you need count or sum functionality in the meantime, you can achieve the same result using different methods.  
 
 On read:
 
 - If you are using a non-partitioned collection, you can use the [x-ms-resource-usage header](https://msdn.microsoft.com/library/mt489071.aspx). This header currently only displays accurate results for non-partitioned collections and displays `x-ms-resource-usage: documentSize=0;documentsSize=0;collectionSize=0;` for partitioned collections.
-- You can perform aggregates by pulling the collection client-side and doing a count locally, or by using a stored procedure (to minimize network latency on repeated round trips). For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js).
+- You can perform aggregate functions by pulling the collection client-side and doing a count locally, or by using a stored procedure (to minimize network latency on repeated round trips). For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js).
 - It’s advised to use a query projection (for example, SELECT VALUE 1 FROM c) rather than a simple “SELECT * FROM c” to maximize the number of documents processed in each page of results (there is a page size limit of ~1 mb). 
 
 On write:
 
 - Set up a trigger using the [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) sample, which updates the minSize, maxSize, and totalSize of the metadata document for the collection. The sample can be extended to update a counter, sum, etc.
- 
+
 ## Next steps
 If you have a question that belongs here, please add a Disqus comment with a link to the thread on [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) or the [MSDN forum](http://go.microsoft.com/fwlink/?LinkId=631655). 
 
