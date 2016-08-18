@@ -388,7 +388,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
     > [AZURE.IMPORTANT] Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
     > For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
 
-![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
+    ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
 4. Select __Create__ to run the script. Once the script completes, the R packages will be available on all worker nodes.
     
