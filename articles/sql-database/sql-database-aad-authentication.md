@@ -29,7 +29,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Database.
 - Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
-- Azure Active Directory supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database-ssms-mfa-authentication.md).
+- Azure Active Directory supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
