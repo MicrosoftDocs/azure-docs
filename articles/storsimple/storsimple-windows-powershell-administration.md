@@ -199,7 +199,7 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 1. After the Help files are installed, type: `Get-Help Get-Command`. This will display a list of cmdlets for which Help is available.
 
 
->[AZURE.NOTE] To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.
+>[AZURE.NOTE] To get a list of all the available cmdlets in a runspace, log in to the corresponding menu option and run the `Get-Command` cmdlet.
 
 ## Next steps
 If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
