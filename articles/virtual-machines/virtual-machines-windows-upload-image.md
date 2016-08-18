@@ -31,7 +31,7 @@ This article assumes that you have:
 
 - **Azure PowerShell version 1.4 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672). For Linux virtual machines see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines-linux-classic-create-upload-vhd/) for similar instructions.
+- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672). For Linux virtual machines see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines-linux-classic-create-upload-vhd.md) for similar instructions.
 
 - Make sure the server roles running on the VM support sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
