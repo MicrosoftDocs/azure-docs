@@ -23,8 +23,6 @@
 
 This article shows you how to create and upload a virtual hard disk (VHD) so you can use it as your own image to create virtual machines in Azure. Learn how to prepare the operating system so you can use it to create multiple virtual machines based on that image. 
 
-> [AZURE.NOTE] The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
-
 
 ## Prerequisites
 This article assumes that you have the following items:
@@ -49,6 +47,8 @@ Azure supports various Linux distributions (see [Endorsed Distributions](virtual
 - **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 - **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
+
+> [AZURE.NOTE] The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
 
 Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
 
