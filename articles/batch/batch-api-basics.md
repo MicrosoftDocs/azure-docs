@@ -87,7 +87,7 @@ All compute nodes in Batch also include:
 
 A pool is a collection of nodes that your application runs on. The pool can be created manually by you, or automatically by the Batch service when you specify the work to be done. You can create and manage a pool that meets the resource requirements of your application. A pool can be used only by the Batch account in which it was created. A Batch account can have more than one pool.
 
-Azure Batch pools build on top of the core Azure compute platform: Batch pools provide large-scale allocation, application installation, data distribution, and health monitoring, as well as the flexible adjustment of the number of compute nodes within a pool ([scaling](#scaling-compute-resources)).
+Azure Batch pools build on top of the core Azure compute platform: Batch pools provide large-scale allocation, application installation, data distribution, and health monitoring, and the flexible adjustment of the number of compute nodes within a pool ([scaling](#scaling-compute-resources)).
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
@@ -112,7 +112,7 @@ When you create a pool, you can specify the following attributes:
 
 	**Virtual Machine Configuration** compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch supports all Azure VM sizes except `STANDARD_A0` and those with premium storage (`STANDARD_GS`, `STANDARD_DS`, and `STANDARD_DSV2` series).
 
-	You should take into account the characteristics and requirements of the application or applications that will run on the compute nodes when you select a node size. You will typically select a node size by assuming one task will run on the node at a time. Consider aspects such as whether the application is multithreaded and how much memory it consumes to help determine the most suitable and cost-effective node size. It is possible to have multiple tasks and therefore multiple application instances [run in parallel](batch-parallel-node-tasks.md)--for this case, you'll typically choose a larger node. See the following "Task scheduling policy" section for more information.
+	You should consider the characteristics and requirements of the application or applications that will run on the compute nodes when you select a node size. You will typically select a node size by assuming one task will run on the node at a time. Consider aspects such as whether the application is multithreaded and how much memory it consumes to help determine the most suitable and cost-effective node size. It is possible to have multiple tasks and therefore multiple application instances [run in parallel](batch-parallel-node-tasks.md)--for this case, you'll typically choose a larger node. See the following "Task scheduling policy" section for more information.
 
 	All of the nodes in a pool are the same size. If you'll be running applications with differing system requirements and/or load levels, you should use separate pools.
 
@@ -142,13 +142,13 @@ When you create a pool, you can specify the following attributes:
 
 - **Start task** for compute nodes
 
-	The optional *start task* executes on each node as that node joins the pool, as well as each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run on the compute nodes.
+	The optional *start task* executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run on the compute nodes.
 
 - **Application packages**
 
 	You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged.
 
-- ** Network configuration**
+- **Network configuration**
 
 	You can specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. Requirements for specifying a VNet for your pool can be found in [Add a pool to an account][vnet] in the Batch REST API reference.
 
@@ -328,7 +328,7 @@ The root directory contains the following directory structure:
 
 The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. You can upload and manage multiple versions of the applications run by your tasks, including their binaries and support files. Then you can automatically deploy one or more of these applications to the compute nodes in your pool.
 
-You can specify application packages at the pool and task level. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run at least one of the job's tasks.
+You can specify application packages at the pool and task level. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run one of the job's tasks.
 
 Batch handles the details of working with Azure Storage to store your application packages and deploy them to compute nodes, so both your code and your management overhead can be simplified.
 
