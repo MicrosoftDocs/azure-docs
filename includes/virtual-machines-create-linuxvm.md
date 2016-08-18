@@ -13,16 +13,13 @@
 
 4. Use `azure vm create` to create a new virtual machine with the Linux image from the above list. This step creates a new cloud service as well as a new storage account. You could also connect this virtual machine to an existing cloud service with a `-c` option. It also creates an SSH endpoint to login to the Linux virtual machine with the `-e` option.
 
-        ~$ azure vm create "MyTestVM" b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB "adminUser" -z "Small" -e -l "West US"
+        ~$ azure vm create "MyTestVM" b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB -g adminUser -p P@ssw0rd! -z "Small" -e -l "West US"
         info:    Executing command vm create
         + Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB
-        Enter VM 'adminUser' password:*********
-        Confirm password: *********
         + Looking up cloud service
         info:    cloud service MyTestVM not found.
         + Creating cloud service
         + Retrieving storage accounts
-        + Creating a new storage account 'mytestvm1437604756125'
         + Creating VM
         info:    vm create command OK
 
