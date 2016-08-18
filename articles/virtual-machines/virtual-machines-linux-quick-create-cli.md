@@ -33,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Deploy the Linux VM
 
-Using the same command from above, the following shows each prompt along with the output you should expect to see, but uses the RHEL alias to create a RedHat Enterprise Linux 7.2 VM.  
+We are now going to walk through the command and explain each step using RedHat Enterprise Linux 7.2.  
 
 ## Use an ImageURN alias
 
@@ -146,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-SSH into your VM on the default SSH port 22 and the fully qualified domain name (FQDN) listed in the output. (You can also use the IP address listed.)
+SSH into your VM on port 22 and the public IP address listed in the output. (You can also use the FQDN listed.)
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -169,5 +169,3 @@ The `azure vm quick-create` is the way to quickly deploy a VM so you can log in 
 - [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
 - [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md).
 - [Create an SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-
-These articles are to get you started in building an Azure infrastructure as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
