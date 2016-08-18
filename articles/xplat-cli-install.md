@@ -37,7 +37,7 @@ Once the Azure CLI is installed, [connect it with your Azure subscription](xplat
 
 ## Install an npm package
 
-To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo**  to successfully run the __npm__ command.)
+To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
 
 	npm install azure-cli -g
 
@@ -45,7 +45,7 @@ To install the CLI from an npm package, you need the latest Node.js and npm inst
 
 ## Use an installer
 
-The following installer packages are also available for download:
+The following CLI installer packages are also available for download:
 
 
 * [OS X installer][mac-installer]
@@ -69,7 +69,7 @@ After the Azure CLI is installed, run the **azure** command from your command-li
 ```
 azure help
 ```
-> [AZURE.NOTE]On some Linux distributions you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix it,  create a symbolic link to /usr/bin/node by running this command:
+> [AZURE.NOTE]On some Linux distributions, you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix it, create a symbolic link to /usr/bin/node by running this command:
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -81,14 +81,14 @@ To see the version of the Azure CLI you installed, type the following:
 azure --version
 ```
 
-Now you are ready! For access to all of the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
+Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you first use Azure CLI version 0.9.20 or later, you'll see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
+>[AZURE.NOTE] When you first use Azure CLI version 0.9.20 or later, you see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
 
 
 ## Update the CLI
 
-Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system or, if you have the latest Node.js and npm installed, update by typing the following (on Linux distributions you might need to use **sudo**).
+Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system, or run the latest Docker container. Or, if you have the latest Node.js and npm installed, update by typing the following (on Linux distributions you might need to use **sudo**).
 
 ```
 npm update -g azure-cli
