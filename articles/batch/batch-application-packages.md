@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/30/2016"
+	ms.date="08/18/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -44,7 +44,9 @@ An application in Batch contains one or more application packages and specifies 
 
 ### Application packages
 
-An application package is a .zip file that contains the application binaries and supporting files that are required for execution by your tasks. Each application package represents a specific version of the application. When you create a pool in the Batch service, you can specify one or more of these applications and (optionally) a version. Those application packages will be downloaded automatically and extracted onto each node as it joins the pool.
+An application package is a .zip file that contains the application binaries and supporting files that are required for execution by your tasks. Each application package represents a specific version of the application.
+
+You can specify application packages at the pool and task level. You can specify one or more of these applications and (optionally) a version when you create a pool or task. When you specify pool application packages, the application is deployed to every node in the pool. When you specify task application packages, the application is deployed only to nodes that are scheduled to run at least one of the job's tasks.
 
 > [AZURE.IMPORTANT] There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details about these limits.
 
