@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="How to manage reverse DNS records for your services using PowerShell in the classic deployment model | Microsoft Azure"
    description="How to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model. "
    services="DNS"
    documentationCenter="na"
-   authors="s-malone"
+   authors="jtuliani"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="DNS"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="s-malone" />
+   ms.author="jonatul" />
 
 # How to manage reverse DNS records for your services (classic) using PowerShell
 
@@ -38,7 +38,7 @@ You can add a reverse DNS record to an existing Cloud Service using the “Set-A
 
 	PS C:\> Set-AzureService –ServiceName “contosoapp1” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”
 
-## Create a Cloud Service with reverse DNS  
+## Create a Cloud Service with reverse DNS
 You can add a new Cloud Service with the reverse DNS property specified using the “Set-AzureService” cmdlet:
 
 	PS C:\> New-AzureService –ServiceName “contosoapp1” –Location “West US” –Description “App1 with Reverse DNS” –ReverseDnsFqdn “contosoapp1.cloudapp.net.”

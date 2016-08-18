@@ -3,7 +3,7 @@
    description="Using powershell for Load Balancer with Azure Resource Manager (ARM) in preview. Using templates for load balancer"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Azure Resource Manager Support for Load Balancer 

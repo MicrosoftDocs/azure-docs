@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="How to manage reverse DNS records for your services using Azure CLI in Resource Manager | Microsoft Azure"
    description="How to manage reverse DNS records or PTR records for Azure services using the Azure CLI in Resource Manager"
    services="DNS"
    documentationCenter="na"
-   authors="s-malone"
+   authors="jtuliani"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+<tags
    ms.service="DNS"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="s-malone" />
+   ms.author="jonatul" />
 
 # How to manage reverse DNS records for your services using the Azure CLI
 
@@ -25,7 +25,7 @@
 <BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
-## Validation of reverse DNS records 
+## Validation of reverse DNS records
 To ensure a third party can’t create reverse DNS records mapping to your DNS domains, Azure only allows the creation of a reverse DNS record where one of the following is true:
 
 - The “ReverseFqdn” is the same as the “Fqdn” for the Public IP Address resource for which it has been specified, or the “Fqdn” for any Public IP Address within the same subscription e.g., “ReverseFqdn” is “contosoapp1.northus.cloudapp.azure.com.”.
@@ -47,15 +47,15 @@ If you wish to add reverse DNS to an existing Public IP Address that doesn't alr
 You can add a new Public IP Address with the reverse DNS property specified using the azure network public-ip create:
 
 	azure network public-ip create -n PublicIp3 -g NRP-DemoRG-PS -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
- 
+
 ## View reverse DNS for existing Public IP Addresses
 You can view the configured value for an existing Public IP Address using the azure network public-ip show:
 
-	azure network public-ip show -n PublicIp3 -g NRP-DemoRG-PS 
+	azure network public-ip show -n PublicIp3 -g NRP-DemoRG-PS
 
 ## Remove reverse DNS from existing Public IP Addresses
 You can remove a reverse DNS property from an existing Public IP Address using azure network public-ip set. This is done by setting the ReverseFqdn property value to blank:
 
-	azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “” 
+	azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “”
 
 [AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
