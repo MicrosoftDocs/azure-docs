@@ -461,7 +461,7 @@ The following example configures a specific path with range indexing and a custo
 
 Now that we've taken a look at how to specify paths, let's look at the options we can use to configure the indexing policy for a path. You can specify one or more indexing definitions for every path:
 
-- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path). **Polygon** and **LineString** supproted in private preview
+- Data type: **String**, **Number** or **Point** (can contain only one entry per data type per path). **Polygon** and **LineString** supported in private preview
 - Index kind: **Hash** (equality queries), **Range** (equality, range or Order By queries), or **Spatial** (spatial queries) 
 - Precision: 1-8 or -1 (Maximum precision) for numbers, 1-100 (Maximum precision) for string
 
