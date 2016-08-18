@@ -82,7 +82,7 @@ To begin, set up the logic app to use with the preconfigured solution.
     }
     ```
     
-    Note: you can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
+    > [AZURE.NOTE] You can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
 
 8. Click __+ New step__ under your manual trigger. Then click **Add an action**.
 
