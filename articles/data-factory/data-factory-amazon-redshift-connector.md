@@ -50,7 +50,7 @@ The sample copies data from a query result in Amazon Redshift to a blob every ho
 	        "typeProperties":
 	        {
 	            "server": "< The IP address or host name of the Amazon Redshift server >",
-	            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
+	            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
 	            "database": "<The database name of the Amazon Redshift database>",
 	            "username": "<username>",
 	            "password": "<password>"
@@ -81,7 +81,7 @@ Setting **"external": true** informs the Data Factory service that the dataset i
 	        "type": "RelationalTable",
 	        "linkedServiceName": "AmazonRedshiftLinkedService",
 	        "typeProperties": {
-	            "tableName  ": "<Table name>"
+	            "tableName": "<Table name>"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
