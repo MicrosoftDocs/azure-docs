@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/16/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1.2 release notes  
