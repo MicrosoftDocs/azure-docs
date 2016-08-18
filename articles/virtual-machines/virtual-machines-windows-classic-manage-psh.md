@@ -3,7 +3,7 @@
    description="Learn commands that you can use to automate tasks in managing your virtual machines."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="singhkays"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>

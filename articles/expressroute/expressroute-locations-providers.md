@@ -68,8 +68,8 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Dublin** | Colt |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **London** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
-| **Las Vegas** | Level 3 Communications+, Megaport+
-| **Los Angeles** | CoreSite, Equinix, Megaport, Zayo Group |
+| **Las Vegas** | Level 3 Communications+, Megaport
+| **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix+ |
