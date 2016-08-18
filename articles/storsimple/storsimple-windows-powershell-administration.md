@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
@@ -111,7 +111,7 @@ This option is the same as option 1, except that you can connect (with the prope
 Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.
 
 3. **Connect with limited access**
-This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that cannot be performed in this runspace are:
+This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that **cannot* be performed in this runspace are:
 
 	- Reset to the factory settings
 	- Change the password
