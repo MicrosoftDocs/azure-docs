@@ -31,17 +31,19 @@ Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-t
 
 When you launch a new Linux VM you are getting a standard Linux VM with nothing customized or ready for your needs. [Cloud-init](https://cloudinit.readthedocs.org) is a standard way to inject a script or configuration settings into that Linux VM as it is booting up for the first time.
 
-On Azure there are a three different ways to make changes onto a Linux VM as it is starting up.
+On Azure, there are a three different ways to make changes onto a Linux VM as it is starting up.
 
-- You can inject scripts with cloud-init.
-- You can inject scripts using the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
-- You can specify custom settings in a Azure template and use that to launch and customize your Linux VM, which includes support for cloud-init as well as the CustomScript VM extension and many others.
+- Inject scripts with cloud-init.
+- Inject scripts using the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
+- An Azure template and use that to launch and customize your Linux VM.  Azure templates include support for cloud-init as well as the CustomScript VM extension and many others.
 
-To inject scripts at any time, you can:
+To inject scripts at any time after boot:
 
-- use SSH to run commands directly, you can use the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md) either imperatively or in an Azure template, or you can use common configuration management tools like Ansible, Salt, Chef, and Puppet, which themselves work over SSH after the VM has completed booting.
+- SSH to run commands directly
+- Azure CustomScriptExtention either imperatively or in an Azure template
+- Configuration management tools like Ansible, Salt, Chef, and Puppet.
 
-NOTE: Though a [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md) merely executes a script as root in the same way using SSH can, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
+NOTE: Though a CustomScriptExtention executes a script as root in the same way using SSH can, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
 
 ## Quick Commands
 
@@ -59,7 +61,7 @@ Create an update Linux on first boot cloud-init script for Debian Family
 apt_upgrade: true
 ```
 
-Create an add a user cloud-init script
+Add a user cloud-init script
 
 ```bash
 #cloud-config
@@ -78,7 +80,7 @@ users:
 
 To launch a cloud-init script when creating a VM in Azure, specify the cloud-init file using the Azure CLI `--custom-data` switch.
 
-NOTE: Although this articles discusses using the `--custom-data` switch for cloud-init files, you can also pass arbitrary code or files using this switch. If the Linux VM already knows what to do with such files, they execute automatically.
+NOTE: Although this article discusses using the `--custom-data` switch for cloud-init files, you can also pass arbitrary code or files using this switch. If the Linux VM already knows what to do with such files, they execute automatically.
 
 ```bash
 azure vm create \
@@ -127,7 +129,7 @@ exampleServerName
 
 ### Creating a cloud-init script to update Linux
 
-For security you want your Ubuntu VM to update on the first boot.  Using cloud-init we can do that with the follow script, depending on the Linux distribution you are using.
+For security, you want your Ubuntu VM to update on the first boot.  Using cloud-init we can do that with the follow script, depending on the Linux distribution you are using.
 
 #### Example cloud-init script `cloud_config_apt_upgrade.txt` for the Debian Family
 
@@ -136,7 +138,7 @@ For security you want your Ubuntu VM to update on the first boot.  Using cloud-i
 apt_upgrade: true
 ```
 
-After the new Linux VM has booted it will immediately update all the installed packages via `apt-get`.
+After Linux has booted all the installed packages are updated via `apt-get`.
 
 ```bash
 azure vm create \
@@ -166,7 +168,7 @@ The following packages have been kept back:
 
 ### Creating a cloud-init script to add a user to Linux
 
-One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using `root`. This is great for security reasons and for usability once you add in your SSH public key to that user's `~/.ssh/authorized_keys` file for password-less and secure SSH logins.
+One of the first tasks on any new Linux VM is to add a user for yourself or to avoid using `root`. SSH keys are best practice for security and for usability and they are added to the `~/.ssh/authorized_keys` file with this cloud-init script.
 
 #### Example cloud-init script `cloud_config_add_users.txt` for Debian Family
 
@@ -181,7 +183,7 @@ users:
       - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
-After the new Linux VM has booted it will create the new user and add it to the sudo group.
+After Linux has booted all the listed users are created and added to the sudo group.
 
 ```bash
 azure vm create \
