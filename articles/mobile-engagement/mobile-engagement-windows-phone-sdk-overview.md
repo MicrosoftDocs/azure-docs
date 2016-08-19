@@ -56,5 +56,5 @@ Console logs produced by the SDK can now be enabled/disabled/filtered. To custom
 
 ### Upgrade from older versions
 
-See [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure/)
+See [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure.md)
  
