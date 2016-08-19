@@ -88,8 +88,8 @@ See the following articles and sample code for additional details.
 You can test your web service from the Azure ML web services portal. This includes testing the RRS and BES interfaces.
 
 * [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
-* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service)
-* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service)
+* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
+* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
 
 ### From Excel
 
