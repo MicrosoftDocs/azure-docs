@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/09/2016"
+    ms.date="08/19/2016"
     ms.author="sstein"/>
 
 # Create a new SQL database and perform common database setup tasks with PowerShell cmdlets
@@ -38,7 +38,8 @@ Once you have access to run cmdlets against your selected Azure subscription, th
 
 Run the following command to create a new resource group:
 
-	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps"`
+                             -Location "West US"
 
 After successfully creating the new resource group, you see the following: **ProvisioningState : Succeeded**.
 
@@ -47,7 +48,10 @@ After successfully creating the new resource group, you see the following: **Pro
 
 SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a new server. Replace *ServerName* with the name for your server. This name must be unique to all Azure SQL Database servers. You will get an error if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
 
-	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps"`
+                         -ServerName "server1"`
+                         -Location "westus"`
+                         -ServerVersion "12.0"
 
 When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password that will be the administrator credentials you want to create for the new server.
 
@@ -57,7 +61,11 @@ The server details appear after the server is successfully created.
 
 Establish a firewall rule to access the server. Run the following command, replacing the start and end IP addresses with valid values for your computer.
 
-	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps"`
+                                     -ServerName "server1"`
+                                     -FirewallRuleName "rule1"`
+                                     -StartIpAddress "192.168.0.0"`
+                                     -EndIpAddress "192.168.0.0"
 
 The firewall rule details appear after the rule is successfully created.
 
@@ -73,49 +81,91 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 The following command creates a new (blank) SQL database at the Standard service tier, with an S1 performance level:
 
 
-	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps"`
+                           -ServerName "server1"`
+                           -DatabaseName "database1"`
+                           -Edition "Standard"`
+                           -RequestedServiceObjectiveName "S1"
 
 
 The database details appear after the database is successfully created.
 
 ## Create a new SQL database PowerShell script
 
-The following is a new SQL database PowerShell script:
+The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription (remove the **{}** when you set your values).
 
-    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    $ResourceGroupName = "resourcegroupname"
-    $Location = "Japan West"
-
-    $ServerName = "uniqueservername"
-
-    $FirewallRuleName = "rule1"
-    $FirewallStartIP = "192.168.0.0"
-    $FirewallEndIp = "192.168.0.0"
-
-    $DatabaseName = "database1"
-    $DatabaseEdition = "Standard"
-    $DatabasePerfomanceLevel = "S1"
-
+    # Sign in to Azure and set the subscription to work with
+    $SubscriptionId = "{subscription-id}"
 
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-    $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+    # CREATE A RESOURCE GROUP
+    $resourceGroupName = "{group-name}"
+    $rglocation = "{Azure-region}"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $rglocation
+    
+    # CREATE A SERVER
+    $serverName = "{server-name}"
+    $serverVersion = "12.0"
+    $serverLocation = "{Azure-region}"
+    
+    $serverAdmin = "{server-admin}"
+    $serverPassword = "{server-password}" 
+    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+    $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    
+    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName`
+                                        -ServerName $serverName`
+                                        -Location $serverLocation`
+                                        -ServerVersion $serverVersion`
+                                        -SqlAdministratorCredentials $serverCreds
+    
+    # CREATE A SERVER FIREWALL RULE
+    $ip = (Test-Connection -ComputerName $env:COMPUTERNAME -Count 1 -Verbose).IPV4Address.IPAddressToString
+    $firewallRuleName = '{rule-name}'
+    $firewallStartIp = $ip
+    $firewallEndIp = $ip
+    
+    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName`
+                                                     -ServerName $serverName`
+                                                     -FirewallRuleName $firewallRuleName`
+                                                     -StartIpAddress $firewallStartIp`
+                                                     -EndIpAddress $firewallEndIp
+    
+    
+    # CREATE A SQL DATABASE
+    $databaseName = "{database-name}"
+    $databaseEdition = "{Standard}"
+    $databaseSlo = "{S0}"
+    
+    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
+                                          -ServerName $serverName `
+                                          -DatabaseName $databaseName `
+                                          -Edition $databaseEdition `
+                                          -RequestedServiceObjectiveName $databaseSlo
+    
+    # Open the database in the Azure portal
+    $portalUrl = "https://portal.azure.com/#resource/subscriptions/" + $SubscriptionId + "/resourceGroups/" + `
+       $resourceGroupName + "/providers/Microsoft.Sql/servers/" + $serverName + "/databases/" `
+       + $databaseName + "/overview"
+    Start-Process -FilePath $portalUrl
+    
+    
+    # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
+    #Remove-AzureRmResourceGroup -Name $resourceGroupName
 
-    $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
 
-    $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
 
-    $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
-
-    $SqlDatabase
 
 
 
 ## Next steps
 After you create a new SQL database and perform basic database setup tasks, you're ready for the following:
 
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
+- [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
 ## Additional Resources
