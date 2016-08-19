@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/12/2016"
 	ms.author="asteen"/>
 
 # How to update your own password
 If you are unsure how to manage your Work or School account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
 
-* [**How to register for password reset**](#how-to-register-for-password-reset)
+* [**Don’t lose access to your account!**](#how-to-register-for-password-reset)
 * [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
 * [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
 * [**How to reset your password**](#how-to-reset-your-password)
 * [**How to unlock your account**](#how-to-unlock-your-account)
 * [**Common problems and their solutions**](#common-problems-and-their-solutions)
 
-## How to register for password reset
+## Don’t lose access to your account!
 
 > [AZURE.IMPORTANT]
 > **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.

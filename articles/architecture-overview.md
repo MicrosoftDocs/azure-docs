@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Architecture on Microsoft Azure" 
+	pageTitle="Application Architecture on Microsoft Azure | Microsoft Azure" 
 	description="Architecture overview that covers common design patterns" 
 	services="" 
 	documentationCenter="" 

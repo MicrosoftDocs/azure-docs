@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/16/2016"
+ ms.date="08/02/2016"
  ms.author="yurid"/>
  
 [AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
