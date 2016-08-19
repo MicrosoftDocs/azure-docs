@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/19/2016"
 	ms.author="curtand"/>
 
 
@@ -62,5 +62,4 @@ These articles provide additional information on Azure Active Directory.
 * [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-users-azure-portal.md)
-* [Manage dynamic rules for devices in a group](active-directory-groups-dynamic-devices-azure-portal.md)
+* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
