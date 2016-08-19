@@ -76,7 +76,7 @@ sudo top
 
 One of the first and most common task with a new server is to add a user account.  Root logins should be disabled and the root account itself should not be used with your Linux server, only sudo.  Giving a user root escalation privileges using sudo it the proper way to administer and use Linux.
 
-Using the command `useradd` we are adding user accounts to the Linux VM.  Running `useradd` modifies `/etc/passwd`, `/etc/shadow`, `/etc/group` and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Even thou `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow that user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
+Using the command `useradd` we are adding user accounts to the Linux VM.  Running `useradd` modifies `/etc/passwd`, `/etc/shadow`, `/etc/group`, and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Even thou `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow that user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
 
 ### Adding a single sudo user to an Azure VM
 
@@ -89,7 +89,7 @@ The `useradd` command completes the following tasks:
 - add a blank entry to `/etc/passwd`
 - add a blank entry to `/etc/gpasswd`
 
-The `-G` command line flag adds the new user account to the proper Linux group giving the new user account root escalation privileges.
+The `-G` command-line flag adds the new user account to the proper Linux group giving the new user account root escalation privileges.
 
 #### Add the user
 
@@ -124,7 +124,7 @@ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 ### Using visudo to allow sudo usage without a password
 
-Using `visudo` to edit the `/etc/sudoers` file adds a few layers of protection against incorrectly modifying this important file.  Upon executing `visudo`, the `/etc/sudoers` file is locked to ensure no other user can make changes while it is actively being edited.  The `/etc/sudoers` file is also checked for mistakes by `visudo` when you attempt to save or exit.  This ensures that you cannot leave a broken sudoers file on the system.
+Using `visudo` to edit the `/etc/sudoers` file adds a few layers of protection against incorrectly modifying this important file.  Upon executing `visudo`, the `/etc/sudoers` file is locked to ensure no other user can make changes while it is actively being edited.  The `/etc/sudoers` file is also checked for mistakes by `visudo` when you attempt to save or exit so you cannot save a broken sudoers file.
 
 We already have users in the correct default group for sudo access.  Now we are going to enable those groups to use sudo with no password.
 
