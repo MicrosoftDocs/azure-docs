@@ -46,7 +46,7 @@ This article will walk you through the steps to configure an application gateway
 ## Create a new application gateway
 
 The difference between using Azure Classic and Azure Resource Manager is the order in which you will create the application gateway and the items that need to be configured.
-With Resource Manager, all items that will make an application gateway will be configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that will make an application gateway is configured individually and then put together to create the application gateway resource.
 
 
 Here are the steps that are needed to create an application gateway:
@@ -63,22 +63,22 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 ### Step 1
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 ### Step 2
 
 Check the subscriptions for the account.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.<BR>
 
 ### Step 3
 
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4
@@ -109,7 +109,7 @@ This creates a virtual network named "appgwvnet" in resource group "appgw-rg" fo
 
 ### Step 3
 
-	$subnet=$vnet.subnets[0]
+	$subnet = $vnet.subnets[0]
 
 This assigns the subnet object to variable $subnet for the next steps.
 
@@ -126,7 +126,7 @@ This creates an application gateway IP configuration named "gatewayIP01". When A
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
+This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
 
 ### Step 3
 
