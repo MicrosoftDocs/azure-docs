@@ -26,7 +26,7 @@ The Synchronization Rules Editor is used to see and change the default configura
 
 When you open it, you see the default out-of-box rules.
 
-![Sync Rule Editor](./media\active-directory-aadconnectsync-change-the-configuration/SRE.png)
+![Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/sre.png)
 
 ### Navigating in the editor
 The drop-downs at the top of the editor allow you to quickly find a particular rule. For example, if you want to see the rules where the attribute proxyAddresses is included, you would change the drop-downs to the following:  
