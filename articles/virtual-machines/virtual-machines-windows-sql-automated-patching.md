@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
