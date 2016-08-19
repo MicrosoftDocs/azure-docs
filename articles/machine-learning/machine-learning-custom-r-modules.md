@@ -145,7 +145,7 @@ The **Language** element in your XML definition file is used to specify the cust
 
 ### Ports
 The input and output ports for a custom module are specified in child elements of the **Ports** section of the XML definition file. The order of these elements determines the layout experienced (UX) by users. The first child **input** or **output** listed in the **Ports** element of the XML file becomes the left-most input port in the Machine Learning UX.
-Each input and output port may have an optional **Description** child element that specifies the text shown when a user hovers the mouse cursor over the port in the Machine Learning UI.
+Each input and output port may have an optional **Description** child element that specifies the text shown when you hovers the mouse cursor over the port in the Machine Learning UI.
 
 **Ports Rules**:
 
@@ -294,7 +294,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 * *Required Properties*: **portId** - matches the id of an Input element with type *DataTable*.
 * *Optional Properties*:
-	* **allowedTypes** - Filter the column types the user can pick from. Valid values include: 
+	* **allowedTypes** - Filters the column types from which you can pick. Valid values include: 
 		* 	Numeric
 		* 	Boolean
 		* 	Categorical
@@ -328,7 +328,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 		* All
 
                             							
-**DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable. The value of the **name** of an **Item** serves as both the text that appears to users and the value that is passed to the R function.
+**DropDown**: a user-specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable. The value of the **name** of an **Item** serves as both the text that you see and the value that is passed to the R function.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
