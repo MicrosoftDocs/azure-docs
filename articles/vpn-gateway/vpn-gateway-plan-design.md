@@ -91,8 +91,6 @@ The following sections discuss the VPN gateway basics. Also, consider the [netwo
 
 #### <a name="subnets"></a>About subnets
 
-When planning and designing the connection that works best for your environment, it is important to consider the IP address ranges and subnets that you have available to use.
-
 When you are creating connections, you must consider your subnet ranges. You cannot have overlapping subnet address ranges. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You need address space that is not being used on the local on-premises network. 
 
 Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections will fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
