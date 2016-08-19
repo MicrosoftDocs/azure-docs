@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="08/05/2016"
 	ms.author="vakarand"/>
 
 
@@ -168,12 +168,11 @@ This will launch a command prompt followed by some PowerShell that will execute 
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-
 After signing in, PowerShell will continue. Once it completes you can close PowerShell and the configuration is complete.
 
 At this point, the services should be started automatically and the agent will be now monitoring and gathering data. The screenshot below is an example of the output. Be aware that you will see warnings in the PowerShell window if you have not met all of the pre-requisites that were outlined in the previous sections. Be sure to complete the requirements [here](active-directory-aadconnect-health-agent-install.md#requirements) prior to installing the agent. 
 
-![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+![Verify Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
 To verify the agent has been installed, open services and look for the following:
 
@@ -183,6 +182,11 @@ To verify the agent has been installed, open services and look for the following
 These two services will not start until the configuration is complete.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Installing the Azure AD Connect Health Agent for AD DS on Server Core. 
+After installing the .exe file, you can complete the registration process by using the following PowerShell command:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
 You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.

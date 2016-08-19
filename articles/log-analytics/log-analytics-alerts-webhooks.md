@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Log Analytics alert webhook sample"
    description="One of the actions you can run in response to a Log Analytics alert is a *webhook*, which allows you to invoke an external process through a single HTTP request. This article walks through an example of creating a webhook action in a Log Analytics alert using Slack."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2016"
+   ms.date="08/08/2016"
    ms.author="bwren" />
 
 # Webhooks in Log Analytics alerts
@@ -31,10 +31,10 @@ In this article, we’ll walk through an example of creating a webhook action in
 
 3. Click **Add an app or custom integration** to open the App Directory.
 3.	Type *webhooks* into the search box and then select **Incoming WebHooks**. <br>
-	
+
 	![Slack channels](media/log-analytics-alerts-webhooks/oms-webhooks02.png)
 
-4.	Click **Install** next to your team name. 
+4.	Click **Install** next to your team name.
 5.	Click **Add Configuration**.
 6.	Select the the channel that you're going to use for this example, and then click **Add Incoming WebHooks integration**.  
 6. Copy the **Webhook URL**.  You'll be pasting this into the Alert configuration. <br>
@@ -48,23 +48,23 @@ In this article, we’ll walk through an example of creating a webhook action in
     - The number of results is: greater than 10
     - Over this time window: 60 minutes
     - Select **Yes** for **Webhook** and **No** for the other actions.
-7. Paste the Slack URL into the **Webhook URL** field. 
+7. Paste the Slack URL into the **Webhook URL** field.
 8. Select the option to **include a custom JSON payload**.
 9. Slack expects a payload formatted in JSON with a parameter named *text*.  This is the text that it will display in the message it creates.  You can use one or more of the alert parameters using the *#* symbol such as in the following example.
 
     ```
     {
     "text":"#alertrulename fired with #searchresultcount records which exceeds the over threshold of #thresholdvalue ."
-    }	
+    }
     ```
 
-	![example JSON payload](media/log-analytics-alerts-webhooks/oms-webhooks07.png)	
+	![example JSON payload](media/log-analytics-alerts-webhooks/oms-webhooks07.png)
 
 9.	Click **Save** to save the alert rule.
-    
-10. Wait sufficient time for an alert to be created and then check Slack for a message which will be similar to the following. 
-    
-	![example webhook in Slack](media/log-analytics-alerts-webhooks/oms-webhooks08.png)	
+
+10. Wait sufficient time for an alert to be created and then check Slack for a message which will be similar to the following.
+
+	![example webhook in Slack](media/log-analytics-alerts-webhooks/oms-webhooks08.png)
 
 
 ### Advanced webhook payload for Slack
@@ -87,7 +87,7 @@ You can extensively customize inbound messages with Slack. For more information,
 						"value": "#searchinterval"},
 					{
 						"title": "Threshold Operator",
-						"value": "#thresholdoperator"},	
+						"value": "#thresholdoperator"},
 					{
 						"title": "Threshold Value",
 						"value": "#thresholdvalue"}
@@ -100,7 +100,7 @@ You can extensively customize inbound messages with Slack. For more information,
 
 This would generate a message in Slack similar to the following.
 
-![example message in Slack](media/log-analytics-alerts-webhooks/oms-webhooks09.png)	
+![example message in Slack](media/log-analytics-alerts-webhooks/oms-webhooks09.png)
 
 ## Summary
 

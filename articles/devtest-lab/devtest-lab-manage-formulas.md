@@ -148,5 +148,9 @@ To delete a formula, follow these steps:
 
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+## Related blog posts
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+
 ## Next steps
 Once you have created a formula for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).

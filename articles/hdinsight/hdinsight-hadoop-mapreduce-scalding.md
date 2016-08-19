@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/18/2016"
+ ms.date="08/02/2016"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -209,7 +209,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 4. After the job completes, use the following to view the output.
 
-        hdfs dfs -text wasbs:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/*
 
     This will display information similar to the following:
 
@@ -254,6 +254,8 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
         $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
         
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.

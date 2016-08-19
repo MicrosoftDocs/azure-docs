@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter="java"
-	authors="aliuy"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="mimig"/>
 
@@ -14,8 +14,8 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="03/10/2016"
-	ms.author="andrl"/>
+	ms.date="08/18/2016"
+	ms.author="anhoh"/>
 
 # Build a Java web application using DocumentDB
 
@@ -216,13 +216,9 @@ To do this, you will need to convert your project to a maven project by completi
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
 
-		                    // Configure the new collection performance tier to S1.
-		                    RequestOptions requestOptions = new RequestOptions();
-		                    requestOptions.setOfferType("S1");
-
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
-		                            collectionDefinition, requestOptions).getResource();
+		                            collectionDefinition, null).getResource();
 		                } catch (DocumentClientException e) {
 		                    // TODO: Something has gone terribly wrong - the app wasn't
 		                    // able to query or create the collection.

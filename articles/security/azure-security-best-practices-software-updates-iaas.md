@@ -13,18 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
-#Best practices for software updates on Microsoft Azure IaaS
+# Best practices for software updates on Microsoft Azure IaaS
 
-Before diving into any kind of discussion on best practices for an Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) environment, it is important to understand what the scenarios are that will have you managing software updates. The diagram below should help with this:
+Before diving into any kind of discussion on best practices for an Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) environment, it is important to understand what the scenarios are that will have you managing software updates and the responsibilities. The diagram below should help you understand these boundaries:
 
-![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
+![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-In the traditional datacenter model where the entire infrastructure is located on-premises, you have full responsibility for managing updates to operating systems, applications, network devices (routers, switches, etc.) and hardware (firmware). In an IaaS scenario, you will still have to manage updates for operating systems and applications; however, the entire infrastructure underneath the operating systems and applications is managed by Microsoft. In all these models, customers are still owners of their data and are still responsible for protecting it at the end point level.
+The left-most column shows seven responsibilities (defined in the sections that follow) that organizations should consider, all of which contribute to the security and privacy of a computing environment.
+ 
+Data classification & accountability and Client & end-point protection are the responsibilities that are solely in the domain of customers, and Physical, Host, and Network responsibilities are in the domain of cloud service providers in the PaaS and SaaS models. 
 
-In a PaaS scenario, you will have even less responsibility for software updates, as update management for the operating system is Microsoft’s responsibility. In a SaaS scenario, the responsibility for software updates for the entire stack is owned by Microsoft.
+The remaining responsibilities are shared between customers and cloud service providers. Some responsibilities require the CSP and customer to manage and administer the responsibility together, including auditing of their domains. For example, consider Identity & access management when using Azure Active Directory Services; the configuration of services such as multi-factor authentication is up to the customer, but ensuring effective functionality is the responsibility of Microsoft Azure.
+
+> [AZURE.NOTE] For more information about shared responsibilities in the cloud, read [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) 
 
 These same principles apply in a hybrid scenario where your company is using Azure IaaS VMs that communicate with on-premises resources as shown in the diagram below.
 

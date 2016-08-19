@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article"
-	ms.date="07/20/2016"
+	ms.date="08/03/2016"
 	ms.author="adegeo"/>
 
 
@@ -250,18 +250,33 @@ $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
-if (-not $is_emulated){
+if (-not $is_emulated)
+{
 	Write-Host "Running worker.py$nl"
 
 	if ($is_python2) {
-        cd..
+		cd..
 		iex "$env:PYPATH\python.exe worker.py"
 	}
 	else {
 		cd..
 		iex "py worker.py"
 	}
-	
+}
+else
+{
+	Write-Host "Running (EMULATED) worker.py$nl"
+
+	# Customize to your local dev environment
+
+	if ($is_python2) {
+		cd..
+		iex "$env:PYPATH\python.exe worker.py"
+	}
+	else {
+		cd..
+		iex "py worker.py"
+	}
 }
 ```
 

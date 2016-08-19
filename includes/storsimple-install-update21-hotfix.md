@@ -61,7 +61,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 6. Type **Y** when prompted to confirm the hotfix installation.
 
-> [AZURE.IMPORTANT] If installing Update 2.2, only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with all-cismdsagentupdatebundle. Failure to do so will result in an error. 
+	> [AZURE.IMPORTANT] If installing Update 2.2, only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with all-cismdsagentupdatebundle. Failure to do so will result in an error. 
 
 7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
 
@@ -103,13 +103,13 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     - `MdsAgentVersion: 30.0.4698.16` 
 
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+	
+	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
 
 9. Repeat steps 3-5 to install the remaining regular-mode hotfixes.
 
-	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
-	
-	
 	- The iSCSI update KB3146621
+	
 	- The WMI update KB3103616
 	
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Enabling Azure Storage metrics and viewing metrics data
@@ -46,7 +46,7 @@ The cmdlets that control Storage Metrics use the following parameters:
 
 - MetricsType: possible values are Hour and Minute.
 
-- ServiceType: possible value are Blob, Queue, and Table.
+- ServiceType: possible values are Blob, Queue, and Table.
 
 - MetricsLevel: possible values are None, Service, and ServiceAndApi.
 

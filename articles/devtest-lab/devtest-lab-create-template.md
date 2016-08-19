@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # Create a DevTest Labs custom image from a VHD file
@@ -77,6 +77,11 @@ In order to add a new custom image, you'll need to have access to a VHD file.
 
 1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
 **Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
+
+## Related blog posts
+
+- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ##Next steps
 

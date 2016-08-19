@@ -97,7 +97,7 @@ To check and then repair the disk use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
@@ -120,7 +120,7 @@ To reset the root password use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -139,7 +139,7 @@ To reset the SSH key of a non root user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -163,7 +163,7 @@ To create a new user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -181,7 +181,7 @@ To create a new user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -203,7 +203,7 @@ To reset the SSHD configuration use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```

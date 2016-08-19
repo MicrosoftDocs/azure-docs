@@ -16,7 +16,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/08/2016" 
 	ms.author="jeffstok"
 />
 
@@ -114,7 +114,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
  		SELECT text, sentiment(text) as result from input  
   	)  
  
- 	Select text, result.[Score]  
+ 	Select text, result.[Scored Labels]  
  	Into output  
  	From subquery  
  ```    

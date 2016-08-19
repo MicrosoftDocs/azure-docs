@@ -3,8 +3,8 @@
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="trinadhk"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="06/08/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;trinadhk;markgal"/>
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
@@ -45,7 +45,7 @@ The total number of “retention points” specified in this policy is 90 (daily
 ![Sample Screen](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Daily retention policy**: Backups taken daily are stored for 7 days.
-2. **Weekly retention policy**: Backups taken everyday at midnight and 6pm Saturday will be preserved for 4 weeks
+2. **Weekly retention policy**: Backups taken every day at midnight and 6pm Saturday will be preserved for 4 weeks
 3. **Monthly retention policy**: Backups taken at midnight and 6pm on the last Saturday of each month will be preserved for 12months
 4. **Yearly retention policy**: Backups taken at midnight on the last Saturday of every March will be preserved for 10 years
 

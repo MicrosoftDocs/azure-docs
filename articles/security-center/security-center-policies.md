@@ -66,7 +66,7 @@ Use the table below as a reference to understand what each option will do:
 |----- |-----|
 | System Updates | Daily, retrieves a list of available security and critical updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, and recommends that the missing updates be applied. It checks for the latest updates in Linux systems using distro provided package management system to determine which packages have updates available. It also check for security and critical updates from [Cloud Services](./cloud-services/cloud-services-how-to-configure.md) virtual machines. |
 | OS Vulnerabilities | Daily, analyzes OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
-| Endpoint Protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. specific configurations being monitored. |
+| Endpoint Protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software.|
 | Disk Encryption | Recommends to enable disk encryption in all virtual machines to enhance data protection at rest. 
 | Network Security Groups | Recommends that [Network Security Groups](../virtual-network/virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to VM's with public endpoints. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |
 | Web Application Firewall | Recommends a Web Application Firewall be provisioned on virtual machines when: [Instance Level Public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md)) |
@@ -93,9 +93,9 @@ After you select the resource group, the **Security policy** blade will open. By
 
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) - Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
+- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance

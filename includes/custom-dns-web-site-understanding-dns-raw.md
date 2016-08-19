@@ -28,28 +28,26 @@ A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www
 
 ###Web app DNS specifics
 
-Using an A record with Web Apps requires you to first create one of the following CNAME records:
+Using an A record with Web Apps requires you to first create one of the following TXT records:
 
-* **For the root domain or wildcard sub-dodmains** - A DNS name of **awverify** to  **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+* **For the root domain** - A DNS TXT record of **@** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-* **For a specific sub-domain** - A DNS name of **awverify.&lt;sub-domain>** to **awverify.&lt;yourwebappname&gt;.azurewebsites.net**. For example, **awverify.blogs** if the A record is for **blogs.contoso.com**.
+* **For a specific sub-domain** - A DNS name of **&lt;sub-domain>** to **&lt;yourwebappname&gt;.azurewebsites.net**. For example, **blogs** if the A record is for **blogs.contoso.com**.
 
-This CNAME record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web ap.
+* **For the wildcard sub-dodmains** - A DNS TXT record of ***** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-You can find the IP address, as well as the **awverify** name and **.azurewebsites.net** names for your web app by performing the following steps:
+This TXT record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web app.
+
+You can find the IP address and **.azurewebsites.net** names for your web app by performing the following steps:
 
 1. In your browser, open the [Azure Portal](https://portal.azure.com).
 
-2. In the **Web Apps** blade, click the name of your web app, select **All Settings**, and then select **Custom domains and SSL** from the bottom of the page.
+2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. In the **Custom Domains and SSL** blade, click **Bring external domains**.
+3. In the **Custom domains** blade, you will see the virtual IP address. Save this information, as it will be used when creating DNS records
 
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+	![](./media/custom-dns-web-site/virtual-ip-address.png)
 
 	> [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
-
-6. In the **Bring external domains** blade, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address. Save this information, as it will be used when creating DNS records.
-
-	![](./media/custom-dns-web-site/dncmntask-cname-8.png)

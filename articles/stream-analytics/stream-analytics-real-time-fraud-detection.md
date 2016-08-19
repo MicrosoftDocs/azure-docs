@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok" />
 
 
@@ -37,7 +37,7 @@ In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or s
 ## Prerequisites
 
 - Download [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center
-- Optional: Source code of the event generator from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)
+- Optional: Source code of the event generator from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)
 
 ## Create an Azure Event Hubs input and Consumer Group
 
@@ -155,7 +155,7 @@ If you want to archive every event, you can use a passthrough query to read all 
 	> Make sure that the name of the input source matches the name of the input you specified earlier.
 
 3.	Click **Test** under the query editor.
-4.	Supply a test file, either one that you created using the previous steps or use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Supply a test file, either one that you created using the previous steps or use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/SampleDataFiles/Telco.json).
 5.	Click the check button and see the results displayed below the query definition.
 
 	![Query definition results](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sim-fraud-output.png)
@@ -249,7 +249,7 @@ Since a job input, query, and output have all been specified, we are ready to st
 
 ## View fraud detection output
 
-Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real-time.  
+Use a tool like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real-time.  
 
 ![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 

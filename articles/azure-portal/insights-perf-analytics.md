@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitor Azure web app performance"
+	pageTitle="Monitor Azure web app performance | Microsoft Azure"
 	description="Chart load and response time, dependency information and set alerts on performance."
 	services="azure-portal"
     documentationCenter="na"

@@ -3,8 +3,8 @@
   description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="trinadhk"
-  manager="shreeshd"
+  authors="PVRK"
+  manager="shivamg"
   editor=""
   keywords="azure backup server; backup vault"/>
 

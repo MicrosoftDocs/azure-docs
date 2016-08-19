@@ -124,7 +124,7 @@ For more information on the kernels for Jupyter notebooks and the predefined "ma
 
 This section contains the code for a series of tasks required to ingest the data sample to be modeled. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format and clean the data, create and cache a data frame in memory, and then register it as a temp-table in SQL-context.
 
-The first step in the data science process is to ingest the data to be analyzed from external sources or systems where is resides into your data exploration and modeling environment. This environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
+The first step in the data science process is to ingest the data to be analyzed from external sources or systems where it resides into your data exploration and modeling environment. This environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
 
 - ingest the data sample to be modeled
 - read in the input dataset (stored as a .tsv file)
@@ -507,7 +507,7 @@ Feature scaling, also known as data normalization, insures that features with wi
 
 >[AZURE.TIP] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
 
-Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
+Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()

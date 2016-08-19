@@ -129,7 +129,7 @@ Con of deploying from a cloud-based source control service is:
 ###<a name="vsts"></a>How to deploy continuously from a cloud-based source control service
 In the [Azure Portal](https://portal.azure.com), you can configure continuous deployment from GitHub, Bitbucket, and Visual Studio Team Services.
 
-* [Continous Deployment to Azure App Service](app-service-continous-deployment.md). 
+* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md). 
 
 ## <a name="localgitdeployment"></a>Deploy from local Git
 If your development team uses an on-premises local source code management (SCM) service based on Git, you can configure this as a deployment source to App Service. 

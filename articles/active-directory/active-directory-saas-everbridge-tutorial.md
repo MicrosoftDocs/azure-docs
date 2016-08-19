@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-everbridge-tutorial/tutorial_everbridge_04.png)
 
-    a. In the **Identifier URL** textbox, type the URL using the following pattern: `https://sso.everbridge.net/{<company name>}`
+    a. In the **Identifier** textbox, type the URL using the following pattern: `https://sso.everbridge.net/{<company name>}`
 
 	b. In the **Reply URL** textbox, type the URL using the following pattern: `https://manager.everbridge.net/saml/SSO/{<company name>}/alias/defaultAlias`
 

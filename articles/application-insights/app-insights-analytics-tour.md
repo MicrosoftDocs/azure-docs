@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -151,8 +151,10 @@ You can flatten it by choosing the properties you're interested in:
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
 
 ## Custom properties and measurements
 
@@ -176,7 +178,7 @@ To extract these values in Analytics:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 

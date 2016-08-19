@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Install Endpoint Protection in Azure Security Center
@@ -36,7 +36,7 @@ Azure Security Center will recommend that you provision an antimalware program t
 4. Additional information about the antimalware solution is displayed. Select **Create**.
 ![Create antimalware solution][4]
 
-5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**. To learn more about the configuration settings, see [Default and Custom Antimalware Configuration](../azure-security-antimalware.md#default-and-custom-antimalware-configuration).
+5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**. To learn more about the configuration settings, see [Default and Custom Antimalware Configuration](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 [Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected VMs.
 

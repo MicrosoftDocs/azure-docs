@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
-	ms.author="chhavib;cgronlun;garye"/>
+	ms.date="08/09/2016"
+	ms.author="roopalik;garye"/>
 
 
 # Share and discover solutions in the Cortana Intelligence Gallery
@@ -25,35 +25,59 @@ The Cortana Intelligence Gallery is a community driven site for discovering and 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Benefits
-Start using the Gallery to enjoy these benefits:
+## What can I find in the Gallery?
 
-- Discover interesting solutions
-- Learn from others
+The Cortana Intelligence Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
-Sign in using your Microsoft account to enjoy additional benefits, such as:
+- **[Experiments](https://gallery.cortanaintelligence.com/experiments)** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 
-- Download experiments to your Machine Learning Studio workspace
-- Contribute and showcase your predictive analytic experiments and collections
+- **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)** - Jupyter Notebooks include code, data visualizations, and documentation in a single, interactive canvas. 
+Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
-## Discover and learn
+- **[Machine Learning APIs](https://gallery.cortanaintelligence.com/machineLearningAPIs)** - A solution developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these solutions are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
+
+-  **[Solution Templates](https://gallery.cortanaintelligence.com/solutionTemplates)** - A Solution Template provides a starting point to quickly build a complete end-to-end solution for an industry-specific problem. These templates include extensive documentation and all the tools you need to get you going on your own solution.
+
+- **[Tutorials](https://gallery.cortanaintelligence.com/tutorials)** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
+
+These basic Gallery resources can be grouped together logically in a couple different ways:
+
+- **[Collections](https://gallery.cortanaintelligence.com/collections)** - A collection allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
+
+- **[Industry-specific Solutions](https://gallery.cortanaintelligence.com/industries)** - The Industries section of the Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
+
+Finally, **[Competitions](https://gallery.cortanaintelligence.com/competitions)** provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
+  
+## How can I use the Gallery?
+
+Anyone can browse and search the solutions in the Gallery and learn from others.
+If you log in using your Microsoft account, you can also download experiments to your own Machine Learning Studio workspace, and you can contribute your own solutions to the Gallery.
+
+### Discover and learn
+
 Search and browse the different types of solutions that have been contributed by Microsoft and the advanced analytics community. Use these to get a head start on solving your own data analysis problems.
 
 You can easily find recently published and popular solutions in the Gallery, or you can search by name, tags, algorithms, and other attributes.
 View contributions from a particular author by clicking the author name from within any of the tiles.
 
+Click **Browse all** in the Gallery header, and then select search refinements on the left of the page and enter search terms at the top.
+
 You can comment, provide feedback, or ask questions through the comments section on each solution page.
 You can even share a solution of interest with friends or colleagues using the share capabilities of LinkedIn or Twitter.
 You may also email links to these solutions to invite other users to view the pages.
 
-## Download experiments
-The Cortana Intelligence Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start using it for your purpose.
+### Download experiments
+
+The Cortana Intelligence Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start customizing and using it for your purpose.
 If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
 
-## Contribute
-When you sign-in you become a member of the Gallery community, which allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
+### Contribute experiments and collections
 
-### Contribute experiments
+When you sign in you become a member of the Gallery community. This allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
+
+See the section below, [Suggestions for publishing and for quality documentation](#suggestions-for-publishing-and-for-quality-documentation), for more details and tips on how to create a quality gallery contribution.
+
+#### Contribute experiments
 
 An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
@@ -63,7 +87,9 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 - Create your experiment and run it
 - When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas
 
-### Contribute collections
+See the section below, [Process for publishing Azure Machine Learning experiments](#process-for-publishing-azure-ml-experiments), for more details and tips on contributing an experiment.
+
+#### Contribute collections
 
 A *collection* is a list of related items from Cortana Intelligence Gallery that are grouped together for later reference, use, or sharing.
 Your collection can contain items that you own or items that have been contributed by the community.
@@ -90,6 +116,47 @@ While you're editing your collection, you can also change the order of the items
 <!--
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 -->
+
+## Suggestions for publishing and for quality documentation
+
+- While you can assume that the reader has prior data science experience, it still helps to simplify your language and explain things in detail wherever possible.
+- Not all readers will be familiar with the Cortana Intelligence Suite, given that it is relatively new; therefore, provide enough information and step-by-step explanations to help such readers navigate through your work.
+- Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See [this collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
+- If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+
+## Process for publishing Azure Machine Learning experiments
+
+When you are ready to publish to the Gallery, follow the five steps below.
+
+1. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
+	![Fill out title and tag fields when publishing](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
+
+2. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
+
+3. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
+	- Experiment graph screenshot.
+	- Data sources and explanation.
+	- Data processing.
+	- Feature engineering.
+	- Model description.
+	- Results and evaluation of model performance.
+
+	You can use Markdown to format as needed. Click the Preview icon to see how things will look when published. The examples in this collection show what to include and how you might organize the information.
+
+	> [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you have published your experiment, you can use standard web-based tools in Markdown for editing and preview, to make necessary tweaks and corrections.
+
+4. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
+
+5. Choose whether to publish your content publicly, or have it only accessible to people with the link.
+
+	> [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
+
+That’s it – you’re all done.
+
+You can now view your experiment in the Gallery and share the link with others. If you have published it publicly, your experiment will show up in browse and search results in the Gallery. You can also edit your documentation on the item page any time you are logged in.
+
+> [AZURE.TIP] To make changes to the experiment you have published, go back to the experiment in Azure ML Studio, make changes, and publish again. By default, it will update your existing published content and not create a new one.
+
 
 ## We want to hear from you!
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  

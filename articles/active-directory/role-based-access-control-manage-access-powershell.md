@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Role Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
-	description="How to manage RBAC with Azure PowerShell including listing roles, assigning roles, and deleting role assignments."
+	pageTitle="Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
+	description="How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -24,7 +24,7 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 Before you can use PowerShell to manage RBAC, you must have the following:
 
@@ -35,7 +35,7 @@ Before you can use PowerShell to manage RBAC, you must have the following:
 ## List roles
 
 ### List all available roles
-To list RBAC roles available for assignment and to inspect the operations to which they grant access use `Get-AzureRmRoleDefinition`.
+To list RBAC roles that are available for assignment and to inspect the operations to which they grant access, use `Get-AzureRmRoleDefinition`.
 
 ```
 Get-AzureRmRoleDefinition | FT Name, Description
@@ -44,7 +44,7 @@ Get-AzureRmRoleDefinition | FT Name, Description
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### List actions of a role
-To list the actions for a specific role use `Get-AzureRmRoleDefinition <role name>`.
+To list the actions for a specific role, use `Get-AzureRmRoleDefinition <role name>`.
 
 ```
 Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
@@ -55,10 +55,10 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ![RBAC PowerShell - Get-AzureRmRoleDefinition for a specific role - screenshot](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
 ## See who has access
-To list RBAC access assignments use `Get-AzureRmRoleAssignment`.
+To list RBAC access assignments, use `Get-AzureRmRoleAssignment`.
 
 ###	List role assignments at a specific scope
-You can see all the access assignments for a specified subscription, resource group, or resource. For example, to see the all the active assignments for a resource group use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
+You can see all the access assignments for a specified subscription, resource group, or resource. For example, to see the all the active assignments for a resource group, use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
 Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL DisplayName, RoleDefinitionName, Scope
@@ -67,7 +67,7 @@ Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL Di
 ![RBAC PowerShell - Get-AzureRmRoleAssignment for a resource group - screenshot](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### List roles assigned to a user
-To list all the roles assigned to a specified user, including the roles assigned to the groups he belongs to, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
+To list all the roles that are assigned to a specified user and the roles that are assigned to the groups to which the user belongs, use `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`.
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
@@ -77,59 +77,59 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 
 ![RBAC PowerShell - Get-AzureRmRoleAssignment for a user - screenshot](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
-### List classic service administrator and co-admin role assignments
-To list access assignments for the classic subscription administrator and co-administrators use:
+### List classic service administrator and coadmin role assignments
+To list access assignments for the classic subscription administrator and coadministrators, use:
 
     Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## Grant access
 ### Search for object IDs
-In order to assign a role, you need to identify both the object (user, group, or application) and the scope.
+To assign a role, you need to identify both the object (user, group, or application) and the scope.
 
-If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. Or, learn how to query for it with [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) on MSDN.
+If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) on MSDN.
 
-To get the object ID for an Azure AD Group use:
+To get the object ID for an Azure AD group, use:
 
     Get-AzureRmADGroup -SearchString <group name in quotes>
 
-To get the object ID for an Azure AD Service Principal, or application, use:
+To get the object ID for an Azure AD service principal or application, use:
 
     Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
-### Assign role to application at subscription scope
-To grant access to an application at subscription scope use:
+### Assign a role to an application at the subscription scope
+To grant access to an application at the subscription scope, use:
 
     New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
-### Assign role to user at resource group scope
-To grant access to a user at resource group scope:
+### Assign a role to a user at the resource group scope
+To grant access to a user at the resource group scope, use:
 
     New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
-### Assign role to group at resource scope
-To grant access to a group at the resource scope use:
+### Assign a role to a group at the resource scope
+To grant access to a group at the resource scope, use:
 
     New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## Remove access
-To remove access for users, groups and applications use:
+To remove access for users, groups, and applications, use:
 
     Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - screenshot](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
-## Create custom role
+## Create a custom role
 To create a custom role, use the `New-AzureRmRoleDefinition` command.
 
-When you create a custom role in PowerShell, you need to start with one of the [built-in roles](role-based-access-built-in-roles.md). Edit the attributes and add whatever Actions, notActions, or scopes you want, and then save the changes as a new role.
+When you create a custom role by using PowerShell, you need to start with one of the [built-in roles](role-based-access-built-in-roles.md). Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
-The following example starts with the role *Virtual Machine Contributor* and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
+The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
 ```
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
@@ -155,7 +155,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ## Modify a custom role
-To modify a custom role first, use the `Get-AzureRmRoleDefinition` command to retrieve role definition. Then, make desired changes to the role definition. Finally, use `Set-AzureRmRoleDefinition` command to save the modified role definition.
+To modify a custom role, first, use the `Get-AzureRmRoleDefinition` command to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use the `Set-AzureRmRoleDefinition` command to save the modified role definition.
 
 The following example adds the `Microsoft.Insights/diagnosticSettings/*` operation to the *Virtual Machine Operator* custom role.
 
@@ -167,7 +167,7 @@ Set-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
-The following example adds an Azure subscription to the assignable scopes of the Virtual Machine Operator custom role.
+The following example adds an Azure subscription to the assignable scopes of the *Virtual Machine Operator* custom role.
 
 ```
 Get-AzureRmSubscription - SubscriptionName Production3
@@ -196,7 +196,7 @@ Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinit
 ## List custom roles
 To list the roles that are available for assignment at a scope, use the `Get-AzureRmRoleDefinition` command.
 
-The following example lists all role available for assignment in the selected subscription.
+The following example lists all roles that are available for assignment in the selected subscription.
 
 ```
 Get-AzureRmRoleDefinition | FT Name, IsCustom

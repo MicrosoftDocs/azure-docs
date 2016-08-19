@@ -3,7 +3,7 @@
    description="Using powershell for Traffic Manager with Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Azure Resource Manager support for Azure Traffic Manager
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. 

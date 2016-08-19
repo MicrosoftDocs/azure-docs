@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/02/2016"
 	ms.author="larryfr"/>
 
 # Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
@@ -105,15 +105,11 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 
 3. Use the following to store the data into primary storage for your HDInsight cluster:
 
-		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
+		hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
 
-3. Use the following to get the fully qualified domain name (FQDN) of the cluster head node:
+4. Run the SimpleShortestPathsComputation example using the following command.
 
-        hostname -f
-        
-4. Run the SimpleShortestPathsComputation example using the following command. Replace __HEADNODE__ with the FQDN returned from the previous step:
-
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+		 yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	The parameters used with this command are described in the following table.
 
@@ -122,7 +118,7 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | The jar file containing the examples. |
 	| `org.apache.giraph.GiraphRunner` | The class used to start the examples. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | The example that will be ran. In this case, it will compute the shortest path between ID 1 and all other IDs in the graph. |
-	| `-ca mapred.job.tracker=HEADNODE:9010` | The headnode for the cluster. |
+	| `-ca mapred.job.tracker=headnodehost:9010` | The headnode for the cluster. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | The input format to use for the input data. |
 	| `-vip /example/data/tiny_graph.txt` | The input data file. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | The output format. In this case, ID and value as plain text. |
@@ -133,7 +129,7 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 
 5. Once the job has finished, the results will be stored in the __wasbs:///example/out/shotestpaths__ directory. The files created will begin with __part-m-__ and end with a number indicating the first, second, etc. file. Use the following to view the output:
 
-		hadoop fs -text /example/output/shortestpaths/*
+		hdfs dfs -text /example/output/shortestpaths/*
 
 	The output should appear similar to the following:
 
