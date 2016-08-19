@@ -41,8 +41,8 @@ After the upload of the backup data to Azure is finished, Azure Backup copies th
     - Vault credentials have been downloaded.
     - Azure Backup agent has been installed on either your Windows Server/Windows client, or System Center Data Protection Manager (SCDPM) server and the computer is registered with the Azure Backup vault.
 - [Download the Azure Publish file settings](https://manage.windowsazure.com/publishsettings) on the computer from which you plan to back up your data.
-- Prepare a staging location, which could be a network share or additional drive on the computer. The staging location is transient storage and is used temporarily during this workflow. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to back up a 500 GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression).
-- •	Make sure that you’re using a supported drive. Only 3.5-inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 8 TB are not supported. You can attach a SATA II/III disk externally to most computers by using a SATA II/III USB adapter. Check the Azure Import/Export documentation for the latest set of drives that the service supports.
+- Prepare a staging location, which could be a network share or additional drive on the computer. The staging location is transient storage and is used temporarily during this workflow. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression).
+- Make sure that you’re using a supported drive. Only 3.5-inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 8 TB are not supported. You can attach a SATA II/III disk externally to most computers by using a SATA II/III USB adapter. Check the Azure Import/Export documentation for the latest set of drives that the service supports.
 - Enable BitLocker on the computer to which the SATA drive writer is connected.
 - [Download the Azure Import/Export tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the computer to which the SATA drive writer is connected. This step is not required if you have downloaded and installed the August 2016 update of Azure Backup (or later).
 
@@ -72,7 +72,7 @@ The information in this section helps you complete the offline-backup workflow s
     Save all this information because you need to enter it again in following steps. Only the *staging location* is required if you used the Azure Disk Preparation tool to prepare the disks.    
 
 
-2. Complete the workflow, and then select **Back Up Now** in the Azure Backup management console to initiate the offline-backup copy. The initial backup is written to the staging area as part of this step.
+    2. Complete the workflow, and then select **Back Up Now** in the Azure Backup management console to initiate the offline-backup copy. The initial backup is written to the staging area as part of this step.
 
     ![Backup now](./media/backup-azure-backup-import-export/backupnow.png)
 
@@ -108,9 +108,9 @@ The Azure Disk Preparation tool is available in installation directory of the Mi
 |s:<*Staging Location Path*> | Mandatory input that's used to provide the path to the staging location that you entered in the **Initiate offline backup** workflow. |
 |p:<*Path to PublishSettingsFile*> | Optional input that's used to provide the path to the **Azure Publish Settings** file that you entered in the **Initiate offline backup** workflow. |
 
-   > [AZURE.NOTE] The <Path to PublishSettingFile> value is mandatory when the copy computer and source computer are different.
+       > [AZURE.NOTE] The <Path to PublishSettingFile> value is mandatory when the copy computer and source computer are different.
 
-When you run the command, the tool requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single Import job is associated with the provided staging location, you'll see a screen such as the one that follows.
+When you run the command, the tool requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single Import job is associated with the provided staging location, you see a screen such as the one that follows.
 
    ![Azure Disk Preparation Tool Input](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
 3. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. Provide confirmation for the formatting of the drive when prompted.
@@ -172,7 +172,7 @@ After the Import job finishes, initial backup data is available in your storage 
 3. In Step 2 of the wizard, provide contact information for the person who's responsible for this Import job.
 4. In Step 3, upload the drive journal files that you obtained in the previous section.
 5. In Step 4, enter a descriptive name for the Import job that you entered during backup policy/Protection Group creation. The name that you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and cannot contain spaces. The name that you choose is used to track your jobs while they are in progress and after they are completed.
-6. Next, select your datacenter region from the list. The datacenter region will indicate the datacenter and address to which you must ship your package.
+6. Next, select your datacenter region from the list. The datacenter region indicates the datacenter and address to which you must ship your package.
 
     ![DC](./media/backup-azure-backup-import-export/dc.png)
 
