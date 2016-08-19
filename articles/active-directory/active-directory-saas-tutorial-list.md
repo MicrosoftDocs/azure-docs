@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="08/17/2016"
+    ms.date="08/19/2016"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -160,6 +160,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Personal Portal](https://go.microsoft.com/fwLink/?LinkID=522549&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mindflash.png)| [Mindflash](https://go.microsoft.com/fwLink/?LinkID=512723&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Mixpanel.png)| [Mixpanel](https://go.microsoft.com/fwLink/?LinkID=708664&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MoveItTransfer.png)| [MOVEit Transfer](https://go.microsoft.com/fwLink/?LinkID=823724&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Moxtra.png)| [Moxtra](https://go.microsoft.com/fwLink/?LinkID=403226&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_MozyEnterprise.png)| [Mozy Enterprise](https://go.microsoft.com/fwLink/?LinkID=510239&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Namely.png)| [Namely](https://go.microsoft.com/fwLink/?LinkID=691854&clcid=0x409)|
