@@ -25,7 +25,7 @@ Planning and designing your cross-premises and VNet-to-VNet configurations can b
 
 ### <a name="compare"></a>Cross-premises connectivity options
 
-If you have decided that you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on various considerations, such as:
+If you you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on various considerations, such as:
 
 
 - What kind of throughput does your solution require?
