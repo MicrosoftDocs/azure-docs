@@ -95,11 +95,11 @@ When you are creating connections, you must consider your subnet ranges. You can
 
 Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
 
-VPN Gateways require a specific subnet called a gateway subnet. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
+VPN Gateways require a specific subnet called a gateway subnet. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. See [Gateway Subnets](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
 #### <a name="local"></a>About local network gateways
 
-The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. You can modify these address prefixes as needed. For more information about local network gateways, see the [Local network gateways](vpn-gateway-about-vpngateways.md#lng) section in the About VPN Gateways article.
+The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. You can modify these address prefixes as needed. For more information about local network gateways, see [Local network gateways](vpn-gateway-about-vpn-gateway-settings.md#lng).
 
 
 #### <a name="gwtype"></a>About gateway types
@@ -159,9 +159,10 @@ A forced tunneling connection can be configured in both deployment models and by
 
 ## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design. 
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design.
 
-For more information about connection topologies, see [Connection topologies](vpn-gateway-topology.md).
+For more information about specific gateway settings, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
+
 
 
 
