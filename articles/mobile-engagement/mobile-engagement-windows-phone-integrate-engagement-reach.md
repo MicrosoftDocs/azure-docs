@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="07/07/2015" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight Reach SDK Integration
