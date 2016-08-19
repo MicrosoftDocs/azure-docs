@@ -84,7 +84,7 @@ The following PowerShell script creates a SQL database and all its dependent res
     $SubscriptionId = "{subscription-id}"
 
     Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
 
     # CREATE A RESOURCE GROUP
     $resourceGroupName = "{group-name}"
