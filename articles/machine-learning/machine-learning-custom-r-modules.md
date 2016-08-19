@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/10/2016" 
+	ms.date="08/19/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -23,12 +23,16 @@ This topic describes how to author and deploy a custom R module in Azure Machine
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## What is a custom R module?
-A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. R is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.
 
-Custom modules have **first-class status** in Azure Machine Learning in the sense that they can used just like any other module. They can be executed with other modules, included in published experiments or visualizations. Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment containing custom module(s) can also be published into Cortana Intelligence Gallery for easy sharing.
+## What is a custom R module?
+
+A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.
+
+Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment containing custom module(s) can also be published into the Cortana Intelligence Gallery for easy sharing.
+
 
 ## Files in a custom R module
+
 A custom R module is defined by a .zip file that contains, at a minimum, two files:
 
 * A **source file** that implements the R function exposed by the module
@@ -36,10 +40,13 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 
 Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed below.
 
+
 ## Quick start example: define, package, and register a custom R module
+
 This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
-Consider the example of a **Custom Add Rows** module that modifies the standard implementation of the Add Rows module used to concatenate rows (observations) from two datasets (data frames). The standard Add Rows module appends the rows of the second input dataset to the end of the first input dataset using the rbind algorithm. The customized `CustomAddRows` function similarly accepts two datasets, but also accepts an additional Boolean swap parameter as an input. If the swap parameter is **FALSE**, it returns the same data set as the standard implementation. But if the swap parameter is **TRUE**, it appends rows of first input dataset to the end of the second dataset instead. The file that implements the R `CustomAddRows` function exposed by the **Custom Add Rows** module contains the following R code.
+## The source file
+Consider the example of a **Custom Add Rows** module that modifies the standard implementation of the **Add Rows** module used to concatenate rows (observations) from two datasets (data frames). The standard **Add Rows** module appends the rows of the second input dataset to the end of the first input dataset using the `rbind` algorithm. The customized `CustomAddRows` function similarly accepts two datasets, but also accepts a Boolean swap parameter as an additional input. If the swap parameter is set to **FALSE**, it returns the same data set as the standard implementation. But if the swap parameter is **TRUE**, the function appends rows of first input dataset to the end of the second dataset instead. The CustomAddRows.R file that contains the implementation of the R `CustomAddRows` function exposed by the **Custom Add Rows** module has the following R code.
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
 	{
@@ -53,15 +60,18 @@ Consider the example of a **Custom Add Rows** module that modifies the standard 
 		} 
 	} 
 
+### The XML definition file
 To expose this `CustomAddRows` function as an Azure Machine Learning module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
 
 	<!-- Defined a module using an R Script -->
 	<Module name="Custom Add Rows">
 	    <Owner>Microsoft Corporation</Owner>
-	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false, and vice versa when Swap is true.</Description>
+	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
 	
 	<!-- Specify the base language, script file and R function to use for this module. -->		
-	    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />  
+	    <Language name="R" 
+		 sourceFile="CustomAddRows.R" 
+		 entryPoint="CustomAddRows" />  
 		
 	<!-- Define module input and output ports -->
 	<!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
@@ -73,7 +83,7 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 				<Description>Second input dataset</Description>
 			</Input>
 			<Output id="dataset" name="Dataset" type="DataTable">
-				<Description>Combined dataset</Description>
+				<Description>The combined dataset</Description>
 			</Output>
 	    </Ports>
 		
@@ -86,15 +96,17 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	</Module>
 
  
-Note that the value of the **id** attributes of the **Input** and **Arg** elements in the XML file must match the function parameter names of the R code exactly (*dataset1*, *dataset2*, and *swap* in the example). Similarly, the value of the **entryPoint** attribute of the **Language** element must match the name of the function in the R script exactly (*CustomAddRows* in the example). In contrast, the **id** attribute for the **Output** elements do not correspond to any variables in the R script. When more than one output is required, simply return a list from the R function with results placed in the same order as outputs are declared in the XML file.
+It is critical to note that the value of the **id** attributes of the **Input** and **Arg** elements in the XML file must match the function parameter names of the R code in the CustomAddRows.R file EXACTLY (*dataset1*, *dataset2*, and *swap* in the example). Similarly, the value of the **entryPoint** attribute of the **Language** element must match the name of the function in the R script EXACTLY (*CustomAddRows* in the example). In contrast, the **id** attribute for the **Output** elements do not correspond to any variables in the R script. When more than one output is required, simply return a list from the R function with results placed *in the same order* as outputs are declared in the XML file.
 
+### Package and register the module
 Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip them together into a *CustomAddRows.zip* file.
 
-To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new Custom Add Rows module.
+To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
 
 ![Upload Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 The **Custom Add Rows** module is now ready to be accessed by your Machine Learning experiments.
+
 
 ## Elements in the XML definition file
 
@@ -356,8 +368,10 @@ You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows functio
 
 Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.
 
-## Execution Environment ##
-The execution environment for the R script uses the same version of R as the **Execute R Script** module, and can use the same default packages. You can add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment. 
+
+## Execution Environment
+
+The execution environment for the R script uses the same version of R as the **Execute R Script** module and can use the same default packages. You can also add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment. 
 
 **Limitations of the execution environment** include:
 
