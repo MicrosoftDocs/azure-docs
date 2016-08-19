@@ -14,8 +14,7 @@ Click the scorecard links for each article to review the Acrolinx feedback on gr
    ;; do not remove the spaces at the end of lines! That is markdown for
    ;; linebreak
    :template-change
-   "
-| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [report](${acrolinx/scorecard}) |
+   "| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [report](${acrolinx/scorecard}) |
 "
 
  :template-footer
