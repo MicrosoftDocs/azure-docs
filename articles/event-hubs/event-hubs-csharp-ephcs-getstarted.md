@@ -30,7 +30,7 @@ To complete this tutorial, you'll need the following:
 
 + [Microsoft Visual Studio](http://visualstudio.com)
 
-+ An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/en-us/free/).
++ An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
