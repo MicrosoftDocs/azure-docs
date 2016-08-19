@@ -26,7 +26,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
+* An Integration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and an [AS2 agreement](./app-service-logic-enterprise-integration-as2.md)
 
 ### Connect to Decode AS2 Message using the following steps:
 
@@ -74,6 +74,10 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 * Determines whether an MDN is required, and whether the MDN should be synchronous or asynchronous based on configuration in AS2 agreement
 * Generates a synchronous or asynchronous MDN (based on agreement configurations)
 * Sets the correlation tokens and properties on the MDN
+
+##Try it for yourself
+
+Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy a fully operational logic app of your own using the Logic Apps AS2 features 
 
 ## Next steps
 
