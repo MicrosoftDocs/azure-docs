@@ -3,7 +3,7 @@
    description="How to manage reverse DNS records or PTR records for Azure services using the Azure CLI in Resource Manager"
    services="DNS"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="s-malone"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/09/2016"
-   ms.author="jonatul" />
+   ms.author="smalone" />
 
 # How to manage reverse DNS records for your services using the Azure CLI
 

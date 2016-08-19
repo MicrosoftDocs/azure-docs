@@ -16,6 +16,7 @@
    ms.author="sewhee" />
 
 # Multiple VIPs per cloud service
+
 You can access Azure cloud services over the public Internet by using an IP address provided by Azure. This public IP address is referred to as a VIP (virtual IP) since it is linked to the Azure load balancer, and not really the VM instances within the cloud service. You can access any VM instance within a cloud service by using a single VIP.
 
 However, there are scenarios in which you may need more than one VIP as an entry point to the same cloud service. For instance, your cloud service may host multiple websites that require SSL connectivity using the default port of 443, each site being hosted for a different customer, or tenant. In such a scenario, you need to have a different public facing IP address for each website. The diagram below shows a typical multi-tenant web hosting with a need for multiple SSL certificates on the same public port.
@@ -26,7 +27,7 @@ In the above scenario, all VIPs use the same public port (443) and traffic is re
 
 >[AZURE.NOTE] Another scenario for the use the multiple VIPs is hosting multiple SQL AlwaysOn availability group listeners on the same set of Virtual Machines.
 
-VIPs are dynamic by default, which means that the actual IP address assigned to the cloud service may change over time. To prevent that from happening, you can reserve a VIP for your service. To learn more about reserved VIPs, see [Reserved Public IP](../virtual-networks-reserved-public-ip).
+VIPs are dynamic by default, which means that the actual IP address assigned to the cloud service may change over time. To prevent that from happening, you can reserve a VIP for your service. To learn more about reserved VIPs, see [Reserved Public IP](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 >[AZURE.NOTE] Please see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
 
@@ -43,6 +44,7 @@ At this time, multi VIP functionality is limited to the following scenarios:
 
 
 ## How to add a VIP to a cloud service
+
 To add a VIP to your service, run the following PowerShell command:
 
     Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -54,6 +56,7 @@ The command above will display a result similar to the sample below:
     Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
 ## How to remove a VIP from a cloud service
+
 To remove the VIP added to your service in the example above, run the following PowerShell command:
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
@@ -61,6 +64,7 @@ To remove the VIP added to your service in the example above, run the following 
 >[AZURE.IMPORTANT] You can only remove a VIP if it has no endpoints associated to it.
 
 ## How to retrieve VIP information from a Cloud Service
+
 To retrieve the VIPs associated with a cloud service, run the following PowerShell script:
 
     $deployment = Get-AzureDeployment -ServiceName myService
@@ -94,6 +98,7 @@ In this example, the cloud service has 3 VIPs:
 >[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
+
 To associate a VIP on a cloud service to an endpoint, run the following PowerShell command:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
@@ -128,6 +133,7 @@ And the output will look similar to the results below:
     ExtensionData   :
 
 ## How to enable load balancing on a specific VIP
+
 You can associate a single VIP with multiple virtual machines for load balancing purposes. For instance, suppose you have a cloud service named *myService*, and two virtual machines named *myVM1* and *myVM2*. And your cloud service has multiple VIPs, one of them named *Vip2*. If you want to ensure that all traffic to port *81* on *Vip2* is balanced between *myVM1* and *myVM2* on port *8181*, run the following PowerShell script:
 
     Get-AzureVM -ServiceName myService -Name myVM1 `
