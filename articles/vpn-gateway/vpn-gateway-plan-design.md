@@ -86,7 +86,7 @@ Start by looking at the diagrams in the [Connection topologies](vpn-gateway-topo
 
 ### <a name="designbasics"></a>Design basics
 
-The following sections discuss the VPN gateway basics. Additionally, you will want consider the [Networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
+The following sections discuss the VPN gateway basics. Also, consider the [networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
 #### <a name="subnets"></a>About subnets
@@ -95,7 +95,7 @@ When planning and designing the connection that works best for your environment,
 
 When you are creating connections, you must consider your subnet ranges. You cannot have overlapping subnet address ranges. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You need address space that is not being used on the local on-premises network. 
 
-Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. Creating a VNet-to-VNet connection will fail if your subnets overlap and an IP address exists in both the sending and destination VNets. In this case, Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
+Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections will fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
 
 VPN Gateways require a specific subnet called a gateway subnet. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
 
@@ -141,7 +141,7 @@ To configure a Site-to-Site connection, regardless of deployment model, you need
 - A VPN device that is compatible with Azure VPN gateways
 - A public-facing IPv4 IP address that is not behind a NAT
 
-You need to have experience configuring your VPN device, or have someone that can configure the device for you. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to device configuration documents if they are available.
+You need to have experience configuring your VPN device, or have someone that can configure the device for you. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to device configuration documents if available.
 
 ### <a name="forcedtunnel"></a>Consider forced tunnel routing
 
