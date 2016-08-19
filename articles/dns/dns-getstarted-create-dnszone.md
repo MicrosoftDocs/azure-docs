@@ -23,7 +23,7 @@
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-This article will walk you through the steps to create a DNS zone by using CLI. You can also create a DNS zone using PowerShell or the Azure portal. 
+This article will walk you through the steps to create a DNS zone by using PowerShell. You can also create a DNS zone using CLI or the Azure portal. 
 
 [AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
 
