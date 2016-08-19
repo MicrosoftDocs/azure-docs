@@ -33,7 +33,7 @@ The following links provide general Information on the process of deploying a ne
 * [Deploy a new web service](machine-learning-webservice-deploy-a-web-service)
 * [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service)
 
-For a full walk through of how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace).
+For a full walkthrough of how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace).
 
 For specific examples of deploying a web service, see:
 
@@ -51,7 +51,7 @@ The Azure ML Resource Provider for web services enables deployment and managemen
 
 Azure ML Resource Provider for web services enables deployment and management of web services through PowerShell cmdlets.
 
-To use the cmdlets, you must first log into your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/en-us/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](..\powershell-azure-resource-manager/#login-to-your-azure-account). 
+To use the cmdlets, you must first log in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/en-us/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](..\powershell-azure-resource-manager/#login-to-your-azure-account). 
 
 To export your predictive experiment, use this [sample code](https://github.com/ritwik20/AzureML-WebServices). After creating the exe from the code, you can type:
 
@@ -60,11 +60,11 @@ To export your predictive experiment, use this [sample code](https://github.com/
 Running the application creates a web service JSON template. To use the template to deploy a web service, you must add the following information:
 
 * Storage account name and key 
-	* You can get the storage account name and key from either the new or classic Azure Portal.
+	* You can get the storage account name and key from either the new or classic Azure portal.
 * Commitment Plan ID 
 	* You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by logging in and clicking on a plan name.
 
-Add them to the JSON template as children of *Properties* node at the same level as  the *MachineLearningWorkspace* node.
+Add them to the JSON template as children of *Properties* node at the same level as the *MachineLearningWorkspace* node.
 
 See below example:
 
