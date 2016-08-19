@@ -60,6 +60,7 @@ Here high level data flow for and summary of steps for copy with data gateway:
 
 ### Prerequisites
 - The supported **Operating System** versions are Windows 7, Windows 8/8.1,  Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation of the Data Management Gateway on a domain controller is currently not supported.
+- .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](https://msdn.microsoft.com/library/8z6watww.aspx) for details. 
 - The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
 - If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.
 - You must be an administrator on the machine to install and configure the Data Management Gateway successfully. You can add additional users to the **Data Management Gateway Users** local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
