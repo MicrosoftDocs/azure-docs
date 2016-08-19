@@ -26,9 +26,9 @@ This topic describes how to author and deploy a custom R module in Azure Machine
 
 ## What is a custom R module?
 
-A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.
+A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
 
-Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment containing custom module(s) can also be published into the Cortana Intelligence Gallery for easy sharing.
+Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that containe custom modules can also be published into the Cortana Intelligence Gallery for easy sharing.
 
 
 ## Files in a custom R module
@@ -38,10 +38,10 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 * A **source file** that implements the R function exposed by the module
 * An **XML definition file** that describes the custom module interface
 
-Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed below.
+Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed in the **Arguments** part of the reference section **Elements in the XML definition file** following the quickstart example.
 
 
-## Quick start example: define, package, and register a custom R module
+## Quickstart example: define, package, and register a custom R module
 
 This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
@@ -96,12 +96,14 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	</Module>
 
  
-It is critical to note that the value of the **id** attributes of the **Input** and **Arg** elements in the XML file must match the function parameter names of the R code in the CustomAddRows.R file EXACTLY (*dataset1*, *dataset2*, and *swap* in the example). Similarly, the value of the **entryPoint** attribute of the **Language** element must match the name of the function in the R script EXACTLY (*CustomAddRows* in the example). In contrast, the **id** attribute for the **Output** elements do not correspond to any variables in the R script. When more than one output is required, simply return a list from the R function with results placed *in the same order* as outputs are declared in the XML file.
+It is critical to note that the value of the **id** attributes of the **Input** and **Arg** elements in the XML file must match the function parameter names of the R code in the CustomAddRows.R file EXACTLY: (*dataset1*, *dataset2*, and *swap* in the example). Similarly, the value of the **entryPoint** attribute of the **Language** element must match the name of the function in the R script EXACTLY: (*CustomAddRows* in the example). 
+
+In contrast, the **id** attribute for the **Output** element does not correspond to any variables in the R script. When more than one output is required, simply return a list from the R function with results placed *in the same order* as **Outputs** elements are declared in the XML file.
 
 ### Package and register the module
-Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip them together into a *CustomAddRows.zip* file.
+Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip the two file together into a *CustomAddRows.zip* file.
 
-To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
+To register them in your Machine Learning workspace, go to your workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
 
 ![Upload Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
@@ -111,27 +113,29 @@ The **Custom Add Rows** module is now ready to be accessed by your Machine Learn
 ## Elements in the XML definition file
 
 ### Module elements
-The **Module** element is used to define a custom module in the XML file. Multiple modules can be defined in one XML file using multiple **module** elements. Each module in your workspace must have a unique name. Register a custom module with the same name as an existing custom module and it will replace the existing module with the new one. Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module and it will appear in the Custom category of the module palette.
+The **Module** element is used to define a custom module in the XML file. Multiple modules can be defined in one XML file using multiple **module** elements. Each module in your workspace must have a unique name. Register a custom module with the same name as an existing custom module and it replaces the existing module with the new one. Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module. If so, they appear in the **Custom** category of the module palette.
 
 	<Module name="Custom Add Rows" isDeterministic="false"> 
 		<Owner>Microsoft Corporation</Owner>
 		<Description>Appends one dataset to another...</Description>/> 
 
 
-Within the **Module** element, you can specify an optional **Owner** element that is embedded into the module as well as a **Description** element which is text displayed in quick help for the module and when you hover over the module in the Machine Learning UI.
+Within the **Module** element, you can specify two additional optional elements:
 
-**Rules for characters limits in the Module elements**:
+- an **Owner** element that is embedded into the module  
+- a **Description** element that contains text  that is displayed in quick help for the module and when you hover over the module in the Machine Learning UI.
+
+
+Rules for characters limits in the Module elements:
 
 * The value of the **name** attribute in the **Module** element must not exceed 64 characters in length. 
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
 
 
-**Indicating whether a module's results are deterministic or nondeterministic**
+A module's results can be deterministic or nondeterministic.** By default, all modules are considered to be deterministic. That is, given an unchanging set of input parameters and data, the module should return the same results eacRAND or a functionh time it is run. Given this behavior, Azure Machine Learning Studio only reruns modules marked as deterministic if a parameter or the input data has changed. Returning the cached results also provides much faster execution of experiments.
 
-By default, all modules are considered to be deterministic. That is, given an  unchanging set of parameters, the module should return the same results each time it is run. Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed. Cached results are returned resulting in faster experiment execution.
-
-However, if your module uses a function that returns different results each time it is run – for example, RAND or a function that returns the current date or time – you can specify the module as being non-deterministic by setting the optional **isDeterministic** attribute to **false**. The module will be rerun each time the experiment is run, even if the module input and parameters have not changed. 
+There are functions that are nondeterministic, such as RAND or a function that returns the current date or time. If your module uses a nondeterministic function, you can specify that the module is non-deterministic by setting the optional **isDeterministic** attribute to **FALSE**. This insures that the module is rerun whenever the experiment is run, even if the module input and parameters have not changed. 
 
 ### Language Definition
 The **Language** element in your XML definition file is used to specify the custom module language. Currently, R is the only supported language. The value of the **sourceFile** attribute must be the name of the R file that contains the function to call when the module is run. This file must be part of the zip package. The value of the **entryPoint** attribute is the name of the function being called and must match a valid function defined with in the source file.
@@ -140,7 +144,7 @@ The **Language** element in your XML definition file is used to specify the cust
 
 
 ### Ports
-The input and output ports for a custom module are specified in child elements of the **Ports** section of the XML definition file. The order of these elements determines the layout experienced (UX) by users. The first child **input** or **output** listed in the **Ports** element  of the XML file will be the left-most input port in the Machine Learning UX.
+The input and output ports for a custom module are specified in child elements of the **Ports** section of the XML definition file. The order of these elements determines the layout experienced (UX) by users. The first child **input** or **output** listed in the **Ports** element of the XML file becomes the left-most input port in the Machine Learning UX.
 Each input and output port may have an optional **Description** child element that specifies the text shown when a user hovers the mouse cursor over the port in the Machine Learning UI.
 
 **Ports Rules**:
@@ -148,24 +152,24 @@ Each input and output port may have an optional **Description** child element th
 * Maximum number of **input and output ports** is 8 for each.
 
 ### Input elements
-Input ports allow users to pass data to your R function and workspace. The **data types** that are supported for input ports are as follows: 
+Input ports allow you to pass data to your R function and workspace. The **data types** that are supported for input ports are as follows: 
 
-**DataTable:** This type is passed to your R function as a data.frame. In fact, any types (for example, CSV files or ARFF files) that are supported  by Machine Learning and that are compatible with **DataTable** are converted to a data.frame automatically. 
+**DataTable:** This type is passed to your R function as a data.frame. In fact, any types (for example, CSV files or ARFF files) that are supported by Machine Learning and that are compatible with **DataTable** are converted to a data.frame automatically. 
 
 		<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
         	<Description>Input Dataset 1</Description>
        	</Input>
 
 The **id** attribute associated with each **DataTable** input port must have a unique value and this value must match its corresponding named parameter in your R function.
-Optional **DataTable** ports that are not passed as input in an experiment will have the value **NULL** passed to the R function and optional zip ports will be ignored if the input is not connected. The **isOptional** attribute is optional for both the **DataTable** and **Zip** types and is *false* by default.
+Optional **DataTable** ports that are not passed as input in an experiment have the value **NULL** passed to the R function and optional zip ports are ignored if the input is not connected. The **isOptional** attribute is optional for both the **DataTable** and **Zip** types and is *false* by default.
 	   
 **Zip:** Custom modules can accept a zip file as input. This input is unpacked into the R working directory of your function
 
 		<Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
-        	<Description>Zip files will be extracted to the R working directory.</Description>
+        	<Description>Zip files to be extracted to the R working directory.</Description>
        	</Input>
 
-For custom R modules, the id for a Zip port does not have to match any parameters of the R function since the zip file is automatically extracted to the R working directory.
+For custom R modules, the id for a Zip port does not have to match any parameters of the R function. This is because the zip file is automatically extracted to the R working directory.
 
 **Input Rules:**
 
@@ -185,9 +189,9 @@ Output ports are mapped to the return values from your R function, which can the
 		<Description>Combined dataset</Description>
 	</Output>
 
-For outputs in custom R modules, the value of the **id** attribute does not have to correspond with anything in the R script, but it must be unique. For a single module output, the return value from the R function must be a *data.frame*. In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list. The output objects will be assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.
+For outputs in custom R modules, the value of the **id** attribute does not have to correspond with anything in the R script, but it must be unique. For a single module output, the return value from the R function must be a *data.frame*. In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list. The output objects are assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.
 
-For example, if you want to modify the **Custom Add Rows** module to output the original two datasets, *dataset1*, and *dataset2*, in addition to the new joined dataset *dataset* (in an order, from left to right, as: *dataset*, *dataset1*, *dataset2*), then define the output ports in the CustomAddRows.xml file as follows:
+For example, if you want to modify the **Custom Add Rows** module to output the original two datasets, *dataset1* and *dataset2*, in addition to the new joined dataset, *dataset*, (in an order, from left to right, as: *dataset*, *dataset1*, *dataset2*), then define the output ports in the CustomAddRows.xml file as follows:
 
 	<Ports> 
 		<Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -218,7 +222,7 @@ And return the list of objects in a list in the correct order in ‘CustomAddRow
 	} 
 	
 **Visualization output:**
-You can also specify an output port of type *Visualization* which displays the output from the R graphics device and console output. This port is not part of the R function output and does not interfere with the order of the the other output port types. To add a visualization port to the custom modules, add an **Output** element with a value of *Visualization* for its **type** attribute:
+You can also specify an output port of type *Visualization*, which displays the output from the R graphics device and console output. This port is not part of the R function output and does not interfere with the order of the other output port types. To add a visualization port to the custom modules, add an **Output** element with a value of *Visualization* for its **type** attribute:
 
 	<Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -228,21 +232,20 @@ You can also specify an output port of type *Visualization* which displays the o
 
 * The value of the **id** attribute of the **Output** element must be a valid R variable name.
 * The value of the **id** attribute of the **Output** element must not be longer than 32 characters.
-* The value of the **name** attribute of the **Output** element  must not be longer than 64 characters.
+* The value of the **name** attribute of the **Output** element must not be longer than 64 characters.
 * The value of the **type** attribute of the **Output** element must be *Visualization*.
 
 ### Arguments
-Additional data can be passed to the R function via module parameters which are defined in the **Arguments** element. These parameters appear in the right most properties pane of the Machine Learning UI when the module is selected. Arguments can be any of the supported types or you can create a custom enumeration when needed. Similar to the **Ports** elements, **Arguments** elements can have an optional **Description** element that specifies the text that appears when you hover the mouse over the parameter name.
-Optional properties for a module, such as defaultValue, minValue and maxValue can be added to any argument as attributes to a **Properties** element. Valid properties for the **Properties** element depend on the argument type and are describe with the supported argument types below.
-As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them. In addition, the id values must correspond to the named parameters in your R function. In our quick start example the associated id/parameter was *swap*.
+Additional data can be passed to the R function via module parameters which are defined in the **Arguments** element. These parameters appear in the rightmost properties pane of the Machine Learning UI when the module is selected. Arguments can be any of the supported types or you can create a custom enumeration when needed. Similar to the **Ports** elements, **Arguments** elements can have an optional **Description** element that specifies the text that appears when you hover the mouse over the parameter name.
+Optional properties for a module, such as defaultValue, minValue, and maxValue can be added to any argument as attributes to a **Properties** element. Valid properties for the **Properties** element depend on the argument type and are described with the supported argument types in the next section. As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them. In our quick start example the associated id/parameter was *swap*.
 
 ### Arg element
-A module parameter is defined using the **Arg** child element of the **Arguments** section of the XML definition file. As with the child elements in the **Ports** section, the ordering of parameters in the **Arguments** section defines the layout encountered in the UX. The parameters appear from top down in the UI in the same order in which they are defined in the XML file. The types supported by Machine Learning for parameters are listed below. 
+A module parameter is defined using the **Arg** child element of the **Arguments** section of the XML definition file. As with the child elements in the **Ports** section, the ordering of parameters in the **Arguments** section defines the layout encountered in the UX. The parameters appear from top down in the UI in the same order in which they are defined in the XML file. The types supported by Machine Learning for parameters are listed here. 
 
 **int** – an Integer (32-bit) type parameter.
 
 		<Arg id="intValue1" name="Int Param" type="int">
-			<Properties min="0" max="100" default="0" />
+			<Properties min="uts, it is critical that each of the parameters have unique id values associated with them. In addition, the id values must correspond to the named parameters in your R funct0" max="100" default="0" />
 			<Description>Integer Parameter</Description>
        </Arg>
 
@@ -279,9 +282,9 @@ A module parameter is defined using the **Arg** child element of the **Arguments
         </Arg>
 
 
-* *Optional Properties*: **default** and **isOptional** - An optional string without a default value will be passed as null to the R function if a value is not otherwise provided by a user.
+* *Optional Properties*: **default** and **isOptional** - An optional string without a default value is passed as **NULL** to the R function if a value is not otherwise provided by a user.
 
-**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns will be selected, where the target port type must be *DataTable*. The result of the column selection will be passed to the R function as a list of strings containing the selected column names. 
+**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection are passed to the R function as a list of strings containing the selected column names. 
 
 		<Arg id="colset" name="Column set" type="ColumnPicker">	  
 		  <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -289,7 +292,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 		</Arg>
 
 
-* *Required Properties*: **portId** -  matches the id of an Input element with type *DataTable*.
+* *Required Properties*: **portId** - matches the id of an Input element with type *DataTable*.
 * *Optional Properties*:
 	* **allowedTypes** - Filter the column types the user can pick from. Valid values include: 
 		* 	Numeric
@@ -325,7 +328,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 		* All
 
                             							
-**DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.
+**DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable. The value of the **name** of an **Item** serves as both the text that appears to users and the value that is passed to the R function.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -342,9 +345,11 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 ### Auxiliary Files
 
-Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. Please notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
+Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in Azure Machine Learning execution. 
 
-For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
+> [AZURE.NOTE] Notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
+
+For example, say you want to remove any rows with NAs from the dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
 
 	RemoveDupNARows <- function(dataFrame) {
 		#Remove Duplicate Rows:
@@ -371,11 +376,11 @@ Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml�
 
 ## Execution Environment
 
-The execution environment for the R script uses the same version of R as the **Execute R Script** module and can use the same default packages. You can also add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment. 
+The execution environment for the R script uses the same version of R as the **Execute R Script** module and can use the same default packages. You can also add additional R packages to your custom module by including them in the custom module zip package. Just load them in your R script as you would in your own R environment. 
 
 **Limitations of the execution environment** include:
 
-* Non-persistent file system: Files written when the custom module is run will not persist across multiple runs of the same module.
+* Non-persistent file system: Files written when the custom module is run are not persisted across multiple runs of the same module.
 * No network access
 
 
