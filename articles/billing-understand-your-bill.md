@@ -37,18 +37,13 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 ### View or download a bill for Microsoft Azure:
 
-In the [Azure Account Center](https://account.windowsazure.com/subscriptions) you can view current and download past bills.
-
-To view or download a bill:
-
-1. Sign in to the [Account Center](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
+1. Sign in to the [Account Center](https://account.windowsazure.com/subscriptions) using your Microsoft Account or Organizational ID.
 
 2. Click on the subscription in which you would like to see details and usage.
 
 3. Click **Billing History**
 
     ![Summary - billing history -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
-
 
 4. The **Billing History** section lists your statements for prior billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.  
 
@@ -65,9 +60,7 @@ To view or download a bill:
     ![Summary-billing history 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-***Important:***
-*Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
-
+> [AZURE.NOTE] Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
 
 Below are some sample statements for two different offers available on Microsoft Azure.
 
