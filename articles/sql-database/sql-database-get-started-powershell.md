@@ -38,18 +38,14 @@ Once you have access to run cmdlets against your selected Azure subscription, th
 
 Run the following command to create a resource group:
 
-	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps"`
-                             -Location "westus"
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
 ### Create a server
 
 SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
 
-	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps"`
-                         -ServerName "server1"`
-                         -Location "westus"`
-                         -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
 When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password that will be the administrator credentials you want to create for the server. The script at the bottom of this article shows how to set the server credentials in code.
 
@@ -59,11 +55,7 @@ The server details appear after the server is successfully created.
 
 To access the server you need to Establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
 
-	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps"`
-                                     -ServerName "server1"`
-                                     -FirewallRuleName "rule1"`
-                                     -StartIpAddress "192.168.0.0"`
-                                     -EndIpAddress "192.168.0.0"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 The firewall rule details appear after the rule is successfully created.
 
@@ -79,11 +71,7 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 The following command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
 
 
-	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps"`
-                           -ServerName "server1"`
-                           -DatabaseName "database1"`
-                           -Edition "Standard"`
-                           -RequestedServiceObjectiveName "S1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 The database details appear after the database is successfully created.
@@ -114,11 +102,7 @@ The following PowerShell script creates a SQL database and all its dependent res
     $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
     $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
     
-    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName`
-                                        -ServerName $serverName`
-                                        -Location $serverLocation`
-                                        -ServerVersion $serverVersion`
-                                        -SqlAdministratorCredentials $serverCreds
+    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
     
     # CREATE A SERVER FIREWALL RULE
     $ip = (Test-Connection -ComputerName $env:COMPUTERNAME -Count 1 -Verbose).IPV4Address.IPAddressToString
@@ -126,11 +110,7 @@ The following PowerShell script creates a SQL database and all its dependent res
     $firewallStartIp = $ip
     $firewallEndIp = $ip
     
-    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName`
-                                                     -ServerName $serverName`
-                                                     -FirewallRuleName $firewallRuleName`
-                                                     -StartIpAddress $firewallStartIp`
-                                                     -EndIpAddress $firewallEndIp
+    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName $firewallRuleName -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
     
     
     # CREATE A SQL DATABASE
@@ -138,11 +118,7 @@ The following PowerShell script creates a SQL database and all its dependent res
     $databaseEdition = "{Standard}"
     $databaseSlo = "{S0}"
     
-    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
-                                          -ServerName $serverName `
-                                          -DatabaseName $databaseName `
-                                          -Edition $databaseEdition `
-                                          -RequestedServiceObjectiveName $databaseSlo
+    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $databaseEdition -RequestedServiceObjectiveName $databaseSlo
     
    
     # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
