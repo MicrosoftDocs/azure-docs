@@ -33,7 +33,7 @@ The list of attributes is read from the cache created during installation of Azu
 
 An object can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, it is truncated by the sync engine.
 
-During installation of Azure AD Connect, an application is registered where these attributes will be available. You can see this application in the Azure portal.  
+During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal.  
 ![Schema Extension App](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
 
 These attributes are now available through Graph:  
