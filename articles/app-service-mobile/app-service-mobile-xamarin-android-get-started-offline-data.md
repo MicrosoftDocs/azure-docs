@@ -96,7 +96,7 @@ In this section, you will modify the client app to simulate an offline scenario 
 
         const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
-	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
+	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or use airplane mode.
 
 2. Update `ToDoActivity.SyncAsync` so that `MobileServicePushFailedException` are caught and simply ignored assuming you are offline.
 

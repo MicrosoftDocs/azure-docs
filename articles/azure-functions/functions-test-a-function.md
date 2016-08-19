@@ -28,7 +28,7 @@ In this tutorial, we will walk through different approaches to testing functions
 
 For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
 
-The default function template is basically a hello world function that echos back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
+The default function template is basically a hello world function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
 
 Update the function with the following code which we will use for testing:
 
@@ -238,7 +238,7 @@ To demonstrate this approach, we will first create a queue trigger function that
 > [AZURE.NOTE] If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request. 
 
 1. In the [Azure Portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
-2. Enter the queue name to be monitored by the queue funcion 
+2. Enter the queue name to be monitored by the queue function 
 
 		queue-newusers 
 
