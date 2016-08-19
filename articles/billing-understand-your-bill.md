@@ -92,27 +92,20 @@ The **Invoice Summary** section of the bill summarizes transactions since your l
 
 The previous balance, payments, and outstanding balance section of the bill summarizes transactions since your last bill.
 
-### Previous balance
-Previous balance is the total amount due from your last bill.
-
-### Payments
-Payments are your total payments applied to your last bill.
-
-### Outstanding balance (from previous billing cycle)
-Any bill adjustments (credits or balances) applied to your account since your last bill.
-
+| Term                                              | Description                                                                              |
+|---------------------------------------------------|------------------------------------------------------------------------------------------|
+| Previous balance                                  | Previous balance is the total amount due from your last bill                             |
+| Payments                                          | Payments are your total payments applied to your last bill                               |
+| Outstanding balance (from previous billing cycle) | Any bill adjustments (credits or balances) applied to your account since your last bill. |
 
 ## Understand the current charges
 The Current Charges section of the bill contains details about your monthly charges. The links are organized into the following subsections.
 
-### Usage charges
-Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage.
-
-### Discounts
-Service discounts on your usage would be reflected in this line item that are applied to your current bill.
-
-### Adjustments
-Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Enterprise with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
+| Term          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Usage charges | Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage                                                                                                                                                                                                                                                                                                                                       |
+| Discounts     | Service discounts on your usage would be reflected in this line item that are applied to your current bill                                                                                                                                                                                                                                                                                                                                             |
+| Adjustments   | Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Enterprise with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.|
 
 ## Footer information
 ![footer](./media/billing-understand-your-bill/footerinformation.png)
@@ -128,15 +121,18 @@ A link in the description under **Detailed Usage** directs you the Account Cente
 ### Additional information and useful resources
 This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
 
-### Sold to
-This is prepopulated with the profile address on the account.
-
-### Payment instructions
-This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice.
+| Term                 | Description                                                                                                                            |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Sold to              | This is prepopulated with the profile address on the account                                                                           |
+| Payment instructions | This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice |
 
 ## Understand detailed usage charges
 
-As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: **Version 1** uses the pre-existing format; **Version 2** includes additional information and updated column names in the Daily Usage section.  
+As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: 
+
+- **Version 1** uses the pre-existing format
+
+- **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
@@ -191,9 +187,9 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
-N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/)
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
-N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
+N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/)
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
@@ -217,7 +213,6 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 
 ## More resources
-Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/library/azure/dn578292.aspx) for some very helpful links:
 
 - [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
 
