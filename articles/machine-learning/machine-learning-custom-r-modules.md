@@ -145,7 +145,7 @@ The **Language** element in your XML definition file is used to specify the cust
 
 ### Ports
 The input and output ports for a custom module are specified in child elements of the **Ports** section of the XML definition file. The order of these elements determines the layout experienced (UX) by users. The first child **input** or **output** listed in the **Ports** element of the XML file becomes the left-most input port in the Machine Learning UX.
-Each input and output port may have an optional **Description** child element that specifies the text shown when you hovers the mouse cursor over the port in the Machine Learning UI.
+Each input and output port may have an optional **Description** child element that specifies the text shown when you hover the mouse cursor over the port in the Machine Learning UI.
 
 **Ports Rules**:
 
