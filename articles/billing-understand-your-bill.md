@@ -74,8 +74,9 @@ Commitment offer | Spend deducted from your prepaid commitment | [Sample file](h
 The account information section identifies pertinent information in regards to your usage and profile.
     ![header](./media/billing-understand-your-bill/Header.png)
 
-| Invoice No.         | A unique invoice identifier for tracking purposes                                                   |
+| Term                | Description                                                                                         |
 |---------------------|-----------------------------------------------------------------------------------------------------|
+| Invoice No.         | A unique invoice identifier for tracking purposes                                                   |
 | Billing cycle       | The time frame in which usage has taken place                                                       |
 | Invoice date        | Date that the invoice was generated                                                                 |
 | Payment method      | Type of payment used on the account (i.e. invoice or credit card)                                   |
