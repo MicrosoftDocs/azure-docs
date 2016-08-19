@@ -14,11 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/19/2016"
    ms.author="erihur;genli"/>
 
 
 # Understand your bill for Microsoft Azure
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
@@ -241,6 +243,8 @@ Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, un
 - [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
 
 - [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md)
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 <!--
 OLD MSDN Articles

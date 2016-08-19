@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design decisions and coding techniques for SQL Data Warehouse
@@ -52,7 +52,7 @@ Once you have been through the development articles take a look through the [Tra
 
 <!--Article references-->
 [concurrency]: ./sql-data-warehouse-develop-concurrency.md
-[connections]: ./sql-data-warehouse-develop-connections.md
+[connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
 [group by options]: ./sql-data-warehouse-develop-group-by-options.md

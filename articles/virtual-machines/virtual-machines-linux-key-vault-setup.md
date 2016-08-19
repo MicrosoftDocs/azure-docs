@@ -3,8 +3,8 @@
 	description="How to set up Key Vault for use with an Azure Resource Manager virtual machine."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
-	manager="drewm"
+	authors="singhkays"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 

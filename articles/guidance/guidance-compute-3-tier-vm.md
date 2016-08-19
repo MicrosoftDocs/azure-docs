@@ -3,7 +3,7 @@
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,13 +15,13 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/06/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Running VMs for an N-tier architecture on Azure
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running virtual machines (VMs) for an application with a N-tier architecture.
+This article outlines a set of proven practices for running virtual machines (VMs) for an application with an N-tier architecture.
 
 There are variations of N-tier architectures. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article assumes a typical 3-tier web app:
 
