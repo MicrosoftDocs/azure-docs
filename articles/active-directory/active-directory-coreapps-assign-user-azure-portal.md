@@ -28,7 +28,7 @@ It's easy to assign a user or a group to your enterprise applications in Azure A
 
 3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise apps**.
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
+  ![Opening Enterprise apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
 
 4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 

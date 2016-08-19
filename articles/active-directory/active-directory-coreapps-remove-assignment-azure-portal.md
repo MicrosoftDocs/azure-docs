@@ -29,7 +29,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
 
 3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise apps**.
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
+  ![Opening Enterprise apps](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
 
 4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
 

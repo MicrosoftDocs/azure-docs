@@ -29,7 +29,7 @@ It's easy to disable an enterprise application so that no users may sign in to i
 
 3. On the **Azure Active Directory - *directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise apps**.
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
+  ![Opening Enterprise apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
 
 4. On the **Enterprise applications** blade, select **All applications**. You see a list of the apps you can manage.
 
