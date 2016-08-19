@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="08/18/2016"
+   ms.date="08/19/2016"
    ms.author="jeffstok"
 />
 
@@ -378,8 +378,8 @@ Script Actions are Bash scripts that are used to make configuration changes to t
   - __Bash script URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
   - __Head__: This should be __unchecked__
   - __Worker__: This should be __Checked__
-  - __Zookeeper__: This should be __Unchecked__
-  - __Parameters__: The R packages to be installed. For example, `bitops stringr arules`  
+  - __Zookeeper__: This should be __unchecked__
+  - __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
 
     > [AZURE.NOTE] By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, e.g.  `useCRAN bitops, stringr, arules`.  
 
