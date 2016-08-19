@@ -28,7 +28,7 @@ This topic describes how to author and deploy a custom R module in Azure Machine
 
 A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
 
-Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that containe custom modules can also be published into the Cortana Intelligence Gallery for easy sharing.
+Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Cortana Intelligence Gallery for easy sharing.
 
 
 ## Files in a custom R module
@@ -38,7 +38,7 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 * A **source file** that implements the R function exposed by the module
 * An **XML definition file** that describes the custom module interface
 
-Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed in the **Arguments** part of the reference section **Elements in the XML definition file** following the quickstart example.
+Additional auxiliary files can also be included in the .zip file that provides functionality that can be accessed from the custom module. This option is discussed in the **Arguments** part of the reference section **Elements in the XML definition file** following the quickstart example.
 
 
 ## Quickstart example: define, package, and register a custom R module
@@ -101,7 +101,7 @@ It is critical to note that the value of the **id** attributes of the **Input** 
 In contrast, the **id** attribute for the **Output** element does not correspond to any variables in the R script. When more than one output is required, simply return a list from the R function with results placed *in the same order* as **Outputs** elements are declared in the XML file.
 
 ### Package and register the module
-Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip the two file together into a *CustomAddRows.zip* file.
+Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip the two files together into a *CustomAddRows.zip* file.
 
 To register them in your Machine Learning workspace, go to your workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
 
@@ -123,7 +123,7 @@ The **Module** element is used to define a custom module in the XML file. Multip
 Within the **Module** element, you can specify two additional optional elements:
 
 - an **Owner** element that is embedded into the module  
-- a **Description** element that contains text  that is displayed in quick help for the module and when you hover over the module in the Machine Learning UI.
+- a **Description** element that contains text that is displayed in quick help for the module and when you hover over the module in the Machine Learning UI.
 
 
 Rules for characters limits in the Module elements:
@@ -175,7 +175,7 @@ For custom R modules, the id for a Zip port does not have to match any parameter
 
 * The value of the **id** attribute of the **Input** element must be a valid R variable name.
 * The value of the **id** attribute of the **Input** element must not be longer than 64 characters.
-* The value of the **name** attribute of the **Input** element  must not be longer than 64 characters.
+* The value of the **name** attribute of the **Input** element must not be longer than 64 characters.
 * The content of the **Description** element must not be longer than 128 characters
 * The value of the **type** attribute of the **Input** element must be *Zip* or *DataTable*.
 * The value of the **isOptional** attribute of the **Input** element is not required (and is *false* by default when not specified); but if it is specified, it must be *true* or *false*.
@@ -284,7 +284,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 * *Optional Properties*: **default** and **isOptional** - An optional string without a default value is passed as **NULL** to the R function if a value is not otherwise provided by a user.
 
-**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection are passed to the R function as a list of strings containing the selected column names. 
+**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection is passed to the R function as a list of strings containing the selected column names. 
 
 		<Arg id="colset" name="Column set" type="ColumnPicker">	  
 		  <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
