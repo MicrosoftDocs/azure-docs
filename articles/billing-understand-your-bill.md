@@ -187,9 +187,9 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
-N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/)
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](resource-group-overview.md)
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
-N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/)
+N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
@@ -212,11 +212,15 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 ![tags](./media/billing-understand-your-bill/tags.png)
 
 
-## More resources
+## Next steps
+
+- [Set up billing alerts](billing-set-up-alerts.md)
+
+- [Manage your payment methods](billing-how-to-change-credit-card.md)
+
+- [Understand your Azure Marketplace charges](billing-understand-your-azure-marketplace-charges.md)
 
 - [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
-
-- [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md)
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
