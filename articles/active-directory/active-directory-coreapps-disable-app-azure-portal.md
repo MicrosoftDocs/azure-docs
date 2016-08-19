@@ -31,7 +31,7 @@ It's easy to disable an enterprise application so that no users may sign in to i
 
     ![Opening Enterprise apps](./media/active-directory-coreapps-disable-app-azure-portal/open-enterprise-apps.png)
 
-4. On the **Enterprise applications** blade, select **All applications**. You'll see a list of the apps you can manage.
+4. On the **Enterprise applications** blade, select **All applications**. You see a list of the apps you can manage.
 
   ![Selecting the all applications command](./media/active-directory-coreapps-disable-app-azure-portal/all-applications.png)
 
@@ -47,7 +47,7 @@ It's easy to disable an enterprise application so that no users may sign in to i
 
 ## Next steps
 
-- [See all of my groups](active-directory-groups-view-azure-portal.md)
+- [See all my groups](active-directory-groups-view-azure-portal.md)
 - [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
 - [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-user-azure-portal.md)
 - [Allow a user who is not assigned to an enterprise app to sign in using existing credentials](active-directory-coreapps-allow-unassigned-access-azure-portal.md)
