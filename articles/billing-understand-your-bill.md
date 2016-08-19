@@ -69,37 +69,22 @@ Below are some sample statements for two different offers available on Microsoft
 Pay-As-You-Go | Pay in arrears monthly | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
 Commitment offer | Spend deducted from your prepaid commitment | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
 
-
-
 ## Account information
 
 The account information section identifies pertinent information in regards to your usage and profile.
     ![header](./media/billing-understand-your-bill/Header.png)
 
-### Invoice No.
-A unique invoice identifier for tracking purposes.
-
-### Billing cycle
-The time frame in which usage has taken place.
-
-### Invoice date
-Date that the invoice was generated.
-
-### Payment method
-Type of payment used on the account (i.e. invoice or credit card).
-
-### Bill to
-Microsoft Azure payments address.
-
-### Subscription offer
-Type of subscription offer that was purchased (i.e. Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.)
-
-### Account owner email
-The account email address that the Microsoft Azure account is registered under.
-
-
+| Invoice No.         | A unique invoice identifier for tracking purposes                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|
+| Billing cycle       | The time frame in which usage has taken place                                                       |
+| Invoice date        | Date that the invoice was generated                                                                 |
+| Payment method      | Type of payment used on the account (i.e. invoice or credit card)                                   |
+| Bill to             | Microsoft Azure payments address                                                                    |
+| Subscription offer  | Type of subscription offer that was purchased (i.e. Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.) |
+| Account owner email | The account email address that the Microsoft Azure account is registered under                      |
 
 ## Understand the invoice summary
+
 The **Invoice Summary** section of the bill summarizes transactions since your last bill and your current usage charges.
 
 ![invoice summary](./media/billing-understand-your-bill/InvoiceSummary.png)
