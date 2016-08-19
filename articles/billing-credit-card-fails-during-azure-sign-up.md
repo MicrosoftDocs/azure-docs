@@ -23,7 +23,7 @@ If your credit card or debit card was declined, it might be because you’re usi
 
 If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Is your credit/debit card information correct and complete?
 - The credit or debit card you’re using should be listed in the drop-down list for the country you choose. If it’s not listed, then it is not an available option for your country.
@@ -41,4 +41,4 @@ To use the invoice payment option, you must represent a business. This option is
 
 To start the process of setting up an invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) for details.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. If you canceled your subscription by mistake and need to get it reactivated, you can [create a support ticket](billing-how-to-create-billing-support-ticket.md) for assistance.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
 
@@ -32,4 +32,4 @@ If you cancel your subscription, all your services will be deleted immediately. 
 4. Select **Yes, cancel my subscription**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Click ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) to close the dialog window and return to your subscription page.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

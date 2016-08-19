@@ -26,7 +26,7 @@ If your credit card gets renewed and the number remains the same, you can simply
 
 If your credit card number ever changes, due to being lost, stolen, or expired, you need to add the new credit card to your account. This is because the CVV security code on the card is changed when the credit card number changes.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Edit payment information for an existing credit card
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
@@ -55,4 +55,4 @@ If your credit card number ever changes, due to being lost, stolen, or expired, 
 
 > [AZURE.NOTE] To remove a credit card that you no longer use as an Azure payment method, you must [submit a support ticket](billing-how-to-create-billing-support-ticket.md) to request assistance.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
