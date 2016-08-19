@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?
-If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on [https://account.windowsazure.com](https://account.windowsazure.com) or [https://portal.azure.com](https://portal.azure.com).  
+If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on [https://account.windowsazure.com](https://account.windowsazure.com) or [https://portal.azure.com](https://portal.azure.com).
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 If we are unable to process your payment for some reason, you might receive an email with a message similar to:
 
@@ -44,3 +46,5 @@ For instructions about how to change the payment method in Azure, see [How to ch
 **Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
 
 > [AZURE.NOTE] If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it: [What do I do if my Azure subscription is disabled?](billing-subscription-become-disable.md)
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
