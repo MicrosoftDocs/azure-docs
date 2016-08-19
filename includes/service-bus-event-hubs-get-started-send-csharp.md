@@ -12,7 +12,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 	![][8]
 
-	This downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+	Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
 
@@ -54,7 +54,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 	}
 	```
 
-	This method continuously sends events to your Event Hub with a 200ms delay.
+	This method continuously sends events to your Event Hub with a 200-ms delay.
 
 7. Finally, add the following lines to the **Main** method:
 
