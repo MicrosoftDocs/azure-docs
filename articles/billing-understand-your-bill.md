@@ -24,7 +24,7 @@
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
-Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
+Note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
 For more information about consumption and rate plans, see the [Microsoft Azure Purchase Options page](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -39,17 +39,17 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 1. Sign in to the [Account Center](https://account.windowsazure.com/subscriptions) using your Microsoft Account or Organizational ID.
 
-2. Click on the subscription in which you would like to see details and usage.
+2. Click the subscription in which you would like to see details and usage.
 
 3. Click **Billing History**
 
     ![Summary - billing history -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
-4. The **Billing History** section lists your statements for prior billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.  
+4. The **Billing History** section lists your statements for prior billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all usage incurred to date. Your monthly bill may differ from this estimate.  
 
     ![Summary-billing history 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
-5. Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+5. Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all usage incurred to date. Your monthly bill may differ from this estimate.
 
     ![Summary-billing history 3](./media/billing-understand-your-bill/ContentViewaBillforMA3.png)
 
@@ -62,7 +62,7 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 > [AZURE.NOTE] Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
 
-Below are some sample statements for two different offers available on Microsoft Azure.
+The following are some sample statements for two different offers available on Microsoft Azure.
 
  Offer type | Description | Download |
  :--------- |:-------- | :-------|
@@ -71,7 +71,8 @@ Commitment offer | Spend deducted from your prepaid commitment | [Sample file](h
 
 ## Account information
 
-The account information section identifies pertinent information in regards to your usage and profile.
+The account information section identifies pertinent information regarding your usage and profile.
+
     ![header](./media/billing-understand-your-bill/Header.png)
 
 | Term                | Description                                                                                         |
@@ -79,9 +80,9 @@ The account information section identifies pertinent information in regards to y
 | Invoice No.         | A unique invoice identifier for tracking purposes                                                   |
 | Billing cycle       | The time frame in which usage has taken place                                                       |
 | Invoice date        | Date that the invoice was generated                                                                 |
-| Payment method      | Type of payment used on the account (i.e. invoice or credit card)                                   |
+| Payment method      | Type of payment used on the account (invoice or credit card)                                   |
 | Bill to             | Microsoft Azure payments address                                                                    |
-| Subscription offer  | Type of subscription offer that was purchased (i.e. Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.) |
+| Subscription offer  | Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.) |
 | Account owner email | The account email address that the Microsoft Azure account is registered under                      |
 
 ## Understand the invoice summary
@@ -94,29 +95,29 @@ The previous balance, payments, and outstanding balance section of the bill summ
 
 | Term                                              | Description                                                                              |
 |---------------------------------------------------|------------------------------------------------------------------------------------------|
-| Previous balance                                  | Previous balance is the total amount due from your last bill                             |
-| Payments                                          | Payments are your total payments applied to your last bill                               |
-| Outstanding balance (from previous billing cycle) | Any bill adjustments (credits or balances) applied to your account since your last bill. |
+| Previous balance                                  | The total amount due from your last bill                                                 |
+| Payments                                          | Total payments applied to your last bill                                                 |
+| Outstanding balance (from previous billing cycle) | Any bill adjustments (credits or balances) applied to your account since your last bill  |
 
 ## Understand the current charges
 The Current Charges section of the bill contains details about your monthly charges. The links are organized into the following subsections.
 
 | Term          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Usage charges | Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage                                                                                                                                                                                                                                                                                                                                       |
-| Discounts     | Service discounts on your usage would be reflected in this line item that are applied to your current bill                                                                                                                                                                                                                                                                                                                                             |
+| Usage charges | Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage.                                                                                                                                                                                                                                                                                                                                       |
+| Discounts     | Service discounts applied to your current bill would be reflected in this line item.                                                                                                                                                                                                                                                                                                                                              |
 | Adjustments   | Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Enterprise with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.|
 
 ## Footer information
 ![footer](./media/billing-understand-your-bill/footerinformation.png)
 
 ## Understand the additional information
-The additional information page gives you references to other resources to understand your invoice, and links to view your usage as well as other relevant information for your bill.
+The additional information page gives you references to other resources to understand your invoice, and links to view your usage and other relevant information for your bill.
 
 ![additional information](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Detailed usage
-A link in the description under **Detailed Usage** directs you the Account Center where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure. Please note that in .csv version 1 that there are no Azure Resource Manager details. Azure Resource Manager information can be found in .csv version 2.
+A link in the description under **Detailed Usage** directs you the Account Center where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure. Note that in .csv version 1 that there are no Azure Resource Manager details. Azure Resource Manager information can be found in .csv version 2.
 
 ### Additional information and useful resources
 This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
@@ -134,7 +135,7 @@ As part of our ongoing commitment to help customers easily manage their Azure us
 
 - **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
-Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
+Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file displays the details on the services you are being billed for during the previous month's billing cycle.  The preceding table lists the names of the columns for each of the .csv version files.
 
 Version 1 |  Version 2  |  Description|
 :---------------| :---------------- | --------|
@@ -148,7 +149,7 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
 Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
 Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
-Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
+Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Your resource charges are decremented from the commitment amount in chronological order.
 Currency | Currency | Identifies the currency reflected in your current billing period.
 Overage | Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
 Commitment Rate | Commitment Rate | Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.
@@ -186,21 +187,21 @@ Region | Meter Region | Identifies the location of the datacenter for certain se
 Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s.
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
-Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
+Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column indicates which specific service the usage pertains.
 N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to [Azure Resource Manager overview](resource-group-overview.md)
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
 N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
-Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
+Service Info 2 | Service Info 2 | This is a legacy field that captures optional service-specific metadata.
 
 In addition to some new fields and name changes to csv Version 2, there will be standardized formatting for the data in the below fields:
 
-- **Instance ID**: The Instance ID field represents the user specified identifier for the service provisioned. Currently, there are two formats in which the Instance ID is represented: it is either the name of the Resource or the fully qualified Resource ID. Microsoft Azure services are transitioning to represent the Instance ID in a standardized fully qualified Resource ID format _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. As services transition to the new format you will see the Instance ID data field change from just the resource name to Resource ID. The Resource ID is the format used by the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx) to identify resources in an a subscription.
+- **Instance ID**: The Instance ID field represents the user specified identifier for the service provisioned. Currently, there are two formats in which the Instance ID is represented: it is either the name of the Resource or the fully qualified Resource ID. Microsoft Azure services are transitioning to represent the Instance ID in a standardized fully qualified Resource ID format _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. As services transition to the new format you will see the Instance ID data field change from just the resource name to Resource ID. The Resource ID is the format used by the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx) to identify resources in a subscription.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
 
-- **Additional Info**: The Additional Info column in the usage .csv specifies service specific metadata. For example, an image type for a VM. Currently, a service emits service specific metadata in multiple columns: Additional Info, Service Info1, and Service Info 2 fields. Microsoft Azure services will be standardizing emitting service specific metadata in the Additional Info column only.  See the below snapshot of the standardized format:
+- **Additional Info**: The Additional Info column in the usage .csv specifies service-specific metadata. For example, an image type for a VM. Currently, a service emits service-specific metadata in multiple columns: Additional Info, Service Info1, and Service Info 2 fields. Microsoft Azure services will be standardizing emitting service-specific metadata in the Additional Info column only.  See the below snapshot of the standardized format:
 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
