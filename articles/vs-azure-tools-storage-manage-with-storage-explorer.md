@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Getting started with Storage Explorer (Preview) | Microsoft Azure"
 	description="Manage Azure storage resources with Storage Explorer (Preview)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,14 +13,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/30/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
 
 ## Overview 
 
-Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OSX, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
+Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OS X, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
 
 ![Microsoft Azure Storage Explorer (Preview)][15]
 
