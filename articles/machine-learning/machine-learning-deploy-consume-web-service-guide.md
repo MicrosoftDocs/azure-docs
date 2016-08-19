@@ -1,4 +1,4 @@
-[https://msdn.microsoft.com/en-us/library/mt619267.aspx](https://msdn.microsoft.com/en-us/library/mt619267.aspx)<properties
+<properties
 	pageTitle="Azure Machine Learning Web Services: Deployment and Consumption | Microsoft Azure"
 	description="Resources for deploying and consuming web services."
 	services="machine-learning"
@@ -30,28 +30,28 @@ Machine Learning Studio and the Microsoft Azure Machine Learning Web Services po
 
 The following links provide general Information on the process of deploying a new web service:
 
-* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service)
-* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service)
+* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
+* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
 
-For a full walkthrough of how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace).
+For a full walkthrough of how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
 
 For specific examples of deploying a web service, see:
 
-* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service)
-* [How to deploy a Web Service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions)
+* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
+* [How to deploy a Web Service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 
 ### Using Web Services Resource Provider APIs (Azure Resource Manager APIs)
 
 The Azure ML Resource Provider for web services enables deployment and management of web services using REST API calls. See the following articles and sample code for additional details.
 
-* [Machine Learning Web Service (REST)](https://msdn.microsoft.com/en-us/library/azure/mt767538.aspx) reference on MSDN.
+* [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
 * Link to sample code in GitHub
 
 ### Using PowerShell Cmdlets
 
 Azure ML Resource Provider for web services enables deployment and management of web services through PowerShell cmdlets.
 
-To use the cmdlets, you must first log in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/en-us/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](..\powershell-azure-resource-manager/#login-to-your-azure-account). 
+To use the cmdlets, you must first log in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](..\powershell-azure-resource-manager.md#login-to-your-azure-account). 
 
 To export your predictive experiment, use this [sample code](https://github.com/ritwik20/AzureML-WebServices). After creating the exe from the code, you can type:
 
@@ -78,7 +78,7 @@ See below example:
 
 See the following articles and sample code for additional details.
 
-* [Azure Machine Learning Cmdlets]( https://msdn.microsoft.com/en-us/library/azure/mt767952.aspx) reference on MSDN
+* [Azure Machine Learning Cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
 * Source Code (GIT)
 
 ## Consuming the Web Services
@@ -87,7 +87,7 @@ See the following articles and sample code for additional details.
 
 You can test your web service from the Azure ML web services portal. This includes testing the RRS and BES interfaces.
 
-* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service)
+* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
 * [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service)
 * [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service)
 
@@ -95,12 +95,12 @@ You can test your web service from the Azure ML web services portal. This includ
 
 You can download an Excel template that allows you to easily consume the web service:
 
-* [Consuming an Azure Machine Learning Web Service from Excel](machine-learning-consuming-from-excel)
-* [Excel Add-in for Azure Machine Learning web services](machine-learning-excel-add-in-for-web-services)
+* [Consuming an Azure Machine Learning Web Service from Excel](machine-learning-consuming-from-excel.md)
+* [Excel Add-in for Azure Machine Learning web services](machine-learning-excel-add-in-for-web-services.md)
 
 
 ### Using a REST Based Client
 
 Azure ML web services are RESTful APIs. You can consume these APIs from a variety of applications such as .NET, Python, R, Java, etc. The Consume page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code available that can help you get started. 
 
-* [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services)
+* [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
