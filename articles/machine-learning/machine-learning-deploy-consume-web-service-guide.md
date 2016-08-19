@@ -51,7 +51,7 @@ The Azure ML Resource Provider for web services enables deployment and managemen
 
 Azure ML Resource Provider for web services enables deployment and management of web services through PowerShell cmdlets.
 
-To use the cmdlets, you must first log in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](..\powershell-azure-resource-manager.md#login-to-your-azure-account). 
+To use the cmdlets, you must first log in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with calling Resource Manger based PowerShell commands, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account). 
 
 To export your predictive experiment, use this [sample code](https://github.com/ritwik20/AzureML-WebServices). After creating the exe from the code, you can type:
 
