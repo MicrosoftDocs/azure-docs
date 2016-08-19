@@ -3,7 +3,7 @@
 	description="This article covers application patterns for SQL Server on Azure VMs. It provides solution architects and developers a foundation for good application architecture and design."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="luisherring"
 	manager="jhubbard"
 	editor=""
 	tags="azure-service-management,azure-resource-manager" />
@@ -13,13 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/02/2016"
-	ms.author="jroth" />
+	ms.date="08/19/2016"
+	ms.author="lvargas" />
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
 
 
 ## Summary:
@@ -60,7 +59,7 @@ This article describes several application patterns that can be suitable for you
 
 - You want to leverage the capabilities of the Azure environment but Azure SQL Database does not support all the features that your application requires. This could include the following areas:
 
-	- **Database size**: At the time this article was updated, SQL Database supports a database of up to 500 GB of data. If your application requires more than 500 GB of data and you don’t want to implement custom sharding solutions, it’s recommended that you use SQL Server in an Azure Virtual Machine. For the latest information, see [Scaling Out Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn495641.aspx) and [Azure SQL Database Service Tiers and Performance Levels](../sql-database/sql-database-service-tiers.md).
+	- **Database size**: At the time this article was updated, SQL Database supports a database of up to 1 TB of data. If your application requires more than 1 TB of data and you don’t want to implement custom sharding solutions, it’s recommended that you use SQL Server in an Azure Virtual Machine. For the latest information, see [Scaling Out Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn495641.aspx) and [Azure SQL Database Service Tiers and Performance Levels](../sql-database/sql-database-service-tiers.md).
 	- **HIPAA compliance**: Healthcare customers and Independent Software Vendors (ISVs) might choose [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) instead of [Azure SQL Database](../sql-database/sql-database-technical-overview.md) because SQL Server in an Azure Virtual Machine is covered by HIPAA Business Associate Agreement (BAA). For information on compliance, see [Microsoft Azure Trust Center: Compliance](https://azure.microsoft.com/support/trust-center/compliance/).
 	- **Instance-level features**: At this time, SQL Database doesn’t support features that live outside of the database (such as Linked Servers, Agent jobs, FileStream, Service Broker, etc). For more information, see [Azure SQL Database Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 
@@ -106,7 +105,7 @@ The following diagram demonstrates how you can place a simple 3-tier application
 
 ![3-tier application pattern](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728009.png)
 
-In this application pattern, there is only one virtual machine (VM) in each tier. If you have multiple VMs in Azure, we recommend that you set up a virtual network. [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) creates a trusted security boundary and also allows VMs to communicate among themselves over the private IP address. In addition, always make sure that all Internet connections only go to the presentation tier. This means that you should open up a public endpoint on the presentation tier but not on the other tiers. When following this application pattern, you also need to set up the network access control list (ACL) on that public port to allow for access certain IP addresses. For more information, see [Manage the ACL on an endpoint](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+In this application pattern, there is only one virtual machine (VM) in each tier. If you have multiple VMs in Azure, we recommend that you set up a virtual network. [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) creates a trusted security boundary and also allows VMs to communicate among themselves over the private IP address. In addition, always make sure that all Internet connections only go to the presentation tier. When following this application pattern, manage the network security group rules to control access. For more information, see [Allow external access to your VM using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
 
 In the diagram, Internet Protocols can be TCP, UDP, HTTP, or HTTPS.
 
@@ -138,7 +137,7 @@ It’s recommended that you place the virtual machines that belong to the same t
 
 To leverage multiple VM instances of a tier, you need to configure Azure Load Balancer between application tiers. To configure Load Balancer in each tier, create a load-balanced endpoint on each tier’s VMs separately. For a specific tier, first create VMs in the same cloud service. This will make sure that they all have the same public Virtual IP address. Next, create an endpoint on one of the virtual machines on that tier. Then, assign the same endpoint to the other virtual machines on that tier for load balancing. By creating a load-balanced set, you distribute traffic across multiple virtual machines and also allow the Load Balancer to determine which node to connect when a backend VM node fails. For example, having multiple instances of the web servers behind a load balancer ensures the high availability of the presentation tier.
 
-As a best practice, always make sure that all internet connections first go to the presentation tier. The presentation layer accesses the business tier, and then the business tier accesses the data tier. For example, open up an endpoint on the presentation tier. Each endpoint has a public port and a private port. The private port is used internally by the virtual machine to listen for traffic on that endpoint. The public port is the entry point for communication from outside of Azure and is used by the Azure Load Balancer. It is recommended to set up the network access control list (ACL) to define rules that help isolate and control the incoming traffic on any public port on any public endpoint on any application tier. For more information, see [Manage the ACL on an endpoint](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+As a best practice, always make sure that all internet connections first go to the presentation tier. The presentation layer accesses the business tier, and then the business tier accesses the data tier. For more information on how to allow access to the presentation layer, see [Allow external access to your VM using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal).
 
 Note that the Load Balancer in Azure works similar to load balancers in an on-premises environment. For more information, see [Load balancing for Azure infrastructure services](virtual-machines-windows-load-balance.md).
 
@@ -282,7 +281,7 @@ In n-tier hybrid application pattern, you can implement the following workflow i
 
 1. Set up network connectivity between the corporate network on-premises and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). To set up the connection between the corporate network on-premises and a virtual machine in Azure, use one of the following two methods:
 
-	1. Establish a connection between on-premises and Azure via public end points on a virtual machine in Azure. This method provides an easy setup and enables you to use SQL Server authentication in your virtual machine. In addition, set up the network access control list (ACL) on the public ports to allow for access certain IP addresses. For more information, see [Manage the ACL on an endpoint](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+	1. Establish a connection between on-premises and Azure via public end points on a virtual machine in Azure. This method provides an easy setup and enables you to use SQL Server authentication in your virtual machine. In addition, set up your network security group rules to control public traffic to the VM. For more information, see [Allow external access to your VM using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal).
 
 	1. Establish a connection between on-premises and Azure via Azure Virtual Private network (VPN) tunnel. This method allows you to extend domain policies to a virtual machine in Azure. In addition, you can set up firewall rules and use Windows authentication in your virtual machine. Currently, Azure supports secure site-to-site VPN and point-to-site VPN connections:
 
