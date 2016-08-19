@@ -47,19 +47,19 @@ SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSq
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
-When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password that will be the administrator credentials you want to create for the server. The script at the bottom of this article shows how to set the server credentials in code.
+When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password to create as the server administrator. The script at the bottom of this article shows how to set the server credentials in code.
 
 The server details appear after the server is successfully created.
 
 ### Configure a server firewall rule to allow access to the server
 
-To access the server you need to Establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
+To access the server, you need to establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 The firewall rule details appear after the rule is successfully created.
 
-To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This allows Azure traffic from any Azure subscription to access the server.
+To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This rule allows Azure traffic from any Azure subscription to access the server.
 
 For more information, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 
