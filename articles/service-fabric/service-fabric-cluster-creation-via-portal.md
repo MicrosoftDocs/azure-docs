@@ -304,10 +304,7 @@ Each of the NodeTypes you specify in your cluster results in a VM Scale Set gett
 
 ## Next steps
 
-After you've created a cluster, learn more about securing it and deploying apps:
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-- [Service Fabric cluster security](service-fabric-cluster-security.md)
-- [Service Fabric health model introduction](service-fabric-health-introduction.md)
+At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
 
 <!-- Links -->

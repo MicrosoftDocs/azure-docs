@@ -181,8 +181,6 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 
 ## Next Steps
 
-At this point, you should have a secured cluster using Azure Active Directory for management authentication, certificates installed on the cluster nodes for application secret decryption, and Key Vault set up for key and secret management. 
-
 Learn more about [running applications with different security permissions](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-runas-security/)
 
 <!-- Links -->

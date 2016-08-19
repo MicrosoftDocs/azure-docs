@@ -466,9 +466,7 @@ Once you have created the applications to represent your cluster, you will need 
 
 ## Next Steps
 
-At this point, you should have a secured cluster using Azure Active Directory for management authentication, certificates installed on the cluster nodes for application secret decryption, and Key Vault set up for key and secret management. 
-
-Learn more about [running applications with different security permissions](service-fabric-application-runas-security.md)
+At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
