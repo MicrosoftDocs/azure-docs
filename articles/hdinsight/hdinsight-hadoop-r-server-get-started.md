@@ -377,7 +377,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
   - __Name__: A friendly name to identify this script
   - __Bash script URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
   - __Head__: This should be __unchecked__
-  - __Worker__: This should be __Checked__
+  - __Worker__: This should be __checked__
   - __Zookeeper__: This should be __unchecked__
   - __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
 
