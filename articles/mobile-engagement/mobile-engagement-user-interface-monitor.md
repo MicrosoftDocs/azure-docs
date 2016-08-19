@@ -16,7 +16,7 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# How to monitor real time data about your application
+# How to monitor real-time data about your application
 
 This article describes the **MONITOR** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. 
 
@@ -48,7 +48,9 @@ For more information, see:  [SDK Documentation - Release notes][Link 5]
 ![Monitor3][16]
 
 ## Monitor - Alerts
-You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message. (Any XMPP-compliant services like Google's GTalk or Apple's iChat are supported.) Alerts are based on a pre-defined detection threshold greater than (>) or less than (<) a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type, or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
+You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message. (Any XMPP-compliant services like Google's GTalk or Apple's iChat are supported.) Alerts are based on a pre-defined detection threshold greater than (>) or less than (<) a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type, or just monitor a specific Job, Event, or Error activity. 
+
+You can also specify a Minimum Detection Rate, which is the minimum amount of minutes that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification per interval specified.
 
 ![Monitor4][17]
 
