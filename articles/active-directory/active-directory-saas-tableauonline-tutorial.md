@@ -243,8 +243,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Tableau Online, perform the following steps:**
 
-1. On the classic portal, to open the applications view, in the 
-2. directory view, click **Applications** in the top menu.
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
 	![Assign User][201] 
 
