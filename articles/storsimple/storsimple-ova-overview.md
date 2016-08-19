@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/20/2016"
+   ms.date="08/19/2016"
    ms.author="alkohli" />
 
 # Introduction to the StorSimple Virtual Array
@@ -45,7 +45,8 @@ The following table summarizes the important features of the Virtual Array.
 | Performance | Varies depending on underlying infrastructure |
 | Data mobility | Can restore to the same device or do item-level recovery (file server) |
 | Storage tiers | Local hypervisor storage and cloud |
-| Share or volume size |Tiered: up to 20 TB; locally pinned: up to 2 TB |
+| Share size |Tiered: up to 20 TB; locally pinned: up to 2 TB |
+| Volume size |Tiered: up to 5 TB; locally pinned: up to 500 GB |
 | Snapshots | Crash consistent |
 | Item-level recovery | Yes; users can restore from shares |
 

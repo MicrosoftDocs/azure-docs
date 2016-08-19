@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to perform live streaming with on-premise encoders" 
+	pageTitle="How to perform live streaming with on-premise encoders using .NET | Microsoft Azure" 
 	description="This topic shows how to use .NET to perform live encoding with on-premises encoders." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#How to perform live streaming with on-premise encoders
+#How to perform live streaming with on-premise encoders using .NET
 
 ##Prerequisites
 
@@ -377,7 +377,9 @@ For information on how to configure a live encoder, see [Azure Media Services RT
 	    }
 	}
 
-##Media Services learning paths
+##Next Step
+
+Review Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

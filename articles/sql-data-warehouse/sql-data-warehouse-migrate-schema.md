@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your schema to SQL Data Warehouse#
 
-The following summaries will help you understand the differences between SQL Server and SQL Data Warehouse to help you migrate your database.
+The following summaries help you understand the differences between SQL Server and SQL Data Warehouse to help you migrate your database.
 
 ### Table features
 SQL Data Warehouse does not use or support these features:
@@ -30,7 +30,7 @@ SQL Data Warehouse does not use or support these features:
 - Unique indexes  
 - Computed columns  
 - Sparse columns  
-- User defined types  
+- User-defined types  
 - Indexed views  
 - Identities  
 - Sequences  
@@ -95,9 +95,9 @@ AND  y.[is_user_defined] = 1
 
 ```
 
-The query includes any user defined data types which are also not supported.
+The query includes any user-defined data types, which are also not supported.
 
-If you have unsupported types in your database do not worry. Some alternatives you can use instead are proposed below.
+If you have unsupported types in your database, do not worry. Some alternatives you can use instead are proposed below.
 
 Instead of:
 
@@ -107,8 +107,8 @@ Instead of:
 - **image**, **text**, **ntext**, use varchar/nvarchar (smaller the better)
 - **sql_variant**, split column into several strongly typed columns
 - **table**, convert to temporary tables
-- **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
-- **user defined types**, convert back to their native types where possible
+- **timestamp**, rework code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint. If you need to migrate rowversion values from a timestamp typed column, then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
+- **user-defined types**, convert back to their native types where possible
 - **xml**, use a varchar(max) or smaller for better performance. Split across columns if needed
 
 For better performance, instead of:
@@ -120,10 +120,10 @@ Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet. Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] Define your tables so that the maximum row size does not exceed 32,767 bytes when using PolyBase to perform the load. It is important to remember that the maximum row size includes the full length of any variable length columns. While you can define a row with variable length data that exceeds this figure, you cannot use PolyBase to load this data today. As an interim measure, use BCP to load wide rows. Finally, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Next steps
-Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:
+Once you have successfully migrated your database schema to SQL Data Warehouse, proceed to one of the following articles:
 
 - [Migrate your data][]
 - [Migrate your code][]
