@@ -86,7 +86,7 @@ Start by looking at the diagrams in the [Connection topologies](vpn-gateway-topo
 
 ### <a name="designbasics"></a>Design basics
 
-The following sections discuss the VPN gateway basics. Also, consider the [networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
+The following sections discuss the VPN gateway basics. Also, consider [networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits).
 
 
 #### <a name="subnets"></a>About subnets
@@ -99,7 +99,7 @@ VPN Gateways require a specific subnet called a gateway subnet. All gateway subn
 
 #### <a name="local"></a>About local network gateways
 
-The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. You can modify these address prefixes as needed. For more information about local network gateways, see [Local network gateways](vpn-gateway-about-vpn-gateway-settings.md#lng).
+The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway is referred to as a Local Network Site. When you configure a local network gateway, you give it a name, specify the public IP address of the on-premises VPN device, and specify the address prefixes that are in the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for the local network gateway, and routes packets accordingly. You can modify these address prefixes as needed. For more information, see [Local network gateways](vpn-gateway-about-vpn-gateway-settings.md#lng).
 
 
 #### <a name="gwtype"></a>About gateway types
