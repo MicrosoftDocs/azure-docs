@@ -73,7 +73,7 @@ Commitment offer | Spend deducted from your prepaid commitment | [Sample file](h
 
 The account information section identifies pertinent information regarding your usage and profile.
 
-    ![header](./media/billing-understand-your-bill/Header.png)
+![header](./media/billing-understand-your-bill/Header.png)
 
 | Term                | Description                                                                                         |
 |---------------------|-----------------------------------------------------------------------------------------------------|
