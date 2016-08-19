@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/19/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Directory extensions
@@ -28,6 +28,8 @@ The installation will show the following attributes, which are valid candidates:
 - User and Group object types
 - Single-valued attributes: String, Boolean, Integer, Binary
 - Multi-valued attributes: String, Binary
+
+The list of attributes is read from the cache created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, the [schema must be refreshed](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) before these new attributes will be visible.
 
 An object can have up to 100 directory extensions attributes. The max length is 250 characters. If an attribute value is longer, it will be truncated by the sync engine.
 
