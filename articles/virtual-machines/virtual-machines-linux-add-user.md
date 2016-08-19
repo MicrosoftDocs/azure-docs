@@ -29,23 +29,23 @@ Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-t
 
 ```bash
 # Add a new user on RedHat family distros
-bill@slackware$ sudo useradd -G wheel exampleUser
+sudo useradd -G wheel exampleUser
 
 # Add a new user on Debian family distros
-bill@slackware$ sudo useradd -G sudo exampleUser
+sudo useradd -G sudo exampleUser
 
 # Set a password
-bill@slackware$ sudo passwd exampleUser
+sudo passwd exampleUser
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 
 # Copy the SSH Public Key to the new user
-bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Change sudoers to allow no password
 # Execute visudo as root to edit the /etc/sudoers file
-bill@slackware$ visudo
+visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
@@ -67,7 +67,7 @@ bill@slackware$ visudo
 bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access
-exampleuser@exampleserver$ sudo top
+sudo top
 ```
 
 ## Detailed Walkthrough
@@ -95,10 +95,10 @@ The `-G` command line flag adds the new user account to the proper Linux group g
 
 ```bash
 # On RedHat family distros
-bill@slackware$ sudo useradd -G wheel exampleUser
+sudo useradd -G wheel exampleUser
 
 # On Debian family distros
-bill@slackware$ sudo useradd -G sudo exampleUser
+sudo useradd -G sudo exampleUser
 ```
 
 #### Set a password
@@ -106,7 +106,7 @@ bill@slackware$ sudo useradd -G sudo exampleUser
 The `useradd` command creates the new user and adds an entry to both `/etc/passwd` and `/etc/gpasswd` but does not actually set the password.  We are going do that now using the `passwd` command.
 
 ```bash
-bill@slackware$ sudo passwd exampleUser
+sudo passwd exampleUser
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
@@ -119,7 +119,7 @@ We now have a user with sudo privileges on the server.
 From your machine, use the `ssh-copy-id` command with the new password.
 
 ```bash
-bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 ```
 
 ### Using visudo to allow sudo usage without a password
@@ -130,7 +130,7 @@ We already have users in the correct default group for sudo access.  Now we are 
 
 ```bash
 # Execute visudo as root to edit the /etc/sudoers file
-bill@slackware$ visudo
+visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
@@ -152,8 +152,8 @@ bill@slackware$ visudo
 
 ```bash
 # Verify the SSH keys & User account
-bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access
-exampleuser@exampleserver$ sudo top
+sudo top
 ```
