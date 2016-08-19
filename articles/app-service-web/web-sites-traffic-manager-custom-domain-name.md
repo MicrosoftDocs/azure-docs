@@ -55,7 +55,7 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 
 1. While the specifics of each registrar vary, in general you map *from* your custom domain name (such as **contoso.com**,) *to* the Traffic Manager domain name (**contoso.trafficmanager.net**) that is used for your web app.
 
-> [AZURE.NOTE] Alternatively, if a record is already in use and you need to preemptively bind your apps to it, map **awverify.contoso.com** to **contoso.trafficmanager.net**.
+> [AZURE.NOTE] Alternatively, if a record is already in use and you need to preemptively bind your apps to it, create a TXT record for **awverify.contoso.com** to **contoso.trafficmanager.net**.
 
 1. Once you have finished adding or modifying DNS records at your registrar, save the changes.
 
