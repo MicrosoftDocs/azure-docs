@@ -21,7 +21,7 @@
 
 # Add a user to an Azure VM
 
-With any newly launched Linux VM, one of the first tasks is to create a new user.  In this article, we walk through creating a sudo user account, setting the password, adding SSH Public Keys, and finally use `visudo` to allow sudo without a password.
+One of the first tasks on your new Linux VM is to create a new user.  In this article, we walk through creating a sudo user account, setting the password, adding SSH Public Keys, and finally use `visudo` to allow sudo without a password.
 
 Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
 
@@ -74,9 +74,9 @@ sudo top
 
 ### Introduction
 
-One of the first and most common task with a new server is to add a user account.  Root logins should be disabled and the root account itself should not be used with your Linux server, only sudo.  Creating a new user and giving that new user root escalation privileges using sudo is the proper way to administer and use Linux.  
+One of the first and most common task with a new server is to add a user account.  Root logins should be disabled and the root account itself should not be used with your Linux server, only sudo.  Giving a user root escalation privileges using sudo it the proper way to administer and use Linux.
 
-To create a new user we are using the command `useradd`, which modifies `/etc/passwd`, `/etc/shadow`, `/etc/group` and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Although `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow the user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
+To create a new user, we are using the command `useradd`.  Running `useradd` modifies `/etc/passwd`, `/etc/shadow`, `/etc/group` and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Even thou `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow that user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
 
 ### Adding a single sudo user to an Azure VM
 
@@ -103,7 +103,7 @@ sudo useradd -G sudo exampleUser
 
 #### Set a password
 
-The `useradd` command creates the new user and adds an entry to both `/etc/passwd` and `/etc/gpasswd` but does not actually set the password.  We are going do that now using the `passwd` command.
+The `useradd` command creates the user and adds an entry to both `/etc/passwd` and `/etc/gpasswd` but does not actually set the password.  The password is added to the entry using the `passwd` command.
 
 ```bash
 sudo passwd exampleUser
@@ -124,7 +124,7 @@ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 ### Using visudo to allow sudo usage without a password
 
-Using `visudo` to edit the `/etc/sudoers` file adds a few layers of protection against incorrectly modifying this important file.  Upon executing `visudo`, the `/etc/sudoers` file is locked to ensure no other user can make changes while it is actively being edited.  The `/etc/sudoers` file is also checked for mistakes by `visudo` when you attempt to save or exit.  This will ensure that you cannot leave a broken sudoers file on the system.
+Using `visudo` to edit the `/etc/sudoers` file adds a few layers of protection against incorrectly modifying this important file.  Upon executing `visudo`, the `/etc/sudoers` file is locked to ensure no other user can make changes while it is actively being edited.  The `/etc/sudoers` file is also checked for mistakes by `visudo` when you attempt to save or exit.  This ensures that you cannot leave a broken sudoers file on the system.
 
 We already have users in the correct default group for sudo access.  Now we are going to enable those groups to use sudo with no password.
 
