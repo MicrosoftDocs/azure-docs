@@ -20,7 +20,7 @@
  
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. 
  
-To get to the my account page, click on your account on the top of the page.
+To get to the **my account** page, click on your account on the top of the page.
 
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
