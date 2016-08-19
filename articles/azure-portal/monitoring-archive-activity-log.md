@@ -17,16 +17,16 @@
 	ms.author="johnkem"/>
 
 # Archive the Azure Activity Log
-In this article, we will show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. Activity Log events are retained in the Azure platform for 90 days without enabling archival, so if you only need to retain your events for 90 days or less, you do not need to set up archival to a storage account.
+In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
 
 ## Prerequisites
-Before you begin, you will need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
 
 ## Log Profile
-To archive the Activity Log using any of the methods below, you will be setting the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events will be stored indefinitely. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
 ## Archive the Activity Log using the portal
-1. In the portal, click on the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
+1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
 
     ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. At the top of the blade, click **Export**.
@@ -47,7 +47,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 |------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorageAccountId | No       | Resource ID of the Storage Account to which Activity Logs should be saved.                                                                                                                                                                                                                        |
 | Locations        | Yes      | Comma-separated list of regions for which you would like to collectActivity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the AzureManagement REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays  | Yes      | Number of days for which events should be retained. A value of zero will store the logs indefinitely.                                                                                                                                                                                             |
+| RetentionInDays  | Yes      | Number of days for which events should be retained. A value of zero stores the logs indefinitely.                                                                                                                                                                                             |
 | Categories       | Yes      | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                                                                                                                                                                 |
 ## Archive the Activity Log via the Cross-Platform CLI
 ```
@@ -71,7 +71,7 @@ For example, a blob name might be:
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 
-Each PT1H.json blob will contain a JSON blob of events which occurred within the hour specified in the blob URL (eg, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) will always be 00, since Activity Log events are broken into individual blobs per hour.
+Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (e.g. h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since Activity Log events are broken into individual blobs per hour.
 
 Within the PT1H.json file, each event is stored in the “records” array, following this format:
 ```
