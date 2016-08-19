@@ -13,13 +13,17 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="06/27/2016"
+   ms.date="08/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade from DirSync
 Azure AD Connect is the successor to DirSync. You find the ways you can upgrade from DirSync in this topic. These steps do not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
 
-Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md).
+Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md). In particular you want to read about the following topics since these are different from DirSync:
+
+- The required version of .Net and PowerShell. Newer versions are required to be on the server than what DirSync needed.
+- The proxy server configuration. If you use a proxy server to reach the internet, this must be configured before you upgrade. DirSync always used the proxy server configured for the user installing it, but Azure AD Connect uses machine settings instead.
+- The URLs required to be open in the proxy server. For basic scenarios, those also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
 
 If you are not upgrading from DirSync, see [related documentation](#related-documentation) for other scenarios.
 
@@ -67,7 +71,7 @@ The passwords used by DirSync for the service accounts cannot be retrieved and w
 3. Collect Azure AD global admin password
 4. Collect credentials for an enterprise admin account (only used during the installation of Azure AD Connect)
 5. Installation of Azure AD Connect
-    * Uninstall DirSync
+    * Uninstall DirSync (or temporarily disable it)
 	* Install Azure AD Connect
 	* Optionally begin synchronization
 
@@ -184,7 +188,9 @@ When these 4 operations have been completed, there are no errors, and you are sa
 - Uninstall **Windows Azure Active Directory sync tool**
 - Note that the uninstallation might take up to 15 minutes to complete.
 
-With DirSync uninstalled, there is no active server exporting to Azure AD. The next step must be completed before any changes in your on-premises Active Directory will continue to be synchronized to Azure AD.
+You can also temporarily shut down the server or disable the service if you prefer and uninstall DirSync later. This allows you to re-enable it. However, it is not expected that the next step will fail so this should not be needed.
+
+With DirSync uninstalled or disabled, there is no active server exporting to Azure AD. The next step to enable Azure AD Connect must be completed before any changes in your on-premises Active Directory will continue to be synchronized to Azure AD.
 
 ### Enable Azure AD Connect (new server)
 After installation, re-opening Azure AD connect will allow you to make additional configuration changes. Start **Azure AD Connect** from the start menu or from the shortcut on the desktop. Make sure you do not try to run the installation MSI again.
