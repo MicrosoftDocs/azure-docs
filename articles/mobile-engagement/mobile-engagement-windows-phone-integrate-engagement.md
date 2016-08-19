@@ -26,7 +26,7 @@
 
 This procedure describes the simplest way to activate Azure Mobile Engagement's Analytics and Monitoring functions in your Windows Phone Silverlight application.
 
-The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md) below) since these statistics are application dependent.
+The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone Silverlight app](mobile-engagement-windows-phone-use-engagement-api.md) below) since these statistics are application-dependent.
 
 ##Supported versions
 
@@ -191,7 +191,7 @@ These methods are called from within the `OnNavigatedTo` method of your page.
 
 If you cannot or do not want to overload your `PhoneApplicationPage` classes, you can instead start your activities by calling `EngagementAgent` methods directly.
 
-We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your PhoneApplicationPage.
+We recommend calling `StartActivity` inside your `OnNavigatedTo` method of your PhoneApplicationPage.
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
