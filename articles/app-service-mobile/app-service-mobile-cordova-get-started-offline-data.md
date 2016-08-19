@@ -20,14 +20,13 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## Overview
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
 This tutorial is based on the Cordova quickstart solution for Mobile Apps that you create when you complete the tutorial [Apache Cordova quick start]. In this tutorial, you will update the quickstart solution to add offline features of Azure Mobile Apps. We will also highlight the offline-specific code in the app.
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps]. For details of API usage, see the [README](https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview) file in the plugin.
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps]. For details of API usage, see the [README] file in the plugin.
 
-## Add offline sync functionality to the quickstart solution
+## Add offline sync to the quickstart solution
 
 The offline sync code must be added to the app. Offline sync requires the cordova-sqlite-storage plugin, which automatically gets added to your app when the Azure Mobile Apps plugin is included in the project. The Quickstart project includes both of these plugins.
 
@@ -65,13 +64,13 @@ The offline sync code must be added to the app. Offline sync requires the cordov
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-  The preceding code additions initialize the local store and define a local table that matches the column values used in your Azure back end. (You don't need to include all column values in this code.)
+    The preceding code additions initialize the local store and define a local table that matches the column values used in your Azure back end. (You don't need to include all column values in this code.)
 
-  You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when **push** is called.
+    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when **push** is called.
 
-4. Update the application URL to your Mobile App application URL.
+3. Update the application URL to your Mobile App application URL.
 
-3. Next, replace this code:
+4. Next, replace this code:
 
         todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
@@ -113,9 +112,9 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
   This code uses the local database for all create, read, update, and delete (CRUD) table operations.
 
-  This sample performs simple error handling on sync conflicts. A real application would handle the various errors like network conditions, server conflicts, and others. For code examples, see [this sample](https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME).
+  This sample performs simple error handling on sync conflicts. A real application would handle the various errors like network conditions, server conflicts, and others. For code examples, see [the offline sync sample].
 
-4. Next, add this function to perform the actual sync.
+5. Next, add this function to perform the actual sync.
 
         function syncBackend() {
 
@@ -135,7 +134,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
 In the sample, the **push** method of **syncContext** is only called on app startup in the callback function for login.  In a real-world application, you could also make this sync functionality triggered manually or when the network state changes.
 
-When a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a preceding context push. When refreshing, adding and completing items in this sample, you can omit the explicit **push** call, since it may be redundant (first check the [README](https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview) for current feature status).
+When a pull is executed against a table that has pending local updates tracked by the context, that pull operation will automatically trigger a preceding context push. When refreshing, adding and completing items in this sample, you can omit the explicit **push** call, since it may be redundant (first check the [README] for current feature status).
 
 In the provided code, all records in the remote todoItem table are queried, but it is also possible to filter records by passing a query id and query to **push**. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
 
@@ -160,7 +159,7 @@ Now, the app will sync with the Azure backend when you run the app instead of wh
 
 With offline sync now enabled, you can now run the client application at least once on each platform to populate the local store database. Later, you will simulate an offline scenario and modify the data in the local store while the app is offline.
 
-## (Optional) Test the sync behavior of the client app
+## (Optional) Test the sync behavior
 
 In this section, you will modify the client project to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
 
@@ -195,24 +194,27 @@ In this section you will reconnect the app to the mobile backend, which simulate
 
     Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.
 
-## Additional Resources
+## Additional resources
 
 * [Offline Data Sync in Azure Mobile Apps]
 
 * [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
 
-<!-- ##Summary
+* [Visual Studio Tools for Apache Cordova]
 
 ## Next steps
 
-* [Look at more advanced features and conflict resolution in this sample](https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME)
+* Look at more advanced offline sync features such as conflict resolution in the [offline sync sample]
+* Look at the offline sync API reference in the [README]
 
- -->
+<!-- ##Summary -->
 
 <!-- Images -->
 
 <!-- URLs. -->
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
+[README]: https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview
+[offline sync sample]: https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md

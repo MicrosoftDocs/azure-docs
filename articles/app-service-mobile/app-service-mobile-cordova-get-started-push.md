@@ -254,7 +254,7 @@ Before you can run a Cordova app on iOS using Visual Studio, go through the step
 
 Make sure you can build the app for iOS. The steps in the setup guide are required to build for iOS from Visual Studio. If you do not have a Mac, you can build for iOS using the remotebuild agent on a service like MacInCloud. For more info, see [Run your iOS app in the cloud](http://taco.visualstudio.com/en-us/docs/build_ios_cloud/).
 
-	>[AZURE.NOTE] XCode 7 or greater is required to use the push plugin on iOS.
+>[AZURE.NOTE] XCode 7 or greater is required to use the push plugin on iOS.
 
 ####Find the ID to use as your App ID
 
@@ -326,7 +326,7 @@ To use the Store options in Visual Studio, select a Windows target from the Solu
 
 Open the configuration designer (right-click on config.xml and select **View Designer**), select the **Windows** tab, and choose **Windows 10** under **Windows Target Version**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
 
 To support push notifications in your default (debug) builds, open build.json file. Copy the "release" configuration to your debug configuration.
 
