@@ -90,7 +90,7 @@ The database details appear after the database is successfully created.
 
 ## Create a SQL database PowerShell script
 
-The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription (remove the **{}** when you set your values).
+The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription and resources (remove the **{}** when you set your values).
 
     # Sign in to Azure and set the subscription to work with
     $SubscriptionId = "{subscription-id}"
@@ -144,13 +144,7 @@ The following PowerShell script creates a SQL database and all its dependent res
                                           -Edition $databaseEdition `
                                           -RequestedServiceObjectiveName $databaseSlo
     
-    # Open the database in the Azure portal
-    $portalUrl = "https://portal.azure.com/#resource/subscriptions/" + $SubscriptionId + "/resourceGroups/" + `
-       $resourceGroupName + "/providers/Microsoft.Sql/servers/" + $serverName + "/databases/" `
-       + $databaseName + "/overview"
-    Start-Process -FilePath $portalUrl
-    
-    
+   
     # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
     #Remove-AzureRmResourceGroup -Name $resourceGroupName
 
