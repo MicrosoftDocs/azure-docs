@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/19/2016"
 	ms.author="genli"/>
 
-# How to sign up, purchase, upgrade or Activate Azure
+# How to sign up, purchase, upgrade, or activate Azure
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 Azure provides various offers to suit your business needs and get started using Azure. Visit [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) for a complete listing of all active offers with details on each offer about what they cover, benefits and availability by countries/region.
 
-## Azure Offers - benefits & limits
+## Azure Offers - benefits and limits
 
 The following table provides details on common offers:
 
