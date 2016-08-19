@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Best practices for Azure RemoteApp clients
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 The following information can help you use Azure RemoteApp clients:
 

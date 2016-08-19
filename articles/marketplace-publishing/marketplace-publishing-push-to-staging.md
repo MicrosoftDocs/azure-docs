@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/17/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -48,7 +48,7 @@ In this step of the publishing process, you will need to provide certain marketi
 All the logos uploaded in the Publishing Portal should follow the below guidelines:
 
 - The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-- The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black.**
+- The theme colors of the Azure portal are white and black. Hence avoid using these colors as the background color of your logos. Use some color that would make your logos prominent in the Azure portal. We recommend simple primary colors. **If you are using transparent background, then make sure that the logos/text are not white or black or blue.**
 - Do not use a gradient background on the logo.
 - Avoid placing text, even your company or brand name, on the logo. The look and feel of your logo should be 'flat' and should avoid gradients.
 - The logo should not be stretched.
@@ -125,7 +125,6 @@ For Virtual Machine offers, once the offer/SKU is listed in the Azure Marketplac
 |---|---|---|---|
 | Virtual machine image | No | Yes | No|
 | Developer service | Yes | Yes | Yes |
-| Data service | Yes | No | No |
 
 ### 2.1. Set your VM prices
 Presently for virtual machines, we have the following **3 types of billing models:**

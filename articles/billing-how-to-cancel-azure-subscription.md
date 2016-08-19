@@ -4,7 +4,7 @@
 	services=""
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="mbaldwin"
 	editor=""
 	tags="billing"
 	/>
@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # How to cancel your Azure subscription
 
->[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. If you cancelled your subscription by mistake and need to get it reactivated, you can contact [Azure Support](billing-how-to-create-billing-support-ticket.md) for assistance.
+>[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. If you canceled your subscription by mistake and need to get it reactivated, you can [create a support ticket](billing-how-to-create-billing-support-ticket.md) for assistance.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
 
@@ -29,3 +31,5 @@ If you cancel your subscription, all your services will be deleted immediately. 
 3. On the right side of the page, select **Cancel Subscription**. </br> ![cancelsub](.\media\billing-how-to-cancel-azure-subscription\cancelsub.png)
 4. Select **Yes, cancel my subscription**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Click ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) to close the dialog window and return to your subscription page.
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

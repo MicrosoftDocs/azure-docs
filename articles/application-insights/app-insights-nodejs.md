@@ -54,7 +54,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 ## <a name="sdk"></a> Install the SDK in your application
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Usage
@@ -63,7 +63,7 @@ This will enable request monitoring, unhandled exception tracking, and system pe
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/17/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@ This topic shows how to use the Azure Classic Portal to manage media content in 
 
 This topic shows how to perform the following content operations directly from the portal:
 
-- View content information like published state, published URL, size, datetime of last update, and whether or not the asset is encrypted.
+- View content information like published state, published URL, size, datetime of last update, and whether the asset is encrypted.
 - Upload new content
 - Index content
 - Encode content
@@ -39,7 +39,7 @@ This topic shows how to perform the following content operations directly from t
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
+1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click the Media Services account name.
 2. Select the CONTENT page. 
 3. Click the **Upload** button on the page or at the bottom of the portal. 
 4. In the **Upload content** dialog, browse to the desired asset file. Click the file and then click **Open** or press **Enter**.
@@ -47,11 +47,11 @@ This topic shows how to perform the following content operations directly from t
 	![UploadContentDialog][uploadcontent]
 
 5. In the Upload Content dialog, click the check button to accept the File and Content Name.
-6. The upload will start and you can track progress from the bottom of the portal.  
+6. The upload starts. You can track progress from the bottom of the portal.  
 
 	![JobStatus][status]
 
-Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "**-Source**" appended at the end to help track new content as source content for encoding tasks.
+Once the upload has completed, you see the new asset listed in the Content list. By convention the name has "**-Source**" appended at the end to help track new content as source content for encoding tasks.
 
 ![ContentPage][contentpage]
 
@@ -68,9 +68,11 @@ Azure Media Indexer enables you to make content of your media files searchable a
 To following steps demonstrate how to use the Azure Classic Portal to index your content.
 
 1. Select the file that you would like to index.
-If indexing is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
+
+	If indexing is supported for this file type, the PROCESS button is enabled on the bottom of the CONTENT page.
+	
 1. Press the PROCESS button.
-2. In the **Process** dialog choose the **Azure Media Indexer** processor.
+2. In the **Process** dialog, choose the **Azure Media Indexer** processor.
 3. Then, fill out the Process dialog the detailed **title** and **description** information of the input media file.
 
 ![Process][process]
@@ -82,38 +84,39 @@ If indexing is supported for this file type, the PROCESS button will be enabled 
 - [REST](media-services-rest-encode-asset.md)
 - [Portal](media-services-manage-content.md#encode)
 
-In order to deliver digital video over the internet you must compress the media. Media Services provides a media encoder that allows you to specify how you want for your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.)
+In order to deliver digital video over the internet, you must compress the media. Media Services provides a media encoder that allows you to specify how you want for your content to be encoded (for example, the codecs to use, file format, resolution, and bitrate.)
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to repackage into these streaming formats.
 
 To take advantage of dynamic packaging, you need to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
 - Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
 
-With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
 
-Note that in addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
+In addition to being able to use the dynamic packaging capabilities, On-Demand Streaming reserved units provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units.
 
 This section describes the steps you can take to encode your content with Media Encoder Standard using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
 
-  If encoding is supported for this file type, the PROCESS button will be enabled on the bottom of the CONTENT page.
-4. In the **Process** dialog, select the **Media Encoder Standard** processor.
-5. Choose from one of the **encoding configurations**.
+	If encoding is supported for this file type, the PROCESS button enabled on the bottom of the CONTENT page.
 
-![Process2][process2]
+2. In the **Process** dialog, select the **Media Encoder Standard** processor.
+3. Choose from one of the **encoding configurations**.
+
+	![Process2][process2]
 
 
-The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) topic explains what each preset means.
+	The [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) topic explains what each preset means.
 
-5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
-6. Press OK.
+4. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
+5. Press OK.
 
-After the encoding is done, the CONTENT page will contain the encoded file.
+After the encoding is done, the CONTENT page contains the encoded file.
 
 To view the progress of the encoding job, switch to the **JOBS** page.
 
@@ -133,7 +136,7 @@ If you want for Media Services to dynamically encrypt your asset with an AES key
 
 	![Encrypt][encrypt] 
 
-	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player requests the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 Also, see:
 
@@ -172,9 +175,9 @@ To build an MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
 Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
 
->[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a two year expiration date were created.  
+>[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a two-year expiration date were created.  
 
-To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. When you update the expiration date of a SAS locator, the URL changes. 
 
 ###Publish
 
@@ -190,7 +193,7 @@ To use Portal to publish an asset, do the following:
 
 The **Azure Classic Portal** provides a content player that you can use to test your video.
 
-Click on the desired video and click the **Play** button at the bottom of the portal. 
+Click the desired video and click the **Play** button at the bottom of the portal. 
  
 Some considerations apply:
 

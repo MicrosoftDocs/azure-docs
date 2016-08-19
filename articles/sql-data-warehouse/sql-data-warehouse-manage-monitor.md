@@ -122,7 +122,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## Monitor waiting queries
 
-If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows you all reasources a query is waiting for.  Repe
+If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows you all reasources a query is waiting for.
 
 ```sql
 -- Find queries 

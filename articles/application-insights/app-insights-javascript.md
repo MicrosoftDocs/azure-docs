@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/18/2016"
+	ms.date="08/15/2016"
 	ms.author="awills"/>
 
 # Application Insights for web pages
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Find out about the performance and usage of your web page or app. Add Visual Studio Application Insights to your page script, and you'll get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as counts of users and sessions. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
+Find out about the performance and usage of your web page or app. If you add Visual Studio Application Insights to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can also set alerts on failure counts or slow page loading.
 
 You can use Application Insights with any web pages - you just add a short piece of JavaScript. If your web service is [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md), you can integrate telemetry from your server and clients.
 
-You'll need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. There's a free pricing tier, so development and small-scale use won't cost anything.
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. There's a free pricing tier, so development and small-scale use won't cost anything.
 
 
 ## Set up Application Insights for your web page
 
-You might already have it. If your app is a new ASP.NET project and you chose to add Application Insights in the New Project dialog Visual Studio, the script will have been added then, and you're all set up.
+First, do you need to add Application Insights to your web pages? You might already have done so. If you chose to add Application Insights to your web app in the New Project dialog in Visual Studio, the script was added then. In that case, you don't need to do any more.
 
 Otherwise, you need to add a snippet of code your web pages, as follows.
 
@@ -39,7 +39,7 @@ The Application Insights resource is where data about your page's performance an
 
 Sign into [Azure portal](https://portal.azure.com).
 
-If you already set up monitoring for the server side of your app, you'll already have a resource:
+If you already set up monitoring for the server side of your app, you already have a resource:
 
 ![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
 
@@ -71,7 +71,7 @@ The script contains the instrumentation key that directs the data to your Applic
 
 ## Detailed configuration
 
-There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic); or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
+There are several [parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) you can set, though in most cases, you shouldn't need to. For example, you can disable or limit the number of Ajax calls reported per page view (to reduce traffic). Or you can set debug mode to have telemetry move rapidly through the pipeline without being batched.
 
 To set these parameters, look for this line in the code snippet, and add more comma-separated items after it:
 
@@ -107,7 +107,7 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
 
 ## <a name="run"></a>Run your app
 
-Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the  **F5** key on your development machine, or publish it and let users play with it.
+Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
 
 If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (**F12** on many browsers). Data is sent to dc.services.visualstudio.com.
 
@@ -120,7 +120,7 @@ Open the Browsers blade to show aggregated performance data from your users' bro
 
 *No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
-The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+The Browsers blade is a [Metrics Explorer blade](app-insights-metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
 ## Page load performance
 
@@ -136,7 +136,7 @@ Note that the *network connect* time is often lower than you might expect, becau
 
 Slow page loads are a major source of dissatisfaction for your users. If the chart indicates slow page loads, it's easy to do some diagnostic research.
 
-The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade,  where there's a grid segmented by page URL:
+The chart shows the average of all page loads in your app. To see if the problem is confined to particular pages, look further down the blade, where there's a grid segmented by page URL:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
@@ -175,7 +175,7 @@ and detailed grids lower down:
 Click any row for specific details.
 
 
-> [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies will be included in these charts. Click Restore Defaults to reconfigure the filter.
+> [AZURE.NOTE] If you delete the Browsers filter on the blade, both server and AJAX dependencies are included in these charts. Click Restore Defaults to reconfigure the filter.
 
 **To drill into failed Ajax calls** scroll down to the Dependency failures grid, and then click a row to see specific instances.
 
@@ -205,9 +205,9 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 
-> [Learn more about diagnostic search](app-insights-diagnostic-search.md)
+You can also use the powerful [Analytics query language](app-insights-analytics-tour.md) to search page views.
 
 ### Page view properties
 
@@ -215,7 +215,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 
  * By default, the time it takes to load the page, from client request to full load (including auxiliary files but excluding asynchronous tasks such as Ajax calls). 
  * If you set `overridePageViewDuration` in the [page configuration](#detailed-configuration), the interval between client request to execution of the first `trackPageView`. If you moved trackPageView from its usual position after the initialization of the script, it will reflect a different value.
- * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value will be used instead. 
+ * If `overridePageViewDuration` is set and a duration argument is provided in the `trackPageView()` call, then the argument value is used instead. 
 
 
 ## Custom page counts
@@ -226,7 +226,7 @@ Insert a JavaScript call like this at the appropriate point in your client code:
 
     appInsights.trackPageView(myPageName);
 
-The page name can contain the same characters as a URL, but anything after "#" or "?" will be ignored.
+The page name can contain the same characters as a URL, but anything after "#" or "?" is ignored.
 
 
 

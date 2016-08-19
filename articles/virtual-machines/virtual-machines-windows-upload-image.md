@@ -33,6 +33,8 @@ This article assumes that you have:
 
 - **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For information about which Windows operating systems are supported on Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
+- Make sure the server roles running on the VM support sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
+
 
 ## Make sure that the VM is in the right file format
 
@@ -103,7 +105,7 @@ If you want to create a storage account, follow these steps:
 
 2. To create a resource group, use this command:
 
-		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 
 3. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
@@ -170,7 +172,7 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
 
         $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
             
 ## Create a public IP address and network interface
@@ -180,12 +182,12 @@ To enable communication with the virtual machine in the virtual network, you nee
 1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
 
         $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
         
 2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
 
         $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 		
 

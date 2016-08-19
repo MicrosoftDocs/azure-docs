@@ -32,7 +32,7 @@ The following table lists all the available connectors and API Apps created by M
 Name | Description
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Can send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions.
-[Bing Translator](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Use Bing to translate text into another language.
+[Bing Translator](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use Bing to translate text into another language.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | You can  complete different tasks including create, update, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.

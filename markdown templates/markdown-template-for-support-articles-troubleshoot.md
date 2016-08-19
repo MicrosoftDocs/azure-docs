@@ -45,6 +45,10 @@ _When you try to connect to Azure SQL Database, the common connection errors you
 
 _These errors occur because you don’t have permission to access the data source._
 
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the bottom of this article):_
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+_If it is NOT a billing article, include the following reference:_
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Troubleshooting guidance (optional)
@@ -67,3 +71,6 @@ _Select one of the versions that apply to your situation._
 
 ## Next steps
 _Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant/ important._
+
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the beginning of this article):_
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

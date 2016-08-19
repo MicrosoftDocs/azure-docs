@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Allow external access to your VM using PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
-To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
+To create a Network Security Group and ACL rules you need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
 
 First, you need to create a rule to allow HTTP traffic on TCP port 80 entering your own name and description:
 
@@ -34,7 +34,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "A
 Next, create your Network Security group and assign the HTTP rule you just created as follows, entering your own resource group name and location:
 
 ```
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus 
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
@@ -59,9 +59,9 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 ## More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide a lot of great features and granularity for controlling access to the your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
+The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-Network Security Groups and ACL rules can also be defined as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 If you need to use port-forwarding to map a unique external port to an internal port on your VM, you need to use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
