@@ -72,7 +72,7 @@ You need to give your application permission to create resources in Azure for th
     * com.microsoft.azure:azure-mgmt-datalake-store-uploader:1.0.0-beta1.2
     * com.microsoft.azure:azure-client-authentication:1.0.0-beta2
 
-4. From the left pane, navigate to **src**, **main**, **java**, **\<package name>**, and then open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **DATA-LAKE-STORE-NAME**, **RESOURCE-GROUP-NAME** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID** with information about your subscription and its Azure Active Directory. For information on how to find this information, see [the Azure guide to creating service principals](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/).
+4. From the left pane, navigate to **src**, **main**, **java**, **\<package name>**, and then open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **DATA-LAKE-STORE-NAME**, **RESOURCE-GROUP-NAME** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID** with information about your subscription and its Azure Active Directory. For information on how to find this information, see [the Azure guide to creating service principals](./resource-group-authenticate-service-principal.md).
 
     This code goes through the process of creating a Data Lake Store account, creating files in the store, concatenating files, downloading a file, and finally deleting the account.
 
