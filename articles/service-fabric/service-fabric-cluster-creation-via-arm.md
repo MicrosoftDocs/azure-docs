@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="vturecek"/>
 
 # Create a Service Fabric cluster in Azure using Azure Resource Manager
@@ -49,7 +49,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## Set up Key Vault
 
-This part of the guide will walk you through creating a Key Vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide on Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
+This part of the guide walks you through creating a Key Vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide on Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
 
 Service Fabric uses X.509 certificates to secure a cluster and provide application security features. Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure. When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
@@ -131,7 +131,7 @@ To serve these purposes, the certificate must meet the following requirements:
 
  - The certificate must contain a private key.
  - The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
- - The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Servic Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+ - The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
 ### Application certificates (optional)
 
@@ -197,7 +197,7 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
 
-2. Right click on the zip file, choose **Properties**, then check the **Unblock** checkbox and apply.
+2. Right click the zip file, choose **Properties**, then check the **Unblock** checkbox and apply.
 
 3. Extract the zip file.
 

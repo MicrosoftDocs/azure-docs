@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="chackdan"/>
 
 # Service Fabric cluster security scenarios
 
-A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. This article provides an overview of the security scenarios for clusters running on Azure or standalone and the various technologies used to implement those scenarios.  The cluster security scenarios are:
+A Service Fabric cluster is a resource that you own. Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet. 
+
+This article provides an overview of the security scenarios for clusters running on Azure or standalone and the various technologies used to implement those scenarios. The cluster security scenarios are:
 
 - Node-to-node security
 - Client-to-node security
-- Role based access control (RBAC)
+- Role-based access control (RBAC)
 
 ## Node-to-node security
 Secures communication between the VMs or machines in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
@@ -105,20 +107,7 @@ Client certificates are not typically issued by a third-party certificate author
 
 ## Next steps
 
-Learn to set up a secure cluster:
-
-- [Securing an azure cluster with certs](service-fabric-secure-azure-cluster-with-certs.md)
-
-After your cluster is setup, learn about cluster upgrades:
-
-- [Service Fabric cluster upgrade process and expectations](service-fabric-cluster-upgrade.md)
-- [Rolling over or adding new Certificates](service-fabric-cluster-security-update-certs-azure.md)
-
-Learn more about application security:
-
-- [Application security and RunAs](service-fabric-application-runas-security.md)
-
-- [Secure service communications](service-fabric-reliable-services-secure-communication.md)
+This article provides conceptual information about cluster security. Next, [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or through the [Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

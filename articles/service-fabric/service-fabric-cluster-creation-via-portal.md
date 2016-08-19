@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/10/2016"
+   ms.date="08/19/2016"
    ms.author="vturecek"/>
 
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -189,7 +189,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following set up in Azure:
+These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following setup in Azure:
 
  - Key Vault resource group
    - Key Vault
@@ -280,7 +280,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 To complete the cluster creation, click **Summary** to see the configurations that you have provided, or download the Azure Resource Manager template that will be used to deploy your cluster. After you have provided the mandatory settings, the **OK** button will be enabled and you can start the cluster creation process by clicking it.
 
-You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper-right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you will see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you will see **Deploying Service Fabric Cluster** pinned to the **Start** board.
 
 ### View your cluster status
 

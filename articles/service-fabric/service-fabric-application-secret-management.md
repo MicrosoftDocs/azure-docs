@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/12/2016"
+   ms.date="08/19/2016"
    ms.author="vturecek"/>
 
 # Managing secrets in Service Fabric applications
@@ -57,7 +57,7 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 
 ## Install the certificate in your cluster
 
-This certificate must be installed on each node in the cluster. It will be used at runtime to decrypt values stored in a service's Settings.xml. See [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] for set up instructions. 
+This certificate must be installed on each node in the cluster. It will be used at runtime to decrypt values stored in a service's Settings.xml. See [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] for setup instructions. 
 
 ## Encrypt application secrets
 
@@ -69,7 +69,7 @@ The following PowerShell command is used to encrypt a secret. You must use the s
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-The resulting base-64 string contains both the secret ciphertext as well as information about the certificate that was used to encrypt it.  The  base-64 encoded string can be inserted into a parameter in your service's Settings.xml configuration file with the `IsEncrypted` attribute set to `true`:
+The resulting base-64 string contains both the secret ciphertext as well as information about the certificate that was used to encrypt it.  The base-64 encoded string can be inserted into a parameter in your service's Settings.xml configuration file with the `IsEncrypted` attribute set to `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -181,7 +181,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 
 ## Next Steps
 
-Learn more about [running applications with different security permissions](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-runas-security/)
+Learn more about [running applications with different security permissions](service-fabric-application-runas-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
