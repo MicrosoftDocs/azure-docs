@@ -12,7 +12,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 	![][8]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus library NuGet package</a>.
+	This downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
 
