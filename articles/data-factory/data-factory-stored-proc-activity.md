@@ -1,4 +1,4 @@
-<properties 
+<properties 7
 	pageTitle="SQL Server Stored Procedure Activity" 
 	description="Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline." 
 	services="data-factory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="08/18/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server Stored Procedure Activity
@@ -52,10 +52,10 @@ Property | Description | Required
 name | Name of the activity | Yes
 description | Text describing what the activity is used for | No
 type | SqlServerStoredProcedure | Yes
-inputs | Input dataset(s) that must be available (in ‘Ready’ status) for the stored procedure activity to execute. The input(s) to the stored procedure activity only serve as dependency management when chaining this activity with others. The input dataset(s) cannot be consumed in the stored procedure as a parameter | No
-outputs | Output dataset(s) produced by the stored procedure activity. Ensure that the output table uses a linked service that links an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database to the data factory. The output(s) in the stored procedure activity can serve as a way to pass the result of the stored procedure activity for subsquent processing and/or it can serve as dependency management when chaining this activity with others | Yes
+inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. | No
+outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to be executed. <br/><br/>The output(s) in the stored procedure activity can serve as a way to pass the result of the stored procedure activity for subsquent processing by next activity ([chaining activities](data-factory-scheduling-and-execution.md#chaining-activities)) in the pipeline. However,  Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only used to specify the schedule for running the stored procedure activity. | Yes
 storedProcedureName | Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the  linked service that the output table uses. | Yes
-storedProcedureParameters | Specify values for stored procedure parameters | No
+storedProcedureParameters | Specify values for stored procedure parameters. If you need to pass null for a paramter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property.| No
 
 ## Sample Walkthrough
 
@@ -162,19 +162,21 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 		                "name": "SprocActivitySample"
 		            }
 		        ],
-		        "start": "2015-01-02T00:00:00Z",
-		        "end": "2015-01-03T00:00:00Z",
+         		"start": "2016-08-02T00:00:00Z",
+         		"end": "2016-08-02T05:00:00Z",
 		        "isPaused": false
 		    }
 		}
+
+	If you need pass null for a parameter, use the syntax: "param1": null (all lowercase). 
 9. Click **Deploy** on the toolbar to deploy the pipeline.  
 
 ### Monitor the pipeline
 
 6. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click on **Diagram**.
 7. In the Diagram View, you will see an overview of the pipelines, and datasets used in this tutorial. 
-8. In the Diagram View, double-click on the dataset **sprocsampleout**. You will see the slices in Ready state. There should be 24 slices because a slice is produced for each hour between 2015/01/02 and 2015/01/03. 
-10. When a slice is in **Ready** state, run a **select * from sampledata** query against the the Azure SQL database to verify that the data was inserted into the table by the stored procedure.
+8. In the Diagram View, double-click on the dataset **sprocsampleout**. You will see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON. 
+10. When a slice is in **Ready** state, run a **select * from sampletable** query against the the Azure SQL database to verify that the data was inserted into the table by the stored procedure.
 
 	![Output data](./media/data-factory-stored-proc-activity/output.png)
 
@@ -207,3 +209,4 @@ To accomplish this, pass the Scenario parameter and the value from the stored pr
 			"Scenario": "Document sample"
 		}
 	}
+
