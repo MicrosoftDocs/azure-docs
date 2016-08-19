@@ -50,7 +50,7 @@ Define the following resource in the Resource section of the template.
 In the preceding example, replace the file URL and the file name with your own settings.
 After authoring the template, you can deploy it by using Azure PowerShell.
 
-If you want to keep script URLs and parameters private, you can set the script URL as **private**. If the script URL is set as **private**, it can only be accessed with a storage account name and key sent as protected settings. The script parameters can also be provided as protected settings with version 1.7 or later of the Custom Script extension.
+If you want to keep script URLs and parameters private, you can set the script URL as **private**. If the script URL is set as **private**, it can be accessed only with a storage account name and key sent as protected settings. The script parameters can also be provided as protected settings with version 1.7 or later of the Custom Script extension.
 
 ## Template example for a Windows VM with protected settings
 
