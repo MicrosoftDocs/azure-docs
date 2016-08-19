@@ -23,7 +23,7 @@ This article answers some frequently asked questions about Microsoft Azure Cloud
 
 ### I can't remove expired certificate
 
-Azure will prevent you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
+Azure prevents you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
 
 ### Delete an expired certificate
 
@@ -47,10 +47,10 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 Application Certificate with private key (\*.pfx, \*.p12) .
 
 **CA**  
-All your intermediate certificates will go in this store (Policy and Sub CA’s).
+All your intermediate certificates go in this store (Policy and Sub CAs).
 
 **ROOT**  
-This is the root CA store, so your main root CA cert should go here.
+The root CA store, so your main root CA cert should go here.
 
 ## Troubleshooting
 
