@@ -672,9 +672,11 @@ The following diagram illustrates the relationship between Azure Data Factory an
 ## Debug the pipeline
 Debugging consists of a few basic techniques:
 
-1.	If you see the following error message, please confirm that the name of the class in the CS file match the name you specified for the EntryPoint property in the pipeline JSON. In the above walkthrough, name of the class is: MyDotNetActivity and the EntryPoint is specified as: MyDotNetActivityNS.**MyDotNetActivity**. 
+1.	If you see the following error message, please confirm that the name of the class in the CS file match the name you specified for the **EntryPoint** property in the pipeline JSON. In the above walkthrough, name of the class is: MyDotNetActivity and the EntryPoint is specified as: MyDotNetActivityNS.**MyDotNetActivity**. 
 
-			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly  
+			MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
+
+	If the names do match, confirm that all the binaries are in the **root folder** of the zip file. That is, when you open the zip file, you should see all the files in the root folder, not in any sub folders.   
 2.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders. 
 2.	In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that will help you troubleshoot issues. The logged messages will show up in the user log files (one or mote files named: user-0.log, user-1.log, user-2.log, etc...). 
 
