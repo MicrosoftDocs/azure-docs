@@ -43,4 +43,4 @@ For instructions about how to change the payment method in Azure, see [How to ch
 
 **Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
 
-> [AZURE.NOTE] If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it: [What do I do if my Azure subscription is cancelled?](billing-subscription-become-disable.md)
+> [AZURE.NOTE] If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it: [What do I do if my Azure subscription is disabled?](billing-subscription-become-disable.md)

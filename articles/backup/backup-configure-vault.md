@@ -3,8 +3,8 @@
 	description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="backup vault; back up a Windows server; backup windows;"/>
 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model
+# Back up a Windows Server or client to Azure using the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Azure portal](backup-configure-vault.md)
@@ -25,9 +25,10 @@
 
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Before you start
 To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
@@ -132,6 +133,32 @@ Now that you've created a vault, you prepare your infrastructure to back up file
     >[AZURE.NOTE] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+
+### Confirm the installation
+
+To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
+
+1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+
+    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+
+    The list of Recovery Services vaults is displayed.
+
+2. Select the name of the vault you created.
+
+    The Recovery Services vault dashboard blade opens.
+
+    ![recovery services vault dashboard](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+
+3. Click the **Settings** button at the top of the page.
+
+4. Click **Backup Infrastructure > Production Servers**.
+
+    ![Production servers](./media/backup-configure-vault/production-server-verification.png)
+
+If you see your servers in the list, you have confirmation that the agent has been installed and registered correctly.
 
 ## Step 4: Complete the initial backup
 

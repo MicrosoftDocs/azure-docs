@@ -60,7 +60,7 @@ To resolve this issue, use one of the following method:
 
 ## How to re-enable your subscription
 
-To re-enable a cancelled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
+To re-enable a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 

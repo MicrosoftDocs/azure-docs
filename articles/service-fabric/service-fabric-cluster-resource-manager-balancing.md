@@ -71,7 +71,8 @@ Note that getting below the balancing threshold is not an explicit goal – Bala
 
 ## Activity thresholds
 Sometimes, although nodes are relatively imbalanced, the *total* amount of load in the cluster is low. This could be just because of the time of day, or because the cluster is new and just getting bootstrapped. In either case, you may not want to spend time balancing the cluster because there’s actually very little to be gained – you’ll just be spending network and compute resources to move things around, without making any absolute difference. Because we want to avoid doing this, there’s another control inside of the Resource Manager, known as Activity Thresholds, which allows you to specify some absolute lower bound for activity – if no node has at least this much load then balancing will not be triggered even if the Balancing Threshold is met.
-As an example let’s say that we have reports with the following totals for consumption on these nodes. Let’s also say that we retain our Balancing Threshold of 3 for this metric, but now we also have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold no node meets that minimum Activity Threshold, so we leave things alone. In the bottom example, Node1 is way over the Activity Threshold, so balancing will be performed (since both the Balancing Threshold and the Activity Threshold for the metric are met)
+
+As an example let’s say that we have reports with the following totals for consumption on these nodes. Let’s also say that we retain our Balancing Threshold of 3 for this metric, but now we also have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold no node meets that minimum Activity Threshold, so we leave things alone. In the bottom example, Node1 is way over the Activity Threshold, so balancing will be performed (since both the Balancing Threshold and the Activity Threshold for the metric are exceeded)
 
 ![Activity Threshold Example][Image3]
 
@@ -84,6 +85,8 @@ ClusterManifest.xml
       <Parameter Name="Memory" Value="1536"/>
     </Section>
 ```
+
+Note that balancing and activity thresholds are both tied to the metric - balancing will only be triggered if both balancing and activity thresholds are exceeded for the same metric. Thus, if we exceed the Balancing Threshold for Memory and the Activity Threshold for CPU, balancing will not trigger as long as the remaining thresholds (Balancing Threshold for CPU and Activity Threshold for Memory) are not exceeded.
 
 ## Balancing services together
 Something that’s interesting to note is that whether the cluster is imbalanced or not is a cluster-wide decision, but the way we go about fixing it is moving individual service replicas and instances around. This makes sense, right? If memory is stacked up on one node, multiple replicas or instances could be contributing to it, so it could require moving any of the stateful replicas or stateless instances that use the affected, imbalanced metric.

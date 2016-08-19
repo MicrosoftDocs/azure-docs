@@ -12,14 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="08/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using Azure Resource Manager
 
 > [AZURE.SELECTOR]
--[Azure Classic PowerShell](application-gateway-ssl.md)
+-[Azure Portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Classic PowerShell](application-gateway-ssl.md)
 
  Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -27,30 +28,30 @@
 ## Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
-2. You will create a virtual network and a subnet for the application gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
-3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+2. You create a virtual network and a subnet for the application gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
+3. The servers you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## What is required to create an application gateway?
 
 
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
-- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these settings are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element needs to be added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
 
 **To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 
-## Create a new application gateway
+## Create an application gateway
 
-The difference between using the Azure Classic deployment model and Azure Resource Manager is the order in which you will create an application gateway and the items that need to be configured.
+The difference between using the Azure Classic deployment model and Azure Resource Manager is the order in which you create an application gateway and the items that need to be configured.
 
-With Resource Manager, all items that will make an application gateway will be configured individually and then put together to create an application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create an application gateway resource.
 
 
 Here are the steps needed to create an application gateway:
@@ -67,7 +68,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -75,9 +76,9 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 
 Check the subscriptions for the account.
 
-		PS C:\> get-AzureRmSubscription
+	Get-AzureRmSubscription
 
-You will be prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.<BR>
 
 ### Step 3
 
@@ -89,11 +90,11 @@ Choose which of your Azure subscriptions to use. <BR>
 
 ### Step 4
 
-Create a new resource group (skip this step if you're using an existing resource group).
+Create a resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway will use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This setting is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 
@@ -131,13 +132,13 @@ This creates a public IP resource "publicIP01" in resource group "appgw-rg" for 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-This creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance will take one IP address.
+This creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 ### Step 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those will be the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your web application endpoints.
+This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your web application endpoints.
 
 ### Step 3
 

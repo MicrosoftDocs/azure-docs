@@ -3,7 +3,7 @@
    description="How to run a Linux VM on Azure, paying attention to scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/20/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Running a Linux VM on Azure
 
