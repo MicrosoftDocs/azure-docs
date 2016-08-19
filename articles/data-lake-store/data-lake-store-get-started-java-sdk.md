@@ -42,15 +42,15 @@ Following links provide you the download location for the Java SDK for Data Lake
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Directory - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
 	* **For interactive authentication** - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
 		- Get **client ID** and **redirect URI** for the application
 		- Set delegated permissions
 
 	* **For non-interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
-		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Get **client ID**, **client secret**, and **redirect URI** for the application
 		- Set delegated permissions
-		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. 
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group.
 
 	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
 
@@ -58,9 +58,9 @@ Following links provide you the download location for the Java SDK for Data Lake
 
 The code snippet below provides code for **non-interactive** authentication, where the application provides its own credentials.
 
-You will need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application Contributor permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
+You need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application Contributor permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
 
-## Create a Java aplication
+## Create a Java application
 
 1. Open IntelliJ and create a new Java project using the **Command Line App** template. Complete the wizard to create the project.
 
@@ -75,7 +75,7 @@ You will need to give your application permission to create resources in Azure f
 4. From the left pane, navigate to **src**, **main**, **java**, **\<package name>**, and then open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **DATA-LAKE-STORE-NAME**, **RESOURCE-GROUP-NAME** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID** with information about your subscription and its Azure Active Directory. For information on how to find this information, see [the Azure guide to creating service principals](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/).
 
     This code goes through the process of creating a Data Lake Store account, creating files in the store, concatenating files, downloading a file, and finally deleting the account.
-    
+
         package com.company;
 
         import com.microsoft.azure.CloudException;
