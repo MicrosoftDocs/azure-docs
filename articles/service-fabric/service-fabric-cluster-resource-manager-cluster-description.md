@@ -173,7 +173,8 @@ The different key/value tags on nodes are known as node placement *properties* (
 - parenthesis for grouping operations
   - ()
 
-  Here are some examples of basic constraint statements that use some of the symbols above. Note that node properties can be strings, bools, or numerical values   
+  Here are some examples of basic constraint statements that use some of the symbols above. Note that node properties can be strings, bools, or numerical values.   
+
   - "Foo >= 5"
   - "NodeColor != green"
   - "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
