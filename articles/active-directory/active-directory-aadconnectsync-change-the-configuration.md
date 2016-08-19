@@ -22,11 +22,11 @@ The purpose of this topic is to walk you through how to make changes to the defa
 
 ## Synchronization Rules Editor
 The Synchronization Rules Editor is used to see and change the default configuration. You can find it in the Start Menu under the **Azure AD Connect** group.  
-![Start Menu with Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/startmenu.png)
+![Start Menu with Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
 When you open it, you see the default out-of-box rules.
 
-![Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/sre.png)
+![Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
 ### Navigating in the editor
 The drop-downs at the top of the editor allow you to quickly find a particular rule. For example, if you want to see the rules where the attribute proxyAddresses is included, you would change the drop-downs to the following:  
@@ -49,7 +49,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
 
 1. Click **Add new rule**.
 2. On the **Description** page enter the following:  
-![Inbound rule filtering](./media/active-directory-aadconnectsync-change-the-configuration/description.png)  
+![Inbound rule filtering](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
 	- Name: Give the rule a descriptive name.
 	- Description: Some clarification so someone else can understand what the rule is for.
 	- Connected system: The system the object can be found in. In this case, we select the Active Directory Connector.
