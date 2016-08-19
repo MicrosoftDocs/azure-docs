@@ -1,6 +1,6 @@
 <properties
     pageTitle="New SQL Database setup with PowerShell | Microsoft Azure"
-    description="Learn now to create a new SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets."
+    description="Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets."
     keywords="create new sql database,database setup"
 	services="sql-database"
     documentationCenter=""
@@ -17,17 +17,17 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
-# Create a new SQL database and perform common database setup tasks with PowerShell cmdlets
+# Create a SQL database and perform common database setup tasks with PowerShell cmdlets
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 - [C#](sql-database-get-started-csharp.md)
 
 
 
-Learn how to create a new SQL database by using PowerShell cmdlets. (For creating elastic databases, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).)
+Learn how to create a SQL database by using PowerShell cmdlets. (For creating elastic databases, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
@@ -36,30 +36,28 @@ Learn how to create a new SQL database by using PowerShell cmdlets. (For creatin
 
 Once you have access to run cmdlets against your selected Azure subscription, the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** to get a list of valid locations.
 
-Run the following command to create a new resource group:
+Run the following command to create a resource group:
 
 	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps"`
-                             -Location "West US"
-
-After successfully creating the new resource group, you see the following: **ProvisioningState : Succeeded**.
+                             -Location "westus"
 
 
 ### Create a server
 
-SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a new server. Replace *ServerName* with the name for your server. This name must be unique to all Azure SQL Database servers. You will get an error if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
+SQL databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a server. The name for your server must be unique to all Azure SQL Database servers. If the server name is already taken, you get an error. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose, but you should use the same location you used for the resource group created in the previous step.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps"`
                          -ServerName "server1"`
                          -Location "westus"`
                          -ServerVersion "12.0"
 
-When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password that will be the administrator credentials you want to create for the new server.
+When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials. Instead, enter the user name and password that will be the administrator credentials you want to create for the server. The script at the bottom of this article shows how to set the server credentials in code.
 
 The server details appear after the server is successfully created.
 
 ### Configure a server firewall rule to allow access to the server
 
-Establish a firewall rule to access the server. Run the following command, replacing the start and end IP addresses with valid values for your computer.
+To access the server you need to Establish a firewall rule. Run the following command, replacing the start and end IP addresses with valid values for your computer.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps"`
                                      -ServerName "server1"`
@@ -69,16 +67,16 @@ Establish a firewall rule to access the server. Run the following command, repla
 
 The firewall rule details appear after the rule is successfully created.
 
-To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from any Azure subscription to access the server.
+To allow other Azure services to access the server, add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. This allows Azure traffic from any Azure subscription to access the server.
 
 For more information, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 
 
-## Create a new SQL database
+## Create a SQL database
 
 Now you have a resource group, a server, and a firewall rule configured so you can access the server.
 
-The following command creates a new (blank) SQL database at the Standard service tier, with an S1 performance level:
+The following command creates a (blank) SQL database at the Standard service tier, with an S1 performance level:
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps"`
@@ -90,7 +88,7 @@ The following command creates a new (blank) SQL database at the Standard service
 
 The database details appear after the database is successfully created.
 
-## Create a new SQL database PowerShell script
+## Create a SQL database PowerShell script
 
 The following PowerShell script creates a SQL database and all its dependent resources. Replace all `{variables}` with values specific to your subscription (remove the **{}** when you set your values).
 
@@ -162,7 +160,7 @@ The following PowerShell script creates a SQL database and all its dependent res
 
 
 ## Next steps
-After you create a new SQL database and perform basic database setup tasks, you're ready for the following:
+After you create a SQL database and perform basic database setup tasks, you're ready for the following:
 
 - [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
