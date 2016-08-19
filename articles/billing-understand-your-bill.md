@@ -64,7 +64,7 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 Below are some sample statements for two different offers available on Microsoft Azure.
 
- **OFFER TYPE** | **DESCRIPTION** | **DOWNLOAD** |
+ Offer type | Description | Download |
  :--------- |:-------- | :-------|
 Pay-As-You-Go | Pay in arrears monthly | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
 Commitment offer | Spend deducted from your prepaid commitment | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
@@ -136,7 +136,7 @@ As part of our ongoing commitment to help customers easily manage their Azure us
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
-**Version 1** |  **Version 2**  |  **Description**|
+Version 1 |  Version 2  |  Description|
 :---------------| :---------------- | --------|
 Billing Period | Billing Period | The billing period when the resource was consumed.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -158,7 +158,7 @@ Value | Value | Displays the result of multiplying the Billable column by the Ra
 ## Analyze daily usage data
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file for each version below.
 
- NAME | DOWNLOAD |
+ Name | Download |
  :----------:| :-------: |
   Detailed Usage .csv Version 1|  [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
   Detailed Usage .csv Version 2 | [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
@@ -175,7 +175,7 @@ In the .csv file, the items are broken down to display a list of how much of eac
 
 The following columns display details that affect the rates at the beginning of the billing period:
 
-**Version 1** |   **Version 2**   |  **Description** |
+Version 1 |   Version 2   |  Description |
 :---------------| :----------------| -----|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -205,8 +205,11 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](./resource-group-using-tags.md). Services that support emitting tags are:  
+    
     - Virtual Machines
+    
     - Storage and
+   
     - Networking services provisioned using the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![tags](./media/billing-understand-your-bill/tags.png)
