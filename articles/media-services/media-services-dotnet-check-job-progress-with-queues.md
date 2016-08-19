@@ -43,19 +43,19 @@ The code example in this section does the following:
 
 1. Defines the **EncodingJobMessage** class that maps to the notification message format. The code deserializes messages received from the queue into objects of the **EncodingJobMessage** type.
 1. Loads the Media Services and Storage account information from the app.config file. Uses this information to create the **CloudMediaContext** and **CloudQueue** objects.
-1. Creates the queue that will be receiving notification messages about the encoding job.
+1. Creates the queue that receives notification messages about the encoding job.
 1. Creates the notification end point that is mapped to the queue.
 1. Attaches the notification end point to the job and submits the encoding job. You can have multiple notification end points attached to a job.
-1. In this example we are only interested in final states of the job processing, so we pass **NotificationJobState.FinalStatesOnly** to the **AddNew** method. 
+1. In this example, we are only interested in final states of the job processing, so we pass **NotificationJobState.FinalStatesOnly** to the **AddNew** method. 
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. If you pass NotificationJobState.All you should expect to get all state change notifications: Queued -> Scheduled -> Processing -> Finished. However, as noted earlier, the Azure Storage Queues service does not guarantee ordered delivery. You can use the Timestamp property (defined on the EncodingJobMessage type in the example below) to order messages. It is possible that you will get duplicate notification messages. Use the ETag property (defined on the EncodingJobMessage type) to check for duplicates. Note that it is also possible that some state change notifications will be skipped. 
+1. If you pass NotificationJobState.All, you should expect to get all state change notifications: Queued -> Scheduled -> Processing -> Finished. However, as noted earlier, the Azure Storage Queues service does not guarantee ordered delivery. You can use the Timestamp property (defined on the EncodingJobMessage type in the example below) to order messages. It is possible that you get duplicate notification messages. Use the ETag property (defined on the EncodingJobMessage type) to check for duplicates. It is also possible that some state change notifications will be skipped. 
 1. Waits for the job to get to the Finished state by checking the queue every 10 seconds. Deletes messages after they have been processed.
 1. Deletes the queue and the notification end point.
 
 >[AZURE.NOTE]The recommended way to monitor a job’s state is by listening to notification messages, as shown in the following example.
 >
->Alternatively, you could check on a job’s state by using the **IJob.State** property.  Note that a notification message about a job’s completion may arrive before the State on **IJob** is set to **Finished**. The **IJob.State**  property will reflect the accurate state with a slight delay.
+>Alternatively, you could check on a job’s state by using the **IJob.State** property.  A notification message about a job’s completion may arrive before the State on **IJob** is set to **Finished**. The **IJob.State**  property reflects the accurate state with a slight delay.
 
 	
 	using System;
