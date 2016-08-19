@@ -25,7 +25,7 @@ Planning and designing your cross-premises and VNet-to-VNet configurations can b
 
 ### <a name="compare"></a>Cross-premises connectivity options
 
-If you you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on various considerations, such as:
+If you want to connect your on-premises sites securely to a virtual network, you have three different ways to do so: Site-to-Site, Point-to-Site, and ExpressRoute. Compare the different cross-premises connections that are available. The option you choose can depend on various considerations, such as:
 
 
 - What kind of throughput does your solution require?
@@ -48,7 +48,7 @@ The following table can help you decide the best connectivity option for your so
 
 
 When you create a VPN gateway, you need to specify the gateway SKU that you want to use. 
-There are 3 VPN Gateway SKUs:
+There are three VPN Gateway SKUs:
 
 - Basic
 - Standard
@@ -93,7 +93,7 @@ The following sections discuss the VPN gateway basics. Also, consider the [netwo
 
 When you are creating connections, you must consider your subnet ranges. You cannot have overlapping subnet address ranges. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You need address space that is not being used on the local on-premises network. 
 
-Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections will fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
+Avoiding overlapping subnets is also important when you are working with VNet-to-VNet connections. If your subnets overlap and an IP address exists in both the sending and destination VNets, VNet-to-VNet connections fail. Azure can't route the data to the other VNet because the destination address is part of the sending VNet. 
 
 VPN Gateways require a specific subnet called a gateway subnet. All gateway subnets must be named GatewaySubnet to work properly. Be sure not to name your gateway subnet a different name, and don't deploy VMs or anything else to the gateway subnet. For more information about gateway subnets, see the [Gateway subnet](vpn-gateway-about-vpngateways.md#gwsub) section in the About VPN Gateways article.
 
@@ -123,7 +123,7 @@ Each configuration requires a specific connection type. The connection types are
 
 #### <a name="vpntype"></a>About VPN types
 
-Each configuration requires a specific VPN type in order to work. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements.
+Each configuration requires a specific VPN type. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements.
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)] 
 
