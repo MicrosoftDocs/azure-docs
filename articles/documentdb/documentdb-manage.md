@@ -53,7 +53,7 @@ Each collection can be reserved with throughput in blocks of 100 request units p
 
 How many request units will a particular operation like insert, delete, query, or stored procedure execution consume? A request unit is a normalized measure of request processing cost. A read of a 1 KB document is 1 RU, but a request to insert, replace or delete the same document will consume more processing from the service and thereby more request units. Each response from the service includes a custom header (`x-ms-request-charge`) that reports the request units consumed for the request. This header is also accessible through the [SDKs](documentdb-sdk-dotnet.md). In the .NET SDK, [RequestCharge](https://msdn.microsoft.com/library/azure/dn933057.aspx#P:Microsoft.Azure.Documents.Client.ResourceResponse`1.RequestCharge) is a property of the [ResourceResponse](https://msdn.microsoft.com/library/azure/dn799209.aspx) object. If you want to estimate your throughput needs before making a single call, you can use the [capacity planner](documentdb-request-units.md#estimating-throughput-needs) to help with this estimation. 
 
->[AZURE.NOTE] The baseline of 1 request unit for a 1 KB document corresponds to a simple GET of the document with [Session Consistency](documentdb-consistency.md). 
+>[AZURE.NOTE] The baseline of 1 request unit for a 1 KB document corresponds to a simple GET of the document with [Session Consistency](documentdb-consistency-levels.md). 
 
 There are several factors that impact the request units consumed for an operation against a DocumentDB database account. These factors include:
 
