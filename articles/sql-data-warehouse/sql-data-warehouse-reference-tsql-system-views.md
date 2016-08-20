@@ -64,6 +64,7 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 
 - [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 - [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
+- [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
 ## SQL Server catalog views
 
