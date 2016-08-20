@@ -63,7 +63,7 @@ Create an Azure Active Directory application, create a service principal for the
 	If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 5. Create an Azure Active Directory application. 
 
-		$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp2" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp2.org/example" -Password "Pass@word1"
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 
 	If you get the following error, specify a different URL and run the command again. 
 
@@ -91,16 +91,14 @@ You should have following four values from these steps:
 - Password (specified in the first command)   
 
 ## Walkthrough
-1. Using Visual Studio 2012 or 2013, create a C# .NET console application.
-	<ol type="a">
-		<li>Launch <b>Visual Studio 2012</b> or <b>Visual Studio 2013</b>.</li>
-		<li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li> 
-		<li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language.</li> 
-		<li>Select <b>Console Application</b> from the list of project types on the right.</li>
-		<li>Enter <b>DataFactoryAPITestApp</b> for the <b>Name</b>.</li> 
-		<li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
-		<li>Click <b>OK</b> to create the project.</li>
-	</ol>
+1. Using Visual Studio 2012/2013/2015, create a C# .NET console application.
+	1. Launch **Visual Studio** 2012/2013/2015.
+	2. Click **File**, point to **New**, and click **Project**.
+	3. Expand **Templates**, and select **Visual C#**. In this walkthrough, you use C#, but you can use any .NET language.
+	4. Select **Console Application** from the list of project types on the right.
+	5. Enter **DataFactoryAPITestApp** for the Name.
+	6. Select **C:\ADFGetStarted** for the Location.
+	7. Click **OK** to create the project.
 2. Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
 3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
 
@@ -110,20 +108,16 @@ You should have following four values from these steps:
 
 	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId** and **ActiveDirectoryTenantId** with your own values. 
 
-	You can get subscription ID and tenant ID values by running **Get-AzureAccount -Format-List** from Azure PowerShell (you may need to login first by using Add-AzureAccount) after you login using Login-AzureRmAccount. 
-
-	You can get the CLIENT ID and redirect URI for your AD application from the Azure portal.      
- 
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
 		    <!-- Replace the following values with your own -->
-    		<add key="ApplicationId" value="<Application ID>" />
-    		<add key="Password" value="<Secret Key>" />    
-		    <add key="SubscriptionId" value="your subscription ID" />
-    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
+    		<add key="ApplicationId" value="Application ID" />
+    		<add key="Password" value="Password" />    
+		    <add key="SubscriptionId" value= "Subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="tenant ID" />
 		</appSettings>
 6. Add the following **using** statements to the source file (Program.cs) in the project.
 
@@ -345,40 +339,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
                     }
                 });	
 
-12. Add the following helper method used by the **Main** method to the **Program** class.  
- 
-        public static string GetAuthorizationHeader()
-        {
-            AuthenticationResult result = null;
-            var thread = new Thread(() =>
-            {
-                try
-                {
-                    var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                    ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                    result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-                }
-                catch (Exception threadEx)
-                {
-                    Console.WriteLine(threadEx.Message);
-                }
-            });
-
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Name = "AcquireTokenThread";
-            thread.Start();
-            thread.Join();
-
-            if (result != null)
-            {
-                return result.AccessToken;
-            }
-
-            throw new InvalidOperationException("Failed to acquire token");
-        }  
- 
-13. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.   
+12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.   
  
             // Pulling status within a timeout threshold
             DateTime start = DateTime.Now;
@@ -412,7 +373,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
                 }
             }
 
-14. **(optional)** Add the following code to get run details for a data slice slice to the **Main** method.
+14. Add the following code to get run details for a data slice slice to the **Main** method.
 
             Console.WriteLine("Getting run details of a data slice");
 
@@ -444,6 +405,40 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
 
+13. Add the following helper method used by the **Main** method to the **Program** class.  
+ 
+        public static string GetAuthorizationHeader()
+        {
+            AuthenticationResult result = null;
+            var thread = new Thread(() =>
+            {
+                try
+                {
+                    var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+
+                    ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
+                    result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
+                }
+                catch (Exception threadEx)
+                {
+                    Console.WriteLine(threadEx.Message);
+                }
+            });
+
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Name = "AcquireTokenThread";
+            thread.Start();
+            thread.Join();
+
+            if (result != null)
+            {
+                return result.AccessToken;
+            }
+
+            throw new InvalidOperationException("Failed to acquire token");
+        }  
+
+
 15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for **System.Configuration** assembly and click **OK**. 
 16. Build the console application. Click **Build** on the menu and click **Build Solution**. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
@@ -457,34 +452,6 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
-
-
-## Login without popup dialog box 
-The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
-
-### Example
-
-Create GetAuthorizationHeaderNoPopup method as shown below:  
-
-    public static string GetAuthorizationHeaderNoPopup()
-    {
-        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-        var context = new AuthenticationContext(authority.AbsoluteUri);
-        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
-        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
-        if (result != null)
-            return result.AccessToken;
-
-        throw new InvalidOperationException("Failed to acquire token");
-    }
-
-Replace **GetAuthorizationHeader** call with a call to **GetAuthorizationHeaderNoPopup** in the **Main** function:  
-
-        TokenCloudCredentials aadTokenCredentials =
-            new TokenCloudCredentials(
-            ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeaderNoPopup());
-
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
