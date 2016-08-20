@@ -22,9 +22,9 @@ You can manage your enterprise applications in Azure Active Directory (Azure AD)
 
 ## How do I view all my apps?
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter Active Directory in the text box, and then select **Enter**.
+2. Select **More services**, enter Active Directory in the text box, and then select **Enter**.
 
 3. On the **Azure Active Directory -** ***directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise apps**.
 
