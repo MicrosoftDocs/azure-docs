@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/20/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -57,6 +57,13 @@
 - [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 - [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 - [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+
+## SQL Server DMVs applicable to SQL Data Warehouse
+
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+
+- [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
+- [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 
 ## SQL Server catalog views
 
