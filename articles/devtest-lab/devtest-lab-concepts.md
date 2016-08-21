@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="08/21/2016"
 	ms.author="tarcher"/>
 
 #DevTest Labs concepts
@@ -54,6 +54,23 @@ Caps is a mechanism to minimize waste in your lab. For example, you can set a ca
 
 ##Policies
 Policies help in controlling cost in your lab. For example, you can create a policy to automatically shut down VMs based on a defined schedule.
+
+##Security levels
+Security access is determined by Azure Role-Based Access Control (RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC. 
+
+- Permission - A permission is a defined access to a specific action (e.g. read-access to all virtual machines). 
+- Role - A role is a set of permissions that can be grouped and assigned to a user. For example, the *subscription owner* role has access to all resources within a subscription. 
+- Scope - A scope is a level within the hierarchy of an Azure resource - such as a resource group, a single lab, or the entire subscription).
+ 
+Within the scope of DevTest Labs, there are two types of roles to define user permissions: lab owner and lab user.
+
+- Lab Owner - A lab owner has access to any resources within the lab. Therefore, a lab owner can modify policies, read and write any VMs, change the virtual network, and so on. 
+- Lab User - A lab user can view all lab resources, such as VMs, policies, and virtual networks, but cannot modify policies or any VMs created by other users. 
+
+
+To see how to create custom roles in DevTest Labs, refer to the article, [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+
+Since scopes are hierarchical, when a user has permissions at a certain scope, they are automatically granted those permissions at every lower-level scope encompassed. For instance, if a user is assigned to the role of subscription owner, then they have access to all resources in a subscription, which include all virtual machines, all virtual networks, and all labs. Therefore, a subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. Therefore, a lab owner will not be able to see virtual machines or virtual networks or any resources that are outside of the lab.
 
 ##Next steps
 
