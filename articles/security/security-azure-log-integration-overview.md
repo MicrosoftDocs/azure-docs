@@ -32,8 +32,8 @@ Azure log integration enables you to integrate raw logs from your Azure resource
 
 Azure produces extensive logging for every Azure service. These logs are categorized by two main types:
 
-- **Control/management logs** which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations. Azure Audit Logs is an example of this type of log.
-- **Data plane logs** which give visibility into the events raised as part of the usage of an Azure resource. An example of this type of log are the Windows event System, Security, and Application logs in a virtual machine.
+- **Control/management logs**, which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations. Azure Audit Logs is an example of this type of log.
+- **Data plane logs**, which give visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine.
 
 Azure log integration currently supports integration of Azure Audit Logs, virtual machine logs, and Azure Security Center alerts.
 

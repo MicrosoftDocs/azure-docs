@@ -69,7 +69,7 @@ The event XML has the metadata as shown below, including the subscription id.
 
 ## Where can I find the definition of the properties in audit log?
 
-- [Audit operations with Resource Manager](./resource-group/resource-group-audit.md)
+- [Audit operations with Resource Manager](../resource-group/resource-group-audit.md)
 - [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find the definition of the schema and details on Azure Security Center alerts?
