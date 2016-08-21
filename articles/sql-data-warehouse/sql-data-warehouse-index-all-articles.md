@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2016"
+	ms.date="08/21/2016"
 	ms.author="barbkess"/>
 
 
@@ -25,7 +25,7 @@ This topic lists every topic that applies directly to the **SQL Data Warehouse**
 
 ## Updated articles
 
-This section lists articles which updated recently, where the update was big or significant. For each updated article, a rough snippet of the added markdown text is displayed. The articles were updated within the date range of **2016-07-26** to **2016-08-20**.
+This section lists articles which were updated recently, where the update was big or significant. For each updated article, a rough snippet of the added markdown text is displayed. The articles were updated within the date range of **2016-07-26** to **2016-08-21**.
 
 | &nbsp; | Article | Updated text, snippet |
 | --: | :-- | :-- |
