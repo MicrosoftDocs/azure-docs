@@ -21,9 +21,9 @@
 > [AZURE.IMPORTANT]
 > **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.
 
-The fastest way to register for password reset is to go to http://aka.ms/ssprsetup.  
+The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
 
- 1. Navigate to http://aka.ms/ssprsetup.
+ 1. Navigate to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
  2. Enter your username and password.
  3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
 
@@ -39,7 +39,7 @@ The fastest way to register for password reset is to go to http://aka.ms/ssprset
     ![][014]
 
  6. Once the code arrives, enter it into the input box, and then click "verify."
- 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to https://passwordreset.microsoftonline.com.
+ 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 
     ![][015]
 
