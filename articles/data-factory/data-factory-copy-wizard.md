@@ -58,7 +58,7 @@ By using the Copy Wizard, you can efficiently and simply move hundreds of folder
 ### Richer scheduling options
 You can run the copy operation once or on a schedule (hourly, daily, and so on). Both of these options can be used for the breadth of the connectors across on-premises, cloud, and local desktop copy.
 
-A one-time copy operation enables data movement from a source to a destination just once. It applies to data of any size and any supported format. The scheduled copy allows you to copy data on a prescribed recurrence. You can use rich settings (like retry, timeout, and alerts) to configure the scheduled copy.
+A one-time copy operation enables data movement from a source to a destination only once. It applies to data of any size and any supported format. The scheduled copy allows you to copy data on a prescribed recurrence. You can use rich settings (like retry, timeout, and alerts) to configure the scheduled copy.
 
 ![Scheduling properties](./media/data-factory-copy-wizard/scheduling-properties.png)
 
@@ -76,9 +76,9 @@ Click the **Browse** button for **File or folder**, navigate to one of these fol
 
 ![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first, replace a value with **{custom}**, and press **TAB** to see the text box where you can type the format string.     
+As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press **TAB** to see the text box where you can type the format string.     
 
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
 ## Next steps
-For a quick walkthrough of using the **Data Factory Copy Wizard** to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+For a quick walkthrough of using the **Data Factory Copy Wizard** to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
