@@ -20,7 +20,7 @@
 
 Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
-This tutorial walks you through how to install Azure log integration and integrate logs from Azure storage, Azure Audit Logs and Azure Security Center alerts. Estimated time to complete this tutorial is one hour.
+This tutorial walks you through how to install Azure log integration and integrate logs from Azure storage, Azure Audit Logs, and Azure Security Center alerts. Estimated time to complete this tutorial is one hour.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To complete this tutorial, you must have the following:
 - Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - Azure Diagnostics enabled for your Azure virtual machines (VMs). To enable diagnostics for Cloud Services, see [Enabling Azure Diagnostics in Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). To enable diagnostics for an Azure VM running Windows, see [Use PowerShell to enable Azure Diagnostics in a Virtual Machine Running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md).
 - Connectivity from the Azlog Integrator to Azure storage and to authenticate and authorize to Azure subscription.
-- For Azure VM logs, the SIEM agent (e.g. Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent, or IBM QRadar WinCollect) must be installed on the Azlog Integrator.
+- For Azure VM logs, the SIEM agent (for example, Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent, or IBM QRadar WinCollect) must be installed on the Azlog Integrator.
 
 ## Deployment considerations:
 
@@ -66,7 +66,7 @@ The Azure log integration service collects telemetry data from the machine on wh
 
   If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name: **azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>**.
 
-4. Wait 30 - 60 minutes (it could take as long as an hour), then view the events that are pulled from the storage account by opening **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
+4. Wait 30 - 60 minutes (it could take as long as an hour), then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
 
 5. Make sure that your standard SIEM connector installed on the machine is configured to pick events from the **Forwarded Events** folder and pipe them to your SIEM instance. Review the SIEM specific configuration to configure and see the logs integrating.
 
@@ -95,13 +95,13 @@ If you still don’t see the events, then:
 
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
-2. Run the command: **azlog createazureid**. This command will prompt you for your Azure login and create an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD).  Creating a service principal for Azlog Integration will create the Azure AD identity that will be given access to read from Azure subscriptions.
+2. Run the command: **azlog createazureid**. This command prompts you for your Azure login. The command then creates an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD).  Creating a service principal for Azlog Integration creates the Azure AD identity that will be given access to read from Azure subscriptions.
 
-3. Run the command: **azlog authorize <SubscriptionID>**. This assigns reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then it will attempt to assign the service principal reader role to all subscriptions to which you have any access.
+3. Run the command: **azlog authorize <SubscriptionID>**. This assigns reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then it attempts to assign the service principal reader role to all subscriptions to which you have any access.
 
     azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
 
-  > [AZURE.NOTE] You may see warnings if you run the **authorize** command immediately after the createazureid command because there is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
+  > [AZURE.NOTE] You may see warnings if you run the **authorize** command immediately after the **createazureid** command. There is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
 
 4. Check the following folders to confirm that the Audit log JSON files are there:
 

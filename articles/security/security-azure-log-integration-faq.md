@@ -50,7 +50,7 @@ Append the **subscriptionid** to the friendly name while adding the source.
 
   Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 
-The event XML will have the metadata as shown below, including the subscription id.
+The event XML has the metadata as shown below, including the subscription id.
 
 
 ## Error messages
@@ -59,13 +59,13 @@ The event XML will have the metadata as shown below, including the subscription 
 
   Failed to create AAD Application - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'Insufficient privileges to complete the operation.'
 
-**Azlog createazureid** attempts to create a service principal in all the Azure AD tenants for the subscriptions on which the Azure login has access to. If your Azure login is only a Guest user in that Azure AD tenant, then the command will fail with ‘Insufficient privileges to complete the operation.’ Please request Tenant admin to add your account as a user in the tenant.
+**Azlog createazureid** attempts to create a service principal in all the Azure AD tenants for the subscriptions on which the Azure login has access to. If your Azure login is only a Guest user in that Azure AD tenant, then the command fails with ‘Insufficient privileges to complete the operation.’ Request Tenant admin to add your account as a user in the tenant.
 
 ### When running command **azlog authorize**, why do I get the following error?
 
   Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.
 
-**Azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **Azlog createazureid**) to the subscriptions provided. If the Azure login is not a Co-Administrator or an Owner of the subscription, it will fail with ‘Authorization Failed’ error message. Azure role-based access control (RBAC) of Co-Administrator or Owner is needed to complete this action.
+**Azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **Azlog createazureid**) to the subscriptions provided. If the Azure login is not a Co-Administrator or an Owner of the subscription, it fails with ‘Authorization Failed’ error message. Azure role-based access control (RBAC) of Co-Administrator or Owner is needed to complete this action.
 
 ## Where can I find the definition of the properties in audit log?
 
@@ -78,7 +78,7 @@ See [Managing and responding to security alerts in Azure Security Center](../sec
 
 ## How can I modify what is collected with VM diagnostics?
 
-See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Windows Azure Diagnostics (WAD) configuration. Below is a sample:
+See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Windows Azure Diagnostics (WAD) configuration. Following is a sample:
 
 ### Get the WAD config
 
@@ -92,7 +92,7 @@ See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Win
 
 ### Modify the WAD Config
 
-The example below is a configuration where only EventID 4624 and EventId 4625 is collected from the security event log and only Microsoft Antimalware events are collected from the System event log. See [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) for details on the use of XPath expressions.
+The following example is a configuration where only EventID 4624 and EventId 4625 are collected from the security event log. Microsoft Antimalware events are collected from the System event log. See [Consuming Events](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85) for details on the use of XPath expressions.
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
