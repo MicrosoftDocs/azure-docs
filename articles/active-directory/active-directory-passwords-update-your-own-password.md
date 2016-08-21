@@ -48,7 +48,6 @@ The fastest way to register for password reset is to go to http://aka.ms/ssprset
 ## Other methods to update your own password
 Read below to learn how to perform common steps, like changing a password or resetting a password.
 
-* [**Don’t lose access to your account!**](#how-to-register-for-password-reset)
 * [**How to change your password from Office 365**](active-directory-passwords-update-methods.md#how-to-change-your-password-from-o365)
 * [**How to change your password from the access panel**](active-directory-passwords-update-methods.md#how-to-change-your-password-from-the-access-panel)
 * [**How to reset your password**](active-directory-passwords-update-methods.md#how-to-reset-your-password)

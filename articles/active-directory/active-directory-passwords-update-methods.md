@@ -17,7 +17,7 @@
 	ms.author="asteen"/>
 
 # How to update your own password
-If you are unsure how to manage your Work or School account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
+If you are unsure how to manage your work or school account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
 
 * [**Don’t lose access to your account!**](active-directory-passwords-update-your-own-password.md)
 * [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
@@ -57,7 +57,7 @@ Follow the steps below to reset your work or school account password from any wo
 > If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
 
 
- 1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
+ 1. On the any work or school account sign-in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
 
     ![][001]
 
