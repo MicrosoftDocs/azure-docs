@@ -19,13 +19,13 @@
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../resource-group-overview.md). We'll detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. 
+In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. 
 
 ## Goal for migration
 
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
 
-Almost all of the features from the classic deployment model are supported for compute, network, and storage under Azure Resource Manager. To benefit from the new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model.
+Almost all the features from the classic deployment model are supported for compute, network, and storage under Azure Resource Manager. To benefit from the new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model.
 
 ## Changes to your automation and tooling after migration
 
@@ -38,15 +38,15 @@ Before we drill down into the details, let's look at the difference between data
 - *Management plane* describes the calls that come into the management plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances.
 - *Data plane* (application) describes the runtime of the application itself and involves interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server instance or a MongoDB server would be considered data plane or application interaction. Copying a blob from a storage account and accessing a public IP address to RDP or SSH into the virtual machine also are data plane. These operations keep the application running across compute, networking, and storage.
 
->[AZURE.NOTE] In some migration scenarios, the Azure platform will stop, deallocate, and restart your virtual machines. This incurs a short data-plane downtime.
+>[AZURE.NOTE] In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This incurs a short data-plane downtime.
 
 ## Supported scopes of migration
 
-There are three migration scopes that primarily target compute, network and storage. 
+There are three migration scopes that primarily target compute, network, and storage. 
 
 ### Migration of virtual machines (not in a virtual network)
 
-In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. Therefore, wthe Azure platform will restart (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
+In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. Therefore, wthe Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
 
 - You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 - You can migrate the virtual machine into an existing virtual network in Resource Manager.
@@ -62,13 +62,13 @@ The following configurations are not currently supported. If support is added in
 -	You have more than one availability set in a single cloud service.
 -	You have one or more availability sets and VMs that are not in an availability set in a single cloud service.
 
->[AZURE.NOTE] In this migration scope, the management plane may not be allowed for a period of time during the migration. For certain configurations as described earlier, this incurs data-plane downtime.
+>[AZURE.NOTE] In this migration scope, the management plane may not be allowed for a period of time during the migration. For certain configurations as described earlier, data-plane downtime occurs.
 
 ### Storage accounts migration
 
 To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process. 
 
->[AZURE.NOTE] The Resource Manager deployment model doesn't have the concept of classic images and disks. When the storage account is migrated, these will not be visible in the Resource Manager stack but the backing VHDs will remain in the storage account. 
+>[AZURE.NOTE] The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account. 
 
 ## Unsupported features and configurations
 
@@ -93,10 +93,10 @@ The following configurations are not currently supported.
 
 Service | Configuration | Recommendation
 ---------- | ------------ | ------------
-Resource Manager | Role Based Access Control (RBAC) for classic resources | Because the URI of the resources are modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration.
+Resource Manager | Role Based Access Control (RBAC) for classic resources | Because the URI of the resources is modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration.
 Compute | Multiple subnets associated with a VM | Update the subnet configuration to reference only subnets.
 Compute | Virtual machines that belong to a virtual network but don't have an explicit subnet assigned | You can optionally delete the VM.
-Compute | Virtual machines that have alerts, Autoscale policies | The migration will currently go through and these settings will be dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete.
+Compute | Virtual machines that have alerts, Autoscale policies | The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete.
 Compute | XML VM extensions (Visual Studio Debugger, Web Deploy, and Remote Debugging) | This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration.
 Compute | Boot diagnostics with Premium storage | Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs.
 Compute | Cloud services that contain web/worker roles | This is currently not supported.
@@ -107,20 +107,20 @@ Microsoft Dynamics Lifecycle Services | Virtual networks that contain virtual ma
 
 ## The migration experience
 
-Before you start the migration experience, the following is recommend:
+Before you start the migration experience, the following is recommended:
 
-- Ensure that the resources that you want to migrate don't use any unsupported features or configurations. In most cases, the platform detects these issues and generates an error.
-- If you have VMs that are not in a virtual network, they will be stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, look into reserving the IP address before triggering the prepare operation. However, if the VMs are in a virtual network, they will not be stopped and deallocated.
+- Ensure that the resources that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
+- If you have VMs that are not in a virtual network, they will be stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, look into reserving the IP address before triggering the prepare operation. However, if the VMs are in a virtual network, they are not stopped and deallocated.
 - Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
 - Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
 - Update your automation/operationalization scripts to handle the Resource Manager deployment model before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-- Evaluate the RBAC policies that are configured on the classic IaaS resources, and have a plan for after the migration is complete.
+- Evaluate the RBAC policies that are configured on the classic IaaS resources, and plan for after the migration is complete.
 
 The migration workflow is as follows
 
 ![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
->[AZURE.NOTE] All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The platform will then try the action again.
+>[AZURE.NOTE] All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
 
 ### Validate
 
@@ -153,7 +153,7 @@ If you are migrating a virtual network, most configuration of virtual machines i
 
 You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Only GET operations are supported when the resources are in the prepared state.
 
-There is no set time window before which you need to commit the migration. You can take as much time as you want in this state. However, the management plane will be locked for these resources until you either abort or commit.
+There is no set time window before which you need to commit the migration. You can take as much time as you want in this state. However, the management plane is locked for these resources until you either abort or commit.
 
 If you see any issues, you can always abort the migration and go back to the classic deployment model. After you go back, the Azure platform will open the management-plane operations on the resources so that you can resume normal operations on those VMs in the classic deployment model.
 
@@ -165,9 +165,9 @@ Abort is an optional step that you can use to revert your changes to the classic
 
 ### Commit
 
-After you finish the validation, you can commit the migration. Resources will not appear anymore in classic and will be available only in the Resource Manager deployment model. This also means the migrated resources can be managed only in the new portal.
+After you finish the validation, you can commit the migration. Resources do not appear anymore in classic and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
->[AZURE.NOTE] This is an idempotent operation. If it fails, it is recommended that you retry this a couple of times. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
+>[AZURE.NOTE] This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 
 ## Frequently asked questions
 
@@ -193,7 +193,7 @@ You can abort your migration as long as the resources are in the prepared state.
 
 **Can I roll back my migration if the commit operation fails?**
 
-You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, please create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
+You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 
 **Do I have to buy another express route circuit if I have to use IaaS under Resource Manager?**
 
@@ -205,11 +205,11 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 **What if I’m using Azure Site Recovery or Azure Backup today?**
 
-Azure Site Recovery and Backup support for VMs under Resource Manager was added recently. We are working to enable the capability to support migration of VMs into Resource Manager as well. At this time, we recommend that you don't run migration if you're using these functionalities.
+Azure Site Recovery and Backup support for VMs under Resource Manager was added recently. We are working to enable the capability to support migration of VMs into Resource Manager as well. We currently recommend that you don't run migration if you're using these functionalities.
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
-Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you will receive all messages for all the reasons the migration cannot be completed.
+Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you receive messages for all the reasons the migration cannot be completed.
 
 **What happens if I run into a quota error while preparing the IaaS resources for migration?**
 
@@ -217,15 +217,15 @@ We recommend that you abort your migration and then log a support request to inc
 
 **How do I report an issue?**
 
-Please post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 **What if I don't like the names of the resources that the platform chose during migration?**
 
-All the resources that you explicitly provide names for in the classic deployment model will be retained during migration. In some cases, new resources will be created. For example: a network interface will be created for every VM. At this moment, we don't support the ability to control the names of these new resources created during migration. Please log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
+All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
 
-**I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Please ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension  whose Status is not being reported from the VM. Hence, this VM cannot be migrated."***
+**I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."***
 
-This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every 5 minutes. 
+This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes. 
 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
