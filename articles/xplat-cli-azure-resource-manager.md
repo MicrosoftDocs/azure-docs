@@ -68,7 +68,7 @@ When viewing details on a resource, it is often useful to use the `--json` param
 
 ### Tags
 
-Add [tags](resource-group-using-tags.md) to resources and resource groups to help you organize your resources. To see what tags are already applied, simply get a resource group and its resources with **azure group show**.
+To help you organize your resource, add [tags](resource-group-using-tags.md) to resources and resource groups. To see what tags are already applied, simply get a resource group and its resources with **azure group show**.
 
     azure group show -n tag-demo-group
     
@@ -122,7 +122,7 @@ This command returns the names of the resources with that tag.
     "tfsqlserver"
     "tfsqlserver/tfsqldata"
 
-Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you need to retrieve all the existing tags that you want to keep. To set tag values 
+Tags are updated as a whole, so if you add one tag to a resource that's already tagged, you need to retrieve the existing tags that you want to keep. To set tag values 
 for a resource group, use **azure group set** and provide all the tags for the resource group. 
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
@@ -162,7 +162,7 @@ To move existing resources to another resource group or subscription, use the **
 
 You can use the Azure CLI to create and manage policies to control access to Azure resources. For background about policy definitions and assigning policies to resources, see [Use policy to manage resources and control access](resource-manager-policy.md).
 
-For example, you might define the following policy to deny all requests where location is not West US or North Central US, and save it to the policy definition file policy.json:
+For example, define the following policy to deny all requests where location is not West US or North Central US, and save it to the policy definition file policy.json:
 
     {
     "if" : {
@@ -216,7 +216,7 @@ Using the Azure CLI, you can either export a template that represents the curren
 
         azure group export testRG ~/azure/templates/
 
-* **Download the template for a particular deployment** -- This is helpful when you need to view the actual template that was used to deploy resources. The template includes all parameters and variables defined for the original deployment. However, if someone in your organization made changes to the resource group outside of the definition in the template, this template won't represent the current state of the resource group.
+* **Download the template for a particular deployment** -- This is helpful when you need to view the actual template that was used to deploy resources. The template includes all parameters and variables defined for the original deployment. However, if someone in your organization made changes to the resource group outside of the definition in the template, this template doesn't represent the current state of the resource group.
 
     To download the template used for a particular deployment to a local directory, run the `azure group deployment template download` command. For example:
 
