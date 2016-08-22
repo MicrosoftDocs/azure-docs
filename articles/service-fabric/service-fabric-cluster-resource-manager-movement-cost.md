@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Cluster Resource Manager - Movement Cost | Microsoft Azure"
-   description="Overview of Movement Cost for Service Fabric Services"
+   pageTitle="Service Fabric Cluster Resource Manager: Movement cost | Microsoft Azure"
+   description="Overview of movement cost for Service Fabric services"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,36 +16,36 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
-# Service movement cost for influencing Resource Manager choices
-Another important factor that we take into consideration when trying to determine what changes to make to a cluster and the score of a given solution is the overall Cost of achieving that solution.
+# Service movement cost for influencing Cluster Resource Manager choices
+An important factor to consider when you're trying to determine what changes to make to a cluster and the score of a solution is the overall cost of achieving that solution.
 
-Moving service instances or replicas around costs CPU time and network bandwidth at a minimum, and for stateful services it also costs the amount of space on disk that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that the Cluster Resource Manager comes up with, but you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
+Moving service instances or replicas costs CPU time and network bandwidth at a minimum. For stateful services, it also costs the amount of space on disk that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that Azure Service Fabric Cluster Resource Manager comes up with, but you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 
-The Cluster Resource Manager has two ways of computing costs and limiting them, even while trying to manage the cluster according to its other goals. The first is that when the Cluster Resource Manager is planning a new layout for the cluster, it counts every single move that it would make. In a simple case if you get two solutions with about the same overall balance (score) at the end, then take the one with the lowest cost (total number of moves).
+Cluster Resource Manager has two ways of computing costs and limiting them, even while it tries to manage the cluster according to its other goals. The first is that when Cluster Resource Manager is planning a new layout for the cluster, it counts every move that it would make. In a simple case, if you get two solutions with about the same overall balance (score) at the end, then take the one with the lowest cost (total number of moves).
 
-This works pretty well, until we run into the same problem we had with default or static loads – it is unlikely that in any complex system that all moves are equal; some are likely to be much more expensive.
+This works pretty well. But as with default or static loads, it's unlikely in any complex system that all moves are equal. Some are likely to be much more expensive.
 
 ## Changing a replica's move cost and factors to consider
-Just like when reporting load (another feature of the Cluster Resource Manager), we give the service a way of self-reporting how costly the service is to move at any given time.
+As with reporting load (another feature of Cluster Resource Manager), you give the service a way of self-reporting how costly the service is to move at a particular time.
 
-Code
+Code:
 
 ```csharp
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-MoveCost has four levels, Zero, Low, Medium, and High. Again – these are just relative to each other, except for Zero which means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that it won't be moved unless there’s a good reason to.
+MoveCost has four levels: Zero, Low, Medium, and High. These are relative to each other, except for Zero. Zero means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that it won't be moved unless there’s a good reason to.
 
-![Move Cost as a Factor in Selecting Replicas for Movement][Image1]
+![Move cost as a factor in selecting replicas for movement][Image1]
 
-MoveCost helps us find the solutions that cause overall the least disruption and are easiest to achieve while still arriving at equivalent balance. A service’s notion of cost can be relative to many things, but the most common factors in calculating your move cost are:
+MoveCost helps you find the solutions that cause the least disruption overall and are easiest to achieve while still arriving at equivalent balance. A service’s notion of cost can be relative to many things. The most common factors in calculating your move cost are:
 
-1.	The amount of state or data that the service has to move
-2.	The cost of disconnection of clients (so the cost of moving a Primary replica would usually be higher than the cost of moving a Secondary replica)
-3.	The cost of interrupting some in-flight operation (some data store level operations or operations performed in response to a client call are costly and after a certain point you don’t want to have to abort them if you don’t have to). So for the duration of the operation you bump up the cost to reduce the likelihood that the service replica or instance moves, and then when the operation is done you put it back to normal.
+- The amount of state or data that the service has to move.
+- The cost of disconnection of clients. The cost of moving a primary replica is usually higher than the cost of moving a secondary replica.
+- The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So for the duration of the operation, you bump up the cost to reduce the likelihood that the service replica or instance will move. When the operation is done, you put it back to normal.
 
 ## Next steps
-- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](service-fabric-cluster-resource-manager-metrics.md).
+- To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
