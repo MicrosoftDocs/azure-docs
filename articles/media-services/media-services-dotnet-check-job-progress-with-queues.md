@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Azure Queue storage to monitor Media Services job notifications with .NET" 
+	pageTitle="Use Azure Queue storage to monitor Media Services job notifications with .NET | Microsoft Azure" 
 	description="Learn how to use Azure Queue storage to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
