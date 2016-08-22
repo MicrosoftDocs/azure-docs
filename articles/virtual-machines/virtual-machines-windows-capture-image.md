@@ -99,7 +99,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	You can also verify the URI in the portal. The image is copied to a blob named **system** in your storage account. 
+	You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 2. Create a variable for the path to the image. 
 
