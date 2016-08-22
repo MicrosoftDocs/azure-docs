@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="jeffstok"/>
 
 
@@ -36,29 +36,29 @@ In this article you will learn how to install the community (free) version of RS
 1. Identify the edge node of the cluster. For an HDInsight cluster with R Server, following is the naming convention for head node and edge node.
 
 	* Head node - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Edge node - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
+	* Edge node - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
-3. SSH into the edge node of the cluster using the above naming pattern. 
+2. SSH into the edge node of the cluster using the above naming pattern. 
  
 	* If you are connecting from a Linux client, see [Connect to a Linux-based HDInsight cluster](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
 	* If you are connecting from a Windows client, see [Connect to a Linux-based HDInsight cluster using PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster).
 
-2. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
+3. Once you are connected, become a root user on the cluster. In the SSH session, use the following command.
 
 		sudo su -
 
-3. Download the custom script to install RStudio. Use the following command.
+4. Download the custom script to install RStudio. Use the following command.
 
 		wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/InstallRStudio.sh
 
-4. Change the permissions on the custom script file and run the script. Use the following commands.
+5. Change the permissions on the custom script file and run the script. Use the following commands.
 
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
 
-5. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.
+6. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster.
 
-		passwd remoteuser
+		passwd USERNAME
 		Current Kerberos password:
 		New password:
 		Retype new password:
@@ -71,13 +71,14 @@ In this article you will learn how to install the community (free) version of RS
 
 	Exit the SSH session.
 
-6. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
+7. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
 
 	* On a Linux client or a Windows client (using [Cygwin](http://www.redhat.com/services/custom/cygwin/)), open a terminal session and use the following command.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
-		Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster		
+		Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster
+		You can also use a SSH key rather than a password by adding `-i id_rsa_key`		
 
 	* On a Windows client create an SSH tunnel PuTTY.
 
@@ -93,15 +94,15 @@ In this article you will learn how to install the community (free) version of RS
 		4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
 		5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
 
-7. Open a web browser and enter the following URL based on the port you entered for the tunnel.
+8. Open a web browser and enter the following URL based on the port you entered for the tunnel.
 
 		http://localhost:8787/ 
 
-8. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5 above.
+9. You will be prompted to enter the SSH username and password to connect to the cluster. If you used an SSH key while creating the cluster, you must enter the password you created in step 5 above.
 
 	![Connect to R Studio](./media/hdinsight-hadoop-r-server-install-r-studio/connecttostudio.png "Create an SSH tunnel")
 
-9. To test whether the RStudio installation was successful, you can run a test script that executes R based MapReduce and Spark jobs on the cluster. Go back to the SSH console and enter the following commands to download the test script to run in RStudio.
+10. To test whether the RStudio installation was successful, you can run a test script that executes R based MapReduce and Spark jobs on the cluster. Go back to the SSH console and enter the following commands to download the test script to run in RStudio.
 
 	* If you created a Hadoop cluster with R, use this command.
 		
@@ -111,9 +112,11 @@ In this article you will learn how to install the community (free) version of RS
 
 			wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-10. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
+11. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
  
 	![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
+
+Another option would be to type `source(testhdi.r)` or `source(testhdi_spark.r)` to execute the script.
 
 ## See also
 

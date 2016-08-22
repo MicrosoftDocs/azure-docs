@@ -3,9 +3,9 @@
    description="Overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) for Linux applications in Azure Resource Manager deployment model"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Azure Compute, Network, and Storage providers for Linux applications under Azure Resource Manager deployment model
 
