@@ -23,22 +23,38 @@ This document covers new features and capabilities in each release of Azure Stac
 
 ##Technical Preview 2
 
-### Compute
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim.
+### Workloads
+ -  
+ - Key Vault
+   - Create and manage Key Vaults
+   - Store and deploy secrets and keys
+ - Preview support for workloads:
+   - Docker
+   - Mesos
+   - SQL
+ - Updated App Service Resource Provider
+ 
+### Administrative
+A number of new administrative and portal features are available in this preview.
+ - Billing and Usage APIs 
+ - Ability to capture plan and offer details in ARM templates for redeployment
+ - Export ARM Templates from GUI
+ -  Delegated Providers enable resale of Azure Stack services by resellers
+ - Introduces Azure Stack regions with the ability to:
+   - view a list of all Azure Stack regions
+   - view alerts by regions
+   - navigate to storage, computer, and network providers per regions
+   - view updates available in specific regions
+- New monitoring capabilities
+  - View details on Azure Stack alerts by regions
+  - Health Resource Provider enables retrieval of monitoring data via REST
 
- - Maecenas porttitor congue massa.
- - Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
- - Nunc viverra imperdiet enim.
- - Fusce est.
-
-
-### Network
-Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede.  Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
- - Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
- - Proin pharetra nonummy pede.
- - Mauris et orci.
- - Aenean nec lorem.
-
+### Networking
+Technical Preview 2 builds on TP1 features, namely:
+ - iDNS allows for name resolution within virtual networks
+ - VPN Site-To-Site gateways
+ - Provider now canview the state of networking resources via the portal, including virtual networks, load balancers, and IP allocation and consumption information
+ - Providers can implement quotas within the Network Resource Provider
 
 ### Storage
 Azure-consistent Storage (ACS) provides storage blob, table, queue and account management. Further, ACS also offers an administration service to facilitate service provider administration of Azure-consistent Storage services. 
@@ -59,38 +75,6 @@ Azure-consistent Storage (ACS) provides storage blob, table, queue and account m
   - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization  
   
 
-### Administrative
-Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede.  Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
-- Maecenas porttitor congue massa.
- - Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
- - Nunc viverra imperdiet enim.
+  
 
-## Azure Stack Technical Preview 1
 
-### Compute
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim.
- - Maecenas porttitor congue massa.
- - Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-
-### Network
-Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede.  Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
- - Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
- - Proin pharetra nonummy pede.
-
-### Storage
-Azure-consistent Storage (ACS) in Azure Stack delivers the following important Azure-consistent storage services for Azure Stack customers: blob, table, queue and account management. Further, ACS also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. 
-  
-- Broadening Azure consistency against 2015-04-05 version of Storage data path API 
-  - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
-  - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) 
-  - [Append Blob](https://msdn.microsoft.com/en-us/library/azure/mt427365.aspx) 
-- Broadening Azure consistency against 2015-06-15 version of Storage management path API 
-  - Premium storage account API support
-  - [Account SAS](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) 
-- Delivering new cloud administrator functionality and experiences 
-  - Reclamation of unused tenant capacity on-demand  
-- Functional improvements to improve resiliency, performance and security 
-  - ACS virtualized cloud services can scale out behind software load balancer 
-  - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization  
-
-### Administrative
