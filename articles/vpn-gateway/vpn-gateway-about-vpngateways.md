@@ -74,11 +74,11 @@ The VNets you connect can be:
 
 ### Connections between deployment models
 
-Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
+Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
 
 ### VNet peering
 
-You may be able to use VNet peering to create your connection, provided that your network configuration  meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview. See [VNet peering](../virtual-network/virtual-network-peering-overview.md) for more information.
+You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview. See [VNet peering](../virtual-network/virtual-network-peering-overview.md) for more information.
 
 
 ### Deployment models and methods
@@ -88,7 +88,7 @@ You may be able to use VNet peering to create your connection, provided that you
 
 ## Point-to-Site
 
-A Point-to-Site (P2S) configuration allows you to create a secure connection to your virtual network from an individual client computer. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). P2S connections do not require a VPN device or a public-facing IP address to work. You establish the VPN connection by starting it from the client computer. This is a useful solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
+A Point-to-Site (P2S) configuration allows you to create a secure connection to your virtual network from an individual client computer. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). P2S connections do not require a VPN device or a public-facing IP address to work. You establish the VPN connection by starting it from the client computer. This is a useful solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a VNet. 
 
 
 ![Point-to-site connection](./media/vpn-gateway-about-vpngateways/point2site.png "point-to-site")
