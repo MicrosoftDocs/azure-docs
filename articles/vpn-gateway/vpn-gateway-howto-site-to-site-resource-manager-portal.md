@@ -34,8 +34,6 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 
 ## Connection diagram
 
-![Site-to-Site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
 ![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/diagrams2sazureportal.png)
 
 
@@ -82,7 +80,7 @@ When using these steps as an exercise, you can use the sample configuration valu
 
 ## 1. Create a virtual network 
 
-If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. If you have overlapping subnets, your connection will not work properly. If your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. If you have overlapping subnets, your connection won't work properly. If your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
 
 ### To create a virtual network
 
