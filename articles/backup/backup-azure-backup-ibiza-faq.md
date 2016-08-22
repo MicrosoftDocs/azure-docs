@@ -17,7 +17,7 @@
 	 ms.date="08/21/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
-# Public Preview release of Azure Backup service- FAQ
+# Recovery Services vault - FAQ
 
 > [AZURE.SELECTOR]
 - [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
@@ -36,9 +36,9 @@ Unfortunately no, at this time you can't migrate the contents of a Backup vault 
 ## Do Recovery Services vaults support v.1 or v.2 VMs? <br/>
 Recovery Services vaults support v.1 and v.2 VMs. You can back up a VM created in the Classic portal (which is V.1), or a VM created in the Azure portal (which is V.2) to a Recovery Services vault.
 
-## I have backed up my classic VMs in backup vault. Now I want migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
-Backups of classic VMs in backup vault won't migrate automatically to recovery services vault when you migrate the VMs from classic to resource manager mode. Please follow these steps for migration of VM backups:
+## I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+Backups of classic VMs in backup vault won't migrate automatically to recovery services vault when you migrate the VMs from classic to Resource Manager mode. Please follow these steps for migration of VM backups:
 
 1. In backup vault, go to **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**. 
-2. Migrate the virtual machine from classic mode to resource manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to resource manager mode. 
+2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode. 
 3. Create a recovery services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. Learn More on how to [enable backup in recovery services vault](backup-azure-vms-first-look-arm.md)
