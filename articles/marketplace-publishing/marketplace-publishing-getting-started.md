@@ -29,11 +29,11 @@ The first thing you would want to do as a publisher is to define what kind of so
 
 - **Virtual Machine images** are pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.
 
-    >[Azure.NOTE] **For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.
+    >[AZURE.NOTE] **For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.
 
 - **Developer Services** are fully managed services to use in application development or system management. They provide functionality that enable rapid development of cloud scale applications on Azure.
 
-    >[Azure.NOTE] **For example,** as an Azure publisher, you developed an API accessible service (hosted on Azure or elsewhere) that provides predictions based on historical data. And this is a service that other Azure subscribers who are building solutions may want to utilize. You can deploy this service to the Azure Marketplace for other find, procure and user in their respective service.
+    >[AZURE.NOTE] **For example,** as an Azure publisher, you developed an API accessible service (hosted on Azure or elsewhere) that provides predictions based on historical data. And this is a service that other Azure subscribers who are building solutions may want to utilize. You can deploy this service to the Azure Marketplace for other find, procure and user in their respective service.
 
 - **Solution template** is a data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.
 
