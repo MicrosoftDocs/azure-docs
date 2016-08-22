@@ -239,8 +239,9 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 		$TargetClassification = $storageclassifications[1]
 
 	
-	> [AZURE.NOTE] The source Vand target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
-			Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+	> [AZURE.NOTE] The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
 
 3. The below cmdlet creates a mapping between the source classification and the target classificaiton. 
