@@ -18,7 +18,7 @@
 
 # Azure Machine Learning Web Services: Deployment and Consumption
 
-Azure Machine Learning (Azure ML) allows you to deploy machine learning workflows and models as web services. These web services can then be used to call the ML models from applications over the internet to do predictions in real-time or in batch mode. Being RESTFul, the web services can be called from a variety of programming languages and platforms such as .NET, Java, and applications such as Excel.
+Azure Machine Learning (Azure ML) allows you to deploy machine learning workflows and models as web services. These web services can then be used to call the ML models from applications over the internet to do predictions in real-time or in batch mode. Being RESTFul, the web services can be called from various programming languages and platforms such as .NET, Java, and applications such as Excel.
 
 In the next sections, we will discuss the steps and show links to code and documentation to help get you started.
 
@@ -62,7 +62,7 @@ Running the application creates a web service JSON template. To use the template
 * Storage account name and key 
 	* You can get the storage account name and key from either the new or classic Azure portal.
 * Commitment Plan ID 
-	* You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by logging in and clicking on a plan name.
+	* You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by logging in and clicking a plan name.
 
 Add them to the JSON template as children of *Properties* node at the same level as the *MachineLearningWorkspace* node.
 
