@@ -27,15 +27,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-In this tutorial, you'll learn how to use the Azure portal to:
+In this tutorial, you learn how to use the Azure portal to:
 
-- Create a SQL Database logical server to host SQL databases
+- Create a SQL Database logical server in order to host SQL databases.
 - Create a SQL database with no data, with sample data or with data from a SQL database backup.
 - Create a server-level firewall rule for a single IP address or for a range of IP addresses.
 
 Use these links to perform these same tasks using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 

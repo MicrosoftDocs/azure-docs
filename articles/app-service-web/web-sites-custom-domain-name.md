@@ -93,9 +93,9 @@ instead, skip this step and move onto the next section.
 
 2.	Click **App Services** on the left menu.
 
-4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
+4.	Click your app, then click **Custom domains**.
 
-6.  Take note of the IP address.
+6.  Take note of the IP address above Hostnames section..
 
     ![Map custom domain name with A record: Get IP address for your Azure App Service app](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 
@@ -119,8 +119,8 @@ an **Advanced** configuration link.
 <a name="a"></a>
 ### Create an A record
 
-To use an A record to map to your Azure app's IP address, you actually need to create both an A record and a CNAME record. 
-The A record is for the DNS resolution itself, and the CNAME record is for Azure to verify that you own the custom domain 
+To use an A record to map to your Azure app's IP address, you actually need to create both an A record and a TXT record. 
+The A record is for the DNS resolution itself, and the TXT record is for Azure to verify that you own the custom domain 
 name. 
 
 Configure your A record as follows (@ typically represents the root domain):
@@ -148,29 +148,29 @@ Configure your A record as follows (@ typically represents the root domain):
   </tr>
 </table>
 
-Your additional CNAME record takes on the convention that maps from awverify.&lt;*subdomain*>.&lt;*rootdomain*> to 
-awverify.&lt;*subdomain*>.azurewebsites.net. Configure your CNAME record as follows:
+Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to 
+&lt;*subdomain*>.azurewebsites.net. Configure your TXT record as follows:
 
 <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
-    <th>CNAME Host</th>
-    <th>CNAME Value</th>
+    <th>TXT Host</th>
+    <th>TXT Value</th>
   </tr>
   <tr>
     <td>contoso.com (root)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>@</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
-    <td>awverify.www</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>www</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>*.contoso.com (wildcard)</td>
-    <td>awverify</td>
-    <td>awverify.&lt;<i>appname</i>>.azurewebsites.net</td>
+    <td>*</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
 
@@ -207,26 +207,30 @@ Configure your CNAME record as follows (@ typically represents the root domain):
 <a name="enable"></a>
 ## Step 3. Enable the custom domain name for your app
 
-Back in the **Bring External Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
+Back in the **Custom Domains** blade in the Azure portal (see [Step 1](#vip)), you need to add the fully-qualified
 domain name (FQDN) of your custom domain to the list.
 
 1.	If you haven't done so, log in to the [Azure portal](https://portal.azure.com).
 
 2.	In the Azure portal, click **App Services** on the left menu.
 
-4.	Click your app, then click **Settings** > **Custom domains and SSL** > **Bring External Domains**.
+3.	Click your app, then click **Custom domains** > **Add hostname**.
 
-2.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
+4.	Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
 
     ![Map a custom domain name to an Azure app: add to list of domain names](./media/web-sites-custom-domain-name/add-custom-domain.png)
 
     >[AZURE.NOTE] Azure will attempt to verify the domain name that you use here. Be sure that it is the same domain name
     for which you created a DNS record in [Step 2](#createdns). 
 
-6.  Click **Save**.
+5.  Click **Validate**.
 
-7.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. You should
-now see your app running and your custom
+6.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
+
+7.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should
+now see your app running using your custom domain name. 
+
+8.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
 <a name="verify"></a>
 ## Verify DNS propagation
