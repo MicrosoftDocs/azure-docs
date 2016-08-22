@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Disaster recovery for applications built on Microsoft Azure
@@ -71,7 +71,7 @@ Another option is to store data in an alternate location until connectivity is r
 
 ###Failure of a dependent service
 
-Azure provides many services that can experience periodic downtime. Consider [Azure Redis Cache](https://azure.microsoft.com/services/cache/) as an example. This multitenant service provides caching capabilities to your application. It's important to consider what happens in your application if the dependent service is unavailable. In many ways, this scenario is similar to the network outage scenario. However, considering each service independently results in potential improvements to your overall plan.
+Azure provides many services that can experience periodic downtime. Consider [Azure Redis Cache](https://azure.microsoft.com/services/cache/) as an example. This multi-tenant service provides caching capabilities to your application. It's important to consider what happens in your application if the dependent service is unavailable. In many ways, this scenario is similar to the network outage scenario. However, considering each service independently results in potential improvements to your overall plan.
 
 Azure Redis Cache provides caching to your application from within your cloud service deployment, which provides disaster recovery benefits. First, the service now runs on roles that are local to your deployment. Therefore, you're better able to monitor and manage the status of the cache as part of your overall management processes for the cloud service. This type of caching also exposes new features. One of the new features is high availability for cached data. This helps to preserve cached data if a single node fails by maintaining duplicate copies on other nodes.
 
