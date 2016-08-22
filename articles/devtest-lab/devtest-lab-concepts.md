@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2016"
+	ms.date="08/22/2016"
 	ms.author="tarcher"/>
 
 #DevTest Labs concepts
@@ -23,7 +23,7 @@
 > 
 > 1. [What is DevTest Labs?](devtest-lab-overview.md)
 > 1. [Why DevTest Labs?](devtest-lab-why.md)
-> 1. **[DevTest Labs Concepts](devtest-lab-concepts.md)**
+> 1. **[DevTest Labs concepts](devtest-lab-concepts.md)**
 
 ##Overview
 
@@ -36,7 +36,7 @@ Artifacts are used to deploy and configure your application after a VM is provis
 - Actions that you want to run on the VM - such as cloning a repo.
 - Applications that you want to test.
 
-Artifacts are Azure Resource Manager (ARM) based JSON files that contain instructions to perform deployment and apply configuration. You can read more about ARM in the [Azure Resource Manager overview](../resource-group-overview.md).
+Artifacts are [Azure Resource Manager](../resource-group-overview.md) JSON files that contain instructions to perform deployment and apply configuration. 
 
 ##Artifact repositories
 Artifact repositories are git repositories where artifacts are checked in. Same artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.

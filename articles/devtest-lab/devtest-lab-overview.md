@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2016"
+	ms.date="08/22/2016"
 	ms.author="tarcher"/>
 
 #What is DevTest Labs?
@@ -23,7 +23,7 @@
 > 
 > 1. **[What is DevTest Labs?](devtest-lab-overview.md)**
 > 1. [Why DevTest Labs?](devtest-lab-why.md)
-> 1. [DevTest Labs Concepts](devtest-lab-concepts.md)
+> 1. [DevTest Labs concepts](devtest-lab-concepts.md)
 
 ##Overview
 Developers and testers are looking to solve the delays in creating and managing their environments by going to the cloud.  Azure solves the problem of environment delays and allows self-service within a new cost efficient structure.  However, developers and testers still need to spend considerable time configuring their self-served environments. Also, decision makers are uncertain about how to leverage the cloud to maximize their cost savings without adding too much process overhead.
