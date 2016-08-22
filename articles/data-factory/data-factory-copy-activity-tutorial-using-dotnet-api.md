@@ -28,7 +28,7 @@
 
 This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
-The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
+The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.NOTE] 
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. 
@@ -40,7 +40,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 - Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
-Create an Azure Active Directory application, create a service principal for the application and assign it to the Data Factory Contributor role.  
+Create an Azure Active Directory application, create a service principal for the application, and assign it to the Data Factory Contributor role.  
 
 1. Launch **PowerShell**. 
 1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
@@ -58,7 +58,7 @@ Create an Azure Active Directory application, create a service principal for the
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-	If the resource group already exists, you specify whether to update it (Y) or keep it as it as (N). 
+	If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
 
 	If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 5. Create an Azure Active Directory application. 
@@ -99,14 +99,14 @@ You should have following four values from these steps:
 	5. Enter **DataFactoryAPITestApp** for the Name.
 	6. Select **C:\ADFGetStarted** for the Location.
 	7. Click **OK** to create the project.
-2. Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
+2. Click <b>Tools</b>, point to <b>Nuget Package Manager</b>, and click <b>Package Manager Console</b>.
+3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
+6. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**. 
 
-	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId** and **ActiveDirectoryTenantId** with your own values. 
+	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values. 
 
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -131,11 +131,11 @@ You should have following four values from these steps:
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You will also this object to monitor slices of a dataset at runtime.    
+6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.    
 
 			// create data factory management client
         	string resourceGroupName = "ADFTutorialResourceGroup";
-        	string dataFactoryName = "APITutorialFactorySP";
+        	string dataFactoryName = "APITutorialFactory";
 
             TokenCloudCredentials aadTokenCredentials =
                 new TokenCloudCredentials(
@@ -284,8 +284,6 @@ You should have following four values from these steps:
 
 11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
 
-The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
-
             // create a pipeline
             Console.WriteLine("Creating a pipeline");
             DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -373,7 +371,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
                 }
             }
 
-14. Add the following code to get run details for a data slice slice to the **Main** method.
+14. Add the following code to get run details for a data slice to the **Main** method.
 
             Console.WriteLine("Getting run details of a data slice");
 
@@ -439,7 +437,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
         }  
 
 
-15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for **System.Configuration** assembly and click **OK**. 
+15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for "**System.Configuration**" assembly and click **OK**. 
 16. Build the console application. Click **Build** on the menu and click **Build Solution**. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
@@ -447,7 +445,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 		Jane, Doe
 	 
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
-18. Use the Azure Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
+18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
