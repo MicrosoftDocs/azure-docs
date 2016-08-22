@@ -68,7 +68,7 @@ You may want to connect virtual networks for the following reasons:
 
 - A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
 
-- Connecting multiple virtual networks together doesn't require any VPN devices unless cross-premises connectivity is required.
+- Connecting multiple virtual networks together doesn't require any VPN devices.
 
 - VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services that are not deployed to a virtual network.
 
@@ -87,9 +87,9 @@ You may want to connect virtual networks for the following reasons:
 
 ## <a name="step1"></a>Step 1 - Plan your IP address ranges
 
-It’s important to decide the ranges that you’ll use to configure your virtual networks. Keep in mind that for this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
+It’s important to decide the ranges that you’ll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
 
-The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges that you’ll be using for your virtual networks. You’ll need this information for later steps.
+The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges for your virtual networks. You’ll need this information for later steps.
 
 **Example settings**
 
@@ -121,8 +121,8 @@ On the DNS Servers and VPN Connectivity page, enter the following information, a
 
   ![DNS Servers and VPN Connectivity](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
 
-- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server; it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you’ll have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
-- Don’t select any of the checkboxes for P2S or S2S connectivity. Just click the arrow on the lower right to move to the next screen.
+- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
+- Don’t select any of the checkboxes for P2S or S2S connectivity. Click the arrow on the lower right to move to the next screen.
 
 ### Virtual Network Address Spaces
 
@@ -132,20 +132,20 @@ If you are creating a VNet that will also have a connection to your on-premises 
 
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap with any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
+  - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap with any of the address spaces that you have on your on-premises network. For this example, we use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
  
 **Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see "Created" listed under Status on the Networks page.
 
 ## Step 3 - Create VNet2
 
-Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. However, you need to verify that the IP address ranges don't overlap with any of the other VNets or on-premises networks that you want to connect to.
+Next, repeat the preceding steps to create another VNet. In later steps, you will connect the two VNets. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. However, you need to verify that the IP address ranges don't overlap with any of the other VNets or on-premises networks that you want to connect to.
 
 ## Step 4 - Add the local network sites
 
 When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you select the value from a dropdown list in later steps.
 
-For example, in this exercise, VNet1 will connect to a local network site that you create named "VNet2Local". The settings for VNet2Local will contain the address prefixes for VNet2, as well as a public IP address for the VNet2 gateway. VNet2 will connect to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
+For example, in this exercise, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local will contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
 ### <a name="localnet"></a>Add the local network site VNet1Local
 
@@ -155,7 +155,7 @@ For example, in this exercise, VNet1 will connect to a local network site that y
 
 3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. You then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
 
-4. On the **Specify the address page**, enter the IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure will use the IP address range that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
+4. On the **Specify the address page**, enter the IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure uses the IP address ranges that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
 
 ### Add the local network site VNet2Local
 
@@ -205,7 +205,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 
 ## Step 7 - Create the VPN connection
 
-When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. This set of steps uses PowerShell. You can't create the connection in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
+When all the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. This set of steps uses PowerShell. You can't create the connection in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
 
