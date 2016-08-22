@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="08/22/2016"
    ms.author="hascipio" />
 
 # How to publish and manage an offer in the Azure Marketplace
@@ -68,7 +68,15 @@ Some steps are shared between the different types of solutions. This article pro
 ## 3. Post-Publishing management of your offer
 - [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
 - [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-- [How to delete an offer or SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
+- [How to update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
+- [How to add a new SKU under a listed offer](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
+- [How to change the data disk count for a listed SKU](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+- [How to delete a listed offer from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#5-how-to-delete-a-listed-offer-from-the-azure-marketplace)
+- [How to delete a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
+- [How to delete the current version of a listed SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
+- [How to revert listing price to production values](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
+- [How to revert billing model to production values](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
+- [How to revert visibility setting of a listed SKU to the production value](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 - [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
 - [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
 - [Understanding your payout reporting](marketplace-publishing-report-payout.md)
