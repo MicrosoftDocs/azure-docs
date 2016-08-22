@@ -348,7 +348,7 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 + [Monitor Azure Web Apps using an existing Log Analytics workspace] (../../templates/101-webappazure-oms-monitoring.md)
 + [Monitor SQL Azure using an existing Log Analytics workspace] (../../templates/101- sqlazure-oms-monitoring.md)
 + [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace] (../../templates/service-fabric-oms.md)
-+ [Deploy a Service Fabric cluster and create a new Log Analytics workspace to monitor it] (../../templates/service-fabric-vmss-oms.md)
++ [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it] (../../templates/service-fabric-vmss-oms.md)
 
 
 ## Next steps
