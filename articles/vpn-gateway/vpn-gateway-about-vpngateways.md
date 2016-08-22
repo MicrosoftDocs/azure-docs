@@ -23,7 +23,7 @@ VPN Gateway is a collection of settings that are used to send network traffic be
 
 Each virtual network can have only one virtual network gateway. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of settings is called "VPN Gateway" regardless of whether a VPN is required for your connection.
 
-When configuring VPN Gateway, the instructions you use depend on the deployment model that you used to create your virtual network. For example, if you create your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
+When you configure VPN Gateway, the instructions you use depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information.
 
 The sections below contain tables that list the following information for the configuration:
 
@@ -34,7 +34,7 @@ The sections below contain tables that list the following information for the co
 
 Use the diagrams and descriptions to help select the configuration topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline. Each configuration relies on the VPN Gateway settings you select. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). 
 
-Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. The instructions for each configuration specify when a certain tool is needed. Currently, you can't configure every setting in the Azure portal. You can configure some of the settings in the Azure portal, and then switch to PowerShell for settings that are not available in the Azure portal. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
+Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. Currently, you can't configure every setting in the Azure portal. The article instructions for each configuration specify when a certain tool is needed. This means you can configure some of the settings in the Azure portal, and then switch to PowerShell for settings that are not available in the Azure portal. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
 
 
 ## Site-to-Site and Multi-Site
