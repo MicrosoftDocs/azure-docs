@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Data Factory Copy Wizard
-The **Data Factory Copy Wizard** allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
+The Azure **Data Factory Copy Wizard** allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
 
 ![Copy Data wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
@@ -81,4 +81,4 @@ As shown in the following screenshot, you can also use a **custom** variable and
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
 ## Next steps
-For a quick walkthrough of using the **Data Factory Copy Wizard** to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+For a quick walkthrough of using the Data Factory Copy Wizard to create a pipeline with Copy Activity, see [Tutorial: Create a pipeline using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
