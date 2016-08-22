@@ -112,7 +112,7 @@ The offline sync code must be added to the app. Offline sync requires the cordov
 
     This code uses the local database for all create, read, update, and delete (CRUD) table operations.
 
-    This sample performs simple error handling on sync conflicts. A real application would handle the various errors like network conditions, server conflicts, and others. For code examples, see [the offline sync sample].
+    This sample performs simple error handling on sync conflicts. A real application would handle the various errors like network conditions, server conflicts, and others. For code examples, see the [offline sync sample].
 
 5. Next, add this function to perform the actual sync.
 
