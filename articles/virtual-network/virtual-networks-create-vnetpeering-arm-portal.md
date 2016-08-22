@@ -3,7 +3,7 @@
    description="Learn how to create a virtual network using the Azure portal in Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
