@@ -17,18 +17,18 @@
 	ms.author="spelluru"/>
 
 # Data Factory Copy Wizard
-The Azure **Data Factory Copy Wizard** allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
+The Azure Data Factory Copy Wizard allows you to create a pipeline to copy data from supported sources to destinations without writing JSON definitions for linked services, datasets, and pipelines. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
 
-![Copy Data wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
+![Copy Wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Features
 
 ### An intuitive and seamless wizard for copying data
 This wizard allows you to easily move data from a source to a destination in minutes with the following easy steps:
 
-1.	Select the **source**.
-2.	Select the **destination**.
-3.	Configure the **settings**.
+1.	Select the source.
+2.	Select the destination.
+3.	Configure the settings.
 
 ![Select data source](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,7 +63,7 @@ A one-time copy operation enables data movement from a source to a destination o
 ![Scheduling properties](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## Variables in the Azure blob folder path
-You can use variables in the folder path to copy data from a folder that is determined at runtime based on [WindowStart system variables](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **year**, **month**, **day**, **hour**, **minute**, and **{custom}**. Example: inputfolder/{year}/{month}/{day}.
+You can use variables in the folder path to copy data from a folder that is determined at runtime based on [WindowStart system variables](data-factory-functions-variables.md#data-factory-system-variables). The supported variables are: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}**, and **{custom}**. Example: inputfolder/{year}/{month}/{day}.
 
 Suppose that you have input folders in the following format:
 
@@ -72,11 +72,11 @@ Suppose that you have input folders in the following format:
 	2016/03/01/03
 	...
 
-Click the **Browse** button for **File or folder**, navigate to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see **2016/03/01/02** in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, **02** with **{hour}**, and press **TAB**. You should see drop-down lists to select **format** for these four variables:
+Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see **2016/03/01/02** in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
 
 ![Using system variables](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press **TAB** to see the text box where you can type the format string.     
+As shown in the following screenshot, you can also use a **custom** variable and any [supported format strings](https://msdn.microsoft.com/library/8kb3ddd4.aspx). To select a folder with that structure, use the **Browse** button first. Then replace a value with **{custom}**, and press Tab to see the text box where you can type the format string.     
 
 ![Using custom variable](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
