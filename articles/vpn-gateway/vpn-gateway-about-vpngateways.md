@@ -72,10 +72,14 @@ The VNets you connect can be:
 ![VNet to VNet connection](./media/vpn-gateway-about-vpngateways/vnet2vnet.png "vnet-to-vnet")
 
 
-
 ### Connections between deployment models
 
 Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
+
+### VNet peering
+
+You may be able to use VNet peering to create your connection, provided that your network configuration  meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview. See [VNet peering](../virtual-network/virtual-network-peering-overview.md) for more information.
+
 
 ### Deployment models and methods
 
