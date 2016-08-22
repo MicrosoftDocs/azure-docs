@@ -80,7 +80,7 @@ You may want to connect virtual networks for the following reasons:
 
 - Redundant tunnels between a pair of virtual networks are not supported.
 
-- All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway and the same VPN gateway uptime SLA in Azure.
+- All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway, and the same VPN gateway uptime SLA in Azure.
 
 - VNet-to-VNet traffic travels across the Azure backbone.
 
@@ -100,7 +100,7 @@ The following table shows an example of how to define your VNets. Use the ranges
   
 ## Step 2 - Create VNet1
 
-In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you need to verify that the IP address ranges don't overlap with the ranges for your second VNet or with any of the other VNets that you want to connect to.
+In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you need to verify that the IP address ranges don't overlap with the ranges for your second VNet, or with any of the other VNets to which you want to connect.
 
 1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Currently, the settings required configure these steps end-to-end are not fully available in the Azure portal.
 
@@ -145,7 +145,7 @@ Next, repeat the preceding steps to create another VNet. In later steps, you wil
 
 When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you select the value from a dropdown list in later steps.
 
-For example, in this exercise, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local will contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
+For example, in this exercise, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
 ### <a name="localnet"></a>Add the local network site VNet1Local
 
@@ -222,7 +222,7 @@ When all the previous steps have been completed, you’ll set the IPsec/IKE pre-
 
 		Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-3. Wait for the connections to initialize. Once the gateway has initialized, the gateway will look like the following graphic.
+3. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
 
 	![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
 
