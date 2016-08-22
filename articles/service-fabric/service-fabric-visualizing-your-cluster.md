@@ -24,7 +24,7 @@ Service Fabric Explorer is a web-based tool for inspecting and managing applicat
 
 If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
 
->[AZURE.NOTE] If you are using Internet Explorer with Service Fabric Explorer to manage a remote cluster, you need to configure some Internet Explorer settings. Go to **Tools** > **Compatibility View Settings** and uncheck **Display intranet sites in Compatibility View** to ensure that all information loads correctly.
+>[AZURE.NOTE] If you are using Internet Explorer with Service Fabric Explorer to manage a remote cluster, you need to configure some Internet Explorer settings. To ensure that all information loads correctly, go to **Tools** > **Compatibility View Settings** and uncheck **Display intranet sites in Compatibility View**.
 
 ## Understand the Service Fabric Explorer layout
 
@@ -64,18 +64,18 @@ For example, to delete an application instance, simply choose the application fr
 
 ![Deleting an application in Service Fabric Explorer][sfx-delete-application]
 
->[AZURE.TIP] The same actions can be performed from the tree view by clicking on the ellipsis next to each element.
+>[AZURE.TIP] You can perform the same actions by clicking the ellipsis next to each element.
 
 The following table lists the actions available for each entity:
 
 | **Entity** | **Action** | **Description** |
 | ------ | ------ | ----------- |
 | Application type | Unprovision type | Removes the application package from the cluster's image store. Requires all applications of that type to be removed first. |
-| Application | Delete Application | Delete the application, including all of its services and their state (if any).  |
+| Application | Delete Application | Delete the application, including all its services and their state (if any).  |
 | Service | Delete Service | Delete the service and its state (if any). |
 | Node | Activate | Activate the node. |
-|| Deactivate (pause) | Pause the node in its current state. Services will continue to run but Service Fabric will not proactively move anything onto or off of it unless it is required to prevent an outage or data inconsistency. This action is typically used to enable debugging services on a specific node to ensure that they do not move during inspection. |
-|| Deactivate (restart) | Safely move all in-memory services off of a node and close persistent services. Typically used when the host processes or machine need to be restarted. |
+|| Deactivate (pause) | Pause the node in its current state. Services continue to run but Service Fabric does not proactively move anything onto or off it unless it is required to prevent an outage or data inconsistency. This action is typically used to enable debugging services on a specific node to ensure that they do not move during inspection. |
+|| Deactivate (restart) | Safely move all in-memory services off a node and close persistent services. Typically used when the host processes or machine need to be restarted. |
 || Deactivate (remove data) | Safely close all services running on the node after building sufficient spare replicas. Typically used when a node (or at least its storage) is being permanently taken out of commission. |
 || Remove node state | Remove knowledge of a node's replicas from the cluster. Typically used when an already failed node is deemed unrecoverable. |
 
@@ -83,11 +83,11 @@ Since many actions are destructive, you may be asked to confirm your intent befo
 
 >[AZURE.TIP] Every action that can be performed through Service Fabric Explorer can also be performed through PowerShell or a REST API, to enable automation.
 
-You can also use Service Fabric Explorer to create new application instances for a given application type and version. Choose the application type in the tree view,  then click the **Create app instance** link next to the version you'd like in the right pane.
+You can also use Service Fabric Explorer to create new application instances for a given application type and version. Choose the application type in the tree view, then click the **Create app instance** link next to the version you'd like in the right pane.
 
 ![Creating an application instance in Service Fabric Explorer][sfx-create-app-instance]
 
-Note that application instances created through Service Fabric Explorer cannot currently be parameterized. They will be created using default parameter values.
+>[AZURE.NOTE] Application instances created through Service Fabric Explorer cannot currently be parameterized. They are created using default parameter values.
 
 ## Connect to a remote Service Fabric cluster
 
@@ -105,7 +105,7 @@ The full URL is also available in the cluster essentials pane of the Azure porta
 
 You can control client access to your Service Fabric cluster either with [certificates](service-fabric-cluster-security.md) or using [Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
 
-If you attempt to connect to Service Fabric Explorer on a secure cluster, you will either be required to present a client certificate or login using AAD, depending on the type of security set up for the cluster's management endpoints.
+If you attempt to connect to Service Fabric Explorer on a secure cluster, you will either be required to present a client certificate or login using AAD, depending on the cluster's configuration.
 
 ## Next steps
 
