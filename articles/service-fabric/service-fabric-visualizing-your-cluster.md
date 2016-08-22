@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="08/22/2016"
    ms.author="seanmck"/>
 
 # Visualize your cluster with Service Fabric Explorer
@@ -83,7 +83,11 @@ Since many actions are destructive, you may be asked to confirm your intent befo
 
 >[AZURE.TIP] Every action that can be performed through Service Fabric Explorer can also be performed through PowerShell or a REST API, to enable automation.
 
+You can also use Service Fabric Explorer to create new application instances for a given application type and version. Choose the application type in the tree view,  then click the **Create app instance** link next to the version you'd like in the right pane.
 
+![Creating an application instance in Service Fabric Explorer][sfx-create-app-instance]
+
+Note that application instances created through Service Fabric Explorer cannot currently be parameterized. They will be created using default parameter values.
 
 ## Connect to a remote Service Fabric cluster
 
@@ -115,3 +119,4 @@ If you attempt to connect to Service Fabric Explorer on a secure cluster, you wi
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
