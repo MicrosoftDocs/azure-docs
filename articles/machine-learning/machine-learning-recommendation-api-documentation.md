@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/17/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
-This document depicts Microsoft Azure Machine Learning Recommendations APIs.
+This document depicts Microsoft Azure Machine Learning Recommendations APIs exposed through the marketplace.
+
+
+> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016. You should
+> now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

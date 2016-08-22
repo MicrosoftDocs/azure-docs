@@ -3,7 +3,7 @@
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/06/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Running multiple VMs on Azure for scalability and availability 
 

@@ -97,6 +97,9 @@ Japan West | Japan East
 Brazil South | Brazil South
 Australia East | Australia East
 Australia Southeast | Australia Southeast
+Central India | Central India
+South India | Central India
+West India | Central India
 
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity fails instead of going through an alternative region. 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2016"
+   ms.date="08/16/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture in Azure
@@ -811,7 +811,7 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
-[getting-started-with-azure-security]: ./../azure-security-getting-started.md
+[getting-started-with-azure-security]: ./../security/azure-security-getting-started.md
 [azure-forced-tunneling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
 [cloud-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
 [rbac]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/

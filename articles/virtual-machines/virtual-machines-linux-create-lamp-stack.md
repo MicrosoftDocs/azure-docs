@@ -4,7 +4,7 @@
 	services="virtual-machines-linux"
 	documentationCenter="virtual-machines"
 	authors="jluk"
-	manager="squillace"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 

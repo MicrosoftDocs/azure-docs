@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Using App-V apps in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 You can use App-V applications in a Azure RemoteApp hybrid collection, which requires domain join.
 
