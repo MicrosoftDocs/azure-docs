@@ -214,7 +214,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 2. The below commands get the site recovery network for the source VMM server and the target VMM server.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Step 6: Enable protection for virtual machines
+## Step 6: Configure storage mapping
+
+1. The below command gets the list of storage classifications into $storageclassifications variable.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. The below commands get the source classification into $SourceClassificaion variable and target classification into $TargetClassification variable. 
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. The below cmdlet creates a mapping between the source classification and the target classification. 
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Step 7: Enable protection for virtual machines
 
 After the servers, clouds and networks are configured correctly, you can enable protection for virtual machines in the cloud. 
 
