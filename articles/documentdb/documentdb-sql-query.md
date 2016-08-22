@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="SQL syntax and SQL query for DocumentDB | Microsoft Azure" 
-	description="Learn about SQL syntax, database concepts and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB." 
-	keywords="sql syntax,sql query, sql queries, json query language, database concepts and sql queries"
+	description="Learn about SQL syntax, database concepts, and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB." 
+	keywords="sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2016" 
+	ms.date="08/22/2016" 
 	ms.author="arramac"/>
 
 # SQL query and SQL syntax in DocumentDB
@@ -2364,15 +2364,14 @@ The following example show how to use the queryDocuments in the JavaScript serve
 
 Native support for aggregate functions is in the works, but if you need count or sum functionality in the meantime, you can achieve the same result using different methods.  
 
-On read:
+On read path:
 
-- If you are using a non-partitioned collection, you can use the [x-ms-resource-usage header](https://msdn.microsoft.com/library/mt489071.aspx). This header currently only displays accurate results for non-partitioned collections and displays `x-ms-resource-usage: documentSize=0;documentsSize=0;collectionSize=0;` for partitioned collections.
-- You can perform aggregate functions by pulling the collection client-side and doing a count locally, or by using a stored procedure (to minimize network latency on repeated round trips). For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js).
-- It’s advised to use a query projection (for example, SELECT VALUE 1 FROM c) rather than a simple “SELECT * FROM c” to maximize the number of documents processed in each page of results (there is a page size limit of ~1 mb). 
+- You can perform aggregate functions by retrieving the data and doing a count locally. It’s advised to use a cheap query projection like `SELECT VALUE 1` rather than full document such as `SELECT * FROM c`. This helps maximize the number of documents processed in each page of results, thereby avoiding additional round-trips to the service if needed.
+- You can also use a stored procedure to minimize network latency on repeated round trips. For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). The stored procedure can enable users to combine rich business logic along with doing aggregations in an efficient way.
 
-On write:
+On write path:
 
-- Set up a trigger using the [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) sample, which updates the minSize, maxSize, and totalSize of the metadata document for the collection. The sample can be extended to update a counter, sum, etc.
+- Another common pattern is to pre-aggregate the results in the “write” path. This is especially attractive when the volume of “read” requests is higher than that of “write” requests. Once pre-aggregated, the results are available with a single point read request.  The best way to pre-aggregate in DocumentDB is to set up a trigger that is invoked with each “write” and update a metadata document that has the latest results for the query that is being materialized. For instance, please look at the [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js)  sample, which updates the minSize, maxSize, and totalSize of the metadata document for the collection. The sample can be extended to update a counter, sum, etc.
 
 ##References
 1.	[Introduction to Azure DocumentDB][introduction]
