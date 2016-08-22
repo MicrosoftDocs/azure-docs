@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/22/2016"
 	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect sync service features
@@ -41,6 +41,8 @@ DirSyncFeature | Comment
 [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Allows the sync engine to update the userPrincipalName attribute for managed/licensed (non-federated) users.
 
 After you have enabled a feature, it cannot be disabled again.
+
+>[AZURE.NOTE] From August 22, 2016 the feature *Duplicate attribute resiliency* is enabled by default for new Azure AD directories. This feature will also be rolled out and enabled on directories created before this date. You will receive an email notification when your directory is about to get this feature enabled.
 
 The following settings are configured by Azure AD Connect and cannot be modified by `Set-MsolDirSyncFeature`:
 
