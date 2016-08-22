@@ -225,7 +225,6 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
     The script will print the Json required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
 ```json
------ARM template-----
 "azureActiveDirectory": {
   "tenantId":"<guid>",
   "clusterApplication":"<guid>",
@@ -424,7 +423,7 @@ At this point, you should now have the following:
 
 The following diagram illustrates where Key Vault and AAD configuration fit into your Resource Manager template.
 
-![ARM dependency map][cluster-security-arm-dependency-map]
+![Resource Manager dependency map][cluster-security-arm-dependency-map]
 
 ## Create the cluster
 
@@ -464,7 +463,7 @@ Once you have created the applications to represent your cluster, you will need 
 >[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 
-## Next Steps
+## Next steps
 
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 

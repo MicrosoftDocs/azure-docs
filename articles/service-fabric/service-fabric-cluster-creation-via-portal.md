@@ -29,7 +29,7 @@ This is a step-by-step guide that walks you through the steps of setting up a se
  - Create a secured cluster in Azure through the Azure portal.
  - Authenticate administrators using certificates.
 
->[AZURE.NOTE] For more advanced security options, such as user authentication with Azure Active Directory and setting up certificates for application security, [create your cluster using Azure Resource Manager (ARM)][create-cluster-arm].
+>[AZURE.NOTE] For more advanced security options, such as user authentication with Azure Active Directory and setting up certificates for application security, [create your cluster using Azure Resource Manager][create-cluster-arm].
 
 A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured at a later time** - a new cluster must be created.
 
@@ -141,7 +141,7 @@ Additional client certificates authenticate administrators for cluster managemen
 
 Client authentication certificates do not need to be uploaded to Key Vault to work with Service Fabric. These certificates only need to be provided to administrators that are authorized for cluster management. 
 
->[AZURE.NOTE] Azure Active Directory is the recommended way to authenticate clients for cluster management operations. To use Azure Active Directory, you must [create a cluster using Azure Resource Manager (ARM)][create-cluster-arm].
+>[AZURE.NOTE] Azure Active Directory is the recommended way to authenticate clients for cluster management operations. To use Azure Active Directory, you must [create a cluster using Azure Resource Manager][create-cluster-arm].
 
 ### Application certificates (optional)
 
@@ -150,7 +150,7 @@ Any number of additional certificates can be installed on a cluster for applicat
  - Encryption and decryption of application configuration values
  - Encryption of data across nodes during replication 
 
-Application certificates cannot be configured when creating a cluster through the Azure portal. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager (ARM)][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
+Application certificates cannot be configured when creating a cluster through the Azure portal. To configure application certificates at cluster setup time, you must [create a cluster using Azure Resource Manager][create-cluster-arm]. You can also add application certificates to the cluster after it has been created.
 
 ### Formatting certificates for Azure resource provider use
 
