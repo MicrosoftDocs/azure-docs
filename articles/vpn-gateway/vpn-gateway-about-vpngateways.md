@@ -78,7 +78,7 @@ Azure currently has two deployment models: classic and Resource Manager. If you 
 
 ### VNet peering
 
-You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview.
+You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
 
 
 ### Deployment models and methods
