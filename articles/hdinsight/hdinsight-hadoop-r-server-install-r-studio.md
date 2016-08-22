@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/24/2016"
+   ms.date="08/22/2016"
    ms.author="jeffstok"/>
 
 
@@ -36,7 +36,7 @@ In this article you will learn how to install the community (free) version of RS
 1. Identify the edge node of the cluster. For an HDInsight cluster with R Server, following is the naming convention for head node and edge node.
 
 	* Head node - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Edge node - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
+	* Edge node - `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. SSH into the edge node of the cluster using the above naming pattern. 
  
@@ -56,9 +56,9 @@ In this article you will learn how to install the community (free) version of RS
 		chmod 755 InstallRStudio.sh
 		./InstallRStudio.sh
 
-5. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.
+5. If you used an SSH password while creating an HDInsight cluster with R Server, you can skip this step and proceed to the next. If you used an SSH key instead to create the cluster, you must set a password for your SSH user. You will need this password when connecting to RStudio. Run the following commands. When prompted for **Current Kerberos password**, just press **ENTER**.  Note that you must replace `USERNAME` with an SSH user for your HDInsight cluster.
 
-		passwd remoteuser
+		passwd USERNAME
 		Current Kerberos password:
 		New password:
 		Retype new password:
@@ -75,7 +75,7 @@ In this article you will learn how to install the community (free) version of RS
 
 	* On a Linux client or a Windows client (using [Cygwin](http://www.redhat.com/services/custom/cygwin/)), open a terminal session and use the following command.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster		
 
