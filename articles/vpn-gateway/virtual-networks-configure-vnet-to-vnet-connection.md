@@ -25,7 +25,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The steps below use the Azure classic portal to create the VNets and gateways and PowerShell to configure the VNet-to-VNet connection. You cannot configure the VNet-to-VNet connection in the portal.
+This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure classic portal to create the VNets and gateways and PowerShell to configure the VNet-to-VNet connection. You cannot configure the VNet-to-VNet connection in the portal.
 
 **About Azure deployment models**
 
@@ -33,15 +33,15 @@ This article will walk you through the steps to create and connect virtual netwo
 
 **Deployment models and tools for VNet-to-VNet**
 
-A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
+A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## About VNet-to-VNet connections
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. 
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. 
 
-The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
+The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
@@ -54,7 +54,7 @@ You may want to connect virtual networks for the following reasons:
 	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 
 - **Regional multi-tier applications with strong isolation boundary**
-	- Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
+	- Within the same region, you can set up multi-tier applications with multiple VNets connected together with strong isolation and secure inter-tier communication.
 
 - **Cross subscription, inter-organization communication in Azure**
 	- If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
@@ -74,13 +74,13 @@ You may want to connect virtual networks for the following reasons:
 
 - VNet-to-VNet requires dynamic routing gateways. Azure static routing gateways are not supported.
 
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
+- Virtual network connectivity can be used simultaneously with multi-site VPNs. There is a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
 
 - The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
 
 - Redundant tunnels between a pair of virtual networks are not supported.
 
-- All VPN tunnels of the virtual network, including P2S VPNs, share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+- All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway and the same VPN gateway uptime SLA in Azure.
 
 - VNet-to-VNet traffic travels across the Azure backbone.
 
@@ -89,7 +89,7 @@ You may want to connect virtual networks for the following reasons:
 
 It’s important to decide the ranges that you’ll use to configure your virtual networks. Keep in mind that for this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
 
-The table below shows an example of how to define your VNets. Use the ranges below as a guideline only. Write down the ranges that you’ll be using for your virtual networks. You’ll need this information for later steps.
+The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges that you’ll be using for your virtual networks. You’ll need this information for later steps.
 
 **Example settings**
 
@@ -100,15 +100,15 @@ The table below shows an example of how to define your VNets. Use the ranges bel
   
 ## Step 2 - Create VNet1
 
-In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with the ranges for your second VNet or with any of the other VNets that you want to connect to.
+In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you need to verify that the IP address ranges don't overlap with the ranges for your second VNet or with any of the other VNets that you want to connect to.
 
-1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Note that these steps do not use the newer Azure Portal.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Currently, the settings required configure these steps end-to-end are not fully available in the Azure portal.
 
-2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard. As you navigate through the wizard, add the specified values listed below to each page.
+2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard. As you navigate through the wizard, add the specified values to each page.
 
 ### Virtual Network Details
 
-On the Virtual Network Details page, enter the information below.
+On the Virtual Network Details page, enter the following information:
 
   ![Virtual Network Details](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -128,7 +128,7 @@ On the DNS Servers and VPN Connectivity page, enter the following information, a
 
 On the Virtual Network Address Spaces page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. 
 
-If you are creating a VNet that will also have a connection to your on-premises network, it's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. In that case, you'll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+If you are creating a VNet that will also have a connection to your on-premises network, it's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. In that case, you need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your VNet.
 
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
@@ -139,11 +139,11 @@ If you are creating a VNet that will also have a connection to your on-premises 
 
 ## Step 3 - Create VNet2
 
-Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. But you will need to verify that the IP address ranges don't overlap with any of the other VNets or on-premises networks that you want to connect to.
+Next, repeat the preceding steps to create another virtual network. You'll later connect these two virtual networks. You can refer to the [example settings](#step1) in Step 1. If your VNet already exists, you don't need to do this step. However, you need to verify that the IP address ranges don't overlap with any of the other VNets or on-premises networks that you want to connect to.
 
 ## Step 4 - Add the local network sites
 
-When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you will select the value from a dropdown list.
+When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you select the value from a dropdown list in later steps.
 
 For example, in this exercise, VNet1 will connect to a local network site that you create named "VNet2Local". The settings for VNet2Local will contain the address prefixes for VNet2, as well as a public IP address for the VNet2 gateway. VNet2 will connect to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
@@ -153,9 +153,9 @@ For example, in this exercise, VNet1 will connect to a local network site that y
 
 2. On the **Specify your local network details** page, for **Name**, enter a name that you want to use to represent the network that you want to connect to. In this example, you can use "VNet1Local" to refer to the IP address ranges and gateway for VNet1.
 
-3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you will use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. You will then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
+3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. You then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
 
-4. On the **Specify the address page**, you will put in the actual IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure will use the IP address range that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
+4. On the **Specify the address page**, enter the IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure will use the IP address range that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
 
 ### Add the local network site VNet2Local
 
@@ -179,11 +179,11 @@ Each VNet must point to the respective local network that you want to route traf
 
 ## Step 5 - Configure a gateway for each VNet
 
-Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static, you will need to delete them and recreate them as Dynamic Routing gateways. Note that if you delete a gateway, the public IP address assigned to it will be released, and you will need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
+Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static, you need to delete them and recreate them as Dynamic Routing gateways. If you delete a gateway, the public IP address assigned to it gets released, and you need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
 
 1. On the **Networks** page, verify that the status column for your virtual network is **Created**.
 
-2. In the **Name** column, click the name of your virtual network. For this example, we'll use VNet1.
+2. In the **Name** column, click the name of your virtual network. For this example, we use "VNet1".
 
 3. On the **Dashboard** page, notice that this VNet doesn’t have a gateway configured yet. You’ll see this status change as you go through the steps to configure your gateway.
 
@@ -195,7 +195,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 
 6. Repeat the same steps for VNet2. You don’t need the first VNet gateway to complete before you begin to create the gateway for your other VNet.
 
-7. When the gateway status changes to "Connecting", the public IP address for each gateway will be visible in the Dashboard. Write down the IP address that corresponds to each VNet, taking care not to mix them up. These are the IP addresses that will be used when you edit your placeholder IP addresses for the VPN Device for each local network.
+7. When the gateway status changes to "Connecting", the public IP address for each gateway is visible in the Dashboard. Write down the IP address that corresponds to each VNet, taking care not to mix them up. These are the IP addresses that are used when you edit your placeholder IP addresses for the VPN Device for each local network.
 
 ## Step 6 - Edit the local network
 
@@ -205,13 +205,13 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 
 ## Step 7 - Create the VPN connection
 
-When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. We'll do this using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
+When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. This set of steps uses PowerShell. You can't create the connection in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
 
 		Add-AzureAccount
 
-2. Create the connections. In the examples below, note that the shared key is exactly the same. The shared key must always match.
+2. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
 
 
 	VNet1 to VNet2 connection
@@ -222,7 +222,7 @@ When all of the previous steps have been completed, you’ll set the IPsec/IKE p
 
 		Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-3. Wait for the connections to initialize. Once the gateway has initialized, the gateway will look like the graphic below and your virtual networks are connected.
+3. Wait for the connections to initialize. Once the gateway has initialized, the gateway will look like the following graphic.
 
 	![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
 
