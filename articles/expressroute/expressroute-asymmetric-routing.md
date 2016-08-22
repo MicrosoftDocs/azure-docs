@@ -13,8 +13,8 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2016"
-   ms.author="osamaz"/>
+   ms.date="08/22/2016"
+   ms.author="osamazia"/>
 
 # Asymmetric Routing with multiple network paths
 
