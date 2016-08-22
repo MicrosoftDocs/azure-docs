@@ -1,6 +1,6 @@
 1. Log on to the [Azure portal][].
 
-2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, then click **Service Bus**.
+2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
 
 4. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
 
