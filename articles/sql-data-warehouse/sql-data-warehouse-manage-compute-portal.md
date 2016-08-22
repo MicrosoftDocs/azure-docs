@@ -73,7 +73,7 @@ To pause a database:
 
     ![Confirm pause][7]
 
-1. While SQL Data Warehouse is starting the database, the status will be **Pausing**.
+1. While SQL Data Warehouse is starting the database, the status is **Pausing**.
 2. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
 
     ![Pause status][4]
@@ -93,7 +93,7 @@ To resume a database:
 
     ![Confirm resume][5]
 
-1. While SQL Data Warehouse is starting the database, the status will be "Resuming".
+1. While SQL Data Warehouse is starting the database, the status is "Resuming".
 2. When the status is **online**, the database is ready.
 
     ![Online status][6]
