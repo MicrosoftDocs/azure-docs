@@ -18,11 +18,15 @@
 
 # Asymmetric Routing with multiple network paths
 
+This article explains how traffic can take asymmetric paths when there are multiple paths available between source and destination.
+
 To understand asymmetric routing, we need to understand two concepts. One is the impact of multiple network paths. Other is the behavior of the devices that keep the state such as firewalls. This type of devices is called stateful devices. A combination of these two factors creates scenarios where the traffic is dropped by a stateful device as it did not see the traffic originated through itself.
 
 ## Multiple Network Paths
 
 When an enterprise network has only one link to the Internet via their Internet service provider, then all the traffic towards and from the Internet comes through the same path. Often, companies decide to have redundant paths to improve network uptime and purchase multiple circuits. In such cases, it is possible that traffic going outside the network towards the Internet goes through one link while the return traffic comes through a different link. This phenomenon is commonly known as Asymmetric Routing where the reverse traffic takes a different path from the original flow.
+
+![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
 While the preceding description is for Internet, it applies to other combinations of multiple paths. Examples are, an Internet path and a private path to the same destination, multiple private paths to the same destination etc. 
 
