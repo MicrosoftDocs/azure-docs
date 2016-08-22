@@ -25,6 +25,10 @@ If you need an additional data disk, you can attach an empty disk or an existing
 
 For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-windows-about-disks-vhds.md).
 
+## Video walkthrough
+
+Here's a [video walkthrough](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) of the steps in this tutorial.
+
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
