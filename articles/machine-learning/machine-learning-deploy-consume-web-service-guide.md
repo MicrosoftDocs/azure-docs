@@ -45,7 +45,7 @@ For specific examples of deploying a web service, see:
 The Azure ML Resource Provider for web services enables deployment and management of web services using REST API calls. See the following articles and sample code for additional details.
 
 * [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
-* Link to sample code in GitHub
+
 
 ### Using PowerShell Cmdlets
 
@@ -79,7 +79,7 @@ See below example:
 See the following articles and sample code for additional details.
 
 * [Azure Machine Learning Cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
-* Source Code (GIT)
+* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub. 
 
 ## Consuming the Web Services
 
