@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="08/22/2016"
 	ms.author="andkjell"/>
 
 
@@ -89,9 +89,49 @@ The change is now committed to the metaverse.
 **Look at the object in the metaverse**  
 You now want to pick a few sample objects to make sure the value is expected and that the rule applied. Select **Metaverse Search** from the top. Add any filter you need to find the relevant objects. From the search result, open an object. Look at the attribute values and also verify in the **Sync Rules** column that the rule applied as expected.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
-
 ### Enable the scheduler
 If everything is as expected, you can enable the scheduler again. From PowerShell, run `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+## Other common attribute flow changes
+The previous section described how to make changes to an attribute flow. In this section some additional examples are provided. The steps for how to create the sync rule is abbreviated, but you can find the full steps in the previous section.
+
+### Use another attribute than the default
+At Fabrikam there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes are stored in the extension attributes. When building the global address list in Azure AD and Office 365, the organization wants these to be used instead.
+
+With a default configuration, an object from the local forest looks like this:  
+![Attribute flow 1](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp1.png)
+
+To create a rule with other attribute flows, do the following:
+
+- Start **Synchronization Rule Editor** from the start menu.
+- With **Inbound** still selected to the left, click on the button **Add new rule**.
+- Give the rule a name and description. Select the on-premises Active Directory and the relevant object types.  In **Link Type**, select **Join**. For precedence pick a number which is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
+![Attribute flow 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
+- Leave scope empty (i.e. should apply to all user objects in the forest).
+- Leave join rules empty (i.e. let the out-of-box rule handle any joins).
+- In Transformations, create the following flows:  
+![Attribute flow 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
+- Click on **Add** to save the rule.
+- Go to **Synchronization Service Manager**. On **Connectors**, select the Connector where we added the rule. Select **Run**, and **Full Synchronization**. A Full Synchronization re-calculates all objects using the current rules.
+
+This is the end result for the same object with this custom rule:  
+![Attribute flow 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
+
+### Do not flow an attribute
+There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
+
+If you want to remove the value of an attribute and make sure it does not flow in the future, you need create a custom rule instead.
+
+At Fabrikam we have realized that some of the attributes we synchronize to the cloud should not be there. We want to make sure these attributes are removed from Azure AD.  
+![Bad Extension Attributes](./media/active-directory-aadconnectsync-change-the-configuration/badextensionattribute.png)
+
+- Create a new inbound Synchronization Rule and populate the description
+![Descriptions](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
+- Create attribute flows of type **Expression** and with the source **AuthoritativeNull**. The literal **AuthoritativeNull** indicates that the value should be empty in the MV even if a lower precedence sync rule tries to populate the value.
+![Transformation for Extension Attributes](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
+- Save the Sync Rule. Start **Synchronization Service**, find the Connector, select **Run**, and **Full Synchronization**. This recalculates all attribute flows.
+- Verify that the intended changes are about to be exported by searching the connector space.
+![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
