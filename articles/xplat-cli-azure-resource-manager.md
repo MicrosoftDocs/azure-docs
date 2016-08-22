@@ -30,7 +30,7 @@
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
-The Azure CLI is one of several tools you can use to deploy and manage resources with Resource Manager.This article introduces common ways to manage Azure resources and resource groups by using the Azure Command-Line Interface (Azure CLI) in the Resource Manager mode. For information about using the CLI to deploy resources, see [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). For background about Azure resources and Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
+The Azure CLI is one of several tools you can use to deploy and manage resources with Resource Manager. This article introduces common ways to manage Azure resources and resource groups by using the Azure Command-Line Interface (Azure CLI) in the Resource Manager mode. For information about using the CLI to deploy resources, see [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). For background about Azure resources and Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
 >[AZURE.NOTE] To manage Azure resources with the Azure CLI, you need to [install the Azure CLI](xplat-cli-install.md), and [log in to Azure](xplat-cli-connect.md) by using the `azure login` command. Make sure the CLI is in Resource Manager mode (run `azure config mode arm`). If you've done these things, you're ready to go.
 
@@ -122,7 +122,7 @@ This command returns the names of the resources with that tag.
     "tfsqlserver"
     "tfsqlserver/tfsqldata"
 
-Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, yo need to retrieve all the existing tags that you want to keep. To set tag values 
+Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you need to retrieve all the existing tags that you want to keep. To set tag values 
 for a resource group, use **azure group set** and provide all of the tags for the resource group. 
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
@@ -146,7 +146,7 @@ To add a resource such as a storage account to a resource group, run a command s
 
     azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
     
-In addition to specifying the API version of the resource with the **-o** parameter, you use the **-p** parameter to pass a JSON-formatted string with resource properties.
+In addition to specifying the API version of the resource with the **-o** parameter, use the **-p** parameter to pass a JSON-formatted string with any required or additional properties.
     
     
 To delete an existing resource such as a virtual machine resource, use a command like the following.
