@@ -61,7 +61,7 @@ Enterprise Integration supports these industry standards:
 - [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
 - [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
 - [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
-- [EIP Connectors](../connectors/apis-list.md/#enterprise-integration-pack-eip-connectors)
+- [EIP Connectors](../connectors/apis-list.md/#enterprise-integration-pack-eip-connectors "Learn about enterprise integration pack connectors")
 
 
 
