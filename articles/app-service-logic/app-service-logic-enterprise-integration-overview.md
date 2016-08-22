@@ -45,10 +45,13 @@ Enterprise Integration supports these industry standards:
 - EDI - Electronic Data Interchange  
 - EAI - Enterprise Application Integration  
 
-## Here's what you need to get started now
+## Here's what you need to get started
 - An Azure subscription with an integration account
 - Visual Studio 2015 to create maps and schemas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
+
+## Try it for yourself
+Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy fully operational AS2 send & receive logic apps of your own using the B2B features of Logic Apps.
 
 ## Learn more about:
 - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
