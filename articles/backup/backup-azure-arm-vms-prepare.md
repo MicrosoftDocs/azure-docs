@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -46,6 +46,7 @@ Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Backup of Linux virtual machines with Docker extension is not supported.  
 - Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
