@@ -24,7 +24,7 @@ To understand asymmetric routing, we need to understand two concepts. One is the
 
 When an enterprise network has only one link to the Internet via their Internet service provider, then all the traffic towards and from the Internet comes through the same path. Often, companies decide to have redundant paths to improve network uptime and purchase multiple circuits. In such cases, it is possible that traffic going outside the network towards the Internet goes through one link while the return traffic comes through a different link. This phenomenon is commonly known as Asymmetric Routing where the reverse traffic takes a different path from the original flow.
 
-While the preceding description is for Internet, it applies to other combinations of multiple paths. For example, an Internet path and a private path to the same destination, multiple private paths to the same destination etc. 
+While the preceding description is for Internet, it applies to other combinations of multiple paths. Examples are, an Internet path and a private path to the same destination, multiple private paths to the same destination etc. 
 
 Each router along the way from source to destination computes best path to reach a destination based on its calculation of best path to reach the destination. Determination of best possible path is based on two main factors.
 
