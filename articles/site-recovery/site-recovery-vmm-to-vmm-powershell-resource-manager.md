@@ -245,7 +245,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
 
-3. The below cmdlet creates a mapping between the source classification and the target classificaiton. 
+3. The below cmdlet creates a mapping between the source classification and the target classification. 
 
 		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
 
