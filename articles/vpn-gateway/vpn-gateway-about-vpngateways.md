@@ -34,7 +34,7 @@ The sections below contain tables that list the following information for the co
 
 Use the diagrams and descriptions to help select the configuration topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline. Each configuration relies on the VPN Gateway settings you select. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). 
 
-Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. Currently, you can't configure every setting in the Azure portal. The article instructions for each configuration specify when a certain tool is needed. This means you can configure some of the settings in the Azure portal, and then switch to PowerShell for settings that are not available in the Azure portal. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
+Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. Currently, you can't configure every VPN gateway setting in the Azure portal. The instructions in the articles for each configuration specify if a specific tool is needed. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
 
 
 ## Site-to-Site and Multi-Site
@@ -78,7 +78,7 @@ Azure currently has two deployment models: classic and Resource Manager. If you 
 
 ### VNet peering
 
-You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview. See [VNet peering](../virtual-network/virtual-network-peering-overview.md) for more information.
+You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview.
 
 
 ### Deployment models and methods
