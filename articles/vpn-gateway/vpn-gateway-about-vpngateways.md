@@ -34,7 +34,7 @@ The sections below contain tables that list the following information for the co
 
 Use the diagrams and descriptions to help select the configuration topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline. Each configuration relies on the VPN Gateway settings you select. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). 
 
-Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. The instructions for each configuration specify when a certain tool is needed. For example, currently, you can't configure every setting in the Azure portal. You can start out configuring some of the settings in the Azure portal, and then switch to PowerShell for settings that are not available in the Azure portal. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time. The Azure portal currently does not contain all the configuration settings that you may need. 
+Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. The instructions for each configuration specify when a certain tool is needed. Currently, you can't configure every setting in the Azure portal. You can configure some of the settings in the Azure portal, and then switch to PowerShell for settings that are not available in the Azure portal. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
 
 
 ## Site-to-Site and Multi-Site
@@ -60,14 +60,22 @@ You can create and configure a VPN connection between your VNet and multiple on-
 
 ## VNet-to-VNet
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions, or in different subscriptions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
-Azure currently has two management models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can create a connection between virtual networks, even if they are in different deployment models. You can do this by using a gateway. 
+The VNets you connect can be:
 
-Additionally, you may be able to use VNet peering to create your connection. VNet peering does not use a virtual network gateway. VNet peering is currently in Preview. See [VNet peering](../virtual-network/virtual-network-peering-overview.md) for more information.
+- in the same or different regions
+- in the same or different subscriptions 
+- in the same different deployment models
 
 
 ![VNet to VNet connection](./media/vpn-gateway-about-vpngateways/vnet2vnet.png "vnet-to-vnet")
+
+
+
+### Connections between deployment models
+
+Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
 
 ### Deployment models and methods
 
