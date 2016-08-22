@@ -16,15 +16,12 @@
 	ms.date="08/10/2016"
 	ms.author="helaw"/>
 
-# What's new in Azure Stack
+# What's new in Azure Stack Technical Preview 2
 
 
 This document covers new features and capabilities in each release of Azure Stack.
 
-##Technical Preview 2
-
-### Workloads
- -  
+## Workloads
  - Key Vault
    - Create and manage Key Vaults
    - Store and deploy secrets and keys
@@ -34,8 +31,7 @@ This document covers new features and capabilities in each release of Azure Stac
    - SQL
  - Updated App Service Resource Provider
  
-### Administrative
-A number of new administrative and portal features are available in this preview.
+## Administrative and Portal
  - Billing and Usage APIs 
  - Ability to capture plan and offer details in ARM templates for redeployment
  - Export ARM Templates from GUI
@@ -49,14 +45,13 @@ A number of new administrative and portal features are available in this preview
   - View details on Azure Stack alerts by regions
   - Health Resource Provider enables retrieval of monitoring data via REST
 
-### Networking
-Technical Preview 2 builds on TP1 features, namely:
+## Networking
  - iDNS allows for name resolution within virtual networks
  - VPN Site-To-Site gateways
  - Provider now canview the state of networking resources via the portal, including virtual networks, load balancers, and IP allocation and consumption information
  - Providers can implement quotas within the Network Resource Provider
 
-### Storage
+## Storage
 Azure-consistent Storage (ACS) provides storage blob, table, queue and account management. Further, ACS also offers an administration service to facilitate service provider administration of Azure-consistent Storage services. 
 - Broadening Azure consistency against 2015-04-05 version of Storage *data* path API 
   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
