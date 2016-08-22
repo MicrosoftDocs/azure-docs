@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 
@@ -43,7 +43,7 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 
 The VNets you connect can be in different subscriptions and different regions. You can combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 
-![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/vnet2vnet.png)
+![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
 ### Why connect virtual networks?
 
