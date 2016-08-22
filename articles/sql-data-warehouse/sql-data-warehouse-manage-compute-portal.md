@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)
