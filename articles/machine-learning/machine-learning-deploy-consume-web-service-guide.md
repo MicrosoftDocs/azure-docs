@@ -101,6 +101,6 @@ You can download an Excel template that allows you to easily consume the web ser
 
 ### Using a REST Based Client
 
-Azure ML web services are RESTful APIs. You can consume these APIs from a variety of applications such as .NET, Python, R, Java, etc. The Consume page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code available that can help you get started. 
+Azure ML web services are RESTful APIs. You can consume these APIs from various platforms such as .NET, Python, R, Java, etc. The Consume page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code available that can help you get started. 
 
 * [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
