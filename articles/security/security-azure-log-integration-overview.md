@@ -24,7 +24,7 @@ Learn about Azure log integration, its key capabilities, and how it works.
 
 Both Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
 
-Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Windows Azure Diagnostics (WAD) and Linux Azure Diagnostics (LAD) from your Windows and Linux virtual machines, as well as diagnostics from partner solutions such as a Web Application Firewall (WAF). This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Azure Diagnostics from your Windows *(WAD)* and Linux *(LAD)* virtual machines, as well as diagnostics from partner solutions such as a Web Application Firewall (WAF). This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 ![Azure log integration][1]
 
@@ -39,7 +39,7 @@ Azure log integration currently supports integration of Azure Audit Logs, virtua
 
 ## Next steps
 
-In this document, you were introduced to Azure log integration. To learn more about Azure log Integration and the types of logs supported, see the following:
+In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
 
 - [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
 - [Get started with Azure log integration](security-azure-log-integration-get-started.md) - This tutorial walks you through installation of Azure log integration and integrating logs from Azure storage, Azure Audit Logs, and Security Center alerts.

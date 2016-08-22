@@ -32,9 +32,9 @@ To complete this tutorial, you must have the following:
 - Connectivity from the Azlog Integrator to Azure storage and to authenticate and authorize to Azure subscription.
 - For Azure VM logs, the SIEM agent (for example, Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent, or IBM QRadar WinCollect) must be installed on the Azlog Integrator.
 
-## Deployment considerations:
+## Deployment considerations
 
-You can run multiple instances of the Azlog Integrator if event volume is high. Load balancing of the Windows Azure Diagnostics (WAD) storage accounts and the number of subscriptions to provide to the instances should be based on your capacity.
+You can run multiple instances of the Azlog Integrator if event volume is high. Load balancing of Azure Diagnostics storage accounts for Windows *(WAD)* and the number of subscriptions to provide to the instances should be based on your capacity.
 
 On an 8-processor (core) machine, a single instance of Azlog Integrator can process about 24 million events per day (~1M/hour).
 
@@ -52,19 +52,19 @@ The Azure log integration service collects telemetry data from the machine on wh
 
 > [AZURE.NOTE] You can turn off collection of telemetry data by unchecking this option.
 
-## Integrate Azure VM logs from your Windows Azure Diagnostics (WAD) storage accounts
+## Integrate Azure VM logs from your Azure Diagnostics storage accounts
 
 1. Check the prerequisites listed above to ensure that your WAD storage account is collecting logs before continuing your Azure log integration. Do not perform the following steps if your WAD storage account is not collecting logs.
 
 2. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
-3. Run the command: **azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>**.
+3. Run the command: **azlog source add *FriendlyNameForTheSource* WAD *StorageAccountName* *StorageKey***.
 
-  Replace <StorageAccountName> with the name of the Azure storage account configured to receive diagnostics events from your VM.
+      Replace *StorageAccountName* with the name of the Azure storage account configured to receive diagnostics events from your VM.
 
         azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==
 
-  If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name: **azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>**.
+      If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name: **azlog source add *FriendlyNameForTheSource*.*SubscriptionID* WAD *StorageAccountName* *StorageKey***.
 
 4. Wait 30 - 60 minutes (it could take as long as an hour), then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
 
@@ -91,7 +91,7 @@ If you still don’t see the events, then:
 
 ![Table WADWindowsEventLogsTable][1]
 
-## Integrate Azure audit logs and Security Center Alerts
+## Integrate Azure audit logs and Security Center alerts
 
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
@@ -99,7 +99,7 @@ If you still don’t see the events, then:
 
 3. Run the command: **azlog authorize <SubscriptionID>**. This assigns reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then it attempts to assign the service principal reader role to all subscriptions to which you have any access.
 
-    azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
+        azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
 
   > [AZURE.NOTE] You may see warnings if you run the **authorize** command immediately after the **createazureid** command. There is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
 
