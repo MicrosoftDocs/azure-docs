@@ -58,13 +58,17 @@ The Azure log integration service collects telemetry data from the machine on wh
 
 2. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
-3. Run the command: **azlog source add *FriendlyNameForTheSource* WAD *StorageAccountName* *StorageKey***.
+3. Run the command
 
-      Replace *StorageAccountName* with the name of the Azure storage account configured to receive diagnostics events from your VM.
+        azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>
+
+      Replace StorageAccountName with the name of the Azure storage account configured to receive diagnostics events from your VM.
 
         azlog source add azlogtest WAD azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==
 
-      If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name: **azlog source add *FriendlyNameForTheSource*.*SubscriptionID* WAD *StorageAccountName* *StorageKey***.
+      If you would like the subscription id to show up in the event XML, append the subscription ID to the friendly name:
+
+        azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>
 
 4. Wait 30 - 60 minutes (it could take as long as an hour), then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
 
@@ -95,9 +99,17 @@ If you still don’t see the events, then:
 
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 
-2. Run the command: **azlog createazureid**. This command prompts you for your Azure login. The command then creates an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD).  Creating a service principal for Azlog Integration creates the Azure AD identity that will be given access to read from Azure subscriptions.
+2. Run the command
 
-3. Run the command: **azlog authorize <SubscriptionID>**. This assigns reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then it attempts to assign the service principal reader role to all subscriptions to which you have any access.
+        azlog createazureid
+
+   This command prompts you for your Azure login. The command then creates an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure AD Tenants that host the Azure subscriptions in which the logged in user is an Administrator, a Co-Administrator, or an Owner. The command will fail if the logged in user is only a Guest user in the Azure AD Tenant. Authentication to Azure is done through Azure Active Directory (AD).  Creating a service principal for Azlog Integration creates the Azure AD identity that will be given access to read from Azure subscriptions.
+
+3. Run the command
+
+        azlog authorize <SubscriptionID>
+
+   This assigns reader access on the subscription to the service principal created in step 2. If you don’t specify a SubscriptionID, then it attempts to assign the service principal reader role to all subscriptions to which you have any access.
 
         azlog authorize 0ee9d577-9bc4-4a32-a4e8-c29981025328
 

@@ -72,11 +72,11 @@ Error:
 
 **Azlog authorize** command assigns the role of Reader to the Azure AD service principal (created with **Azlog createazureid**) to the subscriptions provided. If the Azure login is not a Co-Administrator or an Owner of the subscription, it fails with ‘Authorization Failed’ error message. Azure role-based access control (RBAC) of Co-Administrator or Owner is needed to complete this action.
 
-## Where can I find the properties in audit log?
+## Where can I find the definition of the properties in audit log?
 
 See:
 
-- [Audit operations with Resource Manager](../resource-group/resource-group-audit.md)
+- [Audit operations with Resource Manager](./resource-group-audit.md)
 - [List the management events in a subscription in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
@@ -85,7 +85,7 @@ See [Managing and responding to security alerts in Azure Security Center](../sec
 
 ## How can I modify what is collected with VM diagnostics?
 
-See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows (WAD) configuration. Following is a sample:
+See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
 
 ### Get the WAD config
 
