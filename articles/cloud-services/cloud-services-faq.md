@@ -17,7 +17,7 @@
 	ms.author="adegeo"/>
 
 # Cloud Services FAQ
-This article answers some frequently asked questions about Microsoft Azure Cloud SErvices. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
+This article answers some frequently asked questions about Microsoft Azure Cloud Services. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
 ## Certificates
 
@@ -44,7 +44,7 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 ### Where should I install my certificate?
 
 **My**  
-Application Certificate with private key (\*.pfx, \*.p12) .
+Application Certificate with private key (\*.pfx, \*.p12).
 
 **CA**  
 All your intermediate certificates go in this store (Policy and Sub CAs).
