@@ -1,4 +1,4 @@
-l<properties 
+<properties 
    pageTitle="Alerts in Log Analytics | Microsoft Azure"
    description="Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes how to create an alert rule and details the different actions they can take."
    services="log-analytics"
