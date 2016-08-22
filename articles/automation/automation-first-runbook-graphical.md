@@ -135,7 +135,7 @@ Your runbook should look like the following at this point: <br>![Runbook authent
 We'll now add a **Start-AzureRmVM** activity to start a virtual machine.  You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
 
 1. In the Library control, type **Start-AzureRm** in the search textbox.
-2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Connect to Azure**.
+2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Specify Subscription Id**.
 3. Hover over **Specify Subscription Id** until a circle appears on the bottom of the shape.  Click the circle and drag the arrow to **Start-AzureRmVM**. 
 4.	Select **Start-AzureRmVM**.  Click **Parameters** and then **Parameter Set** to view the sets for **Start-AzureRmVM**.  Select the **ResourceGroupNameParameterSetName** parameter set. Note that **ResourceGroupName** and **Name** have exclamation points next them.  This indicates that they are required parameters.  Also note both expect string values.
 5.	Select **Name**.  Select **PowerShell expression** for the **Data source** and type in the name of the virtual machine surrounded with double quotes that we will start with this runbook.  Click **OK**.<br>![Start-AzureRmVM Name Parameter Value](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
