@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 # Create a VNet with a Site-to-Site VPN connection using the Azure Portal and Azure Resource Manager
@@ -37,11 +37,15 @@ This article will walk you through creating a virtual network and a Site-to-Site
 
 ![Site-to-Site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
 
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/diagrams2sazureportal.png)
+
+
+
 **Deployment models and tools for Site-to-Site connections**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
-If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you are looking for a different type of connection configuration, see the [VPN Gateway connection topologies](vpn-gateway-topology.md) article.
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 
 ## Before you begin
 
