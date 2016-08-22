@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="8/22/2016"
+	ms.date="08/22/2016"
 	ms.author="mahthi"/>
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
@@ -46,7 +46,7 @@ There are three migration scopes that primarily target compute, network, and sto
 
 ### Migration of virtual machines (not in a virtual network)
 
-In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. Therefore, wthe Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
+In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks:
 
 - You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 - You can migrate the virtual machine into an existing virtual network in Resource Manager.

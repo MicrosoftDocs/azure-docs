@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="8/22/2016"
+	ms.date="08/22/2016"
 	ms.author="mahthi"/>
 
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager
