@@ -40,7 +40,7 @@ The Azure CLI is one of several tools you can use to deploy and manage resources
 
 ### Resource groups
 
-To get a list of all resource groups in your subscription and their locations, run this commnad.
+To get a list of all resource groups in your subscription and their locations, run this command.
 
     azure group list
     
@@ -54,11 +54,11 @@ To view an individual resource within the group, such as a VM named *MyUbuntuVM*
 
 	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
     
-Notice the **Microsoft.Compute/virtualMachines** parameter. This indicates the type of the resource you are requesting information on.
+Notice the **Microsoft.Compute/virtualMachines** parameter. This parameter indicates the type of the resource you are requesting information on.
     
->[AZURE.NOTE]When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resoource Manager, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
+>[AZURE.NOTE]When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resource Manager, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
 
-When viewing details on a resource, it is often useful to use the `--json` parameter. This makes the output more readable, because some values are nested structures, or collections. The following example demonstrates returning the results of the **show** command as a JSON document.
+When viewing details on a resource, it is often useful to use the `--json` parameter. This parameter makes the output more readable, because some values are nested structures, or collections. The following example demonstrates returning the results of the **show** command as a JSON document.
 
 	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
@@ -68,7 +68,7 @@ When viewing details on a resource, it is often useful to use the `--json` param
 
 ### Tags
 
-Tags exist directly on resources and resource groups, so to see what tags are already applied, simply get a resource group and its resources with **azure group show**.
+Add [tags](resource-group-using-tags.md) to resources and resource groups to help you organize your resources. To see what tags are already applied, simply get a resource group and its resources with **azure group show**.
 
     azure group show -n tag-demo-group
     
@@ -102,7 +102,7 @@ This command returns the tags for that resource group.
       "Environment": "Production" 
     }
 
-View the tags for a particular resouce by using **azure resource show**.
+View the tags for a particular resource by using **azure resource show**.
 
     azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
     
@@ -113,7 +113,7 @@ This command returns the following.
       "Environment": "Production"
     }
     
-Retrieve all of the resources with a particular tag and value as shown below.
+Retrieve all the resources with a particular tag by using a command like the following.
 
     azure resource list --json | jq ".[] | select(.tags.Dept == \"Finance\") | .name"
     
@@ -123,7 +123,7 @@ This command returns the names of the resources with that tag.
     "tfsqlserver/tfsqldata"
 
 Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you need to retrieve all the existing tags that you want to keep. To set tag values 
-for a resource group, use **azure group set** and provide all of the tags for the resource group. 
+for a resource group, use **azure group set** and provide all the tags for the resource group. 
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
     
@@ -137,7 +137,7 @@ A summary of the resource group with the new tags is returned.
     data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
     ...
     
-You can list the existing tags in your subscription with **azure tag list**, and add a new tag with **azure tag create**. To remove a tag from the taxonomy for your subscription, first remove the tag from any resources it may be used with, and then remove the tag with **azure tag delete**.
+You can list the existing tags in your subscription with **azure tag list**, and add a tag with **azure tag create**. To remove a tag from the taxonomy for your subscription, first remove the tag from any resources it's used with, and then remove it with **azure tag delete**.
 
 ## Manage resources
 
@@ -162,7 +162,7 @@ To move existing resources to another resource group or subscription, use the **
 
 You can use the Azure CLI to create and manage policies to control access to Azure resources. For background about policy definitions and assigning policies to resources, see [Use policy to manage resources and control access](resource-manager-policy.md).
 
-For example, you might define the following policy to to deny all requests where location is not West US or North Central US, and save it to the policy definition file policy.json:
+For example, you might define the following policy to deny all requests where location is not West US or North Central US, and save it to the policy definition file policy.json:
 
     {
     "if" : {
@@ -191,7 +191,7 @@ This command shows output similar to the following.
     data:    Description:            undefined
     data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
 
-Use the **PolicyDefinitionId** returned from the previous command to assign a policy at the scope you want. In the following example, this scope is the subscription, but you can scope to resource groups or individual resources:
+ To assign a policy at the scope you want, use the **PolicyDefinitionId** returned from the previous command. In the following example, this scope is the subscription, but you can scope to resource groups or individual resources:
 
     azure policy assignment create MyPolicyAssignment -p /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy -s /subscriptions/########-####-####-####-############/
 
@@ -204,7 +204,7 @@ Similarly, you can get, change, or remove policy assignments by using the **poli
 
 For an existing resource group, you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-1. You can easily automate future deployments of the solution because all of the infrastructure is defined in the template.
+1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
 
 2. You can become familiar with template syntax by looking at the JSON that represents your solution.
 
@@ -216,7 +216,7 @@ Using the Azure CLI, you can either export a template that represents the curren
 
         azure group export testRG ~/azure/templates/
 
-* **Download the template for a particular deployment** -- This is helpful when you need to view the actual template that was used to deploy resources. The template includes all of the parameters and variables defined for the original deployment. However, if someone in your organization made changes to the resource group outside of the definition in the template, this template will not represent the current state of the resource group.
+* **Download the template for a particular deployment** -- This is helpful when you need to view the actual template that was used to deploy resources. The template includes all parameters and variables defined for the original deployment. However, if someone in your organization made changes to the resource group outside of the definition in the template, this template won't represent the current state of the resource group.
 
     To download the template used for a particular deployment to a local directory, run the `azure group deployment template download` command. For example:
 
@@ -228,7 +228,7 @@ Using the Azure CLI, you can either export a template that represents the curren
 
 ## Next steps
 
-* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations with Azure CLI](esource-manager-troubleshoot-deployments-cli.md).
+* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md).
 * If you want to use the CLI to set up an application or script to access resources, see [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
 
 
