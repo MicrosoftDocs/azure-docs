@@ -40,12 +40,12 @@ Take a copy of the instrumentation key, which identifies the resource.
 On your Unix server machine(s):
 
 1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 3. Edit `/etc/collectd/collectd.conf`:
  * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
  * Update the JVMArg for the java.class.path to include the following JAR. Update the version number to match the one you downloaded:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Add this snippet, using the Instrumentation Key from your resource:
 
 ```
@@ -71,7 +71,7 @@ Here's part of a sample configuration file:
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"

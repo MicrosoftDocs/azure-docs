@@ -40,7 +40,7 @@ You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 ## 2. Download the SDK
 
-1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
+1. Download the [Application Insights SDK for Java](https://aka.ms/aijavasdk). 
 2. On your server, extract the SDK contents to the directory from which your project binaries are loaded. If you’re using Tomcat, this would typically be under `webapps\<your_app_name>\WEB-INF\lib`
 
 

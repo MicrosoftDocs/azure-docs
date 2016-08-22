@@ -4,7 +4,7 @@
    services="visual-studio-online,virtual-machines-linux"
    documentationCenter="na"
    authors="TomArcher"
-   manager="douge"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="virtual-machines-linux"
