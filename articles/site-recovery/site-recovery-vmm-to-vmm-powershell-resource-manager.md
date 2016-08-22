@@ -229,6 +229,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 ## Step 6: Configure storage mapping
 
 1. The below command gets the list of storage classifications into $storageclassifications variable.
+
 		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
 
 
