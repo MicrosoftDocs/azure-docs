@@ -30,7 +30,7 @@ Through activity logs, you can determine:
 
 This topic focuses on auditing operations. To learn about using the activity logs to troubleshoot a deployment, see [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-You can retrieve information from the activity logs through the Azure portal, Azure PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+You can retrieve information from the activity logs through the portal, PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## Portal to view activity logs
 
@@ -38,7 +38,7 @@ You can retrieve information from the activity logs through the Azure portal, Az
 
     ![select activity logs](./media/resource-group-audit/select-audit-logs.png)
 
-2. In the **Activity Log** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a listing of recent operations.
+2. In the **Activity Log** blade, you see a summary of recent operations for all the resource groups in your subscription. It includes a listing of recent operations.
 
     ![show actions](./media/resource-group-audit/audit-summary.png)
 
@@ -52,7 +52,7 @@ You can retrieve information from the activity logs through the Azure portal, Az
 
     ![save query](./media/resource-group-audit/save-query.png)
 
-6. To automatically filter for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filered by the selected resource.
+6. To automatically filter for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
 
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
 
