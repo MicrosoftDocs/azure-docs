@@ -20,7 +20,7 @@
 
 ## Overview
 
-This article describes how to use Site Recovery to migrate Windows instances running in AWS to Azure.Before you start, note that:
+This article describes how to use Site Recovery to migrate Windows instances running in AWS to Azure. Before you start, note that:
 
 - You can migrate only at this time. That means you can fail over from AWS to Azure but you can't fail them back again.
 - This article summarizes and uses many of the steps that are described in full in [Replicate VMware virtual machines or physical servers to Azure](site-recovery-vmware-to-azure-classic.md), which provides the latest enhanced instructions for setting up replication. We suggest you follow this article for detailed instructions as you migrate.
