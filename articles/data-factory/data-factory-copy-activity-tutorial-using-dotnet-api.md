@@ -106,7 +106,7 @@ You should have following four values from these steps:
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**. 
 
-	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values. 
+	Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID**&gt; with your own values. 
 
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -114,8 +114,8 @@ You should have following four values from these steps:
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
 		    <!-- Replace the following values with your own -->
-    		<add key="ApplicationId" value="Application ID" />
-    		<add key="Password" value="Password" />    
+    		<add key="ApplicationId" value="<Application ID>" />
+    		<add key="Password" value="<Password>" />    
 		    <add key="SubscriptionId" value= "Subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="tenant ID" />
 		</appSettings>
@@ -147,9 +147,9 @@ You should have following four values from these steps:
             DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
 	> [AZURE.IMPORTANT] 
-	> Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
+	> Replace the value of **resourceGroupName** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
 	> 
-	> Update name of the data factory to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
+	> Update name of the data factory (**dataFactoryName**) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
 
 7. Add the following code that creates a **data factory** to the **Main** method.
 
@@ -449,7 +449,7 @@ You should have following four values from these steps:
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
-18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
+18. Verify that an output file is created in the "**apifactoryoutput**" folder in the **adftutorial** container.
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
