@@ -19,20 +19,31 @@
 # How to publish and manage an offer in the Azure Marketplace
 This article is provided to help a developer create,  deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
-The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports multiple solutions, and each of them requires a slightly different set of work from you in order to successfully publish into the Marketplace.
+## What is the Azure Marketplace?
+The Azure Marketplace is where an Azure subscriber can find services to facilitate the development of on-premise or cloud based solutions and applications. And use [Azure Certified](http://azure.com/certified) services as building blocks to rapidly develop an innovative application or service for your line of business and other Azure subscribers.
 
-## Types of Offers
-|Offer Type| Definition |
-|---|---|
-|Virtual Machine Image | Pre-configured virtual machine (VM) image with a fully installed operating system and one or more applications. Virtual Machine Image offerings may include a single VM image or multiple VM images tied together by a Solution Template. A virtual machine image ("Image") provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service. An Image comprises of an operating system virtual hard drive and zero or more data disk virtual hard drives. Customers can deploy an number of virtual machines from a single image.|
-|Developer Service| Fully managed service for information workers, business analysts, developers or IT professionals to use in customer application developer or system management. Developer Services provide functionality to enable customers to quickly develop cloud scale applications on Azure. Customers must have an Azure subscription to purchase Developer Services. Publishers are responsible for metering customers' usage of Developers Services and for reporting usage information to Microsoft, as detailed in the Microsoft Azure Marketplace Publisher Agreement.|
-|Solution Template|An "Azure Resource Manager (ARM) Solution Template" is a data structure that can reference one or more distinct offerings, including offerings published by other publishers, to enable Azure customers to deploy one or more offerings in a single, coordinated fashion.|
+As an Azure publisher, the Azure Marketplace is how you can distribute and sell your innovative solution or service to other developers, ISVs, and IT professionals who want to quickly develop their cloud-based applications and mobile solutions.
+
+## Supported Types of Offers
+The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports three types of offers:
+
+- **Virtual Machine images** are pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.
+
+    >[Azure.NOTE] **For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.
+
+- **Developer Services** are fully managed services to use in application development or system management. They provide functionality that enable rapid development of cloud scale applications on Azure.
+
+    >[Azure.NOTE] **For example,** as an Azure publisher, you developed an API accessible service (hosted on Azure or elsewhere) that provides predictions based on historical data. And this is a service that other Azure subscribers who are building solutions may want to utilize. You can deploy this service to the Azure Marketplace for other find, procure and user in their respective service.
+
+- **Solution template** is a data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.
+
+    >[AZURE.NOTE] **For example,** as an Azure publisher, you've bundles a set of services from across Azure that makes it quick to deploy a secure, high availability cloud service with load balancing in a few clicks. Other Azure subscribers could fine value in saving time by procuring this solution template rather manually identifying and configuring the same or similar Azure services.
 
 Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
 
 ## 1. Pre-requisites
 
-> [AZURE.NOTE] Before you begin any work on the Azure Marketplace, you must be pre-approved. This is not applicable for data service publishers.
+> [AZURE.NOTE] Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
 
 1. [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
 2. [Create and register a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)
