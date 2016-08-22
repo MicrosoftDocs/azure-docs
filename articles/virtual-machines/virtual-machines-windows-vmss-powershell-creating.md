@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="danielsollondon"
-	manager="guybo"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
