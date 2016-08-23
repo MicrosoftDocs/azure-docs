@@ -50,7 +50,7 @@ With Azure Data Factory, you can process time series data in batched fashion wit
       "interval": 1
     },
 
-Each unit of data consumed and produced by an activity run is called a data **slice**. The following diagram shows an example of an activity with an input time series dataset and an output time series dataset each with availability set to hourly frequency.
+Each unit of data consumed and produced by an activity run is called a data **slice**. The following diagram shows an example of an activity with an input dataset and an output dataset each with availability set to hourly frequency.
 
 ![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -193,7 +193,7 @@ The **frequency** is set to **Hour** and **interval** is set to **1** in the **a
 	}
 
 
-The sample shows activity schedule and dataset availability sections set to hourly frequency. The sample shows how you can leverage the **WindowStart** and **WindowEnd** variables to select the relevant data for the given activity run and send it to a blob with appropriate **folderPath**. The folderPath is  parameterized to have a separate folder for every hour.
+The sample shows activity schedule and dataset availability sections set to hourly frequency. The sample shows how you can use **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with appropriate **folderPath**. The folderPath is parameterized to have a separate folder for every hour.
 
 When 3 of the slices between 8 – 11 AM execute and the data in Azure SQL is as follows:
 
@@ -220,7 +220,7 @@ On deploying the pipeline the Azure blob is populated as follows:
 
 The [Creating Pipelines](data-factory-create-pipelines.md) article introduced the concept of active period for a pipeline specified by setting the **start** and **end** properties.
  
-You can set the start date for the pipeline active period in the past and data factory automatically calculates (back fills) all data slices in the past and begins processing them.
+You can set the start date for the pipeline active period in the past. Then, Data Factory automatically calculates (back fills) all data slices in the past and begins processing them.
 
 With back filled data slices, it is possible to configure them to be run in parallel. You can do that by setting the **concurrency** property in **policy** section of the activity JSON as shown in the [Creating Pipelines](data-factory-create-pipelines.md) article.
 
@@ -234,16 +234,16 @@ Consider the following example, which shows two activities. Activity1 produces a
 
 <br/>
 
-The diagram shows that out of 3 recent slices there was a failure producing the 9-10 AM slice for **Dataset2**. Data factory automatically tracks dependency for time series dataset and as a result holds off kicking off the activity run for 9-10 AM downstream slice.
+The diagram shows that out of three recent slices there was a failure producing the 9-10 AM slice for **Dataset2**. Data factory automatically tracks dependency for time series dataset and as a result holds off kicking off the activity run for 9-10 AM downstream slice.
 
 
 Data factory monitoring & management tools allow you to drill into the diagnostic logs for the failed slice easily find the root cause for the issue and fix it. Once you have fixed the issue, you can also easily kick off the activity run to produce the failed slice. For more details on how to rerun, understand state transitions for data slices, see **Monitoring and managing pipelines using** [Azure portal blades](data-factory-monitor-manage-pipelines.md) (or) [Monitor and Manage app](data-factory-monitor-manage-app.md) for details. 
 
-Once you kick off the rerun and the 9-10 AM slice for dataset2 is ready, data factory kicks off the run for the 9-10 AM dependent slice on final dataset as shown in the following diagram.
+Once you rerun the 9-10 AM slice for dataset2 and it is ready, Data Factory starts the run for the 9-10 AM dependent slice on final dataset as shown in the following diagram.
 
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-For a deeper dive on specifying and tracking dependencies for complex chain of activities and datasets, refer to following sections.
+For a deeper dive on specifying and tracking dependencies for a chain of activities, refer to following sections.
 
 ## Chaining activities
 You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
@@ -299,7 +299,7 @@ In the samples, the frequencies for input and output datasets and activity sched
 
 ### Sample 1: Producing daily output report for input data that is available every hour
 
-Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob and we want to produce a daily aggregate report with statistics like mean, max, min etc., for the day with data factory [Hive activity](data-factory-hive-activity.md).
+Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob. You want to produce a daily aggregate report with statistics such as mean, max, min etc., for the day with Data Factory [Hive activity](data-factory-hive-activity.md).
 
 Here is how you can model this scenario with Data Factory:
 
@@ -412,14 +412,14 @@ The following diagram shows the scenario from data dependency point of view.
 
 ![Data dependency](./media/data-factory-scheduling-and-execution/data-dependency.png)
 
-The output slice for every day depends on 24 hourly slices from input dataset. Data factory computes these dependencies automatically by figuring out the input data slices that fall in the same time period as the output slice to be produced. If any of the 24 input slices is not available (for example, due to processing happening in an activity upstream that produces the slice), Data Factory waits for the input slice to be ready before kicking off the daily activity run.
+The output slice for every day depends on 24 hourly slices from input dataset. Data factory computes these dependencies automatically by figuring out the input data slices that fall in the same time period as the output slice to be produced. If any of the 24 input slices is not available, Data Factory waits for the input slice to be ready before kicking off the daily activity run.
 
 
 ### Sample 2: Specify dependency with expressions and data factory functions
 
 Let’s consider another scenario. Suppose you have a Hive activity that processes two input datasets, one of them has new data daily but one of them gets new data every week. Suppose you wanted to do a join across the two inputs and produce an output daily.
  
-The simple approach so far where data factory automatically figures out the right input slices to process by including input data slices aligned to the output data slice’s time period no longer works.
+The simple approach is where Data Factory automatically figures out the right input slices to process by aligning to the output data slice’s time period does not work.
 
 You need a way to specify for every activity run the data factory should use last week’s data slice for the weekly input dataset. You can do that with the help of Azure Data Factory functions as shown in the following snippet.
 
@@ -632,7 +632,7 @@ Similar to datasets that are produced by data factory the data slices for extern
 
 
 ## Onetime pipeline
-You can create and schedule a pipeline to run periodically (hourly, daily, etc.,) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**. 
+You can create and schedule a pipeline to run periodically (for example: hourly, and daily) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**. 
 
 	{
 	    "name": "CopyPipeline",
@@ -670,8 +670,8 @@ You can create and schedule a pipeline to run periodically (hourly, daily, etc.,
 
 Note the following:
  
-- **start** and **end** times for the pipeline need not be specified. 
-- **availability** of input and output datasets needs to be specified (frequency and interval) even though the values are not used by Data Factory.  
+- **start** and **end** times for the pipeline are not specified. 
+- **availability** of input and output datasets is specified (frequency and interval) even though the values are not used by Data Factory.  
 - Diagram view does not show one-time pipelines. This behavior is by design. 
 - One time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one. 
 

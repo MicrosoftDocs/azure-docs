@@ -38,7 +38,7 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -210,7 +210,7 @@ The following sample shows:
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-The sample copies data belonging to a time series from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from a table in Azure SQL database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -393,11 +393,11 @@ The **typeProperties** section is different for each type of dataset and provide
 | -------- | ----------- | -------- | 
 | folderPath | Path to the container and folder in the blob storage. Example: myblobcontainer\myblobfolder\ | Yes |
 | fileName | Name of the blob. fileName is optional and case-sensitive.<br/><br/>If you specify a filename, the activity (including Copy) works on the specific Blob.<br/><br/>When fileName is not specified, Copy includes all Blobs in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No |
-| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Leveraging partitionedBy property section](#Leveraging-partitionedBy-property) for details and examples. | No
+| partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Using partitionedBy property section](#using-partitionedBy-property) for details and examples. | No
 | format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details.  | No |
 
-### Leveraging partitionedBy property
+### Using partitionedBy property
 As mentioned in the previous section, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros, and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
 
 See [Data Factory System Variables](data-factory-scheduling-and-execution.md#data-factory-system-variables) and [Data Factory Functions Reference](data-factory-scheduling-and-execution.md#data-factory-functions-reference) to learn about Data Factory system variables and functions that you can use in the partitionedBy section.   
@@ -433,7 +433,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 
 ## Azure Blob Copy Activity type properties  
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, various policies etc., are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
@@ -451,7 +451,7 @@ Properties available in the typeProperties section of the activity on the other 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE<br/>FALSE (default) | No |
-| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, that is, the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 

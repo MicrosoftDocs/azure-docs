@@ -39,7 +39,7 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeStoreSink](#azure-data-lake-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake Store every hour. The JSON properties used in these samples are described in sections following the samples.
+The sample copies time-series data from an Azure Blob Storage to Azure Data Lake Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
 
 **Azure Storage linked service:**
@@ -229,7 +229,7 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
 5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
 
-The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
+The sample copies time-series data from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure Data Lake Store linked service:**
 
@@ -421,7 +421,7 @@ The authorization code you generate by using the **Authorize** button expires af
 
 | User type | Expires after |
 | :-------- | :----------- | 
-| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.,) | 12 hours |
+| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.). | 12 hours |
 | Users accounts managed by Azure Active Directory (AAD) | 14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
 
 If you change your password before this token expiration time, the token expires immediately and you see the error mentioned in this section. 
@@ -542,11 +542,11 @@ When you specify compression property in an input dataset JSON, the pipeline rea
 
 - Read GZIP compressed data from an Azure Data Lake Store, decompress it, and write result data to an Azure SQL database. You define the input Azure Data Lake Store dataset with the compression JSON property in this case. 
 - Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure Data Lake Store. You define an output Azure Data Lake dataset with the compression JSON property in this case.  
-- Read a GZIP-compressed data from an Azure Data Lake Store, decompress it, compress it using BZIP2, and write result data to an Azure Data Lake Store. You define the input Azure Data Lake Store dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.   
+- Read a GZIP-compressed data from an Azure Data Lake Store, decompress it, compress it using BZIP2, and write result data to an Azure Data Lake Store. You set compression type set as GZIP and BZIP2 for input and output datasets respectively.   
 
 
 ## Azure Data Lake Copy Activity type properties  
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, various policies etc., are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
@@ -562,7 +562,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifies the copy behavior. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, that is, the relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+| copyBehavior | Specifies the copy behavior. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
