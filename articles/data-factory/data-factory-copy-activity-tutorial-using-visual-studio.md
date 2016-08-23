@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio" 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -35,7 +35,9 @@ In This tutorial you do the following using Visual Studio 2013:
 
 ## Prerequisites
 
-1. **IMPORTANT:** Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps before proceeding further.
+1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
+	
+	> [AZURE.IMPORTANT] Compete the prerequistes before proceeding further. 
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory.  
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015

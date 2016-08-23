@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using REST API" 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using REST API | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using REST API." 
 	services="data-factory" 
 	documentationCenter="" 

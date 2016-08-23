@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using .NET API" 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -451,8 +451,9 @@ You should have following four values from these steps:
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the "**apifactoryoutput**" folder in the **adftutorial** container.
 
-## See Also
-| Topic | Description |
-| :---- | :---- |
-| [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |
-| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
+## Next Steps
+
+- Read through [Data Movement Activities](data-factory-data-movement-activities.md) article, which provides detailed information about the Copy Activity you used in the tutorial.
+- See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. This article does not cover all the Data Factory .NET API. 
+
+ 

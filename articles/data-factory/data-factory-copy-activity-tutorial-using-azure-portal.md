@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using Data Factory Editor" 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using Data Factory Editor | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure portal." 
 	services="data-factory" 
 	documentationCenter="" 
