@@ -30,7 +30,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 - [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-linux-classic-faq.md)
 - [About images for virtual machines](virtual-machines-linux-classic-about-images.md)
 - [Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
-- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
+- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Set up
 
