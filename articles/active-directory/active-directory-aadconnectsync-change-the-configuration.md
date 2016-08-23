@@ -168,7 +168,7 @@ Here is an example:
 
 In *Out to AD - User Exchange hybrid* the following flow can be found:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-This expression should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. In this case it would keep the existing value in AD.
+This expression should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
 
 ### ImportedValue
 The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets:  

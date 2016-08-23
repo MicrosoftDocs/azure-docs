@@ -24,11 +24,11 @@ An essential part of declarative provisioning is the expression language used in
 
 For more details, see [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-The attributes are strongly typed. A function only accepts attributes of the correct type. It is also case sensitive. Both function names and attribute names must have proper casing or an error is thrown.
+The attributes are strongly typed. A function only accepts attributes of the correct type. It is also case-sensitive. Both function names and attribute names must have proper casing or an error is thrown.
 
 ## Language definitions and Identifiers
 
-- Functions have a name followed by arguments in brackets: FunctionName(argument 1,argument N).
+- Functions have a name followed by arguments in brackets: FunctionName(argument 1, argument N).
 - Attributes are identified by square brackets: [attributeName]
 - Parameters are identified by percent signs: %ParameterName%
 - String constants are surrounded by quotes: For example, "Contoso" (Note: must use straight quotes "" and not smart quotes “”)
