@@ -115,7 +115,7 @@ This creates a virtual network named "appgwvnet" in resource group "appgw-rg" fo
 
 ### Step 3
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 This assigns the subnet object to variable $subnet for the next steps.
 
