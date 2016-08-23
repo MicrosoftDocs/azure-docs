@@ -20,8 +20,8 @@
 # Create a Service Fabric cluster in Azure using Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Resource Manager](service-fabric-walkthrough-cluster-security.md)
-- [Azure portal](service-fabric-walkthrough-cluster-security-portal.md)
+- [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+- [Azure portal](service-fabric-cluster-creation-via-portal.md)
 
 This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. This guide walks you through the following steps:
 
