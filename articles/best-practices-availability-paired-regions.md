@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/20/2016"
+    ms.date="08/23/2016"
     ms.author="raynew"/>
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
@@ -31,21 +31,21 @@ Figure 1 – Azure regional pair diagram
 
 
 
-| Geography     |  Paired Regions  |                  |
-| :-------------| :-------------   | :-------------   |
-| North America | North Central US | South Central US |
-| North America | East US          | West US          |
-| North America | US East 2        | US Central       |
-|North America  | West US 2        | West Central US  |
-| Europe        | North Europe     | West Europe      |
-| Asia          | South East Asia  | East Asia        |
-| China         | East China       | North China      |
-| Japan         | Japan East       | Japan West       |
-| Brazil        | Brazil South (1) | South Central US |
-| Australia     | Australia East   | Australia Southeast|
-| US Government | US Gov Iowa      | US Gov Virginia  |
-| India         | Central India    | South India      |
-| Canada        | Canada Central   | Canada East      |
+| Geography     |  Paired regions  |                     |
+| :-------------| :-------------   | :-------------      |
+| North America | North Central US | South Central US    |
+| North America | East US          | West US             |
+| North America | US East 2        | US Central          |
+|North America  | West US 2        | West Central US     |
+| Europe        | North Europe     | West Europe         |
+| Asia          | South East Asia  | East Asia           |
+| China         | East China       | North China         |
+| Japan         | Japan East       | Japan West          |
+| Brazil        | Brazil South (1) | South Central US    |
+| Australia     | Australia East   | Australia Southeast |
+| US Government | US Gov Iowa      | US Gov Virginia     |
+| India         | Central India    | South India         |
+| Canada        | Canada Central   | Canada East         |
 
 
 Table 1 - Mapping of azure regional pairs
@@ -92,3 +92,7 @@ As referred to in figure 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png)
 **Data residency** – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+
+## Next steps
+
+[Learn more](../resiliency-technical-guidance-recovery-loss-azure-region.md) about recovery from a region-wide service disruption.
