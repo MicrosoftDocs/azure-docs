@@ -126,7 +126,5 @@ Before you can download files from your function app, you must configure your cr
 
 	If requested, supply the username and password for your function app deployment.  
 
-##Next steps
-
 
 [GitHub]: https://github.com/
