@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -52,7 +52,7 @@ An admin who owns the DNS domain name of an unmanaged Azure directory can take o
 #### directory
 
 - An Azure Active Directory directory for the domain is created, one directory per domain.
-- The Azure AD directory directory has no global admin.
+- The Azure AD directory has no global admin.
 
 #### Users
 
@@ -224,7 +224,7 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 
 ## See Also
 
--  [How to install and configure Azure PowerShell](../powershell-install-configure/)
+-  [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

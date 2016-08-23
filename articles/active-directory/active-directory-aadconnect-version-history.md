@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -134,7 +134,7 @@ Released: 2015 November
 **New preview features:**
 
 - [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
-- Support for [Azure AD Domain Services](active-directory-get-started.md) password synchronization.
+- Support for [Azure AD Domain Services](active-directory-manage-passwords.md) password synchronization.
 
 **New supported scenario:**
 
@@ -270,7 +270,7 @@ Released: 2014 October
 
 **New features:**
 
-- Password synchronization from multiple on-premise AD to Azure AD.
+- Password synchronization from multiple on-premises AD to Azure AD.
 - Localized installation UI to all Windows Server languages.
 
 **Upgrading from AADSync 1.0 GA**

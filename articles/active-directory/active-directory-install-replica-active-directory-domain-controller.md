@@ -4,7 +4,7 @@
 	services="virtual-network"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
