@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Understand Your Azure Bill"
-   description="Understand Your Azure Bill"
+   pageTitle="Understanding your bill | Microsoft Azure"
+   description="Learn how to read and understand the usage and bill for your Azure subscription"
    services=""
-   documentationCenter="Azure"
+   documentationCenter=""
    authors="erihur"
    manager="stevenpo"
    editor=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/19/2016"
+   ms.date="08/23/2016"
    ms.author="erihur;genli"/>
 
 
