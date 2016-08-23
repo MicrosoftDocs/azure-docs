@@ -26,7 +26,7 @@
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./azure-portal/resource-group-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you will need to use
+Currently, not every service supports the portal or Resource Manager. For those services, you need to use
 the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Create resource group
@@ -41,7 +41,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
 ## Deploy resources from Marketplace
 
-After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenatios.
+After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenarios.
 
 1. To start a deployment, select **New** and the type of resource you would like to deploy. Then, look for the particular version of the resource you would like to deploy.
 
@@ -51,15 +51,15 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. Depending on the type of resource you have selected, you will have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a new web app and deploy it to the resource group you just created.
+3. Depending on the type of resource you have selected, you will have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
 
     ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    Alternatively, you can decide to create a new resource group when deploying your resources. Select **Create new** and give the resource group a name.
+    Alternatively, you can decide to create a resource group when deploying your resources. Select **Create new** and give the resource group a name.
 
     ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. Your deployment will begin. This could take a few minutes. When the deployment has finished, you will see a notification.
+4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you will see a notification.
 
     ![view notification](./media/resource-group-template-deploy-portal/view-notification.png)
 
@@ -93,13 +93,13 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     You can view the selected template in the editor.
 
-5. After providing all of the other values, select **Create** to deploy the template. 
+5. After providing all the other values, select **Create** to deploy the template. 
 
     ![deploy template](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
 
 ## Deploy resources from a template saved to your account
 
-The portal enables you to save a template to your Azure account, and re-deploy it later. For more information about working with these saved templates, [Get started with private Templates on the Azure Portal](./marketplace-consumer/mytemplates-getstarted.md).
+The portal enables you to save a template to your Azure account, and redeploy it later. For more information about working with these saved templates, [Get started with private templates on the Azure portal](./marketplace-consumer/mytemplates-getstarted.md).
 
 1. To find your saved templates, select **Browse** > **Templates**.
 
@@ -109,14 +109,14 @@ The portal enables you to save a template to your Azure account, and re-deploy i
 
     ![saved templates](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-3. Select **Deploy** to re-deploy this saved template.
+3. Select **Deploy** to redeploy this saved template.
 
     ![deploy saved template](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## Next Steps
 
 - To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure Portal](resource-manager-troubleshoot-deployments-portal.md).
+- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](resource-manager-troubleshoot-deployments-portal.md).
 - To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 
