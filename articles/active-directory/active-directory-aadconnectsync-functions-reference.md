@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -38,10 +38,12 @@ The types are expressed with the following syntax:
 - **mvstr** – Multi Valued String
 - **mvref** – Multi Valued Reference
 - **num** – Numeric
-- **ref** – Single Valued Reference
-- **str** – Single Valued String
+- **ref** – Reference
+- **str** – String
 - **var** – A variant of (almost) any other type
 - **void** – doesn’t return a value
+
+The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** will work on both single-valued and multi-valued.
 
 ## Functions Reference
 
@@ -1034,11 +1036,10 @@ The StringFromGuid function takes a binary GUID and converts it to a string
 ### StringFromSid
 
 **Description:**  
-The StringFromSid function converts a byte array or a multi-valued byte array containing a security identifier to a string or multi-valued string.
+The StringFromSid function converts a byte array containing a security identifier to a string.
 
 **Syntax:**  
 `str StringFromSid(bin ObjectSID)`  
-`mvstr StringFromSid(mvbin ObjectSID)`
 
 ----------
 ### Switch
@@ -1078,7 +1079,6 @@ The Trim function removes leading and trailing white spaces from a string.
 
 **Syntax:**  
 `str Trim(str value)`  
-`mvstr Trim(mvstr value)`
 
 **Example:**  
 `Trim(" Test ")`  

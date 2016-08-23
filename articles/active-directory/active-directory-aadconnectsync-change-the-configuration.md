@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell"/>
 
 
@@ -117,8 +117,29 @@ To create a rule with other attribute flows, do the following:
 This is the result for the same object with this custom rule:  
 ![Attribute flow 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
+### Length of attributes
+String attributes are by default set to be indexable and the maximum length is 448 characters. If you are working with string attributes which might contain more, then make sure to include the following in the attribute flow:
+
+`attributeName` <- `Left([attributeName],448)`
+
+### Changing the userPrincipalSuffix
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. The Azure AD Connect sync installation wizard allows picking a different attribute, for example mail. But in some cases the attribute must be calculated. For example the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to just change the suffix in the sign-in ID.
+
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
+
+In this expression we take everything left of the first @-sign (Word) and concatenate with a fixed string.
+
+### Convert a multi-value to a single-value
+Some attributes in Active Directory are multi-valued in the schema even though they look single valued in Active Directory Users and Computers. An example is the description attribute.
+
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+
+In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
+
 ### Do not flow an attribute
-There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
+For background on the scenario for this section, see [Control the attribute flow process](#control-the-attribute-flow-process).
+
+There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
 
 If you want to remove the value of an attribute and make sure it does not flow in the future, you need create a custom rule instead.
 
@@ -133,7 +154,38 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 - Verify that the intended changes are about to be exported by searching the connector space.
 ![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## Advanced concept
+
+### Control the attribute flow process
+When multiple inbound sync rules are configured to contribute to the same metaverse attribute, then precedence is used to determine the winner. The sync rule with highest precedence (lowest numeric value) is going to contribute the value. The same happens for outbound rules. The sync rule with highest precedence will win and contribute the value to the connected directory.
+
+In some cases, rather than contribute a value, the sync rule should determine how other rules should behave. There are some special literals used for this case.
+
+For inbound Synchronization Rules, the literal **NULL** can be used to indicate that the flow has no value to contribute. Another rule with lower precedence can contribute a value. If no rule contributed a value, then the metaverse attribute is removed. For an outbound rule, if **NULL** is the final value after all sync rules have been processed, then the value is removed in the connected directory.
+
+The literal **AuthoritativeNull** is similar to **NULL** but with the difference that no lower precedence rules can contribute a value.
+
+An attribute flow can also use **IgnoreThisFlow**. It is similar to NULL in the sense that it indicates there is nothing to contribute. The difference is that it will not remove an already existing value in the target if nothing contributed a value. It is like the attribute flow has never been there.
+
+To see some examples will clarify the use of these literals.
+
+In *Out to AD - User Exchange hybrid* the following flow can be found:  
+`IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
+This should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. This would keep the existing value in AD.
+
+### ImportedValue
+The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets:   `ImportedValue("proxyAddresses")`.
+
+Usually during synchronization an attribute will use the expected value, even if it hasn’t been exported yet or an error was received during export (“top of the tower”). An inbound synchronization will assume that an attribute which hasn’t yet reached a connected directory will eventually reach it. In some cases it is important to only synchronize a value which has been confirmed by the connected directory and in this case the function ImportedValue is used (“hologram and delta import tower”).
+
+An example of this can be found in the out-of-box Synchronization Rule *In from AD – User Common from Exchange* where in Hybrid Exchange the value added by Exchange online should only be synchronized if it has been confirmed the value was exported successfully:
+
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
+
 ## Next steps
+
+Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
+
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
