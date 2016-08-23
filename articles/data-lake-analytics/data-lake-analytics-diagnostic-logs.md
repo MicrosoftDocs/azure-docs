@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Accessing diagnostic logs for Azure Data Lake Analytics
@@ -32,7 +32,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 - **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
 - **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
-## Enable diagnostic logging for your Data Lake Analytics account
+## Enable logging
 
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 
@@ -52,7 +52,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Analytics 
 
 Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-## View diagnostic logs for your Data Lake Analytics account
+## View logs
 
 There are two ways to view the log data for your Data Lake Analytics account.
 
@@ -108,7 +108,7 @@ There are two ways to view the log data for your Data Lake Analytics account.
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Understand the structure of the log data
+## Log structure
 
 The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
@@ -225,12 +225,12 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 > [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
 
-## Samples to process the log data
+## Process the log data
 
 Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 
-## See also
+## Next steps
 
 - [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
