@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="08/22/2016"
 	ms.author="magoedte"/>
 
 # Connect Operations Manager to Log Analytics
@@ -157,8 +157,8 @@ When you no longer require integration between your Operations Manager managemen
 To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and Advisor Connector, save the PowerShell script below to your computer and execute using the following examples.
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementGroupName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementGroupName>
+    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 >[AZURE.NOTE] The computer you run this script from, if not a management server, should have the Operations Manager 2012 SP1 or R2 command shell installed depending on the version of your management group.
@@ -166,9 +166,9 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 ```
     `param(
     [String] $connectorName,
-    [String] $mgName="localhost"
+    [String] $msName="localhost"
     )
-    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $mgName
+    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $msName
     $admin = $mg.GetConnectorFrameworkAdministration()
     ##########################################################################################
     # Configures a connector with the specified name.
