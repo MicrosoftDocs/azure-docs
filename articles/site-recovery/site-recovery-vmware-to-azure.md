@@ -139,10 +139,14 @@ To prepare for deployment you'll need to:
 - [Learn about](../vpn-gateway/vpn-gateway-site-to-site-create.md) the supported deployment models for VPN site-to-site connections, and how to [set up a connection](../vpn-gateway/vpn-gateway-site-to-site-create.md#create-your-virtual-network).
 - Alternatively you can set up [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Learn more](../expressroute/expressroute-howto-vnet-portal-classic.md) about setting up an Azure network with ExpressRoute.
 
+> [AZURE.NOTE] [Migration of networks](../storage/storage-create-storage-account-classic-portal.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+
 ### Set up an Azure storage account
 
 - You’ll need a standard or a premium Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault. Depending on the resource model you want to use for failed over Azure VMs, you'll set up an account in [ARM mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 - If you're using a premium account for replicated data you need to create an additional standard account to store replication logs that capture ongoing changes to on-premises data.  
+
+> [AZURE.NOTE] [Migration of storage accounts](../storage/storage-create-storage-account-classic-portal.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 ### Prepare an account for automatic discovery
 
