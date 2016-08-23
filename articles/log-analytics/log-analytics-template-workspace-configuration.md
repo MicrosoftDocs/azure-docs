@@ -51,7 +51,7 @@ The following template sample illustrates how to:
 8.	Collect Error and Warning events from the Application Event Log from Windows computers
 9.	Collect Memory Available Mbytes performance counter from Windows computers
 10.	Collect a custom log 
-11.	Collect IIS logs and Windows Event logs written by Azure diagnostics into a storage account
+11.	Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
 
 
 ```
