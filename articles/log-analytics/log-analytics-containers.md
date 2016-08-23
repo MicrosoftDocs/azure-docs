@@ -100,7 +100,7 @@ sudo service docker restart
 
 ## Configure settings for CoreOS containers
 
-After you've installed Docker, use the following settings for CoreOS to run Docker and create a container. You can use any supported version of Linux—including CoreOS, with this configuration method. You'll need your [OMS workspace ID and key](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-linux-agents/).
+After you've installed Docker, use the following settings for CoreOS to run Docker and create a container. You can use any supported version of Linux—including CoreOS, with this configuration method. You'll need your [OMS workspace ID and key](log-analytics-linux-agents.md).
 
 ### To use OMS for all containers with CoreOS
 
