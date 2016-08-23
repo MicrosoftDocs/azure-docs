@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure-consistent Storage: Differences and Considerations | Microsoft Azure"
+	pageTitle="Azure-consistent Storage: differences and considerations | Microsoft Azure"
 	description="Understand the differences against Azure Storage and other ACS deployment considerations."
 	services="azure-stack"
 	documentationCenter=""
@@ -17,9 +17,7 @@
 	ms.date="08/17/2016"
 	ms.author="mchad"/>
 
-# Azure-consistent Storage: Differences and Considerations
-
-## Summary
+# Azure-consistent Storage: differences and considerations
 
 Azure-consistent Storage (ACS) is the set of storage cloud services in
 Microsoft Azure Stack. ACS provides blob, table, queue, and account
@@ -29,7 +27,7 @@ considerations when deploying the currently publicly available preview
 version of Microsoft Azure Stack.
 
 <span id="Concepts" class="anchor"><span id="_Toc386544169" class="anchor"><span id="_Toc389466742" class="anchor"><span id="_Ref428966996" class="anchor"><span id="_Toc433223853" class="anchor"></span></span></span></span></span>
-## Known Differences
+## Known differences
 
 This Technical Preview version of Microsoft Azure Stack ACS is known to
 be not at 100% feature parity with Azure Storage for the API
@@ -63,7 +61,7 @@ versions supported. Known feature shortcomings include the following:
     domains are not supported; only API-level consistency is offered for
     Premium\_LRS storage account type.
 
-## Deployment Considerations
+## Deployment considerations
 
 -   **Test only.** Do not deploy ACS in production environments
     using the current Microsoft Azure Stack Technical Preview release.
@@ -76,7 +74,7 @@ versions supported. Known feature shortcomings include the following:
 -   **Scalability.** The Microsoft Azure Stack Technical Preview version
     of ACS is not optimized for scalability.
 
-## Version Support Considerations
+## Version support considerations
 
 The following versions are supported with this preview release of ACS:
 
@@ -91,6 +89,6 @@ The following versions are supported with this preview release of ACS:
 > and
 > [2015-06-15](https://microsoft.sharepoint.com/teams/AzureStack/Azure%20Stack%20Shared/Customer/msdn.microsoft.com/en-us/library/azure/mt163683.aspx)
 
-## Next Steps
+## Next steps
 
 -   [Introduction to Azure-consistent Storage](azure-stack-architecture.md)
