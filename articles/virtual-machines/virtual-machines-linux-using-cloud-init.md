@@ -21,15 +21,15 @@
 
 # Using cloud-init to customize a Linux VM during creation
 
-This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts.  The cloud-init scripts are called during during the VM creation from [the Azure CLI](../xplat-cli-install.md).
+This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts.  The cloud-init scripts are called during the VM creation from [the Azure CLI](../xplat-cli-install.md).
 
 ## Prerequisites
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
+Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI switched to Azure Resource Manager mode using `azure config mode arm`.
 
 ## Quick Commands
 
-Create a cloud-init.txt script that sets the hostname, updates all packages and adds a sudo user to Linux.
+Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.
 
 ```bash
 #cloud-config
