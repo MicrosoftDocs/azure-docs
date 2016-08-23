@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="raynew"/>
 
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site
 
 > [AZURE.SELECTOR]
-- [Azure Portal](site-recovery-vmm-to-vmm.md)
-- [Classic Portal](site-recovery-vmm-to-vmm-classic.md)
+- [Azure portal](site-recovery-vmm-to-vmm.md)
+- [Classic portal](site-recovery-vmm-to-vmm-classic.md)
 - [PowerShell - Resource Manager](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
@@ -133,8 +133,8 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 12.  In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
- 	
-	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG) 
+
+	![Lastpage](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
 ### Command line installation
 
@@ -378,8 +378,7 @@ The Provider on the VMM server gets notified of the event from the Service, and 
 	- Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
 
 - **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t use this Service.
- 
+
 ## Next steps
 
 After you've run a test failover to check your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
-
