@@ -108,7 +108,7 @@ See [Troubleshoot Azure Sign-up Issues](billing-troubleshoot-azure-sign-up-issue
 
     ![Confirmation for upgrading your subscription](./media/billing-buy-sign-up-azure-subscription/Upgrade.png)
 
-When you upgrade from a Free Trial subscription to a Pay-As-You-Go subscription, any benefits left over from your free trial such as the 30-day limit or the $200 credit to use on Azure services will continue until one of them is exhausted. The subscription upgrade will happen after.
+When you upgrade from a Free Trial subscription to a Pay-As-You-Go subscription, any benefits left over from your free trial such as the 30-day limit or the $200 credit to use on Azure services will continue until one of them is exhausted. The subscription upgrade will happen afterwards.
 
 <a name="activateKey"></a>
 ## Activate using an Online Service Activation Key
