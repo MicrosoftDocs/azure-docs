@@ -86,14 +86,13 @@ The following template sample illustrates how to:
       ]
     },
     "applicationDiagnosticsStorageAccountName": {
-    	"type": "string",
-    	"metadata": {
-    	  "description": "Name of the storage account with Azure diagnostics output"
-    	}
-    },
+        "type": "string",
+        "metadata": {
+          "description": "Name of the storage account with Azure diagnostics output"
+        }
+    }
   },
   "variables": {
-    "apiVersion": "2015-11-01-preview",
     "Updates": {
       "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
       "GalleryName": "Updates"
@@ -105,11 +104,11 @@ The following template sample illustrates how to:
     "SQLAssessment": {
       "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
       "GalleryName": "SQLAssessment"
-    },    
-  }
+    }    
+  },
   "resources": [
     {
-      "apiVersion": "[variables('apiVersion')]",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -120,7 +119,7 @@ The following template sample illustrates how to:
       },
       "resources": [
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -135,7 +134,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleWindowsEvent1",
           "dependsOn": [
@@ -155,7 +154,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleWindowsPerfCounter1",
           "dependsOn": [
@@ -170,7 +169,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleIISLog1",
           "dependsOn": [
@@ -182,7 +181,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleSyslog1",
           "dependsOn": [
@@ -211,7 +210,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleSyslogCollection1",
           "dependsOn": [
@@ -223,7 +222,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleLinuxPerf1",
           "dependsOn": [
@@ -257,7 +256,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleLinuxPerfCollection1",
           "dependsOn": [
@@ -269,7 +268,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleCustomLog1",
           "dependsOn": [
@@ -312,7 +311,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "type": "datasources",
           "name": "sampleCustomLogCollection1",
           "dependsOn": [
@@ -325,7 +324,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
+          "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
@@ -340,12 +339,12 @@ The following template sample illustrates how to:
             ],
             "storageAccount": {
               "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
-              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts',
-              parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts',parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
             }
-          },
+          }
+		},
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "location": "[parameters('location')]",
           "name": "[variables('Updates').Name]",
           "type": "Microsoft.OperationsManagement/solutions",
@@ -364,7 +363,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "location": "[parameters('location')]",
           "name": "[variables('AntiMalware').Name]",
           "type": "Microsoft.OperationsManagement/solutions",
@@ -383,7 +382,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-11-01-preview",
           "location": "[parameters('location')]",
           "name": "[variables('SQLAssessment').Name]",
           "type": "Microsoft.OperationsManagement/solutions",
@@ -406,15 +405,31 @@ The following template sample illustrates how to:
   ],
   "outputs": {
     "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), variables('apiVersion'))]",
+      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
       "type": "object"
     }
   }
 }
 
+```
+### Deploying the sample template
+
+To deploy the sample template:
+
+1. Save the attached sample in a file, for example `azuredeploy.json` 
+2. Edit the template to have the configuration you want
+3. Use PowerShell or the command line to deploy the template
+
+#### PowerShell
+
+`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+
+#### Command line
 
 ```
-
+azure config mode arm
+azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
+```
 
 
 ## Example Resource Manager templates
