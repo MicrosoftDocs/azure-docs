@@ -60,7 +60,7 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
     ![Summary-billing history 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-> [AZURE.NOTE] Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
+> [AZURE.NOTE] Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.
 
 The following are some sample statements for two different offers available on Microsoft Azure.
 
