@@ -55,7 +55,7 @@ Verify that you have the following items before beginning configuration.
 
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
-3. Fill out the information on the following pages to create your VNet.
+3. To create your VNet, fill out the information on the following pages.
 
 ## Virtual network details page
 
@@ -70,7 +70,7 @@ Enter the following information, and then click the next arrow on the lower righ
 
 - **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 - **Configure Site-To-Site VPN**: Select the checkbox for **Configure a site-to-site VPN**.
-- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if select to use a local network that you previously created, go to the **Local Networks** configuration page and verify that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate.
+- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if you select to use a local network that you previously created, go to the **Local Networks** configuration page and verify that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate.
 
 ## Site-to-site connectivity page
 
@@ -79,9 +79,9 @@ If you're creating a new local network, you'll see the **Site-To-Site Connectivi
 Enter the following information and then click the next arrow.
 
 - 	**Name**: The name you want to call your local (on-premises) network site.
-- 	**VPN Device IP Address**: This is the public facing IPv4 address of your on-premises VPN device that you use to connect to Azure. The VPN device cannot be located behind a NAT.
-- 	**Address Space**: Include Starting IP and CIDR (Address Count). This is where you specify the address range(s) that you want to be sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it is routed through the virtual network gateway.
-- 	**Add address space**: If you have multiple address ranges that you want to be sent through the virtual network gateway, this is where you specify each additional address range. You can add or remove ranges later on the **Local Network** page.
+- 	**VPN Device IP Address**: The public facing IPv4 address of your on-premises VPN device that you use to connect to Azure. The VPN device cannot be located behind a NAT.
+- 	**Address Space**: Include Starting IP and CIDR (Address Count). You specify the address range(s) that you want to be sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it is routed through the virtual network gateway.
+- 	**Add address space**: If you have multiple address ranges that you want to be sent through the virtual network gateway, specify each additional address range. You can add or remove ranges later on the **Local Network** page.
 
 ## Virtual network address spaces page
 
