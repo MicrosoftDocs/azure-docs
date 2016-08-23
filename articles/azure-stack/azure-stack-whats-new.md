@@ -66,7 +66,6 @@ This document covers new features and capabilities in this release of Azure Stac
   - View details on monitoring alerts by region
   - Health Resource Provider enables retrieval of monitoring data via REST
 - Networking
- - 
 - Compute
 - Storage
  - - Reclamation of unused tenant capacity on-demand 
@@ -74,16 +73,7 @@ This document covers new features and capabilities in this release of Azure Stac
 
 
 ##  Infrastructure
-
-### Storage  
-
-- Broadening Azure consistency against 2015-06-15 version of Storage *management* path API 
-  - Premium storage account API support
-  - [Account SAS](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) 
-- New cloud administrator functionality and experiences 
-   
-  - Ability to configure undelete account retention period 
-  - Storage Offer and Plan definition now based on new quota functionality
+ 
 
  
     
