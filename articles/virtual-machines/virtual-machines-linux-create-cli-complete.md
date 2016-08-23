@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="06/10/2016"
+   ms.date="08/23/2016"
    ms.author="iainfou"/>
 
 # Create a complete Linux environment by using the Azure CLI
@@ -200,7 +200,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -218,7 +218,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -237,7 +237,7 @@ azure resource export TestRG
 ```
 
 ## Detailed walkthrough
-The detailed steps that follow explain what each command is doing as you build out your environment. These concepts will help you when you build your own custom environments for development or production.
+The detailed steps that follow explain what each command is doing as you build out your environment. These concepts are helpful when you build your own custom environments for development or production.
 
 ## Create resource groups and choose deployment locations
 
@@ -439,7 +439,7 @@ Output:
 }
 ```
 
-Now let's create a subnet in the `TestVnet` virtual network into which the VMs will be deployed. We'll use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group and the `TestVNet` virtual network. We'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows:
+Now let's create a subnet in the `TestVnet` virtual network into which the VMs are deployed. We'll use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group and the `TestVNet` virtual network. We'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows:
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
@@ -635,7 +635,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool will be publicly visible. It's also the location to which we'll assign the PIP that we created earlier. Then we'll use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
+Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool is publicly visible. It's also the location to which we'll assign the PIP that we created earlier. Then we'll use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
 
 First, let's create our front-end IP pool:
 
@@ -1054,7 +1054,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 will be passed through to the NIC on our VM. This is a rule about a network connection, and not about an endpoint, which is what it would be about in classic deployments. This means that to open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
+> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This is a rule about a network connection, and not about an endpoint, which is what it would be about in classic deployments. This means that to open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
 
 ## Bind to the NIC
 
@@ -1075,9 +1075,9 @@ Availability sets help spread your VMs across fault domains and upgrade domains.
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure automatically distributes VMs across the fault domains when placing them in an availability set.
+Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains does not affect every VM that is running your app. Azure automatically distributes VMs across the fault domains when placing them in an availability set.
 
-Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when placing them in an availability site.
+Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade is rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when placing them in an availability site.
 
 Read more about [managing the availability of VMs](./virtual-machines-linux-manage-availability.md).
 
@@ -1085,7 +1085,7 @@ Read more about [managing the availability of VMs](./virtual-machines-linux-mana
 
 You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information by using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md).
 
-We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`. For the last field we'll pass `latest` so that in the future we always get the most recent build. (The string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we'll use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field we'll pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
 This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
 
@@ -1107,7 +1107,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -1117,8 +1117,8 @@ Output:
 ```bash
 info:    Executing command vm create
 + Looking up the VM "TestVM1"
-info:    Verifying the public key SSH file: /home/ifoulds/.ssh/id_rsa.pub
-info:    Using the VM Size "Standard_A1"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
+info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account computeteststore
 + Looking up the availability set "TestAvailSet"
@@ -1144,17 +1144,11 @@ The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '[testlb.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
- * Documentation:  https://help.ubuntu.com/
-
-  System information as of Wed Apr 27 23:44:06 UTC 2016
-
-  System load: 0.37              Memory usage: 5%   Processes:       81
-  Usage of /:  37.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-
-  Graph this data and manage this system at:
-    https://landscape.canonical.com/
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
     http://www.ubuntu.com/business/services/cloud
@@ -1163,13 +1157,15 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-58-generic x86_64)
 0 updates are security updates.
 
 
-
 The programs included with the Ubuntu system are free software;
 the exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
 
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 
 ops@TestVM1:~$
 ```
@@ -1187,7 +1183,7 @@ azure vm create \
     --vnet-name TestVnet \
     --vnet-subnet-name FrontEnd \
     --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
@@ -1204,29 +1200,29 @@ Output:
 info:    Executing command vm show
 + Looking up the VM "TestVM1"
 + Looking up the NIC "LB-NIC1"
-data:    Id                              :/subscriptions/8fa5cd83-7fbb-431a-af16-4a20dede8802/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/TestVM1
+data:    Id                              :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/TestVM1
 data:    ProvisioningState               :Succeeded
 data:    Name                            :TestVM1
 data:    Location                        :westeurope
 data:    Type                            :Microsoft.Compute/virtualMachines
 data:
 data:    Hardware Profile:
-data:      Size                          :Standard_A1
+data:      Size                          :Standard_DS1
 data:
 data:    Storage Profile:
 data:      Image reference:
 data:        Publisher                   :canonical
 data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.4-LTS
+data:        Sku                         :16.04.0-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli1cca1d20a1dcf56c-os-1461800591317
+data:        Name                        :clib45a8b650f4428a1-os-1471973896525
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/cli1cca1d20a1dcf56c-os-1461800591317.vhd
+data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/clib45a8b650f4428a1-os-1471973896525.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :TestVM1
@@ -1238,13 +1234,13 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-20-F8-8B
+data:          MAC Address               :00-0D-3A-24-D4-AA
 data:          Provisioning State        :Succeeded
 data:          Name                      :LB-NIC1
 data:          Location                  :westeurope
 data:
 data:    AvailabilitySet:
-data:      Id                            :/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
+data:      Id                            :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
@@ -1252,6 +1248,7 @@ data:      BootDiagnostics StorageUri    :https://computeteststore.blob.core.win
 data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
+
 ```
 
 
@@ -1262,7 +1259,7 @@ Now that you have built out this environment, what if you want to create an addi
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you create a new environment from this template, you will prompted for all of the resource names, including the names for the load balancer, network interfaces, VMs, and so on. You can populate these in your template file by adding `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
+This creates the `TestRG.json` file in your current working directory. When you create a new environment from this template, you are prompted for all of the resource names, including the names for the load balancer, network interfaces, VMs, and so on. You can populate these in your template file by adding `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
 
 To create a new environment from your template:
 
