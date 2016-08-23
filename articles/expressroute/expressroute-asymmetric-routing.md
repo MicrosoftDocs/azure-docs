@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Asymmetric Routing | Microsoft Azure"
+   pageTitle="title | Microsoft Azure"
    description="This article walks you through issues you can face with asymmetric routing in your network "
    documentationCenter="na"
    services="expressroute"
@@ -10,7 +10,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="Asymmetric Routing" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/22/2016"
