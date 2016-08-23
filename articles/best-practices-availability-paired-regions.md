@@ -93,6 +93,3 @@ As referred to in figure 2.
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png)
 **Data residency** – A region resides within the same geography as its pair (with the exception of Brazil South) in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-## Next steps
-
-[Learn more](resiliency-technical-guidance-recovery-loss-azure-region.md) about recovery from a region-wide service disruption.
