@@ -34,7 +34,7 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 
 ## Connection diagram
 
-![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/diagrams2sazureportal.png)
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
