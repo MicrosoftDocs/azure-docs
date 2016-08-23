@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande,glen"/>
 
 # Azure Functions DocumentDB bindings
+
+[AZURE.INCLUDE [functions-selector-bindings](../functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
 

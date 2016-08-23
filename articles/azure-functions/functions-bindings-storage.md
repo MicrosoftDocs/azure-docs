@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Azure Functions triggers and bindings for Azure Storage
+
+[AZURE.INCLUDE [functions-selector-bindings](../functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Storage triggers and bindings in Azure Functions. 
 

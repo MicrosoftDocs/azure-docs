@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
+	ms.date="08/22/2016"
 	ms.author="chrande"/>
 
 # Azure Functions HTTP and webhook bindings
+
+[AZURE.INCLUDE [functions-selector-bindings](../functions-selector-bindings.md)]
 
 This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
