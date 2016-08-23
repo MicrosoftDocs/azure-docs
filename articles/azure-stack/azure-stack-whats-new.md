@@ -33,17 +33,17 @@ This document covers new features and capabilities in this release of Azure Stac
    - Web Apps
    - Mobile Apps
    - API Apps
-- Networking
+ - Networking
   - iDNS for internal name registration and DNS resolution
   - VPN Site-to-Site gateways for new connectivity options
   - Create new Network resources from the marketplace
   - Change MAC Address on Network Interfaces
-- Compute
+ - Compute
   - Deallocate VMs
   - Capture VM 
   - Redeploy VM Extensions
   - Resize Disk
-- Storage
+ - Storage
   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) 
   - [Append Blob](https://msdn.microsoft.com/en-us/library/azure/mt427365.aspx) 
