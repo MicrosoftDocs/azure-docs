@@ -23,12 +23,6 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Node](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./azure-portal/resource-group-portal.md).
 
