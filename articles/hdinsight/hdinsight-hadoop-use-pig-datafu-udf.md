@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/06/2016"
+ms.date="08/23/2016"
 ms.author="larryfr"/>
 
 #Use DataFu with pig on HDInsight
@@ -30,7 +30,9 @@ DataFu is a collection of Open Source libraries for use with Hadoop. In this doc
 
 ##Install DataFu on Linux-based HDInsight
 
-> [AZURE.NOTE] DataFu is pre-installed on Windows-based HDInsight clusters. If you are using a Windows-based cluster, skip this section.
+> [AZURE.NOTE] DataFu is installed on Linux-based clusters version 3.3 and higher, and on Windows-based clusters. It is not installed on Linux-based clusters earlier than 3.3.
+>
+> If you are using a Linux-based cluster version 3.3 or higher, or a Windows-based cluster, you can skip this section.
 
 DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
 

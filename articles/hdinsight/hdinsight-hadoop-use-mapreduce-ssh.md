@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="larryfr"/>
 
 # Use MapReduce with Hadoop on HDInsight with SSH
@@ -57,7 +57,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 1. After you are connected to the HDInsight cluster, use the following **Hadoop** command to start a MapReduce job:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
 	This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at **wasb:///example/data/WordCountOutput**.
 
