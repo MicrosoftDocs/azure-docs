@@ -91,7 +91,7 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Note:** *When working with Linux VMs, the container file system is case-sensitive.*  
+> [AZURE.NOTE] When working with Linux VMs, the container file system is case-sensitive. 
 
 If you're unable to see the contents, try the following:
 
