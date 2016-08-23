@@ -21,11 +21,11 @@
 
 # Using cloud-init to customize a Linux VM during creation
 
-This article shows how to make a cloud-init script to set the hostname, update installed packages and manage user accounts.  Those cloud-init scripts will then be used during the VM creation from [the Azure CLI](../xplat-cli-install.md).
+This article shows how to make a cloud-init script to set the hostname, update installed packages, and manage user accounts.  The cloud-init scripts are called during during the VM creation from [the Azure CLI](../xplat-cli-install.md).
 
 ## Prerequisites
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
+Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
 
 ## Quick Commands
 
@@ -44,7 +44,7 @@ users:
       - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
-Now create a Linux VM and call the cloud-init to run during the deployment.
+Create a Linux VM and call the cloud-init to run during the deployment.
 
 ```bash
 azure vm create \
@@ -60,13 +60,15 @@ azure vm create \
 
 ## Introduction
 
-When you launch a new Linux VM you are getting a standard Linux VM with nothing customized or ready for your needs. [Cloud-init](https://cloudinit.readthedocs.org) is a standard way to inject a script or configuration settings into that Linux VM as it is booting up for the first time.
+When you launch a new Linux VM, you are getting a standard Linux VM with nothing customized or ready for your needs. [Cloud-init](https://cloudinit.readthedocs.org) is a standard way to inject a script or configuration settings into that Linux VM as it is booting up for the first time.
 
-On Azure, there are a three different ways to make changes onto a Linux VM as it is starting up.
+On Azure, there are a three different ways to make changes onto a Linux VM as it is being deployed or booted.
 
 - Inject scripts with cloud-init.
 - Inject scripts using the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
-- An Azure template and use that to launch and customize your Linux VM.  Azure templates include support for cloud-init as well as the CustomScript VM extension and many others.
+- An Azure template.
+
+_Use the template to launch and customize your Linux VM.  Azure templates support cloud-init as well as the CustomScript VM extension._
 
 To inject scripts at any time after boot:
 
@@ -74,7 +76,7 @@ To inject scripts at any time after boot:
 - Azure CustomScriptExtention either imperatively or in an Azure template
 - Configuration management tools like Ansible, Salt, Chef, and Puppet.
 
-NOTE: Though a CustomScriptExtention executes a script as root in the same way using SSH can, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
+NOTE: CustomScriptExtention executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
 
 ### Cloud-init availability on Azure VM quick-create image aliases:
 
@@ -121,7 +123,7 @@ One of the simplest and most important settings for any Linux VM would be the ho
 hostname: exampleServerName
 ```
 
-During the initial startup of the VM this cloud-init script sets the hostname to `exampleServerName`.
+During the initial startup of the VM, this cloud-init script sets the hostname to `exampleServerName`.
 
 ```bash
 azure vm create \
@@ -154,7 +156,7 @@ For security, you want your Ubuntu VM to update on the first boot.  Using cloud-
 apt_upgrade: true
 ```
 
-After Linux has booted all the installed packages are updated via `apt-get`.
+After Linux has booted, all the installed packages are updated via `apt-get`.
 
 ```bash
 azure vm create \
@@ -199,7 +201,7 @@ users:
       - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
-After Linux has booted all the listed users are created and added to the sudo group.
+After Linux has booted, all the listed users are created and added to the sudo group.
 
 ```bash
 azure vm create \
