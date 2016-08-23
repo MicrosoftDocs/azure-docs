@@ -26,7 +26,7 @@
 - [Using REST API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
+This tutorial shows you how to create and monitor an Azure data factory using the .NET API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
 The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
@@ -34,13 +34,13 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. 
 
 ## Prerequisites
-- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete pre-requisites. 
+- Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete pre-requisites. 
 - Visual Studio 2012 or 2013 or 2015
-- Download and install [Azure .NET SDK][azure-developer-center]
-- Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+- Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application if you don't have one already.
 
 ### Create an application in Azure Active Directory
-Create an Azure Active Directory application, create a service principal for the application, and assign it to the Data Factory Contributor role.  
+Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.  
 
 1. Launch **PowerShell**. 
 1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
@@ -73,7 +73,7 @@ Create an Azure Active Directory application, create a service principal for the
 
 		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-7. Add service principal to the Data Factory Contributor role. 
+7. Add service principal to the **Data Factory Contributor** role. 
 
 		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
@@ -99,8 +99,8 @@ You should have following four values from these steps:
 	5. Enter **DataFactoryAPITestApp** for the Name.
 	6. Select **C:\ADFGetStarted** for the Location.
 	7. Click **OK** to create the project.
-2. Click <b>Tools</b>, point to <b>Nuget Package Manager</b>, and click <b>Package Manager Console</b>.
-3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one</b>. 
+2. Click **Tools**, point to **Nuget Package Manager**, and click **Package Manager Console**.
+3.	In the **Package Manager Console**, execute the following commands one-by-one. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
@@ -147,7 +147,7 @@ You should have following four values from these steps:
             DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
 	> [AZURE.IMPORTANT] 
-	> Replace the value of **resourceGroupName** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
+	> Replace the value of **resourceGroupName** with the name of your Azure resource group. 
 	> 
 	> Update name of the data factory (**dataFactoryName**) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
 
@@ -439,7 +439,7 @@ You should have following four values from these steps:
 
 15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for "**System.Configuration**" assembly and click **OK**. 
 16. Build the console application. Click **Build** on the menu and click **Build Solution**. 
-16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
+16. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
         John, Doe
 		Jane, Doe
@@ -451,10 +451,8 @@ You should have following four values from these steps:
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the "**apifactoryoutput**" folder in the **adftutorial** container.
 
-[data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
- 
-[azure-developer-center]: http://azure.microsoft.com/downloads/
- 
+## See Also
+| Topic | Description |
+| :---- | :---- |
+| [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |
+| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
