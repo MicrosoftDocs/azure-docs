@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Add the Bing Search connector in PowerApps or logic apps | Microsoft Azure"
+    pageTitle="Add the Bing Search connector logic apps | Microsoft Azure"
     description="Overview of the Bing Search connector with REST API parameters"
     services=""
     suite=""
@@ -15,27 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Get started with the Bing Search connector 
-Connect to Bing Search to search news, search videos, and more. The Bing Search connector can be used from:
-
-- Logic apps 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-bingsearch.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
-
-
-With Bing Search, you can: 
+Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 
 - Build your business flow based on the data you get from your search. 
 - Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
-- Add the Bing Search connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
-
-For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
