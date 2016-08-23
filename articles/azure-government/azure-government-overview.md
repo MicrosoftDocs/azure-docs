@@ -42,9 +42,9 @@ The following diagram shows the Azure defense-in-depth model. For example, Micro
 This page outlines the foundational principles for securing your Services and applications, providing guidance and best practices on how to apply these principles; in other words, how customers should make smart use of Azure Government to meet the obligations and responsibilities that are required for a solution that handles ITAR information.
 
 The overarching principles for securing customer data are:
-* [Protecting data using encryption](azure-government-other-securingdata-protectingdatausingencryption.md).
-* [Managing secrets](azure-government-other-securingdata-managingsecrets.md).
-* [Isolation to restrict data access](azure-government-other-securingdata-isolation.md).
+* Protecting data using encryption
+* Managing secrets
+* Isolation to restrict data access
 
 ##  Protecting Customer Data Using Encryption
 
