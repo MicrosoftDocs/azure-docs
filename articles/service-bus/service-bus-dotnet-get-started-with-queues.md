@@ -54,7 +54,7 @@ If you already have a Service Bus queue created, jump to the [Send messages to t
 
 ## 3. Send messages to the queue
 
-In order to send messages to the queue, we will write a C# console application using Visual Studio.
+To send messages to the queue, we will write a C# console application using Visual Studio.
 
 ### Create a console application
 
@@ -62,7 +62,7 @@ In order to send messages to the queue, we will write a C# console application u
 
 ### Add the Service Bus NuGet package
 
-1. Right click on the newly created project and select **Manage NuGet Packages**.
+1. Right-click the newly created project and select **Manage NuGet Packages**.
 
 2. Click the **Browse** tab, then search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
 
@@ -113,11 +113,11 @@ In order to send messages to the queue, we will write a C# console application u
   
 3. Run the program, and check the Azure portal. Click the name of your queue in the namespace **Overview** blade. Notice that the **Active message count** value should now be 1.
     
-      ![Messge count][queue-message]
+      ![Message count][queue-message]
     
 ## 4. Receive messages from the queue
 
-1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the sending application above.
+1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
 
 2. Add the following `using` statement to the top of the Program.cs file.
   
