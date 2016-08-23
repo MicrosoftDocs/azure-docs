@@ -25,6 +25,15 @@ This overview describes the capabilities that Azure SQL Database provides for bu
 
 SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
 
+The following table compares the ERT and RPO for the three most common scenarios.
+
+| Capability |	Basic tier | Standard tier	| Premium tier |
+|---|---|---|---|
+| Point in Time Restore from backup | Any restore point within 7 days	| Any restore point within 35 days	| Any restore point within 35 days |
+Geo-Restore from geo-replicated backups | ERT < 12h, RPO < 1h	| ERT < 12h, RPO < 1h	| ERT < 12h, RPO < 1h |
+|Active Geo-Replication	| ERT < 30s, RPO < 5s	| ERT < 30s, RPO < 5s |	ERT < 30s, RPO < 5s |
+
+
 ### Use database backups to recover a database
 
 SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every 5 minutes in order to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
