@@ -200,10 +200,10 @@ The [Event Tracing for Windows (ETW)](http://msdn.microsoft.com/library/ms751538
 ## Restrictions
 
 
-There are a couple security related differences befitting the cloud environment of SQL Database:
+There are a couple of security-related differences befitting the cloud environment of SQL Database:
 
 
-- Extended events is founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
+- Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
 
 - You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
 
@@ -217,7 +217,7 @@ You must have **Control** permission on the database to issue a **CREATE EVENT S
 ### Storage container authorizations
 
 
-The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. This provides the following permissions:
+The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. The **rwl** value provides the following permissions:
 
 
 - Read
