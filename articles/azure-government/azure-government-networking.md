@@ -1,14 +1,15 @@
 <properties
-	pageTitle="Title | Microsoft Azure"
+	pageTitle="Title | Azure Governmenmt documentation"
 	description="This provides a comparison of features and guidance for private connectivity to e Government"
 	services=""
 	documentationCenter=""
 	authors="ryansoc"
-	manager=""
+	manager="zakramer"
 	editor=""/>
 
 <tags
 	ms.service="multiple"
+	ms.cloud="gov"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -16,7 +17,9 @@
 	ms.date="07/07/2016"
 	ms.author="ryansoc"/>
 
-#  Azure Government ExpressRoute (Private Connectivity)
+#  Azure Government Networking
+
+##  ExpressRoute (Private Connectivity)
 
 There are two basic services that provide private network connectivity into Azure Government: VPN (site-to-site for a typical organization) and ExpressRoute.
 

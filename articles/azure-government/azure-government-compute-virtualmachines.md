@@ -1,14 +1,15 @@
 <properties
-	pageTitle="Title | Microsoft Azure"
+	pageTitle="Title | Azure Government documentation"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
 	services=""
 	documentationCenter=""
 	authors="ryansoc"
-	manager=""
+	manager="zakramer"
 	editor=""/>
 
 <tags
 	ms.service="multiple"
+	ms.service="cloud"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -17,7 +18,10 @@
 	ms.author="ryansoc"/>
 
 
-#  Virtual Machines
+#  Azure Government Compute
+
+##  Virtual Machines
+
 
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
 

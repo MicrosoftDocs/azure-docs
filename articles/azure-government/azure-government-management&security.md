@@ -1,14 +1,15 @@
 <properties
-	pageTitle="Title | Microsoft Azure"
+	pageTitle="Title | Azure Government documentation"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
 	services=""
 	documentationCenter=""
 	authors="ryansoc"
-	manager=""
+	manager="zakramer"
 	editor=""/>
 
 <tags
 	ms.service="multiple"
+  ms.cloud="gov"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -17,7 +18,9 @@
 	ms.author="ryansoc"/>
 
 
-#  Key Vault 
+#  Azure Government Management & Security
+
+#  Key Vault
 
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
