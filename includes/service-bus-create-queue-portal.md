@@ -8,15 +8,13 @@ Please ensure that you have already created a Service Bus namespace, as shown [h
 
     ![Create a queue][createqueue1]
 
-4. In the **Service Bus namespace** blade, select **Queues**.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
     ![Select Queues][createqueue2]
 
-5. At the top of the blade, click **Add queue**.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
     ![Select New][createqueue3]
-
-6. Enter the **Queue Name** and leave the other values with their defaults.
 
 7. At the bottom of the blade, click **Create**.
 
