@@ -9,8 +9,7 @@ Before you can detach a disk from a VM you need to find out the LUN number, whic
 
 1. 	Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2. 	Find out which disks are attached to your VM by using `azure vm disk list
-	<virtual-machine-name>`:
+2. 	Find out which disks are attached to your VM by using `azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list UbuntuVM
 		info:    Executing command vm disk list
@@ -28,7 +27,7 @@ Before you can detach a disk from a VM you need to find out the LUN number, whic
 
 ## Remove operating system references to the disk
 
-Prior to detaching the disk from the Linux guest, you should identify all partitions on the disk are not in use and ensure that the operating system will not attempt to re-mount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines-linux-classic-attach-disk.md) the disk.
+Prior to detaching the disk from the Linux guest, you should identify all partitions on the disk are not in use and ensure that the operating system does not attempt to re-mount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines-linux-classic-attach-disk.md) the disk.
 
 1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number above. The last number in the tuple in each row is the LUN. In the example below LUN 0 maps to _/dev/sdc_
 
