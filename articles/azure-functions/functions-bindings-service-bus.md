@@ -20,8 +20,6 @@
 
 # Azure Functions Service Bus triggers and bindings for queues and topics
 
-[AZURE.INCLUDE [functions-selector-bindings](../../functions-selector-bindings.md)]
-
 This article explains how to configure and code Azure Service Bus triggers and bindings in Azure Functions. 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 

@@ -20,8 +20,6 @@
 
 # Azure Functions HTTP and webhook bindings
 
-[AZURE.INCLUDE [functions-selector-bindings](../../functions-selector-bindings.md)]
-
 This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
