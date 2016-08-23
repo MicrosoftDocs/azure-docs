@@ -87,7 +87,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ## Management
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 - [Using Root](virtual-machines-linux-use-root-privileges.md)
 

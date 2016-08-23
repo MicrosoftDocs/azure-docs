@@ -24,7 +24,7 @@
 
 You'll need to install an SSH client on the computer you want to use to log on to the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:
 
-- For a virtual machine running a Linux operating system, you use a Secure Shell (SSH) client to log on; it is hard to think of a distribution that doesn't already have this installed by default. See [How to use SSH](virtual-machines-linux-ssh-from-linux.md) for a bit more information about Linux.
+- For a virtual machine running a Linux operating system, you use a Secure Shell (SSH) client to log on; it is hard to think of a distribution that doesn't already have this installed by default. See [How to use SSH](virtual-machines-linux-mac-create-ssh-keys.md) for a bit more information about Linux.
 - On a computer running a Windows operating system, you might want to use an SSH client such as PuTTY. For more information, see the [PuTTY Download Page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 
