@@ -20,7 +20,7 @@
 
 #  Azure Government Management & Security
 
-#  Key Vault
+##  Key Vault
 
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
