@@ -27,6 +27,37 @@ This article shows how to make a cloud-init script to set the hostname, update i
 
 Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
+## Quick Commands
+
+Create a cloud-init.txt script that sets the hostname, updates all packages and adds a sudo user to Linux.
+
+```bash
+#cloud-config
+hostname: exampleServerName
+apt_upgrade: true
+users:
+  - name: exampleUser
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
+```
+
+Now create a Linux VM and call the cloud-init to run during the deployment.
+
+```bash
+azure vm create \
+--resource-group exampleRG \
+--name exampleVM \
+--location westus \
+--admin-username exampleAdminUserName \
+--os-type Linux \
+--nic-name exampleNIC \
+--image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--custom-data cloud_init.txt
+```
+
 ## Introduction
 
 When you launch a new Linux VM you are getting a standard Linux VM with nothing customized or ready for your needs. [Cloud-init](https://cloudinit.readthedocs.org) is a standard way to inject a script or configuration settings into that Linux VM as it is booting up for the first time.
@@ -45,34 +76,19 @@ To inject scripts at any time after boot:
 
 NOTE: Though a CustomScriptExtention executes a script as root in the same way using SSH can, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
 
-## Quick Commands
+### Cloud-init availability on Azure VM quick-create image aliases:
 
-Create a hostname cloud-init script
+| Alias     | Publisher | Offer        | SKU         | Version | cloud-init |
+|:----------|:----------|:-------------|:------------|:--------|:-----------|
+| CentOS    | OpenLogic | Centos       | 7.2         | latest  | no         |
+| CoreOS    | CoreOS    | CoreOS       | Stable      | latest  | yes        |
+| Debian    | credativ  | Debian       | 8           | latest  | no         |
+| openSUSE  | SUSE      | openSUSE     | 13.2        | latest  | no         |
+| RHEL      | Redhat    | RHEL         | 7.2         | latest  | no         |
+| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | latest  | yes        |
 
-```bash
-#cloud-config
-hostname: exampleServerName
-```
+Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 
-Create an update Linux on first boot cloud-init script for Debian Family
-
-```bash
-#cloud-config
-apt_upgrade: true
-```
-
-Add a user cloud-init script
-
-```bash
-#cloud-config
-users:
-  - name: exampleUser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
-```
 
 ## Detailed Walkthrough
 
