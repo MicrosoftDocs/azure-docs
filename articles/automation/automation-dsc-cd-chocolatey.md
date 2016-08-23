@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="golive"/>
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
@@ -74,6 +74,8 @@ Details for VM registration (using the PowerShell DSC VM extension) provided in 
 The PowerShell Gallery is instrumented to install DSC resources into your Azure Automation account.  Navigate to the resource you want and click the “Deploy to Azure Automation” button.
 
 ![PowerShell Gallery example](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
+
+Another technique recently added to the Azure Portal allows you to pull in new modules or update existing modules. Click through the Automation Account resource, the Assets tile, and finally the Modules tile.  The Browse Gallery icon allows you to see the list of modules in the gallery, drill down into details and ultimately import into your Automation Account. This is a great way to keep your modules up to date from time to time. And, the import feature checks dependencies with other modules to ensure nothing gets out of sync.
 
 Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
@@ -167,7 +169,7 @@ For each package that you put into the package repository, you need a nuspec tha
 
 ## Step 6: Tying it all together
 
-Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
+Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/docs/alm-devops-feature-index#continuous-delivery) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
 
 ## Notes
 
