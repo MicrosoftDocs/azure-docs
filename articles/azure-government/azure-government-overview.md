@@ -18,7 +18,9 @@
 	ms.author="ryansoc"/>
 
 
-#  Introduction to Azure Government Documentation
+#  Azure Government Documentation Overview
+
+##  Introduction to Azure Government Documentation
 
 This site describes the capabilities of <a href="https://azure.microsoft.com/en-us/features/gov/"> Microsoft Azure Government</a> services, and provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
@@ -28,7 +30,7 @@ Azure Government is available to entities that handle data that is subject to ce
 
 Entities with questions about eligibility for Azure Government should consult their account team.
 
-#  Principles for Securing Customer Data in Azure Government
+##  Principles for Securing Customer Data in Azure Government
 
 Azure Government provides a range of features and services that you can use to build cloud solutions to meet your regulated/controlled data needs. A compliant customer solution is nothing more than the effective implementation of out-of-the-box Azure Government capabilities, coupled with a solid data security practice.
 When you host a solution in Azure Government, Microsoft handles many of these requirements at the cloud infrastructure level.

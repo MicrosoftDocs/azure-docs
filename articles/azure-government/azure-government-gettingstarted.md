@@ -18,7 +18,9 @@
 	ms.author="ryansoc"/>
 
 
-#  General Guidance for Azure Government Customers
+#  Getting Started with Azure Government
+
+##  General Guidance for Azure Government Customers
 
 Most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.
 
@@ -31,7 +33,7 @@ Most of the technical content that is available currently assumes that applicati
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
-#  Azure Government ITAR
+##  Azure Government ITAR
 
 The information on this site is intended for Azure Government customers with obligations under the International Traffic in Arms Regulations (ITAR) who intend to use Azure Government services to store, process, or transmit regulated information. The information provided describes the capabilities of Microsoft Azure Government services, and provides general guidance applicable to ITAR customers. Before including ITAR-controlled data in your Azure Government subscription, you should familiarize yourself with the Azure Government capabilities and consult your account team if you have any questions.
 
