@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 # Deploy a guest executable to Service Fabric
 
 You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminology refers to those types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result, they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command line utility
+Guest executables are treated by Service Fabric like stateless services. As a result, they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command line utility.
 
 ## Benefits of running a guest executable in Service Fabric
 
@@ -53,12 +53,12 @@ In order to deploy an application to Service Fabric, the application needs to fo
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -162,7 +162,8 @@ The `Name` element is used to specify the name of the directory in the applicati
 ```
 The SetupEntrypoint element is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional element, so it does not need to be included if there is no initialization/setup required. The SetupEntryPoint is executed every time the service is restarted.
 
-There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. Like the SetupEntryPoint element, SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets. In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
+There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets.
+In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
 
 ### Entrypoint
 
@@ -266,8 +267,7 @@ The `InstanceCount` parameter of the `New-ServiceFabricService` cmdlet is used t
 
 * `InstanceCount ="-1"`. In this case, one instance of the service will be deployed on every node in the Service Fabric cluster. The end result will be having one (and only one) instance of the service for each node in the cluster.
 
-This is a useful configuration for front-end applications (for example, a REST endpoint) because client applications just need to
-"connect" to any of the nodes in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service that is running on all nodes in the cluster.
+This is a useful configuration for front-end applications (for example, a REST endpoint) because client applications just need to "connect" to any of the nodes in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service that is running on all nodes in the cluster.
 
 ### Check your running application
 
@@ -288,17 +288,19 @@ If you browse to the directory by using Server Explorer, you can find the workin
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
 You need to go through the following, to complete the publishing:
 
-1. Choose File -> New Project and create a new Service Fabric Application
-2. Choose Guest Executable as the Service Template
-3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service
+>[AZURE.NOTE] This feature requires [SDK version 2.1.150](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/)
+
+1. Choose File -> New Project and create a new Service Fabric Application.
+2. Choose Guest Executable as the Service Template.
+3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service.
   - *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
   - *Program* choose the executable that should be executed in order to start the service.
   - *Arguments* specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
   - *WorkingFolder* choose the working directory for the process that is going to be started. You can specify two values:
   	- *CodeBase* specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
     - *CodePackage* specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
-4. Give your service a name and click OK
-5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+4. Give your service a name and click OK.
+5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```.
 6. You can now try the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready you can publish the application to a remote cluster or check-in the solution to source control.
 
 >[AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This will link to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.

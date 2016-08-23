@@ -68,6 +68,10 @@ From the boxes, you can navigate to relevant dependency and other charts.
 
 Click the small [x] to collapse a subtree.
 
+Pin the map to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
+
+[Learn more](app-insights-app-map.md).
+
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues in the web server
 
 To assess the performance of requests at your server:

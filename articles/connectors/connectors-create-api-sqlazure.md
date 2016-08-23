@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the SQL Azure Connector in your Logic Apps | Microsoft Azure"
-    description="Overview of SQL Azure Connector with REST API parameters"
+    pageTitle="Add the Azure SQL Database connector in your Logic Apps | Microsoft Azure"
+    description="Overview of Azure SQL Database connector with REST API parameters"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -9,225 +9,223 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/19/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 
-# Get started with the SQL Azure connector
-Connect to Azure SQL Database to manage your tables and rows, such as insert rows, get tables, and more.
+# Get started with the Azure SQL Database connector
+Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
 
-The Azure SQL Database Connector can be used from:
+With SQL Database, you:
 
-- Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
+- Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
+- Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+This topic shows you how to use the SQL Database connector in a logic app, and also lists the actions.
 
-With Azure SQL Database, you can:
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-- Build your business flow based on the data you get from Azure SQL Database. 
-- Use actions to get a row, insert a row, and more. These actions get a response, and then make the output available for other actions. For example, you can get a row of data from Azure SQL Database, and then add that data to Excel. 
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Connect to Azure SQL Database
+
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
+
+#### Create the connection
+
+>[AZURE.INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
+
+## Use a trigger
+
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+
+## Use an action
+	
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+
+	![](./media/connectors-create-api-sqlazure/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “sql” to get a list of all the available actions.
+
+	![](./media/connectors-create-api-sqlazure/sql-1.png) 
+
+4. In our example, choose **SQL Server - Get row**. If a connection already exists, then select the **Table name** from the drop-down list, and enter the **Row ID** you want to return.
+
+	![](./media/connectors-create-api-sqlazure/sample-table.png)
+
+	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this topic describes these properties. 
+
+	> [AZURE.NOTE] In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## Triggers and actions
-SQL includes the following actions. There are no triggers.
+## Technical Details
 
-Triggers | Actions
---- | ---
-None | <ul><li>Get row</li><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get tables</li><li>Update row</li></ul>
+## SQL Database actions
+An action is an operation carried out by the workflow defined in a logic app. The SQL Database connector includes the following actions. 
 
-All connectors support data in JSON and XML formats.
+|Action|Description|
+|--- | ---|
+|[ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure)|Executes a stored procedure in SQL|
+|[GetRow](connectors-create-api-sqlazure.md#get-row)|Retrieves a single row from a SQL table|
+|[GetRows](connectors-create-api-sqlazure.md#get-rows)|Retrieves rows from a SQL table|
+|[InsertRow](connectors-create-api-sqlazure.md#insert-row)|Inserts a new row into a SQL table|
+|[DeleteRow](connectors-create-api-sqlazure.md#delete-row)|Deletes a row from a SQL table|
+|[GetTables](connectors-create-api-sqlazure.md#get-tables)|Retrieves tables from a SQL database|
+|[UpdateRow](connectors-create-api-sqlazure.md#update-row)|Updates an existing row in a SQL table|
 
-## Create the connection to SQL
+### Action Details
 
->[AZURE.INCLUDE [Steps to create a connection to SQL](../../includes/connectors-create-api-sqlazure.md)] 
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
-After you create the connection, you enter the SQL properties, like the table name. The **REST API reference** in this topic describes these properties.
+#### Execute stored procedure
+Executes a stored procedure in SQL.  
 
->[AZURE.TIP] You can use this connection in other logic apps.
+| Property Name| Display Name |Description|
+| ---|---|---|
+|procedure * | Procedure name | The name of the stored procedure you want to execute |
+|parameters * | Input parameters | The parameters are dynamic and based on the stored procedure you choose. <br/><br/> For example, if you're using the Adventure Works sample database, choose the *ufnGetCustomerInformation* stored procedure. The **Customer ID** input parameter is displayed. Enter "6" or one of the other customer IDs. |
 
-## Swagger REST API reference
-Applies to version: 1.0.
+An asterisk (*) means the property is required.
 
-### Get row 
+##### Output Details
+ProcedureResult: Carries result of stored procedure execution
+
+| Property Name | Data Type | Description |
+|---|---|---|
+|OutputParameters|object|Output parameter values |
+|ReturnCode|integer|Return code of a procedure |
+|ResultSets|object| Result sets|
+
+
+#### Get row 
 Retrieves a single row from a SQL table.  
-```GET: /datasets/default/tables/{table}/items/{id}``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Name of SQL table|
-|id|string|yes|path|none|Unique identifier of the row to retrieve|
+| Property Name| Display Name |Description|
+| ---|---|---|
+|table * | Table name |Name of SQL table|
+|id * | Row id |Unique identifier of the row to retrieve|
 
-#### Response
-|Name|Description|
+An asterisk (*) means the property is required.
+
+##### Output Details
+Item
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|ItemInternalId|string|
 
 
-### Get rows 
+#### Get rows 
 Retrieves rows from a SQL table.  
-```GET: /datasets/default/tables/{table}/items``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Name of SQL table|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
 
-#### Response
-|Name|Description|
+An asterisk (*) means the property is required.
+
+##### Output Details
+ItemsList
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|value|array|
 
 
-### Insert row 
+#### Insert row 
 Inserts a new row into a SQL table.  
-```POST: /datasets/default/tables/{table}/items``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Name of SQL table|
-|item|ItemInternalId: string|yes|body|none|Row to insert into the specified table in SQL|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|item*|Row|Row to insert into the specified table in SQL|
 
-#### Response
-|Name|Description|
+An asterisk (*) means the property is required.
+
+##### Output Details
+Item
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|ItemInternalId|string|
 
 
-### Delete row 
+#### Delete row 
 Deletes a row from a SQL table.  
-```DELETE: /datasets/default/tables/{table}/items/{id}``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Name of SQL table|
-|id|string|yes|path|none|Unique identifier of the row to delete|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to delete|
 
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+An asterisk (*) means the property is required.
 
+##### Output Details
+None.
 
-### Get tables 
+#### Get tables 
 Retrieves tables from a SQL database.  
-```GET: /datasets/default/tables``` 
 
 There are no parameters for this call. 
 
-#### Response
-|Name|Description|
+##### Output Details 
+TablesList
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|value|array|
 
-
-### Update row 
+#### Update row 
 Updates an existing row in a SQL table.  
-```PATCH: /datasets/default/tables/{table}/items/{id}``` 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Name of SQL table|
-|id|string|yes|path|none|Unique identifier of the row to update|
-|item|ItemInternalId: string|yes|body|none|Row with updated values|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Table name|Name of SQL table|
+|id*|Row id|Unique identifier of the row to update|
+|item*|Row|Row with updated values|
 
-#### Response
+An asterisk (*) means the property is required.
+
+##### Output Details  
+Item
+
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
+
+
+### HTTP Responses
+
+When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
+
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
-
-## Object definitions
-
-#### DataSetsMetadata
-
-|Property Name | Data Type | Required |
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-|Property Name | Data Type | Required |
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-#### TableMetadata
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|not defined|no|
-
-#### DataSetsList
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|value|array|no|
-
-#### DataSet
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-#### Table
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-#### Item
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|ItemInternalId|string|no|
-
-#### ItemsList
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|value|array|no|
-
-#### TablesList
-
-|Property Name | Data Type |Required |
-|---|---|---|
-|value|array|no|
 
 
 ## Next steps
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).

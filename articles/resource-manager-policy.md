@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -117,6 +117,7 @@ A condition evaluates whether a **field** or **source** meets certain criteria. 
 | Contains			| "contains" : "&lt;value&gt;"|
 | In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
+| Exists	 | "exists" : "&lt;bool&gt;" |
 
 ### Fields
 
@@ -158,7 +159,7 @@ Currently, the supported aliases are:
 
 | Alias name | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher |  |
@@ -167,9 +168,15 @@ Currently, the supported aliases are:
 | Microsoft.Compute/virtualMachines/imageVersion  |  |
 | Microsoft.Cache/Redis/enableNonSslPort |  |
 | Microsoft.Cache/Redis/shardCount |  |
+| Microsoft.SQL/servers/version |  |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId |  |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName |  |
+| Microsoft.SQL/servers/databases/edition |  |
+| Microsoft.SQL/servers/databases/elasticPoolName |  |
+| Microsoft.SQL/servers/elasticPools/dtu |  |
+| Microsoft.SQL/servers/elasticPools/edition |  |
 
-
-To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). Currently, policy only works on PUT requests. 
+Currently, policy only works on PUT requests. 
 
 ## Effect
 Policy supports three types of effect - **deny**, **audit**, and **append**. 

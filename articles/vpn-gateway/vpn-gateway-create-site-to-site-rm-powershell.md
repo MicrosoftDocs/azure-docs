@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
@@ -183,7 +183,7 @@ Next, you'll create the Site-to-Site VPN connection between your virtual network
 
 After a short while, the connection will be established. 
 
-## 9. Verify a VPN connection
+## <a name="toverify"></a>To verify a VPN connection
 
 There are a few different ways to verify your VPN connection. Below, we'll talk about how to do basic verification by using the Azure portal and by using PowerShell.
 
@@ -191,14 +191,17 @@ There are a few different ways to verify your VPN connection. Below, we'll talk 
 
 ## <a name="modify"></a>To modify IP address prefixes for a local network gateway
 
-If you need to change the prefixes for your local network gateway, use the instructions below.  Two sets of instructions are provided. The instructions you choose depends on whether you have already created your VPN gateway connection. 
+If you need to change the prefixes for your local network gateway, use the instructions below. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection. 
 
 [AZURE.INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
+## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
+
+[AZURE.INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
 
-- Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
+- You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
 
 - For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 

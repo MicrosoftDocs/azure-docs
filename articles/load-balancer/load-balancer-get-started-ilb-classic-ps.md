@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Create an internal load balancer using PowerShell in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in the classic deployment model"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Get started creating an internal load balancer (classic) using PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -117,7 +117,7 @@ The following commands configure a new Internal Load Balancing instance named **
 
 	$svc="mytestcloud"
 	$ilb="ilbset"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb 
+	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
 	$prot="tcp"
 	$locport=1433
 	$pubport=1433

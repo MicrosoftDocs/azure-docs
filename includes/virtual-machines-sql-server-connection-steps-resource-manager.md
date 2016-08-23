@@ -14,6 +14,8 @@ To create a DNS Label, first select **Virtual machines** in the portal. Select y
 
 3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
 
+4. Click the **Save** button.
+
 	![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Connect to the Database Engine from another computer

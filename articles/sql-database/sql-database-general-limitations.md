@@ -3,7 +3,7 @@
    description="This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support."
    services="sql-database"
    documentationCenter="na"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="06/21/2016"
    ms.author="carlrab" />
 
 # Azure SQL Database General Limitations and Guidelines
@@ -35,7 +35,7 @@ Microsoft Azure SQL Database does not support SQL Server Agent or jobs. You can,
 
 ## SQL Server Collation Support
 
-The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is possible to alter the collation for V12 databases using Transact-SQL. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is not possible to alter the collation for V12 databases. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Naming Requirements
 

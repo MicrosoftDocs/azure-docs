@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #Create custom artifacts for your DevTest Labs VM
 
-> [AZURE.NOTE] View this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-author-custom-artifacts) 
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## Overview
 **Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name.
@@ -121,6 +121,10 @@ Create your custom artifact by following steps below:
 	![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
 
 1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+
+## Related blog posts
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## Next steps
 

@@ -17,6 +17,16 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Auditing in Azure SQL Data Warehouse
+
+> [AZURE.SELECTOR]
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
+- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
+- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
 Azure SQL Data Warehouse auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.

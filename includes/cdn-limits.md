@@ -1,7 +1,7 @@
 
 Resource | Soft limit
 ---------|-----------
-CDN profiles | 4
+CDN profiles | 8
 CDN endpoints per profile | 10
 Custom domains per endpoint | 10 
 

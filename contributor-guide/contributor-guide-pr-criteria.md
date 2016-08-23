@@ -9,6 +9,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Category | Quality review item |
 |----------|---------------------|
 |Prerequisites|	The "ready-to-merge" and the "validation succeeded" labels are assigned to the PR.|
+|Prerequisites| The pull request cannot be blocked by a merge conflict.|
 |Repo integrity|	Pull request contains no obvious content regressions.|
 |Repo integrity|	Pull request does not include an embedded repo or any unusual, extraneous files.|
 |Repo integrity	|Pull request contains fewer than 100 changed files unless the PR intentionally is updating a release branch from master. (Really, a PR should contain far fewer than that, but after 100 changed files, GitHub doesn’t display the diffs).|
@@ -39,9 +40,16 @@ For these items, pull request reviewers provide feedback and instructions for th
 | Category | Quality review item |
 |----------|---------------------|
 |Content|Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG)|
+|Content|Spelling, grammar, and other writing issues - pull request reviewers may provide feedback on a few minor issues as non-blocking feedback. If there are more than a few editorial issues, reviewers log an edit request for the article for a post-publication edit.|
 |Images|Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
 |Images|Images include alt text. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
 |Site/design functionality|The H2 headings, when rendered in the on-page TOC, should ideally wrap to no more than 2 lines. Longer headings make the article TOC harder to scan.|
 |Style conventions|All titles and headings are sentence case, per Azure style.|
 |Process|If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically).|
 |Process|When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: <https://github.com/Azure/azure-content/blob/master/contributor-guide/retire-or-rename-an-article.md> .*|
+
+## Related
+
+- [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)

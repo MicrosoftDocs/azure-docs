@@ -3,8 +3,8 @@
    description="Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
-   manager="christb"
+   authors="jimdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/05/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Virtual appliance scenario
 
@@ -115,7 +115,7 @@ UDR and IP Forwarding are features that you can use in combination to allow virt
 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system. Your virtual appliance still needs to run some type of application to handle the incoming traffic, and route it appropriately.
 
-To learn more about IP Forwarding, visit [What are User Defined Routes and IP Forwarding](./virtual-networks-udr-overview/#ip-forwarding).
+To learn more about IP Forwarding, visit [What are User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md#ip-forwarding).
 
 As an example, imagine you have the following setup in an Azure vnet:
 

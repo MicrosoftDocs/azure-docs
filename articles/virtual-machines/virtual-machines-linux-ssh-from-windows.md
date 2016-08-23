@@ -23,8 +23,10 @@ description="Learn how to generate and use SSH keys on a Windows computer to con
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
 - [Linux/Mac](virtual-machines-linux-ssh-from-linux.md)
 
+
 This topic describes how to create and use **ssh-rsa** and **.pem** format public and private key files on Windows that you can use to connect to your Linux VMs on Azure with the **ssh** command. If you already have **.pem** files created, you can use those to create Linux VMs to which you can connect using **ssh**. Several other commands use the **SSH** protocol and key files to perform work securely, notably **scp** or [Secure Copy](https://en.wikipedia.org/wiki/Secure_copy), which can securely copy files to and from computers that support **SSH** connections. 
 
+> [AZURE.NOTE] If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
 ## What SSH and key-creation programs do you need?
 
@@ -58,10 +60,10 @@ openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
 [This section](#What-SSH-and-key-creation-programs-do-you-need) above listed several utilities that include an `ssh-keygen` and `openssl` for Windows. A couple of examples are listed below:
 
-###Use GitHub for Windows###
+###Use Git for Windows###
 
-1.	Download and install GitHub for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Run Git Bash from the Start Menu > All Apps > GitHub
+1.	Download and install Git for Windows from the following location: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+2.	Run Git Bash from the Start Menu > All Apps > Git Shell
 
 > [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
 

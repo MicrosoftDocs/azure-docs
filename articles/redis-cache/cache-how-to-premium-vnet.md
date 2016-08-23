@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -74,6 +74,7 @@ The following list contains answers to commonly asked questions about the Azure 
 -	[What are some common misconfiguration issues with Azure Redis Cache and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 -	[Why does creating a Redis cache fail in some subnets but not others?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-	[Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNets?
@@ -111,6 +112,13 @@ VNets can only be used with premium caches.
 If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet subnet that contains other resources, the deployment will fail. You must delete the existing resources inside the subnet before you can create a new Redis cache.
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
+
+### Do all cache features work when hosting a cache in a VNET?
+
+When your cache is part of a VNET, only clients in the VNET can access the cache, and as a result the following cache management features don't work at this time.
+
+-	Redis Console - Because Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
+
 
 ## Use ExpressRoute with Azure Redis Cache
 

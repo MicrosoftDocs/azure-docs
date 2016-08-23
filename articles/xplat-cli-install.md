@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/17/2016"
 	ms.author="danlep"/>
     
 # Install the Azure CLI
@@ -23,16 +23,21 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several installation choices: install from an npm package (requires Node.js and npm), use one of the provided installer packages for different operating systems, or install the Azure CLI as a container in a Docker host. For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several choices to install the latest version: 
 
+* Install from an npm package (requires Node.js and npm)
+* Use one of the provided installer packages for different operating systems
+* Install the Azure CLI as a container in a Docker host
+    
+For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Once the Azure CLI has been installed, you will be able to [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
+Once the Azure CLI is installed, [connect it with your Azure subscription](xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
 
 
 ## Install an npm package
 
-To install the CLI from an npm package, you'll need the latest Node.js and npm  installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo**  to successfully run the __npm__ command.)
+To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
 
 	npm install azure-cli -g
 
@@ -40,7 +45,7 @@ To install the CLI from an npm package, you'll need the latest Node.js and npm  
 
 ## Use an installer
 
-The following installer packages are also available for download:
+The following CLI installer packages are also available for download:
 
 
 * [OS X installer][mac-installer]
@@ -59,12 +64,12 @@ docker run -it microsoft/azure-cli
 ```
 
 ## Run Azure CLI commands
-Once the Azure CLI has been installed, you will be able to run the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on). For example, to run the help command, type the following:
+After the Azure CLI is installed, run the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on). For example, to run the help command, type the following:
 
 ```
 azure help
 ```
-> [AZURE.NOTE]On some Linux distributions you may receive an error, /usr/bin/env: ‘node’: No such file or directory, this comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix this error create a symbolic link to /usr/bin/node by running the command below
+> [AZURE.NOTE]On some Linux distributions, you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix it, create a symbolic link to /usr/bin/node by running this command:
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -76,14 +81,14 @@ To see the version of the Azure CLI you installed, type the following:
 azure --version
 ```
 
-Now you are ready! For access to all of the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
+Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you first use Azure CLI version 0.9.20 or later, you'll see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
+>[AZURE.NOTE] When you first use Azure CLI version 0.9.20 or later, you see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
 
 
 ## Update the CLI
 
-Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system or, if you have the latest Node.js and npm installed, update by typing the following (on Linux distributions you might need to use **sudo**).
+Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system, or run the latest Docker container. Or, if you have the latest Node.js and npm installed, update by typing the following (on Linux distributions you might need to use **sudo**).
 
 ```
 npm update -g azure-cli
@@ -118,7 +123,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * For Linux systems, you can also install the Azure CLI by building it from the [source](http://aka.ms/linux-azure-cli). For more information on building from source, see the INSTALL file included in the source archive.
 
 [mac-installer]: http://aka.ms/mac-azure-cli
-[windows-installer]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=windowsazurexplatcli&mode=new
+[windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md

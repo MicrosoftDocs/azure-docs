@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="xpouyat,vsood" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016"  
+	ms.date="07/19/2016"  
 	ms.author="xpouyat"/>
 
 #Licensing Microsoft® Smooth Streaming Client Porting Kit
@@ -104,6 +104,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Saffron Digital Limited
 - Sichuan Changhong Electric Co., Ltd
 - SoftAtHome
+- Sony Corporation
 - Tatung Technology Inc.
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VisualOn, Inc.
@@ -142,11 +143,14 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Shenzhen Jiuzhou Electric Co.,Ltd
 - Shenzhen Skyworth Digital Technology Co., Ltd
 - Sichuan Changhong Electric Co., Ltd.
+- Skardin Industrial Corp.
 - Sky Deutschland Fernsehen GmbH & Co. KG
 - SmarDTV S.A.
 - SoftAtHome
+- Sony Corporation
 - TCL Overseas Marketing (Macao Commercial Offshore) Limited
 - Technicolor Delivery Technologies, SAS
+- Tongfang Global Ltd.
 - Toshiba Lifestyle Products & Services Corporation
 - Universal Media Corporation /Slovakia/ s.r.o.
 - VIZIO, Inc.

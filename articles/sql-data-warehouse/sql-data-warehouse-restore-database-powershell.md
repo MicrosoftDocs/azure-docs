@@ -3,7 +3,7 @@
    description="PowerShell tasks for restoring an Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="07/18/2016"
+   ms.author="sonyama;barbkess;lakshmir"/>
 
-# Restore an Azure SQL Data Warehouse  (PowerShell)
+# Restore an Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
 - [Overview][]
@@ -28,13 +28,11 @@ In this article you will learn how to restore an Azure SQL Data Warehouse using 
 
 ## Before you begin
 
-### Verify your SQL Database DTU capacity. 
-
-Each SQL Data Warehouse is hosted by a SQL server logical server.  This logical server has a capacity limit measured in DTU.  Before you can restore a SQL Data Warehouse, it is important to make sure the SQL server logical server hosting your database has enough DTU capacity for the database being restored. See this blog post for more information on [how to view and increase DTU quota][].
+**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][].
 
 ### Install PowerShell
 
-In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Restore an active or paused database
 
@@ -80,7 +78,8 @@ $RestoredDatabase.status
 
 ```
 
-After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Restore a deleted database
 
@@ -94,7 +93,6 @@ To restore a deleted database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
 6. Verify that the restored database is online.
 
 ```Powershell
-
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -113,10 +111,10 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
-After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+
 
 ## Restore from an Azure geographical region
 
@@ -130,7 +128,6 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
 6. Verify the status of the geo-restored database.
 
 ```Powershell
-
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
@@ -143,17 +140,10 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
-
 ```
 
-### Configure your database after performing a geo-restore
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
-This is a checklist to help get your recovered database production ready.
-
-1. **Update Connection Strings**: Verify connection strings of your client tools are pointing to the newly recovered database.
-2. **Modify Firewall Rules**: Verify the firewall rules on the target server and make sure connections from your client computers or Azure to the server and the newly recovered database are enabled.
-3. **Verify Server Logins and Database Users**: Verify if all the logins used by your application exist on the server which is hosting your recovered database. Re-create the missing logins and grant them appropriate permissions on the recovered database. 
-4. **Enable Auditing**: If auditing is required to access your database, you need to enable Auditing after the database recovery.
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
@@ -165,18 +155,17 @@ To learn about the business continuity features of Azure SQL Database editions, 
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalize a recovered database]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-
-<!--Blog references-->
-[how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

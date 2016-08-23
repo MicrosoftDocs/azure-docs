@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 
@@ -67,7 +67,7 @@ Below is a description of the parameters that are being used:
 - **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
 - **/AppType** defines the Service Fabric application type name.
 
->[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source.
+>[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
@@ -137,7 +137,7 @@ In PowerShell or the command shell, we run the packaging tool with the following
 
 In order to add MongoDB to your Service Fabric application package, you need to make sure that the /target parameter points to the same directory that already contains the application manifest along with the Node.js application. You also need to make sure that you are using the same ApplicationType name.
 
->[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source.
+>[AZURE.NOTE] You can also use Visual Studio to produce the application package as part of an application project. If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Let's browse to the directory and examine what the tool has created.
 

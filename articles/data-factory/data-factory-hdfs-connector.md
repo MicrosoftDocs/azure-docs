@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data From on-premises HDFS using Azure Data Factory
@@ -26,6 +26,12 @@ Data factory currently supports only moving data from an on-premises HDFS to oth
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. You need to leverage the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM. 
 
 While you can install the gateway on the same on-premises machine or the Azure VM as the HDFS, we recommend that you install the gateway on a separate machine or a separate Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the HDFS. 
+
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data from on-premises HDFS is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an on-premises HDFS to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from on-premises HDFS to Azure Blob
 
@@ -128,7 +134,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -136,7 +142,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -144,7 +150,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]

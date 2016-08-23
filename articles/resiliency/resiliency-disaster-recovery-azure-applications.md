@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #Disaster recovery for applications built on Microsoft Azure
 
@@ -71,7 +71,7 @@ Another option is to store data in an alternate location until connectivity is r
 
 ###Failure of a dependent service
 
-Azure provides many services that can experience periodic downtime. Consider [Azure Redis Cache](https://azure.microsoft.com/services/cache/) as an example. This multitenant service provides caching capabilities to your application. It's important to consider what happens in your application if the dependent service is unavailable. In many ways, this scenario is similar to the network outage scenario. However, considering each service independently results in potential improvements to your overall plan.
+Azure provides many services that can experience periodic downtime. Consider [Azure Redis Cache](https://azure.microsoft.com/services/cache/) as an example. This multi-tenant service provides caching capabilities to your application. It's important to consider what happens in your application if the dependent service is unavailable. In many ways, this scenario is similar to the network outage scenario. However, considering each service independently results in potential improvements to your overall plan.
 
 Azure Redis Cache provides caching to your application from within your cloud service deployment, which provides disaster recovery benefits. First, the service now runs on roles that are local to your deployment. Therefore, you're better able to monitor and manage the status of the cache as part of your overall management processes for the cloud service. This type of caching also exposes new features. One of the new features is high availability for cached data. This helps to preserve cached data if a single node fails by maintaining duplicate copies on other nodes.
 
@@ -147,7 +147,7 @@ You must implement your own application-specific backup routines for all data, i
 
 Implementation of a fully functional disaster mode strategy requires asynchronous replication of the transactional data to the secondary region. The practical time windows within which the replication can occur will determine the RPO characteristics of the application. You might still recover the data that was lost from the primary region during the replication window. You might also be able to merge with the secondary region later.
 
-The following architecture examples provide some ideas on different ways of handling transactional data in a failover scenario. It's important to note that these examples are not exhaustive. For example, intermediate storage locations such as queues might be replaced with Azure SQL Database. The queues themselves might be either Azure Storage or Azure Service Bus queues (see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)). Server storage destinations might also vary, such as Azure tables instead of SQL Database. In addition, worker roles might be inserted as intermediaries in various steps. The important thing is not to emulate these architectures exactly, but to consider various alternatives in the recovery of transactional data and related modules.
+The following architecture examples provide some ideas on different ways of handling transactional data in a failover scenario. It's important to note that these examples are not exhaustive. For example, intermediate storage locations such as queues might be replaced with Azure SQL Database. The queues themselves might be either Azure Storage or Azure Service Bus queues (see [Azure queues and Service Bus queues--compared and contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)). Server storage destinations might also vary, such as Azure tables instead of SQL Database. In addition, worker roles might be inserted as intermediaries in various steps. The important thing is not to emulate these architectures exactly, but to consider various alternatives in the recovery of transactional data and related modules.
 
 ####Replication of transactional data in preparation for disaster recovery
 

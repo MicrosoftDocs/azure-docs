@@ -4,7 +4,7 @@
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
- manager="kateh"
+ manager="timlt"
  editor=""
  tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="06/28/2016"
  ms.author="xpillons"/>
 
 # Run STAR-CCM+ with Microsoft HPC Pack on a Linux RDMA cluster in Azure

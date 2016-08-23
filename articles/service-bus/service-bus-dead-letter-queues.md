@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="clemensv;sethm"/>
 
 # Overview of Service Bus dead-letter queues
@@ -45,7 +45,7 @@ Applications can define their own codes for the `DeadLetterReason` property, but
 
 ## Exceeding MaxDeliveryCount
 
-Queues and subscriptions each have a [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) and [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx) property; the default value is 10. Whenever a message has been delivered under a lock ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), but has been either explicitly abandoned or the lock has expired, the message's [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) is incremented. When [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) exceeds [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), the message is moved to the DLQ, specifying the `MaxDeliveryCountExceeded` reason code.
+Queues and subscriptions each have a [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) and [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx) property respectively; the default value is 10. Whenever a message has been delivered under a lock ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), but has been either explicitly abandoned or the lock has expired, the message's [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) is incremented. When [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) exceeds [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), the message is moved to the DLQ, specifying the `MaxDeliveryCountExceeded` reason code.
 
 This behavior cannot be disabled, but you can set [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) to a very large number.
 
@@ -88,5 +88,5 @@ while(true)
 
 See the following articles for more information about Service Bus queues:
 
+- [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- How to use [Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="04/07/2016"
+	ms.date="06/27/2016"
 	ms.author="spelluru"/>
 
 # Data profile data sources

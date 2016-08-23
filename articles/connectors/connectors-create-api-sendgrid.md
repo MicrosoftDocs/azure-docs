@@ -1,7 +1,7 @@
 <properties
 pageTitle="SendGrid | Microsoft Azure"
 description="Create Logic apps with Azure App service. SendGrid Connection Provider lets you send email and manage recipient lists."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"

@@ -390,7 +390,7 @@ The hive script receives the appropriate datetime information as parameters leve
 		                "scriptPath": "adftutorial\\hivequery.hql",
 		                "scriptLinkedService": "StorageLinkedService",
 		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+		                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
 		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
 		                }
@@ -542,7 +542,7 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	          "scriptPath": "adftutorial\\hivequery.hql",
 	          "scriptLinkedService": "StorageLinkedService",
 	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+	            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
 	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
 	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
 	          }

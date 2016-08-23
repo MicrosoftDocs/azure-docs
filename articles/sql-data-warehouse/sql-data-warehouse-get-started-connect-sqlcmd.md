@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Query with SQLCMD | Microsoft Azure"
-   description="Querying your Data Warehouse with SQLCMD."
+   pageTitle="Query Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Query with SQLCMD
+# Query Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Azure Machine Learning][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough shows you how to query Azure SQL Data Warehouse using the sqlcmd.exe utility.  
+This walkthrough uses the sqlcmd Command-line Utility to query an Azure SQL Data Warehouse .  
 
 ## Prerequisites
 
-+ To download [sqlcmd.exe][], please see the [Microsoft Command Line Utilities 11 for SQL Server][].
+To step through this tutorial, you need:
 
-## Connect
+-  [sqlcmd.exe][]. To download, see [Microsoft Command Line Utilities 11 for SQL Server][] which may also require [Microsoft ODBC Driver 11 for SQL Server Windows][].
+
+## 1. Connect
 
 To get started with sqlcmd, open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] The -I option which enables quoted identfiers, is currently required to connect to SQL Data Warehouse.
 
-## Query
+## 2. Query
 
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
@@ -61,28 +64,25 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Next steps
 
-To learn about all of the sqlcmd options, see the [sqlcmd documentation][sqlcmd.exe].
-
-<!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
-
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/en-us/library/ms162773.aspx
-[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure portal]: https://portal.azure.com
+See [sqlcmd documentation][sqlcmd.exe] for more about details about the options available in sqlcmd.
 
 <!--Image references-->
 
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[Microsoft ODBC Driver 11 for SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
+[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[Azure portal]: https://portal.azure.com
+
+<!--Other Web references-->

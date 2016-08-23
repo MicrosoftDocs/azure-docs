@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 

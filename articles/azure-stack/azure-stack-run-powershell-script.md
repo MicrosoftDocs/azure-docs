@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="06/29/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -21,9 +21,9 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Prepare the deployment machine
 
-1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
+1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
-2.  [Install](http://aka.ms/ReqOSforAzureStack) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+2.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
 3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
@@ -60,11 +60,11 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 11. Verify that **exactly** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
-  - Show as Online, RAW
+  - Show as Online, Unallocated
 
 12. Verify that the host is not joined to a domain.
 
-13. Verify network connectivity to Azure.com.
+13. Using Internet Explorer, verify network connectivity to Azure.com.
 
 > [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
 >

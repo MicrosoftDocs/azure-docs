@@ -59,7 +59,7 @@ As an alternative, you could send data from all the roles to just one resource, 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. For web roles, add the [Application Insights for Web] (http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package. This version of the SDK includes modules that add server context such as role information. For worker roles, use [Application Insights for Windows Services](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. For web roles, add the [Application Insights for Web] (http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package. This version of the SDK includes modules that add server context such as role information. For worker roles, use [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 

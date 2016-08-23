@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
    description="Describes use of Docker Machine to create docker hosts in Azure."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -18,7 +18,8 @@
 # Create Docker Hosts in Azure with Docker-Machine
 
 Running [Docker](https://www.docker.com/) containers requires a host VM running the docker daemon.
-This topic describes how to use the [docker-machine](https://docs.docker.com/machine/) command to create new Linux VMs, configured with the Docker daemon, running in Azure. 
+This topic describes how to use the [docker-machine](https://docs.docker.com/machine/) command
+to create new Linux VMs, configured with the Docker daemon, running in Azure. 
 
 **Note:** 
 - *This article depends on docker-machine version 0.7.0 or greater*
@@ -32,10 +33,10 @@ The Azure driver will need your subscription ID. You can use the [Azure CLI](xpl
 or the [Azure Portal](https://portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
-- Select Subscriptions from the left navigation page, and copy to subscription ID.
+- Select Subscriptions from the left navigation page, and copy to subscription id.
 
 **Using the Azure CLI**
-- Type ```azure account list``` and copy the subscription ID.
+- Type ```azure account list``` and copy the subscription id.
 
 Type `docker-machine create --driver azure` to see the options and their default values.
 You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 

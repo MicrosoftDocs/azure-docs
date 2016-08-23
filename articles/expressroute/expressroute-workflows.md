@@ -12,15 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute workflows for circuit provisioning and circuit states
-This page walks you through the service provisioning and routing configuration workflows at a high level. 
+
+This page walks you through the service provisioning and routing configuration workflows at a high level.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-The figure and corresponding steps below show the tasks you must follow in order to have an ExpressRoute circuit provisioned end-to-end. 
+The following figure and corresponding steps show the tasks you must follow in order to have an ExpressRoute circuit provisioned end-to-end. 
 
 1. Use PowerShell to configure an ExpressRoute circuit. Follow the instructions in the [Create ExpressRoute circuits](expressroute-howto-circuit-classic.md) article for more details.
 
@@ -36,7 +37,8 @@ The figure and corresponding steps below show the tasks you must follow in order
 	
 	>[AZURE.IMPORTANT] You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnet-arm.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
@@ -58,7 +60,7 @@ This section lists out the possible states for an ExpressRoute circuit.
 
 #### At creation time
 
-You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
+You will see the ExpressRoute circuit in the following state as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -66,7 +68,7 @@ You will see the ExpressRoute circuit in the state described below as soon as yo
 
 #### When connectivity provider is in the process of provisioning the circuit
 
-You will see the ExpressRoute circuit in the state described below as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
+You will see the ExpressRoute circuit in the following state as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
 
 	ServiceProviderProvisioningState : Provisioning
 	Status                           : Enabled
@@ -74,7 +76,7 @@ You will see the ExpressRoute circuit in the state described below as soon as yo
 
 #### When connectivity provider has completed the provisioning process
 
-You will see the ExpressRoute circuit in the state described below as soon as the connectivity provider has completed the provisioning process.
+You will see the ExpressRoute circuit in the following state as soon as the connectivity provider has completed the provisioning process.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
@@ -83,7 +85,7 @@ Provisioned and Enabled is the only state the circuit can be in for you to be ab
 
 #### If deprovisioning is initiated on the Microsoft side first
 
-You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
+You will see the ExpressRoute circuit in the following state as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
 
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
@@ -92,7 +94,7 @@ You must reach out to your connectivity provider to deprovision the ExpressRoute
 
 #### If deprovisioning is initiated on the service provider side
 
-If you requested the service provider to deprovision the ExpressRoute circuit first, you will see the circuit set to the state described below after the service provider has completed the deprovisioning process.
+If you requested the service provider to deprovision the ExpressRoute circuit first, you will see the circuit set to the following state after the service provider has completed the deprovisioning process.
 
 
 	ServiceProviderProvisioningState : NotProvisioned

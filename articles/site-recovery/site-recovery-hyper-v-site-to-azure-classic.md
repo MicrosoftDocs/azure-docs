@@ -42,7 +42,7 @@ Site Recovery can be used in a number of scenarios and can protect a number of w
 
 ## Azure prerequisites
 
-- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
+- You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 - You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
@@ -90,7 +90,7 @@ This graphic shows the different communication channels and ports used by Site R
 
 4. In **Name**, enter a friendly name to identify the vault.
 
-5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](pricing/details/site-recovery/).
+5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 6. Click **Create vault**.
 
@@ -138,25 +138,19 @@ If you're installing on a Hyper-V cluster, performs steps 5-11 on each node in t
 
 8. After installation is complete continue setup to register the server in the vault.
 
-	![Installation complete](./media/site-recovery-hyper-v-site-to-azure-classic/provider3.png)
-
-
-9. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select **Use default system proxy settings** to use the default Internet connection settings configured on the server. If you don't specify a value the default settings will be used.
-
-	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider4.png)
-
 9. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/select-key.png)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider8.PNG)
 
+10. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select **Use default system proxy settings** to use the default Internet connection settings configured on the server. If you don't specify a value the default settings will be used.
+
+	![Internet Settings](./media/site-recovery-hyper-v-site-to-azure-classic/provider7.PNG)
 
 11. Registration starts to register the server in the vault.
 
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider5.png)
+	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider15.PNG)
 
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
-
-	![Server registration](./media/site-recovery-hyper-v-site-to-azure-classic/provider6.png)
 
 
 ### Install the Provider from the command line

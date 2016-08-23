@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari REST API
@@ -22,8 +22,6 @@
 [AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes. In this document, you will learn the basics of working with the Ambari REST API by performing common tasks such as finding the fully qualified domain name of the cluster nodes or finding the default storage account used by the cluster.
-
-> [AZURE.NOTE] The information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only a sub-set of monitoring functionality is available through the Ambari REST API. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 ##Prerequisites
 
@@ -78,13 +76,11 @@ If you run this, replacing __PASSWORD__ with the admin password for your cluster
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Since this is JSON, it is usually easier to use a JSON parser to retrieve data. For example, if you want to retrieve a count of alerts (contained in the __"Host/host_status/ALERT"__ element,) you can use the following to directly access the value:
+Since this is JSON, it is usually easier to use a JSON parser to retrieve data. For example, if you want to retrieve health status information for the cluster, you can use the following.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-This retrieves the JSON document, then pipes the output to jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indicates the element within the JSON document that you want to retrieve.
-
-> [AZURE.NOTE] The __Host/host_status/ALERT__ element is enclosed in quotes to indicate that '/' is part of the element name. For more information on using jq, see the [jq website](https://stedolan.github.io/jq/).
+This retrieves the JSON document, then pipes the output to jq. `.Clusters.health_report` indicates the element within the JSON document that you want to retrieve.
 
 ##Example: Get the FQDN of cluster nodes
 
@@ -114,7 +110,7 @@ The following will retrieve the WASB URI of the clusters default storage:
 
 This will return a value similar to the following, where __CONTAINER__ is the default container and __ACCOUNTNAME__ is the Azure Storage Account name:
 
-    wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+    wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
 You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container.
 
@@ -140,7 +136,7 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
         
     Replace __ACCOUNTNAME__ with the Storage Account name. Replace __ACCOUNTKEY__ with the key retrieved previously. __FILEPATH__ is the path to the file you want to upload, while __BLOBPATH__ is the path in the container.
 
-    For example, if you want the file to appear in HDInsight at wasb://example/data/filename.txt, then __BLOBPATH__ would be `example/data/filename.txt`.
+    For example, if you want the file to appear in HDInsight at wasbs://example/data/filename.txt, then __BLOBPATH__ would be `example/data/filename.txt`.
 
 ##Example: Update Ambari configuration
 

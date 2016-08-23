@@ -2,19 +2,19 @@
 	pageTitle="MyDriving Azure IoT example: Quick start | Microsoft Azure"
 	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system by using Microsoft Azure, including Stream Analytics, Machine Learning, and Event Hubs."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
-	authors="alancameronwills"
+    documentationCenter=".net"
+    suite=""
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 # MyDriving IoT system: Quick start
 

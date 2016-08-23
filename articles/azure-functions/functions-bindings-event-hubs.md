@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
 
@@ -75,7 +77,7 @@ Using the example function.json above, the body of the event message will be log
 
 ## Azure Event Hub output binding
 
-An Azure Event output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
+An Azure Event Hub output binding is used to write events to an event hub event stream. You must have send permission to an event hub to write events to it. 
 
 #### function.json for Event Hub output binding
 

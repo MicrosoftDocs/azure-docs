@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/08/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device

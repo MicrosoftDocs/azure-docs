@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Use MongoChef with a DocumentDB account with protocol support for MongoDB
 
-To connect to a DocumentDB account with protocol support for MongoDB using MongoChef, you must:
+To connect to an Azure DocumentDB account with protocol support for MongoDB using MongoChef, you must:
 
 - Download and install [MongoChef](http://3t.io/mongochef)
 - Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information
@@ -28,15 +28,19 @@ To connect to a DocumentDB account with protocol support for MongoDB using Mongo
 
 To add your DocumentDB account with protocol support for MongoDB to the MongoChef connection manager, perform the following steps.
 
-1. Click **Connect** to open the Connection Manager, then click **New Connection**
+1. Retrieve your DocumentDB with protocol support for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
+
+	![Screen shot of the connection string blade](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. In the **New Connection** window, on the **Server** tab, enter the FQDN of the DocumentDB account with protocol support for MongoDB and the port.
+2. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the DocumentDB account with protocol support for MongoDB and the PORT.
 	
 	![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the user name and password information.  Accept the default authentication db (admin) or provide your own value.
+3. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the USERNAME and PASSWORD.  Accept the default authentication db (admin) or provide your own value.
 
 	![Screen shot of the MongoChef connection manager authentication tab](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
