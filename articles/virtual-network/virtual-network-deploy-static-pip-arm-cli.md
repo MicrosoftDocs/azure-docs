@@ -107,7 +107,6 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 		    --public-ip-name $pipName
 
 >[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
-
 5. Create a storage account to host the VM OS drive.
 
 		azure storage account create $stdStorageAccountName \

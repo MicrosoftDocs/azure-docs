@@ -89,7 +89,6 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		subnetId=${subnetId#*/}
 
 >[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
-
 4. Retrieve the ID for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
 
 		nsgId="$(azure network nsg show --resource-group $existingRGName \
