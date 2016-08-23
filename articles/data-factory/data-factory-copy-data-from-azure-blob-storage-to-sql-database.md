@@ -29,7 +29,7 @@
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
-The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
+The Copy Activity performs the data movement in Azure Data Factory. It is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
 
 > [AZURE.NOTE] For a detailed overview of the Data Factory service, see the [Introduction to Azure Data Factory][data-factory-introduction] article.
 
@@ -42,7 +42,7 @@ Before you begin this tutorial, you must have the following:
 - **SQL Server 2012/2014 or Visual Studio 2013**. You use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
 ## Collect blob storage account name and key 
-You need the account name and account key of your Azure storage account to do this tutorial. Note down the **account name** and **account key** for your Azure storage account by following the instructions below:
+You need the account name and account key of your Azure storage account to do this tutorial. Note down **account name** and **account key** for your Azure storage account.
 
 1. Log in to the [Azure portal][azure-portal].
 2. Click **BROWSE** hub on the left and select **Storage Accounts**.
@@ -53,7 +53,7 @@ You need the account name and account key of your Azure storage account to do th
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
-You need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database by following the instructions below:
+You need the names of Azure SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
 
 1. In the **Azure portal**, click **BROWSE** on the left and select **SQL databases**.
 2. In the **SQL databases blade**, select the **database** that you want to use in this tutorial. Note down the **database name**.  
@@ -62,7 +62,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 5. Close all the blades by clicking **X**.
 
 ## Allow Azure services to access SQL server 
-Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn this setting on, do the following:
+Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following:
 
 1. Click **BROWSE** hub on the left and click **SQL servers**.
 2. Select **your server**, and click **SETTINGS** on the **SQL SERVER** blade.
@@ -94,9 +94,9 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure portal](http://manage.windowsazure.com), not the [Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. This article uses the [Azure portal](http://manage.windowsazure.com), not the [Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
-	**If you have Visual Studio 2013 installed on your computer:** in the [Azure portal](https://portal.azure.com), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
+	If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
 
 Do the following:

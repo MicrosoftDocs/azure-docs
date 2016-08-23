@@ -29,18 +29,18 @@
 In This tutorial you do the following using Visual Studio 2013:
 
 1. Create two linked services: **AzureStorageLinkedService1** and **AzureSqlinkedService1**. The AzureStorageLinkedService1 links an Azure storage and AzureSqlLinkedService1 links an Azure SQL database to the data factory: **ADFTutorialDataFactoryVS**. The input data for the pipeline resides in a blob container in the Azure blob storage and output data is stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.
-2. Create two data factory tables: **EmpTableFromBlob** and **EmpSQLTable**, which represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you specify the blob container that contains a blob with the source data and for the EmpSQLTable, you specify the SQL table that store the output data. You also specify other properties such as structure of the data, availability of the data, etc.
-3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline has a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
+2. Create two data factory tables: **EmpTableFromBlob** and **EmpSQLTable**, which represent the input/output data that is stored in the data stores. For the EmpTableFromBlob, you specify the blob container that contains a blob with the source data. For the EmpSQLTable, you specify the SQL table that stores the output data. You also specify other properties such as structure, availability, etc.
+3. Create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactoryVS. The pipeline has a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 4. Create a data factory, and deploy linked services, tables, and the pipeline.    
 
 ## Prerequisites
 
-1. You **must** read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the prerequisite steps before proceeding further.
-2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory. This is a limitation currently.  
+1. **IMPORTANT:** Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps before proceeding further.
+2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory.  
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015
 	- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
-	- Download the latest Azure Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
+	- Download the latest Azure Data Factory plugin for Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
  
 
 
@@ -55,7 +55,7 @@ In This tutorial you do the following using Visual Studio 2013:
 	![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)	
 
 ## Create linked services
-Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database.
+Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database, or an on-premises SQL Server database.
 
 In this step, you create two linked services: **AzureStorageLinkedService1** and **AzureSqlLinkedService1**. AzureStorageLinkedService1 linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the data factory: **ADFTutorialDataFactory**. 
 
@@ -76,12 +76,12 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
 
 5. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
 6. This time, select **Azure SQL Linked Service**, and click **Add**. 
-7. In the **AzureSqlLinkedService1.json file**, replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password.    
+7. In the **AzureSqlLinkedService1.json file**, replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and password.    
 8.  Save the **AzureSqlLinkedService1.json** file. 
 
 
 ## Create datasets
-In the previous step, you created linked services **AzureStorageLinkedService1** and **AzureSqlLinkedService1** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively. For  EmpTableFromBlob, you specify the blob container that contains a blob with the source data and for EmpSQLTable, you specify the SQL table that stores the output data.
+In the previous step, you created linked services **AzureStorageLinkedService1** and **AzureSqlLinkedService1** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you define two data factory tables -- **EmpTableFromBlob** and **EmpSQLTable** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively. For EmpTableFromBlob, you specify the blob container that contains a blob with the source data. For EmpSQLTable, you specify the SQL table that stores the output data.
 
 ### Create input dataset
 
@@ -156,7 +156,7 @@ You have created input/output linked services and tables so far. Now, you create
 
 1. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
 15. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
-16. Replace the JSON with the following JSON and save the **CopyActivity1.json** file..
+16. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 			
 		{
 		  "name": "ADFTutorialPipeline",
@@ -225,7 +225,7 @@ You have created input/output linked services and tables so far. Now, you create
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-Please note the following: 
+Note the following: 
 
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
@@ -236,7 +236,7 @@ Please note the following:
 		You can run the following command to confirm that the Data Factory provider is registered. 
 	
 			Get-AzureRmResourceProvider
-	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
+	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 - 	To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
 
@@ -273,6 +273,6 @@ See [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-az
 | :---- | :---- |
 | [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-| [Pipelines](data-factory-create-pipelines.md) | This article helps you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Pipelines](data-factory-create-pipelines.md) | This article helps you understand pipelines and activities in Azure Data Factory |
 | [Datasets](data-factory-create-datasets.md) | This article helps you understand datasets in Azure Data Factory.
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
