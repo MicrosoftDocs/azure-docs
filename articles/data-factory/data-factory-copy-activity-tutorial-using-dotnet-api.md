@@ -23,7 +23,7 @@
 - [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 This tutorial shows you how to create and monitor an Azure data factory using the .NET API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.

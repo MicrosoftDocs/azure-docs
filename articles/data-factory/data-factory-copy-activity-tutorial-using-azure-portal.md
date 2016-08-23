@@ -23,6 +23,7 @@
 - [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 
