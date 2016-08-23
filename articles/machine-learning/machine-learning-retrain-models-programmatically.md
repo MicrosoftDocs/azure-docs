@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Retrain Machine Learning models programmatically | Microsoft Azure"
 	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="08/09/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -165,6 +165,9 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 ##Summary  
 Using the Retraining APIs, we can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  
 
+## Next steps
+[Troubleshooting the retraining of an Azure Machine Learning classic web service](machine-learning-troubleshooting-retraining-models.md)
+
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
 [2]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
 [3]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE03.png
@@ -175,3 +178,4 @@ Using the Retraining APIs, we can update the trained model of a predictive Web S
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+

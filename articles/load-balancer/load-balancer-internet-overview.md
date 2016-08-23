@@ -4,7 +4,7 @@
    description="Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Internet Facing load balancer between multiple Virtual Machines or services

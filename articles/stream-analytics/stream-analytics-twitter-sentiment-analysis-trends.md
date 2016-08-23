@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/27/2016"
+	ms.date="08/11/2016"
 	ms.author="jeffstok"/>
 
 
@@ -31,7 +31,7 @@ A news media website is interested in getting an edge over its competitors by fe
 ## Prerequisites
 1.	Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
 2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) from the Microsoft Download Center
-3.	Optional: Source code for twitter client from [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
+3.	Optional: Source code for twitter client from [Github](https://aka.ms/azure-stream-analytics-twitterclient) 
 
 ## Create an Event Hub input and a Consumer Group
 

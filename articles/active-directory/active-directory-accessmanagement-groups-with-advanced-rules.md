@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -198,6 +198,23 @@ You can now populate members in a group based on the manager attribute of a user
 	where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 
 3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+
+
+## Using attributes to create rules for device objects
+
+You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
+
+| Properties           | Allowed values                  | Usage                                                |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName          | any string value                | (device.displayName -eq "Rob Iphone”)                 |
+| deviceOSType         | any string value                | (device.deviceOSType -eq "IOS")                      |
+| deviceOSVersion      | any string value                | (device.OSVersion -eq "9.1")                         |
+| isDirSynced          | true false null                 | (device.isDirSynced -eq "true")                      |
+| isManaged            | true false null                 | (device.isManaged -eq "false")                       |
+| isCompliant          | true false null                 | (device.isCompliant -eq "true")                      |
+
+> [AZURE.NOTE]
+> These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
 
 
 ## Additional information

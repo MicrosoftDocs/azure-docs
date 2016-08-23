@@ -1,20 +1,20 @@
-{:template-header
+{:allowed-branch-names ["master" "acrolinx-test" "release-azure-stack-tp2" "release-government" "release-ignite-2016" "release-managed-storage"]
+ :allowed-filename-matches ["articles" "includes"]
+
+ :template-header
    "
 ## Acrolinx Scorecards (Beta)
 
 Click the scorecard links for each article to review the Acrolinx feedback on grammar, spelling, punctuation, writing style, and terminology:
 
+| Article | Score | Issues | Scorecard |
+| ------- | ----- | ------ | --------- |
 "
 
    ;; do not remove the spaces at the end of lines! That is markdown for
    ;; linebreak
    :template-change
-   "
-* **Article: ${github/filename}**<br>
-  [Scorecard link](${acrolinx/scorecard})<br>
-  Number of issues: ${acrolinx/flags/total}<br>
-  Score: ${acrolinx/qualityscore}
-
+   "| **${github/filename}** | ${acrolinx/qualityscore} | ${acrolinx/flags/issues} | [link](${acrolinx/scorecard}) |
 "
 
  :template-footer
