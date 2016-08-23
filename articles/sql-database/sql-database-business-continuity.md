@@ -86,7 +86,7 @@ If the data loss occurred outside the current retention period for automated bac
 
 <!-- Explain this scenario -->
 
-Although rare, an Azure data ceneter can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
 
 - One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
 - Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover will only take a few seconds while recovery from backups will take hours.
