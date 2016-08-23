@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
