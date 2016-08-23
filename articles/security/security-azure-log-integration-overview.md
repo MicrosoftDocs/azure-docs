@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/22/2016"
+   ms.date="08/23/2016"
    ms.author="TomSh"/>
 
 # Introduction to Microsoft Azure log integration (Preview)

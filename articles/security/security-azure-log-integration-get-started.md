@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/22/2016"
+   ms.date="08/23/2016"
    ms.author="TomSh"/>
 
 # Get started with Azure log integration (Preview)
@@ -93,8 +93,6 @@ If you still don’t see the events, then:
 
 3. In Microsoft Azure Storage Explorer, browse to table **WADWindowsEventLogsTable** to see if there is any data. If not, then diagnostics in the VM is not configured correctly.
 
-![Table WADWindowsEventLogsTable][1]
-
 ## Integrate Azure audit logs and Security Center alerts
 
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
@@ -136,6 +134,3 @@ In this tutorial, you learned how to install Azure log integration and integrate
 - [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
 - [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
 - [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – This blog post introduces you to Azure Audit Logs and other features that help you gain insights into the operations of your Azure resources.
-
-<!--Image references-->
-[1]: ./media/security-azure-log-integration-get-started/wad-logs-table.png
