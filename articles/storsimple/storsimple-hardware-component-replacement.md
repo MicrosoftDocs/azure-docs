@@ -86,7 +86,7 @@ The plug-in modules on the device are highlighted in the following front and rea
 
 ![Frontplane of device with disk drives](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Figure 1**  Front of the device
+**Figure 1** Front of the device
 
 |Label|Description|
 |:----|:----------|
@@ -96,7 +96,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 
 ![Backplane of device primary enclosure modules](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Figure 2**  Back of the primary enclosure
+**Figure 2** Back of the primary enclosure
 
 |Label|Description|
 |:----|:----------|
@@ -107,7 +107,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 
 ![Backplane of device EBOD enclosure plug-in modules](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Figure 3**  Back of the EBOD enclosure
+**Figure 3** Back of the EBOD enclosure
 
 |Label|Description|
 |:----|:----------|
