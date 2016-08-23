@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -72,7 +72,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Monitor resources
 
-When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type..
+When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
 
 1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
 
@@ -94,7 +94,7 @@ When you select a resource, the resource blade presents default graphs and table
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     To learn about working with dashboards, view the [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) video. To learn about sharing access to a published dashboard, see [Share Azure dashboards](azure-portal-dashboard-share-access.md).
+     To learn about working with dashboards, view the [Build Custom Dashboards in the Azure portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) video. To learn about sharing access to a published dashboard, see [Share Azure dashboards](azure-portal-dashboard-share-access.md).
 
 ## Manage resources
 
@@ -147,7 +147,7 @@ Deleting a resource group deletes all the resources contained within it. You can
 ## Next Steps
 
 - To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
-- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
+- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
 - To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
 - To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 
