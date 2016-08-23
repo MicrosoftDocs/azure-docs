@@ -307,7 +307,7 @@ data:
 info:    group show command OK
 ```
 
-Let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option to examine our resource group by using the `azure group show` command. (You can use **jsawk** or any language library you prefer to parse the JSON.)
+To examine our resource group by using the `azure group show` command, let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option. (You can use **jsawk** or any language library you prefer to parse the JSON.)
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
@@ -525,7 +525,7 @@ data:    FQDN                            : testsubdomain.westeurope.cloudapp.azu
 info:    network public-ip create command OK
 ```
 
-This is also a top-level resource, so you can see it with `azure group show`.
+The public IP address is also a top-level resource, so you can see it with `azure group show`.
 
 ```bash
 azure group show TestRG --json | jq '.'
@@ -584,7 +584,7 @@ Output:
 }
 ```
 
-You can investigate more resource details, including the fully qualified domain name (FQDN) of the subdomain, by using the complete `azure network public-ip show` command. The public IP address resource has been allocated logically, but a specific address has not yet been assigned. For that, you're going to need a load balancer, which we have not yet created.
+You can investigate more resource details, including the fully qualified domain name (FQDN) of the subdomain, by using the complete `azure network public-ip show` command. The public IP address resource has been allocated logically, but a specific address has not yet been assigned. To obtain an IP address, you're going to need a load balancer, which we have not yet created.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
@@ -610,7 +610,7 @@ Output:
 ```
 
 ## Create a load balancer and IP pools
-When you create a load balancer, it enables you to distribute traffic across multiple VMs. You can do this when running web applications, for example. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
+When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
 
 We create our load balancer with:
 
@@ -657,7 +657,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-Note how we used the `--public-ip-name` switch to pass in the TestLBPIP that we created earlier. This assigns the public IP address to the load balancer so we can reach our VMs across the Internet.
+Note how we used the `--public-ip-name` switch to pass in the TestLBPIP that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic:
 
@@ -754,7 +754,7 @@ Repeat the procedure for your second NAT rule for SSH:
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. If we do this, instead of hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool. Then the load balancer automatically adjusts the flow of traffic:
+Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. If we hook up the rule to IP pool, instead of hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool. Then the load balancer automatically adjusts the flow of traffic:
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -816,7 +816,7 @@ Now the load balancer configuration is done. Here are the steps you took:
 2. Then you created a front-end IP pool and assigned a public IP to it.
 3. Next you created a back-end IP pool that VMs can connect to.
 4. After that, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app.
-5. Finally you added a health probe to periodically check the VMs. This ensures that users don't try to access a VM that is no longer functioning or serving content.
+5. Finally you added a health probe to periodically check the VMs. This health probe ensures that users don't try to access a VM that is no longer functioning or serving content.
 
 Let's review what your load balancer looks like now:
 
@@ -978,7 +978,7 @@ data:
 info:    network nic create command OK
 ```
 
-You can see the details by examining the resource directly. You do this by using the `azure network nic show` command:
+You can see the details by examining the resource directly. You examine the resource by using the `azure network nic show` command:
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
@@ -1054,7 +1054,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This is a rule about a network connection, and not about an endpoint, which is what it would be about in classic deployments. This means that to open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
+> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This inbound rule is about a network connection, and not about an endpoint, which is what it would be about in classic deployments. To open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
 
 ## Bind to the NIC
 
@@ -1259,7 +1259,7 @@ Now that you have built out this environment, what if you want to create an addi
 azure group export TestRG
 ```
 
-This creates the `TestRG.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these in your template file by adding `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
+This command creates the `TestRG.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
 
 To create an environment from your template:
 
