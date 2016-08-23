@@ -22,7 +22,7 @@ Azure Role-Based Access Control (RBAC) comes with the following built-in roles t
 
 ## Roles in Azure
 
-The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
+The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
 >[AZURE.NOTE] The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
 
@@ -46,8 +46,8 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) | Can manage search services |
 | [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
-| [SQL DB Contributor](#sql-db-contributor) | Can manage SQL databases, but not their security related policies |
-| [SQL Security Manager](#sql-security-manager) | Can manage the security related policies of SQL servers and databases |
+| [SQL DB Contributor](#sql-db-contributor) | Can manage SQL databases, but not their security-related policies |
+| [SQL Security Manager](#sql-security-manager) | Can manage the security-related policies of SQL servers and databases |
 | [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases, but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts |
@@ -59,7 +59,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [Website Contributor](#website-contributor) | Can manage websites, but not the web plans to which they are connected |
 
 ## Role permissions
-The following tables describe the specific permissions given to each role. This can include **Actions** which give permissions and **NotActions** which restrict them.
+The following tables describe the specific permissions given to each role. This can include **Actions**, which give permissions, and **NotActions**, which restrict them.
 
 ### API Management Service Contributor
 Can manage API Management services
@@ -179,11 +179,11 @@ Can view everything and connect, start, restart, and shutdown virtual machines
 | Microsoft.DevTestLab/labs/createEnvironment/action | Create a lab environment |
 | Microsoft.DevTestLab/labs/formulas/delete | Delete formulas |
 | Microsoft.DevTestLab/labs/formulas/read | Read formulas |
-| Microsoft.DevTestLab/labs/formulas/write | Add or modify forumulas |
+| Microsoft.DevTestLab/labs/formulas/write | Add or modify formulas |
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluate lab policies |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Join a load balancer backend address pool |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join a load balancer inbound NAT rule |
-| Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (e.g. all the load balancers that the network interface is a part of) |
+| Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (for example, all the load balancers that the network interface is a part of) |
 | Microsoft.Network/networkInterfaces/join/action | Join a Virtual Machine to a network interface |
 | Microsoft.Network/networkInterfaces/read | Read network interfaces |
 | Microsoft.Network/networkInterfaces/write | Write network interfaces |
@@ -302,7 +302,7 @@ Can manage Search services
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### Security Manager
-Can manage security components, security policies and virtual machines
+Can manage security components, security policies, and virtual machines
 
 | **Actions** ||
 | ------- | ------ |
@@ -318,7 +318,7 @@ Can manage security components, security policies and virtual machines
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### SQL DB Contributor
-Can manage SQL databases but not their security related policies
+Can manage SQL databases but not their security-related policies
 
 | **Actions** ||
 | ------- | ------ |
@@ -342,7 +342,7 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit security metrics |
 
 ### SQL Security Manager
-Can manage the security related policies of SQL servers and databases
+Can manage the security-related policies of SQL servers and databases
 
 | **Actions** ||
 | ------- | ------ |
@@ -369,7 +369,7 @@ Can manage the security related policies of SQL servers and databases
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### SQL Server Contributor
-Can manage SQL servers and databases but not their security related policies
+Can manage SQL servers and databases but not their security-related policies
 
 | **Actions** ||
 | ------- | ------ |
@@ -408,7 +408,7 @@ Can manage classic storage accounts
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Storage Account Contributor
-Can manage storage accounts, but not acccess to them.
+Can manage storage accounts, but not access to them.
 
 | **Actions** ||
 | ------- | ------ |
@@ -467,7 +467,7 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Join network application gateway backend address pools |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Join load balancer backend address pools |
 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Join load balancer inbound NAT pools |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join load balancer inbound NAT ules |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join load balancer inbound NAT rules |
 | Microsoft.Network/loadBalancers/read | Read load balancers |
 | Microsoft.Network/locations/* | Create and manage network locations |
 | Microsoft.Network/networkInterfaces/* | Create and manage network interfaces |
