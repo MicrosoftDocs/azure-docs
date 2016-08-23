@@ -134,7 +134,7 @@ Released: 2015 November
 **New preview features:**
 
 - [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
-- Support for [Azure AD Domain Services](active-directory-manage-passwords.md) password synchronization.
+- Support for [Azure AD Domain Services](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
 
 **New supported scenario:**
 
