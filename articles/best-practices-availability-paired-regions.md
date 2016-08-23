@@ -95,4 +95,4 @@ As referred to in figure 2.
 
 ## Next steps
 
-[Learn more](../resiliency-technical-guidance-recovery-loss-azure-region.md) about recovery from a region-wide service disruption.
+[Learn more](resiliency-technical-guidance-recovery-loss-azure-region.md) about recovery from a region-wide service disruption.
