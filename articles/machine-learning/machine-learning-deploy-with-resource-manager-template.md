@@ -129,7 +129,7 @@ $rgd.Outputs.mlWorkspaceToken.Value
 After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](http://aka.ms/amlps).
 
 ## Next Steps 
-* Learn more about [authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/). 
+* Learn more about [authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
  
