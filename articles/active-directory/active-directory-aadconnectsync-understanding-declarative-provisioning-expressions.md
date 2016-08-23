@@ -81,7 +81,7 @@ The functions can operate on both single-valued and multi-valued attributes. For
 
 For example:  
 `Trim([proxyAddresses])` Do a Trim of every value in the proxyAddress attribute.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"` For every value with an @-sign, replace the domain with \@contoso.com.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` For every value with an @-sign, replace the domain with @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Look for the SIP-address and remove it from the values.
 
 ### Merging attribute values

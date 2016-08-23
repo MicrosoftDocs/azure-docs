@@ -43,7 +43,7 @@ The types are expressed with the following syntax:
 - **var** – A variant of (almost) any other type
 - **void** – doesn’t return a value
 
-The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** works on both single-valued and multi-valued attributes.
+The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** work on both single-valued and multi-valued attributes.
 
 ## Functions Reference
 
