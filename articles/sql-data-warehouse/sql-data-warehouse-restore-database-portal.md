@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess;lakshmir"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Restore an Azure SQL Data Warehouse (Portal)
 
