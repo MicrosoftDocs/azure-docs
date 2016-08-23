@@ -116,10 +116,7 @@ Now you can choose precisely the image you want to use. To create a virtual mach
 
 ## PowerShell
 
-With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../articles/powershell-azure-resource-manager.md) for more complete update and configuration details.
-
-> [AZURE.NOTE] With Azure PowerShell modules above 1.0, the `Switch-AzureMode` cmdlet was removed. With that version and more recent, please replace the commands below with the `Azure` portion replaced with `AzureRm`. If you are using Azure PowerShell modules below 1.0, you will use the below commands but you must first `Switch-AzureMode AzureResourceManager`. 
-
+> [AZURE.NOTE] Install and configure the [latest Azure PowerShell](../powershell-install-configure.md). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 
 When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
 
@@ -127,7 +124,7 @@ When creating a new virtual machine with Azure Resource Manager, in some cases y
 - Offer
 - SKU
 
-For example, these values are needed for the **Set-AzureVMSourceImage** PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+For example, these values are needed for the `Set-AzureVMSourceImage` PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
 
 If you need to determine these values, you can navigate the images to determine these values:
 
@@ -135,69 +132,79 @@ If you need to determine these values, you can navigate the images to determine 
 2. For a given publisher, list their offers.
 3. For a given offer, list their SKUs.
 
-To do this in PowerShell, first switch to the Resource Manager mode of Azure PowerShell.
 
-	Switch-AzureMode AzureResourceManager
+First, list the publishers with the following commands:
 
-For the first step above, list the publishers with these commands.
+```powershell
+$locName="<Azure location, such as West US>"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+```
 
-	$locName="<Azure location, such as West US>"
-	Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+Fill in your chosen publisher name and run the following commands:
 
-Fill in your chosen publisher name and run these commands.
+```powershell
+$pubName="<publisher>"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
-	$pubName="<publisher>"
-	Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Fill in your chosen offer name and run the following commands:
 
-Fill in your chosen offer name and run these commands.
+```powershell
+$offerName="<offer>"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
-	$offerName="<offer>"
-	Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+From the display of the `Get-AzureRMVMImageSku` command, you have all the information you need to specify the image for a new virtual machine.
 
-From the display of the **Get-AzureVMImageSku** command, you have all the information you need to specify the image for a new virtual machine.
+The following shows a full example:
 
-Here is an example.
+```powershell
+PS C:\> $locName="West US"
+PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
-
-	PublisherName
-	-------------
-	a10networks
-	aiscaler-cache-control-ddos-and-url-rewriting-
-	alertlogic
-	AlertLogic.Extension
-	Barracuda.Azure.ConnectivityAgent
-	barracudanetworks
-	basho
-	boxless
-	bssw
-	Canonical
-	...
+PublisherName
+-------------
+a10networks
+aiscaler-cache-control-ddos-and-url-rewriting-
+alertlogic
+AlertLogic.Extension
+Barracuda.Azure.ConnectivityAgent
+barracudanetworks
+basho
+boxless
+bssw
+Canonical
+...
+```
 
 For the "MicrosoftWindowsServer" publisher:
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```powershell
+PS C:\> $pubName="MicrosoftWindowsServer"
+PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 
-	Offer
-	-----
-	WindowsServer
+Offer
+-----
+WindowsServer
+```
 
 For the "WindowsServer" offer:
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```powershell
+PS C:\> $offerName="WindowsServer"
+PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 
-	Skus
-	----
-	2008-R2-SP1
-	2012-Datacenter
-	2012-R2-Datacenter
-	Windows-Server-Technical-Preview
+Skus
+----
+2008-R2-SP1
+2012-Datacenter
+2012-R2-Datacenter
+2016-Nano-Server-Technical-Previe
+2016-Technical-Preview-with-Conta
+Windows-Server-Technical-Preview
+```
 
-From this list, copy the chosen SKU name, and you have all the information for the **Set-AzureVMSourceImage** PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
-
+From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureVMSourceImage` PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
 
 
 <!--Image references-->
