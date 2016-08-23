@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/20/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -89,7 +89,6 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 - [sys.database_role_members](http://msdn.microsoft.com/library/ms189780.aspx)
 - [sys.databases](http://msdn.microsoft.com/library/ms178534.aspx)
 - [sys.default_constraints](http://msdn.microsoft.com/library/ms173758.aspx)
-- [sys.extended_properties](http://msdn.microsoft.com/library/ms177541.aspx)
 - [sys.external_data_sources](http://msdn.microsoft.com/library/dn935019.aspx)
 - [sys.external_file_formats](http://msdn.microsoft.com/library/dn935025.aspx)
 - [sys.external_tables](http://msdn.microsoft.com/library/dn935029.aspx)

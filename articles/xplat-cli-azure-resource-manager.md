@@ -19,6 +19,7 @@
 
 # Use the Azure CLI to manage Azure resources and resource groups
 
+
 > [AZURE.SELECTOR]
 - [Portal](azure-portal/resource-group-portal.md) 
 - [Azure CLI](xplat-cli-azure-resource-manager.md)

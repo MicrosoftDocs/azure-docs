@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Add the Office 365 Users connector in PowerApps Enterprise or Logic Apps | Microsoft Azure"
+    pageTitle="Add the Office 365 Users connector in Logic Apps | Microsoft Azure"
     description="Overview of Office 365 Users connector with REST API parameters"
     services=""    
     documentationCenter=""     
@@ -14,32 +14,19 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the Office 365 Users connector
 
-Connect to Office 365 Users to get profiles, search users, and more. The Office 365 Users connector can be used from:
-
-- Logic apps 
-- PowerApps
-
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-office365-users.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
-
-&nbsp; 
+Connect to Office 365 Users to get profiles, search users, and more. 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
-
 
 With Office 365 Users, you can:
 
 - Build your business flow based on the data you get from Office 365 Users. 
 - Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
-- Add the Office 365 Users connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
-
-For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
