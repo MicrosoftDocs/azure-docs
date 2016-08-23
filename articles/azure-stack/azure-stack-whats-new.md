@@ -13,46 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/22/2016"
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
 
-
-This document covers new features and capabilities in each release of Azure Stack.
+This document covers new features and capabilities in this release of Azure Stack.
 
 ## Workloads
  - Key Vault
    - Create and manage Key Vaults
    - Store and deploy secrets and keys
- - Preview support for workloads:
-   - Docker
-   - Mesos
-   - SQL
+ - Preview support for new workloads and extensions, including:
+   - Docker containers
+   - Mesos clusters
+   - Microsoft SQL
  - Updated App Service Resource Provider
+   - New administration capabilities
+   - Web Apps
+   - Mobile Apps
+   - API Apps 
  
 ## Administrative and Portal
  - Billing and Usage APIs 
  - Ability to capture plan and offer details in ARM templates for redeployment
  - Export ARM Templates from GUI
- -  Delegated Providers enable resale of Azure Stack services by resellers
- - Introduces Azure Stack regions with the ability to:
-   - view a list of all Azure Stack regions
-   - view alerts by regions
-   - navigate to storage, computer, and network providers per regions
-   - view updates available in specific regions
+ - Delegated Providers enable resale of Azure Stack services by resellers
+ - Introduces Azure Stack **regions**, including:
+   - view a list of all Azure Stack region
+   - navigate to storage, computer, and network providers per region
+   - view updates available in specific region
 - New monitoring capabilities
-  - View details on Azure Stack alerts by regions
+  - View details on monitoring alerts by region
   - Health Resource Provider enables retrieval of monitoring data via REST
 
-## Networking
+## Azure Stack Infrastructure
+### Networking
  - iDNS allows for name resolution within virtual networks
  - VPN Site-To-Site gateways
- - Provider now canview the state of networking resources via the portal, including virtual networks, load balancers, and IP allocation and consumption information
+ - Providers now can view the state of networking resources via the portal, including virtual networks, load balancers, and IP allocation and consumption information
  - Providers can implement quotas within the Network Resource Provider
 
-## Storage
-Azure-consistent Storage (ACS) provides storage blob, table, queue and account management. Further, ACS also offers an administration service to facilitate service provider administration of Azure-consistent Storage services. 
+### Storage  
 - Broadening Azure consistency against 2015-04-05 version of Storage *data* path API 
   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) 
