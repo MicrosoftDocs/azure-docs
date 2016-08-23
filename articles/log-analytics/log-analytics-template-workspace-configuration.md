@@ -51,6 +51,7 @@ The following template sample illustrates how to:
 8.	Collect Error and Warning events from the Application Event Log from Windows computers
 9.	Collect Memory Available Mbytes performance counter from Windows computers
 10.	Collect a custom log 
+11.	Collect IIS logs and Windows Event logs written by Azure diagnostics into a storage account
 
 
 ```
@@ -83,11 +84,29 @@ The following template sample illustrates how to:
         "Southeast Asia",
         "Australia Southeast"
       ]
-    }
+    },
+    "applicationDiagnosticsStorageAccountName": {
+    	"type": "string",
+    	"metadata": {
+    	  "description": "Name of the storage account with Azure diagnostics output"
+    	}
+    },
   },
   "variables": {
-    "apiVersion": "2015-11-01-preview"
-  },
+    "apiVersion": "2015-11-01-preview",
+    "Updates": {
+      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "Updates"
+    },
+    "AntiMalware": {
+      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "AntiMalware"
+    },
+    "SQLAssessment": {
+      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "SQLAssessment"
+    },    
+  }
   "resources": [
     {
       "apiVersion": "[variables('apiVersion')]",
@@ -303,6 +322,84 @@ The following template sample illustrates how to:
           "properties": {
             "state": "LinuxLogsEnabled"
           }
+        },
+        {
+          "apiVersion": "2015-11-01-preview",
+          "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
+          "type": "storageinsightconfigs",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('applicationDiagnosticsStorageAccountName'))]"
+          ],
+          "properties": {
+            "containers": [ 
+              "wad-iis-logs" 
+            ],
+            "tables": [
+              "WADWindowsEventLogsTable"
+            ],
+            "storageAccount": {
+              "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
+              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts',
+              parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+            }
+          },
+        {
+          "apiVersion": "[variables('apiVersion')]",
+          "location": "[parameters('location')]",
+          "name": "[variables('Updates').Name]",
+          "type": "Microsoft.OperationsManagement/solutions",
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').Name)]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          },
+          "plan": {
+            "name": "[variables('Updates').Name]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('Updates').GalleryName)]",
+            "promotionCode": ""
+          }
+        },
+        {
+          "apiVersion": "[variables('apiVersion')]",
+          "location": "[parameters('location')]",
+          "name": "[variables('AntiMalware').Name]",
+          "type": "Microsoft.OperationsManagement/solutions",
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('AntiMalware').Name)]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          },
+          "plan": {
+            "name": "[variables('AntiMalware').Name]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('AntiMalware').GalleryName)]",
+            "promotionCode": ""
+          }
+        },
+        {
+          "apiVersion": "[variables('apiVersion')]",
+          "location": "[parameters('location')]",
+          "name": "[variables('SQLAssessment').Name]",
+          "type": "Microsoft.OperationsManagement/solutions",
+          "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('SQLAssessment').Name)]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          },
+          "plan": {
+            "name": "[variables('SQLAssessment').Name]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('SQLAssessment').GalleryName)]",
+            "promotionCode": ""
+          }
         }
       ]
     }
@@ -318,38 +415,19 @@ The following template sample illustrates how to:
 
 ```
 
-## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Examples of resources that you can perform agentless monitoring for are:
-
-+ Classic cloud services (web and worker roles)
-+ Service fabric clusters
-+ Network security groups
-+ Key vaults and 
-+ Application gateways
-
-The following example shows how to:
-
-1.	List the existing storage accounts and locations that Log Analytics will index data from
-2.	Create a configuration to read from a storage account
-3.	Update the newly created configuration to index data from additional locations
-4.	Delete the newly created configuration
-
-```
-
-```
 
 ## Example Resource Manager templates
 
 The Azure quickstart template gallery includes several templates for Log Analytics, including:
 
 + [Deploy a virtual machine running Windows with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/en-us/documentation/templates/asr-oms-monitoring/)
-+ [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/en-us/documentation/templates/101-webappazure-oms-monitoring/)
-+ [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/en-us/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-oms/)
-+ [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-vmss-oms/)
++ [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
++ [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
++ [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
++ [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
++ [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
++ [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 
 ## Next steps
