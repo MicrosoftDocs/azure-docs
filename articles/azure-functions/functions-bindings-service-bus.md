@@ -16,9 +16,10 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande,glenga"/>
+	ms.author="chrande; glenga"/>
 
 # Azure Functions Service Bus triggers and bindings for queues and topics
+
 
 This article explains how to configure and code Azure Service Bus triggers and bindings in Azure Functions. 
 

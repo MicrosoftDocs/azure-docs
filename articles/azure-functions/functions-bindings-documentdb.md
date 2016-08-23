@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
 	ms.date="08/22/2016"
-	ms.author="chrande,glen"/>
+	ms.author="chrande; glenga"/>
 
 # Azure Functions DocumentDB bindings
 
