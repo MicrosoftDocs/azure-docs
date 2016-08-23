@@ -111,9 +111,9 @@ In order to send messages to the queue, we will write a C# console application u
     }
     ```
   
-3. Run the program, and check the Azure classic portal. Notice that the **Queue Length** value should now be 1.
+3. Run the program, and check the Azure portal. Click the name of your queue in the namespace **Overview** blade. Notice that the **Active message count** value should now be 1.
     
-      ![Queue length][queue-length-send]
+      ![Messge count][queue-message]
     
 ## 4. Receive messages from the queue
 
@@ -173,7 +173,7 @@ In order to send messages to the queue, we will write a C# console application u
   
 4. Run the program, and check the portal. Notice that the **Queue Length** value should now be 0.
 
-    ![Queue length][queue-length-receive]
+    ![Queue length][queue-message-receive]
   
 Congratulations! You have now created a queue, sent a message, and received a message.
 
@@ -184,8 +184,8 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
