@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/23/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook output and messages in Azure Automation
@@ -48,16 +48,18 @@ Consider the following sample runbook.
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 The output stream for the runbook job would be:
 
@@ -68,10 +70,20 @@ The verbose stream for the runbook job would be:
 	Verbose outside of function
 	Verbose inside of function
 
+Once you have published the runbook and before you start it, you must also turn on Verbose logging in the runbook settings in order to get the Verbose stream output.
+
 ### Declaring output data type
 
 A workflow can specify the data type of its output using the [OutputType attribute](http://technet.microsoft.com/library/hh847785.aspx). This attribute has no effect during runtime, but it provides an indication to the runbook author at design time of the expected output of the runbook. As the toolset for runbooks continues to evolve, the importance of declaring output data types at design time will increase in importance. As a result, it is a best practice to include this declaration in any runbooks that you create.
 
+Here is a list of example output types:
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 The following sample runbook outputs a string object and includes a declaration of its output type. If your runbook outputs an array of a certain type, then you should still specify the type as opposed to an array of the type.
 
 	Workflow Test-Runbook
@@ -81,6 +93,25 @@ The following sample runbook outputs a string object and includes a declaration 
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
+
+To declare an output type in Grapical or Graphical PowerShell Workflow runbooks, you can select the **Input and Output** menu option and type in the name of the output type.  We recommend you use the full .NET class name to make it easily identifiable when referencing it from a parent runbook.  This exposes all the properties of that class to the data bus in the runbook and provides a lot of flexibility when using them for conditional logic, logging, and referencing as values for other activities in the runbook.<br> ![Runbook Input and Output option](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+In the following example, we have two graphical runbooks to demonstrate this feature.  If we apply the modular runbook design model, we have one runbook which serves as the *Authentication Runbook template* managing authentication with Azure using the Run As account.  Our second runbook, which would normally perform some specific set of functions or operations, in this case is going to output the authentication results using the **Write-Verbose** cmdlet when testing the runbook.  You could use **Write-Output** instead, it really doesn't matter.  
+
+Here is the basic logic of the **AuthenticateTo-Azure** runbook.<br> ![Authenticate Runbook Template Example](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
+
+It includes an optional input parameter to specify a SubscriptionId and an output type called *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which will return the authentication profile properties<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
+
+The first activity is the **Get-AutomationConnection** connection variable, which references an Automation Run As account.  The next activity authenticates the Run As account using the **Add-AzureRmAccount** cmdlet and this is the same configuration as what is defined in the example **AzureAutomationTutorial** runbook.  Following this activity are two Sequence links with a conditional expression to determine if a SubscriptionId was specified as an input parameter when the runbook was executed.  If there is a value, then the **Set-AzureRMContext** cmdlet activity is executed to reference a specific subscription, otherwise we accept the default and move to the next activity.  The final activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, required for that cmdlet.      
+
+For the second runbook in this example, named *Test-ChildOutputType*, we simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+
+The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameter-config.png)    
+
+The resulting output is the name of the subscription.<br> ![Test-ChildOutputType Runbook Results](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+One note about the behavior of the Output Type control.  When you type a value in the Output Type field on the Input and Output properties blade, you have to click outside of the control  after you type it, in order for your entry to be recognized by the control.  
+
 
 ## Message streams
 
@@ -189,7 +220,7 @@ The Trace records can be especially numerous.  With Graphical runbook tracing yo
 
     ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-## Next Steps
+## Next steps
 
 - To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
 - To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
