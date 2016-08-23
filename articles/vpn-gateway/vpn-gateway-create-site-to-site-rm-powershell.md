@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
@@ -33,7 +33,7 @@ This article will walk you through creating a virtual network and a Site-to-Site
 
 ## Connection diagram 
 
-![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site2site.png "site-to-site")
+![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site")
 
 **Deployment models and tools for Site-to-Site connections**
 
