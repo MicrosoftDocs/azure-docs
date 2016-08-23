@@ -165,7 +165,7 @@ The **allowed values** for the **cloudDataMovementUnits** property are 1 (defaul
 
 When you copy multiple large files with **cloudDataMovementUnits** configured as 2, 4, and 8, performance can reach 2x (two times), 4x, and 7x the number of reference numbers mentioned in the performance reference section.
 
-To better take advantage of these two properties and to enhance your data movement throughput, refer to [sample use cases](#case-study---use-parallel-copy).   
+To better take advantage of these two properties and to enhance your data movement throughput, refer to [sample use cases](#case-study-use-parallel-copy).   
 
 It's important to remember that you are charged based on the total time of the copy operation. If a copy job used to take one hour with one cloud unit and now it takes 15 minutes with four cloud units, the overall bill will be almost the same. For example, if you use four cloud units and the first cloud unit spends 10 minutes, the second one spends 10 minutes, the third one spends 5 minutes, and the fourth one spends 5 minutes all in one Copy Activity run, you are charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Using **parallelCopies** does not affect billing.
 
@@ -181,11 +181,11 @@ When you activate the staging feature, first the data is copied from the source 
 
 In the cloud copy scenario in which both source and sink data stores are in the cloud and don't use Data Management Gateway, Data Factory does the copy operations.
 
-![Staged copy: Cloud scenario](media/data-factory-copy-activity-performance/staged-copy--cloud-scenario.png)
+![Staged copy: Cloud scenario](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
 In the hybrid copy scenario in which the source is on-premises and the sink is in the cloud, Data Management Gateway moves data from the source data store to a staging data store. Data Factory also moves data from the staging data store to the sink data store. Copying data from a cloud data store to an on-premises data store via staging also is supported with reversed flow.
 
-![Staged copy: Hybrid scenario](media/data-factory-copy-activity-performance/staged-copy--hybrid-scenario.png)
+![Staged copy: Hybrid scenario](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before moving data from the source data store to an interim or staging data store, and then decompressed before moving data from an interim or staging data store to the sink data store.
 
