@@ -1253,13 +1253,13 @@ info:    vm show command OK
 
 
 ## Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. This means you can build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
 
 ```bash
 azure group export TestRG
 ```
 
-This command creates the `TestRG.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding `-p` or `--includeParameterDefaultValue` to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
+This command creates the `TestRG.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding the `-p` or `--includeParameterDefaultValue` parameter to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
 
 To create an environment from your template:
 
