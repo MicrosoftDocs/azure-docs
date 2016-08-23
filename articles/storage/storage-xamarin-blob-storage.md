@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure"
-	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage."
+	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an application that uses Azure Blob storage."
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/26/2016"
+	ms.date="08/24/2016"
 	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin (Preview)
@@ -26,40 +26,19 @@
 
 Xamarin enables developers to use a shared C# codebase to create iOS, Android, and Windows Store apps with their native user interfaces. The Azure Storage Client Library for Xamarin is a preview library; note that it may change in the future.
 
-This tutorial shows you how to use Azure Blob storage with a Xamarin Android application. To learn more about Azure Storage before diving into the code, see [Next steps](#next-steps) at the end of this document.
+This tutorial shows you how to use Azure Blob storage with a Xamarin application. If you'd like to learn more about Azure Storage, before diving into the code, see [Introduction to Microsoft Azure Storage](storage-introduction.md).
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## Generate a Shared Access Signature
-
-When developing with the Azure Storage Client Library for Xamarin, you cannot authenticate access to an Azure Storage account using your account access keys. This is to prevent your account credentials from being distributed to users that may download your app. Instead, we encourage the use of shared access signatures (SAS), which won’t expose your account credentials.
-
-In this guide, we'll use Azure PowerShell to generate a SAS token. Then we'll create a Xamarin app that uses the generated SAS.
-
-First, you’ll need to install Azure PowerShell. Check out [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for instructions.
-
-Next, open Azure PowerShell and run the following commands. Remember to replace `ACCOUNT_NAME` and `ACCOUNT_KEY== ` with your storage account credentials. Replace `CONTAINER_NAME` with a name of your choosing.
-
-    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:\> $now = Get-Date
-	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
-
-The shared access signature URI for the new container should be similar to the following:
-
-	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
-
-The shared access signature that you created on the container will be valid for the next day. The signature grants full permissions (*e.g.*, read, write, delete, and list) to blobs within the container.
-
-For more information about shared access signatures, see [Shared Access Signatures: Create and use a SAS with Blob storage](storage-dotnet-shared-access-signature-part-2.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Create a new Xamarin Application
 
 For this tutorial, we'll be creating our Xamarin application in Visual Studio. Follow these steps to create the application:
 
-1. Run the [Visual Studio 2015 installer](https://www.visualstudio.com/), selecting a **Custom** install and checking checking the box under **Cross-Platform Mobile Development > C#/.NET (Xamarin)**. If you already have Visual Studio installed, download and install [Xamarin](http://xamarin.com/platform) directly. For complete instructions for Visual Studio and Xamarin, see [Setup and Install](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN.
-3. Open Visual Studio, and select **File > New > Project > Android > Blank App(Android)**.
-4. Right-click your project in the Solution Explorer pane and select **Manage NuGet Packages**. Then search for **Azure Storage** and install **Azure Storage 4.4.0-preview**.
+1. Download and install [Xamarin for Visual Studio](https://www.xamarin.com/download).
+3. Open Visual Studio, and select **File > New > Project > Cross-Platform > Blank App(Native Shared)**.
+4. Right-click your solution in the Solution Explorer pane and select **Manage NuGet Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
 
 You should now have an application that allows you to click a button and increment a counter.
 
