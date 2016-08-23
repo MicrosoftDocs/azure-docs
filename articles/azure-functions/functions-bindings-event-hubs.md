@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/22/2016"
 	ms.author="wesmc"/>
 
 # Azure Functions Event Hub bindings
