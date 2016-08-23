@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
@@ -42,7 +42,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Can manage New Relic Application Performance Management accounts and applications |
 | [Owner](#owner) | Can manage everything, including access |
 | [Reader](#reader) | Can view everything, but can't make changes |
-| [Redis Cache Contributor](#redis-cache-contributor]) | Can manage Redis caches |
+| [Redis Cache Contributor](#redis-cache-contributor) | Can manage Redis caches |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) | Can manage search services |
 | [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
@@ -147,8 +147,8 @@ Can manage everything except access
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |  
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
-| Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
 
 ### Data Factory Contributor
 Can manage data factories
@@ -284,7 +284,8 @@ Can manage Scheduler job collections
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### Search Service Contributor
@@ -296,7 +297,8 @@ Can manage Search services
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Search/searchServices/* | Create and manage search services |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Search/searchServices/* | Create and manage search services |
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### Security Manager
@@ -311,7 +313,8 @@ Can manage security components, security policies and virtual machines
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Security/* | Create and manage security components and policies |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Security/* | Create and manage security components and policies |
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### SQL DB Contributor
@@ -323,7 +326,7 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | 
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Sql/servers/databases/* | Create and manage SQL databases |
 | Microsoft.Sql/servers/read | Read SQL Servers |
 | Microsoft.Support/* | Create and manage support tickets |
@@ -332,7 +335,7 @@ Can manage SQL databases but not their security related policies
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
-| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records | 
+| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit security alert policies |
@@ -352,7 +355,7 @@ Can manage the security related policies of SQL servers and databases
 | Microsoft.Sql/servers/auditingSettings/* | Create and manage SQL server auditing setting |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Create and manage SQL server database auditing policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Create and manage SQL server database auditing settings |
-| Microsoft.Sql/servers/databases/auditRecords/read | Read audit records | 
+| Microsoft.Sql/servers/databases/auditRecords/read | Read audit records |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Create and manage SQL server database connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Create and manage SQL server database data masking policies |
 | Microsoft.Sql/servers/databases/read | Read SQL databases |
@@ -384,7 +387,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit SQL server database auditing settings |
-| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records | 
+| Microsoft.Sql/servers/databases/auditRecords/read  | Can't read audit records |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit SQL server database connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit SQL server database data masking policies |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit SQL server database security alert policies |
@@ -401,7 +404,8 @@ Can manage classic storage accounts
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Storage Account Contributor
 Can manage storage accounts, but not acccess to them.
@@ -413,7 +417,8 @@ Can manage storage accounts, but not acccess to them.
 | Microsoft.Insights/diagnosticSettings/* | Manage diagnostic settings |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### User Access Administrator
@@ -445,7 +450,8 @@ Can manage classic virtual machines but not the virtual network or storage accou
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Virtual Machine Contributor
 Can manage virtual machines but not the virtual network or storage account to which they are connected
@@ -473,7 +479,8 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.Network/virtualNetworks/subnets/join/action | Join virtual network subnets |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
@@ -487,7 +494,8 @@ Can manage classic virtual networks and reserved IPs
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Web Plan Contributor
 Can manage web plans
@@ -498,7 +506,8 @@ Can manage web plans
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.Web/serverFarms/* | Create and manage server farms |
 
 ### Website Contributor
@@ -511,7 +520,8 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Insights/components/* | Create and manage Insights components |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |  
+| Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.Web/certificates/* | Create and manage website certificates |
 | Microsoft.Web/listSitesAssignedToHostName/read | Read sites assigned to a host name |
 | Microsoft.Web/serverFarms/join/action | Join server farms |
