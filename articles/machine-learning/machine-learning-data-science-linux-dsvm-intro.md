@@ -53,7 +53,7 @@ There are no software charges for this data science VM image. You only pay the A
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 - **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-- **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+- **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
 
 
 ## Create your Linux Data Science Virtual Machine
@@ -61,28 +61,27 @@ Before you can create a Linux Data Science Virtual Machine, you must have the fo
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
 
 1.	Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 Click on the **Create** button at the bottom to bring up the wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3.	 The following sections provide the **inputs** for each of the **5 steps** in the wizard (enumerated on the right of the figure above) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
-
+2.	 Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+3.	 The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
   **a. Basics**:
 
    - **Name**: Name of your data science server you are creating.
-   - **User Name**: First account login id
-   - **Password**: First account password (You can use SSH public key instead of password)
-   - **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. NOTE: You must have resource creation privileges for this subscription.
-   - **Resource Group**: You can create a new one or use an existing group
-   - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
+   - **User Name**: First account sign-in ID.
+   - **Password**: First account password (you can use SSH public key instead of password).
+   - **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+   - **Resource Group**: You can create a new one or use an existing group.
+   - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
 
   **b. Size**:
 
-   - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
+   - Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
 
   **c. Settings**
 
-   - **Disk Type**: Choose *Premium* if you prefer a solid state drive (SSD), else choose *Standard*.
-   - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-   - **Other parameters**: In most cases you just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
+   - **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
+   - **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
   **d. Summary**:
 
@@ -90,7 +89,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 
   **e. Buy**:
 
-   - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
+   - To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
 
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
