@@ -124,7 +124,7 @@ When creating a new virtual machine with Azure Resource Manager, in some cases y
 - Offer
 - SKU
 
-For example, these values are needed for the `Set-AzureVMSourceImage` PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+For example, these values are needed for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
 
 If you need to determine these values, you can navigate the images to determine these values:
 
@@ -204,7 +204,7 @@ Skus
 Windows-Server-Technical-Preview
 ```
 
-From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureVMSourceImage` PowerShell cmdlet or for a resource group template.
+From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
 
 
 <!--Image references-->
