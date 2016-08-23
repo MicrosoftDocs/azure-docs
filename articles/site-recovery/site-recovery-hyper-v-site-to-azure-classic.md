@@ -188,6 +188,7 @@ Where parameters include:
 
 >[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 ## Step 5: Create and configure protection groups
 
@@ -243,6 +244,8 @@ Add virtual machines to a protection group to enable protection for them.
 		- **Azure network**: Specify the network to which the virtual machine should fail over. If the virtual machine has multiple network adapters all adapters should connected to the same Azure network.
 		- **Subnet** For each network adapter on the virtual machine, select the subnet in the Azure network to which the machine should connect after failover.
 		- **Target IP address**: If the network adapter of source virtual machine is configured to use static a IP address then you can specify the IP address for the target virtual machine to ensure that the machine has the same IP address after failover.  If you don't specify an IP address then any available address will be assigned at the time of failover. If you specify an address that's in use then failover will fail.
+		
+        > [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
