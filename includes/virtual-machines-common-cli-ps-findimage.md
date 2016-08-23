@@ -204,7 +204,7 @@ Skus
 Windows-Server-Technical-Preview
 ```
 
-From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureVMSourceImage` PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
+From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureVMSourceImage` PowerShell cmdlet or for a resource group template.
 
 
 <!--Image references-->
