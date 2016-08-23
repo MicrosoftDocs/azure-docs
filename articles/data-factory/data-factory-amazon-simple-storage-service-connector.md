@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/08/2016" 
+	ms.date="08/23/2016" 
 	ms.author="spelluru"/>
 
 # Move data From Amazon Simple Storage Service using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity, and a list of supported source/sink data stores. 
+
+with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
 
@@ -62,7 +64,7 @@ The sample copies data from Amazon S3 to an Azure blob every hour. The JSON prop
 
 **Amazon S3 input dataset**
 
-Setting **"external": true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory. You must set this property to true on an input dataset that is not produced by an activity in the pipeline.
+Setting **"external": true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory. Set this property to true on an input dataset that is not produced by an activity in the pipeline.
 
 	{
 	    "name": "AmazonS3InputDataset",
@@ -148,7 +150,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
 	
 	{
 	    "name": "CopyAmazonS3ToBlob",
@@ -208,7 +210,7 @@ The following table provides description for JSON elements specific to Amazon S3
 
 ## Dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **AmazonS3** (which includes Amazon S3 dataset) has the following properties
 
@@ -268,11 +270,11 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ## Copy activity type properties
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities. 
 
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **FileSystemSource** (which includes Amazon S3) the following properties are available in typeProperties section:
+When source in copy activity is of type **FileSystemSource** (which includes Amazon S3), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
