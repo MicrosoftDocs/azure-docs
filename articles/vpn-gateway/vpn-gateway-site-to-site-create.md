@@ -42,9 +42,9 @@ If you want to connect VNets together, see [Configure a VNet-to-VNet connection 
 
 Verify that you have the following items before beginning configuration.
 
-- A compatible VPN device and someone who can configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you'll need to coordinate with someone who can provide those details for you.
+- A compatible VPN device and someone who can configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 
--  An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+-  An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -70,7 +70,7 @@ Enter the following information, and then click the next arrow on the lower righ
 
 - **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 - **Configure Site-To-Site VPN**: Select the checkbox for **Configure a site-to-site VPN**.
-- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if you do select to use a local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate.
+- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if select to use a local network that you previously created, go to the **Local Networks** configuration page and verify that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate.
 
 ## Site-to-site connectivity page
 
@@ -79,7 +79,7 @@ If you're creating a new local network, you'll see the **Site-To-Site Connectivi
 Enter the following information and then click the next arrow.
 
 - 	**Name**: The name you want to call your local (on-premises) network site.
-- 	**VPN Device IP Address**: This is the public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure. The VPN device cannot be located behind a NAT.
+- 	**VPN Device IP Address**: This is the public facing IPv4 address of your on-premises VPN device that you use to connect to Azure. The VPN device cannot be located behind a NAT.
 - 	**Address Space**: Include Starting IP and CIDR (Address Count). This is where you specify the address range(s) that you want to be sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it is routed through the virtual network gateway.
 - 	**Add address space**: If you have multiple address ranges that you want to be sent through the virtual network gateway, this is where you specify each additional address range. You can add or remove ranges later on the **Local Network** page.
 
@@ -87,7 +87,7 @@ Enter the following information and then click the next arrow.
 
 Specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network.
 
-It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You'll need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
 Enter the following information, and then click the checkmark on the lower right to configure your network.
 
@@ -101,7 +101,7 @@ Click the checkmark on the bottom of the page and your virtual network will begi
 
 ## Configure your virtual network gateway
 
-Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md).
+Configure the virtual network gateway to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure classic portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Next steps
 
