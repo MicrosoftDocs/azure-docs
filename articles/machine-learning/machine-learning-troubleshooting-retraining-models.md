@@ -44,6 +44,7 @@ With all the pieces in place, the major steps you must take to retrain the model
 3.	Update the added endpoint from the scoring web service with the new trained model: Using the sample code provided in the Retrain Machine Learning models programmatically, update the new endpoint you added to the scoring model with the newly trained model from the Training Web Service.
 
 ## Common obstacles
+
 ### Check to see if you have the correct PATCH URL
 
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service.  There are two ways to obtain the PATCH URL:
@@ -70,20 +71,22 @@ Options 2: using the Azure Portal
 5.	Click Add Endpoint
 6.	After the endpoint is added, click on the endpoint name. Then click on **Update Resource** to open the patching help page.
 
+>[AZURE NOTE] If you have added the endpoint to the training web service instead of the predictive web service, you will receive the following error when you click on the **Update Resource** link: Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.
+
 ![New endpoint dashboard.][image3]
 
 The PATCH help page contains the PATCH URL you must use and provides sample code you can use to call it.
 
 ![Patch URL.][image5]
 
-
 ### Check to see that you are updating the correct scoring endpoint
+
 * Do not patch the training web service: The patch operation must be performed on the scoring web service.
 * Do not patch the default endpoint on web service: The patch operation must be performed on the new scoring web service endpoint that you added.
 
-Check to see that you have added the endpoint to the correct web service
+You can verify which web service the endpoint is on by visiting the Azure classic portal. 
 
-The endpoint you use to retrain the model must be on the scoring web service, not the training web service. You can verify which web service the endpoint is on by visiting the Azure classic portal.
+>[AZURE NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
 
 1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
@@ -99,7 +102,6 @@ The endpoint you use to retrain the model must be on the scoring web service, no
 2.	Select Machine Learning from the menu.
       ![Machine learning region UI.][image4]
 3.	Verify the location of your workspace.
-
 
 <!-- Image Links -->
 
