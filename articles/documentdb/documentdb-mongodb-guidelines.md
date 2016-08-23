@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Preview development guidelines for DocumentDB accounts with protocol support for MongoDB
@@ -70,9 +70,9 @@ BulkWrite| |bulkWrite()|
 Comparison|-all-| | 
 Logical|-all-| | 
 Element Query| |-all-| 
-Evaluation|$mod|$regex, $text, $where| 
+Evaluation|$mod, $regex |$text, $where| 
 GeoSpatial|2dsphere, 2d, polygon|Everything else| 
-Array|$all, $size|$elemMatch| 
+Array|$all, $size, $elemMatch|| 
 Bitwise| |-all-| 
 Comment|-all-| | 
 Projection| |-all-| 
