@@ -146,7 +146,7 @@ filter.
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent
+You can also create filters that enable you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
@@ -201,7 +201,7 @@ service.sendTopicMessage("TestTopic", message);
 Messages sent to Service Bus Topics are instances of the
 [BrokeredMessage][] class. [BrokeredMessage][]* objects have a set of
 standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application specific properties, and a body
+that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
 [BrokeredMessage][], and the appropriate **DataContractSerializer** will
