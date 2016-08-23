@@ -25,7 +25,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure classic portal to create the VNets and gateways and PowerShell to configure the VNet-to-VNet connection. You cannot configure the VNet-to-VNet connection in the portal.
+This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure classic portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
 
 **About Azure deployment models**
 
@@ -89,7 +89,7 @@ You may want to connect virtual networks for the following reasons:
 
 It’s important to decide the ranges that you’ll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
 
-The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges for your virtual networks. You’ll need this information for later steps.
+The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges for your virtual networks. You need this information for later steps.
 
 **Example settings**
 
@@ -100,9 +100,9 @@ The following table shows an example of how to define your VNets. Use the ranges
   
 ## Step 2 - Create VNet1
 
-In this step, we'll create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you need to verify that the IP address ranges don't overlap with the ranges for your second VNet, or with any of the other VNets to which you want to connect.
+In this step, we create VNet1. When using any of the examples, be sure to substitute your own values. If your VNet already exists, you don't need to do this step. But, you do need to verify that the IP address ranges don't overlap with the ranges for your second VNet, or with any of the other VNets to which you want to connect.
 
-1. Log in to the [Azure classic portal](https://manage.windowsazure.com). Currently, the settings required configure these steps end-to-end are not fully available in the Azure portal.
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com). In this article, we use the classic portal because some of the required configuration settings are not yet available in the Azure portal.
 
 2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network** > **Custom Create** to begin the configuration wizard. As you navigate through the wizard, add the specified values to each page.
 
@@ -145,7 +145,7 @@ Next, repeat the preceding steps to create another VNet. In later steps, you wil
 
 When you create a VNet-to-VNet configuration, you need to configure local network sites, which are shown in the **Local Networks** page of the portal. Azure uses the settings specified in each local network site to determine how to route traffic between the VNets. You determine the name you want to use to refer to each local network site. It's best to use something descriptive, as you select the value from a dropdown list in later steps.
 
-For example, in this exercise, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
+For example, VNet1 connects to a local network site that you create named "VNet2Local". The settings for VNet2Local contain the address prefixes for VNet2, and a public IP address for the VNet2 gateway. VNet2 connects to a local network site you create named "VNet1Local" that contains the address prefixes for VNet1 and the public IP address for the VNet1 gateway.
 
 ### <a name="localnet"></a>Add the local network site VNet1Local
 
@@ -153,7 +153,7 @@ For example, in this exercise, VNet1 connects to a local network site that you c
 
 2. On the **Specify your local network details** page, for **Name**, enter a name that you want to use to represent the network that you want to connect to. In this example, you can use "VNet1Local" to refer to the IP address ranges and gateway for VNet1.
 
-3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. You then go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
+3. For **VPN Device IP address (optional)**, specify any valid public IP address. Typically, you’d use the actual external IP address for a VPN device. For VNet-to-VNet configurations, you use the public IP address that is assigned to the gateway for your VNet. But, given that you’ve not yet created the gateway, you can specify any valid public IP address as a placeholder. Don't leave this blank - it's not optional for this configuration. In a later step, you go back into these settings and configure them with the corresponding gateway IP addresses once Azure generates it. Click the arrow to advance to the next screen.
 
 4. On the **Specify the address page**, enter the IP address range and address count for VNet1. This must correspond exactly to the range that is configured for VNet1. Azure uses the IP address ranges that you specify to route the traffic intended for VNet1. Click the checkmark to create the local network.
 
@@ -179,7 +179,7 @@ Each VNet must point to the respective local network that you want to route traf
 
 ## Step 5 - Configure a gateway for each VNet
 
-Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static, you need to delete them and recreate them as Dynamic Routing gateways. If you delete a gateway, the public IP address assigned to it gets released, and you need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
+Configure a Dynamic Routing gateway for each virtual network. This configuration does not support Static Routing gateways. If you are using VNets that were previously configured and that already have Dynamic Routing gateways, you don't need to do this step. If your gateways are Static Routing, you need to delete them and recreate them as Dynamic Routing gateways. If you delete a gateway, the public IP address assigned to it gets released, and you need to go back and reconfigure any of your local networks and VPN devices with the new public IP address for the new gateway.
 
 1. On the **Networks** page, verify that the status column for your virtual network is **Created**.
 
@@ -205,7 +205,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 
 ## Step 7 - Create the VPN connection
 
-When all the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys. This set of steps uses PowerShell. You can't create the connection in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
+When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
 
