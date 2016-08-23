@@ -78,7 +78,7 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
-	  <Variable name="PYTHON2" value="off" />
+      <Variable name="PYTHON2" value="off" />
     </Environment>
   </Task>
 
@@ -87,8 +87,9 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
+      <Variable name="PYTHON2" value="off" />
     </Environment>
-	<Variable name="PYTHON2" value="off" />
+	
   </Task>
 
 </Startup>
