@@ -116,7 +116,7 @@ Now you can choose precisely the image you want to use. To create a virtual mach
 
 ## PowerShell
 
-> [AZURE.NOTE] Install and configure the [latest Azure PowerShell](../articles/virtual-machines/powershell-install-configure.md). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> [AZURE.NOTE] Install and configure the [latest Azure PowerShell](../articles/powershell-install-configure.md). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 
 When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
 
