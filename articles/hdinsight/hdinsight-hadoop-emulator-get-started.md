@@ -20,8 +20,24 @@
 
 # Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine
 
-You can set up a Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission.
+Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission.
 
-To get started with a Hortonworks Hadoop Sandbox, see [Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) and look at the section **Hortonworks Sandbox on a VM**. We recommend you run through the tutorials available with the sandbox to get an understanding of HDFS, how jobs are submitted to a cluster, how to track jobs running on a cluster, and so on.
+## Prerequisites
+
+* [Oracle VirtualBox](https://www.virtualbox.org/)
 
 Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
+## Download and install the virtual machine
+
+1. From [http://hortonworks.com/downloads/#sandbox](http://hortonworks.com/downloads/#sandbox), select the __DOWNLOAD FOR VIRTUALBOX__ item for HDP 2.4 on Hortonworks Sandbox. You will be prompted to register with Hortonworks before the download begins.
+
+2. From the same web page, select the __VirtualBox Install Guide__ for HDP 2.4 on Hortonworks Sandbox. This will download a PDF containing installation instructions for the virtual machine.
+
+## Start the virtual machine
+
+1. Start VirtualBox, select the Hortonworks Sandbox, select __Start__, and then __Normal Start__.
+
+2. Once the virtual machine has finished the boot process, it will display login instructions.
+
+## Create a local cluster
