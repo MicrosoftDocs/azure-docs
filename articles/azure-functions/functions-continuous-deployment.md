@@ -60,7 +60,9 @@ After continuous deployment is configured, all changes files in your deployment 
 
 ##Deployment options
 
-The following are some typical deployment scenarios
+The following are some typical deployment scenarios:
+
++ 
 
 ###Create a staging deployment
 

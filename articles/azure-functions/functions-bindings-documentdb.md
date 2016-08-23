@@ -20,6 +20,7 @@
 
 # Azure Functions DocumentDB bindings
 
+[AZURE.INCLUDE [functions-selector-bindings](../../functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
 

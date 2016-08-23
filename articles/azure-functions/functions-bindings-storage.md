@@ -20,6 +20,7 @@
 
 # Azure Functions triggers and bindings for Azure Storage
 
+[AZURE.INCLUDE [functions-selector-bindings](../../functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Storage triggers and bindings in Azure Functions. 
 
