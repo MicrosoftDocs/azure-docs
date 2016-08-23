@@ -30,8 +30,8 @@ Machine Learning Studio and the Microsoft Azure Machine Learning Web Services po
 
 The following links provide general Information on the process of deploying a new web service:
 
-* [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
-* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
+* For an overview of deploying an Azure Resource Manager based New Web Service, see [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md).
+* For a walkthrough of deploying a web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 For a full walkthrough of how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
 
