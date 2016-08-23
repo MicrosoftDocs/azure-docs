@@ -37,7 +37,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 - Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete pre-requisites. 
 - Visual Studio 2012 or 2013 or 2015
 - Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-- Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application if you don't have one already.
+- Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.  
