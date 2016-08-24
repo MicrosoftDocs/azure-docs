@@ -96,7 +96,7 @@ However, when you explore shorter time ranges such as hourly grain, a long sessi
 
 Each user session is associated with a unique user id. 
 
-By default, the user is identified by placing a cookie. A user who uses multiple browsers or devices will be counted more than once. (But see [authenticated users](#authenticated-users)
+By default, the user is identified by placing a cookie. A user who uses multiple browsers or devices will be counted more than once. (But see [authenticated users](#authenticated-users))
 
 
 The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
