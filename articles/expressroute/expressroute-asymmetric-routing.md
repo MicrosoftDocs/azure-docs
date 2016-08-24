@@ -17,13 +17,13 @@
 
 # Asymmetric Routing with multiple network paths
 
-This article explains how traffic can take asymmetric paths when there are multiple paths available between source and destination.
+This article explains how forward and return traffic can take different routes when there are multiple paths available between source and destination.
 
-To understand asymmetric routing, we need to understand two concepts. One is the impact of multiple network paths. Other is the behavior of the devices that keep the state such as firewalls. This type of devices is called stateful devices. A combination of these two factors creates scenarios where the traffic is dropped by a stateful device as it did not see the traffic originated through itself.
+To understand asymmetric routing, we need to understand two concepts. One is impact of multiple network paths. Other is behavior of the devices that keep state such as firewalls. These devices are called stateful devices. A combination of these two factors creates scenarios where the traffic is dropped by a stateful device as it did not see the traffic originated through itself.
 
 ## Multiple Network Paths
 
-When an enterprise network has only one link to the Internet via their Internet service provider, then all the traffic towards and from the Internet comes through the same path. Often, companies decide to have redundant paths to improve network uptime and purchase multiple circuits. In such cases, it is possible that traffic going outside the network towards the Internet goes through one link while the return traffic comes through a different link. This phenomenon is commonly known as Asymmetric Routing where the reverse traffic takes a different path from the original flow.
+When an enterprise network has only one link to the Internet via their Internet service provider, then all traffic towards and from the Internet comes through the same path. Often, companies purchase multiple circuits, as redundant paths, to improve network uptime. In such cases, it is possible that traffic going outside the network towards the Internet goes through one link while the return traffic comes through a different link. This phenomenon is commonly known as Asymmetric Routing where the reverse traffic takes a different path from the original flow.
 
 ![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
@@ -50,9 +50,9 @@ To understand the impact of above two, let’s go through some scenarios. Let's 
 ![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
-Now you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. Microsoft will advertise more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure will choose ExpressRoute as preferred path for those prefixes. If you are not advertising Public IP addresses of your servers to Microsoft, then Microsoft will communicate with your Public IP addresses via Internet. If you have deployed separate stateful device at your edge connecting to ExpressRoute such as Firewall, IDS. If this device has not seen the original request and contains no entry about this flow in its state table. It will drop the return traffic. 
+Now you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. You deploy a separate firewall at your edge connecting to ExpressRoute. Microsoft will advertise more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure will choose ExpressRoute as preferred path for those prefixes. If you are not advertising  your Public IP addresses to Microsoft over ExpressRoute, then Microsoft will communicate with your Public IP addresses via Internet. So, forward traffic from your network to Microsoft will use ExpressRoute while reverse traffic from Microsoft will use Internet. When the firewall at the edge sees a response packet for a flow not found in the state table, then it will drop the return traffic. 
 
-If you choose to use the same NAT pool for ExpressRoute and for Internet, you will see similar issues with the clients on private IP addresses in your network. Request for services such as Windows Update will go via Internet as IP addresses for these services are not advertised via ExpressRoute. However, the return traffic will come back via ExpressRoute. If Microsoft receives an IP address with same subnet mask from Internet and ExpressRoute, then it prefers ExpressRoute over Internet. If a firewall or other Stateful device at your network edge, facing ExpressRoute, has no prior information about the flow, it may drop the packets. 
+If you choose to use the same NAT pool for ExpressRoute and for Internet, you will see similar issues with the clients on private IP addresses in your network. Request for services such as Windows Update will go via Internet as IP addresses for these services are not advertised via ExpressRoute. However, the return traffic will come back via ExpressRoute. If Microsoft receives an IP address with same subnet mask from Internet and ExpressRoute, then it prefers ExpressRoute over Internet. If a firewall or other stateful device at your network edge, facing ExpressRoute, has no prior information about the flow, it will drop the packets belonging to that flow. 
 
 ## Solutions to Asymmetric Routing
 
