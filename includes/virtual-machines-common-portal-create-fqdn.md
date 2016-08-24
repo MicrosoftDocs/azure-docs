@@ -6,11 +6,11 @@ The article assumes that you have logged in to your subscription in the portal, 
 
     ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Note that the DNS name for the Public IP is blank. Click **All settings** for the Public IP blade.
+2.  Note that the DNS name for the Public IP is blank. Click **Configuration** for the Public IP blade.
 
     ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Open the **Configuration** tab in the Public IP Settings. Enter the desired DNS name label and **Save** this configuration.
+3.  Enter the desired DNS name label and **Save** this configuration.
 
     ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
