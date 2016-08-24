@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using JSON files in blob storage | Microsoft Azure"
-	description="Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format."
+	pageTitle="Analyze Azure diagnostic logs using Log Analytics | Microsoft Azure"
+	description="Log Analytics can read the logs from Azure services that write Azure diagnostic logs to blob storage in JSON format."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="banders"/>
 
 
-# JSON files in blob storage
+# Analyze Azure diagnostic logs using Log Analytics
 
-Log Analytics can read the logs for the following services that write diagnostics to blob storage in JSON format:
+Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](azure-portal/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
@@ -44,7 +44,7 @@ This documentation also includes details on:
 + Troubleshooting data collection
 + Stopping data collection
 
-## Configure Log Analytics to collect Azure Diagnostics written to blob in JSON format
+## Configure Log Analytics to collect Azure diagnostic logs
 
 Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
@@ -66,9 +66,9 @@ foreach ($resource in $resources) {
 ```
 
 
-It is not currently possible to perform the above configuration from the portal.
+For some resources it is possible to perform the above configuration from the Azure portal using the steps described in [Overview of Azure diagnostic logs](azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
-## Configure Log Analytics to collect JSON logs from Azure blob storage
+## Configure Log Analytics to collect Azure diagnostic logs
 
 We have provided a PowerShell script module that exports two cmdlets to assist with configuring Log Analytics:
 
@@ -155,11 +155,11 @@ After running this script you should see records in Log Analytics about 30 minut
 >[AZURE.NOTE] You will not be able to see the configuration in the Azure portal. You can verify configuration using the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.  
 
 
-## Stopping Log Analytics from collecting Azure Diagnostics written to blob in JSON
+## Stopping Log Analytics from collecting Azure diagnostic logs
 
 If you need to delete the Log Analytics configuration for a resource use the cmdlet `Remove-AzureRmOperationalInsightsStorageInsight`
 
-## Troubleshooting configuration for Azure Diagnostics written to blob in JSON
+## Troubleshooting configuration for Azure diagnostic logs
 
 *Issue*
 
@@ -175,7 +175,7 @@ Parameter name: id
 
 Login to the service management API with `Add-AzureAccount`
 
-## Troubleshooting data collection for Azure Diagnostics written to blob in JSON
+## Troubleshooting data collection for Azure diagnostic logs
 
 If you are not seeing data for your Azure resource in Log Analytics you can use the following troubleshooting steps:
 
