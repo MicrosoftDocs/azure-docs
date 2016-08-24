@@ -229,7 +229,7 @@ The ICommunicationListener interface provides three methods to manage a communic
 To get started, add private class members for things the listener will need to function. These will be initialized through the constructor and used later when you set up the listening URL.
 
 ```csharp
-public class OwinCommunicationListener : ICommunicationListener
+internal class OwinCommunicationListener : ICommunicationListener
 {
     private readonly ServiceEventSource eventSource;
     private readonly Action<IAppBuilder> startup;
