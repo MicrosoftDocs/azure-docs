@@ -388,9 +388,9 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Parameters/linux/virtualNetwork.parameters.json 
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Parameters/linux/networkSecurityGroup.parameters.json
-[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Parameters/linux/virtualMachine.parameters.json
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json 
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroup.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
 
