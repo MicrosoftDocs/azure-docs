@@ -18,7 +18,7 @@
 
 # Manage expiration of Azure Storage blob content in Azure CDN
 
-The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly-accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the *Cache-Control* header in the HTTP response from Azure Storage.
+The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the *Cache-Control* header in the HTTP response from Azure Storage.
 
 >[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
 >
