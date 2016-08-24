@@ -581,6 +581,14 @@ Where:
 - /PassphraseFilePath: Mandatory. The configuration server passphrase.
 - /LogFilePath: Mandatory. The log setup files location.
 
+#### Uninstall Mobility service manually
+
+Mobility Service can be uninstalled using the Add Remove Program from Control Panel or using command line.
+
+The command to uninstall the Mobility Service using command line is
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 
 #### Install manually on a Linux server:
 
