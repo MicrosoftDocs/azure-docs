@@ -53,7 +53,7 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that support [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md):
+- See [Analyze Azure diagnostic logs using Log Analytics](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that support [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md):
   - Azure Key Vault
   - Azure Automation
   - Application Gateway
@@ -69,7 +69,7 @@ Application Insights is in private preview and it uses continuous export to blob
 
 ## Next steps
 
-- [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
+- [Analyze Azure diagnostic logs using Log Analytics](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
 - [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 - [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 - [Use search queries](log-analytics-log-searches.md) to analyze the data.
