@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Authorization with Resource Manager API | Microsoft Azure"
-   description="A developer's guide to authorization with the Azure Resource Manager API and Active Directory for integrating an app with Azure."
+   pageTitle="Authentication with Azure Resource Manager API | Microsoft Azure"
+   description="A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with Azure."
    services="azure-resource-manager,active-directory"
    documentationCenter="na"
    authors="dushyantgill"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/12/2016"
+   ms.date="08/24/2016"
    ms.author="dugill;tomfitz" />
 
 
