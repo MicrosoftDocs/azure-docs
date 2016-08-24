@@ -158,7 +158,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 	    }
 	]
 
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** the copy operation uses at run time is equal to or less than the configured value depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/en-us/support/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
+The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** the copy operation uses at run time is equal to or less than the configured value depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
 
 To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do want to overwrite **parallelCopies** to reduce the concurrent load, note that if **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
 
@@ -376,6 +376,7 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
 **Scenario III**: Individual file size is greater than dozens of MBs and total volume is large.
+
 **Analysis and performance turning**: Increasing **parallelCopies** doesn't result in better copy performance because of the resource limitations of a single-cloud DMU. Instead, you should specify more cloud DMUs to get more resources to perform the data movement. Do not specify a value for the **parallelCopies** property. Data Factory handles the parallelism for you. In this case, if you set **cloudDataMovementUnits** to 4, a throughput of about four times occurs.
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
