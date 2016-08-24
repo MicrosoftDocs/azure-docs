@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage DevTest Labs custom images to create VMs | Microsoft Azure"
-	description="Learn how to create a custom image from a VHD file, or from an existing VM in DevTest Labs"
+	pageTitle="Manage Azure DevTest Labs custom images to create VMs | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, or from an existing VM in Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2016"
+	ms.date="08/24/2016"
 	ms.author="tarcher"/>
 
-# Manage DevTest Labs custom images to create VMs
+# Manage Azure DevTest Labs custom images to create VMs
 
 ## Overview
 After you have [created a lab](devtest-lab-create-lab.md), you can [add virtual machines (VMs) to that lab](devtest-lab-add-vm-with-artifacts.md).
@@ -24,7 +24,7 @@ When you create a VM, you specify a *base*, which can be either a *custom image*
 In this article, you'll learn how to [create a custom image from a VHD](#create-a-custom-image-from-a-vhd) so that you can subsequently create a VM from that custom image. In addition, you can also [create a custom image
 from a VM](#create-a-custom-image-from-a-vm) for subsequent rapid VM creation.
 
-## Create a custom image from a VHD
+## Create a custom image from a VHD file
 
 In this section, you'll see how to create a custom image from a VHD file.
 Note that you'll need access to a valid VHD file to perform all the steps in this section.   
