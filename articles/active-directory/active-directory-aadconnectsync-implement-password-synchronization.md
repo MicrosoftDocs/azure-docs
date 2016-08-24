@@ -119,7 +119,7 @@ For reference, this snip is how it should look like:
 	</configuration>
 ```
 
-For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
+For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## Troubleshooting password synchronization
 If passwords are not synchronizing as expected, it can either be for a subset of users or for all users.
