@@ -23,7 +23,7 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] For a Linux virtual machine, you must provide the `-e` option in `vm create`. It is not possible to enable SSH after the virtual machine has been created. For more details on SSH, read [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
+    >[AZURE.NOTE] For a Linux virtual machine, you must provide the `-e` option in `vm create`. It is not possible to enable SSH after the virtual machine has been created. For more details on SSH, read [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md).
 
     The image *b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160516-en-us-30GB* is the one we chose from the image list in the previous step. *MyTestVM* is the name of our new virtual machine, and *adminUser* is the username to SSH into the virtual machine. You can replace these variables as per your requirement. For more details on this command, visit the [Using the Azure CLI with Classic deployment model](virtual-machines-command-line-tools.md).
 
