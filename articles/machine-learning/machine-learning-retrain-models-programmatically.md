@@ -27,23 +27,17 @@ Retraining may occur frequently. With the Programmatic Retraining API feature, y
 
 This document describes the retraining process, and shows you how to use the Retraining APIs.
 
-##How to retrain: the end to end process  
-
-To start, the process involves the following components: a Training Experiment and a Predictive Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment must be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. 
-
-The process for setting up retraining involves the following steps:  
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
-
 ## Why retrain: defining the problem  
 
 As part of the ML training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Additional scenarios may require you to apply filters obtain a subset of the data and retrain the model. 
 
 In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web Service API to use the newly trained model.  
 
-## How to retrain: the end to end process  
+##How to retrain: the end to end process  
 
-To start, the process involves the following components: a Training Experiment and a Predictive Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
+To start, the process involves the following components: a Training Experiment and a Predictive Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment must be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. 
+
+The process for setting up retraining involves the following steps:
 
 ![Retraining process overview][1]
 
