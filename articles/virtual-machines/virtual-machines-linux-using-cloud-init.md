@@ -280,7 +280,7 @@ exampleUser:x:1000:
 
 ## Next Steps
 
-Cloud-init is the open source way to modify your Linux VM on boot.  Azure has VMAccessExtensions which allow you to modify your LinuxVM on boot or while it is running.  A good example of when you would use Azure VMAccessExtensions is if you need to reset the root password while the VM is running.  With cloud-init you would need a reboot to reset the password but the Azure VMAccessExtensions can modify the VM while it is running and without a reboot.
+Cloud-init is becoming one standard way to modify your Linux VM on boot. Azure also has VM extensions which allow you to modify your LinuxVM on boot or while it is running. For example, you can use the Azure VMAccessExtension to reset SSH or user information while the VM is running. With cloud-init, you would need a reboot to reset the password.
 
 [About virtual machine extensions and features](virtual-machines-linux-extensions-features.md)
 
