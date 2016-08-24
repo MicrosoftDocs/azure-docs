@@ -7,12 +7,12 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | columnDelimiter | The character used to separate columns in a file. | Only one character is allowed. The default value is comma (','). | No |
 | rowDelimiter | The character used to separate rows in a file. | Only one character is allowed. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
 | escapeChar | The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source. | No | 
-| quoteChar | The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source.  | No |
-| nullValue | One of more characters used to represent a null value. | One or more characters. The default values are “\N” and “NULL”. | No |
+| quoteChar | The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. | No |
+| nullValue | One of more characters used to represent a null value. | One or more characters. The default values are “\N” and “NULL.” | No |
 | encodingName | Specify the encoding name. | A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
-| firstRowAsHeader | Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. | True and False (default)  | No |
+| firstRowAsHeader | Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. | True and False (default) | No |
 | skipLineCount | Indicates the number of rows to skip when reading data from input files. | Integer | No | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as a null value when reading data from an input file. | True (default) or False  | No |   
+| treatEmptyAsNull | Specifies whether to treat null or empty string as a null value when reading data from an input file. | True (default) or False | No |  
 
 #### TextFormat example
 The following sample shows some of the format properties for TextFormat.
@@ -224,7 +224,7 @@ Note the following:
 - If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
 - If the JSON input has an array, the Copy Activity converts the entire array value into a string. You can choose to skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
 - If there are duplicate names at the same level, the Copy Activity picks the last one.
-- Property names are case-sensitive. Two properties with same name but different casing are treated as two separate properties. 
+- Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties. 
 
 ### Specifying OrcFormat
 If the format is set to OrcFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -234,7 +234,7 @@ If the format is set to OrcFormat, you do not need to specify any properties in 
 	    "type": "OrcFormat",
 	}
 
-> [AZURE.IMPORTANT] If you are copying data between on-premises and cloud data stores with ORC format involved, and not copying ORC files as-is from source to sink, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine that is used to transform your data into proper format. Note 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> [AZURE.IMPORTANT] If you are copying data between on-premises and cloud data stores with ORC format involved, and not copying ORC files as-is from source to sink, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine that is used to transform your data into proper format. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 
 Note the following:
 
