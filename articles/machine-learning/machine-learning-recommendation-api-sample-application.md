@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/> 
 
 
 # Recommendations API Sample Application Walkthrough
+
+> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016. 
+> You should now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api). 
+
 
 ##Purpose
 
