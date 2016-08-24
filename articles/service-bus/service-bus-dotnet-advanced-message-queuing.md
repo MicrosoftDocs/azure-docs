@@ -291,23 +291,6 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-## Unsupported features and restrictions
-
-The following features of the .NET Service Bus API are not currently supported when using AMQP:
-
-* Transactions
-* Send via transfer destination
-* Receive by message sequence number
-* Message and session browse
-* Session state
-* Batch-based APIs
-* Scaled-out receive
-* Runtime manipulation of subscription rules
-* Session lock renewal
-* Some minor differences in behavior
-
-For more information, see the [Service Bus AMQP overview](service-bus-amqp-dotnet.md). This article includes a detailed list of unsupported APIs.
-
 ## Summary
 
 This article showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
