@@ -71,7 +71,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 
 ## Planning
-- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 - [How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-linux-classic-configure-availability.md)
 - [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md)

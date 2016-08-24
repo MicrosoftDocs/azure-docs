@@ -30,7 +30,7 @@ These lists are a quick reference for reviewing the fundamental aspects of avail
 
 - [Availability Checklist][AvailabilityChecklist] 
 
-    A summary of recommended practices for ensuring resiliency and availability.
+    A summary of recommended practices for ensuring availability.
 
 - [Scalability Checklist][ScalabilityChecklist]
 
@@ -79,6 +79,10 @@ These articles provide an in-depth discussion of important concepts commonly ass
 - [Recommended naming conventions][naming-conventions] 
 
     Recommended naming conventions for Azure resources.
+
+- [Resiliency guidance][ResiliencyOvervew]
+
+     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structure approach for achieving resiliency, from design and implementation, to deployment and operations.
 
 - [Retry General guidance][RetryGeneralGuidance] 
 
@@ -133,6 +137,7 @@ The current library of reference architectures is available at [http://aka.ms/ar
 [CachingGuidance]: ../best-practices-caching.md
 [DataPartitioningGuidance]: ../best-practices-data-partitioning.md
 [MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
+[ResiliencyOvervew]: guidance-resiliency-overview.md
 [RetryGeneralGuidance]: ../best-practices-retry-general.md
 [RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md
