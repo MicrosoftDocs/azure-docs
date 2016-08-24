@@ -61,17 +61,17 @@ To get the correct PATCH URL:
 3.	Paste the URL into a browser to navigate to a page that provides help links for the web service.
 4.	Click the **Update Resource** link to open the patching help page.
 
-Options 2: using the Azure Portal
+Options 2: using the Azure portal
 
-1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
+1.	Log in to the classic [Azure portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
      ![Machine leaning tab.][image4]
-3.	Click on your workspace name, then **Web Services**.
-4.	Click on the scoring web service you are working with. (If you did not modify the default name of the web service, it will typically end in [Scoring Exp.].)
+3.	Click your workspace name, then **Web Services**.
+4.	Click the scoring web service you are working with. (If you did not modify the default name of the web service, it will end in [Scoring Exp.].)
 5.	Click Add Endpoint
-6.	After the endpoint is added, click on the endpoint name. Then click on **Update Resource** to open the patching help page.
+6.	After the endpoint is added, click the endpoint name. Then click **Update Resource** to open the patching help page.
 
->[AZURE NOTE] If you have added the endpoint to the training web service instead of the predictive web service, you will receive the following error when you click on the **Update Resource** link: Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.
+>[AZURE NOTE] If you have added the endpoint to the training web service instead of the predictive web service, you will receive the following error when you click the **Update Resource** link: Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.
 
 ![New endpoint dashboard.][image3]
 
@@ -88,7 +88,7 @@ You can verify which web service the endpoint is on by visiting the Azure classi
 
 >[AZURE NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
 
-1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
+1.	Log in to the classic [Azure portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
      ![Machine learning workspace UI.][image4]
 3.	Select your workspace.
@@ -98,7 +98,7 @@ You can verify which web service the endpoint is on by visiting the Azure classi
 
 ### Check the workspace that your web service is in to ensure it is in the correct region
 
-1.	Log in to the classic [Azure Portal](https://manage.windowsazure.com).
+1.	Log in to the classic [Azure portal](https://manage.windowsazure.com).
 2.	Select Machine Learning from the menu.
       ![Machine learning region UI.][image4]
 3.	Verify the location of your workspace.

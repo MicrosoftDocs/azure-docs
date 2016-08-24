@@ -212,7 +212,7 @@ The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint da
 
 The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the Predictive Experiment. To get the Resource Name:
 
-1. Log in to the [Azure Classic Portal](https://manage.windowsazure.com).
+1. Log in to the [Azure Classic portal](https://manage.windowsazure.com).
 2. In the left menu, click **Machine Learning**.
 3. Under Name, click your workspace and then click **Web Services**.
 4. Under Name, click **Census Model [predictive exp.]**.
@@ -225,7 +225,10 @@ If your SAS token expires before you finish updating the endpoint, you must perf
 When the code has successfully run, the new endpoint should start using the retrained model in approximately 15 to 30 seconds.  
 
 ##Summary  
-Using the Retraining APIs, you can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  
+Using the Retraining APIs, you can update the trained model of a predictive Web Service enabling scenarios such as:
+
+* Periodic model retraining with new data.
+* Distribution of a model to customers with the goal of letting them retrain the model using their own data.  
 
 ## Next steps
 [Troubleshooting the retraining of an Azure Machine Learning classic web service](machine-learning-troubleshooting-retraining-models.md)
