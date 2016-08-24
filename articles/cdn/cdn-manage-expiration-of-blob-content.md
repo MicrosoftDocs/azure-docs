@@ -10,7 +10,7 @@
  ms.service="cdn"
  ms.workload="media"
  ms.tgt_pltfrm="na"
- ms.devlang=""
+ ms.devlang="multiple"
  ms.topic="article"
  ms.date="08/24/2016"
  ms.author="casoper"/>
@@ -18,13 +18,13 @@
 
 # Manage expiration of Azure Storage blob content in Azure CDN
 
-The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  A blob stays in the CDN cache for the TTL period and is reloaded from the blob service after that time has elapsed. 
-
-Any blob content that you wish to cache via the CDN must be stored in your Azure Storage account as a publicly accessible blob. For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
+The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly-accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the *Cache-Control* header in the HTTP response from Azure Storage.
 
 >[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
 >
 >For more information about how Azure CDN works to speed up access to blobs and other files, see the [Azure CDN Overview](./cdn-overview.md).
+>
+>For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
 
 There are several ways that you can set the TTL on a blob in Azure Storage:  
 
