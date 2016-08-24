@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="banders"/>
 
 # Collecting Azure storage data in Log Analytics overview
@@ -26,7 +26,7 @@ To write to Azure storage a resource may use Azure diagnostics, or have its own 
 + Azure blob
 + EventHub
 
-Log Analytics supports Azure services that write data using Azure diagnostics to blob storage in JSON format. In addition, Log Analytics supports other services that output logs and metrics in different formats and locations.  
+Log Analytics supports Azure services that write data using [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md). In addition, Log Analytics supports other services that output logs and metrics in different formats and locations.  
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
@@ -53,7 +53,7 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format, including:
+- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that support [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md):
   - Azure Key Vault
   - Azure Automation
   - Application Gateway
