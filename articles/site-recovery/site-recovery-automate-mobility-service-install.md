@@ -31,7 +31,7 @@ The management server runs several server roles. One of these roles is *configur
 
 In addition, the *process* role acts as a replication gateway. This role receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and then sends it to an Azure storage account. One of the functions for the process role is also to push installation of the Mobility service to protected machines and perform automatic discovery of VMware VMs.
 
-In case of a failback from Azure, the *master target* role will handle the replication data as part of this operation.
+If there's a failback from Azure, the *master target* role will handle the replication data as part of this operation.
 
 For the protected machines, we rely on the *Mobility service*. This component is deployed to every machine (VMware VM or physical server) that you want to replicate to Azure. It captures data writes on the machine and forwards them to the management server (process role).
 
@@ -237,7 +237,7 @@ Next, you need to compile the configuration in Automation DSC, so that you can s
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-This can take a few minutes, because you're basically deploying the configuration to the hosted DSC Pull service.
+This can take a few minutes, because you're basically deploying the configuration to the hosted DSC pull service.
 
 After you compile the configuration, you can retrieve the job information by using PowerShell (Get-AzureRmAutomationDscCompilationJob) or by using the [Azure portal](https://portal.azure.com/).
 
@@ -306,7 +306,7 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-This configuration will cause the Local Configuration Manager engine to register itself with Automation DSC. It will also determine how the engine should operate, what it should do in case of a configuration drift (ApplyAndAutoCorrect), and how it should proceed with the configuration if a reboot is required.
+This configuration will cause the Local Configuration Manager engine to register itself with Automation DSC. It will also determine how the engine should operate, what it should do if there's a configuration drift (ApplyAndAutoCorrect), and how it should proceed with the configuration if a reboot is required.
 
 After you run this script, the node should start to register with Automation DSC.
 
@@ -322,7 +322,7 @@ On the server, you can run the following PowerShell cmdlet to verify that the no
 Get-DscLocalConfigurationManager
 ```
 
-After the configuration has been pulled and applied to the server, you can verify this by running:
+After the configuration has been pulled and applied to the server, you can verify this by running the following cmdlet:
 
 ```powershell
 Get-DscConfigurationStatus
@@ -338,7 +338,7 @@ That’s it. You have now successfully deployed and registered the Mobility serv
 
 ![Successful deployment](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-After the management server detects the successful deployment, you can proceed to configure protection and enable replication on the machine by using Site Recovery.
+After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
 ## Use DSC in disconnected environments
 
@@ -505,4 +505,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 ## Next steps
 
-After you deploy the Mobility service agents, you can continue to [enable replication](site-recovery-vmware-to-azure.md#step-6-replicate-applications) for the virtual machines.
+After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md#step-6-replicate-applications) for the virtual machines.
