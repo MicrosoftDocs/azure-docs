@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/24/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Automatic upgrade
@@ -50,7 +50,9 @@ First, you should not expect the automatic upgrade to be attempted the first day
 
 If you think something is not right, then first run `Get-ADSyncAutoUpgrade` to ensure automatic upgrade is enabled.
 
-Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event id range **300-399**.  
+Then, make sure you have opened the required URLs in your proxy or firewall. Automatic update is using Azure AD Connect Health as described in the [overview](#overview). If you use a proxy, make sure Health has been configured to use a [proxy server](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Also test the [Health connectivity](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to Azure AD.
+
+With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event id range **300-399**.  
 ![Eventlog filter for automatic upgrade](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)  
 
 You will now see the eventlogs associated with the status for automatic upgrade.  
