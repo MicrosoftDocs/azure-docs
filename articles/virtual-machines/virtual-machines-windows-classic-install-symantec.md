@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/24/2016"
 	ms.author="iainfou"/>
 
 # How to install and configure Symantec Endpoint Protection on a Windows VM
@@ -23,30 +23,13 @@
 
 This article shows you how to install and configure the Symantec Endpoint Protection client on a new or existing virtual machine (VM) running Windows Server. This is the full client, which includes services such as virus and spyware protection, firewall, and intrusion prevention.
 
-The client is installed as a security extension by using the VM Agent. On a new virtual machine, you'll install the agent along with the endpoint client. On an existing virtual machine without the agent, you'll need to download and install the agent first. This article covers both situations.
+The client is installed as a security extension by using the VM Agent. On a new virtual machine, you install the agent along with the endpoint client. On an existing virtual machine without the agent, you need to download and install the agent first. This article covers both situations.
 
 If you have an existing subscription from Symantec for an on-premises solution, you can use it to protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see [Symantec Endpoint Protection on Microsoft's Azure platform][Symantec]. This page also has links to licensing information and  instructions for installing the client if you're already a Symantec customer.
 
-## Install Symantec Endpoint Protection on a new virtual machine
-
-The [Azure classic portal][Portal] lets you install the VM Agent and the Symantec security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Symantec if you're creating a single virtual machine.
-
-This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Symantec security extension.
-
-For general instructions, see [Create a Virtual Machine Running Windows Server][Create]. When you get to the last page of the wizard:
-
-1.	Under VM Agent, **Install VM Agent** should already be checked.
-
-2.	Under Security Extensions, check **Symantec Endpoint Protection**.
-
-
-	![Install the VM Agent and the Endpoint Protection Client](./media/virtual-machines-windows-classic-install-symantec/InstallVMAgentandSymantec.png)
-
-3.	Click the check mark at the bottom of the page to create the virtual machine.
-
 ## Install Symantec Endpoint Protection on an existing virtual machine
 
-Before you begin, you'll need the following:
+Before you begin, you need the following:
 
 - The Azure PowerShell module, version 0.8.2 or later, on your work computer. You can check the version of Azure PowerShell that you have installed with the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell][PS]. Make sure to login to your Azure subscription.
 
