@@ -1090,7 +1090,7 @@ We selected an image by using the command `azure vm image list westeurope canoni
 This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
 
 - Automatically, by using the `azure vm create --generate-ssh-keys` option.
-- Manually, by using [the instructions to create them youself](virtual-machines-linux-ssh-from-linux.md).
+- Manually, by using [the instructions to create them youself](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Alternatively, you can use the --admin-password method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 
