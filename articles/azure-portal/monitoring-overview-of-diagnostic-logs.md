@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="johnkem"/>
 
 # Overview of Azure Diagnostic Logs
@@ -26,11 +26,12 @@ Here are some of the things you can do with Diagnostic Logs:
 
 - Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 - [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+- Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md) 
 
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
 
-- Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS).
+- Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
 - Which Log Categories are sent.
 - How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
@@ -109,3 +110,4 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 ## Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Change Diagnostic Settings using the Insights REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+- [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
