@@ -78,7 +78,7 @@ $vm | Update-AzureVM
 
 Running this code prompts for a credential. Once it is provided, it is stored in memory briefly. When it is published with `Set-AzureVmDscExtension` cmdlet, it is transmitted over HTTPS to the VM, where Azure stores it encrypted on disk, using the local VM certificate. Then it is briefly decrypted in memory and re-encrypted to pass it to DSC.
 
-This behavior is different than [https://msdn.microsoft.com/en-us/powershell/dsc/securemof](using secure configurations without the extension handler). The Azure environment gives a way to transmit configuration data securely via certificates. When using the DSC extension handler, there is no need to provide $CertificatePath or a $CertificateID / $Thumbprint entry in ConfigurationData.
+This behavior is different than [using secure configurations without the extension handler](https://msdn.microsoft.com/en-us/powershell/dsc/securemof). The Azure environment gives a way to transmit configuration data securely via certificates. When using the DSC extension handler, there is no need to provide $CertificatePath or a $CertificateID / $Thumbprint entry in ConfigurationData.
 
 
 ## Next steps ##
