@@ -1,19 +1,18 @@
 <properties
-   pageTitle="title | Microsoft Azure"
-   description="This article walks you through issues you can face with asymmetric routing in your network "
+   pageTitle="Asymmetric Routing | Microsoft Azure"
+   description="This article walks through issues a customer can face with asymmetric routing in its network when it has multiple links to a destination."
    documentationCenter="na"
    services="expressroute"
    authors="osamazia"
    manager="carmonm"
-   editor=""
-   tags="azure-resource-manager"/>
+   editor=""/>
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="Asymmetric Routing" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/22/2016"
+   ms.date="08/23/2016"
    ms.author="osamazia"/>
 
 # Asymmetric Routing with multiple network paths
