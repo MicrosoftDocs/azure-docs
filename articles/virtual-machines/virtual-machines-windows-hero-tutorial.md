@@ -63,7 +63,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-6. On the  **Settings** blade, you can change the storage and networking options. For a first virtual machine, you can generally accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
+6. On the **Settings** blade, you can change the storage and networking options. For a first virtual machine, you can generally accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
 
 	![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
@@ -84,7 +84,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
-4. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+4. You get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
 
 	![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
@@ -97,20 +97,29 @@ After you select the image, you can use Azure's default settings for most of the
 	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
-If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
+If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 You can now work with the virtual machine just as you would with any other server.
 
 ## Install IIS on your VM
 
-Now that you are logged into the VM, we will install a server role so that you can experiment more.
+Now that you are logged in to the VM, we will install a server role so that you can experiment more.
 
-1. Open **Server Manager** if it isn't already open. Click on the **Start** menu and then click **Server Manager**.
+1. Open **Server Manager** if it isn't already open. Click the **Start** menu and then click **Server Manager**.
 2. In **Server Manager**, select **Local Server** from the left pane. 
 3. In the menu, select **Manage** > **Add Roles and Features**.
-4. In the Add Roles and Features Wizard, choose **Role-based or feature-based installation** and then click **Next**.
+
+	![Screenshot showing the Add Roles and Features Wizard tab for Installation Type.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
+
+4. In the Add Roles and Features Wizard, on the **Installation Type** page, choose **Role-based or feature-based installation** and then click **Next**.
 5. Select the VM from the server pool and click **Next**.
-6. One the **Server Roles** page select **Web Server (IIS)**.
+
+	![Screenshot showing the Add Roles and Features Wizard tab for Server Roles.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
+
+6. On the **Server Roles** page select **Web Server (IIS)**.
+
+	![Screenshot showing pop-up to confirm adding the IIS role.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
+
 7. In the pop-up about adding features needed for IIS, make sure that **Include management tools** is selected and then click **Add Features**. When the pop-up closes, click **Next** in the wizard.
 8. On the features page, click **Next**.
 9. On the **Web Server Role (IIS)** page, click **Next**. 
@@ -118,14 +127,20 @@ Now that you are logged into the VM, we will install a server role so that you c
 11. On the **Confirmation** page, click **Install**. 
 12. When the installation is complete, click **Close** on the wizard.
 
-If you want, you can open the IIS default web page in Notepad (by default, this will be C:\inetpub\wwwroot\iisstart.htm) and make some basic changes so that you know that you are reaching the correct server. 
+If you want, you can open the IIS default web page in Notepad (by default, the path will be C:\inetpub\wwwroot\iisstart.htm) and make some basic changes so that you know that you are reaching the correct server. 
 
 
 
-## Create a NSG to open port 80
-1. 1. Open the [Azure portal](https://portal.azure.com).
+## Open port 80 
+
+In order for your VM to accept inbound traffic over port 80, you need to add an inbound rule to the network security group. 
+
+1. Open the [Azure portal](https://portal.azure.com).
 2. Under **Virtual machines** select the VM that you created.
-3. 
+
+	![Screenshot showing the virtual machine settings item for network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interfaces.png)
+
+3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
 
 ## Stop the VM
