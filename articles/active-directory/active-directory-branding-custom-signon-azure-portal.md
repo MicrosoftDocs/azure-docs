@@ -13,7 +13,7 @@ ms.workload="identity"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/17/2016"
+ms.date="08/24/2016"
 ms.author="curtand"/>
 
 # Add company branding to your sign-in page
@@ -50,7 +50,7 @@ When you visit a service with non-tenant specific URLs (e.g.: https://mail.offic
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 

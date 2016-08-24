@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/16/2016"
+	ms.date="08/24/2016"
 	ms.author="curtand"/>
 
 # Add a custom domain name to Azure Active Directory
@@ -28,11 +28,11 @@ You've got one or more domain names that your organization uses to do business, 
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-3. On the **User Management** blade, select **Domains**.
+3. On the **User management** blade, select **Domains**.
 
 4. On the **User management - Domain names** blade, select the **Add** command.
 

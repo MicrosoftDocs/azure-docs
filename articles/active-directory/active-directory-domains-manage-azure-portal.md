@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/24/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Managing custom domain names in your Azure Active Directory
@@ -26,11 +26,11 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-domains-manage-azure-portal/user-management.png)
 
-3. On the **User Management** blade, select **Domains**.
+3. On the **User management** blade, select **Domains**.
 
 4. On the **User management - Domain names** blade, select the domain name you would like to make the primary domain name.
 

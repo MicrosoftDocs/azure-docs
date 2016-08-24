@@ -13,7 +13,7 @@ ms.workload="identity"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/17/2016"
+ms.date="08/24/2016"
 ms.author="curtand"/>
 
 # Add language-specific company branding to your sign-in page
@@ -34,7 +34,7 @@ We recommend that you keep the number of language variations low, for maintenanc
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
 
