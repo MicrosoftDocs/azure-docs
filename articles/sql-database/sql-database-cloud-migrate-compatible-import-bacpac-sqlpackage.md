@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="08/23/2016"
+   ms.date="08/22/2016"
    ms.author="carlrab"/>
 
 # Import to SQL Database from a BACPAC file using SqlPackage
