@@ -34,7 +34,7 @@ With Data Management Gateway, you can:
 - Move data efficiently--data is transferred in parallel, resilient to intermittent network issues with auto-retry logic.
 
 ### Command flow and data flow
-When you use a copy activity in a data pipeline to ingest on-premises data to the cloud for further processing, or when you export result data in the cloud back to an on-premises data store, Copy Activity uses a gateway to transfer data from your on-premises data source to the cloud and vice versa.
+When you use a copy activity in a data pipeline to ingest on-premises data to the cloud for further processing, Copy Activity uses a gateway to transfer data from your on-premises data source to the cloud and vice versa. Copy Activity performs the same action when you export result data in the cloud back to an on-premises data store.
 
 Following is a representation of high-level data flow and summary of steps for copy with Data Management Gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
@@ -141,7 +141,7 @@ At the Windows firewall level, these outbound ports are normally enabled. If the
 
 Make sure the firewall rules are enabled on the corporate firewall, the Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. You must enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of Azure SQL Server to add the IP address of the gateway machine to the list of allowed IP addresses.
+To copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of Azure SQL Server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 
 ### Proxy server settings
@@ -174,7 +174,7 @@ In addition to the points described previously, you also need to make sure Micro
 The following errors are generally caused by improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to Azure Data Factory to authenticate itself. Refer to the previous section to ensure that your firewall and proxy server are properly configured.
 
 -	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
--	When you open Configuration Manager, you see status as **Disconnected** or **Connecting**. When viewing Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
+-	When you open Configuration Manager, you see status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
 
 ### Open port 8050 for credential encryption
 The inbound port 8050 is used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure portal (details later in the article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
@@ -224,7 +224,7 @@ After you install the gateway, you can open Data Management Gateway Configuratio
 - Run the executable **ConfigManager.exe** in the folder: C:\Program Files\Microsoft Data Management Gateway\1.0\Shared.
 
 ### Home page
-The Home page allows you to do the following:
+You can perform the following actions on the Home page:
 
 - View the status of the gateway (such as connected to the cloud service).
 - Register by using a key from the Azure portal.
@@ -233,7 +233,7 @@ The Home page allows you to do the following:
 - View the date when the gateway was last updated.
 
 ### Settings page
-The Settings page allows you to do the following:
+You can perform the following actions on the Settings page:
 
 - View, change, and export certificates used by the gateway. These certificates are used to encrypt data source credentials.
 - Change the HTTPS port for the endpoint. The gateway opens a port for setting the data source credentials.
@@ -241,7 +241,7 @@ The Settings page allows you to do the following:
 - View the SSL certificate used for SSL communication between the Azure portal and the gateway to set credentials for data sources.  
 
 ### Diagnostics page
-The Diagnostics page allows you to do the following:
+You can perform the following actions on the Diagnostics page:
 
 - Enable verbose logging, view logs in the event viewer, and send logs to Microsoft if there is a failure.
 - Test a connection to a data source.  
@@ -268,9 +268,9 @@ If you have gateway issues and need to contact Microsoft Support, you may be ask
 1. Click the **Diagnostics** tab of Data Management Gateway Configuration Manager.
 2. Click **Send logs**.
 ![Data Management Gateway - Diagnostics tab](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
-3. (optional) Click **view logs** to review logs in the event viewer.
+3. Click **view logs** to review logs in the event viewer (optional).
 ![Data Management Gateway - Send logs](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
-4. (optional) Click **privacy** to review the Microsoft Online Services privacy statement.
+4. Click **privacy** to review the Microsoft Online Services privacy statement (optional).
 3. When you are satisfied with what you are about to upload, click **Send Logs** to send logs from the last seven days to Microsoft for troubleshooting. You should see the status of the Send logs operation as shown in the following example.
 
 	![Data Management Gateway - Send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
