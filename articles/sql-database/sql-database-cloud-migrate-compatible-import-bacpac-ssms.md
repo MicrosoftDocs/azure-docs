@@ -40,7 +40,7 @@ This article shows how to import from a [BACPAC](https://msdn.microsoft.com/libr
 
     ![Import settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC04.png)
 
-    ***Important:*** When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
+	 > [AZURE.IMPORTANT] When importing a BACPAC from Azure blob storage, use standard storage. Importing a BACPAC from premium storage is not supported.
 
 4.	Provide the **New database name** for the database on Azure SQL DB, set the **Edition of Microsoft Azure SQL Database** (service tier), **Maximum database size**, and **Service Objective** (performance level).
 
