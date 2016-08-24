@@ -72,7 +72,7 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 
 ## Configuring and managing
 
-You can create and manage an application gateway by using REST APIs and by using PowerShell cmdlets.
+You can create and manage an application gateway by using REST APIs, PowerShell cmdlets or [Azure Portal](https://portal.azure.com/).
 
 
 ## Next steps
