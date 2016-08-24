@@ -34,3 +34,6 @@ Public agent nodes run DC/OS apps and services through a publicly accessible net
 
 By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node. Unfortunately deploying to the public node is not as straight forward as checking a box. During the creation of a new application, go to the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles**. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
 
+## Next steps
+
+Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
