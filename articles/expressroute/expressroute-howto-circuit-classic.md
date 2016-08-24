@@ -296,9 +296,9 @@ Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit for this operation to succeed. Check to see if you have any virtual networks that are linked to the circuit if this operation fails.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *Disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
+- If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *Not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit.
 
 You can delete your ExpressRoute circuit by running the following command:
 
