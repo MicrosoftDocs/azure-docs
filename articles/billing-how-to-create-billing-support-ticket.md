@@ -15,13 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # How to create a support ticket for Azure billing and subscription issues
-
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
 This article provides the information you will need to open a ticket with Azure Support.
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.
@@ -45,5 +42,3 @@ You can also submit an support request from the Azure Support web site or from t
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
 
  >[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
-
-> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

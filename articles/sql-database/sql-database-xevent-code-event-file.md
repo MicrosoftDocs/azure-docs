@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -26,7 +26,7 @@
 You want a complete code sample for a robust way to capture and report information for an extended event.
 
 
-In Microsoft SQL Server the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
+In Microsoft SQL Server, the [Event File target](http://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
 
 This topic presents a two-phase code sample:
@@ -49,11 +49,10 @@ This topic presents a two-phase code sample:
  - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
 
 
-- SQL Server Management Studio (ssms.exe), its August 2015 Preview or a later version. 
+- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
 You can download the latest ssms.exe from:
  - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommends that you update your ssms.exe periodically. In some cases ssms.exe will be updated monthly.
 
 
 - You must have the [Azure PowerShell modules](http://go.microsoft.com/?linkid=9811175) installed.
@@ -65,7 +64,7 @@ You can download the latest ssms.exe from:
 
 This PowerShell is phase 1 of the two-phase code sample.
 
-The script starts with commands to clean-up after a possible previous run, and is designed to be rerunnable.
+The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
 
 
@@ -144,7 +143,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -267,11 +266,11 @@ Take note of the few named values that the PowerShell script prints when it ends
 ## Phase 2: Transact-SQL code that uses Azure Storage container
 
 
-- In phase 1 of this code sample you ran a PowerShell script to create an Azure Storage container.
+- In phase 1 of this code sample, you ran a PowerShell script to create an Azure Storage container.
 - Next in phase 2, the following Transact-SQL script must use the container.
 
 
-The script starts with commands to clean-up after a possible previous run, and is designed to be rerunnable.
+The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
 
 The PowerShell script printed a few named values when it ended. You must edit the Transact-SQL script to use those values. Find **TODO** in the Transact-SQL script to locate the edit points.
@@ -581,10 +580,10 @@ An explanation of advanced options for the viewing of data from extended events 
 Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Server.
 
 
-- For simplicity you would want to completely replace use of the Azure Storage container with a simple file such as **C:\myeventdata.xel**. The file would be written to the local hard drive of the computer that hosts SQL Server.
+- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as **C:\myeventdata.xel**. The file would be written to the local hard drive of the computer that hosts SQL Server.
 
 
-- You would not need the any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
+- You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
 
 
 - In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like **C:\myfile.xel**.
