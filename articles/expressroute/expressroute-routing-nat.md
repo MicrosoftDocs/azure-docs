@@ -18,7 +18,7 @@
 
 # ExpressRoute routing requirements  
 
-To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the requirements described below. 
+To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements. 
 
 Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be set up in to facilitate connectivity.
 
@@ -26,7 +26,7 @@ Refer to the [Circuits and routing domains](expressroute-circuit-peerings.md) ar
 
 ## IP addresses used for peerings
 
-You will need to reserve a few blocks of IP addresses to configure routing between your network and Microsoft's Enterprise edge (MSEEs) routers. This section provides a list of requirements and describes the rules regarding how these IP addresses must be acquired and used.
+You need to reserve a few blocks of IP addresses to configure routing between your network and Microsoft's Enterprise edge (MSEEs) routers. This section provides a list of requirements and describes the rules regarding how these IP addresses must be acquired and used.
 
 ### IP addresses used for Azure private peering
 
