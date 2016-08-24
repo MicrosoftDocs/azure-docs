@@ -101,6 +101,22 @@ If you run into trouble when you try to connect, see [Troubleshoot Remote Deskto
 
 You can now work with the virtual machine just as you would with any other server.
 
+## Install IIS on your VM
+
+Now that you are logged into the VM, we will install a server role so that you can experiment more.
+
+1. Open **Server Manager** if it isn't already open. Click on the **Start** menu and then click **Server Manager**.
+2. In **Server Manager**, select **Local Server** from the left pane. 
+3. In the menu, select **Manage** > **Add Roles and Features**.
+4. In the Add Roles and Features Wizard, choose **Role-based or feature-based installation** and then click **Next**.
+5. Select the VM from the server pool and click **Next**.
+6. 
+
+
+## Create a NSG to open port 80
+
+
+
 ## Stop the VM
 
 It is a good idea to stop the VM so you don't incur charges when you aren't actually using it. Just click the **Stop** button and then click **Yes**.
