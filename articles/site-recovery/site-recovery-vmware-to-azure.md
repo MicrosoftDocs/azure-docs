@@ -82,7 +82,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure**
+**Figure 1: VMware/physical to Azure** 
 
 ## Azure prerequisites
 
@@ -227,7 +227,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 
 	![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 
-3. In **Third-Party Software License** click **I Accept** to download and install MySQL.
+3. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
 
 	![Third=party software](./media/site-recovery-vmware-to-azure/combined-wiz105.PNG)
 
@@ -361,7 +361,7 @@ Verify you have a storage account for replication, and an Azure network to which
 
 	- If you want to create a storage account using the classic model you'll do that in the Azure portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
 	- If you’re using a premium storage account for replicated data you'll need to set up an additional standard storage account to store replication logs that capture ongoing changes to on-premises data.
-
+	
 	> [AZURE.NOTE] Protection to premium storage accounts in Central India and South India is currently not supported.
 
 4.	Select an Azure network. If you haven't created a network and you want to do that using ARM click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
@@ -580,13 +580,6 @@ Where:
 - /InstallLocation: Mandatory. Specifies where to install the service.
 - /PassphraseFilePath: Mandatory. The configuration server passphrase.
 - /LogFilePath: Mandatory. The log setup files location.
-
-### Uninstalling Mobility service
-Mobility Service can be uninstalled using the Add Remove Program from Control Panel or using command line.
-
-The command to uninstall the Mobility Service using command line is
-
-	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
 
 
 #### Install manually on a Linux server:

@@ -278,7 +278,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 3.	In **Before you begin** select **Install the configuration server and process server**.
 
 	![Before you start](./media/site-recovery-vmware-to-azure-classic/combined-wiz1.png)
-4. In **Third-Party Software License** click **I Accept** to download and install MySQL.
+4. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
 
 	![Third=party software](./media/site-recovery-vmware-to-azure-classic/combined-wiz105.PNG)
 
@@ -294,17 +294,17 @@ If you want to replicate VMware virtual machines install the following VMware co
 		- If you use a custom proxy you'll need to specify the address, port, and credentials
 		- If you're using a proxy you should have already allowed the following URLs:
 			- *.hypervrecoverymanager.windowsazure.com;    
-			- *.accesscontrol.windows.net;
-			- *.backup.windowsazure.com;
-			- *.blob.core.windows.net;
+			- *.accesscontrol.windows.net; 
+			- *.backup.windowsazure.com; 
+			- *.blob.core.windows.net; 
 			- *.store.core.windows.net
-
+			
 
 	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
-7. In **Prerequisites Check** setup runs a check to make sure that installation can run.
+7. In **Prerequisites Check** setup runs a check to make sure that installation can run. 
 
-
+	
 	![Prerequisites](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
 	 If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
@@ -531,14 +531,6 @@ Where:
 - /InstallLocation: Mandatory. Specifies where to install the service.
 - /PassphraseFilePath: Mandatory. Specifies the configuration server passphrase.
 - /LogFilePath: Mandatory. Specifies log setup files location
-
-### Uninstalling Mobility service
-Mobility Service can be uninstalled using the Add Remove Program from Control Panel or using command line.
-
-The command to uninstall the Mobility Service using command line is
-
-	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
-
 
 #### Modify the IP address of the management server
 
