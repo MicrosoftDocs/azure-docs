@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="08/24/2016"
    ms.author="mwasson"/>
 
 # Running multiple VMs on Azure for scalability and availability 
@@ -138,17 +138,17 @@ The script references the following parameter files to build the VMs and the sur
 - **[virtualNetwork.parameters.json][vnet-parameters-windows]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be contained within the address space of the VNet.
 
 	```json
-	"parameters": {
+    "parameters": {
       "virtualNetworkSettings": {
         "value": {
-          "name": "ra-vnet",
-          "resourceGroup": "ra-dev-rg",
+          "name": "ra-multi-vm-vnet",
+          "resourceGroup": "ra-multi-vm-rg",
           "addressPrefixes": [
             "10.0.0.0/16"
           ],
           "subnets": [
             {
-              "name": "ra-subnet",
+              "name": "ra-multi-vm-sn",
               "addressPrefix": "10.0.0.0/24"
             }
           ],
@@ -214,15 +214,15 @@ The script references the following parameter files to build the VMs and the sur
     ]
 	```
 
-	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
+	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array. For example, if you wish to enable outside access to the HTTP service, you should add a rule that opens TCP port 80.
 
-- **[virtualMachineParameters.json][vm-parameters-windows]**. This file defines the settings for the VMs, including the size of each VM, the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
+- **[loadBalancerParameters.json][loadbalancer-parameters-windows]**. This file defines the settings for the VMs, including the size of each VM, the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
 
 	```json
-	"parameters": {
+    "parameters": {
       "virtualMachinesSettings": {
         "value": {
-          "namePrefix": "ra",
+          "namePrefix": "ra-multi-vm",
           "computerNamePrefix": "cn",
           "size": "Standard_DS1",
           "osType": "windows",
@@ -233,7 +233,7 @@ The script references the following parameter files to build the VMs and the sur
           "nics": [
             {
               "isPublic": "false",
-              "subnetName": "ra-subnet",
+              "subnetName": "ra-multi-vm-sn",
               "privateIPAllocationMethod": "dynamic",
               "publicIPAllocationMethod": "dynamic",
               "isPrimary": "true",
@@ -258,22 +258,23 @@ The script references the following parameter files to build the VMs and the sur
           "osDisk": {
             "caching": "ReadWrite"
           },
+          "extensions": [ ],
           "availabilitySet": {
             "useExistingAvailabilitySet": "No",
-            "name": "ra-dev-as"
+            "name": "ra-multi-vm-as"
           }
         }
       },
       "loadBalancerSettings": {
         "value": {
-          "name": "dev-lb",
+          "name": "ra-multi-vm-lb",
           "frontendIPConfigurations": [
             {
-              "name": "lb-fe-config1",
+              "name": "ra-multi-vm-lb-fe-config1",
               "loadBalancerType": "public",
               "internalLoadBalancerSettings": {
                 "privateIPAddress": "10.0.0.250",
-                "subnetName": "ra-subnet"
+                "subnetName": "ra-multi-vm-sn"
               }
             }
           ],
@@ -283,8 +284,8 @@ The script references the following parameter files to build the VMs and the sur
               "frontendPort": 80,
               "backendPort": 80,
               "protocol": "Tcp",
-              "backendPoolName": "lb-bep1",
-              "frontendIPConfigurationName": "lb-fe-config1"
+              "backendPoolName": "ra-multi-vm-lb-bep1",
+              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1"
             }
           ],
           "probes": [
@@ -297,14 +298,14 @@ The script references the following parameter files to build the VMs and the sur
           ],
           "backendPools": [
             {
-              "name": "lb-bep1",
+              "name": "ra-multi-vm-lb-bep1",
               "nicIndex": 0
             }
           ],
           "inboundNatRules": [
             {
               "namePrefix": "rdp",
-              "frontendIPConfigurationName": "lb-fe-config1",
+              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1",
               "startingFrontendPort": 50000,
               "backendPort": 3389,
               "natRuleType": "All",
@@ -316,7 +317,7 @@ The script references the following parameter files to build the VMs and the sur
       },
       "virtualNetworkSettings": {
         "value": {
-          "name": "ra-vnet",
+          "name": "ra-multi-vm-vnet",
           "resourceGroup": "ra-multi-vm-rg"
         }
       },
@@ -330,7 +331,7 @@ The script references the following parameter files to build the VMs and the sur
     }
 	```
 
-	Note that the physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters. For example, using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-vm0 and ra-vm1. The computer names of the VMs that appear on the virtual network will be cn0 and cn1.
+	Note that the physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters. For example, using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-multi-vm0 and ra-multi-vm1. The computer names of the VMs that appear on the virtual network will be cn0 and cn1.
 
 	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file.
 
@@ -343,9 +344,9 @@ The script references the following parameter files to build the VMs and the sur
 	The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
 
 	```json
-	"imageReference": {
-      "publisher": "canonical",
-      "offer": "ubuntuserver",
+    "imageReference": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
       "sku": "14.04.5-LTS",
       "version": "latest"
     },
@@ -354,6 +355,8 @@ The script references the following parameter files to build the VMs and the sur
 	Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
 
 	The `loadBalancerSettings` section specifies the configuration for the load balancer used to direct traffic to the VMs. The default configuration creates a public load balancer with an internal IP address of `10.0.0.250`. You can change this, but the address must fall within the address space of the specified subnet. The load balancer rules handle traffic appearing on TCP port 80 with a health probe referencing the same port. You can change these ports as appropriate, and you can add further load balancing rules if you need to open up different ports.
+
+	>[AZURE.NOTE] The template does not install a web server on the VMs. You must perform this task manually after deploying the solution.
 
 	The load balancer also implements NAT rules to support RDP or SSH access directly to a specific VM; port 50000 in the load balancer is mapped to the RDP or SSH port on the first VM, port 50001 is mapped to the RDP or SSH port on the second VM, and so on.
 
@@ -371,33 +374,33 @@ The solution assumes the following prerequisites:
 
 To run the script that deploys the solution:
 
-1. Create a folder that contains subfolders named `Scripts` and `Templates`.
+1. Create a folder named `Scripts` that contains a subfolder named `Parameters`.
 
 2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script or [deploy-reference-architecture.sh][solution-script-bash] bash script, as appropriate, to the Scripts folder.
 
 3. If you are building a set of Windows VMs:
 
-	1. In the Templates folder, create another subfolder named Windows.
+	1. In the Parameters folder, create another subfolder named Windows.
 
-	2. Download the following files to Templates/Windows folder:
+	2. Download the following files to Parameters/Windows folder:
 
 		- [virtualNetwork.parameters.json][vnet-parameters-windows]
 
 		- [networkSecurityGroup.parameters.json][nsg-parameters-windows]
 
-		- [virtualMachineParameters.json][vm-parameters-windows]
+		- [loadBalancerParameters.json][loadbalancer-parameters-windows]
 
 4. If you are building a set of Linux VMs:
 
-	1. In the Templates folder, create another subfolder named Linux.
+	1. In the Parameters folder, create another subfolder named Linux.
 
-	2. Download the following files to Templates/Linux folder:
+	2. Download the following files to Parameters/Linux folder:
 
 		- [virtualNetwork.parameters.json][vnet-parameters-linux]
 
 		- [networkSecurityGroup.parameters.json][nsg-parameters-linux]
 
-		- [virtualMachineParameters.json][vm-parameters-linux]
+		- [loadBalancerParameters.json][loadbalancer-parameters-linux]
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
@@ -411,7 +414,7 @@ To run the script that deploys the solution:
 	RESOURCE_GROUP_NAME="ra-multi-vm-rg"
 	```
 
-6. Edit each of the JSON files in the Templates/Windows or Templates/Linux folder to set the parameters for the virtual network, NSG, VMs, and load balancer, as described in the Solution Components section above.
+6. Edit each of the JSON files in the Parameters/Windows or Parameters/Linux folder to set the parameters for the virtual network, NSG, VMs, and load balancer, as described in the Solution Components section above.
 
 	>[AZURE.NOTE] Make sure that you set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
@@ -473,14 +476,14 @@ To run the script that deploys the solution:
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Scripts/Deploy_ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Scripts/deploy-reference-architecture.sh
-[vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/windows/virtualNetwork.parameters.json
-[nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/windows/networkSecurityGroups.parameters.json
-[vm-parameters-windows]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/windows/virtualMachine.parameters.json
-[vnet-parameters-linux]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters-linux]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/linux/networkSecurityGroups.parameters.json
-[vm-parameters-linux]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-multi-vm/Parameters/linux/virtualMachine.parameters.json
+[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/deploy-reference-architecture.sh
+[vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json
+[vnet-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/virtualNetwork.parameters.json
+[nsg-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"
