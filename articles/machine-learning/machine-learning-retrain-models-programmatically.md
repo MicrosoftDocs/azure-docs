@@ -147,7 +147,7 @@ Diagram 4: Retraining output.
  
 When you run the application, the output includes the URL and SAS token necessary to access the evaluation results.
 
-You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the  preceding retraining output image) and pasting the complete URL in the browser address bar.  
+You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL in the browser address bar.  
 
 Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
 
@@ -155,7 +155,7 @@ Examine the results to determine whether the newly trained model performs well e
 
 To complete the retraining process, you must update the trained model of the new endpoint that you added.  
 
-* If you added the new endpoint using the Azure Portal, you can click the new endpoint's name in the Azure Portal, then the **UpdateResource** link to get the URL you would need to update the endpoint's model. 
+* If you added the new endpoint using the Azure portal, you can click the new endpoint's name in the Azure portal, then the **UpdateResource** link to get the URL you would need to update the endpoint's model. 
 * If you added the endpoint using the sample code, this includes location of the help URL identified by the *HelpLocationURL* value in the output.
 
 To retrieve the path URL:
@@ -168,7 +168,7 @@ To retrieve the path URL:
 
 You can now use the trained model to update the scoring endpoint that you created previously. 
 
-The following sample code shows you how to use the *BaseLocation*, *RelativeLocation*, *SasBlobToken*,Under Name click Census Model  and PATCH URL to update the endpoint.
+The following sample code shows you how to use the *BaseLocation*, *RelativeLocation*, *SasBlobToken*, and PATCH URL to update the endpoint.
 
 	private async Task OverwriteModel()
 	{
@@ -220,7 +220,7 @@ The value of the *Name* parameter in *Resources* should match the Resource Name 
 6. On the endpoint dashboard, click *Update Resource*.
 7. On the Update Resource API Documentation page for the web service, you can find the **Resource Name** under **Updatable Resources**.
 
-If your SAS token expires before you finish updating the endpoint. You must perform a GET with the Job Id to obtain a fresh token.
+If your SAS token expires before you finish updating the endpoint, you must perform a GET with the Job Id to obtain a fresh token.
 
 When the code has successfully run, the new endpoint should start using the retrained model in approximately 15 to 30 seconds.  
 
