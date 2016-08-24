@@ -48,7 +48,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 
 	![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Provide the followingfor the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
+5.	Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
 
  - The **New database name** 
  - The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
