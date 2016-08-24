@@ -43,7 +43,7 @@ If you want to connect VNets together, but are not creating a connection to an o
 
 Verify that you have the following items before beginning your configuration:
 
-- A compatible VPN device and someone who can configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
+- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 
 - An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	
