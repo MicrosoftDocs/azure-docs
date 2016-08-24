@@ -301,7 +301,9 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. The difference here is that part of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription, especially when the two subscriptions belong to different organizations. 
+In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. 
+
+The difference here is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations. 
 
 The instructions continue from the previous steps listed above. You must complete [Step 1](#Step1) and [Step 2](#Step2) to create and configure TestVNet1, and the VPN Gateway for TestVNet1. Once you complete Step 1 and Step 2, continue with Step 5 to create TestVNet5.
 
@@ -340,23 +342,23 @@ This step must be done in the context of the new subscription. This part may be 
 
 	Be sure to replace the values with the ones that you want to use for your configuration.
 
-		$Sub5          = "Replace_With_the_New_Subcription_Name"
-		$RG5           = "TestRG5"
-		$Location5     = "Japan East"
-		$VnetName5     = "TestVNet5"
-		$FESubName5    = "FrontEnd"
-		$BESubName5    = "Backend"
-		$GWSubName5    = "GatewaySubnet"
-		$VnetPrefix51  = "10.51.0.0/16"
-		$VnetPrefix52  = "10.52.0.0/16"
-		$FESubPrefix5  = "10.51.0.0/24"
-		$BESubPrefix5  = "10.52.0.0/24"
-		$GWSubPrefix5  = "10.52.255.0/27"
-		$DNS5          = "8.8.8.8"
-		$GWName5       = "VNet5GW"
-		$GWIPName5     = "VNet5GWIP"
+		$Sub5 = "Replace_With_the_New_Subcription_Name"
+		$RG5 = "TestRG5"
+		$Location5 = "Japan East"
+		$VnetName5 = "TestVNet5"
+		$FESubName5 = "FrontEnd"
+		$BESubName5 = "Backend"
+		$GWSubName5 = "GatewaySubnet"
+		$VnetPrefix51 = "10.51.0.0/16"
+		$VnetPrefix52 = "10.52.0.0/16"
+		$FESubPrefix5 = "10.51.0.0/24"
+		$BESubPrefix5 = "10.52.0.0/24"
+		$GWSubPrefix5 = "10.52.255.0/27"
+		$DNS5 = "8.8.8.8"
+		$GWName5 = "VNet5GW"
+		$GWIPName5 = "VNet5GWIP"
 		$GWIPconfName5 = "gwipconf5"
-		$Connection51  = "VNet5toVNet1"
+		$Connection51 = "VNet5toVNet1"
 
 2. Connect to subscription 5
 
