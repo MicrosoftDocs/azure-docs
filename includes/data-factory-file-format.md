@@ -2,14 +2,17 @@
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
 
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| columnDelimiter | The character used as a column separator in a file. Only one character is allowed at this time. This tag is optional. The default value is comma (,). | No |
-| rowDelimiter | The character used as a raw separator in file. Only one character is allowed at this time. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
-| escapeChar | The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No | 
-| quoteChar | The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.<br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | No |
-| nullValue | The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N” and “NULL”.<br/><br/>For example, based on below sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server. | No |
-| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+| Property | Description | Allowed values | Required |
+| -------- | ----------- | -------- | -------- | 
+| columnDelimiter | The character used to separate columns in a file. | Only one character is allowed. The default value is comma (,). | No |
+| rowDelimiter | The character used to separate rows in a file. | Only one character is allowed. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
+| escapeChar | The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (,) as the column delimiter but you want have the comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source. | No | 
+| quoteChar | The character used to quote a string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>Note that you cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source.  | No |
+| nullValue | The character(s) used to represent a null value. | A character. The default value is “\N” and “NULL”. | No |
+| encodingName | Specify the encoding name. | A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+| firstRowAsHeader | Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. | True and False (default)  | No |
+| skipLineCount | Indicates the number of rows to skip when reading data from input files. | Integer | No | 
+| treatEmptyAsNull | Specifies whether to treat null or empty string as a null value when reading data from an input file. | True (default) or False  | No |   
 
 #### TextFormat example
 The following sample shows some of the format properties for TextFormat.
@@ -25,6 +28,9 @@ The following sample shows some of the format properties for TextFormat.
 	        "rowDelimiter": ";",
 	        "quoteChar": "\"",
 	        "NullValue": "NaN"
+			"firstRowAsHeader": true,
+			"skipLineCount": 0,
+			"treatEmptyAsNull": true
 	    }
 	},
 
