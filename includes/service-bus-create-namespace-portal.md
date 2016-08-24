@@ -16,7 +16,7 @@
 
 6. Click the **Create** button. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
  
-### Obtain the credentials
+### Obtain the management credentials
 
 1. In the list of namespaces, click the newly created namespace name.
  
