@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Migration to Premium Storage Details
@@ -91,13 +91,13 @@ Automatic migrations occur from 6pm – 6am (local time per region) during the f
 | Japan East          | August 10, 2016              | August 24, 2016              |
 | Japan West          | Not determined yet           | Not determined yet           |
 | North Central US    | Not determined yet           | Not determined yet           |
-| North Europe        | August 10, 2016              | August 24, 2016              |
+| North Europe        | August 10, 2016              | August 31, 2016              |
 | South Central US    | June 23, 2016                | July 2, 2016                 |
 | Southeast Asia      | June 23, 2016                | July 1, 2016                 |
 | West Europe         | June 23, 2016                | July 8, 2016                 |
-| West Central US     | August 14, 2016              | August 28, 2016              |
+| West Central US     | August 14, 2016              | August 31, 2016              |
 | West US             | June 23, 2016                | July 7, 2016                 |
-| West US2            | August 14, 2016              | August 28, 2016              |
+| West US2            | August 14, 2016              | August 31, 2016              |
 
 ## Self-migration to Premium Storage
 If you would like to control when your downtime will occur, you can use the following steps to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
@@ -191,14 +191,14 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Azure paired region]: ./best-practices-availability-paired-regions.md
-[main documentation site]: ./services/sql-data-warehouse.md
-[Pause]: ./sql-data-warehouse-manage-compute-portal.md/#pause-compute
-[Restore]: ./sql-data-warehouse-manage-database-restore-portal.md
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: best-practices-availability-paired-regions.md
+[main documentation site]: services/sql-data-warehouse.md
+[Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
+[Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: ./sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: ./sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 

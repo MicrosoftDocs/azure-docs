@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="01/28/2016"
+   ms.date="08/16/2016"
    ms.author="jimpark;saurabhsensharma;nkolli;trinadhk"/>
 
 # Offline Backup workflow in Azure Backup
@@ -39,7 +39,7 @@ Once the upload of the backup data to Azure is complete, Azure Backup copies the
 2. Before initiating the workflow, ensure that an Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.
 3. Download the Azure Publish file settings from [here](https://manage.windowsazure.com/publishsettings) on the machine from which you plan to backup our data.
 4. Prepare a *staging location* that could be a network share or additional drive on the machine. The staging location is 'transient storage' and is used temporarily during this workflow. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to backup a 500GB file server, ensure that the staging area is at least 500GB (though a lesser amount is used due to compression). 
-5. External SATA drive writer and an external 3.5-Inch SATA drive. Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 8 TB are not supported. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter. Check the Azure Import/Export documentation for the latest set of drives that are supported by the service.
+5. One or more 3.5 inch internal SATA II/III hard drives. Only 3.5 inch internal SATA II/III hard drives are supported for use with the Azure Import/Export service. Hard drives larger than 10 TB are not supported. These hard drives can be connected either internally, using a compatible SATA connector or externally, using a SATA II/III USB Adaptor. Check the [Azure Import/Export documentation](../storage/storage-import-export-service.md) for the latest set of hard-drives and SATA USB Adaptors that are supported by the service.
 6. Enable BitLocker on the machine to which the SATA drive writer is connected.
 7. Download the Azure Import/Export tool from [here](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the machine to which the SATA drive writer is connected. This step is not required if you have downloaded and installed the August 2016 update of Azure Backup (or above). 
 

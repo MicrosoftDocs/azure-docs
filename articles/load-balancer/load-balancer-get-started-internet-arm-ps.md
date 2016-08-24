@@ -3,7 +3,7 @@
    description="Learn how to create an Internet facing load balancer in Resource Manager using PowerShell"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Get started creating an Internet facing load balancer in Resource Manager using PowerShell
 

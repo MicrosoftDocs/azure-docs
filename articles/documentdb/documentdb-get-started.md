@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -448,7 +448,7 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");

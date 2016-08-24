@@ -38,6 +38,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Can I create an API Management service instance using an ARM template?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 -	[Can I use a self-signed SSL certificate for a backend?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Why am I getting authentication failure when I try to clone the GIT repository?] (#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
+-	[Does API Management work with Express Route?](#does-api-management-work-with-express-route)
 
 
 ### How can I ask a question to the API Management team?
@@ -151,3 +152,7 @@ Yes. Please follow below steps:
 ### Why am I getting authentication failure when I try to clone the GIT repository? 
 
 If you are using GIT Credential Manager or trying to clone the repository through Visual Studio, you might be running into a known issue with Windows credential dialog which limits password length to only 127 characters and therefore truncates the password we generate. We are working on shortening the password. For now please use GIT Bash to clone. 
+
+### Does API Management work with Express Route?
+
+Yes!

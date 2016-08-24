@@ -563,7 +563,7 @@ Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64
 
 	![Mobility service](./media/site-recovery-vmware-to-azure/mobility3.png)
 
-3. In **Configuration Server Details** specify the IP address of the configuration server and the passphrase that was generated when you ran Unified Setup. You can retrieve the passphrase  by running: **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –n** on the configuration server.
+3. In **Configuration Server Details** specify the IP address of the configuration server and the passphrase that was generated when you ran Unified Setup. You can retrieve the passphrase  by running: **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –v** on the configuration server.
 
 	![Mobility service](./media/site-recovery-vmware-to-azure/mobility6.png)
 
@@ -834,7 +834,7 @@ The process server can automatically discover VMs on a vCenter server. To perfor
 --- | --- | ---
 Azure_Site_Recovery role | VMware VM discovery |Assign these privileges for the v-Center server:<br/><br/>Datastore->Allocate space, Browse datastore, Low level file operations., Remove file, Update virtual machine files<br/><br/>Network-> Network assign<br/><br/>Resource -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Tasks -> Create task, update task<br/><br/>Virtual machine ->  Configuration<br/><br/>Virtual machine -> Interact -> Answer question , Device connection., Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Virtual machine -> Inventory -> Create, Register, Unregister<br/><br/>Virtual machine -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Virtual machine -> Snapshots -> Remove snapshots
 vCenter user role | VMware VM discovery/Failover without shutdown of source VM | Assign these privileges for the v-Center server:<br/><br/>Data Center object –> Propagate to Child Object, role=Read-only <br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs and networks).
-vCenter user role | Failover and failback | Assign these privileges for the v-Center server:<br/><br/>Datacenter object – Propagate to child object, role=Azure_Site_Recovery<br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign  the **No access **role with  the **Propagate to child object** to the child object (vSphere hosts, datastores, VMs and networks).  
+vCenter user role | Failover and failback | Assign these privileges for the v-Center server:<br/><br/>Datacenter object – Propagate to child object, role=Azure_Site_Recovery<br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign  the **No access** role with  the **Propagate to child object** to the child object (vSphere hosts, datastores, VMs and networks).  
 ## Next steps
 
 - [Learn more](site-recovery-failover.md) about different types of failover.

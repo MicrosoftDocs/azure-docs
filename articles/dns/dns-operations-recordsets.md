@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
