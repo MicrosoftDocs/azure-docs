@@ -30,7 +30,7 @@ This article shows how to import to SQL database from a [BACPAC](https://msdn.mi
 
 ## Import from a BACPAC file into Azure SQL Database using SqlPackage
 
-Use the following steps to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to import a compatible SQL Server database (or Azure SQL database) from a BACPAC file.
+Use the following steps to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility to import a compatible SQL Server database (or Azure SQL database) from a BACPAC file.
 
 > [AZURE.NOTE] The following steps assume that you have already provisioned an Azure SQL Database server and have the connection information on hand.
 
