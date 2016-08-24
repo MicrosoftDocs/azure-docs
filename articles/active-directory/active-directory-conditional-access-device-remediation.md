@@ -1,5 +1,5 @@
 <properties
-	pageTitle="User remediation when accessing Azure AD device-based conditional access protected applications | Microsoft Azure"
+	pageTitle="Troubleshooting: You can't get there from here | Microsoft Azure"
 	description="This topic helps you identify if there are remediation steps that you can follow to gain access to the application you want to get to."
 	services="active-directory"
 	keywords="device-based conditional access, device registration, enable device registration, device registration and MDM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# User remediation when accessing Azure AD device-based conditional access protected applications
+# Troubleshooting: You can't get there from here
 
 You got an access denied page when accessing an application like Office 365 SharePoint Online.  
 Now, what do you do?
