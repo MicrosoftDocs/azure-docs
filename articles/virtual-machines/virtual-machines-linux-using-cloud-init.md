@@ -25,7 +25,7 @@ This article shows how to make a cloud-init script to set the hostname, update i
 
 ## Prerequisites
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI switched to Azure Resource Manager mode using `azure config mode arm`.
+Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), and the Azure CLI switched to Azure Resource Manager mode using `azure config mode arm`.
 
 ## Quick Commands
 
@@ -47,15 +47,28 @@ users:
 Create a Linux VM and call the cloud-init to run during the deployment.
 
 ```bash
+azure group create cloudinitexample westus
+```
+
+```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--public-ip-name cloudinitpubipexample \
+--public-ip-domain-name cloudinitdomainexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--storage-account-name cloudinitstorageexample \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---custom-data cloud_init.txt
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
+--custom-data cloud-init.txt
+
 ```
 
 ## Introduction
@@ -102,14 +115,23 @@ NOTE: Although this article discusses using the `--custom-data` switch for cloud
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--public-ip-name cloudinitpubipexample \
+--public-ip-domain-name cloudinitdomainexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--storage-account-name cloudinitstorageexample \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---custom-data cloud_init_script.txt
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
+--custom-data cloud-init.txt
+
 ```
 
 ### Creating a cloud-init script to set the hostname of a Linux VM
@@ -127,14 +149,23 @@ During the initial startup of the VM, this cloud-init script sets the hostname t
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--public-ip-name cloudinitpubipexample \
+--public-ip-domain-name cloudinitdomainexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--storage-account-name cloudinitstorageexample \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_hostname.txt
+
 ```
 
 Login and verify the hostname of the new VM.
@@ -160,13 +191,21 @@ After Linux has booted, all the installed packages are updated via `apt-get`.
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--public-ip-name cloudinitpubipexample \
+--public-ip-domain-name cloudinitdomainexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--storage-account-name cloudinitstorageexample \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_apt_upgrade.txt
 ```
 
@@ -205,13 +244,21 @@ After Linux has booted, all the listed users are created and added to the sudo g
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--public-ip-name cloudinitpubipexample \
+--public-ip-domain-name cloudinitdomainexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--storage-account-name cloudinitstorageexample \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_add_users.txt
 ```
 
@@ -230,3 +277,11 @@ sudo:x:27:exampleUser
 <snip />
 exampleUser:x:1000:
 ```
+
+## Next Steps
+
+Cloud-init is the open source way to modify your Linux VM on boot.  Azure has VMAccessExtensions which allow you to modify your LinuxVM on boot or while it is running.  A good example of when you would use Azure VMAccessExtensions is if you need to reset the root password while the VM is running.  With cloud-init you would need a reboot to reset the password but the Azure VMAccessExtensions can modify the VM while it is running and without a reboot.
+
+[About virtual machine extensions and features](virtual-machines-linux-extensions-features.md)
+
+[Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md)
