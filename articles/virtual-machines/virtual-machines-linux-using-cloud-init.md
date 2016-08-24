@@ -81,7 +81,7 @@ On Azure, there are a three different ways to make changes onto a Linux VM as it
 - Inject scripts using the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
 - An Azure template.
 
-_Use the template to launch and customize your Linux VM.  Azure templates support cloud-init as well as the CustomScript VM extension._
+Use the template to launch and customize your Linux VM.  Azure templates support cloud-init as well as the CustomScript VM extension.
 
 To inject scripts at any time after boot:
 
@@ -111,7 +111,9 @@ Microsoft is working with our partners to get cloud-init included and working in
 
 To launch a cloud-init script when creating a VM in Azure, specify the cloud-init file using the Azure CLI `--custom-data` switch.
 
-NOTE: Although this article discusses using the `--custom-data` switch for cloud-init files, you can also pass arbitrary code or files using this switch. If the Linux VM already knows what to do with such files, they execute automatically.
+```bash
+azure group create cloudinitexample westus
+```
 
 ```bash
 azure vm create \
