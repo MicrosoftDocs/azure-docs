@@ -19,7 +19,7 @@
 
 # List of connectors
 
-Select a connector to learn how to quickly leverage it to build workflows.
+Select a connector to learn how to quickly it to build workflows quickly.
 
 ## Standard connectors
 
@@ -52,12 +52,12 @@ Use the EIP connectors to create Logic apps for B2B scenarios that include EAI a
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connectors can be triggers
-Several connectors provide triggers that can notify your app when specific events occur. For example, the FTP connector has the OnUpdatedFile trigger. You can build an either a Logic app, PowerApp or Flow that listens to this trigger and takes an action whenever the trigger is fired.
+Several connectors provide triggers that can notify your app when specific events occur. For example, the FTP connector has the OnUpdatedFile trigger. You can build either a Logic app, PowerApp or Flow that listens to this trigger and takes an action whenever the trigger is fired.
 
 There are two types of triggers:  
 
-* Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your app runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean-up data that has been read and passed to your app.
-* Push Triggers: These triggers listen for data on an endpoint or for an event to occur. Then, triggers a new instance of your app. The twitter connector is one such example.
+* Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your app runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean up data that has been read and passed to your app.
+* Push Triggers: These triggers listen for data on an endpoint or for an event to occur, then, triggers a new instance of your app. The Twitter connector is one such example.
 
 ### Connectors can be actions
 Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/24/2016" 
 	ms.author="deonhe"/>
 
 # Learn about certificates and Enterprise Integration Pack
@@ -56,9 +56,10 @@ Here are the detailed steps to upload your public certificates into your integra
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificate
-You can upload private certificates into your integration account as well. To do this, you will need to perform the following steps:  
+You can upload private certificates into your integration account as well. To do this, you need to perform the following steps:  
 1. [Upload your private key to key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
-2. Create a private certificate Upload the private certificate into the your integration account  
+2. Create a private certificate 
+3. Upload the private certificate into your integration account  
 
 After you have done the steps above, you can use the private certificate to create agreements.
 
@@ -73,7 +74,7 @@ Here are the detailed steps to upload your private certificates into your integr
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 5. Select the **Add** button in the Certificates blade that opens  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
-6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. This opens up the file picker which allows you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
+6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. This opens up the file picker, which allows you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
 ![](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)  
 7. Within one minute, you will see a notification that indicates that the certificate upload is complete.  
 8. Select the **Certificates tile**. This refreshes the page and you should see the newly added certificate:  
