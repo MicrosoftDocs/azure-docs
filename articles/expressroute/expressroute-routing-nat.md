@@ -3,8 +3,8 @@
    description="This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="osamazia"
+   manager="ganesr"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
-   ms.author="ganesr"/>
+   ms.date="08/24/2016"
+   ms.author="osamazia"/>
 
 
 # ExpressRoute routing requirements  
