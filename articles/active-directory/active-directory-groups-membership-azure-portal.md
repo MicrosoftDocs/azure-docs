@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="08/24/2016"
 	ms.author="curtand"/>
 
 
@@ -25,7 +25,7 @@ Groups can contain other groups in Azure Active Directory. Here's how to manage 
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
 
   ![Opening user management](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
 
