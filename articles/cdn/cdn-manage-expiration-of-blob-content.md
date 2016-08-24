@@ -26,27 +26,7 @@ The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure St
 >
 >For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
 
-There are several ways that you can set the TTL on a blob in Azure Storage:  
-
-- [Azure PowerShell](#azure-powershell)
-
-- [Azure Storage Client Library for .NET](#azure-storage-client-library-for-net)
-	
-- [Azure Command-Line Interface](../xplat-cli-install.md)
-
-	When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
-
-	```text
-	azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-	```
-
-- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-
-	Explicitly set the *x-ms-blob-cache-control* property on a [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx), [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx), or [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx) request.
-
-- Third-party storage management tools
-
-	Some third-party Azure Storage management tools allow you to set the *CacheControl* property on blobs. 
+This tutorial demonstrates several ways that you can set the TTL on a blob in Azure Storage.  
 
 ## Azure PowerShell
 
@@ -101,6 +81,24 @@ class Program
 
 >[AZURE.TIP] There are many more .NET code samples available in the [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 
+## Other methods
+
+- [Azure Command-Line Interface](../xplat-cli-install.md)
+
+	When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
+
+	```text
+	azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
+	```
+
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+
+	Explicitly set the *x-ms-blob-cache-control* property on a [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx), [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx), or [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx) request.
+
+- Third-party storage management tools
+
+	Some third-party Azure Storage management tools allow you to set the *CacheControl* property on blobs. 
+	
 ## Testing the *Cache-Control* header
 
 You can easily verify the TTL of your blobs.  Using your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob is including the *Cache-Control* response header.  You can also use a tool like **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
