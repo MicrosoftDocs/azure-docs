@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="08/24/2016"
+   ms.date="08/23/2016"
    ms.author="carlrab"/>
 
 # SQL Server database migration to SQL Database in the cloud
