@@ -98,50 +98,7 @@ Before you can begin developing Azure applications, get the tools and set up you
 
 To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-1.  Sign in to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-
-    ![][5]
-
-4.  In the **Add a new namespace** dialog box, enter a namespace name.
-    The system immediately checks to see if the name is available.
-    ![][6]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-    > [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for
-    deploying your application. This will give you the best performance.
-
-6.	Leave the other fields in the dialog box with their default values, then click the OK check mark. The system creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-The namespace you created will appear in the portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations on the new namespace, such as creating messaging entities, you must obtain credentials for the namespace.
-
-1.  In the main window, click the namespace you created in the previous step.
-
-2.  At the bottom of the page, click **Connection Information**.
-
-3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
-
-	![][45]
-
-4.  Copy the connection string, and paste it somewhere to use later in this tutorial.
-
-5. In the same portal page, click the **Configure** tab at the top of the page.
-
-6. Copy the primary key for the **RootManageSharedAccessKey** policy to the clipboard, or paste it into Notepad. You will use this value later in this tutorial.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create an on-premises server
 
@@ -594,11 +551,6 @@ To learn more about Service Bus, see the following resources:
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Azure classic portal]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -620,8 +572,7 @@ To learn more about Service Bus, see the following resources:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md

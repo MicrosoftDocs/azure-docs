@@ -42,47 +42,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  In the **Add a new namespace** dialog box, enter a namespace name.
-    The system immediately checks to see if the name is available.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-	> [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for deploying your application. This will give you the best performance.
-
-6.	Leave the other fields in the dialog box with their default values (**Messaging** and **Standard** tier), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-	The namespace you created then appears in the portal and takes a moment to activate. Wait until the status is **Active** before continuing.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations, such as creating a relay connection, on the new namespace, you must configure the Shared Access Signature (SAS) authorization rule for the namespace. For more information about SAS, see [Shared Access Signature Authentication with Service Bus][].
-
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces.
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Double click the name of the namespace you just created from the list shown.
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Click the **Configure** tab at the top of the page.
-
-4.  When a Service Bus namespace is provisioned, a **SharedAccessAuthorizationRule**, with **KeyName** set to **RootManageSharedAccessKey**, is created by default. This page displays that key, as well as the primary and secondary keys for the default rule.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Get the Service Bus NuGet package
 
@@ -283,7 +243,6 @@ Now that you've learned the basics of the Service Bus relay service, follow thes
 - [Azure Service Bus architectural overview](service-bus-fundamentals-hybrid-solutions.md)
 - Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
-  [Azure classic portal]: http://manage.windowsazure.com
   [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [overview of Service Bus samples]: service-bus-samples.md
