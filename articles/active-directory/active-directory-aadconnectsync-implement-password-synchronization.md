@@ -30,7 +30,7 @@ This feature enables you to sign in to Azure Active Directory services (such as 
 By reducing the number of passwords your users need to maintain to just one, password synchronization helps you to:
 
 - Improve the productivity of your users
-- Reduce your helpdesk related costs  
+- Reduce your helpdesk costs  
 
 Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), you can optionally enable password synchronization as a backup in case your AD FS infrastructure fails.
 
@@ -109,7 +109,7 @@ If your server has been locked down according to Federal Information Processing 
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Save your changes.
 
-For reference, this is how it should look like:  
+For reference, this snip is how it should look like:  
 ```
 <configuration>
 	<runtime>
@@ -127,7 +127,7 @@ If passwords are not synchronizing as expected, it can either be for a subset of
 - If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#troubleshoot-issues-where-no-passwords-are-synchronized).
 
 ### Troubleshoot one object that is not synchronizing passwords
-You can easily troubleshoot password synchronization related issues by reviewing the status of an object.
+You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
 Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.
 ![Active Directory productive passwords](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
@@ -159,9 +159,9 @@ TargetNotExportedToDirectory | The object in the Azure AD connector space has no
 MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state.
 
 ### Troubleshoot issues where no passwords are synchronized
-Start by running the script in the section [Get the status of password sync settings](#get-the-status-of-password-sync-settings). It will give you an overview of the password sync configuration.  
+Start by running the script in the section [Get the status of password sync settings](#get-the-status-of-password-sync-settings). It gives you an overview of the password sync configuration.  
 ![PowerShell script output from password sync settings](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This will temporarily disable the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
+If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
 
 If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
 
