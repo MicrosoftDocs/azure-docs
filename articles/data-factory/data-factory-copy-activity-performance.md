@@ -18,7 +18,7 @@
 
 
 # Copy Activity performance and tuning guide
-This article describes key factors that affect the performance of data movement when you use the Copy Activity feature of Azure Data Factory. It also lists the performance that we observed in our own testing, and discusses various ways to optimize the performance of Copy Activity.
+This article describes key factors that affect the performance of data movement when you use Azure Data Factory with Copy Activity. It also lists the performance that we observed in our own testing, and discusses various ways to optimize the performance of Copy Activity.
 
 By using Copy Activity, you can get high data movement throughput:
 
@@ -28,7 +28,7 @@ By using Copy Activity, you can get high data movement throughput:
 
 Read on to learn more about the performance of Copy Activity and for tuning tips to further improve it.
 
-> [AZURE.NOTE] If you are not familiar with Copy Activity in general, see [Data movement activities](data-factory-data-movement-activities.md) before reading this article.
+> [AZURE.NOTE] If you are not familiar with Copy Activity in general, see [Move data by using Copy Activity](data-factory-data-movement-activities.md) before reading this article.
 
 ## Performance tuning steps
 We suggest that you take these steps to tune the performance of your Data Factory service with Copy Activity:
@@ -158,7 +158,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 	    }
 	]
 
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** the copy operation uses at run time is equal to or less than the configured value depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
+The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** the copy operation uses at run time is equal to or less than the configured value depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/en-us/support/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
 
 To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do want to overwrite **parallelCopies** to reduce the concurrent load, note that if **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
 
@@ -243,14 +243,14 @@ If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyB
 
 - **Average file size and file count**: Copy Activity transfers data one file at a time. With the same amount of data to be moved, the overall throughput is lower if the data consists of a large number of small files rather than a small number of larger files, because of the bootstrap phase for each file. Therefore, if possible, combine small files into larger files to gain higher throughput.
 - **File format and compression**: For more ways to improve performance, see the [Considerations for serialization and deserialization](#considerations-for-serialization-and-deserialization) and [Considerations for compression](#considerations-for-compression) sections.
-- For the **on-premises file system** scenario, in which **Data Management Gateway** is required, see the [Considerations for Gateway](#considerations-for-data-management-gateway) section.
+- For the **on-premises file system** scenario, in which **Data Management Gateway** is required, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### Relational data stores
 *(Includes SQL Database; SQL Data Warehouse; SQL Server databases; and Oracle, MySQL, DB2, Teradata, Sybase, and PostgreSQL databases)*
 
 - **Data pattern**: Your table schema affects copy throughput. A large row size gives you a better performance than small row size, to copy the same amount of data, because the database can more efficiently retrieve fewer batches of data that contain fewer rows.
 - **Query or stored procedure**: Optimize the logic of the query or stored procedure you specify in the Copy Activity source to fetch data more efficiently.
-- For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Gateway](#considerations-on-data-management-gateway) section.
+- For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-on-data-management-gateway) section.
 
 ## Considerations for the sink
 
@@ -268,7 +268,7 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 - **Copy behavior**: If you copy data from a different file-based data store, Copy Activity has three options via the **copyBehavior** property. It preserves hierarchy, flattens hierarchy, or merges files. Either preserving or flattening hierarchy has little or no performance overhead, but merging files causes performance overhead to increase.
 - **File format and compression**: See the [Considerations for serialization and deserialization](#considerations-for-serialization-and-deserialization) and [Considerations for compression](#considerations-for-compression) sections for more ways to improve performance.
 - **Blob storage**: Currently, Blob storage supports only block blobs for optimized data transfer and throughput.
-- For **on-premises file systems** scenarios that require the use of **Data Management Gateway**, see the [Considerations for Gateway](#considerations-for-data-management-gateway) section.
+- For **on-premises file systems** scenarios that require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### Relational data stores
 *(Includes SQL Database, SQL Data Warehouse, and SQL Server databases)*
@@ -280,7 +280,7 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 - **Data pattern and batch size**:
 	- Your table schema affects copy throughput. To copy the same amount of data, a large row size gives you better performance than a small row size because the database can more efficiently commit fewer batches of data.
 	- Copy Activity inserts data in a series of batches. You can set the number of rows in a batch by using the **writeBatchSize** property. If your data has small rows, you can set the **writeBatchSize** property with a higher value to benefit from lower batch overhead and higher throughput. If the row size of your data is large, be careful when you increase **writeBatchSize**. A high value might lead to a copy failure caused by overloading the database.
-- For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Gateway](#considerations-for-data-management-gateway) section.
+- For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 
 ### NoSQL stores
@@ -314,7 +314,7 @@ When your input or output data set is a file, you can set Copy Activity to perfo
 **A consideration**: To copy a large amount of data between an on-premises store and the cloud, consider using interim Blob storage with compression. This is helpful when the bandwidth of your corporate network and your Azure services is the limiting factor, and you want the input data set and output data set both to be in uncompressed form. More specifically, you can break a single copy activity into two copy activities. The first copy activity copies from the source to an interim or staging blob in compressed form. The second copy activity copies the compressed data from staging, and then decompresses while it writes to the sink.
 
 ## Considerations for column mapping
-You can set the **columnMappings** property in Copy Activity to map all or a subset of the input columns to the output columns. After it reads the data from the source, the data movement service needs to perform column mapping on the data before it writes the data to the sink. This extra processing reduces copy throughput.
+You can set the **columnMappings** property in Copy Activity to map all or a subset of the input columns to the output columns. After the data movement service reads the data from the source, it needs to perform column mapping on the data before it writes the data to the sink. This extra processing reduces copy throughput.
 
 If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
@@ -375,7 +375,8 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
-When individual file size is greater than dozens of MBs and total volume is large, increasing **parallelCopies** doesn't result in better copy performance because of the resource limitations of a single-cloud DMU. Instead, you should specify more cloud DMUs to get more resources to perform the data movement. Do not specify a value for the **parallelCopies** property. Data Factory handles the parallelism for you. In this case, if you set **cloudDataMovementUnits** to 4, a throughput of about four times occurs.
+**Scenario III**: Individual file size is greater than dozens of MBs and total volume is large.
+**Analysis and performance turning**: Increasing **parallelCopies** doesn't result in better copy performance because of the resource limitations of a single-cloud DMU. Instead, you should specify more cloud DMUs to get more resources to perform the data movement. Do not specify a value for the **parallelCopies** property. Data Factory handles the parallelism for you. In this case, if you set **cloudDataMovementUnits** to 4, a throughput of about four times occurs.
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
@@ -384,7 +385,7 @@ Here are performance monitoring and tuning references for some of the supported 
 
 - Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage//storage-performance-checklist.md)
 - Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the database transaction unit (DTU) percentage
-- Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+- Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 - Azure DocumentDB: [Performance levels in DocumentDB](../documentdb/documentdb-performance-levels.md)
 - On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 - On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
