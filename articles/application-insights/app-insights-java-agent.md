@@ -23,9 +23,9 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
- * **REST calls** made via HttpClient, OkHttp and RestTemplate (Spring).
- * **Redis** calls made via the Jedis client. If the call takes longer than 10s, the agent will also fetch the call arguments.
- * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB. "executeBatch" calls are supported. For MySQL and PostgreSQL, if the call takes longer than 10s, the agent will report the query plan. 
+ * **REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring).
+ * **Redis** calls made via the Jedis client. If the call takes longer than 10s, the agent also fetches the call arguments.
+ * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB. "executeBatch" calls are supported. For MySQL and PostgreSQL, if the call takes longer than 10s, the agent reports the query plan. 
 * **Caught exceptions:** Data about exceptions that are handled by your code.
 * **Method execution time:** Data about the time it takes to execute specific methods.
 
@@ -59,11 +59,11 @@ Set the content of the xml file. Edit the following example to include or omit t
         
         <!-- Collect remote dependency data -->
         <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
                Defaults: enabled, 10000 ms -->
            <Jedis enabled="true" thresholdInMS="1000"/>
            
-           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
@@ -90,13 +90,13 @@ Set the content of the xml file. Edit the following example to include or omit t
 
 You have to enable reports exception and method timing for individual methods.
 
-By default, `reportExecutionTime` is true, `reportCaughtExceptions` is false.
+By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.
 
 ## View the data
 
-In the Application Insights resource, aggregated remote dependency and method exection times will appear [under the Performance tile][metrics]. 
+In the Application Insights resource, aggregated remote dependency and method execution times appears [under the Performance tile][metrics]. 
 
-To search for individual instances of dependency, exception and method reports, open [Search][diagnostic]. 
+To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic]. 
 
 [Diagnosing dependency issues - learn more](app-insights-dependencies.md#diagnosis).
 

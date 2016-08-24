@@ -19,9 +19,9 @@
 
 *Application Insights is in Preview.*
 
-To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers a variety of system and network statistics.
+To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
-Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java], so that you have more data to help you to enhance your app's performance or diagnose problems. 
+Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
 ![Sample charts](./media/app-insights-java-collectd/sample.png)
 
@@ -31,13 +31,13 @@ In the [Microsoft Azure portal](https://portal.azure.com), open the [Application
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-![Browse all, open your resource, and then in the Esssentials drop-down, select and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
+![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
 
 
 
 ## Install collectd and the plug-in
 
-On your Unix server machine(s):
+On your Unix server machines:
 
 1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
 2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
@@ -86,7 +86,7 @@ Here's part of a sample configuration file:
     </Plugin>
 .   ...
 
-Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect a variety of data from different sources.
+Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
 Restart collectd according to its [manual](https://collectd.org/wiki/index.php/First_steps).
 
@@ -101,7 +101,7 @@ By default, the metrics are aggregated across all host machines from which the m
 
 ## To exclude upload of specific statistics
 
-By default, the Application Insights plugin will send all the data collected by all the enabled collectd 'read' plugins. 
+By default, the Application Insights plugin sends all the data collected by all the enabled collectd 'read' plugins. 
 
 To exclude data from specific plugins or data sources:
 
