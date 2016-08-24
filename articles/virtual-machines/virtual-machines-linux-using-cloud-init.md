@@ -77,19 +77,18 @@ When you launch a new Linux VM, you are getting a standard Linux VM with nothing
 
 On Azure, there are a three different ways to make changes onto a Linux VM as it is being deployed or booted.
 
-- Inject scripts with cloud-init.
-- Inject scripts using the Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
-- An Azure template.
-
-Use the template to launch and customize your Linux VM.  Azure templates support cloud-init as well as the CustomScript VM extension.
+- Inject scripts using cloud-init.
+- Inject scripts using the Azure [VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md).
+- An Azure template using cloud-init.
+- An Azure template using [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
 
 To inject scripts at any time after boot:
 
 - SSH to run commands directly
-- Azure CustomScriptExtention either imperatively or in an Azure template
+- Inject scripts using the Azure [VMAccess Extension](virtual-machines-linux-using-vmaccess-extension.md), either imperatively or in an Azure template
 - Configuration management tools like Ansible, Salt, Chef, and Puppet.
 
-NOTE: CustomScriptExtention executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
+NOTE: VMAccess Extension executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
 
 ### Cloud-init availability on Azure VM quick-create image aliases:
 
