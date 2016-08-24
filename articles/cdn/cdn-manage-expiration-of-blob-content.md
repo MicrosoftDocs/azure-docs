@@ -22,7 +22,7 @@ The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure St
 
 Any blob content that you wish to cache via the CDN must be stored in your Azure Storage account as a publicly accessible blob. For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
 
->[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN will automatically applies a default TTL of seven days.
+>[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
 >
 >For more information about how Azure CDN works to speed up access to blobs and other files, see the [Azure CDN Overview](./cdn-overview.md).
 
