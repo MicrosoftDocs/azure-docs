@@ -25,6 +25,6 @@ When you create a virtual machine (VM) in the [Azure portal](https://portal.azur
 You can now connect remotely to the VM using this DNS name such as for Remote Desktop Protocol (RDP).
 
 ## Next steps
-Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as IIS, SQL, SharePoint, etc.
+Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as IIS, SQL, Sor SharePoint.
 
 You can also read more about [using Resource Manager](../resource-group-overview.md) for tips on building your Azure deployments.
