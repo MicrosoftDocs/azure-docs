@@ -23,7 +23,7 @@ In this article, you can learn about the requirements and common data architectu
 
 Developers sometimes make choices that work against their long-term best interests when they design tenancy models for the data tiers of multitenant applications. Initially, at least, a developer might perceive ease of development and lower cloud service provider costs as more important than tenant isolation or the scalability of an application. This choice can lead to customer satisfaction concerns and a costly course-correction later.
 
-A multitenant application is an application that's hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
+A multitenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
 
 ## Multitenant applications
 
@@ -86,7 +86,7 @@ In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows th
 ![Popular multitenant application design patterns](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
 Figure 2: Popular multitenant data models
 
-The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
+The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
 
 The lower-left quadrant in Figure 2 illustrates multiple tenants sharded across multiple databases (typically, different hardware scale units). Each database hosts a subset of tenants, which addresses the scalability concern of other patterns. If more capacity is required for more tenants, you can easily place the tenants on new databases allocated to new hardware scale units. However, the amount of resource sharing is reduced. Only tenants placed on the same scale units share resources. This approach provides little improvement to tenant isolation because many tenants are still collocated without being automatically protected from each other’s actions. Application complexity remains high.
 
@@ -109,7 +109,7 @@ Figure 3: Multitenant application patterns in Azure SQL Database
 
 ## Database-per-tenant model with elastic pools and tools
 
-Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multitenant applications.The burden of resource sharing among tenants shifts from the application to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
+Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multitenant applications. The burden of resource sharing among tenants shifts from the application layer to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
 
 | Application requirements | SQL database capabilities |
 | ------------------------ | ------------------------- |
@@ -138,9 +138,9 @@ As described earlier, for most SaaS providers, a shared model approach might pos
 
 Tenant isolation requirements are important for most SaaS multitenant applications. The best option to provide isolation leans heavily toward the database-per-tenant approach. The other two approaches require investments in complex application layers that require skilled development staff to provide isolation, which significantly increases cost and risk. If isolation requirements are not accounted for early in the service development, retrofitting them can be even more costly in the first two models. The main drawbacks associated with the database-per-tenant model are related to increased cloud resource costs due to reduced sharing, and maintaining and managing many databases. SaaS application developers often struggle when they make these trade-offs.
 
-Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic  pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
+Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
 
-Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density to reduce costs might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
+Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
 
 ## Next steps
 
