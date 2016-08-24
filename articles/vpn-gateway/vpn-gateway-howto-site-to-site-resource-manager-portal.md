@@ -27,18 +27,13 @@
 
 This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal.
 
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
-**About Azure deployment models**
+
+
+### Deployment models and tools for Site-to-Site connections
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-## Connection diagram
-
-![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/diagrams2sazureportal.png)
-
-
-
-**Deployment models and tools for Site-to-Site connections**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 

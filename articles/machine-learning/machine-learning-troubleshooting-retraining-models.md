@@ -49,7 +49,7 @@ With all the pieces in place, the major steps you must take to retrain the model
 
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service.  There are two ways to obtain the PATCH URL:
 
-Option 1: using C#
+**Option 1: using C#**
 
 To get the correct PATCH URL:
 
@@ -61,7 +61,7 @@ To get the correct PATCH URL:
 3.	Paste the URL into a browser to navigate to a page that provides help links for the web service.
 4.	Click the **Update Resource** link to open the patching help page.
 
-Options 2: using the Azure portal
+**Option 2: using the Azure portal**
 
 1.	Log in to the classic [Azure portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
