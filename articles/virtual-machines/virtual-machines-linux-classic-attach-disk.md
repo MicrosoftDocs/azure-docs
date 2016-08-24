@@ -197,4 +197,4 @@ You can read more about using your Linux VM in the following articles:
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
-[Logon]: virtual-machines-linux-classic-log-on.md
+[Logon]: virtual-machines-linux-mac-create-ssh-keys.md
