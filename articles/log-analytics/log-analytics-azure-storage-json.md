@@ -19,7 +19,7 @@
 
 # Analyze Azure diagnostic logs using Log Analytics
 
-Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](azure-portal/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
+Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
 
 + Automation (Preview)
 + Key Vault (Preview)
@@ -31,7 +31,7 @@ The following sections walk you through using PowerShell to:
 + Configure Log Analytics to collect the logs from storage for each resource  
 + Enable the Log Analytics solution for the Azure service
 
-Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. You can use the  `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
+Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Use the `Set-AzureRmDiagnosticSetting` cmdlet to enable logging.
 
 Refer to the following articles for more information on how to enable diagnostic logging:
 
@@ -66,7 +66,7 @@ foreach ($resource in $resources) {
 ```
 
 
-For some resources, it is possible to perform the preceding configuration from the Azure portal using the steps described in [Overview of Azure diagnostic logs](azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+For some resources, it is possible to perform the preceding configuration from the Azure portal using the steps described in [Overview of Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 ## Configure Log Analytics to collect Azure diagnostic logs
 
@@ -149,20 +149,20 @@ Add-AzureDiagnosticsToLogAnalytics $resource $workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -intelligencepackname KeyVault -Enabled $true
 
 ```
-After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage. If records are not available after this time refer to the troubleshooting section below.  
+After running this script, you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage. If records are not available after this time refer to the troubleshooting section below.  
 
 >[AZURE.NOTE] The configuration is not visible in the Azure portal. You can verify configuration using the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.  
 
 
 ## Stopping Log Analytics from collecting Azure diagnostic logs
 
-To delete the Log Analytics configuration for a resource use the `Remove-AzureRmOperationalInsightsStorageInsight` cmdlet.
+To delete the Log Analytics configuration for a resource, use the `Remove-AzureRmOperationalInsightsStorageInsight` cmdlet.
 
 ## Troubleshooting configuration for Azure diagnostic logs
 
 *Issue*
 
-When configuring a resource that is logging to classic storage you get an exception saying "subscription not found".
+The following error is displayed when configuring a resource that is logging to classic storage:
 
 ```
 Select-AzureSubscription : The subscription id 7691b0d1-e786-4757-857c-7360e61896c3 doesn't exist.
@@ -195,7 +195,7 @@ The storage container used by Azure Diagnostics has a name with a format of:
 
 `insights-logs-<Category>`
 
-Refer to [Using storage cmdlets to check a container for recent data](../storage/storage-powershell-guide-full.md) for more details on viewing the contents of the storage account.
+Refer to [Using storage cmdlets to check a container for recent data](../storage/storage-powershell-guide-full.md) to learn more about viewing the contents of the storage account.
 
 ### Verify the Log Analytics solution for the service is enabled
 
