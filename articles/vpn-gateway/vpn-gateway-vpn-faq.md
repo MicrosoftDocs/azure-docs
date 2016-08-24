@@ -184,7 +184,7 @@ Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
-Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
+Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure user defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
 ### Why are certain ports opened on my VPN gateway?
 
