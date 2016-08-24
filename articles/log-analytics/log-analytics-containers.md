@@ -49,54 +49,54 @@ After you've installed Docker, use the following settings for your container hos
 
 1. Edit docker.service to add the following:
 
-   ```
-  [Service]
-  ...
-  Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-  ...
-  ```
+    ```
+    [Service]
+    ...
+    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
+    ...
+    ```
 
 2. Add $DOCKER\_OPTS in &quot;ExecStart=/usr/bin/docker daemon&quot; in your docker.service file. Using the following example.
 
-  ```
-  [Service]
-  Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-  ExecStart=/usr/bin/docker daemon -H fd:// $DOCKER_OPTS
-  ```
+    ```
+    [Service]
+    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
+    ExecStart=/usr/bin/docker daemon -H fd:// $DOCKER_OPTS
+    ```
 
 3. Restart the Docker service. For example:
 
-  ```
-  sudo systemctl restart docker.service
-  ```
+    ```
+    sudo systemctl restart docker.service
+    ```
 
 ### To configure settings for the container host - Upstart (Ubuntu 14.x)
 
 1. Edit /etc/default/docker and add the following:
 
-  ```
-  DOCKER_OPTS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-  ```
+    ```
+    DOCKER_OPTS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
+    ```
 
 2. Save the file and then restart the Docker and OMS services.
 
-  ```
-  sudo service docker restart
-  ```
+    ```
+    sudo service docker restart
+    ```
 
 ### To configure settings for the container host - Amazon Linux
 
 1. Edit /etc/sysconfig/docker and add the following:
 
-  ```
-  OPTIONS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-  ```
+    ```
+    OPTIONS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
+    ```
 
 2. Save the file and then restart the Docker service.
 
-  ```
-  sudo service docker restart
-  ```
+    ```
+    sudo service docker restart
+    ```
 
 ## Configure settings for CoreOS containers
 
