@@ -177,7 +177,7 @@ The following errors are generally caused by improper configuration of the firew
 -	When you open Configuration Manager, you see status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
 
 ### Open port 8050 for credential encryption
-The inbound port 8050 is used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure portal (details later in the article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
+The inbound port 8050 is used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure portal (details later in this article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
 
 If you are using a third-party firewall, you can manually open port 8050. If you run into firewall issues during gateway setup, you can try to use the following command to install the gateway without configuring the firewall.
 
