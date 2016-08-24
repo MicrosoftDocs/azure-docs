@@ -136,7 +136,7 @@ Points to note:
 > [AZURE.NOTE] You must use Data Management Gateway version 1.11 or later to use the **parallelCopies** feature when you do a hybrid copy.
 
 ### Cloud data movement units
-A cloud data movement unit (DMU) is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU can apply to a cloud-to-cloud copy operation, but not to a hybrid copy. By default, Data Factory uses a single-cloud DMU to perform a single Copy Activity run. You can override this default by specifying a value for the **cloudDataMovementUnits** property. Currently, the **cloudDataMovementUnits** setting is supported *only* for copying data between two instances of Blob storage or from an instance of Blob storage to an instance of Azure Data Lake Store. It takes effect when you copy multiple files that individually are greater than or equal to 16 MB.
+A cloud data movement unit (DMU) is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. A DMU might apply to a cloud-to-cloud copy operation, but not to a hybrid copy. By default, Data Factory uses a single-cloud DMU to perform a single Copy Activity run. You can override this default by specifying a value for the **cloudDataMovementUnits** property. Currently, the **cloudDataMovementUnits** setting is supported *only* for copying data between two instances of Blob storage or from an instance of Blob storage to an instance of Azure Data Lake Store. It takes effect when you copy multiple files that individually are greater than or equal to 16 MB.
 
 If you need to copy multiple relatively large files, a high value for **parallelCopies** might not improve performance because of the resource limitations of a single-cloud DMU. In this case, you might want to use more cloud DMUs to copy huge amounts of data with high throughput. To specify the number of cloud DMUs you want Copy Activity to use, set a value for the **cloudDataMovementUnits** property, like this:
 
@@ -238,7 +238,7 @@ You are charged based on two steps, copy duration and copy type. This means that
 ### General
 Be sure that the underlying data store is not overwhelmed by other workloads that are running on or against it. This includes but is not limited to Copy Activity.
 
-For Microsoft data stores, refer to the [monitoring and tuning topics](#appendix-data-store-performance-tuning-reference) that are specific to data stores, and which can help you understand data store performance characteristics, minimize response times, and maximize throughput.
+For Microsoft data stores, refer to the [monitoring and tuning topics](#performance-reference) that are specific to data stores, and which can help you understand data store performance characteristics, minimize response times, and maximize throughput.
 
 If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
 
@@ -262,7 +262,7 @@ If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyB
 ### General
 Be sure that the underlying data store is not overwhelmed by other workloads that are running on or against it. This includes but is not limited to Copy Activity.  
 
-For Microsoft data stores, refer to [monitoring and tuning topics](#appendix-data-store-performance-tuning-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
+For Microsoft data stores, refer to [monitoring and tuning topics](#performance-reference) that are specific to data stores. These topics can help you understand data store performance characteristics and how to minimize response times and maximize throughput.
 
 If you are copying data from **Blob storage** to **SQL Data Warehouse**, consider using **PolyBase** to boost performance. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) for details.
 
@@ -285,7 +285,7 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 - **Data pattern and batch size**:
 	- Your table schema affects copy throughput. To copy the same amount of data, a large row size gives you better performance than a small row size because the database can more efficiently commit fewer batches of data.
 	- Copy Activity inserts data in a series of batches. You can set the number of rows in a batch by using the **writeBatchSize** property. If your data has small rows, you can set the **writeBatchSize** property with a higher value to benefit from lower batch overhead and higher throughput. If the row size of your data is large, be careful when you increase **writeBatchSize**. A high value might lead to a copy failure caused by overloading the database.
-- For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Gateway](#considerations-on-data-management-gateway) section.
+- For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Gateway](#considerations-for-data-management-gateway) section.
 
 
 ### NoSQL stores
@@ -300,13 +300,13 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 Serialization and deserialization can occur when your input data set or output data set is a file. Currently, Copy Activity supports Avro and Text (for example, CSV and TSV) data formats.
 
 **Copy behavior**:
-- Copying files between file-based data stores:
+-	Copying files between file-based data stores:
 	- When input and output data sets both have the same or no file format settings, the data movement service executes a binary copy without any serialization or deserialization. You'll see a higher throughput compared to the scenario in which the source and sink file format settings are different from each other.
 	- When input and output data sets both are in text format and only the encoding type is different, the data movement service only does encoding conversion. It doesn't do any serialization and deserialization, which causes some performance overhead compared to a binary copy.
 	- When input and output data sets both have different file formats or different configurations, like delimiters, the data movement service deserializes the source data to stream, transform, and then serialize it into the output format you've indicated. This results in a much more significant performance overhead compared to other scenarios.
 - When you copy files to and from a data store that is not file-based (for example, from a file-based store to a relational store), the serialization or deserialization step is required. This results in significant performance overhead.
 
-**File format**: The file format you choose might affect copy performance. For example, Avro is a compact binary format that stores metadata with data. It has broad support in the Hadoop ecosystem for processing and querying. However, Avro is more expensive for serialization and deserialization, which results in lower copy throughput compared to text format. You should make your choice of file format throughout the processing flow holistically, starting from what form the data is stored in; source, data stores, or to be extracted from external systems; the best format for storage; analytical processing and querying; and in what format you will export the data into data marts for reporting and visualization tools. Sometimes a file format that is suboptimal for read and write performance might be a good choice when you consider the overall analytical process.
+**File format**: The file format you choose might affect copy performance. For example, Avro is a compact binary format that stores metadata with data. It has broad support in the Hadoop ecosystem for processing and querying. However, Avro is more expensive for serialization and deserialization, which results in lower copy throughput compared to text format. You should make your choice of file format throughout the processing flow holistically. Start with what form the data is stored in, source data stores or to be extracted from external systems; the best format for storage, analytical processing, and querying; and in what format the data should be exported into data marts for reporting and visualization tools. Sometimes a file format that is suboptimal for read and write performance might be a good choice when you consider the overall analytical process.
 
 ## Considerations for compression
 When your input or output data set is a file, you can set Copy Activity to perform compression or decompression as it writes data to the destination. When you choose compression, you make a tradeoff between input/output (I/O) and CPU. Compressing the data costs extra in compute resources, but in return, it reduces network I/O and storage, which, depending on your data, could give you a boost in overall copy throughput.
@@ -315,12 +315,12 @@ When your input or output data set is a file, you can set Copy Activity to perfo
 
 **Level**: You can choose from two options for each compression codec: fastest compressed and optimally compressed. The fastest compressed option compresses the data as quickly as possible, even if the resulting file is not optimally compressed. The optimally compressed option spends more time on compression and yields a minimal amount of data. You can test both options to see which provides better overall performance in your case.
 
-**A consideration**: To copy a large amount of data between an on-premises store and the cloud, consider using interim Blob storage with compression. This is helpful when the bandwidth of your corporate network and Azure services is the limiting factor, and you want the input data set and output data set both to be in uncompressed form. More specifically, you can break a single copy activity into two copy activities. The first copy activity copies from the source to an interim or staging blob in compressed form. The second copy activity copies the compressed data from staging, and then decompresses while it writes to the sink.
+**A consideration**: To copy a large amount of data between an on-premises store and the cloud, consider using interim Blob storage with compression. This is helpful when the bandwidth of your corporate network and your Azure services is the limiting factor, and you want the input data set and output data set both to be in uncompressed form. More specifically, you can break a single copy activity into two copy activities. The first copy activity copies from the source to an interim or staging blob in compressed form. The second copy activity copies the compressed data from staging, and then decompresses while it writes to the sink.
 
 ## Considerations for column mapping
 You can set the **columnMappings** property in Copy Activity to map all or a subset of the input columns to the output columns. After it reads the data from the source, the data movement service needs to perform column mapping on the data before it writes the data to the sink. This extra processing reduces copy throughput.
 
-If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. The projection then occurs while the data movement service reads data from the source data store, where it is much more efficient.
+If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
 ## Considerations for Data Management Gateway
 For Gateway setup recommendations, see [Considerations for using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#Considerations-for-using-Data-Management-Gateway).
@@ -333,7 +333,7 @@ For Gateway setup recommendations, see [Considerations for using Data Management
 ## Other considerations
 If the size of data you want to copy is very large, you can adjust your business logic to further partition the data using the slicing mechanism in Data Factory. Next, schedule Copy Activity to run more frequently to reduce the data size for each Copy Activity run.
 
-Be cautious about the number of data sets and copy activities reaching out to the same data store at the same time. A large number of concurrent copy jobs can throttle a data store and lead to degraded performance, copy job internal retries, and in some cases, execution failures.
+Be cautious about the number of data sets and copy activities reaching out to the same data store at the same time. A large number of concurrent copy jobs might throttle a data store and lead to degraded performance, copy job internal retries, and in some cases, execution failures.
 
 ## Case Study: Copy from an on-premises SQL Server to Blob storage
 **Scenario**: A pipeline is built to copy data from an on-premises SQL Server to Blob storage in CSV format. To make the copy job faster, it's specified that the CSV files should be compressed in bzip2 format.
@@ -359,8 +359,8 @@ One or more of the following factors might cause the performance bottleneck:
 	-	**Gateway**: Gateway has reached its load limitations to perform the following:
 		-	**Serialization**: Serializing the data stream to CSV format has slow throughput
 		-	**Compression**: You chose a slow compression codec (for example, bzip2, which is 2.8 MBps with Core i7)
-	-	**WAN**: The bandwidth between the corporate network and Azure services is low (for example, T1 = 1,544 kbps; T2 = 6,312 kbps)
--	**Sink**: Azure Blob has low throughput (this is unlikely because its SLA guarantees a minimum of 60 MBps)
+	-	**WAN**: The bandwidth between the corporate network and your Azure services is low (for example, T1 = 1,544 kbps; T2 = 6,312 kbps)
+-	**Sink**: Blob storage has low throughput (this is unlikely because its SLA guarantees a minimum of 60 MBps)
 
 In this case, bzip2 data compression might be slowing down the entire pipeline. Switching to a gzip compression codec might ease this bottleneck.
 
@@ -391,4 +391,4 @@ Here are some performance monitoring and tuning references for some of the suppo
 - Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 - Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md)
 - On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
-- On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
+- On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)
