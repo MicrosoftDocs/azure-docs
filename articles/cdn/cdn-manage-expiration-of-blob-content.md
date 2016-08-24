@@ -22,9 +22,9 @@ The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure St
 
 Any blob content that you wish to cache via the CDN must be stored in your Azure Storage account as a publicly accessible blob. For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
 
->[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN will automatically apply a default TTL of 7 days.
+>[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN will automatically applies a default TTL of seven days.
 >
->For more information about how Azure CDN works to speed up your users' access to blobs and other files, see the [Azure CDN Overview](./cdn-overview.md).
+>For more information about how Azure CDN works to speed up access to blobs and other files, see the [Azure CDN Overview](./cdn-overview.md).
 
 There are several ways that you can set the TTL on a blob in Azure Storage:  
 
@@ -34,7 +34,7 @@ There are several ways that you can set the TTL on a blob in Azure Storage:
 	
 - [Azure Command-Line Interface](../xplat-cli-install.md)
 
-	When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to 1 hour (3600 seconds).
+	When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
 
 	```text
 	azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
