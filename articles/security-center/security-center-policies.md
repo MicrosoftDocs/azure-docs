@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/24/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
