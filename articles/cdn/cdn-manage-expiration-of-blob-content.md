@@ -18,7 +18,7 @@
 
 # Manage expiration of Azure Storage blob content in Azure CDN
 
-The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the *Cache-Control* header in the HTTP response from Azure Storage.
+The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from Azure Storage.
 
 >[AZURE.TIP] You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
 >
@@ -98,11 +98,13 @@ class Program
 - Third-party storage management tools
 
 	Some third-party Azure Storage management tools allow you to set the *CacheControl* property on blobs. 
-	
+
 ## Testing the *Cache-Control* header
 
 You can easily verify the TTL of your blobs.  Using your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob is including the *Cache-Control* response header.  You can also use a tool like **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 
-[Learn how to manage expiration of Cloud Service content in Azure CDN](./cdn-manage-expiration-of-cloud-service-content.md)
+- [Read about the *Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+- [Learn how to manage expiration of Cloud Service content in Azure CDN](./cdn-manage-expiration-of-cloud-service-content.md)
+
