@@ -25,7 +25,7 @@ Making sure your Azure AD Connect installation is always up to date has never be
 Automatic upgrade is enabled by default for the following:
 
 - Express settings installation and DirSync upgrades.
-- Using SQL Express LocalDB, which is what Express settings always uses. DirSync with SQL Express also use LocalDB.
+- Using SQL Express LocalDB, which is what Express settings always use. DirSync with SQL Express also use LocalDB.
 - The AD account is the default MSOL_ account created by Express settings and DirSync.
 - Have less than 100,000 objects in the metaverse.
 
