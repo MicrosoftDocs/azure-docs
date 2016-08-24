@@ -13,13 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/26/2016" 
 	ms.author="luisca"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
 
 
 **What is RECOMMENDATIONS?**
+
+> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016.   
+> You should now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).  
+
+
 
 For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
 
