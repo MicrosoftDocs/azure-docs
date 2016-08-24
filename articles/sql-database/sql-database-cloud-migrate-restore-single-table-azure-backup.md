@@ -19,17 +19,17 @@
 
 # How to restore a single table from an Azure SQL Database backup
 
-You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the [backups that are automatically](sql-database-automated-backups.md) that are performed by Azure SQL Database, based on your selected performance tier.
+You may encounter a situation in which you accidentally modified some data in a SQL database and now you want to recover the single affected table. This article describes how to restore a single table in a database from one of the SQL Database [automatic backups](sql-database-automated-backups.md).
 
 ## Preparation steps: Rename the table and restore a copy of the database
 1. Identify the table in your Azure SQL database that you want to replace with the restored copy. Use Microsoft SQL Management Studio to rename the table. For example, rename the table as &lt;table name&gt;_old.
 
 	**Note** To avoid being blocked, make sure that there's no activity running on the table that you are renaming. If you encounter issues, make sure that perform this procedure during a maintenance window.
 
-2. Restore a backup of your database to a point in time that you want to recover to. To do this, see the steps in [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+2. Restore a backup of your database to a point in time that you want to recover to using the [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) steps.
 
 	**Notes**:
-	- The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to let the user verify the restored database before they drop their current database and rename the restored database for production use.
+	- The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
 	- All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
@@ -60,7 +60,7 @@ You may encounter a situation in which you accidentally modified some data in a 
 7. On the **Results Summary** page, click **Next**.
 ![SQL Database Migration wizard - Results Summary](./media/sql-database-cloud-migrate-restore-single-table-azure-backup/6.png)
 
-8. On the **Setup Target Server Connection** page,  click **Connect to Server**, and then enter the details as follows:
+8. On the **Setup Target Server Connection** page, click **Connect to Server**, and then enter the details as follows:
 	- **Server Name**: Target server instance
 	- **Authentication**: **SQL Server authentication**. Enter your login credentials.
 	- **Database**: **Master DB (List all databases)**. This option lists all the databases on the target server.
