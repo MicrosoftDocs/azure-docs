@@ -290,7 +290,7 @@ After you decide what size you need, you can use the following command to resize
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 
-## Deleting and deprovisioning an ExpressRoute circuit
+## Deprovisioning and deleting an ExpressRoute circuit
 
 Note the following:
 
