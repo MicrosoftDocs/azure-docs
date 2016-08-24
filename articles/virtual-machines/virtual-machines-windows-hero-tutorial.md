@@ -110,11 +110,22 @@ Now that you are logged into the VM, we will install a server role so that you c
 3. In the menu, select **Manage** > **Add Roles and Features**.
 4. In the Add Roles and Features Wizard, choose **Role-based or feature-based installation** and then click **Next**.
 5. Select the VM from the server pool and click **Next**.
-6. 
+6. One the **Server Roles** page select **Web Server (IIS)**.
+7. In the pop-up about adding features needed for IIS, make sure that **Include management tools** is selected and then click **Add Features**. When the pop-up closes, click **Next** in the wizard.
+8. On the features page, click **Next**.
+9. On the **Web Server Role (IIS)** page, click **Next**. 
+10. On the **Role Services** page, click **Next**. 
+11. On the **Confirmation** page, click **Install**. 
+12. When the installation is complete, click **Close** on the wizard.
+
+If you want, you can open the IIS default web page in Notepad (by default, this will be C:\inetpub\wwwroot\iisstart.htm) and make some basic changes so that you know that you are reaching the correct server. 
+
 
 
 ## Create a NSG to open port 80
-
+1. 1. Open the [Azure portal](https://portal.azure.com).
+2. Under **Virtual machines** select the VM that you created.
+3. 
 
 
 ## Stop the VM
