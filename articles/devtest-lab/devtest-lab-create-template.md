@@ -82,6 +82,7 @@ In order to add a new custom image, you'll need to have access to a VHD file.
 **Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
 
 ## Create a custom image from a VM
+If you have a VM that is already configured, you can create a custom image from that VM, and subsequently use that custom image to create other identical VMs. The following steps illustrate how to create a custom image from a VM:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
