@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # List of connectors
 
-Select an icon to learn how to quickly leverage these connectors to build workflows that call these services.
+Select a connector to learn how to quickly leverage it to build workflows.
 
 ## Standard connectors
 

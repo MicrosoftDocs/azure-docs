@@ -36,7 +36,7 @@ Sometimes, B2B communications need to be kept confidential. Enterprise integrati
 ### Public certificate
 To use a **public certificate** in your Logic apps with B2B capabilities, you first need to upload it into your integration account. On the other hand, to use a **self-signed certificate**, it must first be uploaded to [key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault"). 
 
-After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
+After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md) you create.  
 
 Here are the detailed steps to upload your public certificates into your integration account after you log into the Azure portal:   
 1. Select **Browse**  
@@ -83,6 +83,6 @@ After you upload a certificate, it will be available for you to secure your B2B 
 
 
 ## Next steps
+- - [Create a Logic app that uses B2B features](./app-service-logic-enterprise-integration-b2b.md)  
 - [Create a B2B agreement](./app-service-logic-enterprise-integration-agreements.md)  
-- [Create a Logic app using B2B features](./app-service-logic-enterprise-integration-b2b.md)  
 - [Learn more about key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
