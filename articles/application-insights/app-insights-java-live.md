@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Application Insights for Java web apps that are already live
@@ -102,6 +102,10 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+## 5. Check firewall exceptions
+
+You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
 
 ## 5. Restart your web app
 

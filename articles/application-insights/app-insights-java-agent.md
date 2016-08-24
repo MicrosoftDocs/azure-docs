@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Monitor dependencies, exceptions and execution times in Java web apps
@@ -104,7 +104,8 @@ To search for individual instances of dependency, exception and method reports, 
 
 ## Questions? Problems?
 
-[Troubleshooting Java](app-insights-java-troubleshoot.md)
+* No data? [Set firewall exceptions](app-insights-ip-addresses.md)
+* [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
 

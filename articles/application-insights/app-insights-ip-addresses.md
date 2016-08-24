@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="IP addresses used by Application Insights | Microsoft Azure"
-	description="List of static addresses" 
+	description="Server firewall exceptions required by Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # IP addresses used by Application Insights
