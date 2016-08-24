@@ -54,7 +54,7 @@ You can specify application packages at the pool and task level. You can specify
 
     Pool application packages are appropriate when all nodes in a pool execute a job's tasks. You can specify one or more application packages when you create a pool, and you can add or update an existing pool's packages. If you update an existing pool's application packages, you must restart its nodes to install the new package.
 
-* **Task application packages** are deployed only to a compute node scheduled to run a task, just before running a task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
+* **Task application packages** are deployed only to a compute node scheduled to run a task, just before running the task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
 
     Task application packages are useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has less tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
 
@@ -64,9 +64,9 @@ You can specify application packages at the pool and task level. You can specify
 
 ### Benefits of application packages
 
-Application packages can simplify the code in your Batch solution and lower the required overhead to manage the applications that your tasks run. Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes, for example.
+Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run.
 
-You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
 
 ## Upload and manage applications
 
@@ -214,7 +214,7 @@ await myCloudPool.CommitAsync();
 
 ### Install task application packages
 
-Similar to a pool, you specify application package *references* for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line is executed. If a specified package and version is already installed on the node, the package is not downloaded.
+Similar to a pool, you specify application package *references* for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line is executed. If a specified package and version is already installed on the node, the package is not downloaded and the existing package is used.
 
 To install a task application package, configure the task's [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] property:
 
@@ -236,7 +236,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 
 ## Execute the installed applications
 
-The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to this named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
+The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to the named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
 
 `AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
@@ -244,7 +244,7 @@ The packages that you've specified for a pool or task are downloaded and extract
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If you specify a default version for an application, you can omit the version suffix. For example, if you set "2.7" as the default version for application *blender*, your tasks can reference the following environment variable:
+If you specify a default version for an application, you can omit the version suffix. For example, if you set "2.7" as the default version for application *blender*, your tasks can reference the following environment variable and they will execute version 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -257,7 +257,7 @@ string commandLine =
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] See "Environment settings for tasks" in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
+> [AZURE.TIP] See [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
 
 ## Update a pool's application packages
 
