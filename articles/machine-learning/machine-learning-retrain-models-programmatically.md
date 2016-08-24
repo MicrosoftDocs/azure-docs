@@ -98,7 +98,7 @@ The Predictive Web Service you deployed is the default scoring endpoint. Default
 
 To create a new scoring endpoint, on the Predictive Web Service that can be updated with the trained model:
 
->[AZURE NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
+>[AZURE.NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
 
 1. Log in to the [Azure Classic Portal](https://manage.windowsazure.com).
 2. In the left menu, click **Machine Learning**.
@@ -129,7 +129,7 @@ To call the Retraining APIs:
 			},
 		},
 
->[AZURE NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them. 
+>[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them. 
 
 ### Update the Azure Storage information
 
@@ -222,7 +222,7 @@ The value of the *Name* parameter in *Resources* should match the Resource Name 
 
 If your SAS token expires before you finish updating the endpoint, you must perform a GET with the Job Id to obtain a fresh token.
 
-When the code has successfully run, the new endpoint should start using the retrained model in approximately 15 to 30 seconds.  
+When the code has successfully run, the new endpoint should start using the retrained model in approximately 30 seconds.  
 
 ##Summary  
 Using the Retraining APIs, you can update the trained model of a predictive Web Service enabling scenarios such as:

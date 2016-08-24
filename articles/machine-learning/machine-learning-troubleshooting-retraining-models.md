@@ -71,7 +71,7 @@ Options 2: using the Azure portal
 5.	Click Add Endpoint
 6.	After the endpoint is added, click the endpoint name. Then click **Update Resource** to open the patching help page.
 
->[AZURE NOTE] If you have added the endpoint to the training web service instead of the predictive web service, you will receive the following error when you click the **Update Resource** link: Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.
+>[AZURE.NOTE] If you have added the endpoint to the training web service instead of the predictive web service, you will receive the following error when you click the **Update Resource** link: Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow.
 
 ![New endpoint dashboard.][image3]
 
@@ -86,7 +86,7 @@ The PATCH help page contains the PATCH URL you must use and provides sample code
 
 You can verify which web service the endpoint is on by visiting the Azure classic portal. 
 
->[AZURE NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
+>[AZURE.NOTE] Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
 
 1.	Log in to the classic [Azure portal](https://manage.windowsazure.com).
 2.	Open the Machine Learning tab. 
