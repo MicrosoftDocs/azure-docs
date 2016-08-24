@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Passing credentials to the Azure DSC extension handler #
@@ -76,7 +76,7 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 
-Running this code will prompt for a credential. Once it is provided, it is stored in memory briefly. When it is published with `Set-AzureVmDscExtension` cmdlet, it is transmitted over HTTPS to the VM, where Azure stores it encrypted on disk, using the local VM certificate. Then it is briefly decrypted in memory and re-encrypt in order to pass it to DSC.
+Running this code will prompt for a credential. Once it is provided, it is stored in memory briefly. When it is published with `Set-AzureVmDscExtension` cmdlet, it is transmitted over HTTPS to the VM, where Azure stores it encrypted on disk, using the local VM certificate. Then it is briefly decrypted in memory and re-encrypted in order to pass it to DSC.
 
 This is different than using secure configurations without the extension handler. The Azure environment gives a way to transmit configuration data securely via certificates, so when using the DSC extension handler there is no need to provide $CertificatePath or a $CertificateID / $Thumbprint entry in ConfigurationData.
 
