@@ -72,9 +72,7 @@ Batch works in the background with Azure Storage to store and deploy application
 
 ## Upload and manage applications
 
-You can use the [Azure portal][portal] or the [Batch Management .NET](batch-management-dotnet.md) library to add, update, and delete application packages. You can configure a default version of an application to be installed when you omit the version in your code.
-
-In the next few sections, we'll first explain how to associate a Storage account with your Batch account and then how to review the package management features that are available in the Azure portal. After that, you'll learn how to deploy these packages to compute nodes by using the [Batch .NET][api_net] library.
+You can use the [Azure portal][portal] or the [Batch Management .NET](batch-management-dotnet.md) library to manage application packages. In the following sections, we first link a Storage account, then discuss adding applications and packages with the portal. Finally, we show how to deploy your packages to compute nodes by using the [Batch .NET][api_net] library.
 
 ### Link a Storage account
 
@@ -240,11 +238,11 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 
 ## Execute the installed applications
 
-The packages that you've specified for a pool or task are downloaded and extracted to a named directory within `AZ_BATCH_ROOT_DIR` on the node. Batch also creates an environment variable that contains the path to this named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
+The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to this named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
 
 `AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
 
-For example, if you specify that version 2.7 of application *blender* should be installed, your tasks can access its binaries by including the following environment variable in their command lines:
+`APPLICATIONID` and `version` are values that correspond to the application and package version you've specified for deployment. For example, if you specifed that version 2.7 of application *blender* should be installed, your task command lines would use this environment variable to access its files:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
@@ -252,11 +250,12 @@ If you specify a default version for an application, you can omit the version su
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-The following code snippet shows how a task might be configured when a default version has been specified for the *blender* application.
+The following code snippet shows an example task command line that launches the default version of the *blender* application:
 
 ```csharp
 string taskId = "blendertask01";
-string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -command -args";
+string commandLine =
+    @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
