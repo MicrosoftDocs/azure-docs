@@ -28,9 +28,9 @@ In this article, you learn to migrate a compatible SQL Server database to Azure 
 
 ## Understanding the Transactional Replication architecture
 
-When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this solution, you configure your Azure SQL Database as a subscriber to the on-premises SQL Server instance that you wish to migrate. The on-premises transactional replication distibutor will synchronize data from the on-premises database to be synchronized (the publisher) while new transactions continue occur. 
+When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this solution, you configure your Azure SQL Database as a subscriber to the on-premises SQL Server instance that you wish to migrate. The on-premises transactional replication distributor synchronizes data from the on-premises database to be synchronized (the publisher) while new transactions continue occur. 
 
-You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionally, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
+You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. For each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 
 With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. 
 
@@ -40,7 +40,7 @@ Once the synchronization is complete and you are ready to migrate, you just need
 
 ## Transactional Replication requirements
 
-Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/en-us/cloud-platform/sql-server), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor is at least one of the following SQL Server versions:
+Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/en-us/cloud-platform/sql-server), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor are at least one of the following SQL Server versions:
 
  - SQL Server 2016 and above 
  - SQL Server 2014 SP1 CU3 and above
