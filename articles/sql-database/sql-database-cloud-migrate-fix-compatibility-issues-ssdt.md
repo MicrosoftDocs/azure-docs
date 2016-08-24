@@ -62,13 +62,13 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/07MigrateSSDT.png)    
     
 ## Fixing Compatibility Issues Using SQL Server Data Tools for Visual Studio        
-      
+    
 1.	Double-click the first script to open the script in a query window and comment out the script, and then execute the script.     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)    
 
 2.	Repeat this process for each script containing incompatibilities until no error remain.    
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)    
-     
+    
 3.	When the database is free of errors, right-click on the project and select **Publish**. This builds and publishes the database to a copy of the source database (it is highly recommended to use a copy, at least initially).     
  - Before you publish, depending on the source SQL Server version (earlier than SQL Server 2014), you may need to reset the project’s target platform to enable deployment.     
  - If you are migrating an older SQL Server database, do not introduce any features into the project that are not supported in the source SQL Server until you migrate the database to a newer version of SQL Server.     
