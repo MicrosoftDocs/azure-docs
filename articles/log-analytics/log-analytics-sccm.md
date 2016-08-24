@@ -51,8 +51,8 @@ The following procedure provides the Azure Management Portal with permissions to
   - **Resource group**
   - **Location**
   - **Pricing tier**  
-    ![OMS blade](./media/log-analytics-sccm/sccm-azure02.png)
-  >[AZURE.NOTE] The example above creates a new resource group. The resource group is only used to provide Configuration Manager with permissions to the OMS workspace in this example.
+    ![OMS blade](./media/log-analytics-sccm/sccm-azure02.png)  
+    >[AZURE.NOTE] The example above creates a new resource group. The resource group is only used to provide Configuration Manager with permissions to the OMS workspace in this example.
 
 4. Click **Browse** > **Resource groups** to open the **Resource groups** blade.
 5. In the **Resource groups** blade, click the resource group that you created above to open the &lt;resource group name&gt; settings blade.  
