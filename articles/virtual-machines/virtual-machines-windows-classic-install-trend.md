@@ -30,7 +30,7 @@ If you have existing subscription from Trend Micro for an on-premises solution, 
 
 ## Install the Deep Security Agent on a new VM
 
-The [Azure classic portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Trend Micro if you're creating a single virtual machine.
+The [Azure classic portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
 
 This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-classic-tutorial.md). When you get to the last page of the wizard, do the following:
 
@@ -44,9 +44,9 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 
 ## Install the Deep Security Agent on an existing VM
 
-To do this, you need the following:
+To install the agent on an existing VM, you need the following:
 
-- The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+- The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). Log in to your Azure subscription using `Add-AzureAccount`.
 
 - The VM Agent installed on the target virtual machine.
 
