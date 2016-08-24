@@ -170,7 +170,7 @@ You'll need to create a gateway subnet for your VNet to configure a VPN gateway.
 
 The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). 
 
-## Can I deploy Virtual Machines or role instances to my gateway subnet?
+### Can I deploy Virtual Machines or role instances to my gateway subnet?
 
 No.
 
