@@ -109,13 +109,14 @@ If your server has been locked down according to Federal Information Processing 
 4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
 5. Save your changes.
 
-For reference, this snip is how it should look like:  
+For reference, this snip is how it should look like:
+
 ```
-<configuration>
-	<runtime>
-		<enforceFIPSPolicy enabled="false"/>
-	</runtime>
-</configuration>
+	<configuration>
+		<runtime>
+			<enforceFIPSPolicy enabled="false"/>
+		</runtime>
+	</configuration>
 ```
 
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
@@ -181,9 +182,9 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
         Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
         foreach ($adConnector in $adConnectors)
         {
-            write-Host
+            Write-Host
             Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            write-Host
+            Write-Host
             Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
             Write-Host
             $pingEvents =
@@ -198,9 +199,9 @@ if ($aadConnectors -ne $null -and $adConnectors -ne $null)
             {
                 Write-Warning "No ping event found within last 3 hours."
             }
-            write-Host
+            Write-Host
             Write-Host "Password sync channel status END ------------------------------------------------------- "
-            write-Host
+            Write-Host
         }
     }
     else
