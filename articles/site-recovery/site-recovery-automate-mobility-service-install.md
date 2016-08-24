@@ -37,7 +37,7 @@ For the protected machines, we rely on the *Mobility service*. This component is
 
 When you're dealing with business continuity, it's important to understand your workloads, your infrastructure, and the components involved. You can then meet the requirements for your recovery time objective (RTO) and recovery point objective (RPO). In this context, the Mobility service is key to ensuring that your workloads are protected as you would expect.
 
-So how can we, in an optimized way, ensure that we have a reliable protected setup with help from some Operations Management Suite components?
+So how can you, in an optimized way, ensure that you have a reliable protected setup with help from some Operations Management Suite components?
 
 This article provides an example of how you can use Azure Automation Desired State Configuration (DSC), together with Site Recovery, to ensure that:
 
@@ -54,7 +54,7 @@ If you want to use DSC for Windows machines that have WMF 4.0 installed, see the
 
 > [AZURE.NOTE] A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you have to ensure that the correct passphrase is stored in the passphrase.txt file.
 
-The Mobility service can be installed through the command line and accepts several arguments. That’s why we need to have the binaries (after extracting them from our setup) and store them in a place where we can retrieve them by using a DSC configuration.
+The Mobility service can be installed through the command line and accepts several arguments. That’s why you need to have the binaries (after extracting them from your setup) and store them in a place where you can retrieve them by using a DSC configuration.
 
 ## Step 1: Extract binaries
 
@@ -84,7 +84,7 @@ Place both the zipped folder and the passphrase in a dedicated container in the 
 
 ![Folder location](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
-If you prefer to keep these files on a share on your network, you can do so. You just need to ensure that the DSC resource that we will be using later has access and can get the setup and passphrase.
+If you prefer to keep these files on a share on your network, you can do so. You just need to ensure that the DSC resource that you will be using later has access and can get the setup and passphrase.
 
 ## Step 2: Create the DSC configuration
 
@@ -190,8 +190,8 @@ configuration ASRMobilityService {
 The configuration will do the following:
 
 - The variables will tell the configuration where to get the binaries for the Mobility service and the Azure VM agent, where to get the passphrase, and where to store the output.
-- The configuration will import the xPSDesiredStateConfiguration DSC resource, so that we can use `xRemoteFile` to download the files from the repository.
-- The configuration will create a directory where we want to store the binaries.
+- The configuration will import the xPSDesiredStateConfiguration DSC resource, so that you can use `xRemoteFile` to download the files from the repository.
+- The configuration will create a directory where you want to store the binaries.
 - The archive resource will extract the files from the zipped folder.
 - The package Install resource will install the Mobility service from the UNIFIEDAGENT.EXE installer with the specific arguments. (The variables that construct the arguments need to be changed to reflect your environment.)
 - The package AzureAgent resource will install the Azure VM agent, which is recommended on every VM that runs in Azure. The Azure VM agent also makes it possible to add extensions to the VM after failover.
@@ -215,7 +215,8 @@ When you finish this, go to your machine where you have the Azure Resource Manag
 
 ### Import cmdlets
 
-In PowerShell, sign in to your Azure subscription. Modify the cmdlets to reflect your environment and capture your Automation Account information in a variable:
+In PowerShell, sign in to your Azure subscription. Modify the cmdlets to reflect your environment and capture your Automation account information in a variable:
+
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
