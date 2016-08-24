@@ -64,7 +64,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 ## <a name="custom-dns"> </a>Custom DNS server setup
 
-API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server.md) guidance on custom DNS setup.  
+API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup.  
 
 ## <a name="related-content"> </a>Related content
 
