@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
-   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection."
+   description="This article walks you through creating a VNet using the Resource Manager deployment model and connecting it to your local on-premises network using a S2S VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,7 +17,7 @@
    ms.date="08/24/2016"
    ms.author="cherylmc"/>
 
-# Create a virtual network with a Site-to-Site VPN connection using PowerShell and Azure Resource Manager
+# Create a VNet with a Site-to-Site connection using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -35,7 +35,7 @@ This article walks you through creating a virtual network and a Site-to-Site VPN
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you are looking for a different type of connection configuration, see the [VPN Gateway connection topologies](vpn-gateway-topology.md) article.
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 
 
 ## Before you begin
