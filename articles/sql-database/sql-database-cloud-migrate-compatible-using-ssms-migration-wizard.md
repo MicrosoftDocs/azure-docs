@@ -50,11 +50,11 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 
 5.	Provide the followingfor the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
 
-- The **New database name** 
-- The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
-- The **Maximum database size**
-- The **Service Objective** (performance level)
-- The **Temporary file name**  
+ - The **New database name** 
+ - The **Edition of Microsoft Azure SQL Database** ([service tier](sql-database-service-tiers.md))
+ - The **Maximum database size**
+ - The **Service Objective** (performance level)
+ - The **Temporary file name**  
 
     ![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
