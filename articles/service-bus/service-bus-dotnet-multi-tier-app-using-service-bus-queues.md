@@ -41,7 +41,7 @@ The following screen shot shows the completed application.
 
 ## Scenario overview: inter-role communication
 
-To submit an order for processing, the front end UI component, running
+To submit an order for processing, the front-end UI component, running
 in the web role, must interact with the middle tier logic running in
 the worker role. This example uses Service Bus brokered messaging for
 the communication between the tiers.

@@ -304,7 +304,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 8. Now you must configure Azure resources for a new web app. Follow all the steps in the section [Configure Azure resources for a new web app](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Then, return to this tutorial and proceed to the next step.
 
-5.  In Solution Explorer, right click **Models** and then click **Add**,
+5.  In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
 
@@ -423,11 +423,11 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 4.  In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 
-5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight   ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
+5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
 	![][24]
 
-6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
+6.  Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
 	```
 	namespace ProductsWeb.Controllers

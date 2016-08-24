@@ -106,7 +106,7 @@ class ProblemSolver : IProblemSolver
 ### Configure a service host programmatically
 
 With the contract and implementation in place, you can now host the service. Hosting occurs inside a
-[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx) object, which takes care of managing instances of the service and hosts the endpoints that listen for messages. The following code configures the service with both a regular local endpoint and a Service Bus endpoint to illustrate the appearance, side-by-side, of internal and external endpoints. Replace the string *namespace* with your namespace name and *yourKey* with the SAS key that you obtained in the previous setup step.
+[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx) object, which takes care of managing instances of the service and hosts the endpoints that listen for messages. The following code configures the service with both a regular local endpoint and a Service Bus endpoint to illustrate the appearance, side by side, of internal and external endpoints. Replace the string *namespace* with your namespace name and *yourKey* with the SAS key that you obtained in the previous setup step.
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
