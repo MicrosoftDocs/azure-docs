@@ -204,9 +204,9 @@ Where parameters are as follows:
 1. If you don't have an Azure storage account click **Add an Azure Storage Account** to create an account.
 2. Create an account with geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
-> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
-
 	![Storage account](./media/site-recovery-vmm-to-azure-classic/storage.png)
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 ## Step 5: Install the Azure Recovery Services Agent
 

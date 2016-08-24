@@ -71,9 +71,11 @@ Migrate as follows:
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
 
 9. In **Configure Target Settings** specify whether you want to use the same settings for all machines and select the process server and Azure storage account. If you don't have a separate process server this will be the the IP address of the configuration server server.
-	> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
+
+	> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 10. In **Specify Accounts**, select the account you created for the process server to access the machine to push the new version of the Mobility service.
 
