@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
