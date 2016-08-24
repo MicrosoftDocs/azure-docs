@@ -88,8 +88,13 @@ Next, create your virtual network. Verify that the address spaces you specify do
 
 The following sample creates a virtual network named *testvnet* and two subnets, one called *GatewaySubnet* and the other called *Subnet1*. It's important to create one subnet named specifically *GatewaySubnet*. If you name it something else, your connection configuration will fail. 
 
+Set the variables.
+
 	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+
+Create the VNet.
+
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
 	-Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
@@ -99,10 +104,15 @@ This step is required only if you need to add a gateway subnet to a VNet that yo
 
 You can create your gateway subnet by using the following sample. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you create a subnet, but Azure won't treat it as a gateway subnet.
 
+Set the variables.
+
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+
+Create the gateway subnet.
+
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 
-Now, set the configuration. 
+Set the configuration. 
 
 	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
@@ -144,7 +154,7 @@ Use the following PowerShell sample. The Allocation Method for this address must
 
 ## 5. Create the gateway IP addressing configuration
 
-The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration. 
+The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.
 
 	$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
 	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
@@ -177,8 +187,12 @@ To find the public IP address of your virtual network gateway, use the following
 
 Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the `-ConnectionType` for Site-to-Site is *IPsec*. 
 
+Set the variables.
+
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+
+Create the connection.
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
