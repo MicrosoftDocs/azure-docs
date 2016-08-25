@@ -1,11 +1,11 @@
-<properties
-   pageTitle="Azure Government Overview | Microsoft Azure"
-   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. "
+<properties 
+   pageTitle="Azure Government Overview | Microsoft Azure" 
+   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
    services="Azure-Government"
    cloud="gov" 
-   documentationCenter=""
-   authors="joharve2"
-   manager="chrisnie"
+   documentationCenter="" 
+   authors="joharve2" 
+   manager="chrisnie" 
    editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government"
+   ms.workload="azure-government" 
    ms.date="10/28/2015"
    ms.author="jharve"/>
 
-# Microsoft Azure Government Overview
+# Microsoft Azure Government Overview 
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This overview will provide an introduction to the environment and services as well as links to additional information.
 
 
 ## <a name="Overview"></a>Overview
 
-Azure Government is a government-community cloud (GCC) designed to support strategic government scenarios that require speed, scale, security, compliance and economics for U.S. government organizations.   It was developed based on Microsoft’s extensive experience delivering software, security, compliance, and controls in other Microsoft cloud offerings such as Azure public, Office 365, O365 GCC, Microsoft CRM Online etc.
+Azure Government is a government-community cloud (GCC) designed to support strategic government scenarios that require speed, scale, security, compliance and economics for U.S. government organizations.   It was developed based on Microsoft’s extensive experience delivering software, security, compliance, and controls in other Microsoft cloud offerings such as Azure public, Office 365, O365 GCC, Microsoft CRM Online etc. 
 
 In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Act (HIPAA).     
 
@@ -38,7 +38,7 @@ In addition to providing the robust services and features of public Azure, Azure
 
 - **Physical and network-isolated instance** – The Azure Government environment is a completely separate instance from Microsoft Azure public and only used by qualified U.S. government organizations and solution providers.
 
-- **Security, Privacy & Compliance** - Microsoft has implemented its robust security, privacy, and compliance controls framework plus additional stringent controls to meet the higher level requirements found in ECSB Impact Levels and CJIS.
+- **Security, Privacy & Compliance** - Microsoft has implemented its robust security, privacy, and compliance controls framework plus additional stringent controls to meet the higher level requirements found in ECSB Impact Levels and CJIS. 
 
 - **Data Storage** – The Azure Government environment maintains 2 datacenters over 800 miles apart. All customer managed data is stored within the Continental United States (CONUS) datacenters
 
@@ -46,13 +46,13 @@ In addition to providing the robust services and features of public Azure, Azure
 
 - **Identity Management** – Identity Management within the Azure Government environment is a separate instance of Azure Active Directory.
 
-- **Compliance** – Microsoft is continuously investing to meet and maintain rigorous and changing federal, state, and local compliance requirements such as FedRAMP, CJIS, ECSB, HIPAA and IRS 1075 for U.S. government cloud solutions.
+- **Compliance** – Microsoft is continuously investing to meet and maintain rigorous and changing federal, state, and local compliance requirements such as FedRAMP, CJIS, ECSB, HIPAA and IRS 1075 for U.S. government cloud solutions. 
 
 - **Cloud Integration** – Azure Government provides an integrated environment with O365 Government allowing for a single sign-on across cloud services and enhanced services such as 1TB of OneDrive storage space.
 
 Azure Government also enables organizations to maintain their existing technology investments and realize the benefits of cloud services.  Since Azure Government is an interoperable cloud platform, with products and technologies organizations can build applications that are more open from the ground up.  Agencies can choose the tools, services, operating system, architecture, and frameworks including Windows, Linux, Oracle, SharePoint, .NET, Java, PHP and Node.js, for their cloud solutions. The flexibility of the Azure Government platform allows for new forms of cross-agency collaboration, application development, and integration.  
 
-U.S. government organizations interested in cloud services can be confident that Azure Government provides enormous scale and rigorous security practices to meet their evolving needs.
+U.S. government organizations interested in cloud services can be confident that Azure Government provides enormous scale and rigorous security practices to meet their evolving needs. 
 
 
 
