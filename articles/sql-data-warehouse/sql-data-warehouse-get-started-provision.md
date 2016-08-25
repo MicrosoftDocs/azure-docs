@@ -60,7 +60,7 @@ To get started, you need:
 
     - **Select source**: Click **Select source** > **Sample**. Azure automatically populates the **Select sample** option with AdventureWorksDW.
 
-> [AZURE.NOTE] The default collation for a SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS.  If a different collation is needed,  [T-SQL][] can be used to create the database with a different collation.
+> [AZURE.NOTE] The default collation for a SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. If a different collation is needed, [T-SQL][] can be used to create the database with a different collation.
 
 4. Click **Create** to create your SQL Data Warehouse.
 
