@@ -56,7 +56,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
 3.  In the portal, follow these steps to enter the parameters for the HPC cluster template.
 
-    a. On the **Parameters** page, enter or modify values for the template parameters. (Click the icon next to each setting for help information.) Sample values are shown in the following screen. This example creates a new HPC Pack cluster named *hpc01* in the *hpc.local* domain consisting of a head node and 2 compute nodes. The compute nodes are created from an HPC Pack VM image that includes Microsoft Excel.
+    a. On the **Parameters** page, enter or modify values for the template parameters. (Click the icon next to each setting for help information.) Sample values are shown in the following screen. This example creates a cluster named *hpc01* in the *hpc.local* domain consisting of a head node and 2 compute nodes. The compute nodes are created from an HPC Pack VM image that includes Microsoft Excel.
 
     ![Enter parameters][parameters]
 
@@ -144,7 +144,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 * Make sure you specify **EnableWebPortal** so that the head node certificate is generated and exported.
 
-* The file specifies a post-configuration PowerShell script PostConfig.ps1 to configure certain settings on the head node such as the Azure storage connection string, remove the compute node role from the head node, and bring all nodes online when they are deployed. A sample script follows.
+* The file specifies a post-configuration PowerShell script PostConfig.ps1 that runs on the head node. THe following sample script configures the Azure storage connection string, removes the compute node role from the head node, and brings all nodes online when they are deployed. 
 
 ```
     # add the HPC Pack powershell cmdlets
@@ -269,7 +269,7 @@ Follow these steps to offload an Excel workbook to run on the HPC Pack cluster i
 
 To run Excel UDFs, follow the preceding steps 1 – 3 to set up the client computer. For Excel UDFs, you don't need to have the Excel application installed on compute nodes. So, when creating your cluster compute nodes, you could choose a normal compute node image instead of the compute node image with Excel.
 
->[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. You use this to dialog box to specify the cluster that runs the UDFs. If the full cluster name is longer (e.g., hpcexcelhn01.southeastasia.cloudapp.azure.com), it won't fit in the dialog box. The workaround is to set a machine-wide variable e.g. *CCP_IAASHN* with the value of the long cluster name. Then, enter *%CCP_IAASHN%* in the dialog box as the cluster head node name. 
+>[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. You use this dialog box to specify the cluster that runs the UDFs. If the full cluster name is longer (e.g., hpcexcelhn01.southeastasia.cloudapp.azure.com), it won't fit in the dialog box. The workaround is to set a machine-wide variable e.g. *CCP_IAASHN* with the value of the long cluster name. Then, enter *%CCP_IAASHN%* in the dialog box as the cluster head node name. 
 
 After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF. For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
@@ -289,7 +289,7 @@ After the cluster is successfully deployed, continue with the following steps to
 
 ## Step 3. Run a SOA workload from an on-premises client
 
-To run general SOA applications on the HPC Pack IaaS cluster, first use one of the methods in Step 1 to deploy the IaaS cluster. Specify a generic compute node image in this case, because you do not need Excel on the compute nodes. Then follow these steps.
+To run general SOA applications on the HPC Pack IaaS cluster, first use one of the methods in Step 1 to deploy the cluster. Specify a generic compute node image in this case, because you do not need Excel on the compute nodes. Then follow these steps.
 
 1. After retrieving the cluster certificate, import it on the client computer under Cert:\CurrentUser\Root.
 
@@ -352,7 +352,7 @@ To use Http binding without an Azure storage queue, explicitly set the UseAzureQ
 
 ### Use NetTcp binding
 
-To use NetTcp binding, the configuration is similar to connecting to an on-premises cluster. You need to open a few endpoints on the head node VM. If you used the HPC Pack IaaS deployment script to create the cluster, for example, set the endpoints with the following steps in the Azure classic portal.
+To use NetTcp binding, the configuration is similar to connecting to an on-premises cluster. You need to open a few endpoints on the head node VM. If you used the HPC Pack IaaS deployment script to create the cluster, for example, set the endpoints in the Azure classic portal as follows.
 
 
 1. Stop the VM.
