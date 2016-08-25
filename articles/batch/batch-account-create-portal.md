@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma"/>
 
-# Create and manage an Azure Batch account in the Azure portal
+# Create an Azure Batch account using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, and point out important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
-
->[AZURE.NOTE] The Azure portal currently supports a subset of the features in the Batch service, including account creation, management of Batch account settings and properties, and creation and monitoring of pools and jobs. The full feature set of Batch is available to developers through the Batch APIs.
+Create an Azure Batch account in the [Azure portal][azure_portal], and learn where to find important account properties like access keys, account URLs, and quotas. We also discuss linking an Azure Storage account to your Batch account so that you can use [application packages](batch-application-packages.md) and [persist job and task output](batch-task-output.md).
 
 ## Create a Batch account
 
@@ -46,9 +44,9 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
 	d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
 
-    e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
+    e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch uses a linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
-     > [AZURE.IMPORTANT] Regenerating keys in a linked Storage account requires special considerations. See [Considerations for Batch accounts](#considerations-for-batch-accounts) below for more details.
+     > [AZURE.IMPORTANT] Regenerating keys in a linked Storage account requires special considerations. See [Considerations for Batch accounts](#other-batch-account-considerations) below for more details.
 
 4. Click **Create** to create the account.
 
@@ -56,27 +54,25 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
 ## View Batch account properties
 
-The Batch account blade displays several properties for the account, as well as provides access to additional settings such as access keys, quotas, users, and storage account association.
+Once the account has been created, you can open the **Batch account blade** to access its settings and properties. All account settings and properties can be found on the left menu of the Batch account blade.
 
-* **Batch account URL**: This URL provides access to your Batch account when using APIs such as the [Batch REST][api_rest] API or [Batch .NET][api_net] client library, and adheres to the following format:
+![Batch account keys][account_blade]
+
+* **Batch account URL**: Applications you create with the [Batch development APIs](batch-technical-overview.md#batch-development-apis) need an account URL to manage resources and run jobs in the account. A Batch account URL has the following format:
 
     `https://<account_name>.<region>.batch.azure.com`
 
-* **Access keys**: To view and manage your Batch account's access keys, click the key icon to open the **Manage keys** blade, or click **All settings** > **Keys**. An access key is required when communicating with the Batch service APIs, such as with [Batch REST][api_rest] or the [Batch .NET][api_net] client library.
+* **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
     ![Batch account keys][account_keys]
 
-* **All settings**: To manage all settings for the Batch account or to view its properties, click **All settings** to open the **Settings** blade. This blade provides access to all settings and properties for the account, including viewing the account quotas, selecting an Azure Storage account to link to the Batch account, and managing users.
+## Pricing
 
-    ![Batch account settings and properties blades][5]
+Batch accounts are offered only in a "Free Tier," which means that you aren't charged for the Batch account itself. You are charged for the underlying Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools and for the data that you store in Azure Storage as input or output for your tasks. Similarly, if you use the [application packages](batch-application-packages.md) feature of Batch, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
 
-## Considerations for Batch accounts
+## Other Batch account considerations
 
 * You can also create and manage Batch accounts with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET](batch-management-dotnet.md) library.
-
-* You aren't charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and if you use the [application packages](batch-application-packages.md) feature, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
-
-* You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
 
 * If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
 
@@ -99,7 +95,7 @@ The Batch account blade displays several properties for the account, as well as 
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
 [4]: ./media/batch-account-create-portal/batch_acct_04.png "Regenerating storage account keys"
-[5]: ./media/batch-account-create-portal/batch_acct_05.png "Batch account settings and properties blades"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
+[account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
