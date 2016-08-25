@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/25/2016"
    ms.author="mwasson"/>
 
 # Running multiple VMs on Azure for scalability and availability 
@@ -181,7 +181,7 @@ The script references the following parameter files to build the VMs and the sur
               {
                 "name": "RDPAllow",
                 "direction": "Inbound",
-                "priority": 100,
+                "priority": 1000,
                 "sourceAddressPrefix": "*",
                 "destinationAddressPrefix": "*",
                 "sourcePortRange": "*",
