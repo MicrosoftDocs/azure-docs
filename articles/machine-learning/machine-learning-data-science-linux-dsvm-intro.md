@@ -26,7 +26,7 @@ The Linux Data Science Virtual Machine is an Azure virtual machine that comes wi
 - Azure Storage Explorer
 - Azure Command-Line for managing Azure resources
 - PostgresSQL Database
-- Machine learning Tools
+- Machine learning tools
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
@@ -175,91 +175,88 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit an
 ### Databases
 
 #### Postgres
-The open source database **Postgres** is available on the VM with the services running and initdb already completed. You still need to create databases and users. Refer to [Postgres documentation ](https://www.postgresql.org/docs/)for additional information.  
+The open source database **Postgres** is available on the VM, with the services running and initdb already completed. You still need to create databases and users. For more information, see the [Postgres documentation ](https://www.postgresql.org/docs/).  
 
 ####  Graphical SQL Client
-**SQuirrel SQL**, graphical SQL client, has been provided to connect to different databases (Microsoft SQL Server, Postgres, MySQL etc) and to run SQL queries. You can run this from a graphical desktop session (using the X2Go client, for example). To invoke SQuirrel SQL you can either launch it from the icon on the desktop or run the following command on the shell.
+**SQuirrel SQL**, a graphical SQL client, has been provided to connect to different databases (such as Microsoft SQL Server, Postgres, and MySQL) and to run SQL queries. You can run this from a graphical desktop session (using the X2Go client, for example). To invoke SQuirrel SQL, you can either launch it from the icon on the desktop or run the following command on the shell.
 
 	/usr/local/squirrel-sql-3.7/squirrel-sql.sh
 
-Before the first use, you need to set up your drivers and database aliases. The JDBC drivers are located at:
+Before the first use, set up your drivers and database aliases. The JDBC drivers are located at:
 
 */usr/share/java/jdbcdrivers*
 
-More information on SQuirrel SQL can be found on their website: [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
+For more information, see [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 #### Command-line tools for accessing Microsoft SQL Server
 
-The ODBC driver package for Microsoft SQL Server also comes with two command-line tools:
+The ODBC driver package for SQL Server also comes with two command-line tools:
 
-**bcp** - The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table or understand the structure of the table and the types of data that are valid for its columns.
+**bcp** - The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table, or understand the structure of the table and the types of data that are valid for its columns.
 
-More information can be found at [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+For more information, see [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd** - The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt. This utility uses ODBC to execute Transact-SQL batches.
+**sqlcmd** - You can enter Transact-SQL statements with the sqlcmd utility, as well as system procedures, and script files at the command prompt. This utility uses ODBC to execute Transact-SQL batches.
 
-More information can be found at [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx)
+For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
->[AZURE.NOTE] There are some differences in this utility between Linux and Windows platform. See the documentation pages for details.
+>[AZURE.NOTE] There are some differences in this utility between Linux and Windows platforms. See the documentation for details.
 
 
-#### Database Access Libraries
+#### Database access libraries
 
-There are libraries available in Python and R to access databases.
+There are libraries available in R and Python to access databases.
 
 - In R, the **RODBC** package or **dplyr** package allows you to query or execute SQL statements on the database server.
 - In Python, the **pyodbc** library provides database access with ODBC as the underlying layer.  
 
 To access **Postgres**:
 
-- from Python: use the **psycopg2** library.
-- from R: use the package **RPostgreSQL**.
+- From R: Use the package **RPostgreSQL**.
+- From Python: Use the **psycopg2** library.
 
 
 ### Azure tools
 The following Azure tools are installed on the VM:
 
-- **Azure Command-Line Interface**: Azure Command-Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
-- **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure Storage Account and to upload/download data to and from Azure blobs. You can access the Storage Explorer from desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be logged in from an X2go client or have X11 forwarding set up.
-- **Azure Libraries**: The following are some of the libraries  that have been installed and are available for you "out of the box":
+- **Azure Command-Line Interface**: Azure Command-Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools, just type ***azure help***. For more information, see the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
+- **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure Storage Account, and to upload and download data to and from Azure blobs. You can access the Storage Explorer from the desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be signed in from an X2Go client, or have X11 forwarding set up.
+- **Azure Libraries**: The following are some of the pre-installed libraries.
 
- - **Python**: The Azure related libraries in Python that are installed are **azure**, **azureml**, **pydocumentdb**, **pyodbc**. The first three libraries allow you to access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with Microsoft ODBC driver for SQL Server), enables access to Microsoft SQL Server, Azure SQL Database and Azure SQL Datawarehouse from Python using an ODBC interface. Enter *pip list* to see all the listed library. Be sure to run this command in both the Python 2.7 and 3.5 environments.
+ - **Python**: The Azure related libraries in Python that are installed are **azure**, **azureml**, **pydocumentdb**, and **pyodbc**. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Datawarehouse from Python by using an ODBC interface. Enter *pip list* to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
  - **R**: The Azure related libraries in R that are installed are ***AzureML*** and ***RODBC***.
  - **Java**: The list of Azure Java libraries can be found in the directory ***/dsvm/sdk/AzureSDKJava*** on the VM. The key libraries are Azure storage and management APIs, DocumentDB, and JDBC drivers for SQL Server.  
 
-You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage and monitor Azure resources.
+You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage, and monitor Azure resources.
 
 ### Azure Machine Learning
 
 Azure Machine Learning (Azure ML) is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from the Azure Machine Learning Studio. It can be accessed from a web browser on the data science virtual machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Once you log in to the Azure Machine Learning Studio, you have access to an experimentation canvas where you can build a logical flow for the machine leaning algorithms. You also have access to a Jupyter Notebook hosted on Azure ML and can work seamlessly with the experiments in the Studio. Azure ML lets you operationalize the ML models that you have built by wrapping them in a web service interface. This enables clients written in any language to invoke predictions from the ML models. You can find more information about Azure ML on [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
+Once you sign in to the Azure Machine Learning Studio, you have access to an experimentation canvas where you can build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook hosted on Azure ML and can work seamlessly with the experiments in the Studio. Operationalize the ML models that you have built by wrapping them in a web service interface. This enables clients written in any language to invoke predictions from the ML models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-You can also build your models in R or Python on the VM and then deploy it in production on Azure ML. We have installed libraries in R and Python to enable this functionality.
+You can also build your models in R or Python on the VM, and then deploy it in production on Azure ML. We have installed libraries in R (***AzureML***) and Python (***azureml***) to enable this functionality.
 
-- The library in R is called ***AzureML***.
-- In Python it is called ***azureml***.
-
-For information on how to deploy models in R and Python into Azure ML, refer to the *Build models using R or Python and Operationalize them using Azure Machine Learning* section of [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md).
+For information on how to deploy models in R and Python into Azure ML, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (in particular, the section *Build models using R or Python and Operationalize them using Azure Machine Learning*).
 
 >[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM. But the information provided there on deploying models to Azure ML is applicable to the Linux VM.
 
 ### Machine Learning Tools
 
-The VM comes with a few ML tools/algorithms that have been pre-compiled and pre-installed locally. These include:
+The VM comes with a few ML tools and algorithms that have been pre-compiled and pre-installed locally. These include:
 
-* **CNTK** (Computational Network Toolkit from Microsoft Research) - A deep learning toolkit
-* **Vowpal Wabbit** - A fast online learning algorithm
-* **xgboost** - A tool which provides optimized, boosted tree algorithms
-* **Python** - Anaconda Python comes bundled with ML algorithms with libraries like Scikit-learn. You can install other libraries running pip install
-* **R** - A rich library of ML functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running
+* **CNTK** (Computational Network Toolkit from Microsoft Research) - A deep learning toolkit.
+* **Vowpal Wabbit** - A fast online learning algorithm.
+* **xgboost** - A tool that provides optimized, boosted tree algorithms.
+* **Python** - Anaconda Python comes bundled with ML algorithms with libraries like Scikit-learn. You can install other libraries running pip install.
+* **R** - A rich library of ML functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running:
 
 		install.packages(<lib name>)
 
 Here is some additional information about the first three ML tools in the list.
 
 #### CNTK
-This is an open source, deep learning toolkit. It is a command-line tool (cntk) and is already in the PATH.
+This is an open source, deep learning toolkit. It is a command-line tool (cntk), and is already in the PATH.
 
 To run a basic sample, execute the following commands in shell:
 
@@ -268,29 +265,29 @@ To run a basic sample, execute the following commands in shell:
 	cd cntkdemo/Data
 	cntk configFile=../Config/Simple.cntk
 
-The model output is in *~/cntkdemo/Output/Models*
+The model output is in *~/cntkdemo/Output/Models*.
 
-More information on CNTK can be found on [github.com/Microsoft/CNTK](https://github.com/Microsoft/CNTK) and in the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
+For more information, see the CNTK section of [GitHub](https://github.com/Microsoft/CNTK), and the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 
-#### Vowpal Wabbit(VW):
+#### Vowpal Wabbit (VW):
 
-Vowpal Wabbit is a machine learning system that pushes the frontier of machine learning using techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
+Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
-To run the tool on a very basic example do the following:
+To run the tool on a very basic example, do the following:
 
 	cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
 	cd vwdemo
 	vw house_dataset
 
-There are other larger demos in that directory. More information on VW can be found at [github.com/JohnLangford/vowpal_wabbit](https://github.com/JohnLangford/vowpal_wabbit) and on the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+There are other, larger demos in that directory. For more information on VW, see  [this section of GitHub](https://github.com/JohnLangford/vowpal_wabbit), and the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### xgboost
-This is a library that is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable and accurate.
+This is a library that is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
 It is provided as a command-line as well as an R library.
 
-To use this library in R, you can start interactive R session ( just by typing *R* in the shell) and loading the library.
+To use this library in R, you can start an interactive R session (just by typing *R* in the shell), and load the library.
 
 Here is a simple example you can run in R prompt:
 
@@ -313,7 +310,7 @@ To run the xgboost command-line, here are the commands to execute in the shell:
 
 A .model file is written to the directory specified. Information about this demo example can be found [here](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
-More Information on xgboost is found on the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and in its [Github repository](https://github.com/dmlc/xgboost).
+For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/), and its [Github repository](https://github.com/dmlc/xgboost).
 
 #### Rattle
 Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily) makes getting started with data mining in R very easy with a GUI-based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modeled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new datasets. It also generates R code, replicating the operations in the UI that can be run directly in R or used as a starting point for further analysis.
