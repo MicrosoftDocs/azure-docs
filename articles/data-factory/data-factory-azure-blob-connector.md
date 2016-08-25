@@ -441,8 +441,8 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. <br/><br/>When the **quoteChar** property is specified, a quoted empty string can also be treated as null with this property. | TRUE(default) <br/>FALSE | No |
-| skipHeaderLineCount | Indicates how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. | Integer from 0 to Max. | No | 
+| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. When the **quoteChar** property is specified, a quoted empty string can also be treated as null with this property. <br/><br/>Datasets now support a property called treatEmptyAsNull. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the property on the dataset rather than on the activity. This property on BlobSource is kept for backward compatibility. | TRUE(default) <br/>FALSE | No |
+| skipHeaderLineCount | Indicates how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. <br/><br/>Datasets now support a property called skipLineCount. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. | Integer from 0 to Max. | No | 
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
 
 
@@ -450,7 +450,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE<br/>FALSE (default) | No |
+| blobWriterAddHeader | Specifies whether to add header of column definitions. <br/><br/>Datasets now support a property called **firstRowAsHeader**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the firstRowAsHeader property on the dataset rather than this property. This property on BlobSink is kept for backward compatibility.| TRUE<br/>FALSE (default) | No |
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 ### recursive and copyBehavior examples
