@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/16/2016"
+	ms.date="08/25/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -102,8 +102,8 @@ Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI 
 
 In the Azure Portal, navigate to your DocumentDB account from Step 1, and then click **Keys**.
 
-Copy the URI and replace *<your endpoint URI>* with the copied URI in your program.
-Copy the primary key and replace *<your key>* with the copied key in your program.
+Copy the URI and replace `<your endpoint URI>` with the copied URI in your program.
+Copy the PRIMARY KEY and replace `<your key>` with the copied key in your program.
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 

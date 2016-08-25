@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # How to create a database for DocumentDB using the Azure portal
@@ -32,11 +32,11 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
     ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
-4. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the **ID** box. 
+4. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the **ID** box. Then click **OK**.
 
-5. Click **OK** at the bottom of the screen to create the new database. 
+    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-4.png)
 
-6. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
+5. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
  
 	![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-database/docdb-database-creation-6.png)
 
