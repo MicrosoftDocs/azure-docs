@@ -78,7 +78,7 @@ The following usernames are not allowed:
 
 ## What are the password requirements when creating a VM?
 
-Passwords must be 6 - 72 characters in length and meet 3 out of 4 of the following complexity requirements:
+Passwords must be 6 - 72 characters in length and meet 3 out of the following 4 complexity requirements:
 
 - Have lower characters
 - Have upper characters
