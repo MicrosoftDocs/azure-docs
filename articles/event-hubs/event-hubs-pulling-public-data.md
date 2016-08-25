@@ -1,4 +1,4 @@
-<properties
+ah, o<properties
     pageTitle="Pulling public data into Azure Event Hubs | Microsoft Azure"
     description="Overview of the Event Hubs import from web sample"
     services="event-hubs"
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="11/30/2016"
+    ms.date="08/25/2016"
     ms.author="spyros;sethm" />
 
 # Pulling public data into Azure Event Hubs
