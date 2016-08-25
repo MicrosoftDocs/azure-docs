@@ -38,7 +38,7 @@ An Azure storage account provides storage for the operating system disk and any 
 ## How can I access my virtual machine?
 
 You need to establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](virtual-machines-linux-ssh-from-windows.md) or 
-[from Linux and Mac](virtual-machines-linux-ssh-from-linux.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+[from Linux and Mac](virtual-machines-linux-mac-create-ssh-keys.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 
 If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](virtual-machines-linux-troubleshoot-ssh-connection.md).

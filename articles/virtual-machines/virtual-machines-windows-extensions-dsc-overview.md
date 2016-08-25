@@ -15,30 +15,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/24/2016"
    ms.author="zachal"/>
 
 # Introduction to the Azure Desired State Configuration extension handler #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-The Azure VM Agent and associated Extensions are part of the Microsoft Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations; for example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
+The Azure VM Agent and associated Extensions are part of the Microsoft Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations. For example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
 
-This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. PowerShell DSC extension will call into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal.
+This article introduces the PowerShell Desired State Configuration (DSC) Extension for Azure VMs as part of the Azure PowerShell SDK. You can use new cmdlets to upload and apply a PowerShell DSC configuration on an Azure VM enabled with the PowerShell DSC extension. The PowerShell DSC extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This functionality is also available through the Azure portal.
 
 ## Prerequisites ##
 **Local machine**
 To interact with the Azure VM extension, you will either need to use the Azure portal or the Azure PowerShell SDK. 
 
 **Guest Agent**
-The Azure VM that will be configured by the DSC configuration will need to be an OS that supports either Windows Management Framework (WMF) 4.0 or 5.0. The full list of supported OS versions can be found at the DSC Extension Version History.
+The Azure VM that will be configured by the DSC configuration will need to be an OS that supports either Windows Management Framework (WMF) 4.0 or 5.0. The full list of supported OS versions can be found at the [DSC Extension Version History](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## Terms and concepts ##
 This guide presumes familiarity with the following concepts:
 
 Configuration - A DSC configuration document. 
 
-Node - A target for a DSC configuration. In this document, "node" will always refer to an Azure VM.
+Node - A target for a DSC configuration. In this document, "node" always refers to an Azure VM.
 
 Configuration Data - A .psd1 file containing environmental data for a configuration
 
@@ -56,42 +56,42 @@ Installation of the WMF requires a reboot. After reboot, the extension downloads
 
 ## PowerShell cmdlets ##
 
-PowerShell cmdlets can be used with ARM or ASM to package, publish and monitor DSC extension deployments. The following cmdlets listed are the ASM modules, but "Azure" can be replaced with "AzureRm" to use the ARM model. For example,  `Publish-AzureVMDscConfiguration` will use ASM, where `Publish-AzureRmVMDscConfiguration` will use ARM. 
+PowerShell cmdlets can be used with ARM or ASM to package, publish, and monitor DSC extension deployments. The following cmdlets listed are the ASM modules, but "Azure" can be replaced with "AzureRm" to use the ARM model. For example,  `Publish-AzureVMDscConfiguration` uses ASM, where `Publish-AzureRmVMDscConfiguration` uses ARM. 
 
-`Publish-AzureVMDscConfiguration` will take in a configuration file, scan it for dependent DSC resources, and create a .zip file containing the configuration and DSC resources needed to enact the configuration. It can either create the package locally using the `-ConfigurationArchivePath` parameter. Otherwise, it will publish the .zip file to Azure blob storage and secure it with a SAS token.
+`Publish-AzureVMDscConfiguration` takes in a configuration file, scans it for dependent DSC resources, and creates a .zip file containing the configuration and DSC resources needed to enact the configuration. It can also create the package locally using the `-ConfigurationArchivePath` parameter. Otherwise, it publishes the .zip file to Azure blob storage and secure it with a SAS token.
 
 The .zip file created by this cmdlet has the .ps1 configuration script at the root of the archive folder. Resources have the module folder placed in the archive folder. 
 
-`Set-AzureVMDscExtension` will  injects the settings needed by the PowerShell DSC extension into a VM configuration object, which can then be applied to an Azure VM with `Update-AzureVM`.
+`Set-AzureVMDscExtension` will inject the settings needed by the PowerShell DSC extension into a VM configuration object, which can then be applied to an Azure VM with `Update-AzureVM`.
 
 `Get-AzureVMDscExtension` retrieves the DSC extension status of a particular VM. 
 
-`Get-AzureVMDscExtensionStatus` retrieves the status of the DSC configuration enacted by the DSC extension handler on a VM or group of VMs.
+`Get-AzureVMDscExtensionStatus` retrieves the status of the DSC configuration enacted by the DSC extension handler. This action can be performed on a single VM, or group of VMs.
 
-`Remove-AzureVMDscExtension` removes the extension handler from a given virtual machine. This does **not** remove the configuration, uninstall the WMF, or change the applied settings on the virtual machine. It only removes the extension handler. 
+`Remove-AzureVMDscExtension` removes the extension handler from a given virtual machine. This cmdlet does **not** remove the configuration, uninstall the WMF, or change the applied settings on the virtual machine. It only removes the extension handler. 
 
 **Key differences in ASM and ARM cmdlets**
 
 - ARM cmdlets are synchronous. ASM cmdlets are asynchronous.
 - ResourceGroupName, VMName, ArchiveStorageAccountName, Version, and Location are all new required parameters.
-- ArchiveResourceGroupName is a new optional parameter for ARM. You can specify this when your storage account belongs to a different resource group than the one where the virtual machine is created.
+- ArchiveResourceGroupName is a new optional parameter for ARM. You can specify this parameter when your storage account belongs to a different resource group than the one where the virtual machine is created.
 - ConfigurationArchive is called ArchiveBlobName in ARM
 - ContainerName is called ArchiveContainerName in ARM
 - StorageEndpointSuffix is called ArchiveStorageEndpointSuffix in ARM
-- The AutoUpdate switch has been added to ARM to enable automatic updating of the extension handler to the latest version as and when it is available. Please note this has the potential to cause reboots on the VM when a new version of the WMF is released. 
+- The AutoUpdate switch has been added to ARM to enable automatic updating of the extension handler to the latest version as and when it is available. Nnote this parameter has the potential to cause reboots on the VM when a new version of the WMF is released. 
 
 
 ## Azure portal functionality ##
-Browse to a classic VM. Under Settings -> General click "Extensions". A new pane is created. Click "Add" and select PowerShell DSC.
+Browse to a classic VM. Under Settings -> General click "Extensions." A new pane is created. Click "Add" and select PowerShell DSC.
 
-The portal will need input.
-**Configuration Modules or Script**: This is a mandatory field. Requires a .ps1 file containing a configuration script, or a .zip file with a .ps1 configuration script at the root and all dependent resources in module folders within the .zip. It can be created with the `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet included in the Azure PowerShell SDK. The .zip file will be uploaded into your user blob storage secured by a SAS token. 
+The portal needs input.
+**Configuration Modules or Script**: This is a mandatory field. Requires a .ps1 file containing a configuration script, or a .zip file with a .ps1 configuration script at the root, and all dependent resources in module folders within the .zip. It can be created with the `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet included in the Azure PowerShell SDK. The .zip file is uploaded into your user blob storage secured by a SAS token. 
 
-**Configuration Data PSD1 File**: This is an optional field. If your configuration requires a configuration data file in .psd1, use this field to select it and upload it to your user blob storage, where it will be secured by a SAS token. 
+**Configuration Data PSD1 File**: This is an optional field. If your configuration requires a configuration data file in .psd1, use this field to select it and upload it to your user blob storage, where it is secured by a SAS token. 
  
 **Module-Qualified Name of Configuration**: .ps1 files can have multiple configuration functions. Enter the name of the configuration .ps1 script followed by a  '\' and the name of the configuration function. For example, if your .ps1 script has the name "configuration.ps1", and the configuration is "IisInstall", you would enter: `configuration.ps1\IisInstall`
 
-**Configuration Arguments**: If the configuration function takes arguments, enter them in here in the format `argumentName1=value1,argumentName2=value2`. Note this is a different format than how configuration arguments are accepted through PowerShell cmdlets or ARM templates. 
+**Configuration Arguments**: If the configuration function takes arguments, enter them in here in the format `argumentName1=value1,argumentName2=value2`. Note this is a different format than how configuration arguments are accepted through PowerShell cmdlets or Resource Manager templates. 
 
 ## Getting started ##
 
@@ -111,7 +111,7 @@ configuration IISInstall
 }
 ```
 
-The following steps will then place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
+The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
  
 ```powershell
 #Azure PowerShell cmdlets are required

@@ -81,7 +81,7 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[This](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) article describes how to create certificates with SSH.
+[This](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article describes how to create certificates with SSH.
 
 ## Next steps
 
