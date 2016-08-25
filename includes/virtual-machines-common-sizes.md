@@ -134,19 +134,19 @@ For information and considerations about using these sizes, see [About the A8, A
 <br>
 ## DS-series*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max data disks|Cache size (GiB)|Max uncached disk throughput (IOPS &amp; bandwidth)| Max cached data disk throughput (IOPS & MB/Sec)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_DS1 |1|3.5|1|7 |2|43| 3,200  32| 4,000 32 | moderate |
-|Standard_DS2 |2|7|2|14 |4|86| 6,400  64| 8,000 64 | high |
-|Standard_DS3 |4|14|4|28 |8|172| 12,800  128 | 16,000 128 | high |
-|Standard_DS4 |8|28|8|56 |16|344| 25,600  256 | 32,000 256 | high |
-|Standard_DS11 |2|14|2|28 |4|72| 6,400  64 | 8,000 64 | high |
-|Standard_DS12 |4|28|4|56 |8|144| 12,800  128 | 16,000 128 | high |
-|Standard_DS13 |8|56|8|112 |16|288| 25,600  256 | 32,000 256 | high |
-|Standard_DS14 |16|112|8|224 |32|576| 51,200  512 | 64,000 512 | very high |
+| Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max data disks | Cache size (GiB) | Max uncached disk throughput (IOPS &amp; bandwidth) | Max cached data disk throughput (IOPS & MB/Sec) | Max network bandwidth | 
+|---|---|---|---|---|---|---|---|---| 
+| Standard_DS1 | 1| 3.5| 1| 7 | 2| 43 | 3,200 32| 4,000 32 | moderate | 
+| Standard_DS2 | 2| 7| 2| 14 | 4| 86 | 6,400 64| 8,000 64 | high | 
+| Standard_DS3 | 4| 14| 4| 28 | 8| 172 | 12,800 128 | 16,000 128 | high | 
+| Standard_DS4 | 8| 28| 8| 56 | 16| 344 | 25,600 256 | 32,000 256 | high | 
+| Standard_DS11 | 2| 14| 2| 28 | 4| 72 | 6,400 64 | 8,000 64 | high | 
+| Standard_DS12 | 4| 28| 4| 56 | 8| 144 | 12,800 128 | 16,000 128 | high | 
+| Standard_DS13 | 8| 56| 8| 112 | 16| 288 | 25,600 256 | 32,000 256 | high | 
+| Standard_DS14 | 16| 112| 8| 224 | 32| 576 | 51,200 512 | 64,000 512 | very high | 
 
 <br >
-| Size	| CPU cores	| Memory (GiB)	| Max NICs	| Local SSD disk size (GiB)	| Local SSD cache for data disk (GiB)	| Max data disks	| Max uncached data disk throughput (IOPS & MB/Sec)	| Max cached data disk throughput (IOPS & MB/Sec)	| Max network bandwidth |
+|  Size	| CPU cores	| Memory (GiB)	| Max NICs	| Local SSD disk size (GiB)	| Local SSD cache for data disk (GiB)	| Max data disks	| Max uncached data disk throughput (IOPS & MB/Sec)	| Max cached data disk throughput (IOPS & MB/Sec)	| Max network bandwidth |
 |---|---|---|---|---|---|---|---|---|
 |Standard_DS1	|1	|3.5	|1	|7	 |43	|2	|3,200 32	|4,000 32		|moderate 	|
 |Standard_DS2	|2	|7		|2	|14	 |86	|4	|6,400 64	|8,000 64		|high		|
