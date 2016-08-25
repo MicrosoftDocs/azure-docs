@@ -31,7 +31,7 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
 ## SQL Server Agent/Jobs
 
-Microsoft Azure SQL Database does not support SQL Server Agent or jobs. You can, however, run SQL Server Agent on your on-premises SQL Server and connect to Microsoft Azure SQL Database.
+Microsoft Azure SQL Database does not support SQL Server Agent, however you can use Elastic jobs to run jobs across one to many databases. For more information about Elastic jobs, see [Elastic jobs](sql-database-elastic-jobs-overview.md).
 
 ## SQL Server Collation Support
 
