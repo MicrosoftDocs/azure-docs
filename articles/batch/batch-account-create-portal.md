@@ -54,7 +54,7 @@ Learn how to create an Azure Batch account in the [Azure portal][azure_portal], 
 
 Once the account has been created, you can open the **Batch account blade** to access its settings and properties. You can access all account settings and properties by using the left menu of the Batch account blade.
 
-![Batch account keys][account_blade]
+![Batch account blade in Azure portal][account_blade]
 
 * **Batch account URL**: Applications you create with the [Batch development APIs](batch-technical-overview.md#batch-development-apis) need an account URL to manage resources and run jobs in the account. A Batch account URL has the following format:
 
@@ -62,7 +62,7 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 * **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
-    ![Batch account keys][account_keys]
+    ![Batch account keys in Azure portal][account_keys]
 
 ## Pricing
 
