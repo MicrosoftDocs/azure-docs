@@ -61,7 +61,7 @@ If the format is set to **JsonFormat**, you can specify the following **optional
 | -------- | ----------- | -------- |
 | filePattern | Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is: **setOfObjects**. See following sections for details about these patterns.| No |
 | encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. | No | 
-| nestingSeparator | Character that is used to separate nesting levels. The **default** value is **.(dot)**. | No | 
+| nestingSeparator | Character that is used to separate nesting levels. The default value is '.' (dot). | No | 
 
 
 #### setOfObjects file pattern
