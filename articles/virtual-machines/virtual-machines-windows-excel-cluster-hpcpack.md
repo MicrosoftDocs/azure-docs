@@ -17,23 +17,23 @@
  ms.date="08/25/2016"
  ms.author="danlep"/>
 
-# Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads
+# Get started running Excel and SOA workloads on an HPC Pack cluster in Azure
 
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure virtual machines by using an Azure quickstart template, or optionally an Azure PowerShell deployment script. You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
+This article shows you how to deploy a Microsoft HPC Pack cluster on Azure virtual machines by using an Azure quickstart template, or optionally an Azure PowerShell deployment script. The cluster uses Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-At a high level the following diagram shows the HPC Pack cluster you'll create.
+At a high level, the following diagram shows the HPC Pack cluster you'll create.
 
 ![HPC cluster with nodes running Excel workloads][scenario]
 
 ## Prerequisites
 
-*   **Client computer** - You need a Windows-based client computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and to submit sample Excel and SOA jobs to the cluster.
+*   **Client computer** - You need a Windows-based client computer to submit sample Excel and SOA jobs to the cluster. You also need a Windows computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and
 
 *   **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-*   **Cores quota** - You might need to increase the quota of cores, especially if you deploy several cluster nodes with multicore VM sizes. If you are using an Azure quickstart template, be aware that the cores quota in Resource Manager is per Azure region, and you might need to increase the quota in a specific region. See [Azure subscription limits, quotas, and constraints](../azure-subscription-service-limits.md). To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+*   **Cores quota** - You might need to increase the quota of cores, especially if you deploy several cluster nodes with multicore VM sizes. If you are using an Azure quickstart template, note that the cores quota in Resource Manager is per Azure region. In that case, you might need to increase the quota in a specific region. See [Azure subscription limits, quotas, and constraints](../azure-subscription-service-limits.md). To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 *   **Microsoft Office license** - If you deploy compute nodes using a Marketplace HPC Pack VM image with Microsoft Excel, a 30-day evaluation version of Microsoft Excel Professional Plus 2013 is installed. After the evaluation period, you need to provide a valid Microsoft Office license to activate Excel to continue to run workloads. See [Excel activation](#excel-activation) later in this article. 
 
@@ -46,7 +46,7 @@ We show two options to set up the cluster: first, using an Azure quickstart temp
 ### Option 1. Use a quickstart template
 Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
 
->[AZURE.TIP]If you want, use an [Azure Markeplace template](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
+>[AZURE.TIP]If you want, use an [Azure Marketplace template](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
 
 1.  Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 
@@ -66,7 +66,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
     b. Choose the subscription.
 
-    c. Create a new resource group for the cluster, such as *hpc01RG*.
+    c. Create a resource group for the cluster, such as *hpc01RG*.
 
     d. Choose a location for the resource group, such as Central US.
 
@@ -94,7 +94,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 **Create the configuration file**
 
- The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+ The HPC Pack IaaS deployment script uses an XML configuration file as input that describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -140,7 +140,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 **Notes about the configuration file**
 
-* The **VMName** of the head node **MUST** be exactly the same as the **ServiceName**, or SOA jobs will fail to run.
+* The **VMName** of the head node **MUST** be the same as the **ServiceName**, or SOA jobs fail to run.
 
 * Make sure you specify **EnableWebPortal** so that the head node certificate is generated and exported.
 
@@ -184,13 +184,13 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
     cd E:\IaaSClusterScript
     ```
     
-3.  Run the command below to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml.
+3.  To deploy the HPC Pack cluste, run the following command. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml.
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
 
-The HPC Pack deployment script runs for some time. One thing the script does is to export and download the cluster certificate and save it in the current user’s Documents folder on the client computer. The script generates a message similar to the following. In a following step you import the certificate in the appropriate certificate store.    
+The HPC Pack deployment script runs for some time. One thing the script does is to export and download the cluster certificate and save it in the current user’s Documents folder on the client computer. The script generates a message similar to the following. In a following step, you import the certificate in the appropriate certificate store.    
     
     You have enabled REST API or web portal on HPC Pack head node. Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
     C:\Users\hpcuser\Documents\HPCWebComponent_HPCExcelHN004_20150707162011.cer
@@ -201,7 +201,7 @@ The HPC Pack deployment script runs for some time. One thing the script does is 
 
 When using the ComputeNodeWithExcel VM image for production workloads, you need to provide a valid Microsoft Office license key to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel expires after 30 days, and running Excel workbooks will fail with the COMException (0x800AC472). 
 
-You can rearm Excel for another 30 days of evaluation time: Log on to the head node and clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` on all Excel compute nodes via HPC Cluster Manager. You can do this a maximum of 2 times. After that, you must provide a valid Office license key.
+You can rearm Excel for another 30 days of evaluation time: Log on to the head node and clusrun `%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe` on all Excel compute nodes via HPC Cluster Manager. You can do this a maximum of two times. After that, you must provide a valid Office license key.
 
 The Office Professional Plus 2013 installed on the VM image is a volume edition with a Generic Volume License Key (GVLK). You can activate it via Key Management Service (KMS)/Active Directory-Based Activation (AD-BA) or Multiple Activation Key (MAK). 
 
@@ -209,13 +209,13 @@ The Office Professional Plus 2013 installed on the VM image is a volume edition 
     
     * To use MAK, first clusrun `ospp.vbs` to input the key and then activate all the Excel compute nodes via the Internet or telephone. 
 
->[AZURE.NOTE]Retail product keys for Office Professsional Plus 2013 cannot be used with this VM image. If you have valid keys and installation media for Office or Excel editions other than this Office Professional Plus 2013 volume edition, you can use them instead. First uninstall this volume edition and install the edition that you have. The reinstalled Excel compute node can be captured as a customized VM image to use in a deployment at scale.
+>[AZURE.NOTE]Retail product keys for Office Professional Plus 2013 cannot be used with this VM image. If you have valid keys and installation media for Office or Excel editions other than this Office Professional Plus 2013 volume edition, you can use them instead. First uninstall this volume edition and install the edition that you have. The reinstalled Excel compute node can be captured as a customized VM image to use in a deployment at scale.
 
 ### Offload Excel workbooks
 
-Follow these steps to offload an Excel workbook to run on the HPC Pack cluster in Azure. To do this, you must have Excel 2010 or 2013 already installed on the client computer.
+Follow these steps to offload an Excel workbook so that it runs on the HPC Pack cluster in Azure. To do this, you must have Excel 2010 or 2013 already installed on the client computer.
 
-1. Use one of the options  in Step 1 to deploy an HPC Pack cluster with the Excel compute node image. Obtain the cluster certificate file (.cer) and cluster username and password.
+1. Use one of the options in Step 1 to deploy an HPC Pack cluster with the Excel compute node image. Obtain the cluster certificate file (.cer) and cluster username and password.
 
 2. On the client computer, import the cluster certificate under Cert:\CurrentUser\Root.
 
@@ -269,7 +269,7 @@ Follow these steps to offload an Excel workbook to run on the HPC Pack cluster i
 
 To run Excel UDFs, follow the preceding steps 1 – 3 to set up the client computer. For Excel UDFs, you don't need to have the Excel application installed on compute nodes. So, when creating your cluster compute nodes, you could choose a normal compute node image instead of the compute node image with Excel.
 
->[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. You use this dialog box to specify the cluster that runs the UDFs. If the full cluster name is longer (e.g., hpcexcelhn01.southeastasia.cloudapp.azure.com), it won't fit in the dialog box. The workaround is to set a machine-wide variable e.g. *CCP_IAASHN* with the value of the long cluster name. Then, enter *%CCP_IAASHN%* in the dialog box as the cluster head node name. 
+>[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. You use this dialog box to specify the cluster that runs the UDFs. If the full cluster name is longer (for example, hpcexcelhn01.southeastasia.cloudapp.azure.com), it does not fit in the dialog box. The workaround is to set a machine-wide variable such as *CCP_IAASHN* with the value of the long cluster name. Then, enter *%CCP_IAASHN%* in the dialog box as the cluster head node name. 
 
 After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF. For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
@@ -285,7 +285,7 @@ After the cluster is successfully deployed, continue with the following steps to
 
     ![Run UDF][run]
 
-    When there are a lot of cells to calculate, press Alt-Shift-Ctrl + F9 to run the calculation on all cells.
+    When there are many cells to calculate, press Alt-Shift-Ctrl + F9 to run the calculation on all cells.
 
 ## Step 3. Run a SOA workload from an on-premises client
 
@@ -297,7 +297,7 @@ To run general SOA applications on the HPC Pack IaaS cluster, first use one of t
 
 3. Download the HelloWorldR2 [sample code](https://www.microsoft.com/download/details.aspx?id=41633). Open the HelloWorldR2.sln in Visual Studio 2010 or 2012.
 
-4. Build the EchoService project first. Then, deploy the service to the IaaS cluster in the same way you deploy to an on-premises cluster. For detailed steps, see the Readme.doc in HelloWordR2. Modify and build the HellWorldR2 and other projects as described below to generate the SOA client applications running on an Azure IaaS cluster from an on-premises client computer.
+4. Build the EchoService project first. Then, deploy the service to the IaaS cluster in the same way you deploy to an on-premises cluster. For detailed steps, see the Readme.doc in HelloWordR2. Modify and build the HellWorldR2 and other projects as described in the following section to generate the SOA client applications running on an Azure IaaS cluster from an on-premises client computer.
 
 ### Use Http binding with Azure storage queue
 
@@ -357,7 +357,7 @@ To use NetTcp binding, the configuration is similar to connecting to an on-premi
 
 1. Stop the VM.
 
-2. Add the TCP ports 9090, 9087, 9091, 9094 for the Session, Broker, Broker worker and Data services, respectively
+2. Add the TCP ports 9090, 9087, 9091, 9094 for the Session, Broker, Broker worker, and Data services, respectively
 
     ![Configure endpoints][endpoint]
 
