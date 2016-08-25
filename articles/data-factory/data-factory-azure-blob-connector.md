@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn to copy/move Azure Blob Datasets | Azure Data Factory" 
+	pageTitle="Copy data to/from Azure Blob Storage | Azure Data Factory" 
 	description="Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database." 
     keywords="blob data, azure blob copy"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
@@ -441,10 +441,18 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. When the **quoteChar** property is specified, a quoted empty string can also be treated as null with this property. <br/><br/>Datasets now support a property called treatEmptyAsNull. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the property on the dataset rather than on the activity. This property on BlobSource is kept for backward compatibility. | TRUE(default) <br/>FALSE | No |
-| skipHeaderLineCount | Indicates how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. <br/><br/>Datasets now support a property called skipLineCount. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. | Integer from 0 to Max. | No | 
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
 
+> [AZURE.NOTE]
+> Currently, you can also use these two properties, but they will be deprecated soon. 
+> 
+> **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value. 
+>  
+> Datasets now support a property called **treatEmptyAsNull**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the property on the dataset rather than on the activity. This property on BlobSource is kept for backward compatibility.
+> 
+> **skipHeaderLineCount** - Indicates how many lines need be skipped. It is applicable only when input dataset is using TextFormat. 
+> 
+> Datasets now support a property called **skipLineCount**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. 
 
 **BlobSink** supports the following properties **typeProperties** section:
 

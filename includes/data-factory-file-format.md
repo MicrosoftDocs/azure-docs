@@ -1,3 +1,5 @@
+## Specifying formats
+
 ### Specifying TextFormat
 
 If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
@@ -10,12 +12,9 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | quoteChar | The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. | No |
 | nullValue | One or more characters used to represent a null value. | One or more characters. The default values are "\N" and "NULL" on read and "\N" on write. | No |
 | encodingName | Specify the encoding name. | A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The default value is UTF-8. | No | 
-| firstRowAsHeader | Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/> <b>Sample scenarios:</b><ul><li>Copying from a non-file source to a text file. The first record from the non-file source is to be written as a header to the output file. </li><li>Copying from a text file to a non-file sink. The first row from the input text file is a header.</li></ul>| True<br/>False (default) | No |
-| skipLineCount | Indicates the number of rows to skip when reading data from input files. <br/><br/> <b>Sample scenario:</b><ul><li>Copying from a text file and need to skip a few lines at the beginning.</li></ul>| Integer | No | 
+| firstRowAsHeader | Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using firstRowAsHeader and skipLineCount](#scenarios-for-using-firstrowasheader-and-skipLineCount) for sample scenarios. | True<br/>False (default) | No |
+| skipLineCount | Indicates the number of rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using firstRowAsHeader and skipLineCount](#scenarios-for-using-firstrowasheader-and-skipLineCount) for sample scenarios. | Integer | No | 
 | treatEmptyAsNull | Specifies whether to treat null or empty string as a null value when reading data from an input file. | True (default)<br/>False | No |  
-
-**skipLineCount** and **firstRowAsHeader**:
-If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file.
 
 #### TextFormat example
 The following sample shows some of the format properties for TextFormat.
@@ -42,6 +41,12 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 	"escapeChar": "$",
 
 
+
+### Scenarios for using firstRowAsHeader and skipLineCount
+
+- You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata. Specify firstRowAsHeader as true in the output dataset for this scenario. 
+- You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify firstRowAsHeader as true in the input dataset.
+- You are copying from a text file and want to skip a few lines at the beginning that are neither data nor header. Specify skipLineCount to indicate the number of lines to be skipped. You can also specify firstRowAsHeader, if the rest of the file contains a header line. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file
 
 ### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
