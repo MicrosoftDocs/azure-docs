@@ -34,7 +34,7 @@ To get started, you need:
 - **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][] for more details.
 - **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
-- **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][] or [SSMS][] to execute T-SQL.
+- **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][], or [SSMS][] to execute T-SQL.
 
 > [AZURE.NOTE] Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
