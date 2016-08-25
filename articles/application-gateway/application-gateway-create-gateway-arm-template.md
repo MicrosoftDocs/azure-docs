@@ -144,11 +144,9 @@ Choose which of your Azure subscriptions to use. <BR>
 ### Step 4
 
 
-If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you create a new resource group called AppgatewayRG in East US location (the output assumes $VerbosePreference variable is set to "continue").
+If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you create a new resource group called AppgatewayRG in East US location.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
