@@ -134,19 +134,28 @@ For information and considerations about using these sizes, see [About the A8, A
 <br>
 ## DS-series*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max data disks|Cache size (GiB)|Max uncached disk throughput (IOPS &amp; bandwidth)| Max cached data disk throughput (IOPS & MB/Sec)| Max network bandwidth |
 |---|---|---|---|---|---|---|---|---|
-|Standard_DS1 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  32 MB per second | moderate |
-|Standard_DS2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  64 MB per second | high |
-|Standard_DS3 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  128 MB per second | high |
-|Standard_DS4 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  256 MB per second | high |
-|Standard_DS11 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  64 MB per second | high |
-|Standard_DS12 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  128 MB per second | high |
-|Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
-|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  512 MB per second | very high |
+|Standard_DS1 |1|3.5|1|7 |2|43| 3,200  32| 4,000 32 | moderate |
+|Standard_DS2 |2|7|2|14 |4|86| 6,400  64| 8,000 64 | high |
+|Standard_DS3 |4|14|4|28 |8|172| 12,800  128 | 16,000 128 | high |
+|Standard_DS4 |8|28|8|56 |16|344| 25,600  256 | 32,000 256 | high |
+|Standard_DS11 |2|14|2|28 |4|72| 6,400  64 | 8,000 64 | high |
+|Standard_DS12 |4|28|4|56 |8|144| 12,800  128 | 16,000 128 | high |
+|Standard_DS13 |8|56|8|112 |16|288| 25,600  256 | 32,000 256 | high |
+|Standard_DS14 |16|112|8|224 |32|576| 51,200  512 | 64,000 512 | very high |
 
-
-
+<br >
+| Size	| CPU cores	| Memory (GiB)	| Max NICs	| Local SSD disk size (GiB)	| Local SSD cache for data disk (GiB)	| Max data disks	| Max uncached data disk throughput (IOPS & MB/Sec)	| Max cached data disk throughput (IOPS & MB/Sec)	| Max network bandwidth |
+|---|---|---|---|---|---|---|---|---|
+|Standard_DS1	|1	|3.5	|1	|7	 |43	|2	|3,200 32	|4,000 32		|moderate 	|
+|Standard_DS2	|2	|7		|2	|14	 |86	|4	|6,400 64	|8,000 64		|high		|
+|Standard_DS3	|4	|14		|4	|28	 |172	|8	|12,800 128	|16,000 128		|high		|
+|Standard_DS4	|8	|28		|8	|56	 |344	|16	|25,600 256	|32,000 256		|high		|
+|Standard_DS11	|2	|14		|2	|28	 |72	|4	|6,400 64	|8,000 64		|high		|
+|Standard_DS12	|4	|28		|4	|56	 |144	|8	|12,800	128	|16,000 128		|high		|
+|Standard_DS13	|8	|56		|8	|112 |288	|16	|25,600 256	|32,000 256		|high		|
+|Standard_DS14	|16	|112	|8	|224 |576	|32	|51,200 512	|64,000 512		|very high	|
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
@@ -167,16 +176,7 @@ For information and considerations about using these sizes, see [About the A8, A
 |Standard_DS15_v2 |20|140 GB|8|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | extremely high |
 
 
-| Size	| CPU cores	| Memory (GiB)	| Max NICs	| Local SSD disk size (GiB)	| Local SSD cache for data disk (GiB)	| Max data disks	| Max uncached data disk throughput (IOPS & MB/Sec)	| Max cached data disk throughput (IOPS & MB/Sec)	| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_DS1	|1	|3.5	|1	|7	 |43	|2	|3,200 32	|4,000 32		|moderate 	|
-|Standard_DS2	|2	|7		|2	|14	 |86	|4	|6,400 64	|8,000 64		|high		|
-|Standard_DS3	|4	|14		|4	|28	 |172	|8	|12,800 128	|16,000 128		|high		|
-|Standard_DS4	|8	|28		|8	|56	 |344	|16	|25,600 256	|32,000 256		|high		|
-|Standard_DS11	|2	|14		|2	|28	 |72	|4	|6,400 64	|8,000 64		|high		|
-|Standard_DS12	|4	|28		|4	|56	 |144	|8	|12,800	128	|16,000 128		|high		|
-|Standard_DS13	|8	|56		|8	|112 |288	|16	|25,600 256	|32,000 256		|high		|
-|Standard_DS14	|16	|112	|8	|224 |576	|32	|51,200 512	|64,000 512		|very high	|
+
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
