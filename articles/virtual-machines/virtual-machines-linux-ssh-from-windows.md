@@ -163,7 +163,7 @@ The easiest way to resolve this is to set the `OPENSSL_CONF` environment variabl
 
 	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in:
+4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your private key. See the screenshot below for the field to fill in:
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
