@@ -41,7 +41,7 @@ This architecture focuses on solution 1. For more information about the second s
 
 Typical use cases for this architecture include:
 
-- Situations where the on-premises network and Azure virtual network hosting the cloud resources are not directly linked by using a VPN tunnel or ExpressRoute circuit.
+- Situations where the on-premises network and Azure virtual network hosting cloud applications are not directly linked by using a VPN tunnel or ExpressRoute circuit.
 
 - Providing SSO for end users running SaaS and other applications in the cloud, using the same credentials that they specify for on-premises applications.
 
@@ -56,20 +56,32 @@ You should note that AAD does not provide all the functionality of AD. For examp
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the grayed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]:
+The following diagram highlights the important components in this architecture (*click to zoom in*). For more information about the grayed-out elements, read [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
+
+> [AZURE.NOTE] For simplicity, this diagram only shows the connections directly related to AAD, and does not depict web browser request redirects or other protocol related traffic that may occur as part of the authentication and identity federation process. For example, a user (on-premises or remote) will typically access a web app through a browser, and the web app may transparently redirect the web browser to authenticate the request through AAD. Once authenticated, the request can be passed back to the web app together with the appropriate identity information.
 
 [![0]][0]
 
+- **Azure Active Directory tenant**. This is an instance of AAD created by your organization. It acts as a simple directory service for cloud applications, and can also provide identity services.
 
-**QUESTIONS/POINTS:**
+- **Cloud Office 365**, **Public Cloud**, **SaaS**, **Azure**. These are examples of cloud-based applications and services for which AAD can act as an identity broker.
 
-*Should we show the VPN connection - one of the reasons for using this architecture is that no direct VPN connection is necessary*
+- **Web tier subnet**. This subnet holds VMs that implement a custom cloud-based application developed by your organization and for which AAD can act as an identity broker.
 
-*Do we want to show access to on-prem web apps through AAD app proxy?*
+- **On-premises web apps**. These are web apps hosted in your organizations on-premises network. AAD can provide remote access to these web apps through the **AAD application proxy**. Your organization must run a **web app connector** on-premises to expose the web app to AAD.
 
-*Do we want to include the scenario where AD FS is used to perform authn against on-prem AD (in this case, AAD is simply acting as a directory rather but not an authn service.*
+	>[AZURE.NOTE] The web app connector opens an outbound network connection to the application proxy running in AAD. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
+
+- **On-premises AD FS server** and **on-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS, and may implement identity federation through AD FS. You can configure AAD to perform authentication through an on-premises AD FS server, which can, in turn, utilize the on-premises AD DS server.
+
+- **AD Connect agent**. This is a piece of software that runs on-premises and synchronizes the on-premises AD to AAD in the cloud. For example, you can provision or deprovision groups and users on-premises and these changes will be propagated to AAD.
+
+	>[AZURE.NOTE] For security reasons, user's passwords are not stored directly in AAD. Rather, AAD holds a hash each password; this is sufficient to verify a user's password. If a user requires a password reset, this must be performed on-premises and the new hash sent to AAD. AAD Premium includes features that can automate this task to enable users to reset their own passwords.
 
 ## Recommendations
+
+
+**NOTE TO SELF. NEED TO BUILD AND VERIFY THE ABOVE ARCHITECTURE BEFORE CONTINUING WITH THIS SECTION**
 
 This section summarizes recommendations for implementing AAD, covering:
 
@@ -116,12 +128,8 @@ Video - 33:45
 
 <!-- links -->
 [resource-manager-overview]: ../resource-group-overview.md
-[guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
 [script]: #sample-solution-script
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
-[implementing-a-secure-hybrid-network-architecture-with-internet-access]: ./guidance-iaas-ra-secure-vnet-dmz.md
-[implementing-a-secure-hybrid-network-architecture]: ./guidance-iaas-ra-secure-vnet-hybrid.md
-[implementing-a-hybrid-network-architecture-with-vpn]: ./guidance-hybrid-network-vpn.md
 [active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
 [active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
