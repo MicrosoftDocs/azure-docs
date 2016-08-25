@@ -176,7 +176,7 @@ To watch a video that demonstrates how you can restore a failed over physical de
 
 ## Failback
 
-From Update 3 and later, failback is also supported. After the failover is complete, the following actions occur:
+For Update 3 and later versions, StorSimple also supports failback. After the failover is complete, the following actions occur:
 
 - The volume containers that are failed over are cleaned from the source device.
 
@@ -184,11 +184,23 @@ From Update 3 and later, failback is also supported. After the failover is compl
 
 - Once all the delete jobs are complete, you can attempt the failback.
 
-#### What happens if the delete job associated with the volume containers in the source device fails?
+## Frequently asked questions
 
-If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the Devices page, select your source device, click Volume containers tab. Select the volume containers that you failed over and in the bottom of the page, click Delete. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
+1. What happens if the DR fails or has partial success?
 
+A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
 
+2. Can I delete a device while the device failover is in progress?
+
+A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
+
+3.	When does the garbage collection start on the source device so that the local data on source device is deleted?
+
+A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
+
+4. What happens if the delete job associated with the volume containers in the source device fails?
+
+A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
 
 ## Business continuity disaster recovery (BCDR)
 
