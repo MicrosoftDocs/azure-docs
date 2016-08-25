@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/25/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -32,9 +32,13 @@ The preview of Azure Active Directory Identity Protection is currently available
 
 ### Identity Protection and federated domains
 
-The preview of Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
+Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
 
-- Only Sign-in risk security policy works for federated domains. Currently, user risk security policy does not work for federated domains 
+- For User Risk security policy to work for federated domains
+
+	- [Password writeback](active-directory-passwords-getting-started.md) must be enabled for the federated domain, so that password change in the cloud can be written back on-premises.
+
+	- An Azure AD Premium license must be assigned to the end-user.
 
 - Risk events are only detected for apps federating with Azure Active Directory
 
