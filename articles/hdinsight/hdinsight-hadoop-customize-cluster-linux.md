@@ -120,7 +120,7 @@ Name | Script
 
 ## Use a Script Action during cluster creation
 
-This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an ARM template, using PowerShell CMDlets, and using the .NET SDK.
+This section provides examples on the different ways you can use script actions when creating an HDInsight cluster- from the Azure Portal, using an Azure Resource Manager template, using PowerShell CMDlets, and using the .NET SDK.
 
 ### Use a Script Action during cluster creation from the Azure Portal
 
@@ -143,14 +143,14 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a Script Action from Azure Resource Manager templates
 
-In this section, we use Azure Resource Manager (ARM) templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to create a cluster using script action.
+In this section, we use Azure Resource Manager templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample template to create a cluster using script action.
 
-> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from an ARM template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from a template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 #### Before you begin
 
 * For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
-* For instructions on how to create ARM templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+* For instructions on how to create templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 * If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 #### Create clusters using Script Action
