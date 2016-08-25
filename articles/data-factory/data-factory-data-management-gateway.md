@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Data Management Gateway
-Microsoft Data Management Gateway is a client agent that you must install in your on-premises environment to move data between cloud and on-premises data stores that are [supported by Copy Activity](data-factory-data-movement-activities.md##supported-data-stores).
+Data Management Gateway is a client agent that you must install in your on-premises environment to move data between cloud and on-premises data stores that are [supported by Copy Activity](data-factory-data-movement-activities.md##supported-data-stores).
 
 This article complements the content in [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md), which has a walkthrough for creating an Azure Data Factory pipeline. The pipeline uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about Data Management Gateway.   
 
@@ -29,22 +29,22 @@ With Data Management Gateway, you can:
 - Move data and model on-premises data sources and cloud data sources within the same data factory.
 - Have a single pane for monitoring and management, with visibility into gateway status from the Data Factory blade.
 - Securely manage access to on-premises data sources.
-	- No changes to corporate firewalls are required. Data Management Gateway makes only outbound HTTP-based connections to open Internet.
+	- No changes to corporate firewalls are required. Data Management Gateway makes only outbound HTTP-based connections to the Internet.
 	- Encrypt credentials for your on-premises data stores with your certificate.
 - Move data efficiently--data is transferred in parallel, resilient to intermittent network issues with auto-retry logic.
 
 ### Command flow and data flow
-When you use a copy activity in a data pipeline to ingest on-premises data to the cloud for further processing, Copy Activity uses a gateway to transfer data from your on-premises data source to the cloud and vice versa. Copy Activity performs the same action when you export result data in the cloud back to an on-premises data store.
+When you use a copy activity in a data pipeline to ingest on-premises data to the cloud for further processing, Copy Activity uses a gateway to transfer data from your on-premises data source to the cloud. Copy Activity uses the gateway when you export result data in the cloud back to an on-premises data store.
 
 Following is a representation of high-level data flow and summary of steps for copy with Data Management Gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1.	A data developer creates a gateway for a data factory by using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx).
+1.	A data developer creates a gateway for a data factory by using either the [Azure portal](https://portal.azure.com) or [PowerShell cmdlet](https://msdn.microsoft.com/library/dn820234.aspx).
 2.	A data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, the data developer uses the Setting Credentials application to specify authentication types and credentials. The Setting Credentials application communicates with the data store to test the connection and the gateway before saving credentials.
 3. Data Management Gateway encrypts the credentials with the certificate associated with the gateway (supplied by the data developer) before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling and management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be initiated, Data Factory queues the request along with credential information. Data Management Gateway starts the job after polling the queue.
 5.	The gateway decrypts the credentials with the same certificate. It then connects to the on-premises data store with the proper authentication type and credentials.
-6.	The gateway copies data from the on-premises store to cloud storage, or from cloud storage to an on-premises data store, depending on how Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage service (for example, Azure Blob or Azure SQL) over a secure (HTTPS) channel.
+6.	The gateway copies data from the on-premises store to cloud storage, or from cloud storage to an on-premises data store, depending on how Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage service (for example, Azure Blob storage or Azure SQL) over a secure (HTTPS) channel.
 
 ### Considerations for using Data Management Gateway
 - A single instance of Data Management Gateway can be used for multiple on-premises data sources, but a single gateway instance is tied to only one Azure data factory and cannot be shared with another data factory.
@@ -112,12 +112,12 @@ If you have already created the logical gateway in the Azure portal, the followi
 
 	![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png)
 
-### System tray icons and notifications
-The following image shows some of the tray icons.
+### Notification area icons and notifications
+The following image shows some of the notification icons.
 
-![system tray icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
+![Notification area icons](./media/data-factory-data-management-gateway/gateway-tray-icons.png)
 
-If you move the cursor over the system tray icon or notification message, you will see details about the state of the gateway or update operation in a pop-up window.
+If you move the cursor over the notification area icon or notification message, you will see details about the state of the gateway or update operation in a pop-up window.
 
 ### Ports and firewalls
 There are two firewalls: a *corporate firewall* running on the central router of the organization, and the *Windows firewall* configured as a daemon on the local machine where the gateway is installed.  
@@ -137,18 +137,18 @@ At the corporate firewall level, you need to configure the following domains and
 
 At the Windows firewall level, these outbound ports are normally enabled. If they are not, you can configure the domains and ports accordingly on the gateway machine.
 
-#### To copy data from a source data store to a sink data store
+#### Copy data from a source data store to a sink data store
 
 Make sure the firewall rules are enabled on the corporate firewall, the Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. You must enable rules for each data store that is involved in the copy operation.
 
-To copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of Azure SQL Server to add the IP address of the gateway machine to the list of allowed IP addresses.
+To copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of the Azure SQL Server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 
 ### Proxy server settings
 By default, Data Management Gateway applies the proxy settings from Internet Explorer and uses default credentials to access it. If this does not suit your case, you can further configure proxy server settings to ensure that the gateway is able to connect to Azure Data Factory:
 
-1.	After installing Data Management Gateway, go to File Explorer and make a safe copy of “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config” to back up the original file.
-2.	Open Notepad.exe as an administrator and open the text file “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config.” The default tag for system.net is:
+1.	After installing Data Management Gateway, go to File Explorer and make a safe copy of C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config to back up the original file.
+2.	Open Notepad.exe as an administrator and open the text file C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config. The default tag for system.net is:
 
 			<system.net>
 				<defaultProxy useDefaultCredentials="true" />
@@ -166,45 +166,45 @@ By default, Data Management Gateway applies the proxy settings from Internet Exp
 
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 
-3. Save the configuration file to the original location, then restart Data Management Gateway to pick up the changes. You can do this from **Start** > **Services.msc**, or from the **Data Management Gateway Configuration Manager**. Click **Stop Service**, then click **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
+3. Save the configuration file to the original location, and then restart Data Management Gateway to pick up the changes. You can do this from **Start** > **Services.msc**, or from the **Data Management Gateway Configuration Manager**. Click **Stop Service**, and then click **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
 
 In addition to the points described previously, you also need to make sure Microsoft Azure is in your company’s Safe Recipients list. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
-#### Possible symptoms for firewall- and proxy server-related issues
+#### Possible symptoms for firewall-related and proxy server-related issues
 The following errors are generally caused by improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to Azure Data Factory to authenticate itself. Refer to the previous section to ensure that your firewall and proxy server are properly configured.
 
--	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
--	When you open Configuration Manager, you see status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
+-	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is started."
+-	When you open Configuration Manager, you see the status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
 
 ### Open port 8050 for credential encryption
-The inbound port 8050 is used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure portal (details later in this article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
+The Setting Credentials application uses the inbound port 8050 to relay the credentials to the gateway when you [set up an on-premises linked service in the Azure portal](#encrypt-credentials)details later in this article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
 
 If you are using a third-party firewall, you can manually open port 8050. If you run into firewall issues during gateway setup, you can try to use the following command to install the gateway without configuring the firewall.
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If you choose not to open port 8050 on the gateway machine, you need to use mechanisms other than Setting Credentials to configure the data store credentials and set up an on-premises linked service. For example, you could use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#set-credentials-and-security) for more information about how data store credentials can be set.
+If you choose not to open port 8050 on the gateway machine, you need to use mechanisms other than Setting Credentials to configure the data store credentials and set up an on-premises linked service. For example, use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting credentials and security](#set-credentials-and-security) for more information about how data store credentials can be set.
 
 ## Update
-By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, the gateway is rolled back to the old version.
+By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all scheduled tasks are done. The gateway processes no further tasks until the update operation is completed. If the update fails, the gateway is rolled back to the old version.
 
-The scheduled update time is listed on the **Gateway properties** blade, on the home page of Data Management Gateway Configuration Manager, and in the system tray notification message.
+The scheduled update time is listed on the **Gateway properties** blade, on the home page of Data Management Gateway Configuration Manager, and in the notification area.
 
 The **Home** tab of Data Management Gateway Configuration Manager displays the update schedule and the last time the gateway was installed or updated.
 
 ![Schedule updates](media/data-factory-data-management-gateway/UpdateSection.png)
 
-You can install the update right away or wait for the gateway to be automatically updated at the scheduled time. The following screen shot shows you the notification message shown in Data Management Gateway Configuration Manager along with the **Update** button that you click to install it immediately.
+You can install the update right away or wait for the gateway to be automatically updated at the scheduled time. The following screenshot shows you the notification message shown in Data Management Gateway Configuration Manager, along with the **Update** button that you click to install it immediately.
 
 ![Update in DMG Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
 
-The notification message in the system tray looks like the following:
+The notification message in the notification area looks like the following:
 
-![System Tray message](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
+![Notification area message](./media/data-factory-data-management-gateway/gateway-auto-update-tray-message.png)
 
 You see the status of the update operation (manual or automatic) in the notification area. The next time you open Data Management Gateway Configuration Manager, you will see a message on the notification bar that the gateway has been updated, along with a link to the [What's new topic](data-factory-gateway-release-notes.md).
 
-### To disable or enable the auto-update feature
+### Disable or enable the auto-update feature
 You can disable or enable the auto-update feature by doing the following:
 
 1. Open Windows PowerShell on the gateway machine.
@@ -224,11 +224,11 @@ After you install the gateway, you can open Data Management Gateway Configuratio
 - Run the executable **ConfigManager.exe** in the folder: C:\Program Files\Microsoft Data Management Gateway\1.0\Shared.
 
 ### Home page
-You can perform the following actions on the Home page:
+You can perform the following actions on the home page:
 
 - View the status of the gateway (such as connected to the cloud service).
 - Register by using a key from the Azure portal.
-- Stop and start Data Management Gateway host service on the gateway machine.
+- Stop and start the Data Management Gateway host service on the gateway machine.
 - Schedule updates at specific times.
 - View the date when the gateway was last updated.
 
@@ -249,60 +249,60 @@ You can perform the following actions on the Diagnostics page:
 ### Help page
 The Help page displays the following:
 
-- A brief description of the gateway.
-- Version number.
-- Links to online help, the privacy statement, and license agreement.  
+- A brief description of the gateway
+- Version number
+- Links to online help, the privacy statement, and license agreement
 
 ## Troubleshooting
 
 - You can find detailed information in the gateway logs under Windows event logs. You can find them by using Windows Event Viewer under **Application and Services Logs** > **Data Management Gateway**. While troubleshooting gateway-related issues, look for error-level events in the event viewer.
-- If the gateway stops working after you change the certificate, restart the Data Management Gateway service by using the Microsoft Data Management Gateway Configuration Manager tool or the Services control panel applet. If you still see an error, you may have to use Certificates Manager (certmgr.msc) to give explicit permissions for the Data Management Gateway service user to access the certificate. The default user account for the service is **NT Service\DIAHostService**.
-- If the Credential Manager application fails to encrypt credentials when you click Encrypt in Data Factory Editor, verify that you are running this application on the machine on which the gateway is installed. If not, run the application on the gateway machine and try to encrypt credentials.  
+- If the gateway stops working after you change the certificate, restart the Data Management Gateway service by using the Microsoft Data Management Gateway Configuration Manager tool or the Services control panel applet. If you still see an error, you may have to use Certificate Manager (certmgr.msc) to give explicit permissions for the Data Management Gateway service user to access the certificate. The default user account for the service is **NT Service\DIAHostService**.
+- If the Credential Manager application fails to encrypt credentials when you click **Encrypt** in Data Factory Editor, verify that you are running this application on the machine on which the gateway is installed. If not, run the application on the gateway machine and try to encrypt credentials.  
 - If you see data store connection or driver-related errors, open Data Management Gateway Configuration Manager on the gateway machine and select the **Diagnostics** tab. Select or enter appropriate values for fields in the **Test connection to an on-premises data source using this gateway** group, and click **Test connection** to see if you can connect to an on-premises data source from the gateway machine by using the connection information and credentials. If the test connection still fails after you install a driver, restart the gateway so it can pick up the latest change.  
 
-	![Test Connection](./media/data-factory-data-management-gateway/TestConnection.png)
+	![Test connection](./media/data-factory-data-management-gateway/TestConnection.png)
 
-### To send gateway logs to Microsoft
+### Send gateway logs to Microsoft
 If you have gateway issues and need to contact Microsoft Support, you may be asked to share your gateway logs. The release of the gateway allows you to easily share required gateway logs in Data Management Gateway Configuration Manager.   
 
 1. Click the **Diagnostics** tab of Data Management Gateway Configuration Manager.
 2. Click **Send logs**.
-![Data Management Gateway - Diagnostics tab](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
+![Data Management Gateway--Diagnostics tab](media/data-factory-data-management-gateway/data-management-gateway-diagnostics-tab.png)
 3. Click **view logs** to review logs in the event viewer (optional).
-![Data Management Gateway - Send logs](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
+![Data Management Gateway--send logs](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
 4. Click **privacy** to review the Microsoft Online Services privacy statement (optional).
 3. When you are satisfied with what you are about to upload, click **Send Logs** to send logs from the last seven days to Microsoft for troubleshooting. You should see the status of the Send logs operation as shown in the following example.
 
-	![Data Management Gateway - Send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
+	![Data Management Gateway--send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
 4. When the operation is complete, you will see the following dialog box.
 
-	![Data Management Gateway - Send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)
+	![Data Management Gateway--send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-result.png)
 5. Record the **report ID** and share it with Microsoft Support. The report ID is used to locate the gateway logs you uploaded for troubleshooting. The report ID is also saved in Event Viewer for your reference. You can find it by looking at the event ID “25” and checking the date and time.
 
-	![Data Management Gateway - Send logs report ID](media/data-factory-data-management-gateway/data-management-gateway-send-logs-report-id.png)
+	![Data Management Gateway--send logs report ID](media/data-factory-data-management-gateway/data-management-gateway-send-logs-report-id.png)
 
-### To archive gateway logs on a gateway host machine
+### Archive gateway logs on a gateway host machine
 There are some scenarios in which you have gateway issues and you cannot share gateway logs directly:
 
 - You manually install and register the gateway.
-- You try register the gateway with a regenerated key on configuration manager.
+- You try to register the gateway with a regenerated key on configuration manager.
 - You try to send logs, but gateway host service cannot be connected.
 
-In such cases, you can save gateway logs as zip files and share them with Microsoft support, as shown in the following example.  
+In such cases, you can save gateway logs as .zip files and share them with Microsoft support, as shown in the following example.  
 
-![Data Management Gateway - Registration error](media/data-factory-data-management-gateway/data-management-gateway-registration-error.png)
+![Data Management Gateway--registration error](media/data-factory-data-management-gateway/data-management-gateway-registration-error.png)
 
-Click **Archive gateway logs** to archive and save logs, and then share the zip file with Microsoft support.
+Click **Archive gateway logs** to archive and save logs, and then share the .zip file with Microsoft support.
 
-![Data Management Gateway - Archive logs](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
+![Data Management Gateway--archive logs](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
 
-## To move a gateway client from one machine to another
+## Move a gateway client from one machine to another
 This section provides steps for moving a gateway client between machines.
 
-2. In the Azure portal, go to the **Data Factory home page** and click **Linked Services**.
+2. In the Azure portal, go to the Data Factory home page and click **Linked Services**.
 
-	![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+	![Data gateways link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 3. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** blade.
 
 	![Linked Services blade with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
@@ -321,23 +321,23 @@ This section provides steps for moving a gateway client between machines.
 
 8. Paste the key into the text box on the **Register Gateway** page of Data Management Gateway Configuration Manager on your machine. Click **Show gateway key** to see the key text (optional).
 
-	![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+	![Copy key and register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
 9. Click **Register** to register the gateway with the cloud service.
 10. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the password, and click **Finish**.
 
 	![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
 	You can export a certificate from the old gateway by doing the following: open Data Management Gateway Configuration Manager on the old machine, select the **Certificate** tab, click **Export**, and follow the instructions.
-10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of Data Management Gateway Configuration Manager.
+10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the home page of Data Management Gateway Configuration Manager.
 
-## To encrypt credentials
+## Encrypt credentials
 To encrypt credentials in Data Factory Editor, do the following:
 
 1. Open a web browser on the gateway machine, go to the [Azure portal](http://portal.azure.com), search for your data factory if needed, open Data Factory on the Data Factory blade, and click **Author & Deploy** to open Data Factory Editor.   
 1. Click an existing linked service in the tree view to see its JSON definition or to create a linked service that requires Data Management Gateway (for example: SQL Server or Oracle).
-2. In the JSON editor, enter the name of the gateway for the *gatewayName* property.
-3. Enter the server name for the *Data Source* property in the *connectionString*.
-4. Enter the database name for the *Initial Catalog* property in the *connectionString*.    
+2. In the JSON editor, enter the name of the gateway for the **gatewayName** property.
+3. Enter the server name for the **Data Source** property in the *connectionString*.
+4. Enter the database name for the **Initial Catalog** property in the *connectionString*.    
 5. Click **Encrypt** to open the **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 	![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
 6. In the **Setting Credentials** dialog box, do the following:  
@@ -345,7 +345,7 @@ To encrypt credentials in Data Factory Editor, do the following:
 	2.	In the **USERNAME** box, enter the name of the user who has access to the database.
 	3.	In the **PASSWORD** box, enter the password for the user.  
 	4.	Click **OK** to encrypt credentials and close the dialog box.
-5.	You should see a *encryptedCredential* property in the *connectionString*.		
+5.	You should see a **encryptedCredential** property in the *connectionString*.		
 
 			{
 	    		"name": "SqlServerLinkedService",
@@ -361,13 +361,13 @@ To encrypt credentials in Data Factory Editor, do the following:
 
 If you access the Azure portal from a machine that is different from the gateway machine, you must make sure that Credentials Manager can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source or to test the connection to the data source.  
 
-When you use Setting Credentials opened from the Azure portal to set credentials for an on-premises data source, the Azure portal encrypts the credentials with the certificate you specified on the **Certificate** tab of **Data Management Gateway Configuration Manager** on the gateway machine.
+When you use **Setting Credentials** opened from the Azure portal to set credentials for an on-premises data source, the Azure portal encrypts the credentials with the certificate you specified on the **Certificate** tab of Data Management Gateway Configuration Manager on the gateway machine.
 
 If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt them. The cmdlet uses the same certificate that the gateway is configured to use to encrypt the credentials. You add encrypted credentials to the same **EncryptedCredential** element of the *connectionString* in the JSON file that you use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in Data Factory Editor in the Azure portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
-There is one more approach for setting credentials by using Data Factory Editor. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted by using a certificate that the Data Factory service owns, not the certificate that the gateway is configured to use. While this approach might be a little faster in some cases, it is less secure. Therefore, we recommend that you follow this approach only for development or testing purposes.
+There is one more approach for setting credentials by using Data Factory Editor. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted by using a certificate that the Data Factory service owns, not the certificate that the gateway is configured to use. This approach might be a little faster in some cases, but it is less secure. Therefore, we recommend that you follow this approach only for development or testing purposes.
 
 
 ## PowerShell cmdlets
@@ -409,20 +409,20 @@ This section describes how to create and register a gateway by using Azure Power
 
 		.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
 
-5. You can use the Get-AzureRmDataFactoryGateway cmdlet to get the list of Gateways in your data factory. When the **Status** appears as **online**, it means your gateway is ready to use.
+5. You can use the Get-AzureRmDataFactoryGateway cmdlet to get the list of gateways in your data factory. When the **Status** appears as **online**, it means your gateway is ready to use.
 
 		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-You can remove a gateway by using the Remove-AzureRmDataFactoryGateway cmdlet and update a gateway description by using the Set-AzureRmDataFactoryGateway cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
+You can remove a gateway by using the Remove-AzureRmDataFactoryGateway cmdlet and update a gateway description by using the Set-AzureRmDataFactoryGateway cmdlets. For syntax and other details about these cmdlets, see [Data Factory Cmdlet Reference](https://msdn.microsoft.com/en-us/library/dn820234.aspx).  
 
-### To list gateways by using PowerShell
+### List gateways by using PowerShell
 
 	Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 
-### To remove a gateway by using PowerShell
+### Remove a gateway by using PowerShell
 
 	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 
 
 ## Next steps
-- See [Data Management Gateway](data-factory-data-management-gateway.md) for detailed information about the gateway.
+See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md), which has a walkthrough for creating a Data Factory pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob.
