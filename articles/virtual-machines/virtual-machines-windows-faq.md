@@ -82,3 +82,28 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 ## Can I add a NIC to my VM after it's created?
 
 No. Adding a NIC can only be done at creation time.
+
+## Are there any computer name requirements?
+
+Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](virtual-machines-windows-infrastructure-naming-guidelines.md) for more information around naming your resources.
+
+## What are the username requirements when creating a VM?
+
+Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
+
+The following usernames are not allowed:
+
+- "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5"
+
+## What are the password requirements when creating a VM?
+
+Passwords must be 8 - 123 characters in length and meet 3 out of 4 of the following complexity requirements:
+
+- Have lower characters
+- Have upper characters
+- Have a digit
+- Have a special character (Regex match [\W_])
+
+The following passwords are not allowed:
+
+- "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
