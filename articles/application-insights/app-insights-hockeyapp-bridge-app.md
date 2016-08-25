@@ -20,7 +20,7 @@
 
 The data from any app in HockeyApp is accessible through the Analytics, Continuous Export, and API features in Visual Studio Application Insights. Set up a HockeyApp Bridge App to relay the data from HockeyApp to Application Insights.
 
-# The HockeyApp Bridge app
+## The HockeyApp Bridge app
 
 The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp data in Application Insights through the Analytics, Continuous Export, and API features. Any data collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from the aforementioned features. Let’s see how to set up one of these Bridge Apps.
 
