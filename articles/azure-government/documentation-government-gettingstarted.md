@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Title | Azure Governmnet documentation"
+	pageTitle="Azure Governmnet documentation | Microsoft Azure"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
 	services="Azure-Government"
 	cloud="gov" 
