@@ -46,10 +46,9 @@ Get the available subscriptions by using the following command.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
 
@@ -71,10 +70,9 @@ Get the available subscriptions by using the following command.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Step 4: Run commands to migrate your IaaS resources
 
