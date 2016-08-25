@@ -18,15 +18,15 @@
 
 # Explore Azure IoT Hub device management using the sample UI
 
-Interacting with the sample device management UI will help you to solidify the concepts and capabilities covered in the Azure IoT Hub device management [Overview][lnk-dm-overview] and [Get started][lnk-get-started] articles. This article walks you through each of the three main device management concepts – *device twin*, *device queries*, and *device jobs* – as represented in the sample device management web UI.
+Interacting with the sample device management UI helps you to solidify the concepts and capabilities covered in the Azure IoT Hub device management [Overview][lnk-dm-overview] and [Get started][lnk-get-started] articles. This article walks you through each of the three main device management concepts – *device twin*, *device queries*, and *device jobs* – as represented in the sample device management web UI.
 
 Developers looking to build their own device management interactive experience can fork the sample UI codebase to use as a basis for a custom project. You can review the full project code and readme documents that detail additional developer capabilities in the [Azure IoT device management UI][lnk-dm-github] GitHub repository.
 
 ## Prerequisites
 
-Before starting this tutorial, you should complete the steps in the [Get started with Azure IoT Hub device management][lnk-get-started] article. If you have not done so, please return and complete all steps in this article before proceeding.
+Before starting this tutorial, you should complete the steps in the [Get started with Azure IoT Hub device management][lnk-get-started] article. If you have not done so, return and complete all steps in this article before proceeding.
 
-When you have completed the "Get started" tutorial, you will have the following running on your test system:
+When you complete the "Get started" tutorial, you have the following running on your test system:
 
 - Six **iotdm\_simple\_sample** simulated devices running in console/terminal windows, each with a successful "REGISTERED" message.
 
@@ -34,7 +34,7 @@ When you have completed the "Get started" tutorial, you will have the following 
 
 ## Default Devices View
 
-The default home screen for the device management sample UI is the **Devices** view which includes the following 5 components:
+The default home screen for the device management sample UI is the **Devices** view that includes the following five components:
 
 ![][1]
 
@@ -50,17 +50,17 @@ The default home screen for the device management sample UI is the **Devices** v
 
 6.  *Device grid*: View all devices registered with your IoT Hub instance with the default properties (**Device ID**, **Status**, and **Tags**).
 
-The [device management overview][lnk-dm-overview] introduced the *device twin* concept which represents a physical (or simulated) device in the Azure IoT hub. From the device grid you can select any registered device from the device list to view and edit the device twin for that device.
+The [device management overview][lnk-dm-overview] introduced the *device twin* concept that represents a physical (or simulated) device in the Azure IoT hub. From the device grid, you can select any registered device from the device list to view and edit the device twin for that device.
 
-Enter this detailed view on your first simulated device, **Device11-7ce4a850**, by selecting the corresponding device row and then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
+To enter this detailed view on your first simulated device (**Device11-7ce4a850**) select the corresponding device row. Then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
 
-You are now viewing the full representation of the device twin components where you can update writeable properties and run other device operations as detailed below:
+You are now viewing the full representation of the device twin components where you can update writeable properties and run other device operations as follows:
 
 ![][2]
 
-1.  **Edit a Device Twin**: This includes an **Enabled/Disabled** toggle for the device.
+1.  **Edit a Device Twin**: This option includes an **Enabled/Disabled** toggle for the device.
 
-2.  **Service Properties**: This includes device **Tags**.
+2.  **Service Properties**: This option includes device **Tags**.
 
 3.  **Device Properties**: Click to expand this section.
 
@@ -74,7 +74,7 @@ Device queries are a powerful way to quickly locate a device or a group of devic
 
 Perform the following steps to create a customer filter on the "bacon" service property tag:
 
-1.  Click on the funnel icon to open the device query edit view:
+1.  Click the funnel icon to open the device query edit view:
 
     ![][3]
 
@@ -90,9 +90,9 @@ Perform the following steps to create a customer filter on the "bacon" service p
 
 ## Use a device job to simulate device reboots 
 
-As you learned in the device management overview, device jobs enable you to orchestrate simple or complex actions on one or more physical devices. In this section you will create a device job in the sample UI to perform a reboot operation on all simulation devices with the "bacon" tag:
+As you learned in the device management overview, device jobs enable you to orchestrate simple or complex actions on one or more physical devices. In this section, you create a device job in the sample UI to perform a reboot operation on all simulation devices with the "bacon" tag:
 
-1.  From the **Only Bacon** device query list, click on each device row to mark it for the reboot job operation:
+1.  From the **Only Bacon** device query list, click each device row to mark it for the reboot job operation:
 
     ![][6]
 
@@ -104,10 +104,10 @@ You have now created a single parent job that spawns three child jobs, each one 
 
 ![][8]
 
-Refreshing this screen after a few moments changes the status of the parent job and the three child jobs to **completed**, indicating that the reboot operations were successful and confirmed by the simulated devices. Use the **Device ID** column to determine which jobs are associated with which devices.
+Refresh this screen after a few moments to see the changes to the status of the parent job and the three child jobs to **completed**. The new status values show that the reboot operations were successful and confirmed by the simulated devices. Use the **Device ID** column to determine which jobs are associated with which devices.
 
 
-> [AZURE.NOTE] If your child jobs return the status "failed", check that your simulated devices are still running on your test system. If not, run the simulate.bat or simulate.sh script again and repeat the reboot device job steps above.
+> [AZURE.NOTE] If your child jobs return the status "failed", check that your simulated devices are still running on your test system. If not, run the simulate.bat or simulate.sh script again and repeat the reboot device job steps in the preceding section.
 
 ## Next steps
 
@@ -124,7 +124,7 @@ To further explore the capabilities of IoT Hub, see:
 - [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Using the Azure portal to manage IoT Hub][lnk-portal]
 - [Secure your IoT solution from the ground up][lnk-securing]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
