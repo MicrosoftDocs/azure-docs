@@ -140,7 +140,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 		# sudo vi /etc/fstab
 
-	In this example we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
+	In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
 		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
@@ -153,9 +153,9 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, you need to enter them into /etc/fstab separately as well.
+	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, enter them into /etc/fstab separately as well.
 
-	You need to make the drive writable by using this command:
+	Make the drive writable by using this command:
 
 		# sudo chmod go+w /datadrive
 
