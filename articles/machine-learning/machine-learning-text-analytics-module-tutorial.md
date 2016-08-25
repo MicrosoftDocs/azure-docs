@@ -29,9 +29,9 @@ In a text analytics experiment, you would typically:
  4. Score and validate the model
  5. Deploy the model to production
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using [AZURE.INCLUDE ["Book Reviews from Amazon" dataset] (../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]. This dataset consists of review scores (1,2 or 4,5) and a free-form text. The goal is to predict the review score: low (1, 2) or high (4, 5).
+In this tutorial, you learn these steps as we walk through a sentiment analysis model using [AZURE.INCLUDE ["Book Reviews from Amazon" dataset] (../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]. This dataset consists of review scores (1,2 or 4,5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
 
-You'll find experiments covered in this tutorial at Cortana Intelligence Gallery:
+You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
 
 [Predict Book Reviews] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -59,7 +59,7 @@ To build a model for text data, you typically have to convert free-form text int
 
 We apply TF*IDF (Term Frequency Inverse Document Frequency) weighting to N-gram counts. This approach adds weight of words that appear frequently in a single record but are rare across the entire dataset. Other options include binary, TF, and graph weighing.
 
-Such text features often have a very high dimensionality. For example, if your corpus has 100,000 unique words, your feature space would have 100,000 dimensions, or more if N-grams are used. The Extract N-Gram Features module gives you a set of options to reduce the dimensionality. You can choose to exclude words that are very short or long, or too uncommon or too frequent to have significant predictive value. In this tutorial, we exclude N-grams that appear in fewer than 5 records or in more than 80% of records.
+Such text features often have high dimensionality. For example, if your corpus has 100,000 unique words, your feature space would have 100,000 dimensions, or more if N-grams are used. The Extract N-Gram Features module gives you a set of options to reduce the dimensionality. You can choose to exclude words that are very short or long, or too uncommon or too frequent to have significant predictive value. In this tutorial, we exclude N-grams that appear in fewer than 5 records or in more than 80% of records.
 
 Also, you can use feature selection to select only those features that are the most correlated with your prediction target. We use Chi-Squared feature selection to select 1000 features. You can view the vocabulary of selected words or N-grams by clicking the right output of Extract N-grams module.
 
