@@ -93,7 +93,16 @@ Usernames can be a maximum of 20 characters in length and cannot end in a period
 
 The following usernames are not allowed:
 
-- "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5"
+|    |    |    |    |
+|:--:|:--:|:--:|:--:|
+| administrator | admin | user | user1 |
+| test | user2 | test1 | user3 |
+| admin1 | 1 | 123 | a |
+| actuser  | adm | admin2 | aspnet |
+| backup | console | david | guest |
+| john | owner | root | server |
+| sql | support | support_388945a0 | sys |
+| test2 | test3 | user4 | user5 |
 
 ## What are the password requirements when creating a VM?
 
@@ -106,4 +115,7 @@ Passwords must be 8 - 123 characters in length and meet 3 out of the following 4
 
 The following passwords are not allowed:
 
-- "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+|    |    |    |    |    |
+|:--:|:--:|:--:|:--:|:--:|
+| abc@123 | P@$$w0rd | P@ssw0rd | P@ssword123 | Pa$$word |
+| pass@word1 | Password! | Password1 |Password22 | iloveyou! |
