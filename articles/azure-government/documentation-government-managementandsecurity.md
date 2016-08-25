@@ -30,7 +30,7 @@ The following information identifies the Azure Government boundary for Azure Key
 
 Key Vault is generally available in Azure Government. Just as in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
 
-For additional information, please see the <a href=https://azure.microsoft.com/en-us/documentation/articles/key-vault-get-started/> Azure Key Vault public documentation </a>.
+For additional information, please see the [Azure Key Vault public documentation](/key-vault-get-started).
 
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
