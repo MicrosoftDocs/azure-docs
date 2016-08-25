@@ -25,9 +25,19 @@
 If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
 
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
-2. Under **Click a subscription to view details and usage**, select the subscription that you want to cancel. </br> ![selectsub](.\media\billing-how-to-cancel-azure-subscription\Selectsub.png)
-3. On the right side of the page, select **Cancel Subscription**. </br> ![cancelsub](.\media\billing-how-to-cancel-azure-subscription\cancelsub.png)
-4. Select **Yes, cancel my subscription**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
-5. Click ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) to close the dialog window and return to your subscription page.
+
+2. Under **Click a subscription to view details and usage**, select the subscription that you want to cancel. 
+
+	![selectsub](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
+
+3. On the right side of the page, select **Cancel Subscription**.
+	
+	![cancelsub](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
+
+4. Select **Yes, cancel my subscription**.
+	
+	![cancelbox](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
+
+5. Click ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) to close the dialog window and return to your subscription page.
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
