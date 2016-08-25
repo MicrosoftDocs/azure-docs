@@ -66,7 +66,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md)
 
-[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [Create an availability set for virtual machines](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Manage your virtual machines by using Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Connect classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Connect classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [About the virtual machine agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md)
 
