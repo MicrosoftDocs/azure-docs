@@ -1,4 +1,4 @@
-ah, o<properties
+<properties
     pageTitle="Pulling public data into Azure Event Hubs | Microsoft Azure"
     description="Overview of the Event Hubs import from web sample"
     services="event-hubs"
