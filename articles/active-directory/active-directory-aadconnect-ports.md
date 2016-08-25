@@ -79,4 +79,4 @@ HTTPS|443(TCP/UDP)| Outbound
 Azure Service Bus|5671 (TCP/UDP)| Outbound
 
 ### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health.md#requirements).
+For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health-agent-install.md#requirements).
