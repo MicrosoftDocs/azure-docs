@@ -38,7 +38,7 @@ An Azure storage account provides storage for the operating system disk and any 
 
 ## How can I access my virtual machine?
 
-You need to establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
+Establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 
 
 If you’re having problems with Remote Desktop, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md). 
@@ -47,13 +47,13 @@ If you’re familiar with Hyper-V, you might be looking for a tool similar to VM
 
 ## Can I use the temporary disk (the D: drive by default) to store data?
 
-You shouldn’t use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+Don’t use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can’t be recovered. Data loss can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
 
 If you have an application that needs to use the D: drive letter, you can reassign drive letters so that the temporary disk uses something other than D:. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## How can I change the drive letter of the temporary disk?
 
-You can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+You can change the drive letter by moving the page file and reassigning drive letters, but you need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## Can I add an existing VM to an availability set?
 
