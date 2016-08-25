@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
 # Runbook output and messages in Azure Automation
@@ -63,7 +63,8 @@ Consider the following sample runbook.
 
 The output stream for the runbook job would be:
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 The verbose stream for the runbook job would be:
 
@@ -100,13 +101,13 @@ In the following example, we have two graphical runbooks to demonstrate this fea
 
 Here is the basic logic of the **AuthenticateTo-Azure** runbook.<br> ![Authenticate Runbook Template Example](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
-It includes an optional input parameter to specify a SubscriptionId and an output type called *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which will return the authentication profile properties<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
+It includes the output type *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which will return the authentication profile properties.<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
-The first activity is the **Get-AutomationConnection** connection variable, which references an Automation Run As account.  The next activity authenticates the Run As account using the **Add-AzureRmAccount** cmdlet and this is the same configuration as what is defined in the example **AzureAutomationTutorial** runbook.  Following this activity are two Sequence links with a conditional expression to determine if a SubscriptionId was specified as an input parameter when the runbook was executed.  If there is a value, then the **Set-AzureRMContext** cmdlet activity is executed to reference a specific subscription, otherwise we accept the default and move to the next activity.  The final activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, required for that cmdlet.      
+While this runbook is very straight forward, there is one configuration item to call out here.  The last activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, which is required for that cmdlet.  
 
 For the second runbook in this example, named *Test-ChildOutputType*, we simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
-The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameter-config.png)    
+The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
 The resulting output is the name of the subscription.<br> ![Test-ChildOutputType Runbook Results](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
