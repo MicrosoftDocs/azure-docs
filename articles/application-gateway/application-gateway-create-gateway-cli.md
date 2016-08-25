@@ -32,7 +32,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 ## Prerequisite: Install the Azure CLI
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](..\xplat-cli-install.md) and you'll need to [log on to Azure](..\articles\xplat-cli-connect.md). 
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](..\xplat-cli-install.md) and you'll need to [log on to Azure](..\xplat-cli-connect.md). 
 
 > [AZURE.NOTE] If you don't have an Azure account, you need one. Go sign up for a [free trial here](..\active-directory\sign-up-organization.md).
 
