@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/24/2016"
 	ms.author="nitinme"/>
 
 # Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine
@@ -38,6 +38,38 @@ Once you are familiar with Hadoop, you can start using Hadoop on Azure by creati
 
 1. Start VirtualBox, select the Hortonworks Sandbox, select __Start__, and then __Normal Start__.
 
-2. Once the virtual machine has finished the boot process, it will display login instructions.
+2. Once the virtual machine has finished the boot process, it will display login instructions. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
-## Create a local cluster
+## Set passwords
+
+1. From the __get started__ step of the Hortonworks Sandbox page, select __View Advanced Options__. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
+
+    If you do not have an SSH client installed, you can use the web-based SSH provided at http://localhost:4200.
+
+    The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
+
+2. Once logged in, enter the following command:
+
+        ambari-admin-password-reset
+    
+    When prompted, provide a password for the Ambari admin account. This will be used when you access the Ambari Web UI.
+
+## Use the hive command
+
+1. From an SSH connection to the sandbox, use the following command to start the Hive shell:
+
+        hive
+
+2. Once the shell has started, use the following to view the tables that are provided with the sandbox:
+
+        show tables;
+
+3. Use the following to retrieve 10 rows from the `sample_07` table:
+
+        select * from sample_07 limit 10;
+
+## Next steps
+
+* [Learn how to use Visual Studio with the Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
+* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
