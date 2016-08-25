@@ -138,7 +138,7 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Under **Virtual machines** select the VM that you created.
 
-	![Screenshot showing the virtual machine settings item for network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interfaces.png)
+	![Screenshot showing the virtual machine settings item for network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
 3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
