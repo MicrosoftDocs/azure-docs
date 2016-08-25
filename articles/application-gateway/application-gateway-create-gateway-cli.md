@@ -32,9 +32,9 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 ## Prerequisite: Install the Azure CLI
 
-To perform the steps in this article, you'll need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](..\articles\xplat-cli-install.md) and you'll need to [log on to Azure](..\articles\xplat-cli-connect.md). 
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](..\articles\xplat-cli-install.md) and you'll need to [log on to Azure](..\articles\xplat-cli-connect.md). 
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll need one. Go sign up for a [free trial here](..\articles\active-directory\sign-up-organization.md).
+> [AZURE.NOTE] If you don't have an Azure account, you need one. Go sign up for a [free trial here](..\articles\active-directory\sign-up-organization.md).
 
 ## Scenario
 
@@ -53,16 +53,14 @@ This scenario will:
 
 ## Before you begin
 
-Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet
+Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
-## Create the the resource group
+## Create the resource group
 
-Prior to creating the application gateway a resource group is created to contain the application gateway.
+Before creating the application gateway, a resource group is created to contain the application gateway.
 
     azure group create -n AdatumAppGatewayRG -l eastus
-
-The response from the command looks like the following response:
 
     info:    Executing command group create
     + Getting resource group AdatumAppGatewayRG
@@ -82,8 +80,6 @@ Once the resource group is created, a virtual network is created for the applica
 
     azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
 
-The response from the command looks like the following response:
-
     info:    Executing command network vnet create
     + Looking up the virtual network "AdatumAppGatewayVNET"
     + Creating virtual network "AdatumAppGatewayVNET"
@@ -98,11 +94,9 @@ The response from the command looks like the following response:
 
 ### Create a subnet
 
-After the virtual network is created a subnet is added for the application gateway.
+After the virtual network is created, a subnet is added for the application gateway.
 
     azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
-
-The response after the subnet is created is shown in the following response.
 
     info:    Executing command network vnet subnet create
     verbose: Looking up the virtual network "AdatumAppGatewayVNET"
@@ -116,12 +110,10 @@ The response after the subnet is created is shown in the following response.
 
 ### Create the application gateway
 
-Once the virtual network and subnet are created the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
-The IP addresses used for the backend are the IP addresses for your backend server, either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
+Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
+The IP addresses used for the backend are the IP addresses for your backend server. These can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
     azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
-
-Creation of the application gateway takes time, when it is complete the response looks like the following.
 
     info:    Executing command network application-gateway create
     + Looking up an application gateway "AdatumAppGateway"

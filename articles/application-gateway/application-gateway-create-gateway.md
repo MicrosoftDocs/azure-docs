@@ -36,12 +36,12 @@ This article walks you through the steps to create, configure, start, and delete
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. If you have an existing virtual network, either select an existing empty subnet or create a new subnet in your existing virtual network solely for use by the application gateway. You cannot deploy the application gateway to a different virtual network than the resources you intend to deploy behind the application gateway.
 3. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
-3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## What is required to create an application gateway?
 
 
-When you use the **New-AzureApplicationGateway** command to create the application gateway, no configuration is set at this point and the newly created resource will have to be configured either by using XML or a configuration object.
+When you use the **New-AzureApplicationGateway** command to create the application gateway, no configuration is set at this point and the newly created resource are configured either by using XML or a configuration object.
 
 
 The values are:
@@ -49,11 +49,11 @@ The values are:
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
 
 
-## Create a new application gateway
+## Create an application gateway
 
 To create an application gateway:
 
@@ -66,7 +66,7 @@ To create an application gateway:
 
 ### Create an application gateway resource
 
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 The following example creates a new application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
@@ -102,7 +102,7 @@ To validate that the gateway was created, you can use the **Get-AzureApplication
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
 
 
- *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
+ *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
 
 ## Configure the application gateway
 
@@ -110,7 +110,7 @@ You can configure the application gateway by using XML or a configuration object
 
 ## Configure the application gateway by using XML
 
-In the following example, you will use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
+In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
 
 ### Step 1  
 
@@ -163,7 +163,7 @@ Edit the values between the parentheses for the configuration items. Save the fi
 
 >[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
 
-The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses.
+The following example shows how to use a configuration file to set up the application gateway. The example load balances HTTP traffic on public port 80 and sends network traffic to back-end port 80 between two IP addresses.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -224,9 +224,9 @@ Next, set the application gateway. Use the **Set-AzureApplicationGatewayConfig**
 
 ## Configure the application gateway by using a configuration object
 
-The following example shows how to configure the application gateway by using configuration objects. All configuration items have to be configured individually and then added to an application gateway configuration object. After creating the configuration object, you will use the **Set-AzureApplicationGateway** command to commit the configuration to the previously created application gateway resource.
+The following example shows how to configure the application gateway by using configuration objects. All configuration items have to be configured individually and then added to an application gateway configuration object. After creating the configuration object, you use the **Set-AzureApplicationGateway** command to commit the configuration to the previously created application gateway resource.
 
->[AZURE.NOTE] Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) will be used.
+>[AZURE.NOTE] Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) are used.
 
 ### Step 1
 
@@ -247,7 +247,7 @@ Create the front-end port as shown in the following example.
 
 Create the back-end server pool.
 
- Define the IP addresses that will be added to the back-end server pool as shown in the next example.
+ Define the IP addresses that are added to the back-end server pool as shown in the next example.
 
 
 	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
