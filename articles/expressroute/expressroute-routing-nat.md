@@ -65,7 +65,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 
 ### Private Peering 
 
-You can choose to use public or private IPv4 addresses for Microsoft peering. We provide end-to-end isolation of your traffic so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
+You can choose to use public or private IPv4 addresses for private peering. We provide end-to-end isolation of your traffic so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
 
 ### Public Peering
 
