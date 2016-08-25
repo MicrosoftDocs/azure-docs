@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="8/25/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # What is Azure IoT Hub?

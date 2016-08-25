@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="8/25/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Explore Azure IoT Hub device management using the sample UI
