@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Title | Azure Government documentation"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
-	services=""
+	services="Azure-Government"
+	cloud="gov" 
 	documentationCenter=""
 	authors="ryansoc"
 	manager="zakramer"
