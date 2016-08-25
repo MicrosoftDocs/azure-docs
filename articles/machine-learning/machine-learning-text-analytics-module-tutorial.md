@@ -43,7 +43,7 @@ We begin the experiment by dividing the review scores into categorical low and h
 
 ![Create Label] (./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-Then, we clean the text using Preprocess Text module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
+Then, we clean the text using Preprocess Text module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
 
 ![Preprocess Text] (./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
