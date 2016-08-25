@@ -1,6 +1,6 @@
 <properties
    pageTitle="Monitor Resource Manager-deployed virtual machine backups | Microsoft Azure"
-   description="Monitor events and alerts from Resource Manager-deployed virtual machine backups"
+   description="Monitor events and alerts from Resource Manager-deployed virtual machine backups. Send email based on alerts."
    services="backup"
    documentationCenter="dev-center-name"
    authors="markgalioto"
@@ -13,12 +13,14 @@ ms.workload="storage-backup-recovery"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="08/11/2016"
+ms.date="08/25/2016"
 ms.author="trinadhk; giridham;"/>
 
 # Monitor alerts for Azure virtual machine backups
 
-Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
+Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know as soon as possible after alerts occur. For example, when a backup or restore job fails, an alert occurs within 5 minutes of the failure. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
+
+## How do I find information about the alerts?
 
 To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
 
@@ -72,6 +74,15 @@ To set up email notifications for alerts
 5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
 
 6. Click **Save**.
+
+### Are there situations where email isn't sent even if notifications are configured?
+
+There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent:
+
+- If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
+- If the job is cancelled.
+- If a backup job is triggered and then fails, and another backup job is in progress.
+- If a scheduled backup job for a Resource Manager-enabled VM starts, but the VM no longer exists.
 
 ## Customize your view of events
 
