@@ -57,7 +57,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 | Port No.<sup>1,2</sup> | In or out | Port scope | Required | Notes |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80 (HTTP)<sup>3</sup>|  Out |  WAN | No |<ul><li>Outbound port is used for Internet access to retrieve updates.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul> |
-|TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul>|
+|TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li><li>This port is also used on both the controllers for garbage collection.</li></ul>|
 |UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
 | TCP 9354 | Out | WAN | Yes |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. |
