@@ -82,14 +82,14 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 5. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
 
-	![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
 
-	![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
