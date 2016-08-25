@@ -67,7 +67,7 @@ Points to note:
 	<table>
 	<tr>
 		<td>CPU</td>
-		<td>32 Cores 2.20 GHz Intel Xeon® E5-2660 v2</td>
+		<td>32 cores 2.20 GHz Intel Xeon E5-2660 v2</td>
 	</tr>
 	<tr>
 		<td>Memory</td>
@@ -158,7 +158,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 	    }
 	]
 
-The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** the copy operation uses at run time is equal to or less than the configured value depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
+The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Note that 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
 
 To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do want to overwrite **parallelCopies** to reduce the concurrent load, note that if **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
 
@@ -168,7 +168,7 @@ It's **important** to remember that you are charged based on the total time of t
 When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. Staging is especially useful in the following cases:
 
 -	**Sometimes it takes a while to perform a hybrid data movement (that is, to copy from an on-premises data store to a cloud data store, or vice versa) over a slow network connection**. To improve performance, you can compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load it into the destination data store.
-2.	**You don't want to open ports other than port 80 and port 443 in your firewall, because of corporate IT policies**. For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In that scenario, you can take advantage of Data Management Gateway to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then, load the data into an SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
+2.	**You don't want to open ports other than port 80 and port 443 in your firewall, because of corporate IT policies**. For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In that scenario, you can take advantage of Data Management Gateway to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then, load the data into SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
 3.	**You ingest data from various data stores into SQL Data Warehouse via PolyBase**. SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. However, the source data must be in Blob storage, and it must meet additional criteria. When you load data from a data store other than Blob storage, you can activate data copying via interim staging Blob storage. In that case, Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse. See [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for more details and for samples.
 
 ### How staged copy works
@@ -305,7 +305,7 @@ Serialization and deserialization can occur when your input data set or output d
 **File format**: The file format you choose might affect copy performance. For example, Avro is a compact binary format that stores metadata with data. It has broad support in the Hadoop ecosystem for processing and querying. However, Avro is more expensive for serialization and deserialization, which results in lower copy throughput compared to text format. You should make your choice of file format throughout the processing flow holistically. Start with what form the data is stored in, source data stores or to be extracted from external systems; the best format for storage, analytical processing, and querying; and in what format the data should be exported into data marts for reporting and visualization tools. Sometimes a file format that is suboptimal for read and write performance might be a good choice when you consider the overall analytical process.
 
 ## Considerations for compression
-When your input or output data set is a file, you can set Copy Activity to perform compression or decompression as it writes data to the destination. When you choose compression, you make a tradeoff between input/output (I/O) and CPU. Compressing the data costs extra in compute resources, but in return, it reduces network I/O and storage, which, depending on your data, could give you a boost in overall copy throughput.
+When your input or output data set is a file, you can set Copy Activity to perform compression or decompression as it writes data to the destination. When you choose compression, you make a tradeoff between input/output (I/O) and CPU. Compressing the data costs extra in compute resources. But in return, it reduces network I/O and storage. Depending on your data, this might give you a boost in overall copy throughput.
 
 **Codec**: Copy Activity supports gzip, bzip2, and Deflate compression types. Azure HDInsight can consume all three types for processing. Each compression codec has advantages. For example, bzip2 has the lowest copy throughput, but you get the best Hive query performance with bzip2 because you can split it for processing. Gzip is the most balanced option, and it is used the most often. Choose the codec that best suits your end-to-end scenario.
 
@@ -349,14 +349,14 @@ As you can see, the data is being processed and moved in a streaming sequential 
 
 One or more of the following factors might cause the performance bottleneck:
 
--	**Source**: SQL Server itself has low throughput because of heavy loads
+-	**Source**: SQL Server itself has low throughput because of heavy loads.
 -	**Data Management Gateway**:
-	-	**LAN**: Gateway is located far from the SQL Server machine and has a low-bandwidth connection
+	-	**LAN**: Gateway is located far from the SQL Server machine and has a low-bandwidth connection.
 	-	**Gateway**: Gateway has reached its load limitations to perform the following:
-		-	**Serialization**: Serializing the data stream to CSV format has slow throughput
-		-	**Compression**: You chose a slow compression codec (for example, bzip2, which is 2.8 MBps with Core i7)
-	-	**WAN**: The bandwidth between the corporate network and your Azure services is low (for example, T1 = 1,544 kbps; T2 = 6,312 kbps)
--	**Sink**: Blob storage has low throughput (this is unlikely because its SLA guarantees a minimum of 60 MBps)
+		-	**Serialization**: Serializing the data stream to CSV format has slow throughput.
+		-	**Compression**: You chose a slow compression codec (for example, bzip2, which is 2.8 MBps with Core i7).
+	-	**WAN**: The bandwidth between the corporate network and your Azure services is low (for example, T1 = 1,544 kbps; T2 = 6,312 kbps).
+-	**Sink**: Blob storage has low throughput. (This is unlikely because its SLA guarantees a minimum of 60 MBps.)
 
 In this case, bzip2 data compression might be slowing down the entire pipeline. Switching to a gzip compression codec might ease this bottleneck.
 
