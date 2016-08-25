@@ -96,7 +96,7 @@ The connection requires use of the ExpressRoute service and a connection to a co
 |Can directly connect to all Microsoft cloud services, with a few exceptions*.|Requires network address translation (NAT) of on-premises IP addresses entering the Microsoft data centers for services that can't be connected to a VNet.**|
 |Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using BGP.|
 
-- *View a [list of services](../expressroute/expressroute-faqs.md#supported-services) that cannot be used with ExpressRoute. Must be approved to connect to Office 365.  See the [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) article for details.
+- *View a [list of services](../expressroute/expressroute-faqs.md#supported-services) that cannot be used with ExpressRoute. Your Azure subscription must be approved to connect to Office 365.  See the [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) article for details.
 - **Learn more about ExpressRoute [NAT](../expressroute/expressroute-nat.md) requirements.
 
 Learn more about [ExpressRoute](../expressroute/expressroute-introduction.md), its associated [pricing](https://azure.microsoft.com/pricing/details/expressroute), and [connectivity providers](../expressroute/expressroute-locations.md#connectivity-provider-locations).
