@@ -37,7 +37,7 @@ For more information, see [Create a Virtual Machine](virtual-machines-linux-crea
 ## Connect to the VM
  
 
-For more information, see [SSH from Linux](virtual-machines-linux-ssh-from-linux.md)
+For more information, see [SSH from Linux](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Query VM Unique ID
