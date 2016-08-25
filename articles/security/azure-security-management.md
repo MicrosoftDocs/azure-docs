@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
 
-Azure subscribers may manage their cloud environments from multiple devices, including management workstations, developer PCs and even privileged end-user devices that have task-specific permissions. In some cases, administrative functions are performed through web-based consoles such as the [Azure portal](https://azure.microsoft.com/features/azure-portal/). In other cases, there may be direct connections to Azure from on-premises systems over Virtual Private Networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, such as tablets or smartphones.
+Azure subscribers may manage their cloud environments from multiple devices, including management workstations, developer PCs, and even privileged end-user devices that have task-specific permissions. In some cases, administrative functions are performed through web-based consoles such as the [Azure portal](https://azure.microsoft.com/features/azure-portal/). In other cases, there may be direct connections to Azure from on-premises systems over Virtual Private Networks (VPNs), Terminal Services, client application protocols, or (programmatically) the Azure Service Management API (SMAPI). Additionally, client endpoints can be either domain joined or isolated and unmanaged, such as tablets or smartphones.
 
-Although these multiple access and management capabilities provide a rich set of options, this variability can add significant risk to a cloud deployment, making it difficult to manage, track, and audit administrative actions. This variability may also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (e.g. watering hole attacks) or email (e.g. social engineering and phishing).
+Although multiple access and management capabilities provide a rich set of options, this variability can add significant risk to a cloud deployment. It can be difficult to manage, track, and audit administrative actions. This variability may also introduce security threats through unregulated access to client endpoints that are used for managing cloud services. Using general or personal workstations for developing and managing infrastructure opens unpredictable threat vectors such as web browsing (for example, watering hole attacks) or email (for example, social engineering and phishing).
 
 ![][1]
 
@@ -65,7 +65,7 @@ Consolidating access resources and eliminating unmanaged endpoints also simplifi
 
 Azure provides security mechanisms to aid administrators who manage Azure cloud services and virtual machines. These mechanisms include:
 
-- Authentication and [role based access control](../active-directory/role-based-access-control-configure.md).
+- Authentication and [role-based access control](../active-directory/role-based-access-control-configure.md).
 - Monitoring, logging, and auditing.
 - Certificates and encrypted communications.
 - A web management portal.
@@ -128,7 +128,7 @@ Some applications or services that you deploy into Azure may have their own auth
 
 Several mechanisms are available to help secure client connections to your Azure virtual networks. Two of these mechanisms, [site-to-site VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) and [point-to-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), enable the use of industry standard IPsec (S2S) or the [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) for encryption and tunneling. When Azure is connecting to public-facing Azure services management such as the Azure management portal, Azure requires Hypertext Transfer Protocol Secure (HTTPS).
 
-A stand-alone hardened workstation that does not connect to Azure through a RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
+A stand-alone hardened workstation that does not connect to Azure through an RD Gateway should use the SSTP-based point-to-site VPN to create the initial connection to the Azure Virtual Network, and then establish RDP connection to individual virtual machines from with the VPN tunnel.
 
 ### Management auditing vs. policy enforcement
 
@@ -161,7 +161,7 @@ For IT environments that have no on-premises infrastructure (for example, no acc
 
 ### Stand-alone hardened workstation for management
 
-With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support fullvolume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
+With a stand-alone hardened workstation, administrators have a PC or laptop that they use for administrative tasks and another, separate PC or laptop for non-administrative tasks. A workstation dedicated to managing your Azure services does not need other applications installed. Additionally, using workstations that support a [Trusted Platform Module](https://technet.microsoft.com/library/cc766159) (TPM) or similar hardware-level cryptography technology aids in device authentication and prevention of certain attacks. TPM can also support full volume protection of the system drive by using [BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx).
 
 In the stand-alone hardened workstation scenario (shown below), the local instance of Windows Firewall (or a non-Microsoft client firewall) is configured to block inbound connections, such as RDP. The administrator can log on to the hardened workstation and start an RDP session that connects to Azure after establishing a VPN connect with an Azure Virtual Network, but cannot log on to a corporate PC and use RDP to connect to the hardened workstation itself.
 
@@ -197,7 +197,7 @@ Don't assume that because a workstation has been locked down that other common s
 
 | Don't | Do |
 | ----- | ----- |
-| Don't email credentials for administrator access or other secrets (e.g., SSL or management certificates) | Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
+| Don't email credentials for administrator access or other secrets (for example, SSL or management certificates) | Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
 | | Proactively manage your management certificate life cycles. |
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). | Establish security management principles and system hardening policies, and apply them to your development environment. |
 | | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |
