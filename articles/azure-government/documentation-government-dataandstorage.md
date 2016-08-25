@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Title | Azure Government documentation"
 	description="This provides a comparision of features and guidance on developing applications for Azure Government"
-	services=""
+	services="Azure-Government"
+	cloud="gov" 
 	documentationCenter=""
 	authors="ryansoc"
 	manager="zakramer"
@@ -9,12 +10,11 @@
 
 <tags
 	ms.service="multiple"
-	ms.cloud="gov"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="10/29/2015"
+	ms.date="08/25/2016"
 	ms.author="ryansoc"/>
 
 
