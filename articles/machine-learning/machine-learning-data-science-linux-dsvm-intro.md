@@ -96,39 +96,39 @@ The provisioning should take about 10-20 minutes. The status of the provisioning
 
 ## How to access the Linux Data Science Virtual Machine
 
-Once the VM is created, you can log in to it using SSH with the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+Once the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
->[AZURE.NOTE] The X2go client performed significantly better than X11 forwarding in testing. So we recommend using the X2Go client for graphical desktop interface.
+>[AZURE.NOTE] The X2Go client performed significantly better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 
 
 ## Installing and configuring X2Go client
 
-The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, you need to do the following on your client.
+The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client.
 
 1. Download and install the X2Go client for your client platform from [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Run the X2Go client and select "*New Session*". It opens a configuration window with multiple tabs. Enter the following configuration parameters:
+2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
     * **Session tab**:
-        - **Host**: The host name or IP address of your Linux Data science VM.
-        - **Login**: Login username on the Linux VM.
+        - **Host**: The host name or IP address of your Linux Data Science VM.
+        - **Login**: User name on the Linux VM.
         - **SSH Port**: Leave it at 22, the default value.
-        - **Session Type**: Change the value to XFCE. NOTE: Currently the Linux VM only supports XFCE desktop.
+        - **Session Type**: Change the value to XFCE. Currently the Linux VM only supports XFCE desktop.
     * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
     * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
-Once you log in to the VM using either the SSH client OR XFCE graphical desktop through X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE you can see applications menu shortcuts and desktop icons for many of the tools.
+Once you sign in to the VM using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
 
 
 ## Tools installed on the Linux Data Science Virtual Machine
 
 ### Microsoft R Open
-R is one of the most popular languages for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100% compatible with CRAN-R and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors like vi, Emacs or gedit. You are also able to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within Emacs editor, has been pre-installed.
+R is one of the most popular languages for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors, like vi, Emacs, or gedit. You can also download and use other IDEs, such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within the Emacs editor, has been pre-installed.
 
-To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program you typically use an editor like Emacs or vi or gedit and then run the scripts within R. If you install RStudio, you have a full graphical IDE environment to develop your R program.
+To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi or gedit, and then run the scripts within R. If you install RStudio, you have a full graphical IDE environment to develop your R program.
 
 There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run once you are in the R interactive interface, which can be entered (as mentioned) by typing *R* in the shell.  
 
 ### Python
-For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition you can use Spyder a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
+For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
 
 Since we have both Python 2.7 and 3.5, you need to specifically activate the desired Python version you want to work on in the current session. The activation process sets the PATH variable to the desired version of Python.
 
@@ -145,26 +145,26 @@ To activate Python 3.5, run the following from the shell:
 
 Python 3.5 is installed at */anaconda/envs/py35/bin*
 
-Now to invoke python interactive session just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type ***spyder*** command to launch the Python IDE.
+To invoke a Python interactive session, just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type ***spyder*** to launch the Python IDE.
 
-### Jupyter Notebook
+### Jupyter notebook
 
-The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter Notebook is accessed through JupyterHub. You log in using your local Linux username and password.
+The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via SSH or X2go client you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
+The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. There is a desktop icon named "Jupyter Notebook" to launch the browser to access the notebook server. If you are on the VM via SSH or X2Go client, you can also visit [https://localhost:8000/](https://localhost:8000/) to access the Jupyter notebook server.
 
 >[AZURE.NOTE] Continue if you get any certificate warnings.
 
-You can access the Jupyter notebook server from any host. Just type in *https://\<VM DNS name or IP Address\>:8000/*
+You can access the Jupyter notebook server from any host. Just type *https://\<VM DNS name or IP Address\>:8000/*
 
 >[AZURE.NOTE] Port 8000 is opened in the firewall by default when the VM is provisioned.
 
-We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using your local Linux username and password. You can create a new notebook by selecting **New** and then the appropriate language kernel. If you don't see the **New** button, click on the **Jupyter** icon on the top left to go to the home page of the notebook server.
+We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
 
 
 ### IDEs and Editors
 
-You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit and Eclipse. gEdit and Eclipse are graphical editors and need you to be logged in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
+You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit and Eclipse. gEdit and Eclipse are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
 **VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at: [ESS](http://ess.r-project.org/).
 
