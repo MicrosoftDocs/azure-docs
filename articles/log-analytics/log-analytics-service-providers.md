@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="08/25/2016"
 	ms.author="richrund"/>
 
 # Log Analytics features for Service Providers
@@ -63,14 +63,15 @@ By creating a workspace per customer, you are able to keep each customer’s dat
 
 More details on when and why to create multiple workspaces is described in [manage access to log analytics] (log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
-Creation and configuration of customer workspaces can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), Resource Manager templates, or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+Creation and configuration of customer workspaces can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager templates](log-analytics-template-workspace-configuration.md), or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
 
-Each Log Analytics workspace can be integrated into your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed. 
+When managing multiple Log Analytics workspaces we recommend integrating each workspace with your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed.
 
 For executive level reports that summarize data across workspaces you can use the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md). If you need to integrate with another reporting system, you can use the Search API (via PowerShell or [REST](log-analytics-log-search-api.md)) to run queries and export search results.
 
 ## Next Steps
 
++ Automate creation of workspace using [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 + Automate creation of workspaces using [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 + Use [Alerts](log-analytics-alerts.md) to integrate with existing systems
 + Generate summary reports using [PowerBI](log-analytics-powerbi.md)
