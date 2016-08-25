@@ -1,7 +1,8 @@
 <properties
-   pageTitle="Azure Government Overview"
+   pageTitle="Azure Government Overview | Microsoft Azure"
    description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. "
    services="Azure-Government"
+   cloud="gov" 
    documentationCenter=""
    authors="joharve2"
    manager="chrisnie"
@@ -16,7 +17,7 @@
    ms.date="10/28/2015"
    ms.author="jharve"/>
 
-# Microsoft Azure Government Overview *
+# Microsoft Azure Government Overview
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This overview will provide an introduction to the environment and services as well as links to additional information.
 
