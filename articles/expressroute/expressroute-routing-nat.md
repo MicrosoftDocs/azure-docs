@@ -65,7 +65,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 
 ### Private Peering 
 
-You can choose to use public or private IPv4 addresses for Microsoft peering. We provide end-to-end isolation of your traffic so overlapping of addresses with other customers is not possible in case of private peering.
+You can choose to use public or private IPv4 addresses for Microsoft peering. We provide end-to-end isolation of your traffic so overlapping of addresses with other customers is not possible in case of private peering. These addresses are not advertised to Internet. 
 
 ### Public Peering
 
@@ -85,7 +85,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
-	>[AZURE.IMPORTANT] Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft maybe advertised over ExpressRoute. 
+	>[AZURE.IMPORTANT] Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
 
 ## Dynamic route exchange
 
