@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to cancel your Azure subscription | Microsoft Azure"
-	description="Describes how to cancel your Azure subscription"
+	description="Describes how to cancel your Azure subscription, like the Free Trial subscription"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -21,8 +21,6 @@
 # How to cancel your Azure subscription
 
 >[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. If you canceled your subscription by mistake and need to get it reactivated, you can [create a support ticket](billing-how-to-create-billing-support-ticket.md) for assistance.
-
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
 
