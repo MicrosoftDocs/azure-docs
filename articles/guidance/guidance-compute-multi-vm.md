@@ -216,7 +216,7 @@ The script references the following parameter files to build the VMs and the sur
 
 	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array. For example, if you wish to enable outside access to the HTTP service, you should add a rule that opens TCP port 80.
 
-- **[loadBalancerParameters.json][loadbalancer-parameters-windows]**. This file defines the settings for the VMs, including the size of each VM, the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
+- **[loadBalancerParameters.json][loadbalancer-parameters-windows]**. This file defines the settings for the VMs, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
 
 	```json
     "parameters": {
@@ -476,6 +476,7 @@ To run the script that deploys the solution:
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1
 [solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/deploy-reference-architecture.sh
 [vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json
