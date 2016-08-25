@@ -18,7 +18,7 @@
    
 # Connecting your on-premises network to Azure
 
-Microsoft provides several types of cloud services. While you can connect to all of the services over the public Internet, you can also connect to some of the services using a virtual private network (VPN) tunnel over the Internet or over a direct, private connection to Microsoft. This article helps you determine which connectivity option will best meet your needs based on the types of Microsoft cloud services that you consume. Most organizations utilize multiple connection types described below.
+Microsoft provides several types of cloud services. While you can connect to all the services over the public Internet, you can also connect to some of the services using a virtual private network (VPN) tunnel over the Internet or over a direct, private connection to Microsoft. This article helps you determine which connectivity option will best meet your needs based on the types of Microsoft cloud services that you consume. Most organizations utilize multiple connection types described below.
 
 ## Connecting over the public Internet
 
@@ -74,7 +74,7 @@ The connection is made over your existing Internet connection, but requires use 
 |Throughput up to 200 Mb/s per gateway.|Requires minimal ongoing administration of an Azure VPN Gateway.|
 |Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using user-defined routes or the Border Gateway Protocol (BGP)**.|Cannot be used to connect to Microsoft Office 365 or Dynamics CRM Online.|
 ||Cannot be used to connect to Azure services that cannot be connected to a VNet.|
-||May necessitate a firewall between the on-premises network and Azure if you use services that initiate connections back to on-premises devices and your security policies require it.|
+||If you use services that initiate connections back to on-premises devices and your security policies require it you may need a firewall between the on-premises network and Azure.|
 
 - *View a list of [validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#validated-vpn-devices).
 - **Learn more about using [user-defined routes](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) or [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) to force routing from Azure VNets to an on-premises device.
@@ -90,10 +90,10 @@ The connection requires use of the ExpressRoute service and a connection to a co
 | **Pros**| **Cons**|
 |---------|---------|
 |Traffic cannot be intercepted in transit over the public Internet since a dedicated connection through a service provider is used.|Requires on-premises router management.|
-|Bandwidth up to 10 Gb/s per ExpressRoute circuit and throughputup to 2 Gb/s to each gateway.|Requires a dedicated connection to a connectivity provider.|
+|Bandwidth up to 10 Gb/s per ExpressRoute circuit and throughput up to 2 Gb/s to each gateway.|Requires a dedicated connection to a connectivity provider.|
 |Predictable latency because it’s a dedicated connection to Microsoft that does not traverse the Internet.|May require minimal ongoing administration of one or more Azure VPN Gateways (if connecting the circuit to VNets).|
 |Does not require encrypted communication though you can encrypt the traffic, if desired.|May necessitate a firewall between the on-premises network and Azure if using cloud services that initiate connections back to on-premises devices.|
-|Can directly connect to all Microsoft cloud services, with a few exceptions*.|Requires network address translation (NAT) of on-premises IP addresses entering the Microsoft data centers for services other than those that can be connected to a VNet.**|
+|Can directly connect to all Microsoft cloud services, with a few exceptions*.|Requires network address translation (NAT) of on-premises IP addresses entering the Microsoft data centers for services that can't be connected to a VNet.**|
 |Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using BGP.|
 
 - *View a [list of services](../expressroute/expressroute-faqs.md#supported-services) that cannot be used with ExpressRoute. Must be approved to connect to Office 365.  See the [Azure ExpressRoute for Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1) article for details.
@@ -103,14 +103,14 @@ Learn more about [ExpressRoute](../expressroute/expressroute-introduction.md), i
 
 ## Additional considerations
 
-- Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommend that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits) to understand if any of them impact the connectivity type(s) you choose to use. 
-- You can connect a gateway from a site-to-site VPN connection to the same VNet as an ExpressRoute gateway, but if you plan to do this you should familiarize yourself with important constraints first. See the [Configure ExpressRoute and Site-to-Site coexisting connection](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations)s article for more details.
+- Several of the options above have various maximum limits they can support for VNet connections, gateway connections, and other criteria. It’s recommended that you review the Azure [networking limits](../azure-subscription-service-limits.md#networking-limits) to understand if any of them impact the connectivity types you choose to use. 
+- If you plan to connect a gateway from a site-to-site VPN connection to the same VNet as an ExpressRoute gateway, you should familiarize yourself with important constraints first. See the [Configure ExpressRoute and Site-to-Site coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations) article for more details.
 
 ## Next steps
 
-Now that you have a better understanding of the available connectivity option(s) and have determined which best meet your requirements, you might be interested in viewing the resources below, which provide tested implementation steps for the connectivity options discussed above.
+The resources below explain how to implement the connection types covered in this article.
 
--    [Implement a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+-   [Implement a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 -   [Implement a site-to-site connection](guidance-hybrid-network-vpn.md)
 -   [Implement a dedicated private connection](guidance-hybrid-network-expressroute.md)
 -   [Implement a dedicated private connection with a site-to-site connection for high availability](guidance-hybrid-network-expressroute-vpn-failover.md)
