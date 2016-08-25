@@ -31,7 +31,7 @@ In a text analytics experiment, you would typically:
 
 In this tutorial, you learn these steps as we walk through a sentiment analysis model using [AZURE.INCLUDE ["Book Reviews from Amazon" dataset] (../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]. This dataset consists of review scores (1,2 or 4,5) and a free-form text. The goal is to predict the review score: low (1, 2) or high (4, 5).
 
-The experiments covered in this tutorial are available in Cortana Intelligence Gallery:
+You'll find experiments covered in this tutorial at Cortana Intelligence Gallery:
 
 [Predict Book Reviews] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -39,7 +39,7 @@ The experiments covered in this tutorial are available in Cortana Intelligence G
 
 ## Step 1: Clean and preprocess text dataset
 
-We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We do this step using Edit Metadata and Group Categorical Values modules.
+We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We'll use Edit Metadata and Group Categorical Values modules.
 
 ![Create Label] (./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
