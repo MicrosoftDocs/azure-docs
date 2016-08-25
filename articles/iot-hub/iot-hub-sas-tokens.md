@@ -50,7 +50,7 @@ These are the expected values:
 | {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
 | {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
 
-**Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
+**Note on prefix**: The URI prefix is computed by segment and not by character. For example, `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
 This is a Node function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections will detail how to initialize the different inputs for the different token use cases.
 
@@ -150,7 +150,7 @@ The two main scenarios for using shared access policies to access device functio
 
 Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating security tokens. This is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
 
-As an example, a token service using the precreated shared access policy called **device** would create a token with the following parameters:
+As an example, a token service using the pre-created shared access policy called **device** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
 * signing key: one of the keys of the `device` policy,
@@ -184,10 +184,10 @@ These are the service functions exposed on the endpoints:
 | `{iot hub host name}/servicebound/feedback` | Receive feedback for cloud-to-device messages. |
 | `{iot hub host name}/devicebound` | Send cloud-to-device messages. |
 
-As an example, a service generating using the precreated shared access policy called **registryRead** would create a token with the following parameters:
+As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices`,
-* signing key: one of the keys of the `registryRead` plocy,
+* signing key: one of the keys of the `registryRead` policy,
 * policy name: `registryRead`,
 * any expiration time.
 
