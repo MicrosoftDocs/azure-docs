@@ -200,29 +200,29 @@ For information and considerations about using these sizes, see [About the A8, A
 
 
 
-
+<br>
 ## G-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_G1 |2|28 GB|1|Local SSD disk = 384 GB |4|4 x 500| high |
-|Standard_G2 |4|56 GB|2|Local SSD disk = 768 GB |8|8 x 500| high |
-|Standard_G3 |8|112 GB|4|Local SSD disk = 1,536 GB |16|16 x 500| very high | 
-|Standard_G4 |16|224 GB|8|Local SSD disk = 3,072 GB |32|32 x 500| extremely high |
-|Standard_G5 |32|448 GB|8|Local SSD disk = 6,144 GB |64| 64 x 500 | extremely high |
+| Size        | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
+|-------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
+| Standard_G1 | 2         | 28           | 1        | 384                  | 4              | 4 x 500            | high                  |
+| Standard_G2 | 4         | 56           | 2        | 768                  | 8              | 8 x 500            | high                  |
+| Standard_G3 | 8         | 112          | 4        | 1,536                | 16             | 16 x 500           | very high             |
+| Standard_G4 | 16        | 224          | 8        | 3,072                | 32             | 32 x 500           | extremely high        |
+| Standard_G5 | 32        | 448          | 8        | 6,144                | 64             | 64 x 500           | extremely high        |
 
 
 
-
+<br>
 ## GS-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_GS1|2|28|1|Local SSD disk = 56 GB |4|264| 5,000  125 MB per second | high |
-|Standard_GS2|4|56|2|Local SSD disk = 112 GB |8|528| 10,000  250 MB per second | high | 
-|Standard_GS3|8|112|4|Local SSD disk = 224 GB |16|1056| 20,000  500 MB per second | very high |
-|Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
-|Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
+| Size         | CPU cores | Memory (GiB) | Max NICs | Local SSD disk size (GiB) | Local SSD cache for data disk (GiB) | Max data disks | Max uncached data disk throughput (IOPS & MB/Sec) | Max cached data disk throughput (IOPS & MB/Sec) | Max network bandwidth |
+|--------------|-----------|--------------|----------|---------------------------|-------------------------------------|----------------|---------------------------------------------------|-------------------------------------------------|-----------------------|
+| Standard_GS1 | 2         | 28           | 1        | 56                        | 264                                 | 4              | 5,000 125                                         | 10,000 100                                      | high                  |
+| Standard_GS2 | 4         | 56           | 2        | 112                       | 528                                 | 8              | 10,000 250                                        | 20,000 200                                      | High                  |
+| Standard_GS3 | 8         | 112          | 4        | 224                       | 1,056                               | 16             | 20,000 500                                        | 40,000 400                                      | very high             |
+| Standard_GS4 | 16        | 224          | 8        | 448                       | 2,112                               | 32             | 40,000 1,000                                      | 80,000 800                                      | extremely high        |
+| Standard_GS5 | 32        | 448          | 8        | 896                       | 4,224                               | 64             | 80,000 2,000                                      | 160,000 1,600                                   | extremely high        |
 
 ## N-series (preview)
 
@@ -233,11 +233,11 @@ The NC and NV sizes are also known as GPU-enabled instances. These are specializ
 The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264.
 
 
-| Size | Cores | GPU            | Memory | Disk        |
-|------|-------|----------------|--------|-------------|
-| Standard_NV6  | 6     | 1 x NVIDIA M60 | 56 GB  | 380 GB SSD  |
-| Standard_NV12 | 12    | 2 x NVIDIA M60 | 112 GB | 680 GB SSD  |
-| Standard_NV24 | 24    | 4 x NVIDIA M60 | 224 GB | 1440 GB SSD | 
+| Size          | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | GPU            |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard_NV6  | 6         | 56           | 380                       | 1 x NVIDIA M60 |
+| Standard_NV12 | 12        | 112          | 680                       | 2 x NVIDIA M60 |
+| Standard_NV24 | 24        | 224          | 1440                      | 4 x NVIDIA M60 |
 
 
 
@@ -246,11 +246,13 @@ The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for de
 The NC instances are powered by NVIDIA’s Tesla K80. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance. 
 
 
-| Size | Cores | GPU            | Memory | Disk        |
-|------|-------|----------------|--------|-------------|
-| Standard_NC6  | 6     | 1 x NVIDIA K80 | 56 GB  | 380 GB SSD  |
-| Standard_NC12 | 12    | 2 x NVIDIA K80 | 112 GB | 680 GB SSD  |
-| Standard_NC24 | 24    | 4 x NVIDIA K80 | 224 GB | 1440 GB SSD |
+| Size          | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | GPU            |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard_NC6  | 6         | 56           | 380                       | 1 x NVIDIA K80 |
+| Standard_NC12 | 12        | 112          | 680                       | 2 x NVIDIA K80 |
+| Standard_NC24 | 24        | 224          | 1440                      | 4 x NVIDIA K80 |
+
+
 
 ## Notes: Standard A0 - A4 using CLI and PowerShell 
 
