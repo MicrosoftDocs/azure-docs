@@ -95,28 +95,28 @@ The following usernames are not allowed:
 
 <table>
 	<tr>
-		<td>administrator </td><td> admin </td><td> user </td><td> user1</td>
+		<td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
 	</tr>
 	<tr>
-		<td>test </td><td> user2 </td><td> test1 </td><td> user3</td>
+		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
 	</tr>
 	<tr>
-		<td>admin1 </td><td> 1 </td><td> 123 </td><td> a</td>
+		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
 	</tr>
 	<tr>
-		<td>actuser  </td><td> adm </td><td> admin2 </td><td> aspnet</td>
+		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
 	</tr>
 	<tr>
-		<td>backup </td><td> console </td><td> david </td><td> guest</td>
+		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
 	</tr>
 	<tr>
-		<td>john </td><td> owner </td><td> root </td><td> server</td>
+		<td style="text-align:center">john </td><td style="text-align:center"> owner </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
 	</tr>
 	<tr>
-		<td>sql </td><td> support </td><td> support_388945a0 </td><td> sys</td>
+		<td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
 	</tr>
 	<tr>
-		<td>test2 </td><td> test3 </td><td> user4 </td><td> user5</td>
+		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
 	</tr>
 </table>
 
@@ -134,9 +134,9 @@ The following passwords are not allowed:
 The following passwords are not allowed
 <table>
 	<tr>
-		<td>abc@123</td><td>P@$$w0rd</td><td>P@ssw0rd</td><td>P@ssword123</td><td>Pa$$word</td>
+		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
 	</tr>
 	<tr>
-		<td>pass@word1</td><td>Password!</td><td>Password1</td><td>Password22</td><td>iloveyou!</td>
+		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
 	</tr>
 </table>
