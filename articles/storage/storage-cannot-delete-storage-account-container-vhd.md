@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs
@@ -90,7 +90,7 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 
 *Failed to delete blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Error: 'There is currently a lease on the blob and no lease ID was specified in the request.*
 
-## About Stopped (deallocated) status
+## About the Stopped (deallocated) status
 
 VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
 
