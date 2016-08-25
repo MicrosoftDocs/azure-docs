@@ -26,7 +26,7 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before runnining any virtual disk conversion process or Sysprep.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
 - Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
