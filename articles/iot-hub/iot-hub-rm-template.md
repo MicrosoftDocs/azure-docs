@@ -200,7 +200,7 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 ## Next steps
 
-Now you have deployed an IoT hub using an Resource Manager template with a C# program, you may want to explore further:
+Now you have deployed an IoT hub using an Azure Resource Manager template with a C# program, you may want to explore further:
 
 - Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
 - Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
