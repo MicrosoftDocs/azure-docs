@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/07/2016"
+     ms.date="08/25/2016"
      ms.author="dobett"/>
 
 # Use dynamic telemetry with the remote monitoring preconfigured solution
