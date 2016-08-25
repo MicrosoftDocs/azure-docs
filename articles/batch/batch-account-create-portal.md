@@ -42,7 +42,7 @@ Create an Azure Batch account in the [Azure portal][azure_portal], and learn whe
 
 	c. **Resource group**: An existing resource group for your new Batch account, or optionally create a new one.
 
-	d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
+	d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
     e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch uses a linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
@@ -50,7 +50,7 @@ Create an Azure Batch account in the [Azure portal][azure_portal], and learn whe
 
 4. Click **Create** to create the account.
 
-  The portal will indicate that it is **Deploying** the account, and upon completion, a **Deployments succeeded** notification will appear in *Notifications*.
+  The portal indicates that it is **Deploying** the account, and upon completion, a **Deployments succeeded** notification appears in *Notifications*.
 
 ## View Batch account properties
 
@@ -76,7 +76,7 @@ Batch accounts are offered only in a "Free Tier," which means that you aren't ch
 
 * If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
 
-* If you associate (link) a storage account with your Batch account, take care when regenerating the storage account access keys. You should regenerate only a single storage account key, click **Sync Keys** on the linked storage account blade, wait 5 minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the storage account.
+* If you associate (link) a storage account with your Batch account, take care when regenerating the storage account access keys. Regenerate only one storage account key and click **Sync Keys** on the linked storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the storage account.
 
   ![Regenerating storage account keys][4]
 
