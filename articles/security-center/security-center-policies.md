@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/25/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -37,6 +37,8 @@ Security policies can be configured for each subscription or resource group. To 
 3. The **Security policy** blade for that subscription opens with a set of options similar to the following screen:
 
     ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
+
+	>[AZURE.NOTE] You can upgrade from the Pricing Tier selection in the Security Policy. Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
 
 4. Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources. 
 
