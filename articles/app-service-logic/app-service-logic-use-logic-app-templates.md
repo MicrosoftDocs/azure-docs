@@ -46,25 +46,25 @@ Simple templates that integrate with social media services such as Twitter, Slac
 ## How to create a logic app using a template 
 
 To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app will automatically load in your designer view. However, if you're creating a new logic app, you will see the screen below.  
- ![](../../includes/media/app-service-logic-templates/template7.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template7.png)  
 
 From this screen, you can either choose to start with a blank logic app or a pre-built template. If you select one of the templates, you will be provided with additional information. In this example, we will use the *When a new file is created in Dropbox, copy it to OneDrive* template.  
- ![](../../includes/media/app-service-logic-templates/template2.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template2.png)  
 
 If you choose to use the template, just select the *use this template* button. You'll be asked to sign in to your accounts based on which connectors the template utilizes. Or, if you've previously established a connection with these connectors, you can select continue as seen below.  
- ![](../../includes/media/app-service-logic-templates/template3.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template3.png)  
 
 After establishing the connection and selecting *continue*, the logic app will open in designer view.  
- ![](../../includes/media/app-service-logic-templates/template4.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template4.png)  
 
 In the example above, as is the case with many templates, some of the mandatory property fields may be filled out within the connectors; however, some might still require a value before being able to properly deploy the logic app. If you try to deploy without entering some of the missing fields, you'll be notified with an error message.
 
 If you wish to return to the template viewer, select the *Templates* button in the top navigation bar. By switching back to the template viewer, you will lose any unsaved progress. Prior to switching back into template viewer, you'll see a warning message notifying you of this.  
- ![](../../includes/media/app-service-logic-templates/template5.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template5.png)  
 
 ## How to deploy a logic app created from a template
 
 Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This will save and publish your logic app.  
- ![](../../includes/media/app-service-logic-templates/template6.PNG)  
+ ![](../../includes/media/app-service-logic-templates/template6.png)  
 
-If you would like more information on how to add additional steps into an existing logic app template, or make edits in general, you can read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
+If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
