@@ -54,7 +54,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 
 ### What is ExpressRoute?
 
-ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as a MPLS VPN provided by a network service provider).
+ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as an MPLS VPN provided by a network service provider).
 
 ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
@@ -68,11 +68,11 @@ We have validated a set of standard Site-to-Site VPN devices in partnership with
 
 ### What do I do if I have a VPN device that isn't in the known compatible device list?
 
-If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Please contact your device manufacturer for additional support and configuration instructions.
+If you do not see your device listed as a known compatible VPN device and you want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
 
 ### Why does my policy-based VPN tunnel go down when traffic is idle?
 
-This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. But as soon as traffic starts flowing in either direction, the tunnel will be re-established immediately. If you have a route-based (also known as dynamic) VPN gateway, you will not experience this behavior.
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately. If you have a route-based (also known as dynamic) VPN gateway, you will not experience this behavior.
 
 ### Can I use software VPNs to connect to Azure?
 
@@ -126,7 +126,7 @@ Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 ### Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
 
-Yes. Both these solutions will work if you have a route-based VPN type for your gateway. For the classic deployment model, you will need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
+Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
 
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
@@ -137,7 +137,7 @@ Yes, it is possible. But the virtual networks cannot have overlapping IP prefixe
 It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
 ## Gateways
-
+changes
 ### What is a policy-based (static-routing) gateway?
 
 Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
@@ -148,7 +148,7 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 
 ### Can I get my VPN gateway IP address before I create it?
 
-No. You have to create your gateway first to get the IP address. The IP address will change if you delete and re-create your VPN gateway.
+No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
 
 ### How does my VPN tunnel get authenticated?
 
@@ -166,11 +166,11 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 We have a gateway service that we run to enable cross-premises connectivity. 
 
-You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet in order to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
+You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
 
 The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). 
 
-## Can I deploy Virtual Machines or role instances to my gateway subnet?
+### Can I deploy Virtual Machines or role instances to my gateway subnet?
 
 No.
 
@@ -184,7 +184,7 @@ Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
-Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
+Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure user defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
 ### Why are certain ports opened on my VPN gateway?
 
@@ -203,7 +203,7 @@ For more information, see [About VPN Gateways](vpn-gateway-about-vpngateways.md)
 
 Only route-based (dynamic routing) VPNs.
 
-### Can I connect a VNet with a RouteBased VPN Type to another VNet  with a PolicyBased VPN type?
+### Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 
 No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
@@ -229,7 +229,7 @@ No, redundant tunnels between an Azure virtual network and an on-premises site a
 
 ### Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 
-No. Overlapping address spaces will cause the netcfg file upload or Creating Virtual Network to fail.
+No. Overlapping address spaces will cause the network configuration file upload or "Creating Virtual Network" to fail.
 
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
@@ -262,13 +262,13 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
+You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings contain the necessary connection information.
 
 If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address. You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network. For example, if you have a Point-to-Site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.
 
 ### If my virtual machine is in a virtual network with cross-premises connectivity, does all the traffic from my VM go through that connection?
 
-No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network will stay within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.
+No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
 
 ## Virtual Network FAQ
