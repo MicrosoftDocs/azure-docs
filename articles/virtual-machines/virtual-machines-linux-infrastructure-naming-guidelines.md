@@ -74,7 +74,7 @@ It is often important to determine the date of creation from the name of a resou
 
 ## Naming resources
 
-You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+Define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
 
 - Subscriptions
 - Accounts
@@ -96,7 +96,7 @@ When you create a virtual machine (VM), Azure requires a VM name of up to 64 cha
 
 If a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
 
-We recommend that the Azure VM name be the same as the underlying operating system computer name.
+We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
 
