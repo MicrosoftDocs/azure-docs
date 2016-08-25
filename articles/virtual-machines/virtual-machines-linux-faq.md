@@ -73,16 +73,32 @@ Usernames must be 1 - 64 characters in length.
 
 The following usernames are not allowed:
 
-|    |    |    |    |
-|:--:|:--:|:--:|:--:|
-| administrator | admin | user | user1 |
-| test | user2 | test1 | user3 |
-| admin1 | 1 | 123 | a |
-| actuser  | adm | admin2 | aspnet |
-| backup | console | david | guest |
-| john | owner | root | server |
-| sql | support | support_388945a0 | sys |
-| test2 | test3 | user4 | user5 |
+<table>
+	<tr>
+		<td>administrator </td><td> admin </td><td> user </td><td> user1</td>
+	</tr>
+	<tr>
+		<td>test </td><td> user2 </td><td> test1 </td><td> user3</td>
+	</tr>
+	<tr>
+		<td>admin1 </td><td> 1 </td><td> 123 </td><td> a</td>
+	</tr>
+	<tr>
+		<td>actuser  </td><td> adm </td><td> admin2 </td><td> aspnet</td>
+	</tr>
+	<tr>
+		<td>backup </td><td> console </td><td> david </td><td> guest</td>
+	</tr>
+	<tr>
+		<td>john </td><td> owner </td><td> root </td><td> server</td>
+	</tr>
+	<tr>
+		<td>sql </td><td> support </td><td> support_388945a0 </td><td> sys</td>
+	</tr>
+	<tr>
+		<td>test2 </td><td> test3 </td><td> user4 </td><td> user5</td>
+	</tr>
+</table>
 
 
 ## What are the password requirements when creating a VM?
@@ -96,7 +112,11 @@ Passwords must be 6 - 72 characters in length and meet 3 out of the following 4 
 
 The following passwords are not allowed:
 
-|    |    |    |    |    |
-|:--:|:--:|:--:|:--:|:--:|
-| abc@123 | P@$$w0rd | P@ssw0rd | P@ssword123 | Pa$$word |
-| pass@word1 | Password! | Password1 |Password22 | iloveyou! |
+<table>
+	<tr>
+		<td>abc@123</td><td>P@$$w0rd</td><td>P@ssw0rd</td><td>P@ssword123</td><td>Pa$$word</td>
+	</tr>
+	<tr>
+		<td>pass@word1</td><td>Password!</td><td>Password1</td><td>Password22</td><td>iloveyou!</td>
+	</tr>
+</table>
