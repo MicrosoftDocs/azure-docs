@@ -3,14 +3,14 @@ Column mapping can be used to specify how columns specified in the “structure�
 
 Column mapping supports the following scenarios:
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+- All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+- A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
 
 The following are error conditions and will result in an exception:
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+- Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
+- Duplicate mapping.
+- SQL query result does not have a column name that is specified in the mapping.
 
 ## Column mapping samples
 > [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source. 

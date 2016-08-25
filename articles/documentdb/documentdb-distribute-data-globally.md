@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="08/15/2016"
    ms.author="kipandya"/>
    
    
 # Distribute data globally with DocumentDB
+
+> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
 
 Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels] [consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
   
 ## Configuring multi-region accounts
 
-Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the Azure Portal. All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
+Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the [Azure portal](documentdb-portal-global-replication.md). All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
 
 ![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
 
@@ -53,9 +55,7 @@ Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have
 
 ## Enabling global distribution 
 
-You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can decide to globally distribute your data or confine it to a single region by adding or removing regions to your database account at any time. DocumentDB database accounts that support multi-region assignment can be created through the Azure Marketplace by selecting ‘DocumentDB – Multi-Region Database Account’. 
-
-
+You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
 
 ## Next steps
 
@@ -71,20 +71,19 @@ Learn more about the distributing data globally with DocumentDB in the following
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
-[developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
-[createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
-[manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
-[manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
-[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-automation-resource-manager-cli/
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[throughputandstorage]: documentdb-manage.md
+[arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/en-us/regions/#services 
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/ 
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-[sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
+[sqlqueries]: documentdb-sql-query.md
 

@@ -27,12 +27,14 @@ Data factory currently supports only moving data from DB2 to other data stores, 
 
 ## Installation 
 
-For Data Management Gateway to connect to the DB2 Database, you need to install [IBM DB2 Data Server Driver](http://go.microsoft.com/fwlink/p/?LinkID=274911) on the same system as the Data Management Gateway.
+For Data Management Gateway to connect to the DB2 Database, starting from gateway version 2.1, Azure Data Factory provide built-in driver with DB2 support (SQLAM 9 / 10 / 11) including DB2 for LUW (Linux, Unix, Windows), DB2 for z/OS and DB2 for i (aka AS/400), therefore you no longer need to manually install the drivers when copying data from DB2.
 
-There are known issues reported by IBM on installing the IBM DB2 Data Server Driver on Windows 8, where additional installation steps are needed. For more information about the IBM DB2 Data Server Driver on Windows 8, see [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+## Copy Data wizard
+The easiest way to create a pipeline that copies data from a DB2 Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from DB2 database and Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from DB2 to Azure Blob
 
@@ -139,7 +141,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -147,7 +149,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -155,7 +157,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory 
@@ -158,16 +158,16 @@ Property | Description | Required
 type | The type property must be set to **DataLakeAnalyticsU-SQL**. | Yes
 scriptPath | Path to folder that contains the U-SQL script. Note that name of the file is case-sensitive. | No (if you use script)
 scriptLinkedService | Linked service that links the storage that contains the script to the data factory | No (if you use script)
-script | Specifiy inline script instread of specifying scriptPath and scriptLinkedService. For example: "script" : "CREATE DATABASE test". | No (if you use scriptPath and scriptLinkedService)
+script | Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: "script" : "CREATE DATABASE test". | No (if you use scriptPath and scriptLinkedService)
 degreeOfParallelism | The maximum number of nodes that will be used simultaneously to run the job. | No
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
 parameters | Parameters for the U-SQL script | No 
 
 See [SearchLogProcessing.txt Script Definition](#script-definition) for the script definition. 
 
-### Sample input and output datasets
+## Sample input and output datasets
 
-#### Input dataset
+### Input dataset
 In this example, the input data resides in an Azure Data Lake Store (SearchLog.tsv file in the datalake/input folder). 
 
 	{
@@ -191,7 +191,7 @@ In this example, the input data resides in an Azure Data Lake Store (SearchLog.t
     	}
 	}	
 
-#### Output dataset
+### Output dataset
 In this example, the output data produced by the U-SQL script is stored in an Azure Data Lake Store (datalake/output folder). 
 
 	{
@@ -209,7 +209,7 @@ In this example, the output data produced by the U-SQL script is stored in an Az
 	    }
 	}
 
-#### Sample Azure Data Lake Store Linked Service
+### Sample Data Lake Store Linked Service
 Here is the definition of the sample Azure Data Lake Store linked service used by the above input/output datasets. 
 
 	{
@@ -226,7 +226,7 @@ Here is the definition of the sample Azure Data Lake Store linked service used b
 
 See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above Azure Data Lake Store linked service and data set JSON snippets. 
 
-### Script Definition
+## Sample U-SQL Script 
 
 	@searchlog =
 	    EXTRACT UserId          int,
@@ -257,3 +257,19 @@ The values for **@in** and **@out** parameters in the above U-SQL script are pas
 
 You can specify other properties viz. degreeOfParallelism, priority etc. as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 
+## Dynamic parameters
+In the sample pipeline definition above, the in and out parameters are assigned with hard-coded values. 
+
+    "parameters": {
+        "in": "/datalake/input/SearchLog.tsv",
+        "out": "/datalake/output/Result.tsv"
+    }
+
+It is possible to use dynamic parameters instead. For example: 
+
+    "parameters": {
+        "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
+        "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    }
+
+In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder, but the file names are dynamic based on the slice start time.  

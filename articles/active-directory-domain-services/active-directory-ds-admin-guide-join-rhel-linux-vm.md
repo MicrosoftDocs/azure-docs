@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -72,7 +72,7 @@ Perform the following steps in order to provision a RHEL 7 virtual machine using
 The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine.
 
 **Connect to the RHEL 7.2 virtual machine**
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 The rest of the steps below assume you are using PuTTY as the SSH client to connect to the RHEL virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -174,6 +174,6 @@ Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-
 
 
 ## More information
-- [How to Log on to a Virtual Machine Running Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+- [How to Log on to a Virtual Machine Running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 - [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

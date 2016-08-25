@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news

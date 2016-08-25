@@ -266,7 +266,6 @@ Where the variables are defined as follows:
 
 I'm creating a cloud service package and I want to...
 
-* [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md)
 * [Setup remote desktop for a cloud service instance][remotedesktop]
 * [Deploy a Cloud Service project][deploy]
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/28/2016"
 	ms.author="wesmc"/>
 
 # Offline Data Sync in Azure Mobile Apps
@@ -44,6 +44,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 * [iOS: Enable offline sync]
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
+* [Xamarin.Forms: Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: Enable offline sync]
 
 ## What is a sync table?
@@ -114,8 +115,8 @@ the local store is populated with new data only when there is a call to *pull* d
   If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.
   For instance, if you are filtering on userid, your query name could be as follows (in C#):
 
-		await todoTable.PullAsync("todoItems" + userid, 
-			syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid,
+			syncTable.Where(u => u.UserId == userid));
 
   If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will
   be retrieved on every call to `PullAsync`, which is potentially inefficient.

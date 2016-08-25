@@ -3,8 +3,8 @@
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="spelluru"
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/10/2016"
+   ms.date="07/25/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources
@@ -915,8 +915,8 @@ If you need support for additional sources, please submit a feature request usin
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Container</td>
-      <td>Database</td>
+      <td>Command</td>
+      <td>Stored Procedure</td>
       <td>
         <font size=2>
             protocol: tds
@@ -924,6 +924,22 @@ If you need support for additional sources, please submit a feature request usin
             <br>address:
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
+      <td>Container</td>
+      <td>Database</td>
+      <td>
+        <font size=2>
+            protocol: tds
+          <br>authentication: {protocol, windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
         </font>
       </td>
     </tr>
@@ -931,6 +947,22 @@ If you need support for additional sources, please submit a feature request usin
       <td>SQL Data Warehouse</td>
       <td>Table</td>
       <td>Table, View</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
+      <td>Command</td>
+      <td>Stored Procedure</td>
       <td>
         <font size=2>
             protocol: tds
@@ -1160,6 +1192,37 @@ If you need support for additional sources, please submit a feature request usin
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server Master Data Services</td>
+      <td>Container</td>
+      <td>Model</td>
+      <td>
+        <font size="2">
+          protocol: mssql-mds
+          <br>authentication: {windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server Master Data Services</td>
+      <td>Table</td>
+      <td>Entity</td>
+      <td>
+        <font size="2">
+          protocol: mssql-mds
+          <br>authentication: {windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
         </font>
       </td>
     </tr>

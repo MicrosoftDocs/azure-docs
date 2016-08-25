@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# Create your first Azure Function
+#Create your first Azure Function
 
 ##Overview
 Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).

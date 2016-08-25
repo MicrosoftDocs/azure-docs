@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #Azure resiliency technical guidance: recovery from data corruption or accidental deletion
 
@@ -45,7 +45,7 @@ There are several [business continuity](../sql-database/sql-database-business-co
 
 ###SQL Database Backup
 
-Point-in-time backups for Microsoft Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy.md). You can use this command to create a transactionally consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
+Point-in-time backups for Microsoft Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy.md). You can use this command to create a transactionally consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Overview of business continuity with Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server on Virtual Machines Backup
 
@@ -60,27 +60,33 @@ For Azure Web Sites and Azure Mobile Services, you must backup and maintain the 
 ##Checklists for data corruption or accidental deletion
 
 ##Virtual Machines checklist
-  1. Review the [Virtual Machines](#virtual-machines) section of this document.
+
+  1. Review the Virtual Machines section of this document.
   2. Back up and maintain the VM disks with Azure Backup (or your own backup system by using Azure blob storage and VHD snapshots).
 
 ##Storage checklist
-  1. Review the [Storage](#storage) section of this document.
+
+  1. Review the Storage section of this document.
   2. Regularly back up critical storage resources.
   3. Consider using the snapshot feature for blobs.
 
 ##Database checklist
-  1. Review the [Database](#database) section of this document.
+
+  1. Review the Database section of this document.
   2. Create point-in-time backups by using the Database Copy command.
 
 ##SQL Server on Virtual Machines Backup checklist
-  1. Review the [SQL Server on Virtual Machines Backup](#sql-server-on-virtual-machines-backup) section of this document.
+
+  1. Review the SQL Server on Virtual Machines Backup section of this document.
   2. Use traditional backup and restore techniques.
   3. Create a delayed log shipping session.
 
 ##Web Apps checklist
+
   1. Back up and maintain the associated database, if any.
 
 ##Media Services checklist
+
   1. Back up and maintain the associated storage resources.
 
 ##More information

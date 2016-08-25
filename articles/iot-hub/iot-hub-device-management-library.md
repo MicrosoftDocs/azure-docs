@@ -3,7 +3,7 @@
  description="Azure IoT Hub device management (DM) client library"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Introducing the Azure IoT Hub device management (DM) client library
 
@@ -204,6 +204,15 @@ To get hands on experience, you can access the following resources:
 | Value         | Read Write | String |                 | Uniquely identifies the configuration value to read or update.              |
 | Apply         | Execute    |        |                 | Applies the configuration change on the device.                             |
 
+## Next steps
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
@@ -216,8 +225,12 @@ To get hands on experience, you can access the following resources:
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]:http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

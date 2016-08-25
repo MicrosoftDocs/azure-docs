@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="06/27/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect

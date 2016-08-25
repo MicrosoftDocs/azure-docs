@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. 
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server Always On running on Azure virtual machines.

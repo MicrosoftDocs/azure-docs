@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="07/21/2016" 
 	ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database

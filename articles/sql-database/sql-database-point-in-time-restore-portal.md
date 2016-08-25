@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/17/2016"
+	ms.date="07/17/2016"
 	ms.author="sstein"
-	ms.workload="sqldb-bcdr"
+	ms.workload="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -21,9 +21,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-point-in-time-restore.md)
-- [Azure portal](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Point-In-Time Restore: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
 This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
 
@@ -43,14 +42,11 @@ To restore a database in the Azure Portal do the following:
     ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
+
 ## Next steps
 
-- For detailed steps to recover to a point in time using PowerShell, see [Point-In-Time Restore using PowerShell](sql-database-point-in-time-restore-powershell.md).
-- For information about how to recover to a point in time using the REST API, see [Point-In-Time Restore using the REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- For an overview of point in time restore, see [Point-In-Time Restore](sql-database-point-in-time-restore.md).
-ore.md)
-- For a full discussion about how to recover from a user or application error, see [User error recovery](sql-database-user-error-recovery.md).
-
-## Additional resources
-
-- [Business continuity scenarios](sql-database-business-continuity-scenarios.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

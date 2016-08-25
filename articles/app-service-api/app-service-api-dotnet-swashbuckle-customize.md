@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/22/2016" 
-	ms.author="bradyg"/>
+	ms.author="rachelap"/>
 
 # Customize Swashbuckle-generated API definitions 
 

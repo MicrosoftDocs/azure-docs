@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/11/2016"
 	ms.author="mimig"/>
 
 # Consistency levels in DocumentDB
 
-DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
 ## Scope of consistency
 
@@ -36,7 +36,7 @@ You can configure a default consistency level on your database account that appl
 - Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
 - Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
 - DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
-- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is the higher than session and eventual, but the same as bounded staleness.
+- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
  
 
 **Bounded staleness**: 
@@ -48,7 +48,7 @@ You can configure a default consistency level on your database account that appl
 - Bounded staleness offers total global order except within the “staleness window”. Note that the monotonic read guarantees exists within a region both inside and outside the “staleness window”. 
 - Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
 - DocumentDB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with strong consistency is the higher than session and eventual consistency, but the same as strong consistency.
+- The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
 
 **Session**: 
 
@@ -87,15 +87,12 @@ The following table captures various consistency guarantees corresponding to the
 
 2. In the **DocumentDB Accounts** blade, select the database account to modify.
 
-3. In the account blade, if the **All Settings** blade is not already opened, click the **Settings** icon on the top command bar.
+3. In the account blade, click **Default Consistency**.
 
-4. In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
+
+4. In the **Default Consistency** blade, select the new consistency level and click **OK**.
 
 	![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
-
-5. In the **Default Consistency** blade, select the new consistency level and click **OK**.
-
-	![Screen shot highlighting the Consistency level and the OK button ](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Consistency levels for queries
 

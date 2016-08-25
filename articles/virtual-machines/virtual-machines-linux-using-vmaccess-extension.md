@@ -21,13 +21,16 @@
 
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension
 
-This article shows how to use the VMAcesss VM extension [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) to check or repair the disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  This article requires [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure Linux Virtual Machine, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
+This article shows you how to use the VMAcesss VM extension [(Github)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  This article requires [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure Linux Virtual Machine, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
 ## Quick Commands
 
-There are two ways to use VMAccess on your Linux VMs.  First is using the Azure cli with `azure vm reset-access` with the correct flag.  The second way to use VMAccess is with raw json files that VMAccess will process and then act on.  For the quick command section we will use the `azure vm reset-access` method.
+There are two ways to use VMAccess on your Linux VMs:
 
-In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+- Using the Azure CLI and the required parameters.
+- Using raw JSON files that VMAccess will process and then act on.
+
+For the quick command section we will use the Azure CLI `azure vm reset-access` method. In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ## Reset Root Password
 
@@ -72,9 +75,9 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess defined:
 
-The disk on your Linux VM is showing errors.  You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key.   If that happened back in the datacenter dark ages you would drive there, give your hand print to unlock the door, get into the cage and then crack open the KVM to get at the server console.  Think of the Azure VMAccess Extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
+The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the datacenter dark ages you would drive there, give your hand print to unlock the door, get into the cage and then crack open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-For the detailed walkthrough we will use the long form of VMAccess which uses raw json files.  These VMAccess json files can also be called from Azure Templates.
+For the detailed walkthrough we will use the long form of VMAccess which uses raw JSON files.  These VMAccess JSON files can also be called from Azure templates.
 
 ### Using VMAccess to check or repair the disk of a Linux VM
 
@@ -94,14 +97,14 @@ To check and then repair the disk use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path disk_check_repair.json
 ```
 
 ### Using VMAccess to reset user access to Linux
 
-If you have lost access to root on your Linux VM you can launch a VMAccess script to reset the root password, unlocking Linux.
+If you have lost access to root on your Linux VM you can launch a VMAccess script to reset the root password.
 
 To reset the root password use this VMAccess script:
 
@@ -117,7 +120,7 @@ To reset the root password use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_root_password.json
 ```
@@ -136,7 +139,7 @@ To reset the SSH key of a non root user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_ssh_key.json
 ```
@@ -160,7 +163,7 @@ To create a new user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path create_new_user.json
 ```
@@ -178,7 +181,7 @@ To create a new user use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path remove_user.json
 ```
@@ -200,7 +203,7 @@ To reset the SSHD configuration use this VMAccess script:
 Execute the VMAccess script with:
 
 ```bash
-azure vm extension set exampleResourceGruop exampleVM \
+azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```

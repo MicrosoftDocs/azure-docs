@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
@@ -22,14 +22,17 @@ This article outlines how you can use Copy Activity in Azure Data Factory to mov
 
 You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has  details. 
 
-The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article using the Copy Activity in Azure Data Factory.  
 
+## Copy data wizard
+The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 
 > [AZURE.NOTE] 
 > For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
 > 
-> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-get-started.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
+> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
 
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
@@ -122,7 +125,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -130,7 +133,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -138,7 +141,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -274,7 +277,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -282,7 +285,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -290,7 +293,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -464,8 +467,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer. (unit = Row Count) | No (Default = 10000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer (number of rows) | No (default: 10000) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No | 
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | allowPolyBase | Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism to load data into Azure SQL Data Warehouse. <br/><br/>Note that only **Azure blob** dataset with **format** set to **TextFormat** as a source dataset is supported at this time and support for other source types will come shortly. <br/><br/>See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details. | True <br/>False (default) | No |  
 | polyBaseSettings | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | &nbsp; | No |  
@@ -496,7 +499,7 @@ Set the **allowPolyBase** property to **true** as shown in the following example
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}
@@ -537,7 +540,7 @@ Note that Azure Data Factory checks the settings and automatically fall back to 
 ### Staged Copy using PolyBase
 When your source data doesn’t meet the criteria introduced in the section above, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
-> [AZURE.IMPORTANT] If you are copying data from on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605), please choose properly.
+> [AZURE.IMPORTANT] If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note that a 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from  [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
 
 To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown below:
 

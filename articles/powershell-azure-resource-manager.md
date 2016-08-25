@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
-
-> [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
 Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining an entire solution, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a declarative representation of the solution --  to create a resource group that contains all of the resources you need to support the solution. Then, you manage and deploy that resource group as a logical unit. 
 

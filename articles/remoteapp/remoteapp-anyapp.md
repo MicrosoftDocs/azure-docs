@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Run any Windows app on any device with Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 You can run a Windows application anywhere on any device, right now, seriously - just by using Azure RemoteApp. Whether it's a custom application written 10 years ago, or an Office app, your users no longer have to be tied to a specific operating system (like Windows XP) for those few applications.
 
@@ -28,7 +31,9 @@ In this article, we're going to share Access with all of our users. However, you
 
 Please note that because Access is a database, and we want that database to be useful, we will be doing a few extra steps to let users access the Access data share. If your app isn't a database, or you don't need your users to be able to access a file share, you can skip those steps in this tutorial
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>You need an Azure account to complete this tutorial:
+> - You can [open an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+> - You can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 
 ## Create a collection in RemoteApp

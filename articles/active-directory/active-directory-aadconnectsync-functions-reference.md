@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/23/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -25,7 +25,7 @@ The Syntax of the functions is expressed using the following format:
 
 If a function is overloaded and accepts multiple syntaxes, all valid syntaxes are listed.  
 The functions are strongly typed and they verify that the type passed in matches the documented type.  
-An error is thrown if the type does not match.
+If the type does not match, an error is thrown.
 
 The types are expressed with the following syntax:
 
@@ -34,14 +34,16 @@ The types are expressed with the following syntax:
 - **dt** – UTC Date/Time
 - **enum** – Enumeration of known constants
 - **exp** – Expression, which is expected to evaluate to a Boolean
-- **mvbin** – Multi Valued Binary
-- **mvstr** – Multi Valued String
-- **mvref** – Multi Valued Reference
+- **mvbin** – Multi-Valued Binary
+- **mvstr** – Multi-Valued String
+- **mvref** – Multi-Valued Reference
 - **num** – Numeric
-- **ref** – Single Valued Reference
-- **str** – Single Valued String
+- **ref** – Reference
+- **str** – String
 - **var** – A variant of (almost) any other type
 - **void** – doesn’t return a value
+
+The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** work on both single-valued and multi-valued attributes.
 
 ## Functions Reference
 
@@ -83,7 +85,7 @@ The BitAnd function sets specified bits on a value.
 **Syntax:**  
 `num BitAnd(num value1, num value2)`
 
-- value1, value2: numeric values which should be AND’ed together
+- value1, value2: numeric values that should be AND’ed together
 
 **Remarks:**  
 This function converts both parameters to the binary representation and sets a bit to:
@@ -121,7 +123,7 @@ The CBool function returns a Boolean based on the evaluated expression
 `bool CBool(exp Expression)`
 
 **Remarks:**  
-If the expression evaluates to a nonzero value then CBool returns True else it returns False.
+If the expression evaluates to a nonzero value, then CBool returns True, else it returns False.
 
 **Example:**  
 `CBool([attrib1] = [attrib2])`  
@@ -167,23 +169,23 @@ The CGuid function converts the string representation of a GUID to its binary re
 The Contains function finds a string inside a multi-valued attribute
 
 **Syntax:**  
-`num Contains (mvstring attribute, str search)` - case sensitive  
+`num Contains (mvstring attribute, str search)` - case-sensitive  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)` - case sensitive
+`num Contains (mvref attribute, str search)` - case-sensitive
 
-- attribute: the multi-valued attribute to search.<br>
-- search: string to find in the attribute.<br>
-- Casetype: CaseInsensitive or CaseSensitive.<br>
+- attribute: the multi-valued attribute to search.
+- search: string to find in the attribute.
+- Casetype: CaseInsensitive or CaseSensitive.
 
 Returns index in the multi-valued attribute where the string was found. 0 is returned if the string is not found.
 
 **Remarks:**  
-For multi-valued string attributes the search will find substrings in the values.  
+For multi-valued string attributes, the search finds substrings in the values.  
 For reference attributes, the searched string must exactly match the value to be considered a match.
 
 **Example:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
-If the proxyAddresses attribute has a primary email address (indicated by uppercase "SMTP:") then return the proxyAddress attribute, else return an error.
+If the proxyAddresses attribute has a primary email address (indicated by uppercase "SMTP:"), then return the proxyAddress attribute, else return an error.
 
 ----------
 ### ConvertFromBase64
@@ -192,7 +194,7 @@ If the proxyAddresses attribute has a primary email address (indicated by upperc
 The ConvertFromBase64 function converts the specified base64 encoded value to a regular string.
 
 **Syntax:**  
-`str ConvertFromBase64(str source)` - assumes Unicode for encoding <br>
+`str ConvertFromBase64(str source)` - assumes Unicode for encoding  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 - source: Base64 encoded string  
@@ -401,7 +403,7 @@ The EscapeDNComponent function takes one component of a DN and escapes it so it 
 
 **Example:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
-Makes sure the object can be created in an LDAP directory even if the displayName attribute has characters which must be escaped in LDAP.
+Makes sure the object can be created in an LDAP directory even if the displayName attribute has characters that must be escaped in LDAP.
 
 ----------
 ### FormatDateTime
@@ -445,12 +447,12 @@ The IIF function returns one of a set of possible values based on a specified co
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 - condition: any value or expression that can be evaluated to true or false.
-- valueIfTrue: a value that will be returned if condition evaluates to true.
-- valueIfFalse: a value that will be returned if condition evaluates to false.
+- valueIfTrue: If the condition evaluates to true, the returned value.
+- valueIfFalse: If the condition evaluates to false, the returned value.
 
 **Example:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
-Returns the alias of a user with "t-" added to the beginning of it if the user is an intern, else returns the user’s alias as is.
+ If the user is an intern, returns the alias of a user with "t-" added to the beginning of it, else returns the user’s alias as is.
 
 ----------
 ### InStr
@@ -521,19 +523,19 @@ Returns True because bit "4" is set in the hexadecimal value "F"
 ### IsDate
 
 **Description:**  
-The IsDate function evaluates to True if the expression can be evaluates as a DateTime type.
+If the expression can be evaluates as a DateTime type, then the IsDate function evaluates to True.
 
 **Syntax:**  
 `bool IsDate(var Expression)`
 
 **Remarks:**  
-Used to determine if CDate() will be successful.
+Used to determine if CDate() can be successful.
 
 ----------
 ### IsEmpty
 
 **Description:**  
-The IsEmpty function evaluates to True if the attribute is present in the CS or MV but evaluates to an empty string.
+If the attribute is present in the CS or MV but evaluates to an empty string, then the IsEmpty function evaluates to True.
 
 **Syntax:**  
 `bool IsEmpty(var Expression)`
@@ -542,7 +544,7 @@ The IsEmpty function evaluates to True if the attribute is present in the CS or 
 ### IsGuid
 
 **Description:**  
-The IsGuid function evaluated to true if the string could be converted to a GUID.
+If the string could be converted to a GUID, then the IsGuid function evaluated to true.
 
 **Syntax:**  
 `bool IsGuid(str GUID)`
@@ -550,7 +552,7 @@ The IsGuid function evaluated to true if the string could be converted to a GUID
 **Remarks:**  
 A GUID is defined as a string following one of these patterns: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-Used to determine if CGuid() will be successful.
+Used to determine if CGuid() can be successful.
 
 **Example:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
@@ -560,7 +562,7 @@ If the StrAttribute has a GUID format, return a binary representation, otherwise
 ### IsNull
 
 **Description:**  
-The IsNull function returns true if the expression evaluates to Null.
+If the expression evaluates to Null, then the IsNull function returns true.
 
 **Syntax:**  
 `bool IsNull(var Expression)`
@@ -576,13 +578,13 @@ Returns True if the attribute is not present in the CS or MV.
 ### IsNullOrEmpty
 
 **Description:**  
-The IsNullOrEmpty function returns true if the expression is null or an empty string.
+If the expression is null or an empty string, then the IsNullOrEmpty function returns true.
 
 **Syntax:**  
 `bool IsNullOrEmpty(var Expression)`
 
 **Remarks:**  
-For an attribute, this would evaluate to True if the attribute is absent or is present but is an empty string.<br>
+For an attribute, this would evaluate to True if the attribute is absent or is present but is an empty string.  
 The inverse of this function is named IsPresent.
 
 **Example:**  
@@ -599,25 +601,25 @@ The IsNumeric function returns a Boolean value indicating whether an expression 
 `bool IsNumeric(var Expression)`
 
 **Remarks:**  
-Used to determine if CNum() will be successful to parse the expression.
+Used to determine if CNum() can be successful to parse the expression.
 
 ----------
 ### IsString
 
 **Description:**  
-The IsString function evaluates to True if the expression can be evaluated to a string type.
+If the expression can be evaluated to a string type, then the IsString function evaluates to True.
 
 **Syntax:**  
 `bool IsString(var expression)`
 
 **Remarks:**  
-Used to determine if CStr() will be successful to parse the expression.
+Used to determine if CStr() can be successful to parse the expression.
 
 ----------
 ### IsPresent
 
 **Description:**  
-The IsPresent function returns true if the expression evaluates to a string which is not Null and is not empty.
+If the expression evaluates to a string that is not Null and is not empty, then the IsPresent function returns true.
 
 **Syntax:**  
 `bool IsPresent(var expression)`
@@ -641,7 +643,7 @@ The Item function returns one item from a multi-valued string/attribute.
 - index: index to an item in the multi-valued string.
 
 **Remarks:**  
-The Item function is useful together with the Contains function since the latter function will return the index to an item in the multi-valued attribute.
+The Item function is useful together with the Contains function since the latter function returns the index to an item in the multi-valued attribute.
 
 Throws an error if index is out of bounds.
 
@@ -662,9 +664,9 @@ The ItemOrNull function returns one item from a multi-valued string/attribute.
 - index: index to an item in the multi-valued string.
 
 **Remarks:**  
-The ItemOrNull function is useful together with the Contains function since the latter function will return the index to an item in the multi-valued attribute.
+The ItemOrNull function is useful together with the Contains function since the latter function returns the index to an item in the multi-valued attribute.
 
-Returns a Null value if index is out of bounds.
+If index is out of bounds, then returns a Null value.
 
 ----------
 ### Join
@@ -718,7 +720,7 @@ A string containing the first numChars characters in string:
 - If numChars < 0, return input string.
 - If string is null, return empty string.
 
-If string contains fewer characters than the number specified in numChars, a string identical to string (ie. containing all characters in parameter 1) is returned.
+If string contains fewer characters than the number specified in numChars, a string identical to string (that is, containing all characters in parameter 1) is returned.
 
 **Example:**  
 `Left("John Doe", 3)`  
@@ -773,7 +775,7 @@ A string containing numChars characters from position start in string:
 - If start <= 0, return input string.
 - If string is null, return empty string.
 
-If there are not numChar characters remaining in string from position start, as many characters as can be returned are returned.
+If there are not numChar characters remaining in string from position start, as many characters as possible are returned.
 
 **Example:**  
 `Mid("John Doe", 3, 5)`  
@@ -786,7 +788,7 @@ Returns "Doe"
 ### Now
 
 **Description:**  
-The Now function returns a DateTime specifying the current date and time, according your computer's system date and time.
+The Now function returns a DateTime specifying the current date and time, according to your computer's system date and time.
 
 **Syntax:**  
 `dt Now()`
@@ -865,9 +867,16 @@ The PCase function converts the first character of each space delimited word in 
 **Syntax:**  
 `String PCase(string)`
 
+**Remarks:**
+
+- This function does not currently provide proper casing to convert a word that is entirely uppercase, such as an acronym.
+
 **Example:**  
 `PCase("TEsT")`  
 Returns "Test".
+
+`PCase(LCase("TEST"))`  
+Returns "Test"
 
 ----------
 ### RandomNum
@@ -941,9 +950,9 @@ The format is {source1}:{target1},{source2}:{target2},{sourceN},{targetN} where 
 - The function takes each occurrence of defined sources and replaces them with the targets.
 - The source must be exactly one (unicode) character.
 - The source cannot be empty or longer than one character (parsing error).
-- The target can have multiple characters, e.g. ö:oe, β:ss.
+- The target can have multiple characters, for example ö:oe, β:ss.
 - The target can be empty indicating that the character should be removed.
-- The source is case sensitive and must be an exact match.
+- The source is case-sensitive and must be an exact match.
 - The , (comma) and : (colon) are reserved characters and cannot be replaced using this function.
 - Spaces and other white characters in the ReplacePattern string are ignored.
 
@@ -1008,7 +1017,7 @@ The Split function takes a string separated with a delimiter and makes it a mult
 
 - value: the string with a delimiter character to separate.
 - delimiter: single character to be used as the delimiter.
-- limit: maximum number of values which will be returned.
+- limit: maximum number of values that can return.
 
 **Example:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
@@ -1027,11 +1036,10 @@ The StringFromGuid function takes a binary GUID and converts it to a string
 ### StringFromSid
 
 **Description:**  
-The StringFromSid function converts a byte array or a multi-valued byte array containing a security identifier to a string or multi-valued string.
+The StringFromSid function converts a byte array containing a security identifier to a string.
 
 **Syntax:**  
 `str StringFromSid(bin ObjectSID)`  
-`mvstr StringFromSid(mvbin ObjectSID)`
 
 ----------
 ### Switch
@@ -1055,9 +1063,9 @@ Switch returns a Nothing if:
 - None of the expressions are True.
 - The first True expression has a corresponding value that is Null.
 
-Switch evaluates all of the expressions, even though it returns only one of them. For this reason, you should watch for undesirable side effects. For example, if the evaluation of any expression results in a division by zero error, an error occurs.
+Switch evaluates all expressions, even though it returns only one of them. For this reason, you should watch for undesirable side effects. For example, if the evaluation of any expression results in a division by zero error, an error occurs.
 
-Value can also be the Error function which would return a custom string.
+Value can also be the Error function, which would return a custom string.
 
 **Example:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
@@ -1071,7 +1079,6 @@ The Trim function removes leading and trailing white spaces from a string.
 
 **Syntax:**  
 `str Trim(str value)`  
-`mvstr Trim(mvstr value)`
 
 **Example:**  
 `Trim(" Test ")`  
@@ -1103,7 +1110,7 @@ The Word function returns a word contained within a string, based on parameters 
 `str Word(str string, num WordNumber, str delimiters)`
 
 - string: the string to return a word from.
-- WordNumber: a number identifying which word number should be returned.
+- WordNumber: a number identifying which word number should return.
 - delimiters: a string representing the delimiter(s) that should be used to identify words
 
 **Remarks:**  
@@ -1112,7 +1119,7 @@ Each string of characters in string separated by the one of the characters in de
 - If number < 1, returns empty string.
 - If string is null, returns empty string.
 
-If string contains less than number words, or string does not contain any words identified by delimeters, an empty string is returned.
+If string contains less than number words, or string does not contain any words identified by delimiters, an empty string is returned.
 
 **Example:**  
 `Word("The quick brown fox",3," ")`  

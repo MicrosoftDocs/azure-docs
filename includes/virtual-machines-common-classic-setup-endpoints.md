@@ -12,7 +12,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 ## Create an endpoint
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
+1.	If you haven't already done so, sign in to the [Azure classic portal](http://manage.windowsazure.com).
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
 

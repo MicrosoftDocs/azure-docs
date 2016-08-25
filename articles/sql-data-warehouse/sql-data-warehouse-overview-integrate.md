@@ -66,7 +66,7 @@ See [Integrate with Azure Stream Analytics](./sql-data-warehouse-integrate-azure
 [Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
 [Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
 [Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Partners]: sql-data-warehouse-integrate-solution-partners.md
+[Partners]: sql-data-warehouse-partner-business-intelligence.md
 
 <!--MSDN references-->
 

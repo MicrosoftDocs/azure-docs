@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # How to create a DocumentDB account with protocol support for MongoDB using the Azure portal
 
-To create a DocumentDB account with protocol support for MongoDB, you must:
+To create an Azure DocumentDB account with protocol support for MongoDB, you must:
 
 - Have an Azure account. You can get a [free Azure account](https://azure.microsoft.com/free/) if you don't have one already.
 

@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Apply disk encryption in Azure Security Center
@@ -45,7 +45,7 @@ There are many approaches that can be used to setup the prerequisites and to con
 
 
 
-## Next steps
+## See also
 
 This document showed you how to implement the Security Center recommendation "Apply disk encryption." To learn more about disk encryption, see the following:
 

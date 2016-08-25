@@ -63,6 +63,7 @@ Now, execute following query on the **Customers** database to create the **Custo
 		SECRET = '<password>';  
 
 	The "username" and "password" should be the username and password used to login into the Customers database.
+	Authentication using Azure Active Directory with elastic queries is not currently supported.
 
 ### External data sources
 To create an external data source, execute the following command on the Orders database: 

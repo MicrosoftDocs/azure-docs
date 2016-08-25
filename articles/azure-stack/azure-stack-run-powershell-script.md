@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="06/29/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -21,13 +21,15 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Prepare the deployment machine
 
-1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
+1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9.
+ 
+2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
-2.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+3.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+4.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
-4.  Run the **Microsoft Azure Stack POC.exe** file.
+5.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
@@ -43,28 +45,36 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 	> [AZURE.IMPORTANT] You must have at least 128GB of free space on the physical boot volume.
 
-5. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
+6. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
 
-6. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
+7. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
-7. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
+8. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
     	bcdboot <mounted drive letter>:\windows
 
-8. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
+9. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. After this point, you will need to physically connect to the deployment machine, or have physical console access, to complete the following steps.
 
-9. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
+10. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
 
-10. Log in using a local account with administrator permissions.
+11. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
-11. Verify that **exactly** four drives for Azure Stack POC data:
+12. When prompted, set the password for the Administrator account, and then login with that account name and password.
+
+13. After rebooting and  logging in, if you don’t have DHCP,set up the static configuration on the NIC.
+
+14. Enable Remote Desktop Connections by going into the **System Properties** and selecting the **Allow remote connections to this computer** option.
+
+15. Log in using a local account with administrator permissions.
+
+16. Verify that **exactly** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
-  - Show as Online, RAW
+  - Show as Online, Unallocated
 
-12. Verify that the host is not joined to a domain.
+17. Verify that the host is not joined to a domain.
 
-13. Verify network connectivity to Azure.com.
+18. Using Internet Explorer, verify network connectivity to Azure.com.
 
 > [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
 >
@@ -76,11 +86,18 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Run the PowerShell deployment script
 
-1.  Open PowerShell as an administrator.
+1. Move the following deployment files from D:\Microsoft Azure Stack POC\ to C:\Microsoft Azure Stack POC\.
+    - DeployAzureStack.ps1
+    - MicrosoftAzureStackPOC.vhdx
+    - SQLServer14.vhdx
+    - WindowsServer2012R2DatacenterEval.vhd
+    - WindowsServer2016Datacenter.vhdx
 
-2.  In PowerShell, go to the Azure Stack folder location (\\Microsoft Azure Stack POC\\ if you used the default).
+2.  Open PowerShell as an administrator.
 
-3.  Run the deploy command:
+3.  In PowerShell, go to the Azure Stack folder location (\\Microsoft Azure Stack POC\\ if you used the default).
+
+4.  Run the deploy command:
 
     	.\DeployAzureStack.ps1 –Verbose
 
@@ -90,19 +107,19 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
     Deployment starts and the Azure Stack POC domain name is hardcoded as azurestack.local.
 
-4.  At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record this Service Admin password.
+5.  At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record this Service Admin password.
 
-5.  At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
+6.  At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
 
-6.  Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant
+7.  Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant
 
-7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure Stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
+8.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure Stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
 
-8.  At the **Microsoft Azure Stack POC is ready to deploy. Continue?** prompt, enter *y*.
+9.  At the **Microsoft Azure Stack POC is ready to deploy. Continue?** prompt, enter *y*.
 
-9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
+10.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
 
-10. On the Azure Stack POC machine, sign in as an AzureStack\administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
+11. On the Azure Stack POC machine, sign in as an AzureStack\administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
 
 If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
 

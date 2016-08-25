@@ -18,10 +18,9 @@ Here's the basics you need to know about working with pull request reviewers.
   - Pull requests for timed/dated releases
   - Pull requests that change or add lots of files
 
-- <b>Pull requests may take a few days to be merged</b>
+- <b>SLA for pull request review</b>
 
-  While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
-
+  In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (M-F, 8 AM to 5 PM) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md). 
 
 ## Make the pull request queue work better for everyone
 
@@ -36,11 +35,15 @@ You can help make the pull request queue work better by following these best pra
 
 - When you delete articles or images, don't mix the deletions with new content additions or updates. Handle the changes/new content in a separate working branch.
 
-- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
-
 - For releases or refactoring of content, plan ahead with your PR reviewer. You may need his or her help to create a release branch or to coordinate merge times with publishing times so your content is published at the right time.
 
 - If you are trying to coordinate updates made in the ACOM repo (ie, changes to left navigation, landing pages, redirects, or learning maps) with changes you are making in the azure-content-pr repository, you must coordinate that work ahead of time with your PR reviewer. Otherwise, you risk having a lot of broken links.
+
+## Criteria for expedited pull requests
+
+- Contact azdocprs to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
+- Content for feature releases does not qualify for expedited handling - feature release content requires prior planning or it must be handled through the standard priority queue.
+
 
 ## In a hurry? Submit PRs that can be accepted automatically
 
@@ -62,3 +65,9 @@ Take your cue from the PRMerger automation rules above, and do the following:
 * Submit articles with light changes together in a PR with 10 or fewer files.
 * Create a separate PR for articles in which images or selectors change. This requires human review.
 * Create a separate PR for new or deleted articles. This requires human review.
+
+## Related
+
+- [Quality criteria for pull request review](contributor-guide-pr-criteria.md)
+
+- [Pull request comment automation](contributor-guide-pull-request-comments.md)

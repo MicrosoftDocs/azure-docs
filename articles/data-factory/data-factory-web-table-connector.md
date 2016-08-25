@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
+	ms.date="07/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data from a Web table source using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to copy data from a table in a Web page to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from a Web table to other data stores, but not  moving data from other data stores to a Web table destination.
+
+> [AZURE.NOTE] This Web connector currently only support extracting table content from an HTML page.
 
 ## Sample: Copy data from Web table to Azure Blob
 

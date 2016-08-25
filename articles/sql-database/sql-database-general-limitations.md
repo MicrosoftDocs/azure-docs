@@ -3,7 +3,7 @@
    description="This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support."
    services="sql-database"
    documentationCenter="na"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor="monicar" />
 <tags

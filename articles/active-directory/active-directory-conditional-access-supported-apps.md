@@ -4,8 +4,8 @@
 	description="With conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
-	ms.author="femila"/>
+	ms.date="08/12/2016"
+	ms.author="markvi"/>
 
 
 # Conditional access support for applications
-Conditional access access works with mobile and desktop applications that use modern authentication. Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
+
+Conditional access rules are supported across Azure Active Directory connected applications, pre-integrated federated SaaS applications, applications that use password single sign-on, and line of business applications and Azure AD Application Proxy. For a detailed list of applications where you can enable conditional access, see [Services enabled with conditional access](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). Conditional access works with mobile and desktop applications that use modern authentication. This topic explains what is supported regarding mobile and desktop version of these apps.
+
+Applications with modern authentication can display Azure AD sign in pages. This allows a user to be prompted inline for multi-factor authentication or show an end user facing message when an access is blocked.
 It is important to understand which applications are supported as well as steps that may be necessary to secure other entry points.
 
 ## Applications using modern authentication
@@ -37,11 +40,34 @@ The following applications have been tested with multi-factor authentication (MF
 | Yammer app|Yammer| Windows Mobile 10, iOS, Android|
 |Azure Remote App|Azure Remote App service|Windows 10, Windows 8.1, Windows 7,Mac, iOS, Android|
 
+
+
+
+
+The following applications support device-based policy set on the target service: 
+
+| Application                             | Target Service | Platform |
+| :--                                     | :--            | :--      |
+| Mail/Calendar/People                    | Exchange	   | Windows 10, Windows Mobile 10 |
+| Office Universal: Word/Excel/PowerPoint | SharePoint	   | Windows 10, Windows Mobile 10 |
+| Outlook 2016                            | Exchange       | Windows 10, Windows Mobile 10, Windows 8.1, Windows 7 |
+|Outlook 2013 (Requires modern authentication to be enabled) | Exchange | Windows 8.1, Windows 7 |
+
+
+The following applications don't support device-based policy set on the target service.
+
+| Application                             | Target Service | Platform |
+| :--                                     | :--            | :--      |
+| One Drive for Business using the Next Generation Sync Client (NGSC) (both My and Team sites) | SharePoint | Windows 10, Windows Mobile 10 |
+| My Apps app | Any | iOS, Android |
+
+
 ## Applications that do not use modern authentication
 
 Currently, apps that do not use modern authentication must be blocked access by using other methods, because they are not enforced by conditional access. This is primarily a consideration for Exchange and SharePoint access, as previous app versions have been built using older protocols.
 
 ## SharePoint
+
 Legacy protocols can be disabled at SharePoint, by using the Set-SPOTenant cmdlet. This cmdlet will prevent Office clients using non-modern authentication protocols from accessing SharePoint Online resources. 
 
 **Example command**:
@@ -57,7 +83,8 @@ On Exchange, there are two main categories of protocol review and select the rig
 
 ### Example AD FS Rules
 The following rules can be used to block legacy protocol access at AD FS, in two common configurations.
-Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet.
+
+### Option 1: Allow Exchange ActiveSync and only allow legacy apps on the intranet
 
 By applying the following three rules to the AD FS Relying Party Trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic will be allowed, along with browser and modern authentication traffic. Legacy apps will be blocked from the extranet. 
 

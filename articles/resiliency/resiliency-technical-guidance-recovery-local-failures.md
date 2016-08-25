@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #Azure resiliency technical guidance: Recovery from local failures in Azure
 
@@ -69,7 +69,7 @@ Azure Virtual Machines differs from platform as a service (PaaS) compute roles i
 
 Unlike PaaS role instances, data stored on virtual machine drives is persistent even when the virtual machine is relocated. Azure virtual machines use VM disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a virtual machine’s drives is also highly available.
 
-Note that drive D is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only.
+Note that drive D (in Windows VMs) is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only. In Linux, Azure “usually” (but not always) exposes the local temporary disk as /dev/sdb block device. It is often mounted by the Azure Linux Agent as /mnt/resource or /mnt mount points (configurable via /etc/waagent.conf).
 
 ###Partitioning
 
@@ -110,7 +110,7 @@ A virtual machine’s disk is stored as a page blob in Azure Storage, giving it 
 
 Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
 
->[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Replication
 
@@ -118,13 +118,13 @@ Azure SQL Database provides built-in resiliency to node-level failure. All write
 
 ####Resource management
 
-Each database, when created, is configured with an upper size limit. The currently available maximum size is 150 GB. When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
+Each database, when created, is configured with an upper size limit. The currently available maximum size is 1 TB (size limits vary based on your service tier, see [service tiers and performance levels of Azure SQL Databases](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels). When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
 
 Within a database, Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a reconfiguration agent to re-create it on another machine. Engine throttling is provided to ensure that a logical server doesn't use too many resources on a machine or exceed the machine’s physical limits.
 
 ###Elasticity
 
-If the application requires more than the 150-GB database limit, it must implement a scale-out approach. You scale out with Azure SQL Database by manually partitioning, also known as sharding, data across multiple SQL databases. This scale-out approach provides the opportunity to achieve nearly linear cost growth with scale. Elastic growth or capacity on demand can grow with incremental costs as needed because databases are billed based on the average actual size used per day, not based on maximum possible size.
+If the application requires more than the 1 TB database limit, it must implement a scale-out approach. You scale out with Azure SQL Database by manually partitioning, also known as sharding, data across multiple SQL databases. This scale-out approach provides the opportunity to achieve nearly linear cost growth with scale. Elastic growth or capacity on demand can grow with incremental costs as needed because databases are billed based on the average actual size used per day, not based on maximum possible size.
 
 ##SQL Server on Virtual Machines
 
@@ -132,11 +132,11 @@ By installing SQL Server (version 2014 or later) on Azure Virtual Machines, you 
 
 ###High-availability nodes in an availability set
 
-When you implement a high-availability solution in Azure, you can use the availability set in Azure to place the high-availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It's a best practice that you should follow to make sure that your databases are indeed highly available, whether you're using AlwaysOn Availability Groups, database mirroring, or something else. If you don't follow this best practice, you might be under the false assumption that your system is highly available. But in reality, your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure datacenter.
+When you implement a high-availability solution in Azure, you can use the availability set in Azure to place the high-availability nodes into separate fault domains and upgrade domains. To be clear, the availability set is an Azure concept. It's a best practice that you should follow to make sure that your databases are indeed highly available, whether you're using AlwaysOn Availability Groups, database mirroring, or something else. If you don't follow this best practice, you might be under the false assumption that your system is highly available. But in reality, your nodes can all fail simultaneously because they happen to be placed in the same fault domain in the Azure region.
 
-This recommendation is not as applicable with log shipping. As a disaster recovery feature, you should ensure that the servers are running in separate Azure datacenter locations (regions). By definition, these datacenter locations are separate fault domains.
+This recommendation is not as applicable with log shipping. As a disaster recovery feature, you should ensure that the servers are running in separate Azure regions. By definition, these regions are separate fault domains.
 
-For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. In addition, the VMs should be in the same virtual network to ensure that they maintain their IPs even after service healing. This avoids DNS update times.
+For Azure Cloud Services VMs deployed through the classic portal to be in the same availability set, you must deploy them in the same Cloud Service. VMs deployed through Azure Resource Manager (the current portal) do not have this limitation. For classic portal deployed VMs in Azure Cloud Service, only nodes in the same Cloud Service can participate in the same availability set. In addition, the Cloud Services VMs should be in the same virtual network to ensure that they maintain their IPs even after service healing. This avoids DNS update disruptions.
 
 ###Azure-only: High-availability solutions
 
@@ -160,23 +160,23 @@ Applications that are built on Azure benefit from platform capabilities to recov
 
 ###Service Bus
 
-To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Mobile Services
 
 There are two availability considerations for Azure Mobile Services. First, regularly back up the SQL database that's associated with your mobile service. Second, back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md).
 
-If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###HDInsight
 
-The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ##Checklists for local failures
 
 ###Cloud Services
 
-  1. Review the [Cloud Services](#cloud-services) section of this document.
+  1. Review the Cloud Services section of this document.
   2. Configure at least two instances for each role.
   3. Persist state in durable storage, not on role instances.
   4. Correctly handle the StatusCheck event.
@@ -187,36 +187,36 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 
 ###Virtual Machines
 
-  1. Review the [Virtual Machines](#virtual-machines) section of this document.
+  1. Review the Virtual Machines section of this document.
   2. Do not use drive D for persistent storage.
   3. Group machines in a service tier into an availability set.
   4. Configure load balancing and optional probes.
 
 ###Storage
 
-  1. Review the [Storage](#storage) section of this document.
+  1. Review the Storage section of this document.
   2. Use multiple storage accounts when data or bandwidth exceeds quotas.
 
 ###SQL Database
 
-  1. Review the [SQL Database](#sql-database) section of this document.
+  1. Review the SQL Database section of this document.
   2. Implement a retry policy to handle transient errors.
   3. Use partitioning/sharding as a scale-out strategy.
 
 ###SQL Server on Virtual Machines
 
-  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
+  1. Review the SQL Server on Virtual Machines section of this document.
   2. Follow the previous recommendations for Virtual Machines.
   3. Use SQL Server high availability features, such as AlwaysOn.
 
 ###Service Bus
 
-  1. Review the [Service Bus](#service-bus) section of this document.
+  1. Review the Service Bus section of this document.
   2. Consider creating a durable client-side queue as a backup.
 
 ###HDInsight
 
-  1. Review the [HDInsight](#hdinsight) section of this document.
+  1. Review the HDInsight section of this document.
   2. No additional availability steps are required for local failures.
 
 ##Next steps

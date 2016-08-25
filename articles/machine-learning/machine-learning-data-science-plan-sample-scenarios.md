@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
-	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
+	description="Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Team Data Science Process (TDSP). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -305,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+* [Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png

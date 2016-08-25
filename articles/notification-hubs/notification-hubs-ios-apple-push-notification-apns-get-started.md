@@ -5,7 +5,7 @@
 	documentationCenter="ios"
     keywords="push notification,push notifications,ios push notifications"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Sending push notifications to iOS with Azure Notification Hubs
@@ -167,6 +167,8 @@ You can test receiving notifications in your app by sending push notifications i
 
 
 ## (Optional) Send push notifications from the app
+
+>[AZURE.IMPORTANT] This example of sending notifications from the client app is provided for learning purposes only. Since this will require the `DefaultFullSharedAccessSignature` to be present on the client app, it exposes your notification hub to the risk that a user may gain access to send unauthorized notifications to your clients.
 
 If you want to send push notifications from within an app, this section provides an example of how to do this using the REST interface.
 

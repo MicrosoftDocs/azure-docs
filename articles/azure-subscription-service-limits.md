@@ -5,28 +5,30 @@
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
-	ms.author="jroth"/>
+	ms.date="08/18/2016"
+	ms.author="btardif"/>
 
 # Azure subscription and service limits, quotas, and constraints
 
 ## Overview
 
-This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+This document specifies some of the most common Microsoft Azure limits. This does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
 ## Limits and the Azure Resource Manager
 
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](azure-portal/resource-group-portal.md).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
@@ -190,8 +192,8 @@ Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support]
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
 - *Free* multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
-- *Basic* provides dedicated computing resources for production workloads at a smaller scale, with up to 3 replicas for highly available query workloads.
-- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels  exist within the standard tier so that you can choose a resource configuration for specific scenarios.
+- *Basic* provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
+- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels exist within the standard tier so that you can choose a resource configuration for specific scenarios.
 
 **Limits per subscription**
 
@@ -239,11 +241,7 @@ For more granular information about other limits, including document size, queri
 [AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Stream Analytics limits
-
-| Limit identifier | Limit       | Comments |
-|----------------- | ------------|--------- |
-| Maximum number of Streaming Units per subscription per region | 50 | A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
-| Maximum throughput of a Streaming Unit | 1MB/s* | Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
+[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory limits
 

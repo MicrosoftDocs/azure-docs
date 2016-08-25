@@ -85,7 +85,7 @@ For more information, see [App Service Authentication/Authorization](https://azu
 ## Scale your app automatically based on demand
 
 Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at 
-[Scale pricing tier in Azure App Service](app-service-scale) and 
+[Scale up your app in Azure](web-sites-scale.md) and 
 [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md)). 
 
 Briefly, you scale your web app in two ways:
@@ -129,7 +129,7 @@ You may have noticed in the **Scale Settings** blade that you can do a lot more,
 - Autoscale on a schedule
 - Set autoscaling behavior for a future event
 
-For more information on scaling up your app, see [Scale pricing tier in Azure App Service](../app-service/app-service-scale.md). For more information on
+For more information on scaling up your app, see [Scale up your app in Azure](../app-service-web/web-sites-scale.md). For more information on
 scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md).
 
 ## Receive alerts for your app
@@ -176,7 +176,7 @@ Find out how to do more with your deployed app. Here's only a partial list:
 *.azurewebsites.net domain. Or use a domain that you already have.
 - [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
 web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots. 
-- [Set up continuous deployment](web-sites-publish-source-control.md) - Integrate app deployment into your source control system. Deploy to 
+- [Set up continuous deployment](app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to 
 Azure with every commit.
 - [Access on-premises resources](web-sites-hybrid-connection-get-started.md) - Access an existing on-premises database or CRM system.
 - [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.

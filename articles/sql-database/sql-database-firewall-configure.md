@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/10/2016"
+   ms.date="06/22/2016"
    ms.author="rickbyh"/>
 
 # Configure Azure SQL Database firewall rules \- overview
@@ -65,6 +65,8 @@ When a computer attempts to connect to your database server from the Internet, t
 ## Connecting from Azure
 
 When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure SQL Database server.
+
+> [AZURE.IMPORTANT] This option configures the firewall to will allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
 You can enable connections from Azure in two ways:
 

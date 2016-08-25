@@ -14,13 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Tutorial: Create a custom AAD protected ARM API for PowerApps and Logic Flows 
 
 This tutorial walks you through the required steps to register a Swagger file describing the [ARM API][6], and  then connect to the custom API in PowerApps. 
+
+>[AZURE.IMPORTANT] This topic has moved to powerapps.microsoft.com at [Tutorial: Create a custom AAD protected ARM API for PowerApps and Flows](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/). Please go to PowerApps for the latest version. This Azure link is being archived.
+
 
 ## What you need to get started
 

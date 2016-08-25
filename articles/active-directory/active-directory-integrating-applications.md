@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrating applications with Azure Active Directory
@@ -153,10 +153,10 @@ You can develop a Web API and make it available to client applications by exposi
 ![Todo List permissions are shown](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### More on the application manifest
-The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API access scopes we discussed. For more information on the Application entity, please see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). In it, you will find complete reference information on the Application entity members used to specify permissions for your API:  
+The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API access scopes we discussed. For more information on the Application entity, please see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). In it, you will find complete reference information on the Application entity members used to specify permissions for your API:  
 
-- the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) entities that can be used to define the **Application Permissions** for a Web API  
-- the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) entities that can be used to define the **Delegated Permissions** for a Web API
+- the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities that can be used to define the **Application Permissions** for a Web API  
+- the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities that can be used to define the **Delegated Permissions** for a Web API
 
 For more information on application manifest concepts in general, please refer to [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 

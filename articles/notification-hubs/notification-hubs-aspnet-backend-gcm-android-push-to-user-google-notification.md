@@ -4,7 +4,7 @@
 	documentationCenter="android"
 	services="notification-hubs"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users for Android with .NET backend

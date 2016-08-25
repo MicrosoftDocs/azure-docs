@@ -5,7 +5,7 @@
     keywords="mobile push notifications,push notifications,push notification,chrome push notifications"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="03/21/2016"
+	ms.date="07/22/2016"
 	ms.author="wesmc"/>
 
 # Send push notifications to Chrome apps with Azure Notification Hubs
@@ -464,10 +464,10 @@ If you want to segment your users by interest groups, you can follow the [Azure 
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Chrome App Notification Hub Sample]: http://google.com
+[Chrome App Notification Hub Sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google Cloud Console]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Notification Hubs Overview]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/

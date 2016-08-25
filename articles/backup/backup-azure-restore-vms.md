@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/02/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -101,6 +101,9 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the virtual machine in the Azure portal.
+
+## Post-Restore steps
+If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
 
 ## Backup for Restored VMs
 If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.

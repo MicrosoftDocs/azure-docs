@@ -1,31 +1,26 @@
 Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
-1. Log on to the [Azure classic portal][classic-portal].
+1. Log on to the [Azure portal][azure-portal].
 
 2. In the left navigation pane of the portal, click **Service Bus**.
 
-3. Select the namespace that you would like to create the queue in. In this case, it is “mytestns1.”
+3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
 
-    ![Selecting a namespace][select-namespace]
+    ![Create a queue][createqueue1]
 
-4. Select **Queues**.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
-    ![Select Queues][select-queue]
+    ![Select Queues][createqueue2]
 
-5. Select **New** in the bottom left corner, then select **Quick Create**.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
-    ![Select New][select-new]
+    ![Select New][createqueue3]
 
-6. Enter the **Queue Name** and ensure the proper namespace is selected.
+7. At the bottom of the blade, click **Create**.
 
-7. Select **Create a new queue**.
-
-    ![Create a queue][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com

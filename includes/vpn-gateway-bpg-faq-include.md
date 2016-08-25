@@ -65,7 +65,7 @@ Not at this time.
 
 ### What address does Azure VPN gateway use for BGP Peer IP?
 
-The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range defined for the virtual network. By default, it is the second last address of the range. For example, if your GatewaySubnet is 10.12.255.0.0/27, ranging from 10.42.255.0.0 to 10.42.255.31, then the BGP Peer IP address on the Azure VPN gateway will be 10.12.255.30. You can find this information when you list the Azure VPN gateway information.
+The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range defined for the virtual network. By default, it is the second last address of the range. For example, if your GatewaySubnet is 10.12.255.0/27, ranging from 10.12.255.0 to 10.12.255.31, then the BGP Peer IP address on the Azure VPN gateway will be 10.12.255.30. You can find this information when you list the Azure VPN gateway information.
 
 ### What are the requirements for the BGP Peer IP addresses on my VPN device?
 

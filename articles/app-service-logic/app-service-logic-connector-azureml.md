@@ -1,14 +1,14 @@
 <properties
    pageTitle="Using the Azure Machine Learning connector in Logic apps | Microsoft Azure App Service"
    description="How to create and configure the Azure Machine Learning connector and use it in a Logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

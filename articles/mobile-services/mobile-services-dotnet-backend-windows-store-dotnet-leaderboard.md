@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend

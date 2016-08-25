@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,14 +23,14 @@
 
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Get Started
 - [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md)
 - [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-linux-classic-faq.md)
 - [About images for virtual machines](virtual-machines-linux-classic-about-images.md)
 - [Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
-- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
+- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Set up
 
@@ -57,7 +57,6 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 ### Docker
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Using the Docker VM Extension from the Azure portal](virtual-machines-linux-classic-portal-use-docker.md)
-- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -72,7 +71,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 
 ## Planning
-- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 - [How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-linux-classic-configure-availability.md)
 - [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -88,7 +87,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ## Management
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 - [Using Root](virtual-machines-linux-use-root-privileges.md)
 
@@ -188,7 +187,5 @@ As the world of devops, management, and optimization is quite expansive and chan
 
 - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
-
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
 
 - [Packer plugin for Azure](https://github.com/msopentech/packer-azure)

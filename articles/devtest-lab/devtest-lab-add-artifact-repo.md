@@ -117,3 +117,7 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     2. Enter the **Folder Path** in the artifacts repository that contains the artifacts.
     3. Enter the saved **Personal Access Token** to the artifacts repository.
     4. Select **Save**.
+
+## Related blog posts
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

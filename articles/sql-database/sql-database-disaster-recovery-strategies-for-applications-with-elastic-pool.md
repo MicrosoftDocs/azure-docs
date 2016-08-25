@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="06/16/2016"
+   ms.workload="NA" 
+   ms.date="07/16/2016"
    ms.author="sashan"/>
 
 # Disaster recovery strategies for applications using SQL Database Elastic Pool 
@@ -164,22 +164,8 @@ This article focuses on the disaster recovery strategies for the database tier u
 
 ## Next steps
 
-The individual steps required for each scenario involve operations against a large number of databases. Consider using SQL Database Elastic Jobs to manage these operations at scale. For more information refer to [Managing scaled-out cloud databases](./sql-database-elastic-jobs-overview.md). The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
-
-- [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-- [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-- [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-
-## Additional resources
-
-- [SQL Database business continuity and disaster recovery](sql-database-business-continuity.md)
-- [Point-in-Time Restore](sql-database-point-in-time-restore.md)
-- [Geo-Restore](sql-database-geo-restore.md)
-- [Active-Geo-Replication](sql-database-geo-replication-overview.md)
-- [Designing applications for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md)
-- [SQL Database BCDR FAQ](sql-database-bcdr-faq.md)
-
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

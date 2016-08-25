@@ -3,7 +3,7 @@
 	description="Learn how to send push notifications to users in Azure. Code samples written in Objective-C and the .NET API for the backend."
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users for iOS with .NET backend
