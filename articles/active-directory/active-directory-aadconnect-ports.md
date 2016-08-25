@@ -17,8 +17,7 @@
 	ms.author="billmath"/>
 
 # Hybrid Identity Required Ports and Protocols
-
-The following document is a technical reference to provide information on the required ports and protocols that are required for implementing a hybrid identity solution.  Use the illustration below and refer to the corresponding table.
+The following document is a technical reference to provide information on the required ports and protocols that are required for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
 
 ![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)
 
@@ -69,7 +68,7 @@ HTTPS|443(TCP/UDP)| Used for device authentication.
 TCP|49443 (TCP)| Used for certificate authentication.
 
 ## Table 6a & 6b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-The following tables describe the endpoints, ports and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
+The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
 
 ### Table 6a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 This table describes the following outbound ports and protocols that are required for communication between the Azure AD Connect Health agents and Azure AD.  
@@ -80,4 +79,4 @@ HTTPS|443(TCP/UDP)| Outbound
 Azure Service Bus|5671 (TCP/UDP)| Outbound
 
 ### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-For a list of endpoints see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health.md#requirements).
+For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health.md#requirements).
