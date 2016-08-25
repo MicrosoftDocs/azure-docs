@@ -31,7 +31,7 @@ At the end of this tutorial you run two Windows console applications:
 
 > [AZURE.NOTE] IoT Hub supports many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step by step instructions on how to connect your device to the code shown in this tutorial, and generally to Azure IoT Hub.
 
-In order to complete this tutorial you need the following:
+In order to complete this tutorial, you need the following:
 
 + Microsoft Visual Studio 2015,
 
@@ -151,7 +151,7 @@ Now you are ready to run the applications.
 
 In this tutorial, you learned how to leverage the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue explore IoT hub features and scenarios with the following articles:
 
-- [Create an IoT hub programatically][lnk-create-hub]
+- [Create an IoT hub programmatically][lnk-create-hub]
 - [Introduction to C SDK][lnk-c-sdk]
 - [IoT Hub SDKs][lnk-sdks]
 
