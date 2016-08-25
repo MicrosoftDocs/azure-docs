@@ -18,7 +18,7 @@ ms.author="trinadhk; giridham;"/>
 
 # Monitor alerts for Azure virtual machine backups
 
-Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know as soon as possible after alerts occur. For example, when a backup or restore job fails, an alert occurs within 5 minutes of the failure. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
+Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know as soon as possible after alerts occur. For example, when a backup or restore job fails, an alert occurs within five minutes of the failure. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
 
 ## How do I find information about the alerts?
 
@@ -80,9 +80,9 @@ To set up email notifications for alerts
 There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent:
 
 - If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
-- If the job is cancelled.
-- If a backup job is triggered and then fails, and another backup job is in progress.
-- If a scheduled backup job for a Resource Manager-enabled VM starts, but the VM no longer exists.
+- The job is canceled.
+- A backup job is triggered and then fails, and another backup job is in progress.
+- A scheduled backup job for a Resource Manager-enabled VM starts, but the VM no longer exists.
 
 ## Customize your view of events
 
@@ -146,7 +146,7 @@ Using the **Columns** button, you can enable additional event attributes to appe
 
     ![Columns blade](./media/backup-azure-monitor-vms/columns-blade.png)
 
-2. In order to select the attribute, click the checkbox. The attribute checkbox toggles on and off.
+2. To select the attribute, click the checkbox. The attribute checkbox toggles on and off.
 
 3. Click **Reset** to reset the list of attributes in the **Events** blade. After adding or removing attributes from the list, use **Reset** to view the new list of Event attributes.
 
