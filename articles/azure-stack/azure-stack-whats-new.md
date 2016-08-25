@@ -20,7 +20,7 @@
 
 This document covers new features and capabilities in this release of Azure Stack.
 
-## Tenant
+## Cloud Tenant
  - Key Vault
    - Create and manage Key Vaults
    - Store and deploy secrets and keys
@@ -37,7 +37,6 @@ This document covers new features and capabilities in this release of Azure Stac
   - iDNS for internal name registration and DNS resolution
   - VPN Site-to-Site gateways for new connectivity options
   - Create new Network resources from the marketplace
-  - Change MAC Address on Network Interfaces
 - Compute
   - Deallocate VMs
   - Capture VM 
@@ -52,28 +51,21 @@ This document covers new features and capabilities in this release of Azure Stac
   - [Account SAS](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
   - ACS virtualized cloud services can scale out behind software load balancer
   - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization 
+ - Export ARM Templates from GUI
 
-## Provider
+## Cloud Service Administrator
  - Billing and Usage APIs 
  - Ability to capture plan and offer details in ARM templates for redeployment
- - Export ARM Templates from GUI
  - Delegated Providers enable resale of Azure Stack services by resellers
+ - Reclamation of unused tenant capacity on-demand 
+
+##  Infrastructure
  - Introduces Azure Stack regions, including:
    - view a list of all Azure Stack region
    - navigate to storage, computer, and network providers per region
-   - view updates available in specific region
 - New monitoring capabilities
   - View details on monitoring alerts by region
-  - Health Resource Provider enables retrieval of monitoring data via REST
-- Networking
-- Compute
-- Storage
- - - Reclamation of unused tenant capacity on-demand 
-
-
-
-##  Infrastructure
- 
+  - Health Resource Provider enables retrieval of monitoring data via REST   
 
  
     
