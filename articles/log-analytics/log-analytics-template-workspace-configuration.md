@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="json"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="08/25/2016"
 	ms.author="richrund"/>
 
 # Manage Log Analytics using Azure Resource Manager templates
@@ -90,6 +90,12 @@ The following template sample illustrates how to:
         "metadata": {
           "description": "Name of the storage account with Azure diagnostics output"
         }
+    },
+	"applicationDiagnosticsStorageAccountResourceGroup": {
+        "type": "string",
+        "metadata": {
+          "description": "The resource group name containing the storage account with Azure diagnostics output"
+        }
     }
   },
   "variables": {
@@ -104,10 +110,11 @@ The following template sample illustrates how to:
     "SQLAssessment": {
       "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
       "GalleryName": "SQLAssessment"
-    }    
+    },
+	"diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
-    {
+	{
       "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
@@ -277,7 +284,7 @@ The following template sample illustrates how to:
           "kind": "CustomLog",
           "properties": {
             "customLogName": "sampleCustomLog1",
-            "description": "test customg log datasources",
+            "description": "test custom log datasources",
             "inputs": [
               {
                 "location": {
@@ -327,19 +334,18 @@ The following template sample illustrates how to:
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('applicationDiagnosticsStorageAccountName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
             "containers": [ 
-              "wad-iis-logs" 
+              "wad-iis-logfiles" 
             ],
             "tables": [
               "WADWindowsEventLogsTable"
             ],
             "storageAccount": {
-              "id": "[resourceId('Microsoft.Storage/storageaccounts/', parameters('applicationDiagnosticsStorageAccountName'))]",
-              "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts',parameters('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+              "id": "[variables('diagnosticsStorageAccount')]",
+              "key": "[listKeys(variables('diagnosticsStorageAccount'),'2015-06-15').key1]"
             }
           }
 		},
