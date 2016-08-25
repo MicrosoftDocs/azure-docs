@@ -61,13 +61,13 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/07MigrateSSDT.png)    
     
-## Fixing Compatibility Issues Using SQL Server Data Tools for Visual Studio        
-      
+## Fixing Compatibility Issues Using SQL Server Data Tools for Visual Studio
+
 1.	Double-click the first script to open the script in a query window and comment out the script, and then execute the script.     
-	![alt text](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)    
+	![alt text](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)
 
 2.	Repeat this process for each script containing incompatibilities until no error remain.    
-	![alt text](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)    
+	![alt text](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)
     
 3.	When the database is free of errors, right-click the project and select **Publish**. A copy of the source database is built and published (it is highly recommended to use a copy, at least initially).     
  - Before you publish, depending on the source SQL Server version (earlier than SQL Server 2014), you may need to reset the project’s target platform to enable deployment.     
@@ -76,13 +76,13 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)    
     
     	![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)    
-    
+    	
 4.	In SQL Server Object Explorer, right-click your source database and click **Data Comparison**. Comparing the project to the original database helps you understand what changes have been made by the wizard. Select your Azure SQL V12 version of the database and then click **Finish**.    
     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)    
     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)    
-    
+
 5.	Review the differences detected and then click **Update Target** to migrate data from the source database into the Azure SQL V12 database.     
     
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)    
