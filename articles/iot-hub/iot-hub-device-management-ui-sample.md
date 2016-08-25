@@ -52,7 +52,7 @@ The default home screen for the device management sample UI is the **Devices** v
 
 The [device management overview][lnk-dm-overview] introduced the *device twin* concept that represents a physical (or simulated) device in the Azure IoT hub. From the device grid, you can select any registered device from the device list to view and edit the device twin for that device.
 
-To enter this detailed view on your first simulated device (**Device11-7ce4a850**) select the corresponding device row. Then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
+To enter this detailed view on your first simulated device (**Device11-7ce4a850**), select the corresponding device row. Then clicking the **Edit** button (you can also double-click the row or enter the device ID in the search box).
 
 You are now viewing the full representation of the device twin components where you can update writeable properties and run other device operations as follows:
 
