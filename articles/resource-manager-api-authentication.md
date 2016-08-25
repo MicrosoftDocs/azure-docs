@@ -29,10 +29,10 @@ This topic gives a step-by-step description of how to create an app that employs
 
 You'll build a web application that:
 
-1. Signs-in an Azure user
-2. Queries Resource Manager on behalf of the user (user + app access) to get a list of Azure subscriptions that the user owns
-3. Enables the user to "connect" subscriptions to the app by granting direct access on the subscription to the application
-4. Accesses Resource Manager as the application to perform offline operations (app-only access)
+1. Signs-in an Azure user.
+2. Queries Resource Manager on behalf of the user (user + app access) to get a list of Azure subscriptions that the user owns.
+3. Enables the user to "connect" subscriptions to the app. The user grants subscription access to the application.
+4. Accesses Resource Manager as the application to perform offline operations (app-only access).
 
 Here's the end-to-end flow of the web application.
 
@@ -455,7 +455,7 @@ If a subscription owner removes your application's role assignment using the cla
 
 ## Disconnect subscriptions
 
-Just as you enabled the user to connect a subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. 
+Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. 
 Only users with access management permission on the subscription are able to disconnect the subscription.
 
 The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L303) of the ASP.net MVC sample app implements this call.
