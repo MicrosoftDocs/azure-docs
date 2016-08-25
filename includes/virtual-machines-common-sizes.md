@@ -171,29 +171,28 @@ For information and considerations about using these sizes, see [About the A8, A
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
+<br>
 ## F-series
 
 
-| Size         | CPU cores | Memory | NICs (Max) | Disk size          | Max data disks (1023 GB each) | Max IOPS (500 per disk) | Max network bandwidth |
-|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
-| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                        | 2x500                    | moderate    |
-| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                        | 4x500                    | high        |
-| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                        | 8x500                    | high        |
-| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                       | 16x500                   | high        |
-| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | extremely high   |
-
+| Size         | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
+|--------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
+| Standard_F1  | 1         | 2            | 1        | 16                   | 2              | 2x500              | moderate              |
+| Standard_F2  | 2         | 4            | 2        | 32                   | 4              | 4x500              | high                  |
+| Standard_F4  | 4         | 8            | 4        | 64                   | 8              | 8x500              | high                  |
+| Standard_F8  | 8         | 16           | 8        | 128                  | 16             | 16x500             | high                  |
+| Standard_F16 | 16        | 32           | 8        | 256                  | 32             | 32x500             | extremely high        |
 
 
 ## Fs-series*
 
-| Size          | CPU cores | Memory | NICs (Max) | Disk size         | Max data disks (1023 GB each) | Cache size (GB) | Max disk IOPS & bandwidth | Max network bandwidth |
-|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
-| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2         | 12        | 3,200 48 MB per second     | moderate   |
-| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4         | 24        | 6,400 96 MB per second     | high       |
-| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8         | 48        | 12,800 192 MB per second   | high       |
-| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16        | 96        | 25,600 384 MB per second   | high       |
-| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | extremely high  |
-
+| Size          | CPU cores | Memory (GiB) | Max NICs | Local SSD disk size (GiB) | Local SSD cache for data disk (GiB) | Max data disks | Max uncached data disk throughput (IOPS & MB/Sec) | Max cached data disk throughput (IOPS & MB/Sec) | Max network bandwidth |
+|---------------|-----------|--------------|----------|---------------------------|-------------------------------------|----------------|---------------------------------------------------|-------------------------------------------------|-----------------------|
+| Standard_F1s  | 1         | 2            | 1        | 4                         | 12                                  | 2              | 3,200 48                                          | 4,000 32                                        | moderate              |
+| Standard_F2s  | 2         | 4            | 2        | 8                         | 24                                  | 4              | 6,400 96                                          | 8,000 64                                        | high                  |
+| Standard_F4s  | 4         | 8            | 4        | 16                        | 48                                  | 8              | 12,800 192                                        | 16,000 128                                      | high                  |
+| Standard_F8s  | 8         | 16           | 8        | 32                        | 96                                  | 16             | 25,600 384                                        | 32,000 256                                      | high                  |
+| Standard_F16s | 16        | 32           | 8        | 64                        | 192                                 | 32             | 51,200 768                                        | 64,000 512                                      | extremely high        |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a Fs series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
