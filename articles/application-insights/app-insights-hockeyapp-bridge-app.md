@@ -26,23 +26,23 @@ The HockeyApp Bridge App is the core feature that enables you to access your Hoc
 
 Open the [tokens section](https://rink.hockeyapp.net/manage/auth_tokens) of our account settings in HockeyApp. Either create a new token or reuse an existing one. The minimum rights required are "read only":
 
-![](../media/app-insights-hockeyapp-bridge-app/01.png)
+![hockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)
 
 Next, open the Microsoft Azure portal. Click “New”, “Developer Services”, and “Application Insights.” Under “Application Type”, select “HockeyApp Bridge application”:
 
-![](../media/app-insights-hockeyapp-bridge-app/02.png)
+![New Application Insights resource](./media/app-insights-hockeyapp-bridge-app/02.png)
 
 You don't need to set a name - this will automatically be set from the HockeyApp name.
 
 The HockeyApp bridge fields appear. 
 
-![](../media/app-insights-hockeyapp-bridge-app/03.png)
+![Enter bridge fields](./media/app-insights-hockeyapp-bridge-app/03.png)
 
 Enter the HockeyApp token you noted earlier. This action populates the “HockeyApp Application” dropdown menu with all your HockeyApp applications. Select the one you want to use, and complete the remainder of the fields. Soon, your new resource is ready to use. 
 
 Note that the data takes a few minutes to start flowing:
 
-![](../media/app-insights-hockeyapp-bridge-app/04.png)
+![Application Insights resource waiting for data](./media/app-insights-hockeyapp-bridge-app/04.png)
 
 That’s it! Any data collected in your HockeyApp-instrumented app from this point forward is now also available to you in the Analytics, Continuous Export, and API features of Application Insights.
 
@@ -53,7 +53,7 @@ Let’s briefly review each of these features now available to you.
 Analytics is a powerful tool for ad-hoc querying of your data, allowing you to diagnose and analyze your telemetry and quickly discover root causes and patterns.
 
 
-![](../media/app-insights-hockeyapp-bridge-app/05.png)
+![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
 
 * [Learn more about Analytics](app-insights-analytics-tour.md)
@@ -71,7 +71,7 @@ Continuous Export allows you to export your data into an Azure Blob Storage cont
 
 The Application Insights REST APIs allow you to access all your app's event and metric data with a powerful and simple REST API and easily integrate your data into other data query and visualization products such as Power BI, Excel and others.
 
-![](../media/app-insights-hockeyapp-bridge-app/06.png)
+![REST API](./media/app-insights-hockeyapp-bridge-app/06.png)
 
 [Learn more](https://dev.applicationinsights.io/)
 
