@@ -29,7 +29,7 @@ In a text analytics experiment, you would typically:
  4. Score and validate the model
  5. Deploy the model to production
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using ["Book Reviews from Amazon" dataset] (https://azure.microsoft.com/en-us/documentation/articles/machine-learning-use-sample-datasets). This dataset consists of review scores (1,2 or 4,5) and a free-form text. The goal is to predict the review score: low (1, 2) or high (4, 5).
+In this tutorial, you learn these steps as we walk through a sentiment analysis model using ["Book Reviews from Amazon" dataset] (https://azure.microsoft.com/documentation/articles/machine-learning-use-sample-datasets). This dataset consists of review scores (1,2 or 4,5) and a free-form text. The goal is to predict the review score: low (1, 2) or high (4, 5).
 
 The experiments covered in this tutorial are available in Cortana Intelligence Gallery:
 
@@ -93,4 +93,4 @@ Now we have an experiment that can be published as a web service and called usin
 
 ## Additional information
 
-[MSDN documentation on text analytics modules] (https://msdn.microsoft.com/en-US/library/azure/dn905886.aspx)
+[MSDN documentation on text analytics modules] (https://msdn.microsoft.com/library/azure/dn905886.aspx)
