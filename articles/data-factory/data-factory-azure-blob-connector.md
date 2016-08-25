@@ -38,7 +38,7 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies time-series data from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure blob to an Azure SQL table hourly. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -210,7 +210,7 @@ The following sample shows:
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-The sample copies time-series data from a table in Azure SQL database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure SQL table to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -433,7 +433,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 
 ## Azure Blob Copy Activity type properties  
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, various policies etc., are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
