@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Title | Azure Governmenmt documentation"
 	description="This provides a comparison of features and guidance for private connectivity to e Government"
-	services=""
+	services="Azure-Government"
+	cloud="gov" 
 	documentationCenter=""
 	authors="ryansoc"
 	manager="zakramer"
@@ -9,12 +10,11 @@
 
 <tags
 	ms.service="multiple"
-	ms.cloud="gov"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="07/07/2016"
+	ms.date="08/25/2016"
 	ms.author="ryansoc"/>
 
 #  Azure Government Networking
