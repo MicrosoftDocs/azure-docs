@@ -19,7 +19,7 @@
 
 #Create text analytics models in Azure Machine Learning Studio
 
-You can use Azure Machine Learning to build and operationalize text analytics models, for example to perform document classification or sentiment analysis.
+You can use Azure Machine Learning to build and operationalize text analytics models. These modules can help you solve, for example, document classification or sentiment analysis problems.
 
 In a text analytics experiment, you would typically:
 
@@ -47,13 +47,13 @@ Then, we clean the text using Preprocess Text module. The cleaning reduces the n
 
 ![Preprocess Text] (./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
-Optionally, you can apply custom list of stopwords, or custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
+What if you want to use a custom list of stopwords? You can pass it in as optional input. You can also use custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
 
 After the preprocessing is complete, we split the data into train and test sets.
 
 ## Step 2: Extract numeric feature vectors from pre-processed text
 
-Machine learning algorithms typically expect numeric feature vectors as input instead of free-form text. We use Extract N-Gram Features module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
+To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use Extract N-Gram Features module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
 
 ![Extract N-grams] (./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
@@ -69,19 +69,19 @@ As an alternative approach to using Extract N-Gram Features, you can use Feature
 
 Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
 
-We then use Two-Class Logistic Regression to predict our target: high or low review score. At this point the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+We then use Two-Class Logistic Regression to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
 
 ![Train and Score] (./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
 ## Step 4: Score and validate the model
 
-To validate the model, we score it against the test dataset and evaluate the accuracy. However, the model learned the vocabulary of N-grams and their weights from the test dataset. We should use that vocabulary and those weights when extracting features from test data, as opposed to creating the vocabulary anew. To do this, we add Extract N-Gram Features module to the scoring branch of the experiment, connect the output vocabulary from training branch, and set the vocabulary mode to read-only. We also disable the filtering of N-grams by frequency by setting the minimum to 1 instance and maximum to 100%, and turn off the feature selection.
+How would you validate the trained model? We score it against the test dataset and evaluate the accuracy. However, the model learned the vocabulary of N-grams and their weights from the test dataset. Therefore, we should use that vocabulary and those weights when extracting features from test data, as opposed to creating the vocabulary anew. Therefore, we add Extract N-Gram Features module to the scoring branch of the experiment, connect the output vocabulary from training branch, and set the vocabulary mode to read-only. We also disable the filtering of N-grams by frequency by setting the minimum to 1 instance and maximum to 100%, and turn off the feature selection.
 
 After the text column in test data has been transformed to numeric feature columns, we exclude the string columns from previous stages like in training branch. We then use Score Model module to make predictions and Evaluate Model module to evaluate the accuracy.
 
 ## Step 5: Deploy the model to production
 
-The model is almost ready to be deployed to production. When deployed as web service, it takes free-form text string as input, and return a prediction "high" or "low". It uses the learned N-gram vocabulary to transform the text to features, and trained logistic regression model to make a prediction from those features. 
+The model is almost ready to be deployed to production. When deployed as web service, it takes free-form text string as input, and return a prediction "high" or "low." It uses the learned N-gram vocabulary to transform the text to features, and trained logistic regression model to make a prediction from those features. 
 
 To set up the predictive experiment, we first save the N-gram vocabulary as dataset, and the trained logistic regression model from the training branch of the experiment. Then, we save the experiment using "Save As" to create an experiment graph for predictive experiment. We remove the Split Data module and the training branch from the experiment. We then connect the previously saved N-gram vocabulary and model to Extract N-Gram Features and Score Model modules, respectively. We also remove the Evaluate Model module.
 
