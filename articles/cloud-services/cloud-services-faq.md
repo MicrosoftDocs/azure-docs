@@ -21,6 +21,17 @@ This article answers some frequently asked questions about Microsoft Azure Cloud
 
 ## Certificates
 
+### Where should I install my certificate?
+
+- **My**  
+Application Certificate with private key (\*.pfx, \*.p12).
+
+- **CA**  
+All your intermediate certificates go in this store (Policy and Sub CAs).
+
+- **ROOT**  
+The root CA store, so your main root CA cert should go here.
+
 ### I can't remove expired certificate
 
 Azure prevents you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
@@ -35,22 +46,13 @@ These certificates are created whenever an extension is added to the cloud servi
 
 ### Certificates I have deleted keep reappearing
 
-These keep being deleted most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
+These keep reappearing most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
 
 ### My certificates keep disappearing
 
 When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
 
-### Where should I install my certificate?
 
-**My**  
-Application Certificate with private key (\*.pfx, \*.p12).
-
-**CA**  
-All your intermediate certificates go in this store (Policy and Sub CAs).
-
-**ROOT**  
-The root CA store, so your main root CA cert should go here.
 
 ## Troubleshooting
 
