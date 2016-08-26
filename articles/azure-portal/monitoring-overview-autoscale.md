@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview of autoscale in Microsoft Azure | Microsoft Azure"
+	pageTitle="Overview of autoscale in Microsoft Azure Compute | Microsoft Azure"
 	description="Overview of about autoscaling in Microsoft Azure"
 	authors="rboucher"
 	manager=""
@@ -16,17 +16,20 @@
 	ms.date="08/30/2016"
 	ms.author="robb"/>
 
-# Overview of autoscale in Microsoft Azure
+# Overview of autoscale in Microsoft Azure Compute
 
 This article describes what Microsoft Azure autoscaling is, its benefits, and starts you on the path to using it. 
 
 Azure Insights autoscaling applies only to 
 
-* Cloud Services
-* Virtual Machines 
-* Web apps 
+* [Cloud Services]()
+* [Virtual Machine Scale Sets]()
+* [AppService Web Apps]() 
  
-All other Azure services use other methods of scaling. Azure has two autoscaling methods. The older technology works with availability sets while the newer with Virtual Machine Scale Sets (VMSS).   
+Azure has two autoscaling methods. The older technology works with availability sets while the newer with Virtual Machine Scale Sets (VMSS).   
+
+>[AZURE.NOTE] An older version of autoscaling applies to Virtual Machines (Availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscaling support.
+
 
 ## What is autoscaling 
 
@@ -36,11 +39,14 @@ Autoscaling allows you to have the right amount of resources running to handle t
 
 **Figure 1: Autoscaling concept explained**
 
-Autoscaling requires you to create rules about when to scale resources up or down. Criteria you can set to control scale actions include 
+Autoscaling only scales "out" and "in", that is, it refers to an increase or decrease in the number of VM instances.  This is more flexible in a cloud situation, giving you access to potentially hundreds of VMs. The other type of scaling goes "up and down". That refers to keeping the same number of VMs, but making the VM more or less powerful (more or less memory, CPU speed, disk space, etc).  This is typically limited by the hardware the VM is running on. 
 
-* **minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs. 
-* **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing so it's worse than just leaving the VM running.    
-* **granularity** of the monitoring the metric.  You can go from a minimum of 1 minute on up, but certain resources may not deliver that level of granularity. You can discover the granularity of each resource programmatically using the [Azure Insights Metrics REST API](https://msdn.microsoft.com/library/dn931939.aspx). 
+Autoscaling requires you to create rules about when to scale resources out or in. Criteria you can set to control scale actions include 
+
+* **minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs.
+* The **rule or condition** for autoscaling. It can be a metric or schedule based scaling. 
+* **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing, so it's worse than just leaving the VM running.    
+
    
 The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx)
 
@@ -54,29 +60,24 @@ Figure 2 shows a conceptual overview of autoscaling followed by an explanation o
 
 ## Resource Metrics 
 Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-Cloud services and VM Scale Sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). Some data is gathered by default and other types you must tell the system to gather. 
+VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). 
 
-You can also use the Azure Diagnostics SDK and write custom code to create custom metrics, which you can then use to trigger rules.
  
-## System Time
-Schedule-based rules are triggered using the system time of the virtual machine where the rules are running. 
+## Time
+Schedule-based rules are triggered using the regional time of the virtual machine where the rules are running. 
 
 ## Autoscale Rules
 The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
  
  - **Metric-based** - For example, do this action when CPU usage is above 50%. 
- - **Time-based** - For example, trigger a webhook every 8am on Saturday.
+ - **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
 
-
-With custom code, you can also write rules that use both metric data and system time in some combination to fire a custom trigger.  
-
-Azure checks rule conditions every 5 minutes. 
  
 ## Autoscale Actions and Automation
 
 Rules can trigger one or more types of actions.
 
-- **Scale** - Scale VMs up or down
+- **Scale** - Scale VMs in or out
 - **Email** - Send email to admins and co-admins of a subscription, and to additional email address you specify
 - **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
 
@@ -102,16 +103,24 @@ You can set up autoscale rules via
 - Common Library Interface (CLI)
 - Insights REST API
 
+## Autoscaling Walkthroughs
+
+- [Scaling Cloud Services](../cloud-services/cloud-services-how-to-scale-portal.md)
+- [Scaling Web Apps](insights-how-to-scale.md)
+- [Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/)
+- [Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+- [Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md)
+- [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) 
 
 ## Next steps
 
-Read more about autoscaling
+Use one of the Autoscale Walkthroughs listed previously or refer to these other resources to learn more about autoscaling.  
 
-* [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Insights autoscaling](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) 
-* [Autoscaling REST API](https://msdn.microsoft.com/library/dn931953.aspx) - See the entire API and meanings for each of the fields and values
+- [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md)
+- [Best practices for Azure Insights autoscaling](insights-autoscale-best-practices.md)
+- [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
+- [Autoscaling REST API](https://msdn.microsoft.com/library/dn931953.aspx) - See the entire API and meanings for each of the fields and values
+* >>>> ADD Link to VM Scale Sets up and down.
 
 
 
