@@ -27,6 +27,8 @@ You can install new software on a platform image using a [VM Extension](../virtu
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
 
+**If you pass sensitive information in your custom script extension command (e.g. a password), be sure to specify the `commandToExecute` in the `protectedSettings` attribute of the custom script extension instead of the `settings` attribute.**
+
 - Create a custom VM image which includes both the OS and the application in a single VHD. Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This means no extra configuration is required at VM deployment time, but there are some limitations with custom images in the current version of VM Scale Sets – you are limited to a single storage account, and hence a maximum of 40 VMs in a scale set (as opposed to 100 VMs in a scale set which uses platform images). See [Scale Set Design Overview](./virtual-machine-scale-sets-design-overview.md) for more details.
 
 - Deploy a platform or a custom image which is basically a container host, and install your application as one or more containers which you can manage with an orchestrator or config management tool. This nice thing about this approach is that you have completely abstracted your cloud infrastructure from the application layer and can maintain them separately.
@@ -41,13 +43,7 @@ For application updates in VM Scale Sets, three main approaches follow from the 
 
 * Updating with Extensions. Any VM extensions which are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, directly updating an application through extensions is a viable approach – you simply update the extension definition. One simple way to do this is by changing the fileUris to point to the new software.
 
-The hard problems are:
-
-– Security – how to maintain certificates/shared access signatures.
-
-– Scaling – how the application updates and how long it takes when you scale out.
-
-* The immutable approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, and deployment of the images. You can design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) – http://www.spinnaker.io/
+* The immutable custom image approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, and deployment of the images. You can design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) – http://www.spinnaker.io/
 
 Packer and Terraform also support Azure Resource Manager, so you can also define your images “as code” and build them in Azure, then use the VHD in your scale set. Where this would become problematic is for Marketplace images, where extensions/custom scripts become more important as you don’t directly manipulate bits from Marketplace.
 
