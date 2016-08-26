@@ -31,15 +31,15 @@ Depending on the specific Visual Studio offer type, you deploy Windows 10 from t
 
 
 ## Check your Azure subscription
-If you do not know your offer ID, you can obtain it through the Azure Portal or the Account Portal.
+If you do not know your offer ID, you can obtain it through the Azure portal or the Account portal.
 
-The subscription offer ID is noted on the 'Subscriptions' blade within the Azure Portal:
+The subscription offer ID is noted on the 'Subscriptions' blade within the Azure portal:
 
-![Offer ID details from the Azure Portal](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png) 
+![Offer ID details from the Azure portal](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png) 
 
-You can also view the offer ID from the ['Subscriptions' tab](http:/account.windowsazure.com/Subscriptions) of the Azure Account Portal:
+You can also view the offer ID from the ['Subscriptions' tab](http:/account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
-![Offer ID details from the Azure Account Portal](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
+![Offer ID details from the Azure Account portal](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
 
 
 ## Eligible offers
