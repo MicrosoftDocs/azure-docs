@@ -21,12 +21,12 @@ This document covers key new features and capabilities in this preview release o
 
 ## Cloud Tenant
 Azure Stack TP2 introduces new tenant capabilities and services for consumers of Azure Stack services, including:
- - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of your cryptographic keys and other secrets such as passwords with built-in auditing and monitoring of key use.
+ - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of cryptographic keys and other secrets such as passwords with built-in auditing and monitoring of key use.
  - Updated App Service Resource Provider and administration capabilities for new Platform-as-a-Service services:
    - New resource provider features such scale-up and scale-out, source control integration, and deployment slots. 
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale for consumption in other services.
    - Web App updates enable new features such as WebJobs and PHP 7 support.
-   - Mobile Apps provide API and table storage services for cross-platform mobile apps.  
+   - Mobile Apps service provides API and table storage services for cross-platform mobile apps.  
  - New Infrastructure-as-a-Service capabilities, including:
    - Deallocate and capture virtual machines
    - Redeploy virtual machine extensions
@@ -48,7 +48,7 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
  - Billing and usage APIs enable integration with your billing and consumption systems
- - Ability to capture plan and offer details in ARM templates for redeployment to your tenants
+ - Capture plan and offer details in ARM templates for redeployment to your tenants
  - Azure Stack regions preview support
    - View a list of all Azure Stack regions
    - Navigate to storage, computer, and network providers per region and view resource consumption
