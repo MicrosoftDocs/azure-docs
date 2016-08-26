@@ -9,232 +9,305 @@
     tags="connectors"/>
 
 <tags
-   ms.service="multiple"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.workload="integration" 
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
 # Get started with the Azure blob storage connector
-Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage Connector can be used from:
+Azure Blob storage is a service for storing large amounts of unstructured data. Perform various actions such as upload, update, get, and delete blobs in Azure blob storage. 
 
-- Logic apps 
+With Azure blob storage, you:
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+- Build your workflow by uploading new projects, or getting files that have been  recently updated.
+- Use actions to get file metadata, delete a file, copy files, and more. For example,  when a tool is updated in an Azure web site (a trigger), then update a file in blob storage (an action). 
 
-With Azure blob storage, you can:
+This topic shows you how to use the blob storage connector in a logic app, and also lists the actions.
 
-- Build your business flow based on the data you get from the blob. 
-- Use actions that let you create a file, get file content, and more. These actions get a response, and then make the output available for other actions. For example, you can search for "urgent" in a file in your blob, and then send all files with "urgent" in an email using Office 365. 
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Triggers and actions
-Azure blob includes the following actions. There are no triggers.
+## Connect to Azure blob storage
 
-| Triggers | Actions|
-| --- | --- |
-| None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li></ul> |
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
 
-All connectors support data in JSON and XML formats.
+#### Create the connection
 
-## Create a connection to Azure blob
-
->[AZURE.INCLUDE [Steps to create a connection to Azure Blob Storage](../../includes/connectors-create-api-azureblobstorage.md)]
-
-After you create the connection, you enter the blob properties, like folder path or file name. The **REST API reference** in this topic describes these properties.
-
->[AZURE.TIP] You can use this same blob connection in other logic apps.
+>[AZURE.INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
  
+## Use a trigger
 
-## Swagger REST API reference
-Applies to version: 1.0.
+This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
 
-### Create file
-Uploads a file to Azure Blob Storage.  
-```POST: /datasets/default/files```
+## Use an action
+	
+An action is an operation carried out by the workflow defined in a logic app.
 
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|folderPath|string|yes|query| none |Folder path to upload the file to Azure Blob Storage|
-|name|string|yes|query|none |Name of the file to create in Azure Blob Storage|
-|body|string(binary) |yes|body|none|Content of the file to upload to Azure Blob Storage|
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
 
-#### Response
+	![](./media/connectors-create-api-azureblobstorage/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “blob” to get a list of all the available actions.
+
+	![](./media/connectors-create-api-azureblobstorage/actions.png) 
+
+4. In our example, choose **AzureBlob - Get file metadata using path**. If a connection already exists, then select the **...** (Show Picker) button to select a file.
+
+	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+
+	If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-azureblobstorage.md#create-the-connection) in this topic describes these properties. 
+
+	> [AZURE.NOTE] In this example, we get the metadata of a file. To see the metadata, add another action that creates a new file using another connector. For example, add a OneDrive action that creates a new "test" file based on the metadata. 
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) is a great tool to  manage multiple storage accounts.
+
+## Technical Details
+
+## Storage Blob actions
+
+|Action|Description|
+|--- | ---|
+|[Get file metadata](connectors-create-api-azureblobstorage.md#get-file-metadata)|This operation gets file metadata using file id.|
+|[Update file](connectors-create-api-azureblobstorage.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-azureblobstorage.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|This operation gets file metadata using the path.|
+|[Get file content using path](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|This operation gets file contents using the path.|
+|[Get file content](connectors-create-api-azureblobstorage.md#get-file-content)|This operation gets file contents using id.|
+|[Create file](connectors-create-api-azureblobstorage.md#create-file)|This operation uploads a file.|
+|[Copy file](connectors-create-api-azureblobstorage.md#copy-file)|This operation copies a file to Azure Blob Storage.|
+|[Extract archive to folder](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
+
+### Action details
+
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
+
+#### Get file metadata
+This operation gets file metadata using file id.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Update file
+This operation updates a file.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+|body*|File content|Content of the file to update|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Delete file
+This operation deletes a file.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|id*|File|Select a file|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Get file metadata using path
+This operation gets file metadata using the path.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Get file content using path
+This operation gets file contents using the path.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|path*|File path|Select a file|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Get file content
+This operation gets file contents using id.  
+
+|Property Name| Data Type|Description|
+| ---|---|---|
+|id*|string|Select a file|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+None.
+
+
+#### Create file
+This operation uploads a file.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of file to upload|
+|body*|File content|Content of the file to upload|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type | 
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+#### Copy file
+This operation copies a file to Azure Blob Storage.  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source url|Specify Url to source file|
+|destination*|Destination file path|Specify the destination file path, including target filename|
+|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?  |
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+#### Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip).  
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source archive file path|Select an archive file|
+|destination*|Destination folder path|Select the contents to extract|
+|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?|
+
+An asterisk (*) means the property is required.
+
+##### Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+## HTTP responses
+
+When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
+
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
 |default|Operation Failed.|
-
-### Copy file
-Copies a file to Azure Blob Storage.   
-```POST: /datasets/default/copyFile```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query|none |Url to source file|
-|destination|string|yes|query| none|Destination file path in Azure Blob Storage, including target filename|
-|overwrite|boolean|no|query|none |Overwrites the destination file if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Delete file
-Deletes a file from Azure Blob Storage.  
-```DELETE: /datasets/default/files/{id}```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to delete from Azure Blob Storage|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Extract archive to folder
-Extracts an archive file into a folder in Azure Blob Storage (example: .zip).  
-```POST: /datasets/default/ExtractFolderV2```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|source|string|yes|query| none|Path to the archive file|
-|destination|string|yes|query|none |Path in Azure Blob Storage to extract the archive contents|
-|overwrite|boolean|no|query|none |Overwrites the destination files if set to 'true'|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file content
-Retrieves file contents from Azure Blob Storage using id.  
-```GET: /datasets/default/files/{id}/content```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none|Unique identifier of the file|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file content using path
-Retrieves file contents from Azure Blob Storage using path.  
-```GET: /datasets/default/GetFileContentByPath```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none |Unique path to the file in Azure Blob Storage|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get File Metadata
-Retrieves file metadata from Azure Blob Storage using file id.  
-```GET: /datasets/default/files/{id}```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Get file metadata using path
-Retrieves file metadata from Azure Blob Storage using path.  
-```GET: /datasets/default/GetFileByPath```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|path|string|yes|query|none|Unique path to the file in Azure Blob Storage|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
-### Update file
-Updates a file in Azure Blob Storage.  
-```PUT: /datasets/default/files/{id}```
-
-| Name|Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to update in Azure Blob Storage|
-|body|string(binary) |yes|body|none |Content of the file to update in Azure Blob Storage|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-## Object definitions
-
-#### DataSetsMetadata
-
-|Property Name | Data Type | Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-#### TabularDataSetsMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-#### BlobDataSetsMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### BlobMetadata
-
-|Property Name | Data Type |Required|
-|---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
 
 ## Next steps
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+
+
+

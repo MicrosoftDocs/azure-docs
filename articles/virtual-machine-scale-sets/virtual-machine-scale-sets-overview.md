@@ -141,11 +141,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
 
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability.
+**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
 
 **Q.** How about it if I then increase the capacity from 15 to 18?
 
-**A.** If you increase to 18, VMs with index 15, 16, 17 will be created. In both cases the VMs are balanced across FDs and UDs.
+**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
 
 **Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch

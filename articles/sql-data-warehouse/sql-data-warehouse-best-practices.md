@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Best practices for Azure SQL Data Warehouse
@@ -80,7 +80,7 @@ Since columnstore tables generally won't push data into a compressed columnstore
 
 When querying a columnstore table, queries will run faster if you select only the columns you need.  
 
-See also [Table indexes][], [Columnstore indexes guide][]
+See also [Table indexes][], [Columnstore indexes guide][], [Rebuilding columnstore indexes][]
 
 ## Use larger resource class to improve query performance
 SQL Data Warehouse uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class which grants 100 MB of memory per distribution.  Since there is always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes impacts concurrency, so you will want to take this into consideration before moving all of your users to a large resource class.
@@ -115,6 +115,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][] page to make fe
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexes]: ./sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md

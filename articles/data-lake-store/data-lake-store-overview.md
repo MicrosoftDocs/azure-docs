@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -65,7 +65,7 @@ Azure Data Lake Store uses Azure Active Directory for authentication and access 
 | Feature                                 | Description 							 |
 |-----------------------------------------|------------------------------------------|
 | Authentication | Azure Data Lake Store integrates with Azure Active Directory (AAD) for identity and access management for all the data stored in Azure Data Lake Store. As a result of the integration, Azure Data Lake benefits from all AAD features including multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, etc. Azure Data Lake Store supports the OAuth 2.0 protocol for authentication with in the REST interface. |
-| Access control                          | Azure Data Lake Store provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. In the current release, permissions can be specified at the data lake level and will apply to all the files and folders in the data lake. Future updates we will enable fine-grained access control by allowing permissions to be specified on individual files and folders.|
+| Access control                          | Azure Data Lake Store provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. In the current release, ACLs can be enabled on the root folder, sub-folders, as well as individual files. The ACLs you apply to the root folder will also applicable to all the child folders/files as well.|
 
 Want to learn more about securing data in Data Lake Store. Follow the links below.
 

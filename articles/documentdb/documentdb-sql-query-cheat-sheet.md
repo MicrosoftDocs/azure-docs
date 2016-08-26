@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# DocumentDB SQL cheat sheet PDF
+# DocumentDB SQL query cheat sheet PDF
 
-The **DocumentDB SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
+The **DocumentDB SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB data by displaying common  database queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
 
 DocumentDB supports relational, hierarchical,  and spatial querying of JSON documents using [SQL](documentdb-sql-query.md) without specifying a schema or secondary indexes. In addition to the standard ANSI-SQL keywords and operators, DocumentDB supports JavaScript user defined functions (UDFs), JavaScript operators, and a multitude of built-in functions.
 
@@ -31,7 +31,7 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 
 ![DocumentDB SQL query cheat sheet: A quick reference PDF to the SQL syntax supported by DocumentDB - SQL cheat sheet, SQL cheat sheet PDF, SQL quick reference][cheat-sheet]
 
-[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
+[cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## More help with writing SQL queries
@@ -39,3 +39,6 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 - For a walk through of the query options available in DocumentDB, see [Query DocumentDB](documentdb-sql-query.md).
 - For the related reference documentation, see [DocumentDB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
+## Release notes
+
+Updated on 7/29/2016 to include TOP.

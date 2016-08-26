@@ -201,10 +201,10 @@ In this section, you'll create a Node.js console app that simulates a device tha
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothubname}** with your IoT hub name and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section and **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```

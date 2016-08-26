@@ -56,8 +56,8 @@ Enterprise admin credentials are required since changes to the configuration nam
 
 Description:
 
-- If not existent, it creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- If not existent, it creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
+- If they do not exist already, creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- If they do not exist already, creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
 - Sets necessary permissions on the Azure AD Connector account, to manage devices on your Active Directory.
 - Only needs to run on one forest, even if Azure AD Connect is being installed on multiple forests.
 

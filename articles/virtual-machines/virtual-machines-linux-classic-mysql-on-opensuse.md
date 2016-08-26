@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Install MySQL on a OpenSUSE Linux VM in Microsoft Azure"
-	description="Learn to install MySQL on a virtual machine in Azure."
+	pageTitle="Install MySQL on an OpenSUSE VM | Microsoft Azure"
+	description="Learn to install MySQL on an OpenSUSE Linux VMirtual machine in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/19/2016"
 	ms.author="cynthn"/>
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure

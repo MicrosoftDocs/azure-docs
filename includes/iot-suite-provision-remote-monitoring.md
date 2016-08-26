@@ -1,8 +1,6 @@
-## Provision the remote monitoring preconfigured solution
+## Provision the solution
 
 1.  Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a new solution.
-
-    > [AZURE.NOTE] If you're having trouble with the permissions required to provision a solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] for guidance.
 
 2.  Click **Select** on the **Remote monitoring** tile.
 
@@ -26,7 +24,6 @@
 
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -43,7 +43,7 @@ You can install Zeppelin on a Spark cluster using script action. Script action u
 
 ### Using the Azure Portal
 
-For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). You must make a couple of changes to the instructions in that article.
+For instructions on how to use the Azure Portal to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). You must make a couple of changes to the instructions in that article.
 
 * You must use the script to install Zeppelin. The custom script to install Zeppelin on a Spark cluster on HDInsight is available from the following links:
 	* For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -201,7 +201,7 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 	* **Pattern Name** - **zeppelinnotebook** - This is just a friendly name for the pattern.
 
-	* **URL pattern** - **\*hn0\*** - This defines a pattern that matches the internal fully qualified domain name of endpoint where the Zeppelin notebooks are hosted. Because Zeppelin notebooks are available only on the headnode0 of the cluster, and the endpoint is typically `http://hn0-<string>.internal.cloudapp.net`, using the pattern **hn0** would ensure that the request is redirected to the Zeppelin endpoint.
+	* **URL pattern** - **\*hn0*** - This defines a pattern that matches the internal fully qualified domain name of endpoint where the Zeppelin notebooks are hosted. Because Zeppelin notebooks are available only on the headnode0 of the cluster, and the endpoint is typically `http://hn0-<string>.internal.cloudapp.net`, using the pattern **hn0** would ensure that the request is redirected to the Zeppelin endpoint.
 
 		![foxyproxy pattern](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -211,11 +211,11 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 	![foxyproxy select mode](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-After following these steps, only requests for URLs that contain the string __internal.cloudapp.net__ will be routed over the SSL tunnel. 
+After following these steps, only requests for URLs that contain the string __hn0__ will be routed over the SSL tunnel. 
 
 ## Access the Zeppelin notebook
 
-Once you have SSH tunneling setup, you can use the following steps to access Zeppelin notebook on the Spark cluster by following the steps below.
+Once you have SSH tunneling setup, you can use the following steps to access Zeppelin notebook on the Spark cluster by following the steps below. In this section, you will see how to run %sql and %hive statements.
 
 1. From the web browser, open the following endpoint:
 
@@ -235,12 +235,14 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 	![Zeppelin notebook status](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin notebook status")
 
+### Run SQL statements
+
 4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
 
 	In the empty paragraph that is created by default in the new notebook, paste the following snippet.
 
 		// Create an RDD using the default Spark context, sc
-		val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -297,6 +299,41 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
 
+### Run hive statements
+
+1. From the Zeppelin notebook, click the **Interpreter** button.
+
+	![Update Hive interpreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Update Hive interpreter")
+
+2. For the **hive** interpreter, click **edit**.
+
+	![Update Hive interpreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Update Hive interpreter")
+
+	Update the following properties.
+
+	* Set **default.password** to the password you specified for the admin user while creating the HDInsight Spark cluster.
+	* Set **default.url** to `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Replace **\<spark_cluster_name>** with the name of your Spark cluster.
+	* Set **default.user** to the name of the admin user you specified while creating the cluster. For example, *admin*.
+
+3. Click **Save** and when prompted to restart the hive interpreter, click **OK**.
+
+4. Create a new notebook and run the following statement to list all the hive tables on the cluster.
+
+		%hive
+		SHOW TABLES
+
+	By default, an HDInsight cluster has a sample table called **hivesampletable** so you should see the following output.
+
+	![Hive output](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Hive output")
+
+5. Run the following statement to list the records in the table.
+
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
+
+	You should an output like the following.
+
+	![Hive output](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Hive output")
 
 ## <a name="seealso"></a>See also
 

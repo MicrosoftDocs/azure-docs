@@ -179,7 +179,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 |---|---|---|
 |Maximum queue size|**200 TB**<br/><br/>(limited to a single storage account capacity)|**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section)|
 |Maximum message size|**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item.|**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md).|
-|Maximum message TTL|**7 days**|**Unlimited**|
+|Maximum message TTL|**7 days**|**`TimeSpan.Max`**|
 |Maximum number of queues|**Unlimited**|**10,000**<br/><br/>(per service namespace, can be increased)|
 |Maximum number of concurrent clients|**Unlimited**|**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication)|
 

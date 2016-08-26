@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Monitor DocumentDB requests, usage, and storage
 
-You can monitor your DocumentDB accounts in the [Microsoft Azure Portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
+You can monitor your Azure DocumentDB accounts in the [Azure portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
 
 ## View performance metrics in the portal 
-1.	In a new window, open the [Azure portal](https://portal.azure.com/), click **Browse**, click **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
-2.	Within the **Monitoring** lens you can, by default, see:
+1.	In a new window, open the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
+2.	The **Monitoring** lens displays the following tiles by default:
 	*	Total requests for the current day.
-	*	Total RUs ([Request Units](documentdb-request-units.md)) used during the current day.
 	*	Storage used.
 
-	If your table displays **No data available** see the [Troubleshooting](#troubleshooting) section.
+	If your table displays **No data available** and you believe there is data in your database, see the [Troubleshooting](#troubleshooting) section.
 
-	![Screen shot of the Monitoring lens which shows the total requests for today and storage usage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
+	![Screen shot of the Monitoring lens which shows the requests and the storage usage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	Clicking on the **Requests**, **Total RUs**, or **Storage** tile opens a detailed **Metric** blade.
+3.	Clicking on the **Requests** or **Storage** tile opens a detailed **Metric** blade.
 4.	The **Metric** blade shows you details about the metrics you have selected.  At the top of the blade is a graph of requests charted hourly, and below that is table that shows aggregation values for throttled and total requests.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
 
 	![Screenshot of the Metric blade which includes throttled requests](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -68,18 +67,15 @@ You may now treat this part as any other metric part, customizing the metrics an
 	![Screen shot of the Total Requests chart and the new Total Requests past hour chart](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## Set up alerts in the portal
-1.	In the [Azure Portal](https://portal.azure.com/), click **Browse**, click **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.
+1.	In the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.
 
-2.	If the **All Settings** blade is not open, click the **Settings** Command at the top left to open the blade.
-	![Screen shot of the Settings command on the Database Account Blade](./media/documentdb-monitor-accounts/madocdb10.png)
-
-3.	In the **All Settings** blade, click **Alert Rules** to open the Alert rules blade.  
+2.	In the resource menu, click **Alert Rules** to open the Alert rules blade.  
 	![Screen shot of the Alert rules part selected](./media/documentdb-monitor-accounts/madocdb10.5.png)
 
-4.	In the Alert rules blade, click **Add alert**.  
+3.	In the **Alert rules** blade, click **Add alert**.  
 	![Screenshot of the Alert Rules blade, with the Add Alert button highlighted](./media/documentdb-monitor-accounts/madocdb11.png)
 
-5.	In the **Add an alert rule** blade, specify:
+4.	In the **Add an alert rule** blade, specify:
 	*	The name of the alert rule you are setting up.
 	*	A description of the new alert rule.
 	*	The metric for the alert rule.

@@ -100,7 +100,7 @@ The **Microsoft Power BI Embedded** sample is an example dashboard web app that 
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. We will expand the description of the sample as we move towards General Availability (GA). To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -120,6 +120,15 @@ The sample has a **ReportsViewModel** and **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Connection string
+The connection string must be in the following format:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### View
 The **View** manages the display of Power BI **Reports** and a Power BI **Report**.

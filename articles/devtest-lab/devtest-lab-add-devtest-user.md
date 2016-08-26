@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
 
-> [AZURE.NOTE] View this article's accompanying video: [How to set security in DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
+> [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
 ## Overview
 DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
@@ -103,3 +103,6 @@ To add a DevTest Labs user to your lab, follow these steps:
 	1. Select **OK** to close the **Add access** blade.
 
 1. The **Users** blade displays the added roles and users.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+

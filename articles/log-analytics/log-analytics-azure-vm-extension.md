@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="07/25/2016"
 	ms.author="richrund"/>
 
 # Connect Azure virtual machines to Log Analytics
@@ -366,6 +366,8 @@ If the *MMA* VM agent extension is not installing or reporting you can perform t
 
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
   + You can also review the VM agent log in `C:\WindowsAzure\logs\WaAppAgent.log`
+  + If the log does not exist the VM agent is not installed. 
+    - [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)
 2. Confirm the MMA extension heartbeat task is running using the following steps:
   + Login to the virtual machine
   + Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
@@ -384,6 +386,8 @@ For more information refer to [troubleshooting Windows extensions](../virtual-ma
 If the *OMS Agent for Linux* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log in `/var/log/waagent.log`
+  + If the log does not exist the VM agent is not installed. 
+  - [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)
 2. For other unhealthy statuses review the OMS Agent for Linux VM extension logs in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the OMS Agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 

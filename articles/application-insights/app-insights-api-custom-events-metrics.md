@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -240,7 +240,7 @@ You can also call it yourself if you want to simulate requests in a context wher
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,22 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Track Dependency
 
@@ -690,7 +705,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 

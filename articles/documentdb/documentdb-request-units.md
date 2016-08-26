@@ -189,7 +189,7 @@ Select top 10|15|150 Total|155|1275
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
-##Exceeding reserved throughput limits
+##<a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits
 Recall that request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLargeException (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
 	HTTP Status 429
@@ -202,7 +202,7 @@ If you have more than one client cumulatively operating above the request rate, 
 
 ##Next steps
 
-To learn more about reserved throughput with Azure DocumentDB, explore these resources:
+To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
  
 - [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Managing DocumentDB capacity](documentdb-manage.md) 

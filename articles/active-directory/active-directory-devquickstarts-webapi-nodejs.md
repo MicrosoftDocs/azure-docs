@@ -181,19 +181,20 @@ Type the following command to install Passport.js passport-azure-ad module:
 
 The output of the command should appear similar to the following:
 
-``
-passport-azure-ad@1.0.0 node_modules/passport-azure-ad
-├── xtend@4.0.0
-├── xmldom@0.1.19
-├── passport-http-bearer@1.0.1 (passport-strategy@1.0.0)
-├── underscore@1.8.3
-├── async@1.3.0
-├── jsonwebtoken@5.0.2
-├── xml-crypto@0.5.27 (xpath.js@1.0.6)
-├── ursa@0.8.5 (bindings@1.2.1, nan@1.8.4)
-├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
-├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-└── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
+	``
+	passport-azure-ad@1.0.0 node_modules/passport-azure-ad
+	├── xtend@4.0.0
+	├── xmldom@0.1.19
+	├── passport-http-bearer@1.0.1 (passport-strategy@1.0.0)
+	├── underscore@1.8.3
+	├── async@1.3.0
+	├── jsonwebtoken@5.0.2
+	├── xml-crypto@0.5.27 (xpath.js@1.0.6)
+	├── ursa@0.8.5 (bindings@1.2.1, nan@1.8.4)
+	├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
+	├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+	└── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
+
 
 
 ## 8. Add MongoDB modules to your Web API

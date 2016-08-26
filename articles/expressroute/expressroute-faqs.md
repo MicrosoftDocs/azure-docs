@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/13/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -184,21 +184,10 @@ ExpressRoute premium is a collection of features listed below.
  - Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
+The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
 
-**Limits for circuits**
 
-| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps      | 10                                     | 10                                            |
-| 100 Mbps     | 10                                     | 20                                            |
-| 200 Mbps     | 10                                     | 25                                            |
-| 500 Mbps     | 10                                     | 40                                            |
-| 1 Gbps       | 10                                     | 50											|
-| 2 Gbps	   | 10										| 60											|
-| 5 Gbps       | 10                                		| 75											|
-| 10 Gbps      | 10                                		| 100                                          |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### How do I enable ExpressRoute premium?
@@ -248,5 +237,5 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
-### Can Dynamics AX be accessed over an ExpressRoute connection?
+### Can Dynamics AX Online be accessed over an ExpressRoute connection?
 No, it is not supported.

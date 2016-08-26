@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="08/09/2016"
    ms.author="iainfou"/>
 
 # Classic Endpoints in Resource Manager
@@ -22,7 +22,7 @@
 ## Next steps
 You can read more detailed information on the technologies discussed here, along with quick-start guides for using Network Security Groups, in the following articles:
 
-- [Quick-start - Create a Network Security Group and ACL rules using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md)  
+- [Quick-start - Create a Network Security Group and ACL rules using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)  
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
 - [Azure Resource Manager overview](../resource-group-overview.md)  
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)  

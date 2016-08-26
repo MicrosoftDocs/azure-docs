@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protect VMs in Azure with Azure Backup | Microsoft Azure"
-	description="Protect Azure VMs with Azure Backup service. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
+	pageTitle="First Look: Protect Azure VMs with a backup vault | Microsoft Azure"
+	description="Protect Azure VMs with Backup vault. Tutorial explains create vault, register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/29/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # First look: Backing up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
-- [Back up Classic mode VMs](backup-azure-vms-first-look.md)
+- [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [First Look: Protect Azure VMs with a backup vault](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to Azure. To successfully complete this tutorial, these prerequisites must exist:
+This tutorial takes you through the steps for backing up an Azure virtual machine (VM) to a backup vault in Azure. This article describes the Classic model or Service Manager deployment model, for backing up VMs. If you are interested in backing up a VM to a Recovery Services vault that belongs to a Resource Group, see [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md). To successfully complete this tutorial, these prerequisites must exist:
 
 - You have created a VM in your Azure subscription.
 - The VM has connectivity to Azure public IP addresses. For additional information, see [Network connectivity](./backup-azure-vms-prepare.md#network-connectivity).
@@ -38,7 +38,7 @@ To back up a VM, there are five main steps:
 
 ![High-level view of VM backup process](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Azure Resource Manager (ARM)-based VMs - also known as IaaS V2 VMs. For details on backing up ARM VMs, see [First Look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This tutorial is for use with the VMs that can be created in the Azure Classic portal. The Azure Backup service supports Resource Manager-based VMs. For details on backing up VMs to a recovery services vault, see [First Look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -145,7 +145,7 @@ Before registering the VM with a vault, run the discovery process to identify an
 
 ## Step 3 - Install the VM Agent on the virtual machine
 
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM. You can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, the VM Agent is already present on the VM. You can skip to [protecting your VMs](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines).
 
 If your VM migrated from an on-premises datacenter, the VM probably does not have the VM Agent installed. You must install the VM Agent on the virtual machine before proceeding to protect the VM. For detailed steps on installing the VM Agent, see the [VM Agent section of the Backup VMs article](backup-azure-vms-prepare.md#vm-agent).
 
@@ -213,7 +213,7 @@ To start the initial backup now:
     >[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
 
 ## Next steps
-Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However there are management tasks that will help you understand how to keep your data safe and minimize costs.
+Now that you have successfully backed up a VM, there are several next steps that could be of interest. The most logical step is to familiarize yourself with restoring data to a VM. However, there are management tasks that will help you understand how to keep your data safe and minimize costs.
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)

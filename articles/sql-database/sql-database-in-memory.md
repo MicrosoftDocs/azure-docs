@@ -41,22 +41,17 @@ The features of In-Memory [OLTP](#install_oltp_manuallink) (online transaction p
 
 A memory-optimized table has one representation of itself in active memory, in addition to the standard representation on a hard drive. Business transactions against the table run faster because they directly interact with only the representation that is in active memory.
 
-With In-Memory OLTP you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
+With In-Memory OLTP, you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
 
 
-Natively compiled stored procedures require fewer machine instructions during run time than they would if they were created as traditional interpreted stored procedures. We have seen native compilation result in durations that are 1/100th of the interpreted duration.
+Natively compiled stored procedures require fewer machine instructions during run time than traditional interpreted stored procedures. We have seen native compilation result in durations that are 1/100th of the interpreted duration.
 
 
 #### In-Memory Analytics 
 
 The feature of In-Memory [Analytics](#install_analytics_manuallink) is:
 
-- Columnstore indexes
-
-
-A columnstore index improves the performance of query workloads by exotic compression of data.
-
-In other services the columnstore indexes are necessarily memory optimized. However, in Azure SQL Database a columnstore index can exist on the hard drive along with the traditional table that it indexes.
+Columnstore indexes improve the performance of analytics and reporting queries. 
 
 
 #### Real-Time Analytics
@@ -77,7 +72,6 @@ GA, General Availability:
 Preview:
 
 - In-Memory OLTP
-- In-Memory Analytics with memory-optimized columnstore indexes
 - Real-Time Operational Analytics
 
 
@@ -94,7 +88,7 @@ Considerations while the In-Memory features are in Preview are described [later 
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure Portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
 - In-Memory tables.
 - A natively compiled stored procedure.
@@ -102,15 +96,15 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 #### Installation steps
 
-1. In the [Azure Portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
- - For detailed instructions you can see [Create your first Azure SQL database](sql-database-get-started.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+ - For detailed instructions, you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) to your clipboard.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
  - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
 
-4. Paste the T-SQL script into SSMS, and the execute the script.
+4. Paste the T-SQL script into SSMS, and then execute the script.
  - Crucial is the `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements, as in:
 
 
@@ -185,13 +179,13 @@ The only difference between the following two *stored procedures* is that the fi
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
-In this section you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
+In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
 
 
 When you run ostress.exe, we recommend that you pass parameter values designed to both:
 
-- Run a large number of concurrent connections, by using perhaps -n100.
-- Have each connection loop hundreds of times, by using perhaps -r500.
+- Run a large number of concurrent connections, by using -n100.
+- Have each connection loop hundreds of times, by using -r500.
 
 
 However, you might want to start with much smaller values like -n10 and -r50 to ensure the everything is working.
@@ -242,7 +236,7 @@ To make the _ondisk version of the preceding T-SQL for ostress.exe, you would si
 Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
-On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities which include ostress.exe.
+On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
 
 - See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
  - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
@@ -286,7 +280,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Copy the text of the preceding ostress.exe command line to your clipboard.
 
-3. Replace the <placeholders> for the parameters -S -U -P -d with the correct real values.
+3. Replace the `<placeholders>` for the parameters -S -U -P -d with the correct real values.
 
 4. Run your edited command line in an RML Cmd window.
 
@@ -331,10 +325,7 @@ Our In-Memory tests have shown a **9 times** performance improvement for this si
 ## B. Install the In-Memory Analytics sample
 
 
-In this section you compare the IO and Statistics results when using a columnstore index versus a regular index.
-
-
-Columnstore indexes are logically the same as regular indexes, but physically they are different. A columnstore index exotically organizes data to greatly compress the data. This offers major performance improvements.
+In this section, you compare the IO and Statistics results when using a columnstore index versus a traditional b-tree index.
 
 
 For real-time analytics on an OLTP workload, it is often best to use a NONclustered columnstore index. For details see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
@@ -348,12 +339,12 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
  - Use that exact name.
  - Choose any Premium service tier.
 
-2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) to your clipboard.
+2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
  - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
  - The script creates the Dimension table, and two fact tables. The fact tables are populated with 3.5 million rows each.
  - The script might take 15 minutes to complete.
 
-3. Paste the T-SQL script into SSMS, and the execute the script.
+3. Paste the T-SQL script into SSMS, and then execute the script.
  - Crucial is the **COLUMNSTORE** keyword on a **CREATE INDEX** statement, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
@@ -363,15 +354,15 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
 #### Crucial tables and columnstore indexes
 
 
-- dbo.FactResellerSalesXL_CCI is a table which has a clustered **columnstore** index, which has advanced compression at the *data* level.
+- dbo.FactResellerSalesXL_CCI is a table that has a clustered **columnstore** index, which has advanced compression at the *data* level.
 
-- dbo.FactResellerSalesXL_PageCompressed is a table which has an equivalent regular clustered index, which is compressed only at the *page* level.
+- dbo.FactResellerSalesXL_PageCompressed is a table that has an equivalent regular clustered index, which is compressed only at the *page* level.
 
 
 #### Crucial queries to compare the columnstore index
 
 
-[Here](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script there is a pair of queries that are of direct interest. The two queries differ only on one line:
+[Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script, there is a pair of queries that are of direct interest. The two queries differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -468,14 +459,14 @@ In the current preview, In-Memory OLTP is supported only for:
  - A new database cannot support In-Memory OLTP if it is restored from a database that was created before the In-Memory OLTP features became active.
 
 
-When in doubt, you can always run the following T-SQL SELECT to ascertain whether whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory OLTP:
+When in doubt, you can always run the following T-SQL SELECT to ascertain whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory OLTP:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 
-If the query returns **1**, In-Memory OLTP is supported in this database, as well as any database copy and database restore created based on this database.
+If the query returns **1**, In-Memory OLTP is supported in this database, and any database copy and database restore created based on this database.
 
 
 #### Objects allowed only at Premium
@@ -494,15 +485,15 @@ If a database contains any of the following kinds of In-Memory OLTP objects or t
 - Using In-Memory OLTP features with databases in elastic pools is not supported during Preview.
  - To move a database that has or has had In-Memory OLTP objects to an elastic pool, follow these steps:
   - 1. Drop any memory-optimized tables, table types, and natively compiled T-SQL modules in the database
-  - 2. Change the service tier of the database to standard (*there is currently an issue preventing the move of Premium databases that have had In-Memory OLTP objects in the past into an elastic pool; the Azure DB team is actively working on resolving the issue)
+  - 2. Change the service tier of the database to standard
   - 3. Move the database into the elastic pool
 
 - Using In-Memory OLTP with SQL Data Warehouse is not supported.
  - The columnstore index feature of In-Memory Analytics is supported in SQL Data Warehouse.
 
-- The Query Store does not capture queries inside natively compiled modules during Preview, but it might in the future.
+- The Query Store does not capture queries inside natively compiled modules.
 
-- Some Transact-SQL features are not supported with In-Memory OLTP. This applies to both Microsoft SQL Server and Azure SQL Database. For details see:
+- Some Transact-SQL features are not supported with In-Memory OLTP. This applies to both Microsoft SQL Server and Azure SQL Database. For details, see:
  - [Transact-SQL Support for In-Memory OLTP](http://msdn.microsoft.com/library/dn133180.aspx)
  - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 

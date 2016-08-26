@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Analyze flight delay data by using Hive in HDInsight
@@ -237,9 +237,9 @@ If you do not already have a SQL Database, use the information in [SQL Database 
 
 3. Use the following command to export data from hivesampletable to the mobiledata table:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	This instructs Sqoop to connect to SQL Database, to the database containing the delays table, and export data from the wasb:///tutorials/flightdelays/output (where we stored the output of the hive query earlier,) to the delays table.
+	This instructs Sqoop to connect to SQL Database, to the database containing the delays table, and export data from the wasbs:///tutorials/flightdelays/output (where we stored the output of the hive query earlier,) to the delays table.
 
 4. After the command completes, use the following to connect to the database using TSQL:
 

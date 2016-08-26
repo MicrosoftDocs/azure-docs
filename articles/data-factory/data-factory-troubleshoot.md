@@ -49,7 +49,7 @@ The Express setup for the Data Management Gateway requires Internet Explorer or 
 - Use the **Manual Setup** link shown on the same blade in the portal to download installation file and run it manually. After the installation is successful, you will see the Data Management Gateway Configuration dialog box. Copy the **key** from the portal screen and use it in the configuration manager to manually register the gateway with the service.  
 
 ### Problem: Fail to connect to on-premises SQL Server 
-Launch **Data Management Gateway Configuration Manager** on the gateway machine and use the **Troubleshooting** tab to test the connection to SQL Server from the gateway machine. See [Gateway troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for details.  
+Launch **Data Management Gateway Configuration Manager** on the gateway machine and use the **Troubleshooting** tab to test the connection to SQL Server from the gateway machine. See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues.   
  
 
 ### Problem: Input slices are in Waiting state for ever
@@ -87,7 +87,7 @@ See [Datasets](data-factory-create-datasets.md) article for more details about t
 To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table. 
 
 ### Problem: Hybrid copy operation fails
-See [Gateway troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for steps to troubleshoot issues with copying to/from an on-premises data store using the Data Management Gateway. 
+See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for steps to troubleshoot issues with copying to/from an on-premises data store using the Data Management Gateway. 
 
 ### Problem: On-demand HDInsight provisioning fails
 When using a linked service of type HDInsightOnDemand, you need to specify a linkedServiceName that points to an Azure Blob Storage. Data Factory service uses this storage to store logs and supporting files for your on-demand HDInsight cluster.  Sometimes provisioning of an on-demand HDInsight cluster fails with the following error:

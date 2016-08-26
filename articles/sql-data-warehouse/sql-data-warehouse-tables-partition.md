@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitioning tables in SQL Data Warehouse
@@ -146,6 +146,8 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Partition switching
 
+SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is excuted using the [ALTER TABLE][] statement.
+
 To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case, then the partition switch will fail as the partition metadata will not be synchronized.
 
 ### How to split a partition that contains data
@@ -187,7 +189,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
-We can then query for the row count leveraging the `sys.partitions` catalog view:
+We can then query for the row count using the `sys.partitions` catalog view:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -368,6 +370,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 
 <!-- MSDN Articles -->
 [Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [partition function]: https://msdn.microsoft.com/library/ms187802.aspx
 [partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx

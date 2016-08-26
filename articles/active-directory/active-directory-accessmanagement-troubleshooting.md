@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Troubleshooting dynamic membership for groups| Microsoft Azure"
+	pageTitle="Troubleshooting dynamic membership for groups | Microsoft Azure"
 	description="Troubleshooting tips for dynamic membership for groups in Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 

@@ -3,7 +3,7 @@
    description="Learn how to deploy multi NIC VMs using the Azure CLI in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Deploy multi NIC VMs using the Azure CLI
 
@@ -88,7 +88,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
+	>[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
 
 4. Retrieve the ID for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
 

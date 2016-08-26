@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows virtual machine with a Resource Manager template
@@ -27,7 +27,7 @@ It should take about 20 minutes to do the steps in this article.
 
 ## Step 1: Create the template file
 
-You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quiskstarts Templates](https://azure.microsoft.com/documentation/templates/). The example used in this article is similar to the template described in [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).
+You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quiskstarts Templates](https://azure.microsoft.com/documentation/templates/).
 
 1. Open your favorite text editor and copy this JSON information to a new file called *VirtualMachineTemplate.json*:
 
@@ -216,7 +216,7 @@ To specify values for the resource parameters that were defined in the template,
           }
         }
 
-4. Save the parameters file.
+2. Save the parameters file.
 
 ## Step 3: Install Azure PowerShell
 
@@ -228,7 +228,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
 
 1. Get a list of available locations where resources can be created.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
 2. Replace the value of **$locName** with a location from the list, for example **Central US**. Create the variable.
 
@@ -247,7 +247,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Step 7: Create the resources with the template and parameters
+### Step 5: Create the resources with the template and parameters
 
 1. Replace the value of **$deployName** with the name of the deployment. Replace the value of **$templatePath** with the path and name of the template file. Replace the value of **$parameterFile** with the path and name of the parameters file. Create the variables. 
 
@@ -255,7 +255,7 @@ All resources must be deployed in a resource group. See [Azure Resource Manager 
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Deploy the template. 
+2. Deploy the template. 
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 

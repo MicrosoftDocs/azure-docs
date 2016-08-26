@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #Azure resiliency technical guidance: Recovery from local failures in Azure
 
@@ -110,7 +110,7 @@ A virtual machine’s disk is stored as a page blob in Azure Storage, giving it 
 
 Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
 
->[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 ####Replication
 
@@ -160,23 +160,23 @@ Applications that are built on Azure benefit from platform capabilities to recov
 
 ###Service Bus
 
-To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###Mobile Services
 
 There are two availability considerations for Azure Mobile Services. First, regularly back up the SQL database that's associated with your mobile service. Second, back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md).
 
-If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
+If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ###HDInsight
 
-The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ##Checklists for local failures
 
 ###Cloud Services
 
-  1. Review the [Cloud Services](#cloud-services) section of this document.
+  1. Review the Cloud Services section of this document.
   2. Configure at least two instances for each role.
   3. Persist state in durable storage, not on role instances.
   4. Correctly handle the StatusCheck event.
@@ -187,36 +187,36 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 
 ###Virtual Machines
 
-  1. Review the [Virtual Machines](#virtual-machines) section of this document.
+  1. Review the Virtual Machines section of this document.
   2. Do not use drive D for persistent storage.
   3. Group machines in a service tier into an availability set.
   4. Configure load balancing and optional probes.
 
 ###Storage
 
-  1. Review the [Storage](#storage) section of this document.
+  1. Review the Storage section of this document.
   2. Use multiple storage accounts when data or bandwidth exceeds quotas.
 
 ###SQL Database
 
-  1. Review the [SQL Database](#sql-database) section of this document.
+  1. Review the SQL Database section of this document.
   2. Implement a retry policy to handle transient errors.
   3. Use partitioning/sharding as a scale-out strategy.
 
 ###SQL Server on Virtual Machines
 
-  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document.
+  1. Review the SQL Server on Virtual Machines section of this document.
   2. Follow the previous recommendations for Virtual Machines.
   3. Use SQL Server high availability features, such as AlwaysOn.
 
 ###Service Bus
 
-  1. Review the [Service Bus](#service-bus) section of this document.
+  1. Review the Service Bus section of this document.
   2. Consider creating a durable client-side queue as a backup.
 
 ###HDInsight
 
-  1. Review the [HDInsight](#hdinsight) section of this document.
+  1. Review the HDInsight section of this document.
   2. No additional availability steps are required for local failures.
 
 ##Next steps

@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic apps content type handling | Microsoft Azure"
    description="Understand how Logic Apps deals with content-types at design and runtime"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

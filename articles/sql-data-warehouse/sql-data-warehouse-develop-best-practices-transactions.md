@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/31/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimizing transactions for SQL Data Warehouse
@@ -33,6 +33,8 @@ Azure SQL Data Warehouse commits changes to the database using transaction logs.
 ## Minimal vs. full logging
 
 Unlike fully logged operations, which use the transaction log to keep track of every row change, minimally logged operations keep track of extent allocations and meta-data changes only. Therefore, minimal logging involves logging only the information that is required to rollback the transaction in the event of a failure or an explicit request (`ROLLBACK TRAN`). As much less information is tracked in the transaction log, a minimally logged operation performs better than a similarly sized fully logged operation. Furthermore, because fewer writes go the transaction log, a much smaller amount of log data is generated and so is more I/O efficient.
+
+The transaction safety limits only apply to fully logged operations.
 
 >[AZURE.NOTE] Minimally logged operations can participate in explicit transactions. As all changes in allocation structures are tracked, it is possible to roll back minimally logged operations. It is important to understand that the change is "minimally" logged it is not un-logged.
 
@@ -54,6 +56,8 @@ The following operations are capable of being minimally logged:
 - UPDATE on LOB Types .WRITE
 - SELECT..INTO
 -->
+
+>[AZURE.NOTE] Internal data movement operations (such as `BROADCAST` and `SHUFFLE`) are not affected by the transaction safety limit.
 
 ## Minimal logging with bulk load
 

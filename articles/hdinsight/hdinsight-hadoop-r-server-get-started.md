@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="08/19/2016"
    ms.author="jeffstok"
 />
 
@@ -80,23 +80,23 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	To create and use a public/private key pair select ‘PUBLIC KEY’ and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
 
-	- Generate a public/private key pair from the command prompt on your laptop:
+	-    Generate a public/private key pair from the command prompt on your laptop:
 	  
-			````ssh-keygen -t rsa -b 2048 –f <private-key-filename>````
-
-    - This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
-    
-	![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)
-
-	- Change permissions on the private keyfile on your laptop
-    
-			````chmod 600 <private-key-filename>````
-
-	- Use the private key file with SSH for remote login, e.g.
-	
-			````ssh –i <private-key-filename> remoteuser@<hostname public ip>````
-
-	  Or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the Creating a Compute Context for Spark section of the online RevoScaleR Hadoop Spark Getting Started guide.)
+		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+      
+    -    This will create a private key file and a public key file under the name <private-key-filename>.pub, e.g.  davec and davec.pub.  Then specify the public key file (*.pub) when assigning HDI cluster credentials:
+      
+		![Credentials blade](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
+      
+	-    Change permissions on the private keyfile on your laptop
+      
+			chmod 600 <private-key-filename>
+      
+	-    Use the private key file with SSH for remote login, e.g.
+	  
+			ssh –i <private-key-filename> remoteuser@<hostname public ip>
+      
+	  or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
 
 7. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting __Select storage account__ and then selecting the account, or create a new account using the __New__ link in the __Select storage account__ section.
 
@@ -116,13 +116,13 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 
 	> [AZURE.NOTE] If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
 
-	Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include: 
-
-	•	The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
-	•	The performance of R Server analyses is linear in the size of data being analyzed.
-	•	For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight
-	•	If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute **locally** on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.  
-
+	Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
+   
+    - The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
+    - The performance of R Server analyses is linear in the size of data being analyzed. For example:  
+        - For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.<br>
+        - If you log into the edge node and run your R script there then all but the ScaleR rx-functions will execute <strong>locally</strong> on the edge node so the memory and number of cores of the edge node should be sized accordingly. The same applies if you use R Server on HDI as a remote compute context from your laptop.
+    
     ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
     Use the **Select** button to save the node pricing configuration.
@@ -196,31 +196,35 @@ Once connected, you will arrive at a prompt similar to the following.
     
     You can also use the WASB style addressing.
     
-        rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasbs:///")
 
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 
-Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the Creating a Compute Context for Spark section of the online RevoScaleR Hadoop Spark Getting Started guide.)  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
+Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
     
-        mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
-        mySshUsername  <- 'remoteuser'# HDI SSH username
-        mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
-    
-        myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-        myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
-    
-        mySparkCluster <- RxSpark(
-          hdfsShareDir = myhdfsShareDir,
-          shareDir = myShareDir,
-          sshUsername  = mySshUsername,
-          sshHostname  = mySshHostname,
-          sshSwitches  = mySshSwitches,
-          sshProfileScript = '/etc/profile',
-          nameNode = myNameNode,
-          port = myPort,
-          consoleOutput= TRUE
-        )
+    myNameNode <- "default"
+    myPort <- 0 
+ 
+    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+ 
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+ 
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
+
     
  
 ## Use a compute context
@@ -356,7 +360,7 @@ If you are still using the Spark or MapReduce context, this will return the node
 
 ## Install R packages
 
-If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the egde node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
+If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the edge node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
 
 Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster, or to install additional software. In this case, to install additional R packages. To install additional packages using a Script Action, use the following steps.
 
@@ -370,18 +374,18 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
 3. From the __Submit script action__ blade, provide the following information.
 
-    * __Name__: A friendly name to used to identify this script
-    * __Bash script URI__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh
-    * __Head__: This should be __unchecked__
-    * __Worker__: This should be __Checked__
-    * __Zookeeper__: This should be __Unchecked__
-    * __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
-    * __Persist this script...__: This should be __Checked__
-    
-    > [AZURE.IMPORTANT] If the R package(s) you install require system libraries to be added, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-    >
-    >For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).
-    
+  - __Name__: A friendly name to identify this script
+  - __Bash script URI__: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
+  - __Head__: This should be __unchecked__
+  - __Worker__: This should be __checked__
+  - __Zookeeper__: This should be __unchecked__
+  - __Parameters__: The R packages to be installed. For example, `bitops stringr arules`
+  - __Persist this script...__: This should be __Checked__  
+
+    > [AZURE.NOTE] 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, e.g.  `useCRAN bitops, stringr, arules`.  
+    > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+    > For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
+
     ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
 
 4. Select __Create__ to run the script. Once the script completes, the R packages will be available on all worker nodes.
@@ -405,4 +409,4 @@ If you're interested in automating the creation of R Server on HDInsight using A
 
 Both templates create a new HDInsight cluster and associated storage account, and can be used from the Azure CLI, Azure PowerShell, or the Azure Portal.
 
-For generic information on using ARM templates, see [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+For generic information on using Azure Resource Manager templates, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).

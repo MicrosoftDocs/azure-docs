@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 
@@ -64,7 +64,7 @@ The workflow you will implement by following the instructions in this document c
 
 ##Create the working directory
 
-Oozie expects resources required for a job to be stored in the same directory. This example uses **wasb:///tutorials/useoozie**. Use the following command to create this directory, and the data directory that will hold the new Hive table created by this workflow:
+Oozie expects resources required for a job to be stored in the same directory. This example uses **wasbs:///tutorials/useoozie**. Use the following command to create this directory, and the data directory that will hold the new Hive table created by this workflow:
 
 	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
@@ -114,7 +114,7 @@ Use the following steps to create a HiveQL script that defines a query, which wi
 
 2. Press Ctrl-X to exit the editor. When prompted, select **Y** to save the file, then use **Enter** to use the **useooziewf.hql** file name.
 
-3. Use the following commands to copy **useooziewf.hql** to **wasb:///tutorials/useoozie/useooziewf.hql**:
+3. Use the following commands to copy **useooziewf.hql** to **wasbs:///tutorials/useoozie/useooziewf.hql**:
 
 		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -195,7 +195,7 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 2. Use Ctrl-X, then **Y** and **Enter** to save the file.
 
-3. Use the following command to copy the **workflow.xml** file to **wasb:///tutorials/useoozie/workflow.xml**:
+3. Use the following command to copy the **workflow.xml** file to **wasbs:///tutorials/useoozie/workflow.xml**:
 
 		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
@@ -257,9 +257,9 @@ The job definition describes where to find the workflow.xml, as well as other fi
 	This should return information similar to the following:
 
 		<name>fs.defaultFS</name>
-		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		<value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Save the **wasb://mycontainer@mystorageaccount.blob.core.windows.net** value, as it will be used in the next steps.
+	Save the **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** value, as it will be used in the next steps.
 
 2. Use the following command to get FQDN of the cluster headnode. This will be used for the JobTracker address for the cluster. This will be used in the configuration file in a moment:
 
@@ -282,7 +282,7 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 		  <property>
 		    <name>nameNode</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 		  </property>
 
 		  <property>
@@ -302,7 +302,7 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 		  <property>
 		    <name>hiveScript</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
 		  </property>
 
 		  <property>
@@ -312,7 +312,7 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 		  <property>
 		    <name>hiveDataFolder</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
 		  </property>
 
 		  <property>
@@ -332,13 +332,13 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 		  <property>
 		    <name>oozie.wf.application.path</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		  </property>
 		</configuration>
 
-	* Replace all instances of **wasb://mycontainer@mystorageaccount.blob.core.windows.net** with the value you received earlier.
+	* Replace all instances of **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** with the value you received earlier.
 
-	> [AZURE.WARNING] You must use the full WASB path, with the container and storage account as part of the path. Using the short format (wasb:///) will cause the RunHiveScript action to fail when the job is started.
+	> [AZURE.WARNING] You must use the full WASB path, with the container and storage account as part of the path. Using the short format (wasbs:///) will cause the RunHiveScript action to fail when the job is started.
 
 	* Replace **JOBTRACKERADDRESS** with the JobTracker/ResourceManager address you received earlier.
 
@@ -392,7 +392,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 		Job ID : 0000005-150622124850154-oozie-oozi-W
 		------------------------------------------------------------------------------------------------------------------------------------
 		Workflow Name : useooziewf
-		App Path      : wasb:///tutorials/useoozie
+		App Path      : wasbs:///tutorials/useoozie
 		Status        : PREP
 		Run           : 0
 		User          : USERNAME
@@ -530,7 +530,7 @@ To define a schedule for the workflow, use the following steps:
 
 		    <property>
 		      <name>workflowPath</name>
-		      <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		      <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		    </property>
 
 		Replace the values for **mycontainer** and **mystorageaccount** with the values used in other entries in the job.xml file.
@@ -599,7 +599,7 @@ The following are specific errors you may encounter, and how to resolve them.
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Cause**: The WASB addresses used in the **job.xml** file do not contain the storage container or storage account name. The WASB address format must be `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Cause**: The WASB addresses used in the **job.xml** file do not contain the storage container or storage account name. The WASB address format must be `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolution**: Change the WASB addresses used by the job.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/12/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
@@ -62,6 +62,20 @@ The enhanced deployment is a major update. Here's a summary of the improvements 
 - Run easy failovers from your on-premises infrastructure to Azure, and failback (restore) from Azure to VMware VM servers in the on-premises site.
 - Configure recovery plans that group together application workloads that are tiered across multiple machines. You can fail over those plans, and Site Recovery provides multi-VM consistency so that machines running the same workloads can be recovered together to a consistent data point.
 
+
+## Supported Operating Systems
+
+### Windows(64 bit only)
+- Windows Server 2008 R2 SP1+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+### Linux (64 bit only)
+- Red Hat Enterprise Linux 6.7, 7.1, 7.2
+- CentOS 6.5, 6.6, 6.7, 7.0, 7.1, 7.2
+- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- SUSE Linux Enterprise Server 11 SP3
+
 ## Scenario architecture
 
 Scenario components:
@@ -75,9 +89,12 @@ Scenario components:
 - **Azure**: You don't need to create any Azure VMs to handle replication and failover. The Site Recovery service handles data management, and data replicates directly to Azure storage. Replicated Azure VMs are spun up automatically only when failover to Azure occurs. However, if you want to fail back from Azure to the on-premises site you will need to set up an Azure VM to act as a process server.
 
 
-The diagram shows how these components interact.
+The graphic shows how these components interact.
 
-![architecture](./media/site-recovery-vmware-to-azure-classic/architecture.png)
+![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
+
+**Figure 1: VMware/physical to Azure** (created by Henry Robalino)
+
 
 ## Capacity planning
 
@@ -221,6 +238,8 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 
 [Read more](../virtual-network/virtual-networks-overview.md) about Azure networks.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+
 ## Step 3: Install the VMware components
 
 If you want to replicate VMware virtual machines install the following VMware components on the management server:
@@ -255,57 +274,74 @@ If you want to replicate VMware virtual machines install the following VMware co
 [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
 1. On the **Quick Start** page download the unified installation file to the server.
+
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
-3. In **Before you begin** select **Install the configuration server and process server**. Depending on the size of your deployment you might need additional process servers later, but not when you set up this deployment for the first time.
+
+3.	In **Before you begin** select **Install the configuration server and process server**.
 
 	![Before you start](./media/site-recovery-vmware-to-azure-classic/combined-wiz1.png)
+4. In **Third-Party Software License** click **I Accept** to download and install MySQL. 
 
-4. In **Third-Party Software Installation** click **I Accept** to download and install MySQL.
+	![Third=party software](./media/site-recovery-vmware-to-azure-classic/combined-wiz105.PNG)
 
-	![Third=party software](./media/site-recovery-vmware-to-azure-classic/combined-wiz2.png)
+5. In **Registration** browse and select the registration key you downloaded from the vault.
 
-5. In **Internet Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
+	![Registration](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
 
+6. In **Internet Settings** specify how the Provider running on the configuration server will connect to Azure Site Recovery over the internet.
+
+	- If you want to connect with the proxy that's currently set up on the machine select **Connect with existing proxy settings**.
 	- If you want the Provider to connect directly select **Connect directly without a proxy**.
-	- If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-	- If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection select **Connect with custom proxy settings**.
-	- If you  use a custom proxy you'll need to specify the address, port, and credentials
-	- If you're using a proxy the following URLs should be accessible through it:
+	- If the existing proxy requires authentication, or you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.
+		- If you use a custom proxy you'll need to specify the address, port, and credentials
+		- If you're using a proxy you should have already allowed the following URLs:
+			- *.hypervrecoverymanager.windowsazure.com;    
+			- *.accesscontrol.windows.net; 
+			- *.backup.windowsazure.com; 
+			- *.blob.core.windows.net; 
+			- *.store.core.windows.net
+			
 
-	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
+	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
-7. In **Prerequisites Check** setup runs a prerequisites check on the server.
+7. In **Prerequisites Check** setup runs a check to make sure that installation can run. 
 
-	![Prerequisites](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
+	
+	![Prerequisites](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
->[AZURE.WARNING] If you see a warning for the **Global Time Sync** prerequisite check check that the time on your system clock is the same as the time zone.
+	 If a warning appears about the **Global time sync check** verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
 
-![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
+ 	![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
-8. In **MySQL Configuration** create credentials to log onto the MySQL server instance. You can specify these special characters:  ‘_’ , ‘!’ , ‘@’ , ‘$’, ‘\’, ‘%’.
-
-	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
-
-9. In **Environment Details** specify whether you're going to replicate VMware VMs. If you are setup checks whether PowerCLI 6.0 is installed.
+8. In **MySQL Configuration** create credentials for logging onto the MySQL server instance that will be installed.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz6.png)
 
-10. In **Install Location** select where you want to install the binaries and store the cache. We recommend that the cache drive have 600 GB or greater of free space.
+9. In **Environment Details** select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
 
-	![Install location](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
+	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
 
-11. In **Network Selection** specify the listener (network adapter and SSL port) on which the server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be opened on the server to send and receive information about replication orchestration. 443 shouldn't be used for replication data.
+10. In **Install Location** select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
+
+	![Install location](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
+
+11. In **Network Selection** specify the listener (network adapter and SSL port) on which the configuration server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be used by a web server which orchestrates replication operations. 443 shouldn't be used for receiving replication traffic.
 
 
-	![Network selection](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
+	![Network selection](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
-12. In **Registration** browse and select the registration key you downloaded from the vault.
 
-	![Registration](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
+
+12.  In **Summary** review the information and click **Install**. When installation finishes a passphrase is generated. You'll need it when you enable replication so copy it and keep it in a secure location.
+
+	![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
+
 
 13.  In **Summary** review the information.
 
 	![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+
 >[AZURE.WARNING] Microsoft Azure Recovery Service Agent's proxy needs to be setup.
 >Once the installation is complete launch an application named "Microsoft Azure Recovery Services Shell" from the Windows Start menu. In the command window that opens up run the following set of commands to setup the proxy server settings.
 >
@@ -498,6 +534,14 @@ Where:
 - /PassphraseFilePath: Mandatory. Specifies the configuration server passphrase.
 - /LogFilePath: Mandatory. Specifies log setup files location
 
+#### Uninstall Mobility service manually
+
+Mobility Service can be uninstalled using the Add Remove Program from Control Panel or using command line.
+
+The command to uninstall the Mobility Service using command line is
+
+	MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1}
+
 #### Modify the IP address of the management server
 
 After running the wizard you can modify the IP address of the management server as follows:
@@ -560,7 +604,7 @@ Add machines to a protection group:
 
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
 
-	>[AZURE.NOTE] We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+	>[AZURE.NOTE] 1.We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           2.[Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 	![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection3.png)
 
@@ -715,6 +759,7 @@ You set up an additional process server as follows:
 	![Add process server](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
 3. Complete the wizard in the same way you did when you [set up](#step-5-install-the-management-server) the first management server.
+
 4. In **Configuration Server Details** specify the IP address of the original management server on which you installed the configuration server, and the passphrase. On the original management server run **<SiteRecoveryInstallationFolder>\home\sysystems\bin\genpassphrase.exe –n** to obtain the passphrase.
 
 	![Add process server](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
