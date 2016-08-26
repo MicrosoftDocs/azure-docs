@@ -19,7 +19,7 @@
 
 #Create text analytics models in Azure Machine Learning Studio
 
-You can use Azure Machine Learning to build and operationalize text analytics models. These modules can help you solve, for example, document classification or sentiment analysis problems.
+You can use Azure Machine Learning to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
 
 In a text analytics experiment, you would typically:
 
@@ -39,11 +39,11 @@ You can find experiments covered in this tutorial at Cortana Intelligence Galler
 
 ## Step 1: Clean and preprocess text dataset
 
-We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use Edit Metadata and Group Categorical Values modules.
+We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata] (https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values] (https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
 
 ![Create Label] (./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-Then, we clean the text using Preprocess Text module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
+Then, we clean the text using [Preprocess Text] (https://msdn.microsoft.com/library/azure/mt762915.aspx) module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
 
 ![Preprocess Text] (./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
@@ -53,7 +53,7 @@ After the preprocessing is complete, we split the data into train and test sets.
 
 ## Step 2: Extract numeric feature vectors from pre-processed text
 
-To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use Extract N-Gram Features module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
+To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use [Extract N-Gram Features from Text] (https://msdn.microsoft.com/library/azure/mt762916.aspx) module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
 
 ![Extract N-grams] (./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
@@ -63,13 +63,13 @@ Such text features often have high dimensionality. For example, if your corpus h
 
 Also, you can use feature selection to select only those features that are the most correlated with your prediction target. We use Chi-Squared feature selection to select 1000 features. You can view the vocabulary of selected words or N-grams by clicking the right output of Extract N-grams module.
 
-As an alternative approach to using Extract N-Gram Features, you can use Feature Hashing module. Note though that Feature Hashing does not have build-in feature selection capabilities, or TF*IDF weighing.
+As an alternative approach to using Extract N-Gram Features, you can use Feature Hashing module. Note though that [Feature Hashing] (https://msdn.microsoft.com/library/azure/dn906018.aspx) does not have build-in feature selection capabilities, or TF*IDF weighing.
 
 ## Step 3: Train classification or regression model
 
 Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
 
-We then use Two-Class Logistic Regression to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+We then use [Two-Class Logistic Regression] (https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
 
 ![Train and Score] (./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
