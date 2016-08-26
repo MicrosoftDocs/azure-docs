@@ -32,9 +32,9 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 ## Prerequisite: Install the Azure CLI
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](..\xplat-cli-install.md) and you'll need to [log on to Azure](..\xplat-cli-connect.md). 
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../xplat-cli-install.md) and you'll need to [log on to Azure](../xplat-cli-connect.md). 
 
-> [AZURE.NOTE] If you don't have an Azure account, you need one. Go sign up for a [free trial here](..\active-directory\sign-up-organization.md).
+> [AZURE.NOTE] If you don't have an Azure account, you need one. Go sign up for a [free trial here](../active-directory/sign-up-organization.md).
 
 ## Scenario
 
@@ -58,7 +58,7 @@ only additional application gateways are able to be added to the subnet.
 
 ## Create the resource group
 
-Before creating the application gateway, a resource group is created to contain the application gateway.
+Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command and the expected output.
 
     azure group create -n AdatumAppGatewayRG -l eastus
 
@@ -76,7 +76,7 @@ Before creating the application gateway, a resource group is created to contain 
 
 ## Create a virtual network
 
-Once the resource group is created, a virtual network is created for the application gateway.
+Once the resource group is created, a virtual network is created for the application gateway.  In the following example the address space was as 10.0.0.0/16 as defined in the preceding scenario notes.
 
     azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
 
@@ -94,7 +94,7 @@ Once the resource group is created, a virtual network is created for the applica
 
 ### Create a subnet
 
-After the virtual network is created, a subnet is added for the application gateway.
+After the virtual network is created, a subnet is added for the application gateway.  When defining the subnet be sure to leave enough space for another subnet if you plan to use application gateway with a web app hosted in the same virtual network as the application gateway.
 
     azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
 
@@ -271,7 +271,8 @@ The IP addresses used for the backend are the IP addresses for your backend serv
     data:    UrlPathMapsText                 : []
     info:    network application-gateway create command OK
 
-This creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful
+This creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
+If you already have your web application defined with the IP addresses for the backend pool defined above, once the application gateway is provisioned and started load balacing should start.
 
 ## Next steps
 
