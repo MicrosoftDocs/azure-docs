@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
 
-With multi-instance tasks, you can run an Azure Batch task on multiple compute nodes simultaneously to enable high performance computing scenarios like Message Passing Interface (MPI) applications. In this article, you will learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
+Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you will learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
 
 ## Multi-instance task overview
 
@@ -29,9 +29,9 @@ In Batch, each task is normally executed on a single compute node--you submit mu
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
 1. The Batch service automatically splits the task into one **primary** and many **subtasks**. Batch then schedules the primary and subtasks for execution on the pool's compute nodes.
-2. These tasks, both the primary and the subtasks, download any **common resource files** that you specify in the multi-instance settings.
-3. After the common resource files have been downloaded, the **coordination command** that you specify in the multi-instance settings is executed by the primary and subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
-4. When the coordination command has been completed successfully by the primary and all subtasks, the multi-instance task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in an [MS-MPI][msmpi_msdn]-based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
+2. These tasks, both the primary and the subtasks, download any **common resource files** you specify in the multi-instance settings.
+3. After the common resource files have been downloaded, the primary and subtasks execute the **coordination command** you specify in the multi-instance settings. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
+4. When the coordination command has been completed successfully by the primary and all subtasks, *only* the **primary task** executes the multi-instance task's **command line** (the "application command"). For example, in an [MS-MPI][msmpi_msdn]-based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
 
 > [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask][net_starttask] or [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
 
@@ -118,7 +118,7 @@ int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## Coordination and application commands
+## Coordination command
 
 The **coordination command** is executed by both the primary and subtasks. Once the primary task and all subtasks have finished executing the coordination command, the multi-instance task's command line is executed by the primary task *only*. We will call this command line the **application command** to distinguish it from the coordination command.
 
@@ -130,11 +130,25 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 Note the use of `start` in this coordination command. This is required because the `smpd.exe` application does not return immediately after execution. Without the use of the [start][cmd_start] command, this coordination command would not return, and would therefore block the application command from running.
 
+## Application command
+
 The **application command**, the command line specified for the multi-instance task, is executed *only* by the primary task. For MS-MPI applications, this will be the execution of your MPI-enabled application using `mpiexec.exe`. For example, here is an application command for a solution using MS-MPI version 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
+
+### Environment variables CCP_NODES and AZ_BATCH_HOST_LIST
+
+These two environment variables are available to applications and scripts executed by the primary task's application command:
+
+* `CCP_NODES`
+
+  On Windows compute nodes, this environment variable lists available compute nodes and the number of cores per node that are allocated to the task. Nodes and cores are listed in the format `numNodes<space>nodeName<space>numCores<space>`. Because MS-MPI's `mpiexec.exe` uses this variable by default, the example application command line above doesn't include it.
+
+* `AZ_BATCH_HOST_LIST`
+
+  On Linux compute nodes, this environment variable contains a comma-delimited list of available compute nodes. You can pass this variable to the `--host` option of `mpirun`, for example.
 
 ## Resource files
 
