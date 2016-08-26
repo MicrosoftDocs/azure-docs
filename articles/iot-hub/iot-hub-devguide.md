@@ -304,7 +304,7 @@ IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and s
 
 For more information, see [IoT Hub MQTT support][lnk-mqtt-support].
 
-As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway]that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you self-host and operate a custom protocol gateway.
+As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you self-host and operate a custom protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 

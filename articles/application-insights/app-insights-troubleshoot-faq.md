@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Questions - Application Insights for ASP.NET
@@ -26,6 +26,12 @@
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 * [Other platforms](app-insights-platforms.md)
+
+*I get no data from my server*
+
+* [Set firewall exceptions](app-insights-ip-addresses.md)
+* [Set up an ASP.NET server](app-insights-monitor-performance-live-website-now.md)
+* [Set up a Java server](app-insights-java-agent.md)
 
 
 ## Can I use Application Insights with ...?

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
+	ms.date="08/24/2016"
 	ms.author="banders"/>
 
 # Collecting Azure storage data in Log Analytics overview
@@ -26,9 +26,9 @@ To write to Azure storage a resource may use Azure diagnostics, or have its own 
 + Azure blob
 + EventHub
 
-Log Analytics supports Azure services that write data using Azure diagnostics to blob storage in JSON format. In addition, Log Analytics supports other services that output logs and metrics in different formats and locations.  
+Log Analytics supports Azure services that write data using [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md). In addition, Log Analytics supports other services that output logs and metrics in different formats and locations.  
 
->[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
+>[AZURE.NOTE] You are charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
 ![Azure storage diagram](media/log-analytics-azure-storage/azure-storage-diagram.png)
 
@@ -48,12 +48,12 @@ Log Analytics can collect data for the following Azure resources:
 | Virtual Machines | Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent | *none* |
 | Web Roles <br> Worker Roles | Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent | *none* |
 
->[AZURE.NOTE] For monitoring Azure virtual machines (both Linux and Windows) we recommend installing the Microsoft Monitoring Agent VM extension. This will provide you with deeper insights on your virtual machines than if you use the diagnostics written to storage.
+>[AZURE.NOTE] For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](log-analytics-azure-vm-extension.md). The agent provides you with deeper insights on your virtual machines than if you use the diagnostics written to storage.
 
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-- See [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that write diagnostics to blob storage in JSON format, including:
+- See [Analyze Azure diagnostic logs using Log Analytics](log-analytics-azure-storage-json.md) to learn more about how Log Analytics can read the logs from Azure services that support [Azure diagnostic logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md):
   - Azure Key Vault
   - Azure Automation
   - Application Gateway
@@ -65,11 +65,11 @@ You can help us prioritize additional logs for OMS to analyze by voting on our [
   - Virtual Machines
 
 
-Application Insights is in private preview and it uses continuous export to blob storage. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
+Application Insights is in private preview and it uses continuous export to blob storage. To join the private preview, contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
 ## Next steps
 
-- [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
+- [Analyze Azure diagnostic logs using Log Analytics](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
 - [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 - [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 - [Use search queries](log-analytics-log-searches.md) to analyze the data.
