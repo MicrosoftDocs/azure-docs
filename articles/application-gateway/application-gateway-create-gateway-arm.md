@@ -62,13 +62,7 @@ The difference between using Azure Classic and Azure Resource Manager is the ord
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 
-Here are the steps that are needed to create an application gateway:
-
-1. Create a resource group for Resource Manager.
-2. Create a virtual network, subnet, and public IP for the application gateway.
-3. Create an application gateway configuration object.
-4. Create an application gateway resource.
-
+The follower are the steps that are needed to create an application gateway.
 
 ## Create a resource group for Resource Manager
 
@@ -227,10 +221,6 @@ Retrieve DNS and VIP details of the application gateway from the public IP resou
 ## Delete an application gateway
 
 To delete an application gateway, follow these steps:
-
-1. Use the **Stop-AzureRmApplicationGateway** cmdlet to stop the gateway.
-2. Use the **Remove-AzureRmApplicationGateway** cmdlet to remove the gateway.
-3. Verify that the gateway has been removed by using the **Get-AzureRmApplicationGateway** cmdlet.
 
 ### Step 1
 

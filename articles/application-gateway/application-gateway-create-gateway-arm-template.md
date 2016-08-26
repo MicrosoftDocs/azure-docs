@@ -75,7 +75,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 	| **backendaddress2** | IP address of the second web server |
 
 
->[AZURE.IMPORTANT] Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
+	>[AZURE.IMPORTANT] Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
 6. Check the content under **resources** and notice the following:
 
