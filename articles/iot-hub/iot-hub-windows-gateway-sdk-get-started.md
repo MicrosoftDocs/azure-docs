@@ -58,6 +58,13 @@ Before you get started, you must [set up your development environment][lnk-setup
           "module path" : "C:\\azure-iot-gateway-sdk\\build\\\\modules\\hello_world\\Debug\\hello_world_hl.dll",
           "args" : null
         }
+      ],
+      "links" :
+      [
+        {
+          "source": "hello_world",
+          "sink": "logger_hl"
+        }
       ]
     }
     ```
