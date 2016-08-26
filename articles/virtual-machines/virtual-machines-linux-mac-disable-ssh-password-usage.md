@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="08/26/2016"
 	ms.author="v-livech"/>
 
 # Disable SSH passwords on your Linux VM by configuring SSHD
@@ -43,7 +43,7 @@ For this article it is very important to keep one login to your Linux VM open fo
 
 ## Prerequisites
 
-- [Create SSH keys on Linux and Mac for Linux VMs in Azure](link)
+- [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Azure account
   - [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
   - [Azure portal](http://portal.azure.com)
