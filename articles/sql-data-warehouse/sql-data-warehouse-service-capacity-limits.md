@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/31/2016"
+   ms.date="08/25/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
@@ -40,8 +40,8 @@ The below tables contains the maximum values allowed for various components of A
 | Table             | Max size                                     | 60 TB compressed on disk   |
 | Table             | Tables per database                          | 2 billion          |
 | Table             | Columns per table                            | 1024 columns       |
-| Table             | Bytes per column                             | 8000 bytes         |
-| Table             | Bytes per row, defined size                  | 8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression on. Like SQL Server, SQL Data Warehouse supports row-overflow storage which enables variable length columns to be pushed off-row. Only a 24-byte root is stored in the main record for variable length columns pushed out of row. For more information, see the [Row-Overflow Data Exceeding 8 KB][] topic in SQL Server Books Online.<br/><br/>For a list of the SQL Data Warehouse data type sizes, see [CREATE TABLE (Azure SQL Data Warehouse)][]. |
+| Table             | Bytes per column                             | Dependant on column [data type][].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types.|
+| Table             | Bytes per row, defined size                  | 8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8 KB][] MSDN article.|
 | Table             | Partitions per table                    | 15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance.|
 | Table             | Characters per partition boundary value.| 4000 |
 | Index             | Non-clustered indexes per table.        | 999<br/><br/>Applies to rowstore tables only.|
@@ -106,8 +106,8 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
+[data type]: ./sql-data-warehouse-tables-data-types.md
 
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
