@@ -40,9 +40,9 @@ Autoscaling requires you to create rules about when to scale resources up or dow
 
 * **minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs. 
 * **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing so it's worse then just leaving the VM running.    
-* **granularity** of the monitoring the metric.  You can go from a minimum of 1 minute on up, but certain resources may not deliver that level of granularity. You can discover the granularity of each resource programmatically using the [Azure Insights Metrics REST API](https://msdn.microsoft.com/en-us/library/dn931939.aspx). 
+* **granularity** of the monitoring the metric.  You can go from a minimum of 1 minute on up, but certain resources may not deliver that level of granularity. You can discover the granularity of each resource programmatically using the [Azure Insights Metrics REST API](https://msdn.microsoft.com/library/dn931939.aspx). 
    
-The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/en-us/library/dn931928.aspx)
+The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx)
 
 
 ## Conceptual Diagram  
@@ -92,7 +92,7 @@ You can list multiple profiles.  Each profile can have multiple rules. After all
 For code examples, see
 
 * [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoscaling REST API](https://msdn.microsoft.com/en-us/library/dn931953.aspx) 
+* [Autoscaling REST API](https://msdn.microsoft.com/library/dn931953.aspx) 
 
 ## Methods of Access 
 You can set up autoscale rules via 
@@ -111,7 +111,7 @@ Read more about autoscaling
 * [Best practices for Azure Insights autoscaling](insights-autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
 * [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) 
-* [Autoscaling REST API](https://msdn.microsoft.com/en-us/library/dn931953.aspx) - See the entire API and meanings for each of the fields and values
+* [Autoscaling REST API](https://msdn.microsoft.com/library/dn931953.aspx) - See the entire API and meanings for each of the fields and values
 
 
 
