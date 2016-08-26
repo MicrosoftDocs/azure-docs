@@ -60,13 +60,12 @@ The following steps walk you through one way to generate a client certificate fr
 	- Change *"ARMP2SRootCert"* to the name of the self-signed root that you are generating the client certificate from. 
 	- Change *ClientCertificateName* to the name you want to generate a client certificate to be. 
 
-	If you run the following example, the result is a client certificate named ClientCertificateName in your Personal certificate store that was generated from root certificate ARMP2SRootCert.
 
-	Modify and run the sample to generate a client certificate.
+	Modify and run the sample to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named ClientCertificateName in your Personal certificate store that was generated from root certificate ARMP2SRootCert.
 
     	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-4. All certificates are stored in your Certificates - Current User\Personal\Certificates store on your computer. You can generate as many client certificates as needed based on this procedure.
+4. All certificates are stored in your 'Certificates - Current User\Personal\Certificates' store on your computer. You can generate as many client certificates as needed based on this procedure.
 
 ### Part 2 - Export a client certificate
 
@@ -100,5 +99,5 @@ Each client that you want to connect to your virtual network by using a Point-to
 
 Continue with your Point-to-Site configuration. 
 
-- For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a virtual network using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
-- For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet](vpn-gateway-point-to-site-create.md).
+- For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
+- For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet using the classic portal](vpn-gateway-point-to-site-create.md).
