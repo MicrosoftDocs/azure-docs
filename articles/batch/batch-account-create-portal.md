@@ -22,7 +22,7 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and where to find important account properties like access keys and account URLs. We also discuss Batch pricing and linking an Azure Storage account to your Batch account so that you can use [application packages](batch-application-packages.md) and [persist job and task output](batch-task-output.md).
+Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and where to find important account properties like access keys and account URLs. We also discuss Batch pricing, and linking an Azure Storage account to your Batch account so that you can use [application packages](batch-application-packages.md) and [persist job and task output](batch-task-output.md).
 
 ## Create a Batch account
 
@@ -60,13 +60,15 @@ Once the account has been created, you can open the **Batch account blade** to a
 
     `https://<account_name>.<region>.batch.azure.com`
 
+![Batch account URL in portal][account_url]
+
 * **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
 
     ![Batch account keys in Azure portal][account_keys]
 
 ## Pricing
 
-Batch accounts are offered only in a "Free Tier," which means that you aren't charged for the Batch account itself. You are charged for the underlying Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools and for the data that you store in Azure Storage as input or output for your tasks. Similarly, if you use the [application packages](batch-application-packages.md) feature of Batch, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
+Batch accounts are offered only in a "Free Tier," which means that you aren't charged for the Batch account itself. You are charged for the underlying Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools and for the data that you store in Azure Storage as input or output for your tasks. Similarly, if you use the [application packages](batch-application-packages.md) feature of Batch, you are charged for the Azure Storage resources used for storing your application packages. See [Batch pricing][batch_pricing] for more information.
 
 ## Linked Azure Storage account
 
@@ -82,13 +84,25 @@ We recommend that you create a Storage account for exclusive use by your Batch a
 
   ![Regenerating storage account keys][4]
 
-## Other Batch account considerations
+## Batch service quotas and limits
 
-* In addition to using the Azure portal, you can also create and manage Batch accounts with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and [Batch Management .NET](batch-management-dotnet.md) library.
+Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
 
-* You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
+![Batch account quotas in Azure portal][quotas]
 
-* If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
+Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account.
+
+Also note that you are not restricted to a single Batch account for your Azure subscription. You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in the same subscription, but in different Azure regions.
+
+Many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
+
+## Other Batch account management options
+
+In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
+
+* [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
+* [Azure CLI](../xplat-cli-install.md)
+* [Batch Management .NET](batch-management-dotnet.md)
 
 ## Next steps
 
@@ -107,4 +121,6 @@ We recommend that you create a Storage account for exclusive use by your Batch a
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
+[quotas]: ./media/batch-account-create-portal/quotas.png
