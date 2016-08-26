@@ -17,7 +17,7 @@
 	ms.date="08/26/2016"
 	ms.author="guybo"/>
 
-# Deploy Virtual Machine Scale Set using Visual Studio
+# Deploy an App on Virtual Machine Scale Sets
 
 An application running on a VM Scale Set is typically deployed in one of three ways:
 
