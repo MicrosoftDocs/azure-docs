@@ -65,6 +65,12 @@ The language has many attractive features:
 * Immediate and powerful visualizations.
 
 
+
+>[AZURE.NOTE] We recommend you start with the [language tour](app-insights-analytics-tour.md).
+
+
+
+
 ## Connect to your Application Insights data
 
 
@@ -81,8 +87,4 @@ At present, query results are limited to just over a week of past data.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-## Next steps
-
-* We recommend you start with the [language tour](app-insights-analytics-tour.md).
-* The [reference page](app-insights-reference.md) is an essential guide.
 
