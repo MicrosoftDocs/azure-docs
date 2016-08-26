@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="08/26/2016"
    ms.author="mikewasson"/>
 
 # Running VMs for an N-tier architecture on Azure
@@ -29,7 +29,7 @@ There are variations of N-tier architectures. For the most part, the differences
 
 - **Business tier.** Implements business processes and other functional logic for the system.
 
--  **Data tier.** Provides persistent data storage.
+- **Database tier.** Provides persistent data storage.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
@@ -49,7 +49,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - **Monitoring**. Monitoring software sush as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system. Install the monitoring software on a VM that's placed in a separate management subnet.
 
-- **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the data tier does not accept traffic from the web front end, only from the business tier and the management subnet.
+- **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
 - **Key Vault**. Use [Azure Key Vault][azure-key-vault] to manage encryption keys, for encrypting data at rest.
 
@@ -103,7 +103,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - Put each tier or VM role into a separate availability set. Don't put VMs from different tiers into the same availability set. 
 
-- At the data tier, having multiple VMs does not automatically translate into a highly available database. For a relational database, you will typically need to use replication and failover to achieve high availability. The business tier will connect to a primary database, and if that VM goes down, the application fails over to a secondary database, either manually or automatically.
+- At the database tier, having multiple VMs does not automatically translate into a highly available database. For a relational database, you will typically need to use replication and failover to achieve high availability. The business tier will connect to a primary database, and if that VM goes down, the application fails over to a secondary database, either manually or automatically.
 
 > [AZURE.NOTE] For SQL Server, we recommend using [AlwaysOn Availability Groups][sql-alwayson]. For more information, see  
 
@@ -113,17 +113,17 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - Do not allow RDP/SSH access from the public Internet to the VMs that run the application workload. Instead, all RDP/SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP/SSH traffic from the Internet, but only from known, whitelisted IP addresses.
 
-- Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the data tier. To enforce this, the data tier should block incoming traffic from the web tier subnet.  
+- Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
 
-  1. Create an NSG and associate it to the data tier subnet. 
+  1. Create an NSG and associate it to the database tier subnet. 
 
   1. Add a rule that denies all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
 
-  2. Add a rule with a higher priority that allows inbound traffic from the business tier subnet. This rule overrides the previous rule, and allows the business tier to talk to the data tier.
+  2. Add a rule with a higher priority that allows inbound traffic from the business tier subnet. This rule overrides the previous rule, and allows the business tier to talk to the database tier.
 
-  3. Add a rule that allows inbound traffic from within the data tier subnet itself. This rule allows communication between VMs in the data tier, which is needed for database replication and failover.
+  3. Add a rule that allows inbound traffic from within the database tier subnet itself. This rule allows communication between VMs in the database tier, which is needed for database replication and failover.
 
-  4. Add a rule that allows RDP/SSH traffic from the jumpbox subnet. This rule lets administrators connect to the data tier from the jumpbox.
+  4. Add a rule that allows RDP/SSH traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
 
   > [AZURE.NOTE] An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher-priority rules.
 
@@ -181,6 +181,154 @@ The script references the following parameter files to build the VMs and the sur
     }
 	```
 
+- **[webTier.parameters.json][webtier-parameters-windows]**. This file defines the settings for the VMs in the web tier, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
+
+	```json
+    "parameters": {
+      "loadBalancerSettings": {
+        "value": {
+          "name": "app1-web-lb",
+          "frontendIPConfigurations": [
+            {
+              "name": "lb-fe-config1",
+              "loadBalancerType": "public",
+              "internalLoadBalancerSettings": {
+                "privateIPAddress": "10.0.0.250",
+                "subnetName": "app1-web-sn"
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "name": "lbr1",
+              "frontendPort": 80,
+              "backendPort": 80,
+              "protocol": "Tcp",
+              "backendPoolName": "lb-bep1",
+              "frontendIPConfigurationName": "lb-fe-config1"
+            }
+          ],
+          "probes": [
+            {
+              "name": "lbp1",
+              "port": 80,
+              "protocol": "Http",
+              "requestPath": "/"
+            }
+          ],
+          "backendPools": [
+            {
+              "name": "lb-bep1",
+              "nicIndex": 0
+            }
+          ],
+          "inboundNatRules": [ ]
+        }
+      },
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "ra",
+          "computerNamePrefix": "cn",
+          "size": "Standard_DS1",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osType": "windows",
+          "osAuthenticationType": "password",
+          "sshPublicKey": "",
+          "nics": [
+            {
+              "isPublic": "false",
+              "isPrimary": "true",
+              "subnetName": "app1-web-sn",
+              "privateIPAllocationMethod": "dynamic",
+              "enableIPForwarding": false,
+              "dnsServers": [ ]
+            }
+          ],
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "dataDisks": {
+            "count": 1,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "extensions": [ ],
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": "app1-web-as"
+          },
+          "extensions": [ ]
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-vnet",
+          "resourceGroup": "ra-ntier-vm-rg"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 3,
+          "vmStartIndex": 1
+        }
+      }
+    }
+	```
+
+	The `virtualMachineSettings` section contains the configuration details for the VMs. The physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters together with the `vmCount` parameter in the `buildingBlockSettings` section at the end of the file. (The `vmCount` parameter determines the number of VMs to build, and the `vmStartIndex` parameter indicates a starting point for numbering VMs.) The values shown above generate the suffixes 1, 2, and 3 which are appended to the names generated by the `namePrefix` and `computerNamePrefix`. Using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-vm1, ra-vm2, and ra-vm3. The computer names of the VMs that appear on the virtual network will be cn1, cn2, and cn3.
+
+	The `subnetName` parameter in the `nics` section specifies the subnet for the VMs. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file.
+
+	You must specify an image in the `imageReference` section. The values shown above create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
+
+	```text
+	azure vm image list westus MicrosoftWindowsServer WindowsServer
+	```
+
+	The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
+
+	```json
+    "imageReference": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
+      "sku": "14.04.5-LTS",
+      "version": "latest"
+    },
+	```
+
+	Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
+
+	The `loadBalancerSettings` section specifies the configuration for the load balancer used to direct traffic to the VMs. The default configuration creates a public load balancer with an internal IP address of `10.0.0.250`. You can change this, but the address must fall within the address space of the specified subnet. The load balancer rules handle traffic appearing on TCP port 80 with a health probe referencing the same port. You can change these ports as appropriate, and you can add further load balancing rules if you need to open up different ports.
+
+	>[AZURE.NOTE] The template does not install any web servers on the VMs in this tier. You can install a web server of your choice (IIS, Apache, etc) manually.
+
+- **[businessTier.parameters.json][businesstier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the business tier. The parameters are very similar to those used by the template for creating the web tier. Note that you must set the values in the `buildingBlockSettings` section at the end of the file to ensure that VM and computer names do not clash with those in the web tier. The default configuration (shown below) creates a set of 3 VMs starting with suffix 4. The default web tier configuration uses suffixes 1 through 3, but if you create more VMs in the web tier you should adjust the `vmStartIndex` in this file:
+
+	```json
+     "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 3,
+        "vmStartIndex": 4
+      }
+    }
+	```
+
+- **[dataTier.parameters.json][datatier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the database tier. As before, the parameters are very similar to those used by the template for creating the web tier. Again, you must be careful to set the `vmStartIndex` value in the `buildingBlockSettings` section of this file to avoid clashes with VM and computer names in the other two tiers.
+
+	>[AZURE.NOTE] The template does not install any database software on the VMs in this tier. You must perform this task manually.
+
 - **[networkSecurityGroup.parameters.json][nsg-parameters-windows]**. This file contains the definitions of NSGs and NSG rules for each of the subnets. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in each of the `networkSecurityGroupSettings` blocks identifies the subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
 
 	The security groups implement the following rules:
@@ -192,6 +340,10 @@ The script references the following parameter files to build the VMs and the sur
 	- The web tier only permits traffic that arrives on port 80. These requests can originate from an external network or from VMs in any of the subnets in the VNet. All other traffic is blocked.
 
 	- The management subnet permits a user to connect to a VMs in this tier through a remote desktop (RDP) connection. All other traffic is blocked.
+
+		>[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
+
+	**IMPORTANT:** The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
 	```json
     "parameters": {
@@ -321,6 +473,7 @@ The script references the following parameter files to build the VMs and the sur
             "name": "app1-mgmt-nsg",
             "subnets": [ ],
             "networkInterfaces": [
+              "ra-vm9-nic1"
             ],
             "securityRules": [
               {
@@ -385,144 +538,6 @@ The script references the following parameter files to build the VMs and the sur
 	```
 
 	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array for the appropriate subnet.
-
-- **[webTier.parameters.json][webtier-parameters-windows]**. This file defines the settings for the VMs in the web tier, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
-
-	```json
-    "parameters": {
-      "loadBalancerSettings": {
-        "value": {
-          "name": "app1-web-lb",
-          "frontendIPConfigurations": [
-            {
-              "name": "lb-fe-config1",
-              "loadBalancerType": "public",
-              "internalLoadBalancerSettings": {
-                "privateIPAddress": "10.0.0.250",
-                "subnetName": "app1-web-sn"
-              }
-            }
-          ],
-          "loadBalancingRules": [
-            {
-              "name": "lbr1",
-              "frontendPort": 80,
-              "backendPort": 80,
-              "protocol": "Tcp",
-              "backendPoolName": "lb-bep1",
-              "frontendIPConfigurationName": "lb-fe-config1"
-            }
-          ],
-          "probes": [
-            {
-              "name": "lbp1",
-              "port": 80,
-              "protocol": "Http",
-              "requestPath": "/"
-            }
-          ],
-          "backendPools": [
-            {
-              "name": "lb-bep1",
-              "nicIndex": 0
-            }
-          ],
-          "inboundNatRules": [ ]
-        }
-      },
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "ra",
-          "computerNamePrefix": "cn",
-          "size": "Standard_DS1",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osType": "windows",
-          "osAuthenticationType": "password",
-          "sshPublicKey": "",
-          "nics": [
-            {
-              "isPublic": "false",
-              "isPrimary": "true",
-              "subnetName": "app1-web-sn",
-              "privateIPAllocationMethod": "dynamic",
-              "enableIPForwarding": false,
-              "dnsServers": [ ]
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "dataDisks": {
-            "count": 1,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "extensions": [ ],
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": "app1-web-as"
-          },
-          "extensions": [ ]
-        }
-      },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "ra-vnet",
-          "resourceGroup": "ra-ntier-vm-rg"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 3,
-          "vmStartIndex": 1
-        }
-      }
-    }
-	```
-
-	Note that the physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters. For example, using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra0, ra1, and ra2. The computer names of the VMs that appear on the virtual network will be cn0, cn1, and cn2.
-
-	The `subnetName` parameter in the `nics` section specifies the subnet for the VMs. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file.
-
-	You must specify an image in the `imageReference` section. The values shown above create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
-
-	```text
-	azure vm image list westus MicrosoftWindowsServer WindowsServer
-	```
-
-	The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
-
-	```json
-    "imageReference": {
-      "publisher": "Canonical",
-      "offer": "UbuntuServer",
-      "sku": "14.04.5-LTS",
-      "version": "latest"
-    },
-	```
-
-	Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
-
-	The `loadBalancerSettings` section specifies the configuration for the load balancer used to direct traffic to the VMs. The default configuration creates a public load balancer with an internal IP address of `10.0.0.250`. You can change this, but the address must fall within the address space of the specified subnet. The load balancer rules handle traffic appearing on TCP port 80 with a health probe referencing the same port. You can change these ports as appropriate, and you can add further load balancing rules if you need to open up different ports.
-
-	The `vmCount` parameter in the `buildingBlockSettings` section determines the number of VMs to build.
-
-- **[businessTier.parameters.json][businesstier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the business tier. The parameters are very similar to those used by the template for creating the web tier.
-
-- **[dataTier.parameters.json][datatier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the database tier. As before, the parameters are very similar to those used by the template for creating the web tier.
-
-	>[AZURE.NOTE] The template does not install any database software on the VMs in this tier. You must perform this task manually.
 
 ## Solution deployment
 
@@ -670,5 +685,5 @@ To run the script that deploys the solution:
 [businesstier-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/businessTier.parameters.json
 [datatier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/dataTier.parameters.json
 [datatier-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/dataTier.parameters.json
-
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Microsoft Azure"
