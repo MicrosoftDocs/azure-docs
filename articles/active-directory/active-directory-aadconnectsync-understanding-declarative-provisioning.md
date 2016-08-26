@@ -33,7 +33,7 @@ Declarative provisioning is processing objects coming in from a source connected
 - Target,
 
 ## Scope
-The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are be evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
+The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
 ![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 The scope is defined as groups and clauses. The clauses are inside a group. A logical AND is used between all clauses in a group. For example, (department =IT AND country = Denmark). A logical OR is used between groups.
@@ -74,15 +74,15 @@ An object should only have one single sync rule with join rules in scope. If the
 
 Outbound join has a special behavior when it tries to provision an object to a target connector space. The DN attribute is used to first try a reverse-join. If there is already an object in the target connector space with the same DN, the objects are joined.
 
-The join module is only evaluated once when a new sync rule comes into scope. When an object has joined, it is not disjoining even if the join critera is no longer satisfied. If you want to disjoin an object, the sync rule that joined the objects must go out of scope.
+The join module is only evaluated once when a new sync rule comes into scope. When an object has joined, it is not disjoining even if the join criteria is no longer satisfied. If you want to disjoin an object, the sync rule that joined the objects must go out of scope.
 
 ### Metaverse delete
-A metaverse object will remain as long as there is one sync rule in scope with **Link Type** set to **Provision** or **StickyJoin**. A StickyJoin is used when a Connector is not allowed to provision a new object to the metaverse, but when it has joined, it must be deleted in the source before the metaverse object is deleted.
+A metaverse object remains as long as there is one sync rule in scope with **Link Type** set to **Provision** or **StickyJoin**. A StickyJoin is used when a Connector is not allowed to provision a new object to the metaverse, but when it has joined, it must be deleted in the source before the metaverse object is deleted.
 
-As soon as a metaverse object is deleted, all objects associated with an outbound sync rules marked for **provision** will be marked for a delete.
+When a metaverse object is deleted, all objects associated with an outbound sync rule marked for **provision** are marked for a delete.
 
 ## Transformations
-The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, and Expression. A direct flow flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
+The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, and Expression. A direct flow, flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
 
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
 
@@ -126,11 +126,11 @@ An example of this function can be found in the out-of-box Synchronization Rule 
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## Precedence
-When several sync rules try to contribute the same attribute value to the target, the precedence value is used to determine the winner. The rule with highest precedence, lowest numeric value, is going to contribute the attribute in case of a conflict.
+When several sync rules try to contribute the same attribute value to the target, the precedence value is used to determine the winner. The rule with highest precedence, lowest numeric value, is going to contribute the attribute in a conflict.
 
 ![Merge Types](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  
 
-This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules will make sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
+This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules makes sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
 
 ## Additional Resources
 
