@@ -235,31 +235,54 @@ During development or while troubleshooting, you may find it necessary to sign i
 The following Python code snippet creates a user on each node in a pool, which is required for remote connection. It then prints the secure shell (SSH) connection information for each node.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
