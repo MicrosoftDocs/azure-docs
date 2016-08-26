@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/09/2016"
+	ms.date="08/26/2016"
 	ms.author="awills"/>
 
 # Deep diagnostics for web apps and services with Application Insights
@@ -21,7 +21,7 @@
 
 Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, J2EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
 
-![](./media/app-insights-devops/010.png)
+![Aspects of the complexity of delivering web apps](./media/app-insights-devops/010.png)
 
 It's essential to monitor a modern application while it is running. Most importantly, you want to detect failures before most of your customers do. You'll also want to discover and fix performance issues that, while not catastrophic, perhaps slow things down or cause some inconvenience to your users. And when the system is performing to your satisfaction, you'll want to know what the users are doing with it: Are they using the latest feature? Are they succeeding with it?
 
@@ -61,7 +61,7 @@ Some questions we ask when we're developing a web system:
 ## What is Application Insights?
 
 
-![](./media/app-insights-devops/020.png)
+![Basic workflow of Application Insights](./media/app-insights-devops/020.png)
 
 
 1. Application Insights instruments your app and sends telemetry about it while the app is running. Either you can build the Application Insights SDK into the app, or you can apply instrumentation at runtime. The former method is more flexible, as you can add your own telemetry to the regular modules.
@@ -99,31 +99,31 @@ The majority of this telemetry data is automatically collected with no added cod
 Real Madrid use the Power BI module to view their telemetry.
 
 
-![](./media/app-insights-devops/080.png)
+![Power BI view of Application Insights telemetry](./media/app-insights-devops/080.png)
 
 ## Smart detection
 
-[Smart diagnostics](app-insights-nrt-proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights will automatically detect and alert you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
+[Proactive diagnostics](app-insights-nrt-proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights will automatically detect and alert you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
 Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
 
 In both cases, the alert not only tells you the symptoms it's discovered, but also gives you data you'll need to help diagnose the problem, such as relevant exception reports.
 
-![](./media/app-insights-devops/030.png)
+![Email from proactive diagnostics](./media/app-insights-devops/030.png)
 
-Customer Samtec said: "During a recent feature cutover, we found an under-scaled database that was hitting its resource limits and causing timeouts. Proactive detection alerts came through literally as we were triaging the issue, very near real time as advertised. This alert coupled with the Azure platform alerts helped us almost instantly fix the issue. Total downtime < 10 minutes.zs"
+Customer Samtec said: "During a recent feature cutover, we found an under-scaled database that was hitting its resource limits and causing timeouts. Proactive detection alerts came through literally as we were triaging the issue, very near real time as advertised. This alert coupled with the Azure platform alerts helped us almost instantly fix the issue. Total downtime < 10 minutes."
 
 ## Live Metrics Stream
 
 Deploying the latest build can be an anxious experience. If there are any problems, you want to know about them right away, so that you can back out if necessary. Live Metrics Stream gives you key metrics with a latency of about 1 second.
 
-![](./media/app-insights-devops/040.png)
+![Live metrics](./media/app-insights-devops/040.png)
 
 ## Application Map
 
 Application Map automatically discovers your application topology, laying the performance information on top of it, to let you easily identify performance bottlenecks and problematic flows across your distributed environment. It allows you to discover application dependencies on Azure Services. You can triage the problem by understanding if it is code related or dependency related and from a single place drill into related diagnostics experience. For example, your application may be failing due to performance degradation in SQL tier. With application map you will be able to visually see it and drill into SQL Index Advisor or Query Insights experience.
 
-![](./media/app-insights-devops/050.png)
+![Application Map](./media/app-insights-devops/050.png)
 
 ## Application Insights Analytics
 
@@ -131,7 +131,7 @@ With [Analytics](app-insights-analytics.md), you can write arbitrary queries in 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
-![](./media/app-insights-devops/025.png)
+![Analytics query and results chart](./media/app-insights-devops/025.png)
 
 For example, it's easy to:
 
@@ -157,7 +157,7 @@ While developing and debugging a feature, you can view and search the telemetry 
 
 And when Application Insights logs an exception, you can view the data point in Visual Studio and jump straight to the relevant code.
 
-![](./media/app-insights-devops/060.png)
+![Visual Studio search](./media/app-insights-devops/060.png)
 
 During debugging, you have the option to keep the telemetry in your development machine, viewing it in Visual Studio but without sending it to the portal. This avoids mixing debugging with production telemetry.
 
@@ -165,19 +165,11 @@ During debugging, you have the option to keep the telemetry in your development 
 
 If you use Visual Studio Team Services to build and deploy your app, deployment annotations show up on charts in the portal. If your latest release had any effect on the metrics, it becomes very obvious.
 
-![](./media/app-insights-devops/070.png)
+![Build annotations](./media/app-insights-devops/070.png)
 
 ### Work items 
 
 When an alert is raised, Application Insights can automatically create a work item in your work tracking system (Visual Studio Team Services only at present).
-
-## Get started
-
-Getting started with Application Insights is very easy. The main options are:
-
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure web apps](app-insights-azure.md).
-* Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
-* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
 
 
 ## But what about...?
@@ -186,4 +178,15 @@ Getting started with Application Insights is very easy. The main options are:
 * Performance - the impact is very low. Telemetry is batched.
 * [Support](app-insights-get-dev-support.md) - you can take advantage of the Azure support program; there are lively forums where you can get answers from our developers; and in the last resort, we can give you individual help, especially while we're still in beta.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+
+
+## Next steps
+
+Getting started with Application Insights is very easy. The main options are:
+
+* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](app-insights-java-live.md) and [IIS servers](app-insights-monitor-performance-live-website-now.md), and also for [Azure web apps](app-insights-azure.md).
+* Instrument your project during development. You can do this for [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) apps, as well as [Node.js](app-insights-nodejs.md) and a host of [other types](app-insights-platforms.md). 
+* Instrument [any web page](app-insights-javascript.md) by adding a short code snippet.
+
+
 
