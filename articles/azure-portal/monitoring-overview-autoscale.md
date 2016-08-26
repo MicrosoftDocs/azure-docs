@@ -30,7 +30,7 @@ All other Azure services use other methods of scaling. Azure has two autoscaling
 
 ## What is autoscaling 
 
-Autoscaling allow you to ensure that you have just the right amount of resources running to handle the load on your application without wasting money due to resources sitting idle. Autoscaling allows you to add or remove compute resources automatically based on a set of rules.   Figure 1 shows this concept. 
+Autoscaling allows you to have the right amount of resources running to handle the load on your application without wasting money due to resources sitting idle. It allows you to add or remove compute resources automatically based on a set of rules. Figure 1 shows this concept. 
 
 ![Autoscaling concept explained](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
@@ -39,14 +39,14 @@ Autoscaling allow you to ensure that you have just the right amount of resources
 Autoscaling requires you to create rules about when to scale resources up or down. Criteria you can set to control scale actions include 
 
 * **minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs. 
-* **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing so it's worse then just leaving the VM running.    
+* **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing so it's worse than just leaving the VM running.    
 * **granularity** of the monitoring the metric.  You can go from a minimum of 1 minute on up, but certain resources may not deliver that level of granularity. You can discover the granularity of each resource programmatically using the [Azure Insights Metrics REST API](https://msdn.microsoft.com/library/dn931939.aspx). 
    
 The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx)
 
 
 ## Conceptual Diagram  
-Figure 2 below shows a conceptual overview of autoscaling followed by and explanation 
+Figure 2 shows a conceptual overview of autoscaling followed by an explanation of the parts of diagram. 
 
 ![Add alert](./media/monitoring-autoscale-overview/AutoscaleOverview2.png)
 
@@ -78,7 +78,7 @@ Rules can trigger one or more types of actions.
 
 - **Scale** - Scale VMs up or down
 - **Email** - Send email to admins and co-admins of a subscription, and to additional email address you specify
-- **Automate via webhooks** - Call webhooks which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
+- **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
 
 
 ## Resource Manager Rules Details
