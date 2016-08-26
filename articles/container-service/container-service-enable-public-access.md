@@ -26,9 +26,9 @@ By default, DC/OS deploys services of a container service in a private agent poo
 
 First, we need to open the port we want.
 
-1. Log into the portal.
+1. Log in to the portal.
 2. Find the resource group that you deployed the container service to.
-3. Select the agent load balancer (which will be named similar to **XXXX-agent-lb-XXXX**).
+3. Select the agent load balancer (which is named similar to **XXXX-agent-lb-XXXX**).
 
     ![Azure container service load balancer](media/container-service-dcos-agents/agent-load-balancer.png)
 
@@ -46,9 +46,9 @@ First, we need to open the port we want.
 
 Next, we need to add a security rule that routes traffic from our opened port through the firewall.
 
-1. Log into the portal.
+1. Log in to the portal.
 2. Find the resource group that you deployed the container service to.
-3. Select the **public** agent network security group (which will be named similar to **XXXX-agent-public-nsg-XXXX**).
+3. Select the **public** agent network security group (which is named similar to **XXXX-agent-public-nsg-XXXX**).
 
     ![Azure container service network security group](media/container-service-dcos-agents/agent-nsg.png)
 
