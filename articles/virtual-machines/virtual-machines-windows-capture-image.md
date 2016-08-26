@@ -33,7 +33,7 @@ This article shows you how to use Azure PowerShell create a generalized image of
 
 ## Prepare the source VM 
 
-This section shows you how to generalize your Windows virtual machine so that it can be used as an image.
+This section shows you how to generalize your Windows virtual machine so that it can be used as an image. Back up the VM before running Sysprep.
 
 > [AZURE.WARNING] You cannot log in to the VM via RDP once it is generalized, because the process removes all user accounts. The changes are irreversible. 
 
