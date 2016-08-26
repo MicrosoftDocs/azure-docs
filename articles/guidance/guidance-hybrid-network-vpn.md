@@ -552,7 +552,7 @@ To run the script that deploys the solution:
 
 	- Parameters
 
-2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] file to the Scripts folder
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script or [deploy-reference-architecture.sh][solution-script-bash] bash script, as appropriate, to the Scripts folder.
 
 3. Download the [virtualNetwork.parameters.json][vnet-parameters] and [virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]files to the Parameters folder:
 
