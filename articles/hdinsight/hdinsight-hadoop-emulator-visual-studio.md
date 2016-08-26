@@ -40,23 +40,37 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 
 2. From __Server Explorer__, right click the __HDInsight__ entry, and then select __Connect to HDInsight Emulator__.
 
-3. From the __Connect to HDInsight Emulator__ dialog, enter the password that you configured for Ambari. 
+    ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect.png)
+
+3. From the __Connect to HDInsight Emulator__ dialog, enter the password that you configured for Ambari.
+
+    ![Enter Ambari password](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Select __Next__ to continue.
 
 4. Enter a __Friendly Name__ for the emulator, then use the __Password__ field to enter the password you configured for the `root` account. Leave the other fields at the default value.
 
+    ![Enter root password](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+
     Select __Next__ to continue.
 
 5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. When this happens, select the __update__ button and wait for the configuration and verification for the service to complete.
 
+    ![Errors and update button](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+
+    > [AZURE.NOTE] The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Azure Data Lake tools for Visual Studio.
+
     Once validation has completed, select __Finish__ to complete configuration.
+
+    ![Finish connecting](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
     > [AZURE.NOTE] Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
 
 ## Write a Hive query
 
 1. In __Server Explorer__, right-click on the entry for the local cluster that you added previously, and then select __Write a Hive query__.
+
+    ![Write a hive query](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
     This opens a new query window that allows you to quickly type up and submit a query to the sandbox.
 
@@ -66,13 +80,27 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
     
     From the top of the query window, make sure that configuration for the local cluster is selected, and then select __Submit__. Leave the other values (__Batch__ and server name,) at the default values.
 
-3. Once you submit the query, the job status will appear. This provides information on the job as it is processed by Hadoop. Once the __Job Status__ changes to __Finished__, use the __Job Output__ link to view the output.
+    ![query window and submit button](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    You can view other information about the job by using the __Job Log__, and you can download the YARN logs using the __Download YARN Log__ link.
+3. Once you submit the query, the job status will appear. This provides information on the job as it is processed by Hadoop. The __Job State__ entry provides the current status of the job. The state will be updated periodically, or you can use the refresh icon to manually refresh the state.
 
-    [TBD] Do we need to set tez or does it default to it?
+    ![Job state](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-4. Run the job again, but this time change the __Batch__ field to __Interactive__. This [TBD]...
+    Once the __Job Status__ changes to __Finished__, a Directed Acyclic Graph (DAG) is displayed. This describes the execution path that was determined by Tez (the default execution engine for Hive on the Hortonworks Sandbox.) 
+    
+    > [AZURE.NOTE] Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query. 
+
+    Use the __Job Output__ link to view the output. In this case, it is __823__; the number of rows in the sample_08 table. You can view diagnostics information about the job by using the __Job Log__ and __Download YARN Log__ links.
+
+4. You can also run Hive jobs interactively by changing the __Batch__ field to __Interactive__, and then select __Execute__. 
+
+    ![Interactive query](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
+
+    This streams the output log generated during processing to the __HiveServer2 Output__ window.
+    
+    > [AZURE.NOTE] This is the same information that is available from the __Job Log__ link after a job has completed.
+
+    ![HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## Create a Hive project
 
