@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2016"
+   ms.date="08/26/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.3 release notes
@@ -23,27 +23,14 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-Update 0.3 corresponds to the software version **10.0.10280.0**.
+Update 0.3 corresponds to the software version **10.0.10286.0**.
 
 > [AZURE.NOTE] Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime.
 
 
 ## What's new in the Update 0.3
 
-Update 0.3 contains the following bug fixes and improvements.
-
-- **Improved resiliency for cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering if there is a cloud connectivity disruption. 
-
-- **Improved restore performance**: This release has bug fixes that have significantly cut down the completion time of the restore jobs.
-
-- **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
-
-- **New virtual disk images**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
-
-- **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
-
-- **Domain join experience**: Bug fixes related to domain-joining and renaming of the device.
-
+Update 0.3 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous versions have been addressed.
 
 ## Issues fixed in the Update 0.3
 
@@ -51,12 +38,8 @@ The following table provides a summary of issues fixed in this release.
 
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This issue was fixed in this release.                                                                                                                                                                                    |
-| 2    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that you have to configure at least one gateway for all the enabled network interfaces.                                                                              |
-| 3    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
-| 4    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
-| 5    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
-
+| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release. This issue was fixed in this release.                                                                                                                                                                                    |
+| 2    | iSCI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was addressed in this release.                                                              |
 
 
 ## Known issues in the Update 0.3
