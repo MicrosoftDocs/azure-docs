@@ -137,7 +137,7 @@ Yes, it is possible. But the virtual networks cannot have overlapping IP prefixe
 It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
 ## Gateways
-changes
+
 ### What is a policy-based (static-routing) gateway?
 
 Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
@@ -237,7 +237,10 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended. However, if you are using the Resource Manager deployment model, the story is different. See the [BGP](#BGP) section for more information.
+**Classic deployment model**<br>
+Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
+**Resource Manager deployment model**<br>
+If you are using the Resource Manager deployment model, see the [BGP](#BGP) section for more information.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
