@@ -48,7 +48,7 @@ As a user, you provide the subscription id for the subscription you want to use:
 
 ![provide subscription id](./media/resource-manager-api-authentication/sample-ux-1.png)
 
-Select the account to use for signin in.
+Select the account to use for logging in.
 
 ![select account](./media/resource-manager-api-authentication/sample-ux-2.png)
 
@@ -78,7 +78,7 @@ The following example shows how to register the app by using Azure PowerShell. Y
 
     $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
     
-To log in as the AD application, you will need the application id and password. To see the application id that is returned from the previous command, use:
+To log in as the AD application, you need the application id and password. To see the application id that is returned from the previous command, use:
 
     $app.ApplicationId
 
@@ -86,7 +86,7 @@ The following example shows how to register the app by using Azure CLI.
 
     azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
 
-The results include the AppId which you need when authenticating as the application.
+The results include the AppId, which you need when authenticating as the application.
 
 ### Optional configuration - certificate credential
 
@@ -106,23 +106,19 @@ The request returns an exception. In that exception, retrieve the tenant id from
 
 ## Get user + app access token
 
-You now have everything you need to get started with coding the application.  
-
-You start at the point where the user decides to connect an Azure subscription to your application. 
-
-Your application then redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager.
+Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
 ### Auth request (OAuth 2.0)
 
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
 
-    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
+    https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
 The query string parameters that are available for this request are described in the [request an authorization code](./active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) topic.
 
 The following example shows how to request OAuth2.0 authorization:
 
-    https://login.windows.net/dushyantgill.com/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
+    https://login.windows.net/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
 Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
@@ -148,7 +144,7 @@ The OAuth2.0 Authorize request query string parameters are:
 
 An example Open ID Connect request is:
 
-     https://login.windows.net/dushyantgill.com/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
+     https://login.windows.net/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
 
 Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
@@ -173,7 +169,7 @@ Once the **id_token** has been validated, use the oid claim value as the immutab
 Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request 
 to the Azure AD Token endpoint: 
 
-    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
 The query string parameters that are available for this request are described in the [use the authorization code](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
 
@@ -210,7 +206,7 @@ An example response for code grant token:
 
 A successful token response contains the (user + app) access token for Azure Resource Manager. Your application uses this access token to access Resource Manager on behalf of the user. The lifetime of access tokens issued by Azure AD is one hour. It is unlikely that your web application needs to renew the (user + app) access token. If it needs to renew the access token, use the refresh token that your application receives in the token response. Post an OAuth2.0 Token Request to the Azure AD Token endpoint: 
 
-    https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
+    https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
 The parameters to use with the refresh request are described in [refreshing the access token](./active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
 
@@ -305,10 +301,9 @@ Let's look closer at the first step: to assign the appropriate RBAC role to the 
 - The object id of your application's identity in the user's Azure Active Directory
 - The identifier of the RBAC role that your application requires on the subscription
 
-Let's drill into the first part: the first time your application authenticates a user from an Azure AD, a service principal object for your application gets created in that Azure AD. Azure allows RBAC roles to be assigned to service principals to grant direct access to corresponding applications on Azure resources. This action is exactly what we wish to do - so we begin by 
-querying the Azure AD Graph API to determine the identifier of the service principal of your application in the signed-in user's Azure AD.
+Let's drill into the first part: the first time your application authenticates a user from an Azure AD, a service principal object for your application gets created in that Azure AD. Azure allows RBAC roles to be assigned to service principals to grant direct access to corresponding applications on Azure resources. This action is exactly what we wish to do. Query the Azure AD Graph API to determine the identifier of the service principal of your application in the signed-in user's Azure AD.
 
-You only have an access token for Azure Resource Manager - you need a new access token to call the Azure AD Graph API. Every application in Azure AD has permission to query its own service principal object, so we don't need a user + app access token for this action, an app-only access token is sufficient.
+You only have an access token for Azure Resource Manager - you need a new access token to call the Azure AD Graph API. Every application in Azure AD has permission to query its own service principal object, so an app-only access token is sufficient.
 
 <a id="app-azure-ad-graph">
 ### Get app-only access token for Azure AD Graph API
@@ -444,7 +439,7 @@ To get an app-only access token, follow instructions from section [Get app-only 
 
     https://management.core.windows.net/
 
-The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.net MVC sample application gets an app-only access token for Azure Resource Manager using the Active Directory Authentication Library for .net.
+The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.NET MVC sample application gets an app-only access token for Azure Resource Manager using the Active Directory Authentication Library for .net.
 
 #### Get Application's Permissions on Subscription
 
@@ -457,12 +452,12 @@ The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgil
 When the appropriate RBAC role is assigned to your application's service principal on the subscription, your application can keep
 monitoring/managing it using app-only access tokens for Azure Resource Manager.
 
-If a subscription owner removes your application's role assignment using the classic portal or command line tools, your application is no longer able to access that subscription. In that case, you should notify the user that the connection with the subscription was severed from outside the application and give them an option to "repair" the connection. "Repair" would simply re-create the role assignment that was deleted offline.
+If a subscription owner removes your application's role assignment using the classic portal or command-line tools, your application is no longer able to access that subscription. In that case, you should notify the user that the connection with the subscription was severed from outside the application and give them an option to "repair" the connection. "Repair" would simply re-create the role assignment that was deleted offline.
 
 Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. 
 Only users with access management permission on the subscription are able to disconnect the subscription.
 
 The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) of the ASP.net MVC sample app implements this call.
 
-There you go - users can now easily connect and manage their Azure subscriptions with your application.
+That's it - users can now easily connect and manage their Azure subscriptions with your application.
 
