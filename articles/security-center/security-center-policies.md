@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -38,9 +38,13 @@ Security policies can be configured for each subscription or resource group. To 
 
     ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-	>[AZURE.NOTE] You can upgrade from the Pricing Tier selection in the Security Policy. Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing. 
+	The options available in this blade are:
+	- **Prevention policy**: this option enables you to configure policies per subscription or resource group.  
+	- **Email notification**: an email notification is sent on the first daily occurrence of an alert and only for high severity alerts. Email preferences can only be configured for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information on how to configure email notification. 
+	- **Pricing tier**: use this option to upgrade from the Pricing Tier selection. Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing options.
 
-4. Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources. 
+	
+4.  Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources. 
 
     >[AZURE.NOTE] It is recommended that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable data collection for the subscription only, or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 

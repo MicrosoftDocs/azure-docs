@@ -13,13 +13,13 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/25/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center to manage and respond to security alerts.
 
-> [AZURE.NOTE] Advanced detections are available in the Standard Tier of Azure Security Center. A free 90 day trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-policies.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing.
+> [AZURE.NOTE] To enable advanced detections, upgrade to Azure Security Center Standard. A free 90-day trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-policies.md). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
 
 
 ## What are security alerts?
