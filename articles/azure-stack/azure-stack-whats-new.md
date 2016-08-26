@@ -17,50 +17,46 @@
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
-
-This document covers key new features and capabilities in this release of Azure Stack as part of Technical Preview 2.   
+This document covers key new features and capabilities in this release of Azure Stack as part of Technical Preview .
 
 ## Cloud Tenant
 Azure Stack TP2 introduces new tenant capabilities and services for consumers of Azure Stack services, including:
- - [Key Vault](azure-stack-intro-key-vault.md)
-   - Create and manage [Key Vaults](azure-stack-create-key-vault.md)
-   - Store and deploy secrets and keys
+ - [Key Vault](azure-stack-intro-key-vault.md) allows for secure storage and handling of your keys and secrets such as passwords and certificates.
  - Updated App Service Resource Provider and administration capabilities for new Platform-as-a-Service services:
    - Web Apps
    - Mobile Apps
    - API Apps
  - New Infrastructure-as-a-Service capabilities, including:
-   - Deallocation and capture of virtual machines
+   - Deallocate and capture virtual machines
    - Redeploy virtual machine extensions
-   - Resize virtual machine Disks
+   - Resize virtual machine disks
    - [iDNS](azure-stack-what-is-idns.md) for internal network name registration and DNS resolution
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources
    - Create new network resources from the marketplace
- - Storage
+ - Addition of new storage features and services, including: 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
    - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) 
    - [Append Blob](https://msdn.microsoft.com/en-us/library/azure/mt427365.aspx) 
    - Validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python and Java SDK 
    - Premium storage account API support
-   - [Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
+   - Support for [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
    - ACS virtualized cloud services can scale out behind software load balancer
    - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization
-  - Export ARM templates from portal for redeployment 
+  - You can now export ARM templates from portal
 
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
- - Billing and usage APIs allow providers to integrate with billing and consumption services
- - Ability to capture plan and offer details in ARM templates for redeployment
+ - Billing and usage APIs allow providers to integrate with your billing and consumption systems
+ - Ability to capture plan and offer details in ARM templates for redeployment to your customers
  - Azure Stack regions preview support
    - View a list of all Azure Stack regions
    - Navigate to storage, computer, and network providers per region and view resource consumption
- - Delegated Providers enable downstream resellers to offer Azure Stack services to consumers
+ - Delegated Providers enable downstream resellers to offer your Azure Stack services to consumers
  - On-demand reclamation of unused tenant resource capacity
-- New monitoring capabilities
+ - New monitoring capabilities
   - View details of monitoring alerts by region
   - Health Resource Provider enables retrieval of monitoring data via REST
-
-- TiP tests renamed to System Health Tests
+ - TiP tests have been renamed to System Health Tests to better reflect purpose
 
 
 ## Next steps
