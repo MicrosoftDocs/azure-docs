@@ -63,7 +63,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 - Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
 - A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
-- In case auto-update fails, gateway installer retries auto-updating 3 times at maximum.
+- In case auto-update fails, gateway installer retries auto-updating three times at maximum.
 - Performance improvements
 	- Improve performance for loading large tables from on-premises server in code-free copy scenario.
 - Bug fixes
