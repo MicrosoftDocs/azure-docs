@@ -21,7 +21,7 @@ This document covers key new features and capabilities in this preview release o
 
 ## Cloud Tenant
 Azure Stack TP2 introduces new tenant capabilities and services for consumers of Azure Stack services, including:
- - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of cryptographic keys and other secrets such as passwords with built-in auditing and monitoring of key use.
+ - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of cryptographic keys and other secrets like passwords with built-in auditing and monitoring of key use.
  - Updated App Service Resource Provider and administration capabilities for new Platform-as-a-Service services:
    - New resource provider features such scale-up and scale-out, source control integration, and deployment slots. 
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale for consumption in other services.
