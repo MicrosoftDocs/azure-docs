@@ -30,7 +30,7 @@ This connection is typically the first type used for connecting to Microsoft clo
 
 
 
-| **Pros**| **Cons**|
+| **Benefits**| **Considerations**|
 |---------|---------|
 |Requires no modification to your on-premises network as long as all client devices have unlimited access to all IP addresses and ports on the Internet.|Though traffic is often encrypted using HTTPS, it can be intercepted in transit since it traverses the public Internet.|
 |Can connect to all Microsoft cloud services exposed to the public Internet.|Unpredictable latency because the connection traverses the Internet.|
@@ -47,7 +47,7 @@ This connection type provides access to some Microsoft cloud services through a 
 
 The connection is made over your existing Internet connection, but requires use of an Azure VPN Gateway. The table below lists pros and cons of this connection type.
 
-| **Pros**| **Cons**|
+| **Benefits**| **Considerations**|
 |---------|---------|
 |Requires no modification to your on-premises network as long as all client devices have unlimited access to all IP addresses and ports on the Internet.|Though traffic is encrypted using IPSec, it can be intercepted in transit since it traverses the public Internet.|
 |Uses your existing Internet connection.|Unpredictable latency because the connection traverses the Internet.|
@@ -66,7 +66,7 @@ This connection type provides access to some Microsoft cloud services through an
 
 The connection is made over your existing Internet connection, but requires use of an Azure VPN Gateway with its associated pricing and outbound data transfer pricing. The table below lists pros and cons of this connection type.
 
-| **Pros**| **Cons**|
+| **Benefits**| **Considerations**|
 |---------|---------|
 |All devices on your on-premises network can communicate with Azure services connected to a VNet so there’s no need to configure individual connections for each device.|Though traffic is encrypted using IPSec, it can be intercepted in transit since it traverses the public Internet.|
 |Uses your existing Internet connection.|Unpredictable latency because the connection traverses the Internet.|
@@ -87,7 +87,7 @@ This connection type provides access to all Microsoft cloud services over a dedi
 
 The connection requires use of the ExpressRoute service and a connection to a connectivity provider. The table below lists pros and cons of this connection type.
 
-| **Pros**| **Cons**|
+| **Benefits**| **Considerations**|
 |---------|---------|
 |Traffic cannot be intercepted in transit over the public Internet since a dedicated connection through a service provider is used.|Requires on-premises router management.|
 |Bandwidth up to 10 Gb/s per ExpressRoute circuit and throughput up to 2 Gb/s to each gateway.|Requires a dedicated connection to a connectivity provider.|
