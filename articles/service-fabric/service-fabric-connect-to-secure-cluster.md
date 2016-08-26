@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/18/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Connect to a secure cluster
