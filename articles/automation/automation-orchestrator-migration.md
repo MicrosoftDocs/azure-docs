@@ -22,7 +22,7 @@ Runbooks in [System Center Orchestrator](http://technet.microsoft.com/library/hh
 
 The [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that the runbooks use to integration modules with Windows PowerShell cmdlets.  
 
-Following is the the basic process for converting Orchestrator runbooks to Azure Automation.  Each of these steps is described in detail in the sections below.
+Following is the basic process for converting Orchestrator runbooks to Azure Automation.  Each of these steps is described in detail in the sections below.
 
 1.  Download the [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) which contains the tools and modules discussed in this article.
 2.  Import [Standard Activities Module](#standard-activities-module) into Azure Automation.  This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.
@@ -62,7 +62,7 @@ Integration packs that were not created with OIT cannot be converted with the In
 
 ## Standard Activities Module
 
-Orchestrator includes a set of [standard activities](http://technet.microsoft.com/library/hh403832.aspx) that are not included in an integration pack but are used by many runbooks.  The Standard Activities module is a integration module that includes a cmdlet equivalent for each of these activities.  You must install this integration module in Azure Automation before importing any converted runbooks that use a standard activity.
+Orchestrator includes a set of [standard activities](http://technet.microsoft.com/library/hh403832.aspx) that are not included in an integration pack but are used by many runbooks.  The Standard Activities module is an integration module that includes a cmdlet equivalent for each of these activities.  You must install this integration module in Azure Automation before importing any converted runbooks that use a standard activity.
 
 In addition to supporting converted runbooks, the cmdlets in the standard activities module can be used by someone familiar with Orchestrator to build new runbooks in Azure Automation.  While the functionality of all of the standard activities can be performed with cmdlets, they may operate differently.  The cmdlets in the converted standard activities module will work the same as their corresponding activities and use the same parameters.  This can help the existing Orchestrator runbook author in their transition to Azure Automation runbooks.
 
@@ -106,7 +106,7 @@ The following example command converts the runbooks in an export file called **M
 
 ### Log files
 
-The Runbook Converter will create the following log files in the same location as the converted runbook.  If the files already exists, then they will be overwritten with information from the last conversion.
+The Runbook Converter will create the following log files in the same location as the converted runbook.  If the files already exist, then they will be overwritten with information from the last conversion.
 
 | File | Contents |
 |:---|:---|
