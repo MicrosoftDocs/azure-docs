@@ -74,7 +74,7 @@ The connection is made over your existing Internet connection, but requires use 
 |Throughput up to 200 Mb/s per gateway.|Requires minimal ongoing administration of an Azure VPN Gateway.|
 |Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using user-defined routes or the Border Gateway Protocol (BGP)**.|Cannot be used to connect to Microsoft Office 365 or Dynamics CRM Online.|
 ||Cannot be used to connect to Azure services that cannot be connected to a VNet.|
-||If you use services that initiate connections back to on-premises devices and your security policies require it you may need a firewall between the on-premises network and Azure.|
+||If you use services that initiate connections back to on-premises devices and your security policies require it, you may need a firewall between the on-premises network and Azure.|
 
 - *View a list of [validated VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md#validated-vpn-devices).
 - **Learn more about using [user-defined routes](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) or [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) to force routing from Azure VNets to an on-premises device.
@@ -92,7 +92,7 @@ The connection requires use of the ExpressRoute service and a connection to a co
 |Traffic cannot be intercepted in transit over the public Internet since a dedicated connection through a service provider is used.|Requires on-premises router management.|
 |Bandwidth up to 10 Gb/s per ExpressRoute circuit and throughput up to 2 Gb/s to each gateway.|Requires a dedicated connection to a connectivity provider.|
 |Predictable latency because it’s a dedicated connection to Microsoft that does not traverse the Internet.|May require minimal ongoing administration of one or more Azure VPN Gateways (if connecting the circuit to VNets).|
-|Does not require encrypted communication though you can encrypt the traffic, if desired.|May necessitate a firewall between the on-premises network and Azure if using cloud services that initiate connections back to on-premises devices.|
+|Does not require encrypted communication, though you can encrypt the traffic, if desired.| If you're using cloud services that initiate connections back to on-premises devices, you may need a firewall between the on-premises network and Azure.|
 |Can directly connect to all Microsoft cloud services, with a few exceptions*.|Requires network address translation (NAT) of on-premises IP addresses entering the Microsoft data centers for services that can't be connected to a VNet.**|
 |Can force outbound traffic initiated from cloud virtual machines through the on-premises network for inspection and logging using BGP.|
 
