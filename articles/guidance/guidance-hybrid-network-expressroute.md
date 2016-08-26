@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/04/2016"
+   ms.date="08/26/2016"
    ms.author="telmos"/>
 
 # Implementing a hybrid network architecture with Azure ExpressRoute
@@ -381,14 +381,21 @@ To run the script that deploys the solution:
 
 3. Download the [virtualNetwork.parameters.json][virtualnetwork-parameters], [virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters] and [expressRouteCircuit.parameters.json][er-circuit-parameters] files to Parameters folder:
 
-4. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the resources created by the script:
+4. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
 	```powershell
-	$resourceGroupName = "hybrid-er-rg"
+	# PowerShell
+	$resourceGroupName = "ra-hybrid-vpn-er-rg"
 	```
+
+	```bash
+	# bash
+	RESOURCE_GROUP_NAME="ra-hybrid-vpn-er-rg"
+	```
+
 5. Edit the parameter files in the Parameters folder to set the parameters for the VNet, virtual network gateway, and ExpressRoute connection, as described in the Solution Components section above.
 
-7. If you are using PowerShell, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+7. If you are using PowerShell, and don't have an existing ExpressRoute circuit, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Circuit
@@ -433,6 +440,8 @@ To run the script that deploys the solution:
 	Specify the same values for `<subscription id>` and `<location>` as before.
 
 9. Use the Azure portal to verify that the VNet and ExpressRoute virtual network gateway connection have been created successfully.
+
+10. From an on-premises machine, verify that you can connect to the VNet through the gateway using the ExpressRoute connection.
 
 ## Next steps
 
