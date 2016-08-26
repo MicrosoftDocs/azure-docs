@@ -23,7 +23,7 @@ An application running on a VM Scale Set is typically deployed in one of three w
 
 - Installing new software on a Platform image at deployment time. A platform image in this context is a operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2 etc.
 
-You can install new software on a platform image using a VM Extension. A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. Here’s an example Azure Resource Manager Template with two VM extensions, a linux custom script extension to install Apache and PHP, and a diagnostic extension to emit performance data which can be used by Azure autoscaling: Autoscale a VM Scale Set running an Ubuntu/Apache/PHP app.
+You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. Here’s an example Azure Resource Manager Template with two VM extensions, a linux custom script extension to install Apache and PHP, and a diagnostic extension to emit performance data which can be used by Azure autoscaling: Autoscale a VM Scale Set running an Ubuntu/Apache/PHP app.
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and depending on how much needs to download and configure when the extension runs, it could add to the VM deployment time.
 
