@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="08/26/2016"
 	ms.author="genli"/>
 
 # How to change the credit card used to pay for an Azure subscription
@@ -29,15 +29,21 @@ If your credit card number ever changes, due to being lost, stolen, or expired, 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Edit payment information for an existing credit card
+
+### Verify your payment method
+
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
 
 	**Note** Only the  account administrator has permission to access the Account Center. For more information about account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
 2. Under **Click a subscription to view details and usage**, select the subscription that is linked to the credit card.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. On the right side of the page, select **Change payment method**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
-4. On the **Choose payment method** page, select **Edit** next to the credit card number.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
-5. On the **Edit** page, verify that you have selected the correct credit card type and card number.
-6. Make the changes you need to the card details, and then select **Next** to the **Choose payment method** page.
+3. On the right side of the page, select **Change payment method** to verify your payment method.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
+
+### Update the details of an existing credit card
+
+1. On the **Choose payment method** page, select **Edit** next to the credit card number.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
+2. On the **Edit** page, verify that you have selected the correct credit card type and card number.
+3. Make the changes you need to the card details, and then select **Next** to the **Choose payment method** page.
 
 ## Add a new credit card as a payment method
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
