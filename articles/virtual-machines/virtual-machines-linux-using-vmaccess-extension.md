@@ -25,7 +25,7 @@ This article shows you how to use the Azure VMAcesss Extension to check or repai
 
 Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
-## Quick Commands
+## Quick commands
 
 There are two ways to use VMAccess on your Linux VMs:
 
@@ -51,7 +51,7 @@ azure vm quick-create \
 -Q Debian
 ```
 
-## Reset Root Password
+## Reset root password
 
 To reset the root password:
 
@@ -59,7 +59,7 @@ To reset the root password:
 azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
 ```
 
-## SSH Key Reset
+## SSH key reset
 
 To reset the SSH key of a non root user:
 
@@ -67,7 +67,7 @@ To reset the SSH key of a non root user:
 azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
 ```
 
-## Create a User
+## Create a user
 
 To create a new user:
 
@@ -75,7 +75,7 @@ To create a new user:
 azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
 ```
 
-## Remove a User
+## Remove a user
 
 ```bash
 azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
@@ -90,7 +90,7 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 ```
 
 
-## Detailed Walkthrough
+## Detailed walkthrough
 
 ### VMAccess defined:
 
@@ -227,7 +227,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-## Next Steps
+## Next steps
 
 Updating Linux using Azure VMAccess Extensions is one method to make changes on a running Linux VM.  You can also use tools like cloud-init and Azure Templates to modify your Linux VM on boot.
 
