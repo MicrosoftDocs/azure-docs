@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and the Azure Portal | Microsoft Azure"
-   description="How to create VNet using the Resource Manager model and connect it to your local on-premises network using a S2S VPN gateway connection."
+   description="How to create VNet using the Resource Manager deployment model and connect it to your local on-premises network using a S2S VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,7 +17,7 @@
    ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
-# Create a VNet with a Site-to-Site VPN connection using the Azure Portal and Azure Resource Manager
+# Create a VNet with a Site-to-Site connection using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -25,20 +25,15 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal.
+This article walks you through creating a virtual network and a Site-to-Site VPN connection to your on-premises network using the Azure Resource Manager deployment model and the Azure portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
+
+![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
-**About Azure deployment models**
+
+### Deployment models and tools for Site-to-Site connections
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-
-## Connection diagram
-
-![Diagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/diagrams2sazureportal.png)
-
-
-
-**Deployment models and tools for Site-to-Site connections**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
@@ -48,7 +43,7 @@ If you want to connect VNets together, but are not creating a connection to an o
 
 Verify that you have the following items before beginning your configuration:
 
-- A compatible VPN device and someone who can configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
+- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 
 - An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 	

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="08/25/2016" 
 	ms.author="rachelap"/>
 
 # Azure App Service API app triggers
