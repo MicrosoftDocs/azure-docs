@@ -58,7 +58,7 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 
 - **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription is created for you.
 
-- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create and manage a Batch account](batch-account-create-portal.md) in the Azure portal.
+- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create Batch account](batch-account-create-portal.md) in the Azure portal.
 
 - **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Storage--for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
