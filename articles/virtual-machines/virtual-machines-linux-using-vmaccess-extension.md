@@ -23,7 +23,7 @@
 
 This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux.  
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group to launch the Linux VMs into, and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
+Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), and the Azure CLI installed and switched to ARM mode using `azure config mode arm`.
 
 ## Quick Commands
 
@@ -34,12 +34,29 @@ There are two ways to use VMAccess on your Linux VMs:
 
 For the quick command section we will use the Azure CLI `azure vm reset-access` method. In the following command examples, replace the values that contain "example" with the values from your own environment.
 
+## Create a Resource Group and Linux VM
+
+```bash
+azure group create resourcegroupexample westus
+```
+
+```bash
+azure vm quick-create \
+-M ~/.ssh/id_rsa.pub \
+-u userexample \
+-g resourcegroupexample \
+-l westus \
+-y Linux \
+-n debianexamplevm \
+-Q Debian
+```
+
 ## Reset Root Password
 
 To reset the root password:
 
 ```bash
-azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplePassword
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p examplenewPassword
 ```
 
 ## SSH Key Reset
@@ -47,7 +64,7 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -u root -p exampl
 To reset the SSH key of a non root user:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -M ~/.ssh/id_rsa.pub
 ```
 
 ## Create a User
@@ -55,13 +72,13 @@ azure vm reset-access -g <resource group> -n <vm name> -u <exampleUser> -M <~/.s
 To create a new user:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <exampleNewUserName> -p <examplePassword>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -u userexample -p examplePassword
 ```
 
 ## Remove a User
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -R userexample
 ```
 
 ## Reset SSHD
@@ -69,7 +86,7 @@ azure vm reset-access -g <resource group> -n <vm name> -R <exampleNewUserName>
 To reset the SSHD configuration:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -r
+azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 ```
 
 
@@ -209,3 +226,5 @@ azure vm extension set exampleResourceGroup exampleVM \
 VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
+
+## Next Steps
