@@ -18,7 +18,7 @@
 
 # SQL Data Warehouse capacity limits
 
-The below tables contains the maximum values allowed for various components of Azure SQL Data Warehouse.
+The following tables contain the maximum values allowed for various components of Azure SQL Data Warehouse.
 
 
 ## Workload management
@@ -28,19 +28,19 @@ The below tables contains the maximum values allowed for various components of A
 | [Data Warehouse Units (DWU)][]| Compute, Memory, and IO Resources      | 6000               |
 | Database connection | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed.|
 | Database connection | Maximum memory for prepared statements       | 20 MB              |
-| [Workload management][] | Maximum concurrent queries                   | 32<br/><br/> By default, SQL Data Warehouse will execute a maximum of 32 concurrent queries and queue remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class. Some queries, like DMV queries, are always allowed to run.|
-| [Tempdb][]          | Max size of Tempdb                           | 399GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99TB |
+| [Workload management][] | Maximum concurrent queries                   | 32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run.|
+| [Tempdb][]          | Max size of Tempdb                           | 399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
 
 
 ## Database objects
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Database          | Max size                                     | 240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X which means that the uncompressed size of the database could grow to approximately 1 PB when all tables are clustered columnstore (the default table type).|
+| Database          | Max size                                     | 240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type).|
 | Table             | Max size                                     | 60 TB compressed on disk   |
 | Table             | Tables per database                          | 2 billion          |
 | Table             | Columns per table                            | 1024 columns       |
-| Table             | Bytes per column                             | Dependant on column [data type][].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types.|
+| Table             | Bytes per column                             | Dependent on column [data type][].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types.|
 | Table             | Bytes per row, defined size                  | 8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8 KB][] MSDN article.|
 | Table             | Partitions per table                    | 15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance.|
 | Table             | Characters per partition boundary value.| 4000 |
