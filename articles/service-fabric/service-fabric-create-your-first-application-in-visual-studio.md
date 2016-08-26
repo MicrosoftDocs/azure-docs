@@ -131,6 +131,7 @@ When you change cluster mode the development cluster resets and all applications
 - Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 - Learn how you can expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
+- Walk through a [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) and create a stateless service, configure monitoring and health reports, and perform an application upgrade.
 
 <!-- Image References -->
 
