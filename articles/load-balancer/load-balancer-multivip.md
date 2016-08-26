@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 # Multiple VIPs per cloud service
@@ -37,7 +37,7 @@ You can use PowerShell to verify the VIPs used by your cloud services, as well a
 
 At this time, multi VIP functionality is limited to the following scenarios:
 
-- **IaaS only**. You can only enable multi VIP for cloud services that contain VMs. You cannot use multi VIP in PaaS scenarios, with role instances.
+- **IaaS only**. You can only enable multi VIP for cloud services that contain VMs. You cannot use multi VIP in PaaS scenarios with role instances.
 - **PowerShell only**. You can only manage multi VIP by using PowerShell.
 
 >[AZURE.IMPORTANT] These limitations are temporary, and may change at any time. Make sure to revisit this page to verify future changes.
