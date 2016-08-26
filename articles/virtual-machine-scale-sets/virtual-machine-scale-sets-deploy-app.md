@@ -39,19 +39,19 @@ When you add one or more VMs to a scale set by increasing the capacity – wheth
 
 For application updates in VM Scale Sets, three main approaches follow from the three application deployment methods outlined above:
 
-1. Updating with Extensions. Any VM extensions which are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, Directly updating an application through extensions is a viable approach – you can update the extension definition, or the extension code can point to a location which contains updateable software.
+* Updating with Extensions. Any VM extensions which are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, directly updating an application through extensions is a viable approach – you simply update the extension definition. One simple way to do this is by changing the fileUris to point to the new software.
 
-The hard problems there are:
+The hard problems are:
 
 – Security – how to maintain certificates/shared access signatures.
 
-– Scaling – how the application updates, how long it takes, when you scale out.
+– Scaling – how the application updates and how long it takes when you scale out.
 
-2. The immutable approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, deployment of the images (e.g. Jenkins based). You can design infrastructure architecture to facilitate rapid swapping of a stage scale set into production. A good example of this approach is the Azure Spinnaker driver work: https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure – http://www.spinnaker.io/
+* The immutable approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, and deployment of the images. You can design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) – http://www.spinnaker.io/
 
-Packer and Terraform support Azure Resource Manager, so you can also define your images “as code” and build them in Azure, then use the VHD in your scale set. Where this would become problematic is for Marketplace images, where extensions/custom scripts become more important as you don’t directly manipulate bits from Marketplace.
+Packer and Terraform also support Azure Resource Manager, so you can also define your images “as code” and build them in Azure, then use the VHD in your scale set. Where this would become problematic is for Marketplace images, where extensions/custom scripts become more important as you don’t directly manipulate bits from Marketplace.
 
-3. Update Containers. Abstract the application lifecycle management to a level above the cloud infrastructure, e.g. by encapsulating applications, and app components into containers and manage these through container orchestrators and app managers like chef/puppet.
+* Update Containers. Abstract the application lifecycle management to a level above the cloud infrastructure, e.g. by encapsulating applications, and app components into containers and manage these through container orchestrators and app managers like chef/puppet.
 
 The scale set VMs then become a stable substrate for the containers and only require occasional security and OS related updates. As mentioned, the Azure Container Service is a good example of taking this approach and building a service around it.
 
@@ -59,4 +59,4 @@ The scale set VMs then become a stable substrate for the containers and only req
 
 Suppose you want to update your OS image while keeping the VM Scale Set running. One way to do this is to update the VM images one VM at a time. You can do this with PowerShell or Azure CLI. There are separate commands to update the VM Scale Set model (how its configuration is defined), and to issue “manual upgrade” calls on individual VMs.
 
-Here’s an example Python script which automates this to update a VM Scale Set one update domain at a time: https://github.com/gbowerman/vmsstools. (Caveat: it’s more of a proof of concept than a hardened production-ready solution – you might want to add some error checking etc.).
+[Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) is an example Python script which automates this to update a VM Scale Set one update domain at a time. (Caveat: it’s more of a proof of concept than a hardened production-ready solution – you might want to add some error checking etc.).
