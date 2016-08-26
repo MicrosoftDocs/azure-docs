@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/26/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -76,24 +76,12 @@ Operators are evaluated left to right and have the same evaluation priority. Tha
 
 ## Multi-valued attributes
 
-### Attribute flows for multi-valued attributes
 The functions can operate on both single-valued and multi-valued attributes. For multi-valued attributes, the function operates over every value and applies the same function to every value.
 
 For example:  
 `Trim([proxyAddresses])` Do a Trim of every value in the proxyAddress attribute.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` For every value with an @-sign, replace the domain with @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Look for the SIP-address and remove it from the values.
-
-### Merging attribute values
-In the attribute flows there is a setting to determine if multi-valued attributes should be merged from several different Connectors. The default value is **Update**, which indicates that the sync rule with highest precedence should win.
-
-![Merge Types](./media/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/mergetype.png)  
-
-There is also **Merge** and **MergeCaseInsensitive**. These options allow you to merge values from different sources. For example, it can be used to merge the member or proxyAddresses attribute from several different forests. When you use this option, all sync rules in scope for an object must use the same merge type. You cannot define **Update** from one Connector and **Merge** from another. If you try, you receive an error.
-
-The difference between **Merge** and **MergeCaseInsensitive** is how to process duplicate attribute values. The sync engine makes sure duplicate values are not inserted into the target attribute. With **MergeCaseInsensitive**, duplicate values with only a difference in case are not going to be present. For example, you will not see both "SMTP:bob@contoso.com" and "smtp:bob@contoso.com" in the target attribute. **Merge** is only looking at the exact values and multiple values where there only is a difference in case might be present.
-
-The option **Replace** is the same as **Update**, but it is not used.
 
 ## Additional Resources
 
