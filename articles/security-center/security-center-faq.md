@@ -120,6 +120,7 @@ If you need to:
 
 ### Which Azure resources are monitored by Azure Security Center?
 Azure Security Center monitors the following Azure resources:
+
 - Virtual machines (including Cloud Services)
 - Azure Virtual Networks
 - Azure SQL service
