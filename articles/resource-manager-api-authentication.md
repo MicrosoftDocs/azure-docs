@@ -16,18 +16,22 @@
    ms.author="dugill;tomfitz" />
 
 
-# Developer's guide to authorization with the Azure Resource Manager API
+# Connect your app to customer's Azure subscription
 
-If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs. 
+## Introduction
+
+If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
 
 Your app can access the Resource Manager APIs in couple of ways:
 
-1. **User + app access**: use this method for apps that access resources on behalf of a signed-in user. It works for apps, such as web apps and command-line tools, that deal with only "interactive management" of Azure resources.
-1. **App-only access**: use this method when the app's identity must be granted direct access to the resources. It works for daemon services and scheduled jobs that need long-term "offline access" to Azure.
+1. **User + app access**: for apps that access resources on behalf of a signed-in user. This approach works for apps, such as web apps and command-line tools, that deal with only "interactive management" of Azure resources.
+1. **App-only access**: for apps that run daemon services and scheduled jobs. The app's identity is granted direct access to the resources. This approach works for apps that need long-term "offline access" to Azure.
 
-This topic gives a step-by-step description of how to create an app that employs both these authorization methods.
+This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-You'll build a web application that:
+## What the web app does
+
+The web app:
 
 1. Signs-in an Azure user.
 2. Queries Resource Manager on behalf of the user (user + app access) to get a list of Azure subscriptions that the user owns.
@@ -36,31 +40,32 @@ You'll build a web application that:
 
 Here's the end-to-end flow of the web application.
 
-![ARM Auth - App Registration 1](./media/resource-manager-api-authentication/ARM-Auth-Swim-Lane.png)
+![Resource Manager Authentication flow](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
 All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
 
-As a user, you select the type of account to use for logging in:
+As a user, you provide the subscription id for the subscription you want to use:
 
-![select sign-in](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-1.png)
+![provide subscription id](./media/resource-manager-api-authentication/sample-ux-1.png)
+
+Select the account to use for signin in.
+
+![select account](./media/resource-manager-api-authentication/sample-ux-2.png)
 
 Provide your credentials.
 
-![provide credentials](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-2.png)
+![provide credentials](./media/resource-manager-api-authentication/sample-ux-3.png)
 
 Grant the app access to your Azure subscriptions:
  
- ![Grant access](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-3.png)
+![Grant access](./media/resource-manager-api-authentication/sample-ux-4.png)
  
-Connect your subscriptions to the app for monitoring:
+Manage your connected subscriptions:
 
-![Connect subscription](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4.png)
+![Connect subscription](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-Disconnect or repair the connection to the app:
 
-![Disconnect subscription](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-5.png)
-
-## Register your application with Azure Active Directory
+## Register application
 
 You begin by registering you web app with Azure Active Directory (AD). The app registration creates a central identity for your app 
 in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application 
@@ -86,20 +91,14 @@ signed using your private key, and Azure AD validates the signature using the pu
 For information about configuring the certificate, see [Build service and daemon apps in Office 365](https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365). 
 The section titled "Configuring a X.509 public cert for your application" has step-by-step instructions for setting up the certificate. Or, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md) for examples of configuring a certificate through Azure PowerShell or Azure CLI.
 
-## Authenticate user and get access token
+## Get tenant id from subscription id
 
-You now have everything you need to get started with coding the application. This topic provides the REST API examples 
-for each step of the end-to-end flow, and links to the relevant C# code for each step. The complete ASP.NET MVC application sample is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense). 
+## Get user + app access token
+
+You now have everything you need to get started with coding the application.  
 
 You start at the point where the user decides to connect an Azure subscription to your application. 
 
-Ask the user two things:
-
-1. **Directory Domain Name**: the domain name of the Azure Active Directory associated with the user's Azure subscription. The OAuth 2.0 Authorization request must be sent to this Azure AD. The user can find out the domain name of their Azure AD by navigating to the Azure portal and selecting the account in the upper right corner. You may provide visual instructions to the user like: 
-
-     ![](./media/resource-manager-api-authentication/show-directory.png)
-   
-1. **Microsoft Account vs. Work Account**: determine whether the user manages his or her Azure subscription with a Microsoft Account (aka Live Id) or a Work Account (aka Organizational Account). If Microsoft Account, your application will redirect the user to the Azure Active Directory login page with a query string parameter (&domain_hint=live.com) that instructs Azure AD to take the user directly to the Microsoft Account sign-in page. The authorization code and tokens that you receive for either type of account is processed in the same way.
 
 Your application then redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager.
 
@@ -109,7 +108,7 @@ Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize en
 
     https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Authorize
 
-The query string parameters that are available for this request are described in the [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) topic.
+The query string parameters that are available for this request are described in the [request an authorization code](./active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) topic.
 
 The following example shows how to request OAuth2.0 authorization:
 
@@ -166,7 +165,7 @@ to the Azure AD Token endpoint:
 
     https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
-The query string parameters that are available for this request are described in the [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) topic.
+The query string parameters that are available for this request are described in the [use the authorization code](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
 
 The following example shows a request for code grant token with password credential:
 
@@ -178,9 +177,9 @@ The following example shows a request for code grant token with password credent
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
 When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in 
-[Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/master/src/ADAL.NET/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+[JWT token claims](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
-See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on Client Authentication. Here's a [sample client assertion JWT token](https://www.authnauthz.com/OAuth/ParseJWTToken?token=eyJhbGciOiJSUzI1NiIsIng1dCI6IlFwcXdKZnJNZ003ekJ4M1hkM2NSSFdkYVFsTSJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcL2FhbHRlc3RzLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyODk2Mjk5MSwiaXNzIjoiOTA4M2NjYjgtOGE0Ni00M2U3LTg0MzktMWQ2OTZkZjk4NGFlIiwianRpIjoiMmYyMjczMzQtZGQ3YS00NzZkLWFlOTYtYzg4NDQ4YTkxZGM0IiwibmJmIjoxNDI4OTYyMzkxLCJzdWIiOiI5MDgzY2NiOC04YTQ2LTQzZTctODQzOS0xZDY5NmRmOTg0YWUifQ.UXQE9H-FlwxYQmRVG0-p7pAX9TFgiRXcYr7GhbcC7ndIPHKpZ5tfHWPEgBl3ZVRvF2l8uA7HEV86T7t2w7OHhHwLBoW7XTgj-17hnV1CY21MwjrebPjaPIVITiilekKiBASfW2pmss3MjeOYcnBV2MuUnIgt4A_iUbF_-opRivgI4TFT4n17_3VPlChcU8zJqAMpt3TcAxC3EXXfh10Mw0qFfdZKqQOQxKHjnL8y7Of9xeB9BBD_b22JNRv0m7s0cYRx2Cz0cUUHw-ipHhWaW7YwhVRMfK6BMkaDUgaie4zFkcgHb7rm1z0rM1CvzIqP-Mwu3oEqYpY9cYo8nEjMyA).
+See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on Client Authentication. 
 
 The following example shows a request for code grant token with certificate credential:
 
@@ -203,7 +202,7 @@ A successful token response contains the (user + app) access token for Azure Res
 
     https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token
 
-The parameters to use with the refresh request are described in [Authorization Code Grant Flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+The parameters to use with the refresh request are described in [refreshing the access token](./active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 The following example shows how to use the refresh token:
 
@@ -221,8 +220,6 @@ Although refresh tokens can be used to get new access tokens for Azure Resource 
 Your application now has a token to access Azure Resource Manager on behalf of the user.
 
 The next step is to allow the user to connect an Azure subscription to your app. After connecting, your app can manage those subscriptions even when the user isn't present (long-term offline access). Show the user the list of Azure subscriptions on which the user can manage access, and allow the user to assign an RBAC role directly to your application's identity.
-
-![ARM Auth - Sample App Ux 4](./media/resource-manager-api-authentication/ARM-Auth-Sample-App-Ux-4-full.png)
 
 ### List subscriptions in which the user has any access
 
@@ -247,7 +244,7 @@ An example response to list subscriptions is:
 Only display the connect/disconnect action for subscriptions that the user can manage access to. For each subscription, call the 
 [Resource Manager list permissions](https://msdn.microsoft.com/library/azure/dn906889.aspx) API to determine whether the user has access management rights for the subscription.
 
-The [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L132) method of the ASP.net MVC sample app implements this call.
+The [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) method of the ASP.net MVC sample app implements this call.
 
 The following example shows how to request a user's permissions on a subscription. 83cfe939-2402-4581-b761-4f59b0a041e4 is the id of the subscription.
 
@@ -285,7 +282,7 @@ An example response to list directories:
 
     {"value":[{"id":"/tenants/7fe877e6-a150-4992-bbfe-f517e304dfa0","tenantId":"7fe877e6-a150-4992-bbfe-f517e304dfa0"},{"id":"/tenants/62e173e9-301e-423e-bcd4-29121ec1aa24","tenantId":"62e173e9-301e-423e-bcd4-29121ec1aa24"}]}
 
-## Connect subscription to application
+## Get app-only access token
 
 You now have a list of Azure subscriptions that the user can connect to your application. The next step is to give the user a command to create the connection. When the user selects **connect**, your app:
 
@@ -308,7 +305,7 @@ You only have an access token for Azure Resource Manager - you need a new access
 
 To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
-Lines 73-77 of [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L73) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
+The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
 The client credential grant token request data:
 
@@ -336,7 +333,7 @@ An example response for client credential grant token:
 
 Now, use the app-only access token to query the [Azure AD Graph Service Principals](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API to determine the Object Id of the application's service principal in the directory.
 
-The [GetObjectIdOfServicePrincipalInOrganiation](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#L66) method of the ASP.net MVC sample application implements this call.
+The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) method of the ASP.net MVC sample application implements this call.
 
 The following example shows how to request an application's service principal. a0448380-c346-4f9f-b897-c18733de9394 is the client id of the application.
 
@@ -365,7 +362,7 @@ The role assignment for your application is visible to users, so select the leas
 
 Call the [Resource Manager role definition API](https://msdn.microsoft.com/library/azure/dn906879.aspx) to list all Azure RBAC roles and search then iterate over the result to find the desired role definition by name.
 
-The [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L354) method of the ASP.net MVC sample app implements this call.
+The [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) method of the ASP.net MVC sample app implements this call.
 
 The following request example shows how to get Azure RBAC role identifier. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is the id of the subscription.
 
@@ -402,7 +399,7 @@ Here are the well-known guids of commonly used built-in roles:
 You have everything you need to assign the appropriate RBAC role to your service principal by using 
 the [Resource Manager create role assignment](https://msdn.microsoft.com/library/azure/dn906887.aspx) API.
 
-The [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L269) method of the ASP.net MVC sample app implements this call.
+The [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) method of the ASP.net MVC sample app implements this call.
 
 An example request to assign RBAC role to application: 
 
@@ -437,13 +434,13 @@ To get an app-only access token, follow instructions from section [Get app-only 
 
     https://management.core.windows.net/
 
-Lines 210-214 of [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) method of the ASP.net MVC sample application gets an app-only access token for Azure Resource Manager using the Active Directory Authentication Library for .net.
+The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.net MVC sample application gets an app-only access token for Azure Resource Manager using the Active Directory Authentication Library for .net.
 
 #### Get Application's Permissions on Subscription
 
 To check that your application has the desired access on an Azure subscription, you may also call the [Resource Manager Permissions](https://msdn.microsoft.com/library/azure/dn906889.aspx) API. This approach is similar to how you determined whether the user has Access Management rights for the subscription. However, this time, call the permissions API with the app-only access token that you received in the previous step.
 
-The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L203) method of the ASP.NET MVC sample app implements this call.
+The [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) method of the ASP.NET MVC sample app implements this call.
 
 ## Manage connected subscriptions
 
@@ -452,13 +449,10 @@ monitoring/managing it using app-only access tokens for Azure Resource Manager.
 
 If a subscription owner removes your application's role assignment using the classic portal or command line tools, your application is no longer able to access that subscription. In that case, you should notify the user that the connection with the subscription was severed from outside the application and give them an option to "repair" the connection. "Repair" would simply re-create the role assignment that was deleted offline.
 
-
-## Disconnect subscriptions
-
 Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. 
 Only users with access management permission on the subscription are able to disconnect the subscription.
 
-The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L303) of the ASP.net MVC sample app implements this call.
+The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) of the ASP.net MVC sample app implements this call.
 
 There you go - users can now easily connect and manage their Azure subscriptions with your application.
 
