@@ -33,10 +33,10 @@ Declarative provisioning is processing objects coming in from a source connected
 - Target,
 
 ## Scope
-The scope module is evaluating an object and determines the rules which are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules will be evaluated to be in scope. For example, a disabled user with no Exchange mailbox will have different rules than an enabled user with a mailbox.  
+The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are be evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
 ![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
-The scope is defined as groups and clauses. The clauses are inside a group. A logical AND is used between all clauses in a group. For example (department =IT AND country = Denmark). A logical OR is used between groups.
+The scope is defined as groups and clauses. The clauses are inside a group. A logical AND is used between all clauses in a group. For example, (department =IT AND country = Denmark). A logical OR is used between groups.
 
 ![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope2.png)  
 The scope in this picture should be read as (department = IT AND country = Denmark) OR (country=Sweden). If either group 1 or group 2 is evaluated to true, then the rule is in scope.
@@ -52,36 +52,41 @@ STARTSWITH, NOTSTARTSWITH | A string compare that evaluates if value is in the b
 ENDSWITH, NOTENDSWITH | A string compare that evaluates if value is in the end of the value in the attribute.
 GREATERTHAN, GREATERTHAN_OR_EQUAL | A string compare that evaluates if value is greater than of the value in the attribute.
 ISNULL, ISNOTNULL | Evaluates if the attribute is absent from the object. If the attribute is not present and therefore null, then the rule is in scope.
-ISIN, ISNOTIN | Evaluates if the value is present in the defined attribute. This is the multi-valued variation of EQUAL and NOTEQUAL. The attribute is supposed to be a multi-valued attribute and if the value can be found in any of the attribute values, then the rule is in scope.
+ISIN, ISNOTIN | Evaluates if the value is present in the defined attribute. This operation is the multi-valued variation of EQUAL and NOTEQUAL. The attribute is supposed to be a multi-valued attribute and if the value can be found in any of the attribute values, then the rule is in scope.
 ISBITSET, ISNOTBITSET | Evaluates if a particular bit is set. For example, can be used to evaluate the bits in userAccountControl to see if a user is enabled or disabled.
 ISMEMBEROF, ISNOTMEMBEROF | The value should contain a DN to a group in the connector space. If the object is a member of the group specified, the rule is in scope.
 
 ## Join
-The join module in the sync pipeline is responsible for finding the relationship between the object in the source and an object in the target. On an inbound rule, this would be an object in a connector space finding a relationship to an object in the metaverse.  
+The join module in the sync pipeline is responsible for finding the relationship between the object in the source and an object in the target. On an inbound rule, this relationship would be an object in a connector space finding a relationship to an object in the metaverse.  
 ![Join between cs and mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join1.png)  
 The goal is to see if there is an object already in the metaverse, created by another Connector, it should be associated with. For example, in an account-resource forest the user from the account forest should be joined with the user from the resource forest.
 
 Joins are used mostly on inbound rules to join connector space objects together to the same metaverse object.
 
-The joins are defined as a number of groups. Inside a group, you have clauses. A logical AND is used between all clauses in a group. A logical OR is used between groups. The groups are processed in order from top to bottom. As soon as one group has found exactly one match with an object in the target, then no other join rules will be evaluated. If zero or more than one objects are found, processing will continue to the next group of rules. For this reason the rules should be created in the order of most explicit first and more fuzzy at the end.  
+The joins are defined as one or more groups. Inside a group, you have clauses. A logical AND is used between all clauses in a group. A logical OR is used between groups. The groups are processed in order from top to bottom. When one group has found exactly one match with an object in the target, then no other join rules are evaluated. If zero or more than one object is found, processing continues to the next group of rules. For this reason, the rules should be created in the order of most explicit first and more fuzzy at the end.  
 ![Join definition](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join2.png)  
-The joins in this picture will be processed from top to bottom. First the sync pipeline will see if there is a match on employeeID. If not, processing will continue with a more fuzzy match by using the name of user. If that is not a match either, the third and final rule will see if the account name can be used to join the objects together.
+The joins in this picture are be processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, processing continues with a more fuzzy match by using the name of user. If that is not a match either, the third and final rule sees if the account name can be used to join the objects together.
 
-If all join rules have been evaluated and there is not exactly one match, the **Link Type** on the **Description** page is used. If this is set to **Provision**, then a new object in the target is created.  
+If all join rules have been evaluated and there is not exactly one match, the **Link Type** on the **Description** page is used. If this option is set to **Provision**, then a new object in the target is created.  
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join3.png)  
 
-An object should only have one single sync rule with join rules in scope. If there are multiple sync rules where join is defined, an error will occur. Precedence is not used to resolve join conflicts. An object must have a join rule in scope for attributes to flow with the same inbound/outbound direction. If you need to flow attributes both inbound and outbound to the same object, you must have both an inbound and an outbound sync rule with join.
+An object should only have one single sync rule with join rules in scope. If there are multiple sync rules where join is defined, an error occurs. Precedence is not used to resolve join conflicts. An object must have a join rule in scope for attributes to flow with the same inbound/outbound direction. If you need to flow attributes both inbound and outbound to the same object, you must have both an inbound and an outbound sync rule with join.
 
-Outbound join has a special behavior when it tries to provision an object to a target connector space. The DN attribute is used to first try a reverse-join. If there is already an object in the target connector space with the same DN, the objects are joined together.
+Outbound join has a special behavior when it tries to provision an object to a target connector space. The DN attribute is used to first try a reverse-join. If there is already an object in the target connector space with the same DN, the objects are joined.
 
-The join module is only evaluated once when a new sync rule comes into scope. When an object has joined, it will not disjoin even if the join critera is no longer satisfied. If you want to disjoin an object, the sync rule that joined the objects must go out of scope.
+The join module is only evaluated once when a new sync rule comes into scope. When an object has joined, it is not disjoining even if the join critera is no longer satisfied. If you want to disjoin an object, the sync rule that joined the objects must go out of scope.
+
+### Metaverse delete
+A metaverse object will remain as long as there is one sync rule in scope with **Link Type** set to **Provision** or **StickyJoin**. A StickyJoin is used when a Connector is not allowed to provision a new object to the metaverse, but when it has joined, it must be deleted in the source before the metaverse object is deleted.
+
+As soon as a metaverse object is deleted, all objects associated with an outbound sync rules marked for **provision** will be marked for a delete.
 
 ## Transformations
-The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, and Expression. A direct flow will flow an attribute value as-is with no additional transformations. A constant value will set the specified value. An expression will use the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language ](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
+The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, and Expression. A direct flow flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
 
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
 
-The **Apply once** checkbox defines that the attribute should only be set when the object is initially created. For example, this can be used to set an initial password for a new user object.
+The **Apply once** checkbox defines that the attribute should only be set when the object is initially created. For example, this configuration can be used to set an initial password for a new user object.
 
 ### Merging attribute values
 In the attribute flows there is a setting to determine if multi-valued attributes should be merged from several different Connectors. The default value is **Update**, which indicates that the sync rule with highest precedence should win.
@@ -90,7 +95,7 @@ In the attribute flows there is a setting to determine if multi-valued attribute
 
 There is also **Merge** and **MergeCaseInsensitive**. These options allow you to merge values from different sources. For example, it can be used to merge the member or proxyAddresses attribute from several different forests. When you use this option, all sync rules in scope for an object must use the same merge type. You cannot define **Update** from one Connector and **Merge** from another. If you try, you receive an error.
 
-The difference between **Merge** and **MergeCaseInsensitive** is how to process duplicate attribute values. The sync engine makes sure duplicate values are not inserted into the target attribute. With **MergeCaseInsensitive**, duplicate values with only a difference in case are not going to be present. For example, you will not see both "SMTP:bob@contoso.com" and "smtp:bob@contoso.com" in the target attribute. **Merge** is only looking at the exact values and multiple values where there only is a difference in case might be present.
+The difference between **Merge** and **MergeCaseInsensitive** is how to process duplicate attribute values. The sync engine makes sure duplicate values are not inserted into the target attribute. With **MergeCaseInsensitive**, duplicate values with only a difference in case are not going to be present. For example, you should not see both "SMTP:bob@contoso.com" and "smtp:bob@contoso.com" in the target attribute. **Merge** is only looking at the exact values and multiple values where there only is a difference in case might be present.
 
 The option **Replace** is the same as **Update**, but it is not used.
 
@@ -121,6 +126,11 @@ An example of this function can be found in the out-of-box Synchronization Rule 
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## Precedence
+When several sync rules try to contribute the same attribute value to the target, the precedence value is used to determine the winner. The rule with highest precedence, lowest numeric value, is going to contribute the attribute in case of a conflict.
+
+![Merge Types](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  
+
+This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules will make sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
 
 ## Additional Resources
 
