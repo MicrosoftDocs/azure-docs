@@ -78,7 +78,7 @@ These are the main steps of the token service pattern:
 
 The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device connection. Then, the device must request a new token from the token service. If you use a short expiry time, this increases the load on both the device and the token service.
 
-For a device to connect to your hub, you must still add it to the IoT Hub device identity registry--even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [IoT Hub identity registry][lnk-devguide-identityregistry] when the device authenticates with a token. This mitigates the risks of using tokens with long expiry times.
+For a device to connect to your hub, you must still add it to the IoT Hub device identity registry — even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [IoT Hub identity registry][lnk-devguide-identityregistry] when the device authenticates with a token. This mitigates the risks of using tokens with long expiry times.
 
 ### Comparison with a custom gateway
 
