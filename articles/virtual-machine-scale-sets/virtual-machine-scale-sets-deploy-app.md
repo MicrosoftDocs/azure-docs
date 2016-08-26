@@ -21,15 +21,15 @@
 
 An application running on a VM Scale Set is typically deployed in one of three ways:
 
-1. Installing new software on a Platform image at deployment time. A platform image in this context is a operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2 etc.
+- Installing new software on a Platform image at deployment time. A platform image in this context is a operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2 etc.
 
 You can install new software on a platform image using a VM Extension. A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. Here’s an example Azure Resource Manager Template with two VM extensions, a linux custom script extension to install Apache and PHP, and a diagnostic extension to emit performance data which can be used by Azure autoscaling: Autoscale a VM Scale Set running an Ubuntu/Apache/PHP app.
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and depending on how much needs to download and configure when the extension runs, it could add to the VM deployment time.
 
-2. Create a custom VM image which includes both the OS and the application in a single VHD. Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This means no extra configuration is required at VM deployment time, but there are some limitations with custom images in the current version of VM Scale Sets – you are limited to a single storage account, and hence a maximum of 40 VMs in a scale set (as opposed to 100 VMs in a scale set which uses platform images).
+- Create a custom VM image which includes both the OS and the application in a single VHD. Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This means no extra configuration is required at VM deployment time, but there are some limitations with custom images in the current version of VM Scale Sets – you are limited to a single storage account, and hence a maximum of 40 VMs in a scale set (as opposed to 100 VMs in a scale set which uses platform images).
 
-3. Deploy a platform or a custom image which is basically a container host, and install your application as one or more containers which you can manage with an orchestrator or config management tool. This nice thing about this approach is that you have completely abstracted your cloud infrastructure from the application layer and can maintain them separately.
+- Deploy a platform or a custom image which is basically a container host, and install your application as one or more containers which you can manage with an orchestrator or config management tool. This nice thing about this approach is that you have completely abstracted your cloud infrastructure from the application layer and can maintain them separately.
 
 ## What happens when a VM Scale Set Scales Out?
 
