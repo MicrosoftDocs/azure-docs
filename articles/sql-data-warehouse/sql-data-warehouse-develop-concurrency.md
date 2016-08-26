@@ -3,7 +3,7 @@
    description="Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/25/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Concurrency and workload management in SQL Data Warehouse
 
