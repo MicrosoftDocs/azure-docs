@@ -24,13 +24,14 @@ This topic explains the configuration model in Azure AD Connect. The model is ca
 ## Overview
 Declarative provisioning is processing objects coming in from a source connected directory and determines how the object and attributes should be transformed from a source to a target. An object is processed in a sync pipeline and the pipeline is the same for inbound and outbound rules. An inbound rule is from a connector space to the metaverse and an outbound rule is from the metaverse to a connector space.
 
-![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)
-- Source,
-- [Scope](#scope),
-- [Join](#join),
-- [Transform](#transform),
-- [Precedence](#precedence),
-- Target,
+![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
+
+- Source, The source object
+- [Scope](#scope), Finds all sync rules that are in scope
+- [Join](#join), Determines relationship between connector space and meteverse
+- [Transform](#transform), Calculates how attributes should be transformed and flow
+- [Precedence](#precedence), Resolves conflicting attribute contributions
+- Target, The target object
 
 ## Scope
 The scope module is evaluating an object and determines the rules that are in scope and should be included in the processing. Depending on the attributes values on the object, different sync rules are evaluated to be in scope. For example, a disabled user with no Exchange mailbox does have different rules than an enabled user with a mailbox.  
@@ -131,6 +132,8 @@ When several sync rules try to contribute the same attribute value to the target
 ![Merge Types](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  
 
 This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules makes sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
+
+Precedence can be defined between Connectors. That allows Connectors with better data to contribute values first.
 
 ## Additional Resources
 
