@@ -13,24 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2016" 
+	ms.date="08/26/2016" 
 	ms.author="spelluru"/>
 
 # Release notes for Data Management Gateway
+One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
+See the following articles for detailed information about Data Management Gateway and how to use it: 
 
-Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) and [Data Management Gateway](data-factory-data-management-gateway.md) articles for more information.
+- [Data Management Gateway](data-factory-data-management-gateway.md)
+- [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## CURRENT VERSION (2.1.6040.1)
+## Current version (2.2.6072.1)
+
+- Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. Azure Blob, Azure Table, Azure Data Lake and Document DB are accessed through HTTP proxy if configured.
+- Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-prem File System and on-prem HDFS.
+- Supports copying data from Append Blob and Page Blob along with the already supported Block Blob.
+- Introduces a new gateway status **Online (Limited)**, which indicates that the main functionality of the gateway works except the interactive operation support for Copy Wizard.
+- Enhances the robustness of gateway registration using registration key.
+
+## Earlier versions
+
+## 2.1.6040.1
 
 - DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
 - DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
 - Supports using DocumentDB as a source or destination for on-premises data stores
 - Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
 - Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
-
-## Earlier versions
 
 ## 2.0.6013.1
 
@@ -164,8 +174,3 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 ### 1.0.5144.2
 
 - No changes that affect Azure Data Factory scenarios. 
-
-## Questions/answers
-
-### Why is the Data Source Manager trying to connect to a gateway?
-This is a security design where you can only configure on-premises data sources for cloud access within your corporate network, and your credentials will not flow outside of your corporate firewall. Ensure your computer can reach the machine where the gateway is installed.
