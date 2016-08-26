@@ -41,7 +41,6 @@ You can also use [Application Insights for Windows Desktop apps](app-insights-wi
 
 * Use the powerful [Analytics](app-insights-analytics.md) query language over your telemetry. 
 * [Export telemetry](app-insights-export-telemetry.md) to Azure blob storage.
-* [Query telemetry with a REST API](https://dev.applicationinsights.io/)
 
 ## Next steps
 
