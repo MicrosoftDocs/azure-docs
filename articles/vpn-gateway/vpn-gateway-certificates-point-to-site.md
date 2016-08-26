@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/26/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc" />
 
 # Working with self-signed certificates for Point-to-Site connections
@@ -48,7 +48,7 @@ You may want to export the self-signed certificate and store it safely. If need 
 
 ## Create and install client certificates
 
-The self-signed certificate is not what you install on your clients. You need to generate a client certificate from the self-signed certificate. You then export and install the client certificate to the client computer. The following steps are not deployment-model specific. They are valid for both Resource Manager and classic.
+You don't install the self-signed certificate directly on the client computer. You need to generate a client certificate from the self-signed certificate. You then export and install the client certificate to the client computer. The following steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
 ### Part 1 - Generate a client certificate from a self-signed certificate
 
