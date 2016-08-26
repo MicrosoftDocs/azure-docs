@@ -3,9 +3,9 @@
 	description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
 	services="app-service\mobile"
 	documentationCenter="android"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
-	authors="ysxu"/>
+	authors="RickSaling"/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="yuaxu;ricksal"/>
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
 # Add Push Notifications to your Android App
 
@@ -37,7 +37,7 @@ To complete this tutorial, you need the following:
 
 ## Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ##Configure the Mobile App backend to send push requests
 

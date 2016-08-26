@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 # SQL Database Development Overview
-This article walks through the basic consderations that a developer should consider when writing code to connect to Azure SQL Database.
+This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
 
 ## Language and platform
-There are code samples available for a variety of programming languages and platforms. You can find links to the code samples at: 
+There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
 
 * More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
@@ -36,13 +36,13 @@ Azure SQL Database provides resources for limiting access, protecting data, and 
 * More Information: [Securing your SQL Database](sql-database-security.md)
 
 ## Authentication
-* Windows authentication which is not available in Azure SQL Database, you will need to use SQL Database authentication instead.
-* You will need to specify a particular database, instead of defaulting to the *master* database.
+* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
+* You need to specify a particular database, instead of defaulting to the *master* database.
 * You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
 * More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
 
 ## Resiliency
-When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not unecessarily overwhelm the SQL Database with multiple clients retrying simultaneously.
+When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
 
 * Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 * More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
@@ -53,11 +53,16 @@ When a transient error occurs while connecting to SQL Database, your code should
 
 ## Network Considerations
 * On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)
-* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port rangeson the VM. More infomration: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 * Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
 
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+
+## Next steps
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).

@@ -60,3 +60,4 @@ Views in the portal fall into two main categories:
 
 [Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
+

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="08/17/2016"
    ms.author="christb"/>
 
 # Azure Guidance
@@ -30,7 +30,7 @@ These lists are a quick reference for reviewing the fundamental aspects of avail
 
 - [Availability Checklist][AvailabilityChecklist] 
 
-    A summary of recommended practices for ensuring resiliency and availability.
+    A summary of recommended practices for ensuring availability.
 
 - [Scalability Checklist][ScalabilityChecklist]
 
@@ -46,19 +46,19 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [API Implementation][APIImplementation] 
 
-    A set of recommended practices for implementing and publishing a web API .
+    A set of recommended practices for implementing and publishing a web API.
 
 - [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
-    A discussion of authentication and authorization concerns (e.g., token types, authorization protocols, authorization flows and threat mitigation).
+    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
 
 - [Autoscaling guidance][AutoscalingGuidance] 
 
-    A summary of considerations for taking advantage of the elasticity of cloud-hosted environments without the need for manual intervention.
+    A summary of considerations for scaling solutions without the need for manual intervention.
 
 - [Background Jobs guidance][BackgroundJobsGuidance] 
 
-    A description og available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
+    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
 
 - [Content Delivery Network (CDN) guidance][CDNGuidance] 
 
@@ -74,11 +74,15 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
 
-    Guidance on how to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
 
 - [Recommended naming conventions][naming-conventions] 
 
     Recommended naming conventions for Azure resources.
+
+- [Resiliency guidance][ResiliencyOvervew]
+
+     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structure approach for achieving resiliency, from design and implementation, to deployment and operations.
 
 - [Retry General guidance][RetryGeneralGuidance] 
 
@@ -92,57 +96,54 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 - [Running Elasticsearch on Azure][elasticsearch] 
     
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in big datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
+    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
 
 - [Identity management for multitenant applications][identity-multitenant] 
     
-    Multitenancy is an architecture where multiple tenants share the same app but are isolated from one another. This guidance will show you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
+    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
     
 - [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
 
-    This guide explores the use of HDInsight in a range of use cases and scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
     
 ## Patterns
 
 - [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
 
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into the big picture of cloud application architectures.
+    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
     
 - [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
 
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-## Under development
+## Reference Architectures
 
-We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
+Our reference architectures are arranged by scenario.
+Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
 
-- [Running a Single Windows VM on Azure][ref-arch-single-vm-windows]
-- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][ref-arch-multi-vm-windows]
-- [Running Windows VMs for an N-tier architecture on Azure][ref-arch-3-tier-windows]
-- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][ref-arch-n-tier-windows]
-- [Running Windows VMs in multiple datacenters on Azure][ref-arch-multi-dc]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][ref-arch-hybrid-network-vpn]
-- [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
+The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+
+
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
 [PerformanceOptimization]: https://github.com/mspnp/performance-optimization
 
-[APIDesign]: ../best-practices-api-design/
-[APIImplementation]: ../best-practices-api-implementation/
-[AutoscalingGuidance]: ../best-practices-auto-scaling/
-[BackgroundJobsGuidance]: ../best-practices-background-jobs/
-[CDNGuidance]: ../best-practices-cdn/
-[CachingGuidance]: ../best-practices-caching/
-[DataPartitioningGuidance]: ../best-practices-data-partitioning/
-[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring/
-[RetryGeneralGuidance]: ../best-practices-retry-general/
-[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific/
+[APIDesign]: ../best-practices-api-design.md
+[APIImplementation]: ../best-practices-api-implementation.md
+[AutoscalingGuidance]: ../best-practices-auto-scaling.md
+[BackgroundJobsGuidance]: ../best-practices-background-jobs.md
+[CDNGuidance]: ../best-practices-cdn.md
+[CachingGuidance]: ../best-practices-caching.md
+[DataPartitioningGuidance]: ../best-practices-data-partitioning.md
+[MonitoringandDiagnosticsGuidance]: ../best-practices-monitoring.md
+[ResiliencyOvervew]: guidance-resiliency-overview.md
+[RetryGeneralGuidance]: ../best-practices-retry-general.md
+[RetryServiceSpecificGuidance]: ../best-practices-retry-service-specific.md
 [RetryPolicies]: Retry-Policies.md
-[ScalabilityChecklist]: ../best-practices-scalability-checklist/
-[AvailabilityChecklist]: ../best-practices-availability-checklist/
-[naming-conventions]: ../guidance-naming-conventions/
+[ScalabilityChecklist]: ../best-practices-scalability-checklist.md
+[AvailabilityChecklist]: ../best-practices-availability-checklist.md
+[naming-conventions]: guidance-naming-conventions.md
 
 <!-- guidance projects -->
 [elasticsearch]: guidance-elasticsearch.md
@@ -150,8 +151,10 @@ We're creating a new set of guidance we're calling _reference architectures_. Ea
 
 <!-- reference architectures -->
 [ref-arch-single-vm-windows]: guidance-compute-single-vm.md
-[ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
-[ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
+[ref-arch-single-vm-linux]: guidance-compute-single-vm-linux.md
+[ref-arch-multi-vm]: guidance-compute-multi-vm.md
+[ref-arch-3-tier]: guidance-compute-3-tier-vm.md
 [ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md
-[ref-arch-multi-dc]: guidance-compute-multiple-datacenters.md
-[ref-arch-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
+[ref-arch-n-tier-linux]: guidance-compute-n-tier-vm-linux.md
+[ref-arch-multi-dc-windows]: guidance-compute-multiple-datacenters.md
+[ref-arch-multi-dc-linux]: guidance-compute-multiple-datacenters-linux.md

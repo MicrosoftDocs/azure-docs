@@ -13,33 +13,31 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic and subscription. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager Templates][].
+For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
 
 For the complete template, see the [Service Bus namespace with topic and subscription][] template.
 
 >[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
 >
 >-    [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Create a Service Bus namespace with an Event Hub and consumer group](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
 >-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
+>-    [Create a Service Bus namespace with an Event Hub and consumer group](service-bus-resource-manager-namespace-event-hub.md)
 >
->To check for the latest templates, see the [Azure Quickstart Templates][] and search for Service Bus.
+>To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Service Bus.
 
 ## What will you deploy?
 
 With this template, you will deploy a Service Bus namespace with topic and subscription.
 
-Topics and subscriptions provide a one-to-many form of communication, in a *publish/subscribe* pattern.
-
-[Learn more about Service Bus topics and subscriptions][].
+[Service Bus topics and subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern.
 
 To run the deployment automatically, click the following button:
 
@@ -49,7 +47,7 @@ To run the deployment automatically, click the following button:
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-We will describe each parameter in the template.
+The template defines the following parameters.
 
 ### serviceBusNamespaceName
 
@@ -155,8 +153,8 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 - [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
 
-  [Authoring Azure Resource Manager Templates]: ../resource-group-authoring-templates.md
-  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/
+  [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
+  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md

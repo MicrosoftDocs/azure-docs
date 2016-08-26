@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Stored procedures in SQL Data Warehouse
@@ -89,8 +89,8 @@ For more development tips, see [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[temporary tables]: sql-data-warehouse-develop-temporary-tables.md
-[development overview]: sql-data-warehouse-overview-develop.md
+[temporary tables]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx

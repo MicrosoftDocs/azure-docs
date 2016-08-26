@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/22/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -134,15 +134,15 @@ Figure 8. Cross-Validating a Binary Classification Model.
 Figure 9. Cross-Validation Results of a Binary Classifier.
 
 ##Evaluating a Multiclass Classification Model##
-In this experiment we will use the popular [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
-The Iris dataset is publicly available on the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html), and can be downloaded using a [Reader][reader] module.
+In this experiment we will use the popular [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split Data][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
+The Iris dataset is publicly available on the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
 
 ###Creating the Experiment###
 Add the following modules to your workspace in Azure Machine Learning Studio:
 
-- [Reader][reader]
+- [Import Data][import-data]
 - [Multiclass Decision Forest][multiclass-decision-forest]
-- [Split][split]
+- [Split Data][split]
 - [Train Model][train-model]
 - [Score Model][score-model]
 - [Evaluate Model][evaluate-model]
@@ -151,9 +151,9 @@ Connect the ports as shown below in Figure 10.
 
 Set the Label column index of the [Train Model][train-model] module to 5. The dataset has no header row but we know that the class labels are in the fifth column.
 
-Click on the [Reader][reader] module and set the *Data source* property to *Web URL via HTTP*, and the *URL* to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Click on the [Import Data][import-data] module and set the *Data source* property to *Web URL via HTTP*, and the *URL* to http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Set the fraction of instances to be used for training in the [Split][split] module (0.7 for example).
+Set the fraction of instances to be used for training in the [Split Data][split] module (0.7 for example).
  
 ![Evaluating a Multiclass Classifier](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -184,7 +184,7 @@ Figure 13. Cross-Validation Results of a Multiclass Classification Model.
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/

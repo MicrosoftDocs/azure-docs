@@ -3,7 +3,7 @@
 	description="Learn how to enable local Git deployment to Azure App Service."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Local Git Deployment to Azure App Service
 
@@ -169,7 +169,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](app-service-continous-deployment.md)
+* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
 * [How to use PowerShell for Azure](../powershell-install-configure.md)
 * [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
 

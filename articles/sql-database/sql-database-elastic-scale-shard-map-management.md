@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/25/2016" 
+	ms.author="ddove"/>
 
 # Scale out databases with the shard map manager
 

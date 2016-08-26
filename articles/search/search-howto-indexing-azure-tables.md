@@ -12,18 +12,18 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/12/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexing Azure Table Storage with Azure Search
 
 This article shows how to use Azure Search to index data stored in Azure Table Storage. The new Azure Search table indexer makes this process quick and seamless. 
 
-> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview** and in version 2.0-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
-## Setting up table indexing
+## Setting up Azure table indexing
 
-To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for table indexing will be added to the Azure Search .NET SDK and the Azure Portal.
+To set up and configure an Azure table indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [Indexer operations](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for table indexing will be added to the Azure Portal.
 
 A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows).
 
@@ -31,7 +31,8 @@ An indexer reads data from a data source and loads it into a target search index
 
 To set up table indexing:
 
-1. Create a data source of type `azuretable` that references a table (and optionally, a query) in an Azure storage account
+1. Create a data source
+	- Set the `type` parameter to `azuretable`
 	- Pass in your storage account connection string as the `credentials.connectionString` parameter
 	- Specify the table name using the `container.name` parameter
 	- Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.

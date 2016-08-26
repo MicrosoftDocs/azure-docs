@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 
@@ -32,6 +32,8 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [Crop videos with Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
+
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -238,7 +240,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##Support for relative sizes
 
-When encoding your video or generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
+When generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
 
 ###JSON preset 
 	
@@ -1073,7 +1075,10 @@ Update your custom preset with ids of the assets that you want to concatenate, a
 	    }
 	  ]
 	}
-	
+
+##<a id="crop"></a>Crop videos with Media Encoder Standard
+
+See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
 
 ##Media Services learning paths
 

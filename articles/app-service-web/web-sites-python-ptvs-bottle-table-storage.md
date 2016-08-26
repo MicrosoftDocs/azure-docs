@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/20/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
@@ -29,10 +29,10 @@ See the [Python Developer Center] for more articles that cover development of Az
 
 ## Prerequisites
 
- - Visual Studio 2013 or 2015
+ - Visual Studio 2015
  - [Python Tools 2.2 for Visual Studio]
  - [Python Tools 2.2 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015]
+ - [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit] or [Python 3.4 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -45,7 +45,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 1.  In Visual Studio, select **File**, **New Project**.
 
-1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**. Select **Polls Bottle Web Project** and click OK to create the project.
+1.  The project templates from the [Python Tools 2.2 for Visual Studio Samples VSIX] are available under **Python**, **Samples**. Select **Polls Bottle Web Project** and click OK to create the project.
 
   	![New Project Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
 
@@ -69,15 +69,15 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**.  Click the **Create** button, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+1. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**.  Click the **Create** button, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
+  	![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
 	When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
 
-  	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
+1. Click the **Access keys** part in the storage account's blade. Take note of the account name and key1.
 
-5. Click the **Settings** part in the storage account's blade. Take note of the account name and the primary key.
+  	![Keys](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageKeys.png)
 
 	We will need this information to configure your project in the next section.
 
@@ -111,17 +111,17 @@ In this section, we'll configure our application to use the storage account we j
 
 ## Explore the Azure Table Storage
 
-It's easy to view and edit storage tables using Server Explorer in Visual Studio. In this section we'll use Server Explorer to view the contents of the polls application tables.
+It's easy to view and edit storage tables using Cloud Explorer in Visual Studio. In this section we'll use Server Explorer to view the contents of the polls application tables.
 
 > [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET].
 
-1.  Open **Server Explorer**. Expand **Azure**, **Storage**, your storage account, then **Tables**.
+1.  Open **Cloud Explorer**. Expand **Storage Accounts**, your storage account, then **Tables**.
 
-  	<!-- ![Server Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png) -->
+  	![Cloud Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
 
 1.  Double-click on the **polls** or **choices** table to view the contents of the table in a document window, as well as add/remove/edit entities.
 
-  	<!-- ![Table Query Results](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png) -->
+  	![Table Query Results](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
 ## Publish the web app to Azure App Service
 
@@ -129,7 +129,7 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png) -->
+  	![Publish Web Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
 
 1.  Click on **Microsoft Azure Web Apps**.
 
@@ -142,8 +142,6 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 	-	**Region**
 	-	Leave **Database server** set to **No database**
 
-  	<!-- ![Create Web App on Microsoft Azure Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png) -->
-
 1.  Accept all other defaults and click **Publish**.
 
 1.  Your web browser will open automatically to the published web app. If you browse to the about page, you'll see that it uses the **In-Memory** repository, not the **Azure Table Storage** repository.
@@ -154,19 +152,15 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1.  In [Azure Portal], open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
+1.  In [Azure Portal], open the web app's blade by clicking **Browse** > **App Services** > your web app name.
 
 1.  In your web app's blade, click **All Settings**, then click **Application Settings**.
 
-  	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
+1.  Scroll down to the **App settings** section and set the values for **REPOSITORY\_NAME**, **STORAGE\_NAME** and **STORAGE\_KEY** as described in the **Configure the project** section above.
 
-1.  Scroll down to the **app settings** section and set the values for **REPOSITORY\_NAME**, **STORAGE\_NAME** and **STORAGE\_KEY** as described in the **Configure the project** section.
+  	![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
-  	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
-
-1. Click on **SAVE**, then **RESTART** and finally **BROWSE**.
-
-  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
+1.  Click on **Save**. After you've received the notifications that the changes were applied, click on **Browse** from the Web app main blade.
 
 1.  You should see the web app working as expected, using the **Azure Table Storage** repository.
 
@@ -203,7 +197,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191

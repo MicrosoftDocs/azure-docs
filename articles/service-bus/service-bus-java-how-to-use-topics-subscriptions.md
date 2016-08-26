@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="sethm"/>
 
 # How to use Service Bus topics and subscriptions
@@ -23,7 +23,43 @@
 This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
+## What are Service Bus topics and subscriptions?
+
+Service Bus topics and subscriptions support a *publish/subscribe*
+messaging communication model. When using topics and subscriptions,
+components of a distributed application do not communicate directly with
+each other; instead they exchange messages via a topic, which acts as an
+intermediary.
+
+![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+In contrast with Service Bus queues, in which each message is processed by a
+single consumer, topics and subscriptions provide a "one-to-many" form
+of communication, using a publish/subscribe pattern. It is possible to
+register multiple subscriptions to a topic. When a message is sent to a
+topic, it is then made available to each subscription to handle/process
+independently.
+
+A subscription to a topic resembles a virtual queue that receives copies of
+the messages that were sent to the topic. You can optionally register
+filter rules for a topic on a per-subscription basis, which allows you
+to filter/restrict which messages to a topic are received by which topic
+subscriptions.
+
+Service Bus topics and subscriptions enable you to scale to process a
+very large number of messages across a very large number of users and
+applications.
+
+## Create a service namespace
+
+To begin using Service Bus topics and subscriptions in Azure,
+you must first create a service namespace. A namespace provides
+a scoping container for addressing Service Bus resources within your
+application.
+
+To create a namespace:
+
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Configure your application to use Service Bus
 
@@ -110,7 +146,7 @@ filter.
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent
+You can also create filters that enable you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
@@ -165,7 +201,7 @@ service.sendTopicMessage("TestTopic", message);
 Messages sent to Service Bus Topics are instances of the
 [BrokeredMessage][] class. [BrokeredMessage][]* objects have a set of
 standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application specific properties, and a body
+that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
 [BrokeredMessage][], and the appropriate **DataContractSerializer** will
@@ -189,9 +225,8 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Service Bus topics support a maximum message size of 256 MB (the header,
-which includes the standard and custom application properties, can have
-a maximum size of 64 MB). There is no limit on the number of messages
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+a maximum size of 64 KB. There is no limit on the number of messages
 held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
@@ -336,3 +371,7 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  
+  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png

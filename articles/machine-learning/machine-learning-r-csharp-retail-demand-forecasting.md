@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="xueshzha"/> 
+	ms.date="08/17/2016" 
+	ms.author="yijichen"/> 
 
 #Forecasting - ETS + STL  
 

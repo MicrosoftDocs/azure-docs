@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/03/2016"
    ms.author="bwren" />
 
 # Export Log Analytics data to Power BI
 
-[Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
 
 When you configure Power BI with Log Analytics, you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
 
@@ -114,4 +114,4 @@ We save the report by clicking on the Save button at the top of the screen and v
 ## Next steps
 
 - Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
-- Learn more about [Power BI](powerbi.microsoft.com) to build visualizations based on Log Analytics exports.
+- Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.

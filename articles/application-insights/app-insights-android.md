@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Analytics for Android apps"
+    pageTitle="Analytics for Android apps | Microsoft Azure"
     description="Analyze usage and performance of your Android app."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analytics for Android apps
@@ -30,6 +30,15 @@ Go to:
 
 If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
-> [AZURE.NOTE] On June 15, 2016, we will stop showing data in Application Insights for iOS, Android, Windows Store, and Windows Phone apps.
->
-> [More info about this change.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## Analytics, export and API access to HockeyApp data 
+
+[Set up a HockeyApp bridge](app-insights-hockeyapp-bridge-app.md) in Application Insights. This enables you to:
+
+* Use the powerful [Analytics](app-insights-analytics.md) query language over your telemetry. 
+* [Export telemetry](app-insights-export-telemetry.md) to Azure blob storage.
+
+## Next steps
+
+* [Get started with HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+

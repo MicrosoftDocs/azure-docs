@@ -9,6 +9,7 @@ This repository also contains guidance to help you contribute to our technical d
 Thank you for your interest in Azure documentation!
 
 * [Ways to contribute](#ways-to-contribute)
+* [Code of conduct](#code-of-conduct)
 * [About your contributions to Azure content](#about-your-contributions-to-azure-content)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
@@ -25,6 +26,10 @@ You can contribute to [Azure documentation](http://azure.microsoft.com/documenta
 * Submit Disqus comments at the bottom of articles.
 * You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article.
 * If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
+
+##Code of conduct
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ##About your contributions to Azure content
 

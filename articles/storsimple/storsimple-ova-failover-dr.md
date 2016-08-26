@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array
@@ -80,11 +80,11 @@ After the DR is successfully completed, the ownership of the cloud data on the s
 
 > [AZURE.IMPORTANT]
 > 
-> Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. Once the DR is successfully completed, you can delete this virtual machine from your host system.
+> Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. Once the DR is successfully complete, you can delete this virtual machine from your host system.
 
-## Fail over to a virtual device
+## Fail over to a virtual array
 
-We recommend that you have a StorSimple virtual device provisioned, configured via the local web UI, and registered with the StorSimple Manager service prior to running this procedure.
+We recommend that you have another StorSimple Virtual Array provisioned, configured via the local web UI, and registered with the StorSimple Manager service prior to running this procedure.
 
 
 > [AZURE.IMPORTANT]

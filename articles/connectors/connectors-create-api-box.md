@@ -14,14 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Get started with the Box connector
-Connect to Box and create files, delete files, and more. The Box connector can be used from:
-
-- Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
+Connect to Box and create files, delete files, and more. 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
@@ -45,8 +42,7 @@ All connectors support data in JSON and XML formats.
 ## Create a connection to Box
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Box.
 
-1. Sign in to your Box account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Box. 
+>[AZURE.INCLUDE [Steps to create a connection to box](../../includes/connectors-create-api-box.md)]
 
 After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
 

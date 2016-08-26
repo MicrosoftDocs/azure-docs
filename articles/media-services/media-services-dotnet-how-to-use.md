@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="07/12/2016"  
 	ms.author="juliako"/>
 
 #Media Services development with .NET
@@ -75,7 +75,7 @@ The Manage References dialog appears.
 To obtain the **account name** and **account key** information, open the **Azure Classic Portal**, select your media services account and click the **MANAGE KEYS** button.
 
 
-<configuration>
+	<configuration>
 	...
 	  <appSettings>
 	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="07/19/2016"
 	ms.author="cephalin"/>
 
 # Deploy a Sails.js web app to Azure App Service
@@ -23,11 +23,11 @@ on how to configure your Node.js app to run in App Service.
 
 ## Prerequisites
 
-- Node.js. Installation binaries are [here](https://nodejs.org/).
-- Sails.js. Installation instructions are [here](http://sailsjs.org/get-started).
+- [Node.js](https://nodejs.org/).
+- [Sails.js](http://sailsjs.org/get-started).
 - Working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
-- Git. Installation binaries are [here](http://www.git-scm.com/downloads).
-- Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
+- [Git](http://www.git-scm.com/downloads).
+- [Azure CLI](../xplat-cli-install.md).
 - A Microsoft Azure account. If you don't have an account, you can
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -90,7 +90,7 @@ Follow these steps:
         logDirectory: iisnode
 
     Logging is now enabled for iisnode. For more information on how this works, see
-    [Get stdout and stderr logs from iisnode](app-service-web-nodejs-sails.md#iisnodelog).
+    [Get stdout and stderr logs from iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Open config/env/production.js to configure your production environment, and set `port` and `hookTimeout`:
 
@@ -109,42 +109,24 @@ Follow these steps:
     [Sails.js Documentation](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
     Next, you need to make sure that [Grunt](https://www.npmjs.com/package/grunt) is compatible with Azure's network 
-    drives. As of the writing of this article, Grunt may produce the 
-    ["ENOTSUP: operation not supported on socket" error](https://github.com/isaacs/node-glob/issues/205) because 
-    it currently uses an outdated [glob](https://www.npmjs.com/package/glob) package (v3.1.21), which doesn't 
-    support network drives. The next steps how you how to make Grunt use 
-    [glob v5.0.14 or higher](https://github.com/isaacs/node-glob/commit/bf3381e90e283624fbd652835e1aefa55d45e2c7).
+    drives. Grunt versions less than 1.0.0 uses an outdated [glob](https://www.npmjs.com/package/glob) package 
+    (less than 5.0.14), which doesn't support network drives. 
 
-3. Since `npm install` has already run when your app was created, generate npm-shrinkwrap.json at the project root:
+3. Open package.json and change the `grunt` version to `1.0.0` and remove all `grunt-*` packages. Your `dependencies` 
+property should look like this:
 
-        npm shrinkwrap
-
-4. Open npm-shrinkwrap.json, locate the json for `"grunt":` and then add the dependency for the glob version
-you want. Your finished json should look like this:
-
-        "grunt": {
-            "version": "0.4.5",
-            "from": "grunt@0.4.5",
-            "resolved": "https://registry.npmjs.org/grunt/-/grunt-0.4.5.tgz",
-            "dependencies": {
-                "glob": {
-                    "version": "5.0.14",
-                    "from": "glob@5.0.14",
-                    "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-                }
-            }
+        "dependencies": {
+            "ejs": "<leave-as-is>",
+            "grunt": "1.0.0",
+            "include-all": "<leave-as-is>",
+            "rc": "<leave-as-is>",
+            "sails": "<leave-as-is>",
+            "sails-disk": "<leave-as-is>",
+            "sails-sqlserver": "<leave-as-is>"
         },
 
-5. Locate all references to glob by searching for `"glob":`. If any reference is v3.1.21 or lower, change the json
-to:
-
-        "glob": {
-            "version": "5.0.14",
-            "from": "glob@5.0.14",
-            "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-        }
-
-6. Save your changes and test your changes to make sure that your app still runs locally:
+6. Save your changes and test your changes to make sure that your app still runs locally. To do this, delete the
+`node_modules` folder and then run:
 
         npm install
         sails lift
@@ -172,7 +154,7 @@ If it has started successfully, the stdout log should show you the familiar mess
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.1             |\
+    v0.12.3             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -184,6 +166,8 @@ If it has started successfully, the stdout log should show you the familiar mess
     Server lifted in `D:\home\site\wwwroot`
     To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
     To shut down Sails, press <CTRL> + C at any time.
+
+You can control granularity of the stdout logs in the [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) file. 
 
 ## Connect to a database in Azure
 
@@ -199,17 +183,7 @@ SQL Server. The default firewall settings allow Azure services (e.g. App Service
 
         npm install sails-sqlserver --save
 
-    Since you changed package.json, you need to regenerate npm-shrinkwrap.json. You'll do this next.
-    
-3. Delete the node_modules/ directory.
-
-4. Run `npm shrinkwrap`.
-
-5. Open npm-shrinkwrap.json again and update the `glob` package versions like you did in the previous section.
-
-    Now, back to the main task.
-        
-3. Open config/connections.js and add the following json to the list of adapters: 
+3. Open config/connections.js and add the following connection object to the list: 
 
         sqlserver: {
             adapter: 'sails-sqlserver',
@@ -230,33 +204,74 @@ from your terminal:
         azure site appsetting add sqlserver="<database server name>.database.windows.net"
         azure site appsetting add dbname="<database name>"
         
-4. Open config/env/production.js to configure your production environment, and set `connection` and `migrate` 
-in the `models` JSON object:
+    Putting your settings in Azure app settings keeps sensitive data out of your source control (Git). Next, you will
+    configure your development environment to use the same connection information.
+
+4. Open config/local.js and add the following connections object:
+
+        connections: {
+            sqlserver: {
+                user: "<database server administrator>",
+                password: "<database server password>",
+                host: "<database server name>.database.windows.net", 
+                database: "<database name>",
+            },
+        },
+    
+    This configuration overrides the settings in your config/connections.js file for the local environement. This file
+    is excluded by the default .gitignore in your project, so it will not be stored in Git. Now, you are able to connect
+    to your Azure SQL Database both from your Azure web app and from your local development environment.
+
+4. Open config/env/production.js to configure your production environment, and add the following `models` object:
+
+        models: {
+            connection: 'sqlserver',
+            migrate: 'safe'
+        },
+
+4. Open config/env/development.js to configure your development environment, and add the following `models` object:
 
         models: {
             connection: 'sqlserver',
             migrate: 'alter'
         },
 
+    `migrate: 'alter'` lets you use database migration features to create and update your database tables in your Azure
+    SQL Database easily. However, `migrate: 'safe'` is used for your Azure (production) environment because Sails.js
+    does not allow you to use `migrate: 'alter'` in a production environment (see 
+    [Sails.js Documentation](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+
 4. From the terminal, [generate](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) a Sails.js 
-[blueprint API](http://sailsjs.org/documentation/concepts/blueprints) like you normally would. For example:
+[blueprint API](http://sailsjs.org/documentation/concepts/blueprints) like you normally would, then run `sails lift` to
+create the database with Sails.js database migration. For example:
 
          sails generate api mywidget
-     
-5. Save all your changes, push your changes to Azure, and browse to your app to make sure it still works.
+         sails lift
+
+    The `mywidget` model generated by this command is empty, but we can use it to show that we have database connectivity.
+    When you run `sails lift`, it creates the missing tables for the models your app uses.
+
+6. Access the blueprint API you just created in the browser. For example:
+
+        http://localhost:1337/mywidget/create
+    
+    The API should return the created entry back to you in the browser window, which means that your database is created
+    successfully.
+
+        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+
+5. Now, push your changes to Azure, and browse to your app to make sure it still works.
 
         git add .
         git commit -m "<your commit message>"
         git push azure master
         azure site browse
 
-6. Now, access the blueprint API you just created in the browser. For example:
+6. Access the blueprint API of your Azure web app. For example:
 
-        http://<appname>.azurewebsites.net/widget/create
-    
-    The API should return the created entry back to you in the browser window:
-    
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        http://<appname>.azurewebsites.net/mywidget/create
+
+    If the API returns another new entry, then your Azure web app is talking to your Azure SQL Database.      
 
 ## More resources
 

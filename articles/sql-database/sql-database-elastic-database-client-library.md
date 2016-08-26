@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/24/2016"
+    ms.author="ddove"/>
 
 # Building scalable cloud databases
 
-Scaling out databases can be easily accomplished using scalable tools and features for SQL Azure database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. 
+Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. 
 
 To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
@@ -37,6 +37,7 @@ To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](
 * [Elastic Database client library with Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Elastic database client library with Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
+* [Performance counters for shard map manager](sql-database-elastic-database-client-library.md) 
 * [FAQ for Elastic database tools](sql-database-elastic-scale-faq.md)
 
 ## Client capabilities

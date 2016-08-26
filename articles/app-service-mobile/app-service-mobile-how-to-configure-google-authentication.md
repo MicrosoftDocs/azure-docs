@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Google login
@@ -26,9 +26,9 @@ To complete the procedure in this topic, you must have a Google account that has
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Google app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which you use later to configure your Google app.
 
-2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
+2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
 3. Under **Social APIs** click **Google+ API** and then **Enable**.
 

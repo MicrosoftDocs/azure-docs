@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="08/22/2016"
 	ms.author="magoedte"/>
 
 # Connect Operations Manager to Log Analytics
@@ -50,7 +50,7 @@ Perform the following series of steps to configure your Operations Manager manag
 
     >[AZURE.NOTE] Operations Manager only supports one OMS workspace at a time. The connection and the computers that were registered to OMS with the previous workspace are removed from OMS.
 
-6. On the **Operations Manager Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
+6. On the **Operations Management Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
 7. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
 ### Add agent-managed computers
@@ -134,31 +134,35 @@ There are a few different ways you can verify that your OMS to Operations Manage
 ## Remove Integration with OMS
 When you no longer require integration between your Operations Manager management group and OMS workspace, there are several steps required to properly remove the connection and configuration in the management group. The following procedure will have you update your OMS workspace by deleting the reference of your management group, delete the OMS connectors, and then delete management packs supporting OMS.   
 
-1.  In the OMS portal, click on the **Settings** tile.
-2.	Select **Connected Sources**.
-3.	In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
-4.	A window will appear asking you to confirm that you want to proceed with the removal.  Click **Yes** to proceed.  
-5.	Open the Operations Manager Command Shell with an account that is a member of the Operations Manager Administrators role.
+1.  Open the Operations Manager Command Shell with an account that is a member of the Operations Manager Administrators role.
 
     >[AZURE.WARNING] Verify you do not have any custom management packs with the word Advisor or IntelligencePack in the name before proceeding, otherwise the following steps will delete them from the management group.
 
-6.	From the command shell prompt, type
+2.	From the command shell prompt, type
     `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
 
-7.	Next type,
+3.	Next type,
    `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
 
-8.	Open the Operations Manager Operations console with an account that is a member of the Operations Manager Administrators role.
-9.	Under **Administration**, select the **Management Packs** node and in the **Look for:** box, type **Advisor** and verify the following management packs are still imported in your management group:
+4.	Open the Operations Manager Operations console with an account that is a member of the Operations Manager Administrators role.
+5.	Under **Administration**, select the **Management Packs** node and in the **Look for:** box, type **Advisor** and verify the following management packs are still imported in your management group:
 
     - Microsoft System Center Advisor
     - Microsoft System Center Advisor Internal
 
+6. In the OMS portal, click on the **Settings** tile.
+7.	Select **Connected Sources**.
+8.	In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
+
+    >[AZURE.NOTE] The **Remove** link will not be availble until after 14 days if there is no activity detected from the connected management group.  
+   
+9.	A window will appear asking you to confirm that you want to proceed with the removal.  Click **Yes** to proceed. 
+
 To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and Advisor Connector, save the PowerShell script below to your computer and execute using the following examples.
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementGroupName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementGroupName>
+    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 >[AZURE.NOTE] The computer you run this script from, if not a management server, should have the Operations Manager 2012 SP1 or R2 command shell installed depending on the version of your management group.
@@ -166,9 +170,9 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 ```
     `param(
     [String] $connectorName,
-    [String] $mgName="localhost"
+    [String] $msName="localhost"
     )
-    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $mgName
+    $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $msName
     $admin = $mg.GetConnectorFrameworkAdministration()
     ##########################################################################################
     # Configures a connector with the specified name.

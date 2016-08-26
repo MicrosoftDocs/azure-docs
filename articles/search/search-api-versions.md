@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="08/16/2016"
    ms.author="brjohnst"/>
 
 # API versions in Azure Search
@@ -31,6 +31,7 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 Interfaces|Most recent major version|Status
 ----------|-------------------------|------
 [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)|1.1|Generally Available, released February 2016
+[.NET SDK Preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)|2.0-preview|Preview, released August 2016
 [Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)|2015-02-28|Generally Available
 [Service REST API Preview](search-api-2015-02-28-preview.md)|2015-02-28-Preview|Preview
 [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)|2015-08-19|Generally Available
@@ -54,12 +55,12 @@ The .NET SDK is now generally available and work is already underway on the next
 .NET SDK version|REST API version|Features|ETA
 ----------------|----------------|--------|---
 1.1|2015-02-28|Lucene query syntax|February 2016
-2.x-preview|2015-02-28-Preview|Custom analyzers, Azure Blob indexer, Field mappings, ETags|Features will start shipping in Q1 2016
-2.x|New GA API version|Same as 2.x-preview|Soon after 2.x-preview is complete
+2.0-preview|2015-02-28-Preview|Custom analyzers, Azure Blob and Table indexers, Field mappings, ETags|August 2016
+2.x|New GA API version|Same as 2.0-preview|Early Q4 2016
 
 ##About Preview and Generally Available versions
 
-Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK. A list of preview features can be found in [What’s New in Azure Search](search-latest-updates.md).
+Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 
 Preview features are not guaranteed to be migrated to a GA release. Whereas features in a GA version are considered stable and unlikely to change with the exception of small backward-compatible fixes and enhancements, preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation. 
 

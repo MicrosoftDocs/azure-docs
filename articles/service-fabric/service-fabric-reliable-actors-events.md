@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="06/13/2016"
    ms.author="amanbha"/>
 
 
@@ -59,7 +59,7 @@ On the client, create a proxy to the actor that publishes the event and subscrib
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
                     new ActorId(Guid.Parse(arg)), ApplicationName);
-                    
+
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 

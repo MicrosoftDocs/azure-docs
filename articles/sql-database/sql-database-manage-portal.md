@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Azure SQL Databases using the Azure Classic Portal"
-	description="Learn how to use the Azure Classic Portal to manage a relational database in the cloud using the Azure Classic Portal."
+	pageTitle="Manage Azure SQL Databases using the Azure Portal"
+	description="Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -35,7 +35,7 @@ The [Azure portal](https://portal.azure.com/) allows you to create, monitor and 
 
 The Azure portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account.
 
-- [Restoring a SQL database](sql-database-user-error-recovery.md)
+- [Restoring a SQL database](sql-database-recovery-using-backups.md)
 - [Open a SQL database in Visual Studio](sql-database-connect-query.md)
 - [Export a SQL database](sql-database-export.md)
 
@@ -60,11 +60,11 @@ Azure SQL databases can also be configured to mask sensitive data to non-privile
 - [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
 
 
-## 4. Geo-replication
+## 4. Geo-Replication
 
-![Geo-replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
+![Geo-Replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
+Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The Geo-Replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
 
 - [Geo-Replication](sql-database-geo-replication-overview.md)
 

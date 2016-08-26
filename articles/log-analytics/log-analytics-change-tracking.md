@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="08/08/2016"
 	ms.author="banders"/>
 
 # Change Tracking solution in Log Analytics
 
 
-You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
+You can use the Configuration Change Tracking solution in Log Analytics to help you easily identify software and Windows Services changes and Linux daemon changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
 
 You install the solution to update the type of agent that you have installed. Changes to installed software and Windows services on the monitored servers are read and then the data is sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. When changes are found, servers with changes are shown in the Change Tracking dashboard. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
@@ -33,13 +33,13 @@ Use the following information to install and configure the solution.
 
 ## Change Tracking data collection details
 
-The following table shows data collection methods and other details about how data is collected for Change Tracking.
+Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
 
+The following table shows data collection methods and other details about how data is collected for Change Tracking.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
 |Windows|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)|![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|            ![No](./media/log-analytics-change-tracking/oms-bullet-red.png)|![Yes](./media/log-analytics-change-tracking/oms-bullet-green.png)| hourly|
-
 
 ## Use Change Tracking
 

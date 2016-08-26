@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
+	ms.date="07/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data from a Web table source using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to copy data from a table in a Web page to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from a Web table to other data stores, but not  moving data from other data stores to a Web table destination.
+
+> [AZURE.NOTE] This Web connector currently only support extracting table content from an HTML page.
 
 ## Sample: Copy data from Web table to Azure Blob
 
@@ -46,7 +48,7 @@ This example uses the Web linked service with anonymous authentication. See [Web
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -76,8 +78,8 @@ Setting **external**  to **true** and specifying **externalData** policy (option
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {
@@ -101,7 +103,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 	        "linkedServiceName": "AzureStorageLinkedService",
 	        "typeProperties":
 	        {
-	            "folderPath": "MSFTHistoricalPrices"
+	            "folderPath": "adfgetstarted/Movies"
 	        },
 	        "availability":
 	        {
@@ -173,10 +175,9 @@ The following table provides description for JSON elements specific to Web linke
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Web** | Yes | 
 | Url | URL to the Web source | Yes |
+| authenticationType | Anonymous or Basic. | Yes |
 | userName | Username for Basic authentication. | Yes (for Basic Authentication)
 | password | Password for Basic authentication. | Yes (for Basic Authentication)
-| authenticationType | Anonymous, Basic, or WebApi. | Yes |
-| apiKey | ApiKey for WebApi authentication. | Yes (for WebApi authentication)|   
 
 ### Using Anonymous authentication
 
@@ -188,7 +189,7 @@ The following table provides description for JSON elements specific to Web linke
 	        "typeProperties":
 	        {
 	            "authenticationType": "Anonymous",
-	            "url" : "http://finance.yahoo.com/q/"
+	            "url" : "https://en.wikipedia.org/wiki/"
 	        }
 	    }
 	}
@@ -233,8 +234,8 @@ index | The index of the table in the resource. See [Get index of a table in an 
 	        "type": "WebTable",
 	        "linkedServiceName": "WebLinkedService",
 	        "typeProperties": {
-	            "index": 4,
-	            "path": "hp?s=MSFT+Historical+Prices"
+	            "index": 1,
+	            "path": "AFI's_100_Years...100_Movies"
 	        },
 	        "external": true,
 	        "availability": {

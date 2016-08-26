@@ -3,8 +3,8 @@
 	description="How to vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
-	manager="drewm"
+	authors="singhkays"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -18,8 +18,6 @@
 	ms.author="singhkay"/>
 
 # Vertically scale Azure virtual machines with Azure Automation
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 
 Vertical scaling is the process of increasing or decreasing the resources of a machine in response to the workload. In Azure this can be accomplished by changing the size of the Virtual Machine. This can help in the following scenarios
 

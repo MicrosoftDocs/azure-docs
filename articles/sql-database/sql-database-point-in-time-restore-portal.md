@@ -10,9 +10,9 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="07/17/2016"
 	ms.author="sstein"
-	ms.workload="data-management"
+	ms.workload="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
@@ -21,12 +21,10 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Point-In-Time Restore: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-This article shows you how to restore your database to an earlier point in time using the Azure Portal.
-
-[**Point-in-Time Restore**](sql-database-point-in-time-restore.md) is a self-service capability, allowing you to restore a database from the automatic backups we take for all databases to any point within your database's retention period. To learn more about automatic backups and database retention periods, see [Business Continuity Overview](sql-database-business-continuity.md).
+This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md) using the Azure Portal.
 
 ## Select a database to restore to a previous point in time
 
@@ -44,16 +42,11 @@ To restore a database in the Azure Portal do the following:
     ![Restore an Azure SQL database](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
+
 ## Next steps
 
-- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-
-
-
-## Additional resources
-
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)

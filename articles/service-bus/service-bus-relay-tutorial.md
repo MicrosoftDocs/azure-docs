@@ -94,7 +94,7 @@ The service contract specifies what operations (the Web service terminology for 
 	string Echo(string text);
 	```
 
-1. Directly after the `IEchoContract` interface definition, declare a channel that inherits from both `IEchoChannel` and also to the `IClientChannel` interface, as shown here:
+1. Directly after the `IEchoContract` interface definition, declare a channel that inherits from both `IEchoContract` and also to the `IClientChannel` interface, as shown here:
 
 	```
     public interface IEchoChannel : IEchoContract, IClientChannel { }

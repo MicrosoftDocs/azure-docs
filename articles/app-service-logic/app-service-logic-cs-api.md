@@ -1,14 +1,14 @@
 <properties
    pageTitle="Run C# expressions in a C# API App in a logic app | Microsoft Azure"
    description="C# Api App or connector"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

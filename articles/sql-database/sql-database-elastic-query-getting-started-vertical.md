@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""  
 	manager="jhubbard"
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/23/2016"
 	ms.author="torsteng" />
 
 # Get started with cross-database queries (vertical partitioning) (preview)
@@ -63,6 +63,7 @@ Now, execute following query on the **Customers** database to create the **Custo
 		SECRET = '<password>';  
 
 	The "username" and "password" should be the username and password used to login into the Customers database.
+	Authentication using Azure Active Directory with elastic queries is not currently supported.
 
 ### External data sources
 To create an external data source, execute the following command on the Orders database: 

@@ -13,41 +13,61 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="richrund"/>
 
 # Manage Log Analytics using PowerShell
 
-You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) to perform a variety of functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
+You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) to perform various functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
 
 + Create a workspace
 + Add or remove a solution
 + Import and export saved searches
++ Create a computer group
++ Enable collection of IIS logs from computers with the Windows agent installed
++ Collect performance counters from Linux and Windows computers
++ Collect events from syslog on Linux computers 
++ Collect events from Windows event logs
++ Collect custom event logs
 + Add the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
 
+
 This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
 
-> [AZURE.NOTE] Log Analytics was previously called Operational Insights which is why this is the name used in the cmdlets.
+> [AZURE.NOTE] Log Analytics was previously called Operational Insights, which is why it is the name used in the cmdlets.
 
 ## Prerequisites
 
-To use PowerShell with your Log Analytics workspace you must have:
+To use PowerShell with your Log Analytics workspace, you must have:
 
 + An Azure subscription, and 
 + Your Azure Log Analytics workspace linked to your Azure subscription.
 
-If you have created an OMS workspace, but not yet linked it to an Azure subscription you can create the link in the Azure portal, OMS portal or using the Get-AzureRMOperationalInsightsLinkTargets and New-AzureRMOperationalInsightsWorkspace cmdlets.
+If you have created an OMS workspace, but it is not yet linked it to an Azure subscription you can create the link:
 
-## Create a Log Analytics Workspace, add solutions and saved searches
++ In the Azure portal
++ In the OMS portal or 
++ Using the Get-AzureRmOperationalInsightsLinkTargets and New-AzureRmOperationalInsightsWorkspace cmdlets.
+
+
+## Create and configure a Log Analytics Workspace
 
 The following script sample illustrates how to:
 
-1.	Create a Workspace
+1.	Create a workspace
 2.	List the available solutions
 3.	Add solutions to the workspace
 4.	Import saved searches
 5.	Export saved searches
+6.	Create a computer group
+7.	Enable collection of IIS logs from computers with the Windows agent installed
+8.	Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+9.	Collect syslog events from Linux computers
+10.	Collect Error and Warning events from the Application Event Log from Windows computers
+11.	Collect Memory Available Mbytes performance counter from Windows computers
+12.	Collect a custom log 
+
 
 ```
 
@@ -76,6 +96,44 @@ $ExportedSearches = @"
 ]
 "@ | ConvertFrom-Json
 
+# Custom Log to collect
+$CustomLog = @"
+{
+    "customLogName": "sampleCustomLog1", 
+	"description": "Example custom log datasource", 
+	"inputs": [
+	    { 
+		    "location": { 
+			"fileSystemLocations": { 
+			    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ], 
+				"linuxFileTypeLogPaths": [ "/var/logs" ] 
+	    		} 
+		    }, 
+	    "recordDelimiter": { 
+	        "regexDelimiter": { 
+	    	    "pattern": "\\n", 
+		        "matchIndex": 0, 
+		        "matchIndexSpecified": true, 
+		        "numberedGroup": null 
+		        } 
+	        } 
+	    }
+	], 
+	"extractions": [
+	    { 
+		    "extractionName": "TimeGenerated", 
+		    "extractionType": "DateTime", 
+			"extractionProperties": { 
+			    "dateTimeExtraction": { 
+				    "regex": null, 
+				    "joinStringRegex": null 
+				    } 
+			    } 
+		    }
+		] 
+    }
+"@
+
 # Create the resource group if needed
 try {
     Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
@@ -90,8 +148,8 @@ New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName
 Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Add solutions
-foreach ($soln in $Solutions) {
-    Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $soln -Enabled $true
+foreach ($solution in $Solutions) {
+    Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
 #List enabled solutions
@@ -106,18 +164,47 @@ foreach ($search in $ExportedSearches) {
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
 
+# Create Computer Group
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Enable IIS Log Collection using agent
+Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Linux Perf
+New-AzureRmOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
+Enable-AzureRmOperationalInsightsLinuxCustomLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Linux Syslog
+New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernal syslog collection"
+Enable-AzureRmOperationalInsightsLinuxSyslogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
+
+# Windows Event
+New-AzureRmOperationalInsightsWindowsEventDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -EventLogName "Application" -CollectErrors -CollectWarnings -Name "Example Application Event Log"
+
+# Windows Perf
+New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Memory" -InstanceName "*" -CounterName "Available MBytes" -IntervalSeconds 20 -Name "Example Windows Performance Counter"
+
+# Custom Logs
+New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
+
 ```
 
 ## Configuring Log Analytics to index Azure diagnostics 
 
-For agentless monitoring of Azure resources, including as web and worker roles, service fabric clusters, network security groups, key vaults and application gateways the resources first need to have Azure diagnostics enabled to write to a storage account and then Log Analytics can be configured to collect the logs from the storage account.
+For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a storage account. Log Analytics can then be configured to collect the logs from the storage account. Resources that you need to do the preceding configuration for includes:
+
++ Classic cloud services (web and worker roles)
++ Service fabric clusters
++ Network security groups
++ Key vaults and 
++ Application gateways
 
 You can also use PowerShell to configure a Log Analytics workspace in one Azure subscription to collect logs from different Azure subscriptions.
 
 The following example shows how to:
 
 1.	List the existing storage accounts and locations that Log Analytics will index data from
-2.	Create a new configuration to read from a storage account
+2.	Create a configuration to read from a storage account
 3.	Update the newly created configuration to index data from additional locations
 4.	Delete the newly created configuration
 
@@ -125,7 +212,7 @@ The following example shows how to:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two with the storage account resource id and the storage account key for the storage account you want to Log Analytics to  
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to  
 $storageId = "/subscriptions/ec11ca60-1234-491e-5678-0ea07feae25c/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

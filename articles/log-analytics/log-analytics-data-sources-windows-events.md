@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/25/2016"
    ms.author="bwren" />
 
 # Windows event log data sources in Log Analytics
@@ -23,7 +23,7 @@ Windows Event logs are one of the most common [data sources](log-analytics-data-
 
 ## Configuring Windows Event logs
 
-Configure Windows Event logs from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md/configuring-data-sources).
+Configure Windows Event logs from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
 
 Log Analytics will only collect events from the Windows event logs that are specified in the settings.  You can add a new log by typing in the name of the log and clicking **+**.  For each log, only events with the selected severities will be collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
 

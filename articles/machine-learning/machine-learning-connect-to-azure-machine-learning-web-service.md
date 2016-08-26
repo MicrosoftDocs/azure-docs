@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye" />
 
 
@@ -40,10 +40,17 @@ Azure Machine Learning has two types of services:
 For more information about Machine Learning web services, see [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Get an Azure Machine Learning authorization key ##
-You get a web service API key from a Machine Learning web service. You can get it from Machine Learning Studio or the Azure portal.
+
+When you deploy your experiment, API keys are generated for the web service. Where you retrieve the keys from depends on whether the experiment was deployed as a new web service or a classic web service.
+
+## Classic Web Service ##
+
+ You can retrieve a key from Machine Learning Studio or the Azure portal.
+
 ### Machine Learning Studio ###
+
 1. In Machine Learning Studio, click **WEB SERVICES** on the left.
-2. Click a web service. The “API key” is on the **DASHBOARD** tab.
+2. Click a web service. The **API key** is on the **DASHBOARD** tab.
 
 ### Azure portal ###
 
@@ -53,26 +60,40 @@ You get a web service API key from a Machine Learning web service. You can get i
 4. Click a web service.
 5. Click an endpoint. The “API KEY” is down at the lower-right.
 
+
+## New Web Service 
+
+To retrieve the API key, for a new Machine Learning web service, you must log in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
+
+1. In the Azure Machine Learning Web Services portal, click **WEB SERVICES** on the top menu.
+2. Click the web service for which you want to retrieve the key.
+3. On the top menu, click **Consume**.
+4. Copy and save the **Primary Key**.
+
 ## <a id="connect"></a>Connect to a Machine Learning web service
 
 You can connect to a Machine Learning web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning web service help page.
 
-### To view a Machine Learning Web Service API help page ###
-A Machine Learning API help page is created when you deploy a web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](machine-learning-walkthrough-5-publish-web-service.md).
+**Machine Learning API help**
+Machine Learning API help is created when you deploy a web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](machine-learning-walkthrough-5-publish-web-service.md).
+The Machine Learning API help contains details about a prediction web service.
 
-
-**To view a Machine Learning API help page**
+**To view Machine Learning API help for a classic web service**
 In Machine Learning Studio:
 
-1. Choose **WEB SERVICES**.
-2. Choose a web service.
-3. Choose **API help page** - **REQUEST/RESPONSE** or **BATCH EXECUTION**.
+1. Click **WEB SERVICES**.
+2. Click a web service.
+3. Click **API help page** - **REQUEST/RESPONSE** or **BATCH EXECUTION**
 
+**To view Machine Learning API help for a New web service**
+In the Azure Machine Learning Web Services Portal:
 
-**Machine Learning API help page**
-The Machine Learning API help page contains details about a prediction web service.
+1. Click **WEB SERVICES** on the top menu.
+2. Click the web service for which you want to retrieve the key.
 
+Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
+Click **Swagger API** to get Swagger based documentation for the the APIs called from the supplied URIs.
 
 ### C# Sample ###
 
@@ -100,6 +121,6 @@ To connect to a Machine Learning web service, use the **urllib2** library passin
 
 **To run the code sample**
 
-1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
+1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
 2. Assign apiKey with the key from a web service. See **Get an Azure Machine Learning authorization key** above.
-3. Assign serviceUri with the Request URI. See How to get a Request URI.
+3. Assign serviceUri with the Request URI.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Upload images to Azure Blob storage by using Mobile Services

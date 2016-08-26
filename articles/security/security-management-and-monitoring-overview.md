@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Azure Security Management and Monitoring Overview
@@ -28,7 +28,7 @@ The following chart summarizes the balance of responsibility for both Microsoft 
 
 ![Shared responsibility][1]
 
-For a deeper dive into security management, see [Security management in Azure](../azure-security-management.md).
+For a deeper dive into security management, see [Security management in Azure](azure-security-management.md).
 
 Here are the core features to be covered in this article:
 
@@ -63,7 +63,7 @@ Symantec End Point Protection (SEP) is also supported on Azure. Through portal i
 Learn more:
 
 - [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../azure-security-antimalware.md)
+- [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/azure-security-antimalware.md)
 - [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 - [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)

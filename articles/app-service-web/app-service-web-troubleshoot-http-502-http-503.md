@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Troubleshoot: web app unavailable due to HTTP 502/503"
-	description="This article helps you troubleshoot HTTP 502/503 errors in your web app hosted in Azure App Service."
+	pageTitle="Fix 502 bad gateway, 503 service unavailable errors | Microsoft Azure"
+	description="Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="502 bad gateway, 503 service unavailable, error 503, error 502"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Troubleshoot: web app unavailable due to HTTP 502/503
+# Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
 
-This article helps you troubleshoot HTTP 502/503 errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ## Symptom
 
-When you browse to the web app, it returns a HTTP “502 Bad Gateway” or a HTTP “503 Service Unavailable”.
+When you browse to the web app, it returns a HTTP "502 Bad Gateway" error or a HTTP "503 Service Unavailable" error.
 
 ## Cause
 
@@ -35,7 +36,7 @@ This problem is often caused by application level issues, such as:
 -	application using high memory/CPU
 -	application crashing due to an exception.
 
-## Troubleshooting steps
+## Troubleshooting steps to solve "502 bad gateway" and "503 service unavailable" errors
 
 Troubleshooting can be divided into three distinct tasks, in sequential order:
 
@@ -64,7 +65,7 @@ Some of the metrics that you might want to monitor for your web app are
 -	Memory working set
 -	Requests
 
-![](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![monitor web app towards solving HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 For more information, see:
 
@@ -135,7 +136,7 @@ For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-wind
 
 This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
- ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
