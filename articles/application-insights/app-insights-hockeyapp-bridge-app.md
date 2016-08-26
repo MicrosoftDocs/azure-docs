@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exploring HockeyApp data in Application Insights" 
+	pageTitle="Exploring HockeyApp data in Application Insights | Microsoft Azure" 
 	description="Analyze usage and performance of your Azure app with Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -17,14 +17,14 @@
 
 #  Exploring HockeyApp data in Application Insights
 
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is the recommended platform for monitoring live device and desktop apps. From HockeyApp, you can send telemetry to monitor usage, performance, as well as getting crash data. This stream of data can be queried using the powerful [Analytics](app-insights-analytics.md) feature of [Visual Studio Application Insights](app-insights-overview.md). In addition, you can [export the data](app-insights-export-telemetry.md) and query it using the [telemetry query API](https://dev.applicationinsights.io/). To enable these features, you set up a bridge that relays the HockeyApp data to Application Insights.
 
-The data from any app in HockeyApp is accessible through the Analytics, Continuous Export, and API features in Visual Studio Application Insights. Set up a HockeyApp Bridge App to relay the data from HockeyApp to Application Insights.
 
 ## The HockeyApp Bridge app
 
-The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp data in Application Insights through the Analytics, Continuous Export, and API features. Any data collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from the aforementioned features. Let’s see how to set up one of these Bridge Apps.
+The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp data in Application Insights through the Analytics, Continuous Export, and API features. Any data collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from these features. Let’s see how to set up one of these Bridge Apps.
 
-Open the [tokens section](https://rink.hockeyapp.net/manage/auth_tokens) of our account settings in HockeyApp. Either create a new token or reuse an existing one. The minimum rights required are "read only":
+Open the [tokens section](https://rink.hockeyapp.net/manage/auth_tokens) of your account settings in HockeyApp. Either create a new token or reuse an existing one. The minimum rights required are "read only":
 
 ![hockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)
 
@@ -40,7 +40,7 @@ The HockeyApp bridge fields appear.
 
 Enter the HockeyApp token you noted earlier. This action populates the “HockeyApp Application” dropdown menu with all your HockeyApp applications. Select the one you want to use, and complete the remainder of the fields. Soon, your new resource is ready to use. 
 
-Note that the data takes a few minutes to start flowing:
+Note that the data takes a few minutes to start flowing.
 
 ![Application Insights resource waiting for data](./media/app-insights-hockeyapp-bridge-app/04.png)
 
@@ -75,5 +75,8 @@ The Application Insights REST APIs allow you to access all your app's event and 
 
 [Learn more](https://dev.applicationinsights.io/)
 
+## Next steps
+
+* [Apply Analytics to your data](app-insights-analytics-tour.md)
 
 
