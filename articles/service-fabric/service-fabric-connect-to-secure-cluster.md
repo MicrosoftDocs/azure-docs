@@ -19,9 +19,9 @@
 # Connect to a secure cluster
 When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security. This ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate security must have been previously enabled on the cluster when the cluster was created.  At least two certificates should be used for securing the cluster, one for the cluster and server certificate and another for client access.  We recommend that you also use additional secondary certificates and client access certificates.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md).
 
-To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate into the personal (My) store on the local computer or the Personal store for the current user.  You will also need the thumbprint of the server certificate so that the client can authenticate the cluster.
+To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate into the personal (My) store on the local computer or the Personal store for the current user.  You also need the thumbprint of the server certificate so that the client can authenticate the cluster.
 
-Run the following PowerShell cmdlet to set up the client certificate on the computer from which you will use to access the cluster.
+Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -29,7 +29,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
-If it is a self-signed certificate, you will need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
+If it is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
@@ -50,7 +50,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-For example, the PowerShell command above should look similar to the following. *ServerCertThumbprint* is the thumbprint of the server certificate installed on the cluster nodes, *FindValue* is the thumbprint of the admin client certificate.
+For example, the preceding PowerShell command should look similar to the following. *ServerCertThumbprint* is the thumbprint of the server certificate installed on the cluster nodes, *FindValue* is the thumbprint of the admin client certificate.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -61,7 +61,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ## Connect to a secure cluster using the FabricClient APIs
-The following [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). This enables mutual authentication between the client and the cluster node.
+The following [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), which enables mutual authentication between the client and the cluster node.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
