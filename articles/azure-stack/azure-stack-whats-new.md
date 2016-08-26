@@ -49,7 +49,7 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization 
 
 ## Cloud Service Administrator
-Azure Stack TP2 brings new concepts and capabilities for 
+Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
  - Billing and Usage APIs allow providers to integrate with billing and consumption services
  - Ability to capture plan and offer details in ARM templates for redeployment
  - Delegated Providers enable downstream resellers to offer Azure Stack services to consumers
@@ -62,9 +62,6 @@ Azure Stack TP2 brings new concepts and capabilities for
   - Health Resource Provider enables retrieval of monitoring data via REST
 - Export ARM templates from Portal for redeployment
 - TiP tests have been renamed to System Health Tests
-
-
-##  Infrastructure
 
 
 ## Next steps
