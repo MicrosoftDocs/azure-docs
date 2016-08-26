@@ -240,7 +240,7 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 **Classic deployment model**<br>
 Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
 **Resource Manager deployment model**<br>
-If you are using the Resource Manager deployment model, see the [BGP](#BGP) section for more information.
+If you are using the Resource Manager deployment model, see the [BGP](#bgp) section for more information.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
@@ -255,7 +255,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
