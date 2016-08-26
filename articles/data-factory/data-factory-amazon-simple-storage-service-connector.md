@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Move data From Amazon Simple Storage Service using Azure Data Factory
@@ -23,6 +23,11 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 with copy activity and provides a list of data stores that can be used as sources or sinks with the copy activity.  
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data from Amazon S3 is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following example provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows you how to copy data from Amazon S3 to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores).
 
 ## Sample: Copy data from Amazon S3 to Azure Blob
 This sample shows how to copy data from an Amazon S3 to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -220,6 +225,8 @@ The **typeProperties** section is different for each type of dataset and provide
 | key | The S3 object key. | String | No | 
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when key is empty. | String | No | 
 | version | The version of S3 object if S3 versioning is enabled. | String | No |  
+| format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions.| No
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details.  | No |
 
 > [AZURE.NOTE] bucketName + key specifies the location of the S3 object where bucket is the root container for S3 objects and key is the full path to S3 object.
 
@@ -267,6 +274,26 @@ The **typeProperties** section is different for each type of dataset and provide
 			"external": true
 	    }
 	}
+
+
+### Dynamic paths for S3
+
+In the sample, we use fixed values for key and bucketName properties in the Amazon S3 dataset. 
+
+	"key": "testFolder/test.orc",
+	"bucketName": "testbucket",
+
+You can have Data Factory calculate the key and bucketName dynamically at runtime by using system variables such as SliceStart.
+
+	"key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
+	"bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
+
+You can do the same for the prefix property of an Amazon S3 dataset. See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of supported functions and variables. 
+
+
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 
 ## Copy activity type properties
 
