@@ -17,15 +17,16 @@
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
-This document covers key new features and capabilities in this release of Azure Stack as part of Technical Preview .
+This document covers key new features and capabilities in this preview release of Azure Stack.
 
 ## Cloud Tenant
 Azure Stack TP2 introduces new tenant capabilities and services for consumers of Azure Stack services, including:
- - [Key Vault](azure-stack-intro-key-vault.md) allows for secure storage and handling of your keys and secrets such as passwords and certificates.
+ - [Key Vault](azure-stack-intro-key-vault.md) allows for secure storage and handling of your cryptographic keys and other secrets such as passwords with built-in auditing and monitoring of key use.
  - Updated App Service Resource Provider and administration capabilities for new Platform-as-a-Service services:
-   - Web Apps
-   - Mobile Apps
-   - API Apps
+   - New resource provider features such scale-up and scale-out, source control integration, and deployment slots. 
+   - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale for consumption in other services.
+   - Web App updates enable new features such as WebJobs and PHP 7 support.
+   - Mobile Apps provide API and table storage services for cross-platform mobile apps.  
  - New Infrastructure-as-a-Service capabilities, including:
    - Deallocate and capture virtual machines
    - Redeploy virtual machine extensions
@@ -33,7 +34,7 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - [iDNS](azure-stack-what-is-idns.md) for internal network name registration and DNS resolution
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources
    - Create new network resources from the marketplace
- - Addition of new storage features and services, including: 
+ - Addition of new storage services and features, including: 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
    - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) 
    - [Append Blob](https://msdn.microsoft.com/en-us/library/azure/mt427365.aspx) 
@@ -46,12 +47,12 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
 
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
- - Billing and usage APIs allow providers to integrate with your billing and consumption systems
- - Ability to capture plan and offer details in ARM templates for redeployment to your customers
+ - Billing and usage APIs enable integration with your billing and consumption systems
+ - Ability to capture plan and offer details in ARM templates for redeployment to your tenants
  - Azure Stack regions preview support
    - View a list of all Azure Stack regions
    - Navigate to storage, computer, and network providers per region and view resource consumption
- - Delegated Providers enable downstream resellers to offer your Azure Stack services to consumers
+ - Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants
  - On-demand reclamation of unused tenant resource capacity
  - New monitoring capabilities
   - View details of monitoring alerts by region
