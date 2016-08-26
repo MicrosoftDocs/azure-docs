@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="dugill;tomfitz" />
 
 
@@ -29,6 +29,8 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
+
 ## What the web app does
 
 The web app:
@@ -41,8 +43,6 @@ The web app:
 Here's the end-to-end flow of the web application.
 
 ![Resource Manager Authentication flow](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
-
-All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
 
 As a user, you provide the subscription id for the subscription you want to use:
 
@@ -72,15 +72,21 @@ in Azure AD. It holds basic information about your application like OAuth Client
 uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions 
 that your application needs when accessing Microsoft APIs on behalf of the user. 
 
-The topic 
-[Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md) shows 
-all the steps necessary to set up your application. Refer to that topic as you create an application with the following properties:
+When configuring a multi-tenant application, you must provide a domain associated with your Active Directory. To see the domains associated with your Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Active Directory and then select **Domains**.
 
-- Web application named **CloudSense**
-- Sign-in URL and App ID URI in the format **http://{domain_name_of_your_directory}/{name_of_the_app}**.
-- Authentication key for signing in the application
-- Delegated permission **Access Azure Service Management** for **Azure Service Management API**. Leave the default **Enable single sign-on and read user's profile** for **Azure Active Directory**.
-- Multi-tenant application
+The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work. 
+
+    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+    
+To log in as the AD application, you will need the application id and password. To see the application id that is returned from the previous command, use:
+
+    $app.ApplicationId
+
+The following example shows how to register the app by using Azure CLI. 
+
+    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+
+The results include the AppId which you need when authenticating as the application.
 
 ### Optional configuration - certificate credential
 
@@ -88,17 +94,21 @@ Azure AD also supports certificate credentials for applications: you create a se
 the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD 
 signed using your private key, and Azure AD validates the signature using the public key that you registered.
 
-For information about configuring the certificate, see [Build service and daemon apps in Office 365](https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365). 
-The section titled "Configuring a X.509 public cert for your application" has step-by-step instructions for setting up the certificate. Or, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md) for examples of configuring a certificate through Azure PowerShell or Azure CLI.
+For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
 ## Get tenant id from subscription id
+
+Many users are familiar with the subscription id, but might not be familiar with the tenant id of the Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription. The request fails because the user has not logged in yet, but you can retrieve the tenant id from the response. Send a request to:
+
+    https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
+
+The request returns an exception. In that exception, retrieve the tenant id from the response header value for **WWW-Authenticate**. You see this implementation in the [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) method.
 
 ## Get user + app access token
 
 You now have everything you need to get started with coding the application.  
 
 You start at the point where the user decides to connect an Azure subscription to your application. 
-
 
 Your application then redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager.
 
