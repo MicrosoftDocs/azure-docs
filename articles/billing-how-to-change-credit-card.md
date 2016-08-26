@@ -59,6 +59,6 @@ If your credit card number ever changes, due to being lost, stolen, or expired, 
 3. On the right side of the page, select **Manage payment methods**.
 4. On the **Manage payment methods** page, click **Delete** to select the credit card you want to delete.
 
-> [AZURE.NOTE] You will not be able to delete a credit card if it is associated with other active Microsoft subscriptions. If you receive an error that the card is in use, please ensure that it is disassociated from all active subscriptions that you have with Microsoft.
-<br/>
+	> [AZURE.NOTE] You will not be able to delete a credit card if it is associated with other active Microsoft subscriptions. If you receive an error that the card is in use, please ensure that it is disassociated from all active subscriptions that you have with Microsoft.
+
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
