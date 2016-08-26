@@ -313,34 +313,34 @@ A .model file is written to the directory specified. Information about this demo
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/), and its [Github repository](https://github.com/dmlc/xgboost).
 
 #### Rattle
-Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily) makes getting started with data mining in R very easy with a GUI-based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modeled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new datasets. It also generates R code, replicating the operations in the UI that can be run directly in R or used as a starting point for further analysis.
+Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily) uses GUI-based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modeled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new data sets. It also generates R code, replicating the operations in the UI that can be run directly in R or used as a starting point for further analysis.
 
-To run Rattle, you need to be in a graphical desktop login session. On the terminal, type ```R``` to enter the R environment. On the R prompt enter the following commands:
+To run Rattle, you need to be in a graphical desktop sign-in session. On the terminal, type ```R``` to enter the R environment. At the R prompt, enter the following commands:
 
 	library(rattle)
 	rattle()
 
-Now a graphical interface opens up with a set of tabs. Here are the quick start steps in Rattle needed to use a sample weather dataset and building a model. In some of the steps below, you are prompted to automatically install and load some required R packages that are not already on the system.
+Now a graphical interface opens up with a set of tabs. Here are the quick start steps in Rattle needed to use a sample weather data set and build a model. In some of the steps below, you are prompted to automatically install and load some required R packages that are not already on the system.
 >[AZURE.NOTE] If you don't have access to install the package in the system directory (the default), you may see a prompt on your R console window to install packages to your personal library. Answer *y* if you see these prompts.
 
-1. Click **Execute**
-2. A dialog pops up asking you if you like to use the example weather dataset. Click **Yes** to load the example
-3. Click the **Model** tab
-4. Click **Execute** to build a decision tree
-5. Click **Draw** to display the decision tree
-6. Click the **Forest** radio button and click **Execute** to build a random forest
-7. Click the **Evaluate** tab
-8. Click the **Risk** radio button and click **Execute** to display two Risk (Cumulative) performance plots
-9. Click the **Log** tab to show the generate R code for the above operations
-(Note: There is a bug in current release of Rattle - please insert a *#* character in front of *Export this log ...* in the text of the log.)
-10. Click the **Export** button to save R script to file  named *weather_script.R* to home folder
+1. Click **Execute**.
+2. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
+3. Click the **Model** tab.
+4. Click **Execute** to build a decision tree.
+5. Click **Draw** to display the decision tree.
+6. Click the **Forest** radio button, and click **Execute** to build a random forest.
+7. Click the **Evaluate** tab.
+8. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
+9. Click the **Log** tab to show the generate R code for the preceding operations.
+(Due to a bug in the current release of Rattle, you need to insert a *#* character in front of *Export this log ...* in the text of the log.)
+10. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
-You can exit Rattle and R. Now you can modify the generated R script or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. This is an easy way especially for beginners in R to quickly do analysis and machine learning in a simple graphical interface while automatically generating code in R to modify and/or learn.
+You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
 
 ## Next Steps
-Here are some next steps to continue your learning and exploration.
+Here's how you can continue your learning and exploration.
 
-* Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information on the tools installed on the VM.  
-* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite.
+* Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
