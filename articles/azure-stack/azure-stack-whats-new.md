@@ -28,11 +28,11 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Web App updates enable new features such as WebJobs and PHP 7 support.
    - Mobile Apps service provides API and table storage services for cross-platform mobile apps.  
  - New Infrastructure-as-a-Service capabilities, including:
+   - [iDNS](azure-stack-what-is-idns.md) for internal network name registration and DNS resolution
+   - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources
    - Deallocate and capture virtual machines
    - Redeploy virtual machine extensions
    - Resize virtual machine disks
-   - [iDNS](azure-stack-what-is-idns.md) for internal network name registration and DNS resolution
-   - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources
    - Create network resources from the marketplace
  - Addition of new storage services and features, including: 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) 
@@ -42,21 +42,17 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Premium storage account API support
    - Support for [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
    - ACS virtualized cloud services can scale out behind software load balancer
-   - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization
+   - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for inter-service authentication and authorization
   - You can now export Resource Manager templates from portal
 
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
  - Billing and usage APIs enable integration with your billing and consumption systems
  - Capture plan and offer details in Resource Manager templates for redeployment to your tenants
- - Azure Stack regions preview support
-   - View a list of all Azure Stack regions
-   - Navigate to storage, computer, and network providers per region and view resource consumption
+ - Azure Stack regions preview support enables viewing Azure Stack regions and you can see details on storage, computer and network resource per region
  - Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants
  - On-demand reclamation of unused tenant resource capacity
- - New monitoring capabilities
-  - View details of monitoring alerts by region
-  - Health Resource Provider enables retrieval of monitoring data via REST
+ - New monitoring capabilities enable you to view alerts in the portal and retrieve via REST API
  - TiP tests have been renamed to System Health Tests to better reflect purpose
 
 
