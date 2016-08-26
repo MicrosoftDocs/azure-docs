@@ -39,7 +39,7 @@ When you add one or more VMs to a scale set by increasing the capacity – wheth
 
 ## How do you manage application updates in VM Scale Sets?
 
-For application updates in VM Scale Sets, three main approaches follow from the three preceeding application deployment methods:
+For application updates in VM Scale Sets, three main approaches follow from the three preceding application deployment methods:
 
 * Updating with Extensions. Any VM extensions that are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, directly updating an application through extensions is a viable approach – you simply update the extension definition. One simple way to do so is by changing the fileUris to point to the new software.
 
