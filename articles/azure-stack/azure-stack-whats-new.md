@@ -30,12 +30,12 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Web Apps
    - Mobile Apps
    - API Apps
- - New Infrastructure-as-a-Service Capabilities:
+ - New Infrastructure-as-a-Service capabilities:
    - Deallocate VMs
    - Capture VMs
    - Redeploy VM Extensions
    - Resize VM Disks
-   - iDNS for internal name registration and DNS resolution
+   - iDNS for internal network name registration and DNS resolution
    - VPN Site-to-Site gateways for new connectivity options
    - Create new Network resources from the marketplace
  - Storage
@@ -50,18 +50,18 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
 
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
- - Billing and Usage APIs allow providers to integrate with billing and consumption services
+ - Billing and usage APIs allow providers to integrate with billing and consumption services
  - Ability to capture plan and offer details in ARM templates for redeployment
- - Delegated Providers enable downstream resellers to offer Azure Stack services to consumers
- - On-demand reclamation of unused tenant capacity
- - Introduces Azure Stack regions preview support, including:
+ - Azure Stack regions preview support
    - View a list of all Azure Stack regions
    - Navigate to storage, computer, and network providers per region and view resource consumption
+ - Delegated Providers enable downstream resellers to offer Azure Stack services to consumers
+ - On-demand reclamation of unused tenant resource capacity
 - New monitoring capabilities
   - View details of monitoring alerts by region
   - Health Resource Provider enables retrieval of monitoring data via REST
 - Export ARM templates from Portal for redeployment
-- TiP tests have been renamed to System Health Tests
+- TiP renamed to System Health Tests
 
 
 ## Next steps
