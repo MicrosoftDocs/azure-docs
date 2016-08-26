@@ -19,11 +19,11 @@
 
 # How to manage a DocumentDB account
 
-Learn how to set global consistency, work with keys, and delete a DocumentDB account in the Azure Portal.
+Learn how to set global consistency, work with keys, and delete a DocumentDB account in the Azure portal.
 
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
-Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in DocumentDB: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of strong requires that your data is confined to a single Azure region and not be globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account. 
+Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in DocumentDB by reading [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability, and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of Strong requires that your data is confined to a single Azure region and not globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account. 
 
 ### To specify the default consistency for a DocumentDB account
 
@@ -35,7 +35,7 @@ Selecting the right consistency level depends on the semantics of your applicati
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that can be used for authentication when the DocumentDB account is accessed. By providing two access keys, DocumentDB enables you to regenerate the keys with no interruption to your DocumentDB account. 
 
-In the [Microsoft Azure portal](https://portal.azure.com/), access the **Keys** blade from the **DocumentDB Account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
+In the [Azure portal](https://portal.azure.com/), access the **Keys** blade from the resource menu on the **DocumentDB account** blade to view, copy, and regenerate the access keys that are used to access your DocumentDB account.
 
 ![Azure Portal screenshot, Keys blade](./media/documentdb-manage-account/keys.png)
 
@@ -43,7 +43,7 @@ In the [Microsoft Azure portal](https://portal.azure.com/), access the **Keys** 
 
 Read-only keys are also available on this blade. Reads and queries are read-only operations, while creates, deletes, and replaces are not.
 
-### View and copy an access key in the Azure Portal
+### Copy an access key in the Azure Portal
 
 On the **Keys** blade, click the **Copy** button to the right of the key you wish to copy.
 

@@ -29,7 +29,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
     >[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
 
-3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and enter the query to run. 
+3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and type the query to run. 
 
     The **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launch Query Explorer. 
 

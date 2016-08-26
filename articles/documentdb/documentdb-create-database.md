@@ -14,19 +14,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2016" 
+	ms.date="08/25/2016" 
 	ms.author="mimig"/>
 
 # How to create a database for DocumentDB using the Azure portal
 
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents.  This topic describes how to create a database for DocumentDB in the Microsoft Azure portal. For information on how to create a database using one of the SDKs, see [Other ways to create a DocumentDB database](#other-ways-to-create-a-documentdb-database).
 
-1.  In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **More Services** and then click **DocumentDB Accounts**.
+1.  In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
 
     ![Screen shot showing how to create a database, highlighting DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
-2.  In the **DocumentDB Accounts** blade, select the account in which to add a DocumentDB NoSQL database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
+2.  In the **DocumentDB (NoSQL)** blade, select the account in which to add a DocumentDB NoSQL database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
 3. In the **DocumentDB account** blade, click **Add Database**.
 
