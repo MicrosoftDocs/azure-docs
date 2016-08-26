@@ -109,7 +109,7 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 ## Primary task and subtasks
 
-When you create the multi-instance settings for a task, you specify the number of number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
+When you create the multi-instance settings for a task, you specify the number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
 
 These tasks are assigned an integer id in the range of 0 to *numberOfInstances - 1*. The task with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the subtasks would have ids 1 through 9.
 
@@ -122,7 +122,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 
 The **coordination command** is executed by both the primary and subtasks.
 
-The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and then exit.For example, this coordination command for a solution using MS-MPI version 7 starts the SMPD service on the node, then exits:
+The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and then exit. For example, this coordination command for a solution using MS-MPI version 7 starts the SMPD service on the node, then exits:
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
@@ -160,7 +160,7 @@ You can specify one or more **common resource files** in the multi-instance sett
 
 Resource files that you specify for the multi-instance task itself are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`, by the primary task *only*--the subtasks do not download the resource files specified for the multi-instance task.
 
-The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by the primary and all subtasks that execute on a node. An example task shared directory is `tasks/mybatchjob/job-1/mymultiinstancetask/`. The primary and each subtask also have a working directory that is accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
+The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by the primary and all subtasks that execute on a node. An example task shared directory is `tasks/mybatchjob/job-1/mymultiinstancetask/`. The primary and each subtask also has a working directory that is accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
 
 Note that in the code samples in this article, we do not specify resource files for the multi-instance task itself, only for the pool's StartTask and the [CommonResourceFiles][net_multiinsance_commonresfiles] of the multi-instance settings.
 
