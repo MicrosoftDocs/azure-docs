@@ -21,14 +21,15 @@ This document covers key new features and capabilities in this preview release o
 
 ## Cloud Tenant
 Azure Stack TP2 introduces new tenant capabilities and services for consumers of Azure Stack services, including:
- - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of your cryptographic keys and other secrets like passwords with built-in auditing and monitoring of key use.
+ - [Key Vault](azure-stack-intro-key-vault.md) allows secure storage and handling of your cryptographic keys and other secrets like passwords with built-in auditing and monitoring
  - Updated App Service Resource Provider and administration capabilities for new Platform-as-a-Service services:
    - New resource provider features enable scale-up and scale-out, source control integration, and deployment slots. 
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale for consumption in other services.
+   - Mobile Apps service provides API and table storage services for cross-platform mobile apps.
    - Web App updates enable new features such as WebJobs and PHP 7 support.
-   - Mobile Apps service provides API and table storage services for cross-platform mobile apps.  
+  
  - New Infrastructure-as-a-Service capabilities, including:
-   - [iDNS](azure-stack-what-is-idns.md) for internal network name registration and DNS resolution
+   - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources
    - Deallocate and capture virtual machines
    - Redeploy virtual machine extensions
@@ -41,7 +42,7 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK 
    - Premium storage account API support
    - Support for [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
-   - ACS virtualized cloud services can scale out behind software load balancer
+   - Virtualized cloud services can scale out behind software load balancer
    - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for inter-service authentication and authorization
   - You can now export Resource Manager templates from portal
 
