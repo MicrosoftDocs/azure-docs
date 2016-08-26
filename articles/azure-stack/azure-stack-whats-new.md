@@ -43,12 +43,12 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
    - Support for [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx)
    - ACS virtualized cloud services can scale out behind software load balancer
    - Strong security via [Group Managed Service Account](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) identity for inter-service authentication and authorization
-  - You can now export ARM templates from portal
+  - You can now export Resource Manager templates from portal
 
 ## Cloud Service Administrator
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
  - Billing and usage APIs enable integration with your billing and consumption systems
- - Capture plan and offer details in ARM templates for redeployment to your tenants
+ - Capture plan and offer details in Resource Manager templates for redeployment to your tenants
  - Azure Stack regions preview support
    - View a list of all Azure Stack regions
    - Navigate to storage, computer, and network providers per region and view resource consumption
