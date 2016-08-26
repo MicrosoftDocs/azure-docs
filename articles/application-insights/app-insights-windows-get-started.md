@@ -35,9 +35,14 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 
 You can also use [Application Insights for Windows Desktop apps](app-insights-windows-desktop.md).
 
-## Analytics, export and API access to HockeyApp data
+## Analytics, export and API access to HockeyApp data 
 
-You can use 
+[Set up a HockeyApp bridge](app-insights-hockeyapp-bridge-app.md) in Application Insights. This enables you to:
 
-[Set up a HockeyApp bridge](app-insights-hockeyapp-bridge-app.md) in Application Insights to be able to see 
+* Use the powerful [Analytics](app-insights-analytics.md) query language over your telemetry. 
+* [Export telemetry](app-insights-export-telemetry.md) to Azure blob storage.
+* [Query telemetry with a REST API](https://dev.applicationinsights.io/)
 
+## Next steps
+
+* [Get started with HockeyApp for Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
