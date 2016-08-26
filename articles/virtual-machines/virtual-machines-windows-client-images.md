@@ -37,7 +37,7 @@ The subscription offer ID is noted on the 'Subscriptions' blade within the Azure
 
 ![Offer ID details from the Azure portal](./media/virtual-machines-windows-client-images/offer_id_azure_portal.png) 
 
-You can also view the offer ID from the ['Subscriptions' tab](http:/account.windowsazure.com/Subscriptions) of the Azure Account portal:
+You can also view the offer ID from the ['Subscriptions' tab](http://account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
 ![Offer ID details from the Azure Account portal](./media/virtual-machines-windows-client-images/offer_id_azure_account_portal.png) 
 
