@@ -66,7 +66,7 @@ Joins are used mostly on inbound rules to join connector space objects together 
 
 The joins are defined as one or more groups. Inside a group, you have clauses. A logical AND is used between all clauses in a group. A logical OR is used between groups. The groups are processed in order from top to bottom. When one group has found exactly one match with an object in the target, then no other join rules are evaluated. If zero or more than one object is found, processing continues to the next group of rules. For this reason, the rules should be created in the order of most explicit first and more fuzzy at the end.  
 ![Join definition](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join2.png)  
-The joins in this picture are be processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, processing continues with a more fuzzy match by using the name of user. If that is not a match either, the third and final rule sees if the account name can be used to join the objects together.
+The joins in this picture are processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, processing continues with a more fuzzy match by using the name of user. If that is not a match either, the third and final rule sees if the account name can be used to join the objects together.
 
 If all join rules have been evaluated and there is not exactly one match, the **Link Type** on the **Description** page is used. If this option is set to **Provision**, then a new object in the target is created.  
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join3.png)  
@@ -131,12 +131,14 @@ When several sync rules try to contribute the same attribute value to the target
 
 ![Merge Types](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  
 
-This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules makes sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
+This ordering can be used to define more precise attribute flows for a small subset of objects. For example, the out-of-box-rules make sure that attributes from an enabled account (**User AccountEnabled**) have precedence from other accounts.
 
 Precedence can be defined between Connectors. That allows Connectors with better data to contribute values first.
 
 ## Additional Resources
 
+[Azure AD Connect sync: How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md)
 [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

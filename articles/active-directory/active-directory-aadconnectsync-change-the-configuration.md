@@ -153,6 +153,8 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 
 ## Next steps
 
+Learn more about [Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md) and the options available in the sync rules.
+
 Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

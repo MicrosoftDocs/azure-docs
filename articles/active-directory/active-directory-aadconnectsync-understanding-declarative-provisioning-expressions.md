@@ -85,6 +85,7 @@ For example:
 
 ## Additional Resources
 
-[Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-[Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
+- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
