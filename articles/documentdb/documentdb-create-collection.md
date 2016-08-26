@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="08/24/2016" 
 	ms.author="mimig"/>
 
 # How to create a DocumentDB collection using the Azure portal
@@ -22,11 +22,11 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
 Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
 
-1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**, and then in the **DocumentDB Accounts** blade, select the account in which to add a collection. 
+1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**, and then in the **DocumentDB (NoSQL)** blade, select the account in which to add a collection. 
 
     ![Screen shot highlighting the DocumentDB Accounts in the Jumpbar, the account in the DocumentDB Accounts blade, and the database in the DocumentDB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    If **DocumentDB Accounts** is not visible in the Jumpbar, click **More Services** and then click **DocumentDB Accounts**. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
+    If **DocumentDB Accounts** is not visible in the Jumpbar, click **More Services** and then click **DocumentDB (NoSQL)**. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
 2. In the **DocumentDB account** blade for the selected account, in the **Databases** lens, select the database in which to add a collection.
 
