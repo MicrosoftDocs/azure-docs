@@ -37,7 +37,7 @@ It's important to understand the differences between the Azure classic and Resou
 
 In this model, a public IP address and an FQDN are assigned to a cloud service. Virtual machines deployed within a cloud service boundary can be grouped to use a load balancer. The load balancer does port translation and distributes the network traffic received on the public IP address of the cloud service.
 
-Load-balanced traffic is defined by endpoints . Port translation endpoints have a one-to-one relationship between the public-assigned port of the public IP address and the local port assigned to the service on a specific virtual machine. Load balancing endpoints have a one-to-many relationship between the public IP address and the local ports assigned to the services on the virtual machines in the cloud service.
+Load-balanced traffic is defined by endpoints. Port translation endpoints have a one-to-one relationship between the public-assigned port of the public IP address and the local port assigned to the service on a specific virtual machine. Load balancing endpoints have a one-to-many relationship between the public IP address and the local ports assigned to the services on the virtual machines in the cloud service.
 
 The domain label for the public IP address that the load balancer uses for this deployment model is \<cloud service name\>.cloudapp.net. The following graphic shows the Azure Load Balancer in this model.
 
