@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Accessing diagnostic logs for Azure Data Lake Store
@@ -50,6 +50,13 @@ Once you have enabled diagnostic settings, you can watch the logs in the **Diagn
 
 ## View diagnostic logs for your Data Lake Store account
 
+There are two ways to view the log data for your Data Lake Store account.
+
+* From the Data Lake Store account settings view
+* From the Azure Storage account where the data is stored
+
+### Using the Data Lake Store Settings view
+
 1. From your Data Lake Store account **Settings** blade, click **Diagnostic Logs**.
 
 	![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
@@ -58,7 +65,24 @@ Once you have enabled diagnostic settings, you can watch the logs in the **Diagn
 	* Request logs capture every API request made on the Data Lake Store account.
 	* Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Store account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 
-3. Click the **Download** link against each log entry to download the logs. 
+3. Click the **Download** link against each log entry to download the logs.
+
+### From the Azure Storage account that contains log data
+
+1. Open the Azure Storage account blade associated with Data Lake Store for logging, and then click Blobs. The **Blob service** blade lists two containers.
+
+	![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+
+	* The container **insights-logs-audit** contains the audit logs.
+	* The container **insights-logs-requests** contains the request logs.
+
+2. Within these containers, the logs are stored under the following structure.
+
+	![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+
+	As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	Similary, the complete path to a request log could be `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Understand the structure of the log data
 
@@ -156,6 +180,12 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | Name       | Type   | Description                              |
 |------------|--------|------------------------------------------|
 | StreamName | String | The path the operation was performed on  |
+
+
+## Samples to process the log data
+
+Azure Data Lake Store provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+
 
 ## See also
 

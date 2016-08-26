@@ -7,12 +7,12 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="06/01/2016"
+   ms.workload="na"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Adding Azure storage by using Visual Studio Connected Services

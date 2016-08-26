@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Drivers](sql-data-warehouse-connection-strings.md)
 
 
-You can connect to SQL Data Warehouse using any of the following application protocols:
-
-- ADO.NET
-- ODBC
-- PHP
-- JDBC 
-
-Below are some examples of connections strings for each protocol.  You can also use the Azure portal to help you set up your connection string.  Simply navigate to your database on the Azure portal.  Under *Essentials* click on *Show database connection strings*. 
+You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][], [ODBC][], [PHP][] and [JDBC][]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 
@@ -58,6 +51,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
+
 ## Next steps
 
 To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][].
@@ -65,8 +60,12 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!--Image references-->
 
 <!--Azure.com references-->
-
-
+ [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+ 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->

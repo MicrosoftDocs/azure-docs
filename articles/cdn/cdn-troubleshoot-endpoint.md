@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Troubleshooting CDN endpoints returning 404 status"
-	description="Troubleshoot 404 response codes with CDN endpoints."
+	pageTitle="Troubleshooting Azure CDN endpoints returning 404 status | Microsoft Azure"
+	description="Troubleshoot 404 response codes with Azure CDN endpoints."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Troubleshooting CDN endpoints returning 404 statuses
@@ -67,7 +67,7 @@ The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cas
 
 However, say the URL for your origin file that you tested earlier is `http://www.contoso.com:8080/file.txt`.  Note the `:8080` at the end of the hostname segment.  That tells the browser to use port `8080` to connect to the web server at `www.contoso.com`, so you'll need to enter 8080 in the **HTTP port** field.  It's important to note that these port settings only affect what port the endpoint uses to retrieve information from the origin.
 
-> [AZURE.NOTE] **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md).  
+> [AZURE.NOTE] **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
   
 ### Check the endpoint settings
 

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Update OS version in Azure Security Center
 
 For virtual machines (VMs) in cloud services, Azure Security Center will recommend that the operating system (OS) be updated if there is a more recent version available.  Only cloud services web and worker roles running in production slots are monitored.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
@@ -29,7 +29,7 @@ For virtual machines (VMs) in cloud services, Azure Security Center will recomme
 
 2. This opens the blade **Update OS version**. Follow the steps in this blade to update the OS version.
 
-## Next steps
+## See also
 
 This article showed you how to implement the Security Center recommendation "Update OS version." To learn more about cloud services and updating the OS version for a cloud service, see:
 

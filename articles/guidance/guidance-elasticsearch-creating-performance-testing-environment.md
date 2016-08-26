@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/21/2016"
    ms.author="masashin"/>
    
 # Creating a performance testing environment for Elasticsearch on Azure
@@ -116,7 +116,7 @@ You can create as many Subordinate VMs as you wish.
 
 The JMeter Subordinate VMs are running Linux and by default you cannot connect to them by opening a 
 remote desktop connection (RDP). Instead, you can 
-[use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-classic-log-on.md) on each VM.
+[use PuTTY to open a command line window](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) on each VM.
 
 Once you've connected to one of the Subordinate VMs, we'll use bash to setup JMeter.
 

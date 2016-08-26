@@ -188,7 +188,9 @@ Spoofing: An attacker may extract cryptographic key material from a device, eith
 
 **Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted Elevation of Privilege: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+
+**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
 
 **Denial of Service**: The device can be turned into a state where communication is not possible.
 

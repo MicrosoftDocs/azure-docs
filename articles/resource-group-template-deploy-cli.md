@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure CLI
@@ -23,23 +23,19 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Node](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 This topic explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.  
 
 > [AZURE.TIP] For help with debugging an error during deployment, see:
 >
-> - [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that will help you troubleshoot your error
+> - [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that helps you troubleshoot your error
 > - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
 Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
 ## Quick steps to deployment
 
-This article describes all of the different options available to you during deployment. However, very often you will only need two simple commands. To quickly get started with deployment, use the following commands:
+This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
 
     azure group create -n ExampleResourceGroup -l "West US"
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
@@ -52,7 +48,7 @@ To learn more about options for deployment that might be better suited to your s
 
 If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-1. Login to your Azure account. After providing your credentials, the command returns the result of your login.
+1. Log in to your Azure account. After providing your credentials, the command returns the result of your login.
 
         azure login
   
@@ -69,7 +65,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
    
         info:     New mode is arm
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
 
         azure group create -n ExampleResourceGroup -l "West US"
    
@@ -85,15 +81,15 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
         data:
         info:    group create command OK
 
-5. Validate your deployment prior to executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+5. Validate your deployment before executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
 
         azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the following command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
+5. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
    
      You have the following three options for providing parameter values: 
 
-     1. Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The example below shows the parameters with escape characters.
+     1. Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
 
             azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
@@ -105,7 +101,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
     
             azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-     After the resources have been deployed through one of the 3 methods above, you will see a summary of the deployment.
+     After the resources have been deployed through one of the three methods above, you will see a summary of the deployment.
   
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -131,11 +127,11 @@ You can add your templates to a storage account and link to them during deployme
 
 The following steps set up a storage account for templates:
 
-1. Create a new resource group.
+1. Create a resource group.
 
         azure group create -n "ManageGroup" -l "westus"
 
-2. Create a new storage account. The storage account name must be unique across Azure, so provide your own name for the account.
+2. Create a storage account. The storage account name must be unique across Azure, so provide your own name for the account.
 
         azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
 
@@ -144,7 +140,7 @@ The following steps set up a storage account for templates:
         export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
         export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
 
-4. Create a new container. The permission is set to **Off** which means the container is only accessible to the owner.
+4. Create a container. The permission is set to **Off** which means the container is only accessible to the owner.
 
         azure storage container create --container templates -p Off 
         

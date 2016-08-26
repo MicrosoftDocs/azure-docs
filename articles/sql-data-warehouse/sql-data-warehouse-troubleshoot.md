@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Troubleshooting Azure SQL Data Warehouse
@@ -50,6 +50,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 
 |  Issue                             | Resolution                                      |
 | :----------------------------------| :---------------------------------------------- |
+| Msg 40847: Could not perform the operation because server would exceed the allowed Database Throughput Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
 | Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
 | Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
 
@@ -71,6 +72,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | MERGE statement is not supported   | See [MERGE workarounds][].|
 | Stored procedure limitations       | See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][] for the syntax we support.   |
+'<--LocComment: Page not found "Stored procedure limitations" is broken. I've tried fixing the link in Article References -->'
 
 ## Next steps
 
@@ -91,10 +93,12 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
+[Visual Studio 2013 or 2015]: ./sql-data-warehouse-query-visual-studio.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -113,7 +117,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Stored procedure limitations]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -126,7 +130,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

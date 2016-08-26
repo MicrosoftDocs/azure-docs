@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a lab
 
-> [AZURE.NOTE] View this article's accompanying 
-video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+> [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
 ## Overview
 
@@ -69,7 +68,7 @@ selecting either **Yes** or **No**. Otherwise, this option is disabled and selec
 **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
 and then return here when finished.
 
-1. If you want to view or copy the ARM template, skip to the [Save ARM template](#save-arm-template) section, and return here when finished.
+1. If you want to view or copy the Azure Resource Manager template, skip to the [Save Azure Resource Manager template](#save-arm-template) section, and return here when finished.
 
 1. Select **Create** to add the specified VM to the lab.
 
@@ -105,7 +104,7 @@ The following steps illustrate how to change the order in which the artifacts ar
 
 1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. Drag and drop the artifacts in the list to reflect the desired order. **Note:** If you have
 having trouble dragging the artifact, make sure that you are dragging from the left side of the 
@@ -119,7 +118,7 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 1. At the top of the **Add Artifacts** blade, select the link indicating the number of artifacts that have been added to the VM.
 
-    ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. On the **Selected Artifacts** blade, select the artifact that you want to view or edit.  
 
@@ -127,11 +126,11 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 1. Select **OK** to close the **Selected Artifacts** blade.
 
-## Save ARM template
+## Save Azure Resource Manager template
 
-An ARM template provides a declarative way to define a repeatable deployment. 
-The following steps explain how to save the ARM template for the VM being created.
-Once saved, you can use the ARM template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
+An Azure Resource Manager template provides a declarative way to define a repeatable deployment. 
+The following steps explain how to save the Azure Resource Manager template for the VM being created.
+Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
 
 1. On the **Lab VM** blade, select **View ARM Template**.
 
@@ -146,6 +145,8 @@ Once saved, you can use the ARM template to [deploy new VMs with Azure PowerShel
 1. Paste in the template text from the clipboard.
 
 1. Save the file for later use.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

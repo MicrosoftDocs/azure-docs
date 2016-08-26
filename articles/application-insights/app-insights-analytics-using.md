@@ -4,7 +4,7 @@
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="danhadari" 
 	manager="douge"/>
 
 <tags 
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="awills"/>
-
-
+	ms.date="07/26/2016" 
+	ms.author="danha"/>
 
 
 # Using Analytics in Application Insights
@@ -24,8 +22,10 @@
 
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+ Analytics query language.
 
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
 ## Open Analytics
 
@@ -33,51 +33,131 @@ From your app's home resource in Application Insights, click Analytics.
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
-The inline tutorial will give you some ideas about what you can do.
+The inline tutorial gives you some ideas about what you can do.
 
 There's a [more extensive tour here](app-insights-analytics-tour.md).
 
-## Write queries
+## Query your telemetry
 
-Write a query beginning with the names of any of the tables listed on the left. Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). 
+### Write a query
+
+![Schema display](./media/app-insights-analytics-using/150.png)
+
+Begin with the names of any of the tables listed on the left (or the [range](app-insights-analytics-reference.md#range-operator) or [union](app-insights-analytics-reference.md#union-operator) operators). Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). IntelliSense prompts you with the operators and some of the expression elements that you can use.
+
+See the [Analytics language overview](app-insights-analytics-tour.md) and [language reference](app-insights-analytics-reference.md).
+
+### Run a query
+
+![Running a query](./media/app-insights-analytics-using/130.png)
+
+1. You can use single line breaks in a query.
+2. Put the cursor inside or at the end of the query you want to run.
+3. Click Go to run the query.
+4. Don't put blank lines in your query. You can keep several separated queries in one query tab by separating them with blank lines. Only the one with the cursor runs.
+
+### Save a query
+
+![Saving a query](./media/app-insights-analytics-using/140.png)
+
+1. Save the current query file.
+2. Open a saved query file.
+3. Create a new query file.
 
 
-![](./media/app-insights-analytics-using/150.png)
+## See the details
 
-* Don't put blank lines in your query.
-* You can use single line breaks in a query.
-* You can keep several queries in the window, separated by blank lines.
-* To run a query, **place the cursor inside or at the end of it**, and click Go.
+Expand any row in the results to see its complete list of properties. You can further expand any property that is a structured value - for example, custom dimensions, or the stack listing in an exception.
+
+![Expand a row](./media/app-insights-analytics-using/070.png)
+
+ 
+
+## Arrange the results
+
+You can sort, filter, paginate, and group the results returned from your query.
+
+> [AZURE.NOTE] Sorting, grouping, and filtering in the browser don't re-run your query. They only rearrange the results that were returned by your last query. 
+> 
+> To perform these tasks in the server before the results are returned, write your query with the [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) and [where](app-insights-analytics-reference.md#where-operator) operators.
+
+Pick the columns you'd like to see, drag column headers to rearrange them, and resize columns by dragging their borders.
+
+![Arrange columns](./media/app-insights-analytics-using/030.png)
+
+### Sort and filter items
+
+Sort your results by clicking the head of a column. Click again to sort the other way, and click a third time to revert to the original ordering returned by your query.
+
+Use the filter icon to narrow your search.
+
+![Sort and filter columns](./media/app-insights-analytics-using/040.png)
 
 
-![](./media/app-insights-analytics-using/130.png)
 
-* You can save and recall the content of the query window.
+### Group items
 
-![](./media/app-insights-analytics-using/140.png)
+To sort by more than one column, use grouping. First enable it, and then drag column headers into the space above the table.
 
-## Arranging the results
+![Group](./media/app-insights-analytics-using/060.png)
 
-You can pick the columns you'd like to see. Expand any item to see all the returned column values.
 
-![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Click the head of a column as a quick way to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. So, sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the [top](app-insights-analytics-reference.md#top-operator) or [sort](app-insights-analytics-reference.md#sort-operator) operator. 
+### Missing some results?
 
-But it's good practice to use the [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) or [summarize](app-insights-analytics-reference.md#summarize-operator) operators to avoid downloading huge tables from the server. There is anyway an automatic limit of about 10k rows per query.
+There's a limit of about 10k rows on the results returned from the portal. A warning shows if you go over the limit. If that happens, sorting your results in the table won't always show you all the actual first or last results. 
+
+It's good practice to avoid hitting the limit. Use operators such as:
+
+* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
+* [take 100](app-insights-analytics-reference.md#take-operator)
+* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+
 
 
 ## Diagrams
 
 Select the type of diagram you'd like:
 
-![](./media/app-insights-analytics-using/230.png)
+![Select a diagram type](./media/app-insights-analytics-using/230.png)
 
-If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by:
-
-![](./media/app-insights-analytics-using/100.png)
+If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
+
+## Pin to dashboard
+
+You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 
+
+![Click the pin](./media/app-insights-analytics-using/pin-01.png)
+
+This means that, when you put together a dashboard to help you monitor the performance or usage of your web services, you can include quite complex analysis alongside the other metrics. 
+
+#### Dashboard refresh
+
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every half hour.
+
+#### Automatic simplifications
+
+In some cases, certain simplifications are applied to a chart when you pin it to a dashboard.
+
+When you pin a chart that displays a lot of discrete bins (typically a bar chart), the less populated bins are automatically grouped into a single "others" bin. For example, this query:
+
+    requests | summarize count_search = count() by client_CountryOrRegion
+
+looks like this in Analytics:
+
+
+![Chart with long tail](./media/app-insights-analytics-using/pin-07.png)
+
+but when you pin it to a dashboard, it looks like this:
+
+
+![Chart with limited bins](./media/app-insights-analytics-using/pin-08.png)
+
+
+
 
 ## Export to Excel
 

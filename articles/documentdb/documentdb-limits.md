@@ -19,7 +19,7 @@
 
 # Default quotas for DocumentDB
 
-The following table describes the default quotas for DocumentDB resources. 
+The following table describes the default quotas for Azure DocumentDB database resources. 
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 

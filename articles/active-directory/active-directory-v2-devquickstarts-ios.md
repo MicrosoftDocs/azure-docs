@@ -108,7 +108,7 @@ The NXOAuth2Client library requires some values to get set up. After you complet
 - Let's add some values to the  `LoginViewController.m` file to set the context for authentication and authorization. Details about the values follow the code.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ The NXOAuth2Client library requires some values to get set up. After you complet
 
 Let's look at details about the code.
 
-The first string is for `scopes`.  The `User.ReadBasic.All` value allows you to read the basic profile of all the users in your directory.
+The first string is for `scopes`.  The `User.Read` value allows you to read the basic profile of the signed in user.
 
 You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
 

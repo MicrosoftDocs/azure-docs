@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,6 +22,7 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
 ## Index
 
@@ -65,7 +66,7 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
@@ -85,7 +86,7 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
 
 **Examples**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -2157,16 +2158,18 @@ Operator|Description|Case-Sensitive|True example
 `!~`|Not equals |No| `"aBc" !~ "xyz"`
 `has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
 `!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
-`hasprefix`|RHS is a term prefix in LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS is not a term prefix in LHS|No|`"North America" !hasprefix "mer"`
-`contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS is a prefix of a term in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS is not a prefix of any term in LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS is a suffix of a term in LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS is not a suffix of any term in LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS occurs as a substring of LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
+`containscs` | RHS occurs as a substring of LHS|Yes| `"FabriKam" contains "Kam"`
 `!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS is not an initial subsequence of LHS.|No|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS is a terminal subsequence of LHS.|No|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS is not a terminal subsequence of LHS.|No|`"Fabrikam" !endswith "ka"`
+`startswith`|RHS is an initial substring of LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS is not an initial substring of LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS is a terminal substring of LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS is not a terminal substring of LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
 `in`|Equal to any of the elements|Yes|`"abc" in ("123", "345", "abc")`
 `!in`|Not equal to any of the elements|Yes|`"bc" !in ("123", "345", "abc")`

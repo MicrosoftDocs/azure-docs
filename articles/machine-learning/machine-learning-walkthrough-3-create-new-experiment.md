@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye"/>
 
 
@@ -64,8 +64,8 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
     > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. Click the down-arrow on the module to display the comment.
 
 4.	Select [Edit Metadata][edit-metadata], then in the **Properties** pane to the right of the canvas, click **Launch column selector**.
-5.	In the **Select columns** dialog, set the **Begin With** field to "All columns".
-6.	The row beneath **Begin With** allows you to include or exclude specific columns for [Edit Metadata][edit-metadata] to modify. Since we want to modify *all* columns, delete this row by clicking the minus sign ("-") to the right of the row. The dialog should look like this:
+5.	In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
+The dialog should look like this:
     ![Column Selector with all columns selected][4]
 7.	Click the **OK** checkmark.
 8.	Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  

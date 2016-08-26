@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/29/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 

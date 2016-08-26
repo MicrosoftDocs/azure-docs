@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
 	description="Use the features of Enterprise Integration to enable business process and integration scenarios using Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -19,7 +19,7 @@
 # Overview of the Enterprise Integration Pack
 
 ## What is the Enterprise Integration Pack?
-The Enterprise Integration Pack is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The pack uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) and EDIFACT (coming soon) to exchange messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
+The Enterprise Integration Pack is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The pack uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) and [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) to exchange messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
 
 The pack allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action on. 
 
@@ -45,10 +45,13 @@ Enterprise Integration supports these industry standards:
 - EDI - Electronic Data Interchange  
 - EAI - Enterprise Application Integration  
 
-## Here's what you need to get started now
+## Here's what you need to get started
 - An Azure subscription with an integration account
 - Visual Studio 2015 to create maps and schemas
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
+
+## Try it for yourself
+Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy fully operational AS2 send & receive logic apps of your own using the B2B features of Logic Apps.
 
 ## Learn more about:
 - [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")

@@ -19,11 +19,21 @@
 
 # Data Science for Beginners video 1: The 5 questions data science answers
 
-Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with the most basic concepts.
+Get a quick introduction to data science from *Data Science for Beginners* in five short videos. This video series is helpful if you're interested in doing data science - or work with people who do data science - and you want to start with some basic concepts.
 
-To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
+This first video is about the kinds of questions that data science can answer. Data science predicts answers to questions using a number or category. To get the most out of the series, watch them in order. [Go to the list of videos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
+
+## Other videos in this series
+
+*Data Science for Beginners* is a quick introduction to data science taking about 25 minutes total. Check out the other four videos:
+
+  * Video 1: The 5 questions data science answers
+  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
+  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
+  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
 
 ## Transcript: The 5 questions data science answers
 
@@ -135,16 +145,6 @@ Reinforcement learning algorithms gather data as they go, learning from trial an
 So that's it - The 5 questions data science can answer.
 
 
-
-## Other videos in this series
-
-*Data Science for Beginners* is a quick introduction to data science in five short videos. Check out the other four videos:
-
-  * Video 1: The 5 questions data science answers 
-  * Video 2: [Is your data ready for data science?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) 
-  * Video 3: [Ask a question you can answer with data](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Video 4: [Predict an answer with a simple model](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Video 5: [Copy other people's work to do data science](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Next steps
 

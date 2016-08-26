@@ -11,16 +11,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with AnswerHub
 
-The objective of this tutorial is to show the integration of Azure and AnswerHub.  
+The objective of this tutorial is to show the integration of Azure and [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software).  
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 -   A valid Azure subscription
--   An AnswerHub single sign-on enabled subscription
+-   An [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software) single sign-on enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to AnswerHub will be able to single sign into the application at your AnswerHub company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
@@ -32,6 +32,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 4.  Assigning users
 
 ![Scenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Scenario")
+
 ##Enabling the application integration for AnswerHub
 
 The objective of this section is to outline how to enable the application integration for AnswerHub.
@@ -63,6 +64,7 @@ The objective of this section is to outline how to enable the application integr
 7.  In the results pane, select **AnswerHub**, and then click **Complete** to add the application.
 
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
+
 ##Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to AnswerHub with their account in Azure AD using federation based on the SAML protocol.  
@@ -88,6 +90,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
 
 5.  In a different web browser window, log into your AnswerHub company site as an administrator.
+    >[AZURE.NOTE] If you need help configuring AnswerHub, contact [AnswerHub's support team](mailto:success@answerhub.com. ).
+
+
+
+
+
+
+
 
 6.  Go to **Administration**.
 
@@ -122,6 +132,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 13. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
+
 ##Configuring user provisioning
 
 In order to enable Azure AD users to log into AnswerHub, they must be provisioned into AnswerHub.  

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Conditional Access Preview for SaaS Apps| Microsoft Azure"
+	pageTitle="Azure Conditional Access for SaaS Apps| Microsoft Azure"
 	description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
 # Getting started with conditional access to Azure AD  
 
-The Azure Active Directory Conditional Access for SaaS apps and Azure AD connected apps is available for public preview. The preview allows you to configure conditional access based on group, location, and application sensitivity. 
+Azure Active Directory Conditional Access for [SaaS](https://azure.microsoft.com/overview/what-is-saas/) apps and Azure AD connected apps you to configure conditional access based on group, location, and application sensitivity. 
 
 You can apply multi-factor authentication rules to all users that are assigned to the application, or only for users within specified security groups. With conditional access based on application sensitivity, you can set multi-factor authentication (MFA) access rules per application, that provides the ability to block access for users who are not on a trusted network. Users may be excluded from the multi-factor authentication requirement if they are accessing the application from an IP address that in inside the organization’s network.
 
@@ -30,9 +30,6 @@ These capabilities will be available to customers that have purchased an Azure A
 * Federated or managed Azure Active Directory tenant
 
 * Federated tenants require that multi-factor authentication be enabled.
-
-## Known issues in this Preview release
-This preview applies to pre-integrated federated SaaS applications, applications that use password single sign-on, registered developed and line of business applications and Azure AD Application Proxy. Additional applications are still being enabled.
 
 ## Configure per-application access rules
 
@@ -50,7 +47,7 @@ This section describes how to configure per-application access rules.
 
 ##Understanding access rules
 
-This section gives a detailed description of the access rules supported in the Azure Conditional Application Access Preview.
+This section gives a detailed description of the access rules supported in the Azure Conditional Application Access.
 
 ### Specifying the users the access rules apply to
 
@@ -59,13 +56,13 @@ By default the policy will apply to all users that have access to the applicatio
 Security groups can also be explicitly excluded from the policy by selecting the Except option and specifying one or more groups. Users that are a member of a group in the Except list will not be subject to the multi-factor authentication requirement, even if they are a member of a group that the access rule applies to.
 The access rule shown in the below will require all users in the Managers group to use multi-factor authentication when accessing the application.
 
-![Setting conditional access rules with MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
+![Setting conditional access rules with MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
 
 ## Conditional Access Rules with MFA
 If a user has been configured using the per-user multi-factor authentication feature, this setting on the user will combine with the multi-factor authentication rules of the app. This means a user that has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application multi-factor authentication rules. Learn more about multi-factor authentication and per-user settings.
 
 ### Access rule options
-The current preview supports the following options:
+The the following options are supported:
 
 * **Require multi-factor authentication**: With this option the users that the access rules apply to will be required to complete multi-factor authentication before accessing the application the policy applies to.
 

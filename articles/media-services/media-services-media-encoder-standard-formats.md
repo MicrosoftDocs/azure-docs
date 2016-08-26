@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -88,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Yes
 Windows Media Audio|Yes 
 WAV/PCM|Yes 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Yes 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Yes 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Yes 
 AMR (adaptive multi-rate)|Yes
 AES (SMPTE 331M and 302M, AES3-2003)		|No 
