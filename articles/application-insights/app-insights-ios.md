@@ -38,7 +38,6 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 
 * Use the powerful [Analytics](app-insights-analytics.md) query language over your telemetry. 
 * [Export telemetry](app-insights-export-telemetry.md) to Azure blob storage.
-* [Query telemetry with a REST API](https://dev.applicationinsights.io/)
 
 ## Next steps
 

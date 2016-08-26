@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Prepare a SLES or openSUSE virtual machine for Azure
@@ -24,15 +24,6 @@
 ## Prerequisites ##
 
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
-
- - [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES / openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SUSE and openSUSE images. The following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio:
-
-  - [SLES 11 SP3 for Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-  - [openSUSE 13.1 for Azure on SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
-
-
-- As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
-
 
 ### SLES / openSUSE installation notes
 
@@ -45,6 +36,12 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 - Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
+
+
+## Use SUSE Studio
+[SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
+
+As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
 
 ## Prepare SUSE Linux Enterprise Server 11 SP4 ##
