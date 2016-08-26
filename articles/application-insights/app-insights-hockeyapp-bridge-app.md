@@ -24,11 +24,11 @@
 
 The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp data in Application Insights through the Analytics, Continuous Export, and API features. Any data collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from these features. Let’s see how to set up one of these Bridge Apps.
 
-Open the [tokens section](https://rink.hockeyapp.net/manage/auth_tokens) of your account settings in HockeyApp. Either create a new token or reuse an existing one. The minimum rights required are "read only":
+In HockeyApp, open Account Settings, [API Tokens](https://rink.hockeyapp.net/manage/auth_tokens). Either create a new token or reuse an existing one. The minimum rights required are "read only". Take a copy of the API token.
 
-![hockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)
+![Get a HockeyApp API token](./media/app-insights-hockeyapp-bridge-app/01.png)
 
-Next, open the Microsoft Azure portal. Click “New”, “Developer Services”, and “Application Insights.” Under “Application Type”, select “HockeyApp Bridge application”:
+Open the Microsoft Azure portal and create an Application Insights resource. Set Application Type to “HockeyApp bridge application”:
 
 ![New Application Insights resource](./media/app-insights-hockeyapp-bridge-app/02.png)
 
@@ -38,9 +38,11 @@ The HockeyApp bridge fields appear.
 
 ![Enter bridge fields](./media/app-insights-hockeyapp-bridge-app/03.png)
 
-Enter the HockeyApp token you noted earlier. This action populates the “HockeyApp Application” dropdown menu with all your HockeyApp applications. Select the one you want to use, and complete the remainder of the fields. Soon, your new resource is ready to use. 
+Enter the HockeyApp token you noted earlier. This action populates the “HockeyApp Application” dropdown menu with all your HockeyApp applications. Select the one you want to use, and complete the remainder of the fields. 
 
-Note that the data takes a few minutes to start flowing.
+Open the new resource. 
+
+Note that the data takes a while to start flowing.
 
 ![Application Insights resource waiting for data](./media/app-insights-hockeyapp-bridge-app/04.png)
 
