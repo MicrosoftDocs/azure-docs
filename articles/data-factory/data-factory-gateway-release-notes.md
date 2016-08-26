@@ -26,8 +26,8 @@ See the following articles for detailed information about Data Management Gatewa
 
 ## Current version (2.2.6072.1)
 
-- Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. Azure Blob, Azure Table, Azure Data Lake and Document DB are accessed through HTTP proxy if configured.
-- Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-prem File System and on-prem HDFS.
+- Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. If configured, Azure Blob, Azure Table, Azure Data Lake, and Document DB are accessed through HTTP proxy.
+- Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-premises File System, and on-premises HDFS.
 - Supports copying data from Append Blob and Page Blob along with the already supported Block Blob.
 - Introduces a new gateway status **Online (Limited)**, which indicates that the main functionality of the gateway works except the interactive operation support for Copy Wizard.
 - Enhances the robustness of gateway registration using registration key.
@@ -45,12 +45,12 @@ See the following articles for detailed information about Data Management Gatewa
 ## 2.0.6013.1
 
 - You can select the language/culture to be used by a gateway during manual installation.
-- When gateway does not work as expected, you can choose to send gateway logs of last 7 days to Microsoft to facilitate troubleshooting of the issue. If gateway is not connected to the cloud service, you can choose to save and archive gateway logs.  
+- When gateway does not work as expected, you can choose to send gateway logs of last seven days to Microsoft to facilitate troubleshooting of the issue. If gateway is not connected to the cloud service, you can choose to save and archive gateway logs.  
 - User interface improvements for gateway configuration manager:
 	- Make gateway status more visible on the Home tab.
 	- Reorganized and simplified controls.
-- You can copy data from a storage other than Azure Blob into Azure SQL Data Warehouse via Polybase & staging blob using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
-- You can leverage Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
+- You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+- You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 - Performance improvements
 	- Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
 
@@ -63,7 +63,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 - Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
 - A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
-- In case auto-update fails, gateway installer will retry auto-updating 3 times at maximum.
+- In case auto-update fails, gateway installer retries auto-updating 3 times at maximum.
 - Performance improvements
 	- Improve performance for loading large tables from on-premises server in code-free copy scenario.
 - Bug fixes
@@ -102,7 +102,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 ### 1.6.5735.1
 
-- Support On-Prem HDFS Source/Sink
+- Support on-premises HDFS Source/Sink
 - Performance improvements
 - Bug fixes
 
@@ -117,7 +117,7 @@ See the following articles for detailed information about Data Management Gatewa
 - Support table columns for tabular data sources for Azure Data Factory
 - Support SQL DW for Azure Data Factory
 - Support Reclusive in BlobSource and FileSource for Azure Data Factory
-- Support CopyBehavior – MergeFiles, PreserveHierarchy and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
+- Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 - Support Copy Activity reporting progress for Azure Data Factory
 - Support Data Source Connectivity Validation for Azure Data Factory
 - Bug fixes
@@ -145,7 +145,7 @@ See the following articles for detailed information about Data Management Gatewa
 
 ### 1.5.5612.1
 
-- Support 5 relational databases for Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata, and Sybase)
+- Support five relational databases for Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata, and Sybase)
 - Compression support (Gzip and Deflate)
 - Performance improvements
 - Bug fixes
