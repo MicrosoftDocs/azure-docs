@@ -224,7 +224,7 @@ The script references the following parameter files to build the VMs and the sur
         "value": {
           "namePrefix": "ra-multi-vm",
           "computerNamePrefix": "cn",
-          "size": "Standard_DS1",
+          "size": "Standard_DS1_v2",
           "osType": "windows",
           "adminUsername": "testuser",
           "adminPassword": "AweS0me@PW",
@@ -285,7 +285,8 @@ The script references the following parameter files to build the VMs and the sur
               "backendPort": 80,
               "protocol": "Tcp",
               "backendPoolName": "ra-multi-vm-lb-bep1",
-              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1"
+              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1",
+              "probeName": "lbp1"
             }
           ],
           "probes": [
