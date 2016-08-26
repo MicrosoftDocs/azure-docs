@@ -13,10 +13,13 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="06/29/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Understanding the nodes schema for mapping an existing web service to OData through CSDL
+
+>[AZURE.IMPORTANT] **Thank you for your interest or participation in the Azure DataMarket. However, we will be retiring the Azure DataMarket and its data services on March 31, 2017.**
+
 This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
 ## Ignored elements

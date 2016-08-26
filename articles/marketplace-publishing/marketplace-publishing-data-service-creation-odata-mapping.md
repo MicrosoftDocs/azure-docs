@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Mapping an existing web service to OData through CSDL
+
+>[AZURE.IMPORTANT] **Thank you for your interest or participation in the Azure DataMarket. However, we will be retiring the Azure DataMarket and its data services on March 31, 2017.**
 
 This article gives an overview on how to use a CSDL to map an existing service to an OData compatible service. It explains how to create the mapping document (CSDL) that transforms the input request from the client via a service call and the output (data) back to the client via an OData compatible feed. Microsoft’s Azure Marketplace exposes services to the end-users by using the OData protocol. Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, etc.
 

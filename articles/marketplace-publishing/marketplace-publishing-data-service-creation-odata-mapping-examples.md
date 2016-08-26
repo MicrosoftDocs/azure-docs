@@ -13,10 +13,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="01/04/2016"
+      ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
 # Examples of mapping an existing web service to OData through CSDLs
+
+>[AZURE.IMPORTANT] **Thank you for your interest or participation in the Azure DataMarket. However, we will be retiring the Azure DataMarket and its data services on March 31, 2017.**
 
 ## Example: FunctionImport for "Raw" data returned using "POST"
 Use POST Raw data to create a new subordinate and return its server defined URL(location) or to update part of the subordinate at the server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  Beware POST in not idempotent without a location.

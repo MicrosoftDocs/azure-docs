@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="08/26/2016"
    ms.author="hascipio; avikova" />
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
+
+>[AZURE.IMPORTANT] **Thank you for your interest or participation in the Azure DataMarket. However, we will be retiring the Azure DataMarket and its data services on March 31, 2017.**
+
 Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.
 
 You should have the following items ready before beginning the process:
