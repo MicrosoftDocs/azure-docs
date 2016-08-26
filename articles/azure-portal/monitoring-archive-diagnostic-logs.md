@@ -29,7 +29,11 @@ To archive your Diagnostic Logs using any of the methods below, you will be sett
 
 1. In the portal, click into the resource blade for the resource on which you would like to enable archival of Diagnostic Logs.
 2. In the **Monitoring** section of the resource settings menu, select **Diagnostics**.
-3. Check the box for **Export to Storage Account**, then select a storage account.
+
+    ![Monitoring section of resource menu](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
+3. Check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days will store the logs indefinitely.
+
+	![Diagnostic Logs blade](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
 4. Click **Save**.
 
 Diagnostic Logs are archived to that storage account as soon as new event data is generated.
