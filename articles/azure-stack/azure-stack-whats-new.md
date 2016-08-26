@@ -49,12 +49,11 @@ Azure Stack TP2 introduces new tenant capabilities and services for consumers of
 Azure Stack TP2 brings new concepts and capabilities for service providers and enterprises offering Azure Stack services to tenants, including:
  - Billing and usage APIs enable integration with your billing and consumption systems
  - Capture plan and offer details in Resource Manager templates for redeployment to your tenants
- - Azure Stack regions preview support enables viewing Azure Stack regions and you can see details on storage, computer and network resource per region
+ - Azure Stack regions preview support enables viewing Azure Stack regions and you can see details on storage, computer, and network resource per region
  - Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants
  - On-demand reclamation of unused tenant resource capacity
  - New monitoring capabilities enable you to view alerts in the portal and retrieve via REST API
- - TiP tests have been renamed to System Health Tests to better reflect purpose
-
+ - TiP tests have been renamed to System Health Tests
 
 ## Next steps
 - [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
