@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="07/26/2016"
+   ms.date="08/26/2016"
    ms.author="hermannd"/>
 
 # Quickstart Guide for manual installation of single-instance SAP HANA on Azure VMs
