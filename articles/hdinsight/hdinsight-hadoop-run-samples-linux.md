@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -132,7 +132,7 @@ The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle 
 
 - Cells are separated by a space
 
-Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row. Thankfully there's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
+There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?

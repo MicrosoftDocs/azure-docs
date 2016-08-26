@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -102,15 +102,17 @@ Not currently. This feature is on our roadmap. Also note that verifying your dom
 
 Follow these steps to delete your Azure AD B2C tenant:
 
-- Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (This is the same work or school account or the same Microsoft account that you used to sign up for Azure.)
+- Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
+- Navigate to the **Applications**, **Identity providers** and **All policies** blades and delete all the entries in each of them.
+- Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (This is the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 - Navigate to the Active Directory extension on the left and click your B2C tenant.
+- Click the **Users** tab.
+- Select each user in turn (exclude the user you are currently signed in as, i.e., the Subscription Administrator). Click **Delete** at the bottom of the page and click **YES** when prompted.
 - Click the **Applications** tab.
 - Select **Applications my company owns** in the **Show** drop-down field and click on the check mark.
 - You'll see an application called **b2c-extensions-app** listed below. Click **Delete** at the bottom of the page and click **YES** when prompted.
 - Navigate to the Active Directory extension again and select your B2C tenant.
 - Click **Delete** at the bottom of the page. Follow the instructions on the screen to complete the process.
-
-If you have already create **Users**, **Applications** or other objects in your B2C tenant, you'll need to delete them before doing the above steps.
 
 ### Can I get Azure AD B2C as part of Enterprise Mobility Suite?
 

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="07/06/2016"
 	ms.author="billmath"/>
 
 # Azure AD federation compatibility list
@@ -21,9 +21,13 @@ Azure Active Directory provides single-sign on and enhanced application access s
 
 For organizations that have invested in non-Microsoft federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using non-Microsoft identity providers from the “Azure Active Directory federation compatibility list” below. 
 
-Microsoft tested these single sign-on experiences using non-Microsoft identity providers against a set of use cases common with Azure Active Directory.
 
->[AZURE.IMPORTANT] Microsoft tested only the federation functionality of these single sign-on scenarios. Microsoft did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
+![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
+[Oxford Computer Group](http://oxfordcomputergroup.com/), a third-party, on behalf of Microsoft, tested these single sign-on experiences using non-Microsoft identity providers against a set of use cases common with Azure Active Directory.
+
+For information on how you can get your third-party identity provider listed here, contact Oxford Computer Group at [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
+
+>[AZURE.IMPORTANT] Oxford Computer Group tested only the federation functionality of these single sign-on scenarios. Oxford Computer Group did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
 
 >Use of Sign-in by Alternate ID to UPN is also not tested in this program.
 

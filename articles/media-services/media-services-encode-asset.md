@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/25/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders

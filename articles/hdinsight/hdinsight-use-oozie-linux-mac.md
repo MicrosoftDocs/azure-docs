@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/17/2016"
 	ms.author="larryfr"/>
 
 
-# Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight (Preview)
+# Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight
 
 [AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
@@ -66,7 +66,7 @@ The workflow you will implement by following the instructions in this document c
 
 Oozie expects resources required for a job to be stored in the same directory. This example uses **wasb:///tutorials/useoozie**. Use the following command to create this directory, and the data directory that will hold the new Hive table created by this workflow:
 
-	hadoop fs -mkdir -p /tutorials/useoozie/data
+	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
 > [AZURE.NOTE] The `-p` parameter caused all directories in the path to be created if they do not already exist. The **data** directory will be used to hold data used by the **useooziewf.hql** script.
 
@@ -80,7 +80,7 @@ If you receive an error that the user is already a member of users, you can just
 
 Since this workflow uses Sqoop to export data to SQL Database, you must provide a copy of the JDBC driver used to talk to SQL Database. Use the following command to copy it to the working directory:
 
-	hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+	hdfs dfs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 If your workflow used other resources, such as a jar containing a MapReduce application, you would need to add these as well.
 
@@ -116,7 +116,7 @@ Use the following steps to create a HiveQL script that defines a query, which wi
 
 3. Use the following commands to copy **useooziewf.hql** to **wasb:///tutorials/useoozie/useooziewf.hql**:
 
-		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
+		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
 	These commands store the **useooziewf.hql** file on the Azure Storage account associated with this cluster, which will preserve the file even if the cluster is deleted. This allows you to save money by deleting clusters when they aren't in use, while maintaining your jobs and workflows.
 
@@ -130,56 +130,56 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 1. Once the nano editor opens, enter the following as the file contents:
 
-		<workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-		  <start to = "RunHiveScript"/>
-		  <action name="RunHiveScript">
-		    <hive xmlns="uri:oozie:hive-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.job.queue.name</name>
-		          <value>${queueName}</value>
-		        </property>
-		      </configuration>
-		      <script>${hiveScript}</script>
-		      <param>hiveTableName=${hiveTableName}</param>
-		      <param>hiveDataFolder=${hiveDataFolder}</param>
-		    </hive>
-		    <ok to="RunSqoopExport"/>
-		    <error to="fail"/>
-		  </action>
-		  <action name="RunSqoopExport">
-		    <sqoop xmlns="uri:oozie:sqoop-action:0.2">
-		      <job-tracker>${jobTracker}</job-tracker>
-		      <name-node>${nameNode}</name-node>
-		      <configuration>
-		        <property>
-		          <name>mapred.compress.map.output</name>
-		          <value>true</value>
-		        </property>
-		      </configuration>
-		      <arg>export</arg>
-		      <arg>--connect</arg>
-		      <arg>${sqlDatabaseConnectionString}</arg>
-		      <arg>--table</arg>
-		      <arg>${sqlDatabaseTableName}</arg>
-		      <arg>--export-dir</arg>
-		      <arg>${hiveDataFolder}</arg>
-		      <arg>-m</arg>
-		      <arg>1</arg>
-		      <arg>--input-fields-terminated-by</arg>
-		      <arg>"\t"</arg>
-		      <archive>sqljdbc4.jar</archive>
-		      </sqoop>
-		    <ok to="end"/>
-		    <error to="fail"/>
-		  </action>
-		  <kill name="fail">
-		    <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
-		  </kill>
-		  <end name="end"/>
-		</workflow-app>
+        <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
+            <start to = "RunHiveScript"/>
+            <action name="RunHiveScript">
+            <hive xmlns="uri:oozie:hive-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+                </configuration>
+                <script>${hiveScript}</script>
+                <param>hiveTableName=${hiveTableName}</param>
+                <param>hiveDataFolder=${hiveDataFolder}</param>
+            </hive>
+            <ok to="RunSqoopExport"/>
+            <error to="fail"/>
+            </action>
+            <action name="RunSqoopExport">
+            <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+                </configuration>
+                <arg>export</arg>
+                <arg>--connect</arg>
+                <arg>${sqlDatabaseConnectionString}</arg>
+                <arg>--table</arg>
+                <arg>${sqlDatabaseTableName}</arg>
+                <arg>--export-dir</arg>
+                <arg>${hiveDataFolder}</arg>
+                <arg>-m</arg>
+                <arg>1</arg>
+                <arg>--input-fields-terminated-by</arg>
+                <arg>"\t"</arg>
+                <archive>sqljdbc41.jar</archive>
+                </sqoop>
+            <ok to="end"/>
+            <error to="fail"/>
+            </action>
+            <kill name="fail">
+            <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
+            </kill>
+            <end name="end"/>
+        </workflow-app>
 
 	There are two actions defined in the workflow:
 
@@ -197,38 +197,11 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 3. Use the following command to copy the **workflow.xml** file to **wasb:///tutorials/useoozie/workflow.xml**:
 
-		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
+		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
 ##Create the database
 
-The following steps create the Azure SQL Database that data will be exported to.
-
-> [AZURE.IMPORTANT] Before performing these steps you must [install and configure the Azure CLI](../xplat-cli-install.md). Installing the CLI and following the steps to create a database can be performed either from the HDInsight cluster or your local workstation.
-
-1. Use the following command to create a new Azure SQL Database server:
-
-        azure sql server create <adminLogin> <adminPassword> <region>
-
-    For exmaple, `azure sql server create admin password "West US"`.
-
-    When the command completes, you will receive a response similar to the following:
-
-        info:    Executing command sql server create
-        + Creating SQL Server
-        data:    Server Name i1qwc540ts
-        info:    sql server create command OK
-
-    > [AZURE.IMPORTANT] Note the server name returned by this command (**i1qwc540ts** in the example above.) This is the short name of the SQL Database server that was created. The fully qualified domain name (FQDN) is **&lt;shortname&gt;.database.windows.net**. For the example above, the FQDN would be **i1qwc540ts.database.windows.net**.
-
-2. Use the following command to create a database named **oozietest** on the SQL Database server:
-
-        azure sql db create [options] <serverName> oozietest <adminLogin> <adminPassword>
-
-    This will return an "OK" message when it completes.
-
-	> [AZURE.NOTE] If you receive an error indicating that you do not have access, you may need to add the system's IP address to the SQL Database firewall using the following command:
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+Follow the steps in the [Create a SQL Database](../sql-database/sql-database-get-started.md) document to create a new database. When creating the database, use __oozietest__ as the database name. Also make a note of the name used for the database server, as this will be needed in the next section.
 
 ###Create the table
 
@@ -240,7 +213,7 @@ The following steps create the Azure SQL Database that data will be exported to.
 
 4. Once FreeTDS has been installed, use the following command to connect to the SQL Database server you created previously:
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
 
     You will receive output similar to the following:
 
@@ -658,13 +631,13 @@ You must also reference the archive containing the database driver from the `<sq
 
 For example, for the job in this document, you would use the following steps:
 
-1. Copy the sqljdbc4.jar file to the /tutorials/useoozie directory:
+1. Copy the sqljdbc4.1.jar file to the /tutorials/useoozie directory:
 
-		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /tutorials/useoozie/sqljdbc4.jar
+		 hadoop fs -copyFromLocal /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
 
 2. Modify the workflow.xml to add the following on a new line above `</sqoop>`:
 
-		<archive>sqljdbc4.jar</archive>
+		<archive>sqljdbc41.jar</archive>
 
 ##Next steps
 In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about working with HDInsight, see the following articles:

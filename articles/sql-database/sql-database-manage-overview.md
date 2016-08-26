@@ -30,7 +30,7 @@ For more in-depth information about using the portal see [Manage SQL Databases u
 
 SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) in Visual Studio are client tools that run on your computer and allow you to connect to, manage, and develop your database in the cloud. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), [try using SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Many database administrators are familiar with SSMS, which can be used with Azure SQL databases. [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290) and always use the latest release when working with Azure SQL Database. For more information on managing your Azure SQL Databases with SSMS, see [Manage SQL Databases using SSMS](sql-database-manage-azure-ssms.md).
 
-> [AZURE.IMPORTANT] You must use the latest version of SQL Server Management Studio and SQL Server Data Toools for Visual Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of these tools will not work successfully with SQL Database.
+> [AZURE.IMPORTANT] You must use the latest version of SQL Server Management Studio and SQL Server Data Tools for Visual Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of these tools will not work successfully with SQL Database.
 
 ## Command line tools
 

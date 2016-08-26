@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create AD application with Azure CLI | Microsoft Azure"
-   description="Describes how to use Azure CLI to create an Active Directory application and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
+   pageTitle="Create service principal with Azure CLI | Microsoft Azure"
+   description="Describes how to use Azure CLI to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Use Azure CLI to create an Active Directory application to access resources
+# Use Azure CLI to create a service principal to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)

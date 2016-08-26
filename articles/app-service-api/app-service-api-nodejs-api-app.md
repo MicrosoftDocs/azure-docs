@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="get-started-article"
 	ms.date="05/26/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 
@@ -194,7 +194,7 @@ In this section you use the Azure portal to create a new API App in Azure. This 
 
 6. In the **Resource Group** drop-down, click **New**, and then in **New resource group name** enter "NodejsAPIAppGroup" or another name if you prefer. 
 
-	A [resource group](../azure-portal/resource-group-portal.md) is a collection of Azure resources such as API apps, databases, and VMs. For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
+	A [resource group](../resource-group-overview.md) is a collection of Azure resources such as API apps, databases, and VMs. For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
 4. Click **App Service plan/Location**, and then click **Create New**.
 

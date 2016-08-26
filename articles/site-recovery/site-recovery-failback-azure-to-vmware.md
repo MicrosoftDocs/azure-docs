@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="05/10/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
@@ -80,6 +80,8 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 	- **Create a master target server**: The master target server sends and receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
 	- if you want to create an additional master target server running on Linux, you’ll need to set up the Linux VM before you install the master target server, as described below.
 - Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback wont be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
+- Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
+- **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 
 ## Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy gets automatically created when you create a forward direction policy. Note that 

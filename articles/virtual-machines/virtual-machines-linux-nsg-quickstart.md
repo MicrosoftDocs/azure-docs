@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Allow external access to a Linux VM | Microsoft Azure"
+   pageTitle="Open ports or endpoints to a Linux VM | Microsoft Azure"
    description="Learn how to open a port / create an endpoint that allows external access to your Linux VM using the resource manager deployment model and the Azure CLI"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -16,8 +16,8 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+# Opening ports and endpoints
+You open a port, or create an endpoint, in Azure by creating a network filter that allows traffic to your chosen port on a subnet or virtual machine (VM) network interface. These filters, which control both inbound and outbound traffic, are placed in a Network Security Group and attached to the resource that will receive the traffic. Let's use a common example of web traffic on port 80.
 
 ## Quick commands
 To create a Network Security Group and rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using the Ambari Web UI

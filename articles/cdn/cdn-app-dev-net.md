@@ -13,72 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Get started with the Azure CDN Library for .NET
+# Get started with Azure CDN development
+
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
 
 You can use the [Azure CDN Library for .NET](https://msdn.microsoft.com/library/mt657769.aspx) to automate creation and management of CDN profiles and endpoints.  This tutorial will walk through the creation of a simple .NET console application that demonstrates several of the available operations.  This tutorial is not intended to describe all aspects of the Azure CDN Library for .NET in detail.
 
 You will need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) is freely available for download.
 
-A completed example of this tutorial can be found [here](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+> [AZURE.TIP] The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) is available for download on MSDN.
 
-## Preparation
-
-Before we can write CDN management code, we need to do some preparation.  The first thing we're going to do is create a resource group to contain the CDN profile we create in this tutorial.  We will then setup Azure Active Directory to provide authentication for our application.  After that's done, we'll apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile.
-
-### Creating the resource group
-
-1. Log into the [Azure Portal](https://portal.azure.com).
-
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
-	
-	![Creating a new resource group](./media/cdn-app-dev-net/cdn-new-rg-1.png)
-
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
-
-	![Naming the resource group](./media/cdn-app-dev-net/cdn-new-rg-2.png)
-
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
-
-	 ![Naming the resource group](./media/cdn-app-dev-net/cdn-subscription-id.png)
-
-### Creating the Azure AD application
-
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
-
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../resource-group-create-service-principal-portal.md).
-
-> [AZURE.IMPORTANT] Be sure to follow all the steps in the [linked tutorial](../resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal. 
-> 	
-> When you get to the step named [Configure multi-tenant application](../resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
-> 
-> When you get to the step [Assign application to role](../resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
-
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
-
-![Users blade](./media/cdn-app-dev-net/cdn-service-principal.png)
-
-
-### Interactive user authentication
-
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
-
->[AZURE.IMPORTANT] Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
-
-1. When creating your application, instead of **Web App**, choose **Native application**. 
-	
-	![Native application](./media/cdn-app-dev-net/cdn-native-application.png)
-	
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
-
-3. There is no need to create a **client authentication key**.
-
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
-	
-	![Individual user access](./media/cdn-app-dev-net/cdn-aad-user.png)
-
+[AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Create your project and add Nuget packages
 
@@ -196,7 +146,7 @@ Let's get the basic structure of our program written.
 		}
 		else
 		{
-			// They're not pressing Y or N.  Let's ask them again.
+			// They pressed something other than Y or N.  Let's ask them again.
 			return PromptUser(Question);
 		}
 	}
@@ -341,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Delete CDN profiles and endpoints
 
-The last methods we will include delete our endpoint and profile.
+The last methods will delete our endpoint and profile.
 
 ```
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)

@@ -251,8 +251,8 @@ of activity then I/O requests may be throttled. To help prevent this, tune your 
 document size in Elasticsearch against the volume of requests likely to be received by each disk.
 
 Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
-storage can operate at up to 5,000 IOPS. Premium storage disks are only available for the DS and GS
-series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-linux-sizes/).
+storage can operate at up to 5,000 IOPS, depending on data disks sizes. Premium storage disks are only available for the DS and GS
+series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](../virtual-machines/virtual-machines-linux-sizes.md). Consider that performance on premium storage will be determined also by the VM size together with disk size allocation. Premium storage performance is documented (storage-premium-storage/)
 
 **Persistent Data Disks**
 
@@ -263,7 +263,7 @@ DS series or better. DS machines cost the same as the equivalent D-series VMs, b
 for using premium storage.
 
 In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
-consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 > [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for
 > smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.

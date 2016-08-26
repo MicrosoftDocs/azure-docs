@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/30/2016"
 	ms.author="erikje"/>
 
 # Microsoft Azure Stack troubleshooting
@@ -26,7 +26,7 @@ Installing on a new fresh installation of Windows Server 2016 Technical Preview 
 
 If you install from a bare metal server without using the provided Virtual Hard Disk (VHD), make sure that you only install the prerequisite hotfix (KB3124262), as having additional updates has been found to generate deployment issues in some situations.
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Azure Active Directory
 
@@ -136,6 +136,24 @@ By leveraging the steps mentioned just before in this document, you create such 
 
 However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
 
+### Can't delete resource groups hosting a SQL Server "virtual server"
+
+The SQL Server resource provider includes the notion of a “virtual server”, that you can create/reuse when you create a database. This creates a Contained Database authentication user, and provides tenant-scoped virtual servers that can be used to connect to specific databases on the underlying SQL Server hosting servers.
+
+When creating a database, you can specify credentials (username/password), and those credentials will be used for all the databases on the logical server you create, but you can’t specify existing wellknown logins on the backing hosting server (due to the access scoping that happens with the chosen account).  
+
+In particular, if you use a well-known login on the underlying hosting server (like “sa”), there is a known issue where the hosting resource group cannot be deleted afterwards. 
+
+### SQL Server or MySQL Server gallery package fails to publish
+
+If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
+
+
+### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
+
+Workaround: Clear any previous cache (C:/Users/<your alias>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
+
+
 ## Platform Image Repository
 
 ### A new image added to the Platform Image Repository (PIR) may not show up in the portal
@@ -151,6 +169,19 @@ Finally, we’ve seen reports where increasing the number of virtual processors 
 This is mentioned in the documentation but can be easily missed:
 
 To fix this, click Settings in the portal. Then, click Discard modifications under Portal customization.
+
+### Terminal provisioning state 'failed' error
+
+If you copy VHDX files in the file share, the Platform Image Repository (PIR) will also show them in the portal, even though VHDX images are not supported by Azure Stack.
+
+Workaround: If you get this error when deploying a custom image, double check that the disk you are using is not in the VHDX format, as this could be an easy mistake when preparing the sysprepped image.
+
+
+## Portal
+
+### Error when creating a storage account
+
+When creating a storage account in the portal, you must select a subscription first (before entering a name).
 
 ## PowerShell
 
@@ -210,6 +241,34 @@ If you need to explicitly leverage version 2.13, this may not possible when nest
 SQL Server requires .NET Framework 3.5, and the image used in the template must contain that component. The default image provided with TP1 does not include the .NET Framework 3.5.
 
 To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
+
+### Template deployment fails using Visual Studio
+
+A deployment in Visual Studio may time out after one hour with an access token expiration (UTC is earlier than current UTC time). This is a known issue with Visual Studio.
+
+Workaround:  publish the template using PowerShell.
+
+
+### Azure template won't deploy to Azure Stack
+
+Make sure that:
+
+- The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
+- The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 1, vs the “East US” or “South India” in Azure).
+- You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in azure Resource Manager syntax.
+
+You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
+
+
+
+
+## Tenant
+
+### Tenant can't change plan's status to "public"
+
+If the service admin sets an offer/plan to private, the tenant admin cannot change it to public.
+
+Workaround: Change the plan and offer to public at the service admin level.  The tenant admin can then flip it to public or private.
 
 ## Virtual machines
 
@@ -282,6 +341,20 @@ To get around this issue, try either of these options:
     2. From the portal, **Stop** the virtual machine and then **Start** it.
     ![Stop and restart the virtual machine](media/azure-stack-troubleshooting/vmstopstart.png) 
     
+### Performance issues while deploying or deleting tenant virtual machines
+
+If you see performance issues while deploying or deleting tenant virtual machines, try this workaround:
+
+1. Restart the WinRM service on the Hyper-V Host 2.
+
+2. If that doesn’t work, restart the CRP service on the xRPVM.
+
+3. If that doesn’t work, restart the xRPVM.
+ 
+### "Loading..." message never stops when trying to deploy a new virtual machine
+
+Workaround: Reset IIS in the PortalVM.
+
 
 ## Next steps
 

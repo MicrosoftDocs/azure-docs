@@ -24,7 +24,7 @@ This article explains how to configure and code Azure Notification Hub bindings 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) and click your target client platform at the top.
+Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) and click your target client platform at the top.
 
 ## function.json for Azure Notification Hub output binding
 
@@ -32,7 +32,7 @@ The function.json file provides the following properties:
 
 - `name` : Variable name used in function code for the notification hub message.
 - `type` : must be set to *"notificationHub"*.
-- `tagExpression` : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression` : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md).
 - `hubName` : Name of the notification hub resource in the Azure portal.
 - `connection` : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub.
 - `direction` : must be set to *"out"*. 
@@ -68,7 +68,7 @@ You can also manually add a connection string for an existing hub by adding a co
 
 ## Azure Notification Hub code example for a Node.js timer trigger 
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `location` and `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ This example sends a notification for a [template registration](../notification-
 
 ## Azure Notification Hub code example for a C# queue trigger
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message`.
 
 
 	using System;
@@ -107,7 +107,7 @@ This example sends a notification for a [template registration](../notification-
 	    return templateProperties;
 	}
 
-This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates.md) that contains `message` using a valid JSON string.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message` using a valid JSON string.
 
 	using System;
 	 

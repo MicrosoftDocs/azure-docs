@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 This article shows you how to Initiate a planned or unplanned failover for SQL Database with PowerShell. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-powershell.md).

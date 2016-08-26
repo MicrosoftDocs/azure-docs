@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -97,7 +97,20 @@ In the example above, one VM has a critical recommendation regarding antimalware
 
 This blade has the security details for the VM. At the bottom of this blade you can see the recommended action and the severity of each issue.
 
-###Monitor virtual networks
+#### Cloud services (Preview) section
+Health status for cloud services is included in the virtual machines security health tile. A recommendation is created when the OS version is out of date as shown below: 
+
+![Cloud Services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+You will have to follow the steps in the recommendation to update the OS version. For example, if you click in the red alert in one of the Web role (runs Windows Server with your web app automatically deployed to IIS) or Worker role (runs Windows Server with your web app automatically deployed to IIS) a new blade will open up with more details about this recommendation as shown below:
+
+![Cloud Service Details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png) 
+
+To see the a more prescriptive explanation regarding this recommendation, click Update **OS version** under **DESCRIPTION **column. The **Update OS version (Preview)** blade will open with more details.
+
+![Cloud Services Recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
+
+### Monitor virtual networks
 When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
 
 ![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)

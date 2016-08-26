@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
@@ -177,7 +177,7 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit an
 
 **VIM** and **Emacs** are text based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at: [ESS](http://ess.r-project.org/). 
 
-**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages which can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse** which allows you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages which can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse** which allows you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
@@ -228,7 +228,7 @@ To access **Postgres**:
 ### Azure tools 
 The following Azure tools are installed on the VM:
 
-- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools/).
+- **Azure Command Line Interface**: Azure Command Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools just type ***azure help***. For more information, please refer to the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
 - **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool used to browse through the objects that you have stored in your Azure Storage Account, and to upload/download data to and from Azure blobs. You can access the Storage Explorer from desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be logged in from an X2go client or have X11 forwarding setup. 
 - **Azure Libraries**: The following are the some of the libraries  that have been installed and so are available for you:
 
@@ -355,6 +355,6 @@ You can exit Rattle and R. Now you can  modify the generated R script or use it 
 Here are some next steps to continue your learning and exploration. 
 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information on the tools installed on the VM.  
-* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Create a WordPress web app in Azure App Service
@@ -65,7 +65,7 @@ The WordPress site that you deploy in this tutorial uses MySQL for the database.
 
 5. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 5. Select an **App Service plan/Location** or create a new one.
 

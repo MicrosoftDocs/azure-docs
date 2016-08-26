@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.date="06/27/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -34,7 +34,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
 - **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](https://azure.microsoft.com/pricing/details/remoteapp/).
 - **Does one type of collection cost more than another?** 
-Yes, it can, depending on your collection requirements. A hybrid collection requires a connection from Azure RemoteApp to your on-premises network. If you use an existing VNET/Express Route, there is no additional cost. But if you use a new Azure VNET and either a gateway or Express Route, you will be charged for the [VPN gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) or [Express Route](../../../pricing/details/expressroute/). This cost (detailed in the links) is on top of your monthly Azure RemoteApp cost.
+Yes, it can, depending on your collection requirements. A hybrid collection requires a connection from Azure RemoteApp to your on-premises network. If you use an existing VNET/Express Route, there is no additional cost. But if you use a new Azure VNET and either a gateway or Express Route, you will be charged for the [VPN gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) or [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). This cost (detailed in the links) is on top of your monthly Azure RemoteApp cost.
 
 ## Collections - what's supported, which should you use, and others
 - **Are custom line-of-business (LOB) applications supported?** Yes. To use a custom application in Azure RemoteApp, create a [custom template image](remoteapp-create-custom-image.md), and then upload it to the RemoteApp collection.

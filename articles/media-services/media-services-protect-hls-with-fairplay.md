@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/11/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay 
@@ -51,6 +51,20 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 		
 	 	When the customer configures key delivery policy, they must provide that password and the .pfx in base64 format.
 
+		The following steps describe how to generate a pfx certificate for FairPlay.
+		
+		1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html
+		
+			Go to the folder where the FairPlay certificate and other files delivered by Apple are.
+		
+		2. Command Line to convert the cer to pem:
+		
+			"C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+		
+		3. Command line to convert pem to pfx with the private key (the password for the pfx file is then asked by OpenSSL).
+		
+			"C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt 
+		
 	- **App Cert password** - Customer password for creating the .pfx file.
 	- **App Cert password ID** - The customer must upload the password similar to how they upload other AMS keys and using **ContentKeyType.FairPlayPfxPassword** enum value. In the result they will get AMS id this is what they need to use inside the key delivery policy option.
 	- **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option. 

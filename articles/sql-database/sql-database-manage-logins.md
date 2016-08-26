@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rickbyh"/>
 
-# SQL Database Authentication and Authorization: Granting Accessing 
+# SQL Database Authentication and Authorization: Granting Access 
 
 
 > [AZURE.SELECTOR]
@@ -51,6 +51,9 @@ When using an open port in the server-level firewall, administrators can connect
 
 ### Connecting to a database by using SQL Server Management Studio
 For a walk-through of connecting by using SQL Server Management Studio, see [Connect to SQL Database with SQL Server Management Studio and execute a sample T-SQL query](sql-database-connect-query-ssms.md).
+
+
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 ## Additional special accounts

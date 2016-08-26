@@ -44,6 +44,7 @@ Figure 1 – Azure regional pair diagram
 | Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
 | India         | Central India    | South India      |
+| Canada        | Canada Central   | Canada East      |
 
 Table 1 - Mapping of azure regional pairs
 
@@ -62,12 +63,12 @@ Figure 2 – Hypothetical Azure regional pair
 ## Cross-region activities
 As referred to in figure 2.
 
-![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure Business Continuity Technical Guidance](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](./resiliency/resiliency-technical-guidance.md).
 
 ![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information,  see [Azure Storage Redundancy Options](storage/storage-redundancy.md).
 
 
-![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Databases** – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region. With Premium Geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see  [Geo-Replication in Azure SQL Database](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Databases** – With Azure SQL Standard Geo-Replication, you can configure asynchronous replication of transactions to a paired region. With Premium Geo-replication, you can configure replication to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see  [Geo-Replication in Azure SQL Database](./sql-database/sql-database-geo-replication-overview.md).
 
 ![4Green](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager (ARM)** - ARM inherently provides logical isolation of service management components across regions. This means logical failures in one region are less likely to impact another.
 

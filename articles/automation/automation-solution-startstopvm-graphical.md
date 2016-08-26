@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Azure Automation scenario - starting and stopping virtual machines
@@ -147,7 +147,7 @@ Depending on the runbook, the next activities attempt to start or stop the runbo
 The final step in the runbook is to send output whether the start or stop request for each virtual machine was successfully submitted. There is a separate **Write-Output** activity for each, and we determine which one to run with conditional links.  **Notify VM Started** or **Notify VM Stopped** is run if *OperationStatus* is *Succeeded*.  If *OperationStatus* is any other value, then **Notify Failed To Start** or **Notify Failed to Stop** is run.
 
 
-## Next Steps
+## Next steps
 
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 - [Child runbooks in Azure Automation](automation-child-runbooks.md) 

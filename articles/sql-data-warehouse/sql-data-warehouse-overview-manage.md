@@ -102,7 +102,7 @@ Using good database design principles will make it easier to manage your databas
 [connection]: sql-data-warehouse-develop-connections.md
 [Connect to Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[Development overview]: sql-data-warehouse-overview-development.md
+[Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md

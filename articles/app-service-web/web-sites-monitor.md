@@ -3,7 +3,7 @@
 	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal."
 	services="app-service"
 	documentationCenter=""
-	authors="cephalin"
+	authors="btardif"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/22/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service

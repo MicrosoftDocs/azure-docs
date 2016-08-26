@@ -26,6 +26,8 @@ The article concludes by covering a couple of miscellaneous topics, including mo
 
 We'll use the **IoTHubClient** SDK samples to explain these topics. If you want to follow along, see the **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** applications that are included in the Azure IoT device SDK for C. Everything described in the following sections is demonstrated in these samples.
 
+You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+
 ## The lower-level APIs
 
 The previous article described the basic operation of the **IotHubClient** within the context of the **iothub\_client\_sample\_amqp** application. For example, it explained how to initialize the library using this code.
@@ -277,3 +279,19 @@ The batching option is important. By default, the library ingresses events indiv
 ## Next steps
 
 This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The [next article](iot-hub-device-sdk-c-serializer.md) provides similar detail on the **serializer** library.
+
+To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

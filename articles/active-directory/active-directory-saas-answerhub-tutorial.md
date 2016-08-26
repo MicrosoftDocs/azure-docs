@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with AnswerHub
@@ -38,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for AnswerHub, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **AnswerHub** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **AnswerHub** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
 
@@ -101,9 +101,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![SAML Setup](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
 
-    1.  In the Azure portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Login URL** value, and then paste it into the **IDP Login URL** textbox.
-    2.  In the Azure portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Logout URL** value, and then paste it into the **IDP Logout URL** textbox.
-    3.  In the Azure portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Name Identifier Format** value, and then paste it into the **IDP Name Identifier Format** textbox.
+    1.  In the Azure classic portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Login URL** value, and then paste it into the **IDP Login URL** textbox.
+    2.  In the Azure classic portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Remote Logout URL** value, and then paste it into the **IDP Logout URL** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at AnswerHub** dialog page, copy the **Name Identifier Format** value, and then paste it into the **IDP Name Identifier Format** textbox.
     4.  Click **Keys and Certificates**.
 
 11. On the Keys and Certificates tab, perform the following steps:
@@ -119,7 +119,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 12. On the **IDP Config** tab, click **Save**.
 
-13. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+13. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -149,7 +149,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to AnswerHub, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **AnswerHub **application integration page, click **Assign users**.
 

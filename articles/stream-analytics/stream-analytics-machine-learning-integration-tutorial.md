@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/06/2016" 
 	ms.author="jeffstok"
 /> 
 
@@ -27,11 +27,11 @@ In this tutorial a sample CSV file with text (as shown in figure 1 below) is pro
 
 Figure 1:  
 
-![stream analytics machine learning tutorial figure 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
+![stream analytics machine learning tutorial figure 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 Figure 2:    
 
-![stream analytics machine learning tutorial figure 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![stream analytics machine learning tutorial figure 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
     ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
 
-11.	Navigate to **Query** tab and modify the query as below:  
+11.	Navigate to **Query** tab and modify the query as below:    
 
 ```
 	WITH subquery AS (  
@@ -121,9 +121,9 @@ Take note of the web service URL and access key from the downloaded excel as sho
 	Select text, result.[Score]  
 	Into output  
 	From subquery  
-```
+```    
 
-12. Click **Save** to save the query.    
+Then simply click **Save** to save the query.
 
 ## Start the Stream Analytics Job and observe the output
 

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Build your first data factory | Microsoft Azure"
-	description="This tutorial shows you how to create a data factory with a data pipeline that transforms data using Azure HDInsight."
+	pageTitle="Data Factory tutorial: First data pipeline | Microsoft Azure"
+	description="This Azure Data Factory tutorial shows you how to create and schedule a data factory that processes data using Hive script on a Hadoop cluster."
 	services="data-factory"
+	keywords="azure data factory tutorial, hadoop cluster, hadoop hive"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="data-factory"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="06/17/2016"
 	ms.author="spelluru"/>
 
-# Tutorial: Build your first data factory (overview)
+# Azure Data Factory tutorial: Build a data pipeline that processes data using Hadoop cluster 
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +25,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
-This article helps you get started with building your first Azure data factory. 
+In this tutorial, you’ll build your first Azure data factory with a data pipeline that processes data by running Hive script on an Azure HDInsight (Hadoop) cluster. 
 
 > [AZURE.NOTE] This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
 
@@ -50,7 +51,7 @@ In this tutorial, you will be performing the following steps:
 
 Your first pipeline, called **MyFirstPipeline**, uses a Hive activity to transform and analyze a web log that you will be uploading to the **inputdata** folder in **adfgetstarted** container (adfgetstarted/inputdata) in your Azure blob storage. 
  
-![Diagram View](./media/data-factory-build-your-first-pipeline/diagram-view.png)
+![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log. This log file has entries from three months: January, February, and March of 2014. Here are the sample rows for each month in the input file. 

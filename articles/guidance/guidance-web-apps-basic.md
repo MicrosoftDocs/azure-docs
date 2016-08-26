@@ -21,9 +21,8 @@
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article shows a recommended architecture for a basic web application in Microsoft Azure.  
-
-The architecture described here has a web front end, with a SQL database on the back end. The architecture uses Azure platform services such as [App Service][app-service] and [Azure SQL Database][sql-db], with a focus on scalability, availability, manageability, and security. Later articles will build on this basic architecture, adding components such as cache and CDN. 
+This article shows a recommended architecture for a basic web application in Microsoft Azure. 
+The architecture implements a web front end using [Azure App Service][app-service], with [Azure SQL Database][sql-db] on the database. Later articles in this series build on this basic architecture, adding components such as cache and CDN. 
 
 > [AZURE.NOTE] This article is not focused on application development, and doesn't assume any particular application framework. Instead, the goal is to understand how the various Azure services fit together within this application architecture.
 
@@ -145,6 +144,8 @@ If you revert to a previous version, make sure any database schema changes are b
 
 Don't use slots on your production deployment for testing, because all apps within the same App Service plan share the same VM instances. For example, load tests might degrade the live production site. Instead, create separate App Service plans for production and test. By putting test deployments into a separate plan, you isolate them from the production version. 
 
+> [AZURE.NOTE] You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments). 
+
 ### Configuration
 
 Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or by using PowerShell. At runtime, app settings are available to the application as environment variables. 
@@ -231,6 +232,11 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 ```
 
 For more information, see [Deploy resources with Azure Resource Manager templates][deploy-arm-template].
+
+
+## Next steps
+
+- You can improve scalability and performance by adding features such as caching, CDN, and background processing for long-running tasks. See [Web application with improved scalability](guidance-web-apps-scalability.md).
 
 <!-- links -->
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
+    ms.date="06/17/2016"
     ms.author="spelluru"/>
 # HPC and data orchestration using Azure Batch and Data Factory
 
@@ -380,7 +380,7 @@ The method has a few key components that you need to understand.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactvitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
+13.  Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **StorageLinkedService** linked service in the **ADFTutorialDataFactory** uses. Create the blob container **customactivitycontainer** if it does not already exist.
 
 ### Execute method
 
@@ -797,11 +797,7 @@ In this step, you will test the pipeline by dropping files into the input folder
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Use [Azure Batch Explorer](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) to view the **tasks** associated with the **slices** and see what VM each slice ran on. You see that a job is created with the name **adf-\<poolname\>**. This job will have a task for each slice. In this example, there will be 5 slices, so 5 tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks ran very fast (see the **Created** time).
-
-    ![](./media/data-factory-data-processing-using-batch/image14.png)
-
-	> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+6.  Use Azure Portal to view the **tasks** associated with the **slices** and see what VM each slice ran on. See [Data Factory and Batch integration](#data-factory-and-batch-integration) section for details. 
 
 7.  You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
 
@@ -833,6 +829,19 @@ In this step, you will test the pipeline by dropping files into the input folder
 
 
     **Note:** If you hadn’t deleted the output file 2015-11-16-01.txt before trying with 5 input files, you will see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to output file if it already exists.
+
+### Data Factory and Batch integration
+The Data Factory service creates a job in Azure Batch with the name: **adf-poolname:job-xxx**. 
+
+![Azure Data Factory - Batch jobs](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+
+A task in the job is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in the job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1.
+
+In this example, there will be 5 slices, so 5 tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks will run very fast (check start and end times for tasks).
+
+Use the portal to view the Batch job and its tasks that are associated with the **slices** and see what VM each slice ran on. 
+
+![Azure Data Factory - Batch job tasks](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
 ## Debug the pipeline
 
@@ -893,7 +902,15 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
  
-		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+	One VM per pending task at a time (for example: 5 pending tasks -> 5 VMs):
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = max(pendingTaskSampleVector);
+
+	Max of one VM at a time irrespective of the number of pending tasks:
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
 
 	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
 

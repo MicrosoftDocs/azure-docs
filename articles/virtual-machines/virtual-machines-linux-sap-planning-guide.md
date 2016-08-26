@@ -1340,7 +1340,7 @@ New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -Type Standard_LRS -Location "North Europe"
+$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * Create a new virtual network for every training/demo landscape to enable the usage of the same hostname and IP addresses. The virtual network is protected by a Network Security Group that only allows traffic to port 3389 to enable Remote Desktop access and port 22 for SSH. 

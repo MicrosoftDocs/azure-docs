@@ -65,7 +65,7 @@ In this case, you'll create a regular expression that includes all of the origin
  
 > [AZURE.TIP] **Azure CDN from Verizon** uses [Perl Compatible Regular Expressions](http://pcre.org/) as its engine for regular expressions.  You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression.  Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
 
-If the regular expression matches, the CDN edge your rule will replace the **Access-Control-Allow-Origin** header (if any) from the origin with the origin that sent the request.  You can also add additional CORS headers, such as **Access-Control-Allow-Methods**.
+If the regular expression matches, your rule will replace the **Access-Control-Allow-Origin** header (if any) from the origin with the origin that sent the request.  You can also add additional CORS headers, such as **Access-Control-Allow-Methods**.
 
 ![Rules example with regular expression](./media/cdn-cors/cdn-cors-regex.png)
  

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Securing data stored in Azure Data Lake Store | Azure" 
+   pageTitle="Securing data stored in Azure Data Lake Store | Microsoft Azure" 
    description="Learn how to secure data in Azure Data Lake Store using groups and access control lists" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -26,7 +26,9 @@ Securing data in Azure Data Lake Store is a three-step approach.
 
 3. Assign the AAD security groups as access control lists (ACLs) on the Data Lake Store file system.
 
-This article provides instructions on how to use the Azure portal to perform the above tasks. 
+4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Store.
+
+This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md).
 
 ## Prerequisites
 
@@ -88,7 +90,9 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 
 ## <a name="filepermissions"></a>Assign users or security group as ACLs to the Azure Data Lake Store file system
 
-By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store. In the current release, you can set ACLs only at the root node of your file system.
+By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store.
+
+>[AZURE.NOTE] In the current release, you can set ACLs only at the root node of the Data Lake Store account. Also, only users with the Owner role assigned can add/modify ACLs.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
 
@@ -131,6 +135,12 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 	> [AZURE.IMPORTANT] In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
+
+## Set IP address range for data access
+
+Azure Data Lake Store enables you to further lock down access to your data store at network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
+
+![Firewall settings and IP access](./media/data-lake-store-secure-data/firewall-ip-access.png "Firewall settings and IP address")
 
 ## Remove security groups for an Azure Data Lake Store account
 

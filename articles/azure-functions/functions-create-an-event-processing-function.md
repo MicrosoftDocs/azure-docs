@@ -24,14 +24,6 @@ Azure Functions is an event-driven, compute-on-demand experience that enables yo
 
 This topic shows you how to create a new function in C# that executes based on an event timer to add messages to a storage queue. 
 
-You can also watch a short video to see how these steps are performed in the portal.
-
-## Watch the video
-
-The following video show how to perform the basic steps in this tutorial 
-
-[AZURE.VIDEO create-an-event-processing-azure-function]
-
 ## Prerequisites 
 
 Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).

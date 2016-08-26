@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="07/05/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -69,7 +69,7 @@ Use the table below as a reference to understand what each option will do:
 
 | Policy | When State is On |
 |----- |-----|
-| System Updates | Daily, retrieves a list of available security and critical updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, and recommends that the missing updates be applied. |
+| System Updates | Daily, retrieves a list of available security and critical updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, and recommends that the missing updates be applied. It also check for the latest updates in Linux systems and check for security and critical updates from [Cloud Services](./cloud-services/cloud-services-how-to-configure.md) virtual machines. |
 | Baseline Rules | Daily, analyzes OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
 | Endpoint Protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. 
 | Network Security Groups | Recommends that [Network Security Groups](../virtual-network/virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |

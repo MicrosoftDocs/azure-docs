@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/18/2016"
+    ms.date="06/18/2016"
     ms.author="elizapo" />
 
 # How to add a user to your Azure RemoteApp collection

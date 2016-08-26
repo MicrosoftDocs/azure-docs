@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/05/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
@@ -23,19 +23,22 @@
 ## Overview
 DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
 
+
 You grant access to your lab through two roles:
 
-- **Owner**: Users assigned to the **Owner** role at the lab level have complete access to the lab, including management and monitoring functions. The **Owner** role assigned at the lab level does not grant users permissions to access resources in the subscription outside the lab scope. Users assigned to the **Owner** role at the Azure subscription level automatically have **Owner** rights to any labs created in that subscription.
+- **Owner**: Users assigned to the **Owner** role at the lab level have complete access to the lab, including management and monitoring functions. The **Owner** role assigned at the lab level does not grant users permissions to access resources in the subscription outside the lab scope. Users assigned to the **Owner** role at the Azure subscription level automatically have **Owner** rights to any resources created in that subscription, including labs and VMs.
 
--  **DevTest Labs User**: Users assigned to the **DevTest Labs User** role can create, update, and delete VMs in the specified lab. Users can be either *internal* (a member of the Azure Active Directory for the subscription), or *external* (a user who is not a member of the Azure AD, such as a member of a partner organization).
+-  **DevTest Labs User**: Users assigned to the **DevTest Labs User** role can create VMs in the specified lab as well as view all lab resources, such as VMs, policies or virtual networks. Users can be either *internal* (a member of the Azure Active Directory for the subscription), or *external* (a user who is not a member of the Azure AD, such as a member of a partner organization).
 	-  A **DevTest Labs User** role must be assigned through the **Add Users** tiles of the lab.
 	-  Users in the **DevTest Labs User** role can perform these operations only inside in the lab that they are assigned to.
 	For example, a **DevTest Labs User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Labs account.
-	- *External* users must have an account in one of the Microsoft account domains (i.e. @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com, or any variant for a specific country).
+	- *External* users are users with a Microsoft Account (MSA).
  
+Once a VM gets created, the user that created it gets automatically assigned to the **Owner** role on the created VM, which allows them to perform all the actions that are offered in the lab.
+
 ## Add an owner to your lab
 
-DevTest Labs considers the owner(s) of an Azure subscription that contains labs to be owner(s) of those labs. While you can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), this is not currently supported. 
+Because of the way permissions are propagated from parent scope to child scope in Azure, owner(s) of an Azure subscription that contains labs will automatically be owner(s) of those labs, as well as of all the VMs and other resources that get created by the lab's users as well as by the DevTest Lab service. While you can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), their scope of administration will be more narrow than that of the subscription owners, because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
 
 To add an owner to an Azure subscription where you have labs already created or will be creating new labs, follow these steps:
 

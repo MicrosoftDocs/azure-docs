@@ -454,7 +454,7 @@ chances of errors.
 
 - Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 
-- Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository](https://github.com/mspnp/azure-guidance/tree/master/scripts/ps)
+- Using scripts which can be automated or run unattended. Scripts that can create and deploy an Elasticsearch cluster are available on the [GitHub repository][elasticsearch-scripts]
 
 ## Cluster and Node Sizing and Scalability 
 
@@ -1029,6 +1029,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Node Discovery]: #node-discovery
 [Query Tuning]: #query-tuning
 
+[elasticsearch-scripts]: https://github.com/mspnp/azure-guidance/tree/master/scripts/ps
 [A Highly Available Cloud Storage Service with Strong Consistency]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
 [Azure Cloud Plugin]: https://www.elastic.co/blog/azure-cloud-plugin-for-elasticsearch
 [Azure Diagnostics with the Azure Portal]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
@@ -1052,7 +1053,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Logstash]: https://www.elastic.co/products/logstash
 [Mapping Explosion]: https://www.elastic.co/blog/found-crash-elasticsearch#mapping-explosion
 [Marvel]: https://www.elastic.co/products/marvel
-[Microsoft Azure Diagnostics with ELK]: https://github.com/mspnp/semantic-logging/tree/elk
+[Microsoft Azure Diagnostics with ELK]: http://aka.ms/AzureDiagnosticsElk
 [Monitoring Individual Nodes]: https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_monitoring_individual_nodes
 [nginx]: http://nginx.org/en/
 [Node Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/client.html

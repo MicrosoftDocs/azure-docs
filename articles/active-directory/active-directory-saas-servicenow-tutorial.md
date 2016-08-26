@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with ServiceNow
@@ -146,7 +146,8 @@ As part of this procedure, you are required to upload a base-64 encoded certific
     e. As **Type**, select **Trust Store Cert**.
 
     f. Create a Base-64 encoded file from your downloaded certificate.
-    > [AZURE.NOTE] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+   
+	> [AZURE.NOTE] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
     
     g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
 
@@ -228,25 +229,29 @@ The objective of this section is to outline how to enable user provisioning of A
 
 ### To configure user provisioning, perform the following steps:
 
-1. In the Azure Management classic portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. <br><br> ![User provisioning](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
+1. In the Azure Management classic portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. 
+
+	![User provisioning](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
 
 
 2. On the **Enter your ServiceNow credentials to enable automatic user provisioning** page, provide the following configuration settings:
 Configure User Provisioning 
 
-     2.1. In the **ServiceNow Instance Name** textbox, type the ServiceNow instance name.
+     a. In the **ServiceNow Instance Name** textbox, type the ServiceNow instance name.
 
-     2.2. In the **ServiceNow Admin User Name** textbox, type the name of the ServiceNow admin account.
+     b. In the **ServiceNow Admin User Name** textbox, type the name of the ServiceNow admin account.
 
-     2.3. In the **ServiceNow Admin Password** textbox, type the password for this account.
+     c. In the **ServiceNow Admin Password** textbox, type the password for this account.
 
-     2.4. Click **validate** to verify your configuration.
+     d. Click **validate** to verify your configuration.
 
-     2.5. Click the **Next** button to open the **Next steps** page.
+     e. Click the **Next** button to open the **Next steps** page.
 
-     2.6. If you want to provision all users to this application, select “**Automatically provision all user accounts in the directory to this application**”. <br><br> ![Next Steps](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Next Steps")
+     f. If you want to provision all users to this application, select “**Automatically provision all user accounts in the directory to this application**”. 
 
-     2.7. On the **Next steps** page, click **Complete** to save your configuration.
+	![Next Steps](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Next Steps")
+
+     g. On the **Next steps** page, click **Complete** to save your configuration.
 
 
 

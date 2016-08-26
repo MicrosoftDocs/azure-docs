@@ -143,24 +143,7 @@ If your application sends a lot of data and you are using the Application Insigh
 
 ### Connection errors
 
-You need to open some outgoing ports in your server's firewall to allow Status Monitor to work:
-
-+ Telemetry - these are needed all the time:
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ Configuration - needed only when making changes:
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Installation:
- +	`packages.nuget.org:443`
-
-This list may change from time to time.
+You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 ### No telemetry?
 
@@ -197,6 +180,12 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 ## Automation with PowerShell
 
 You can start and stop monitoring by using PowerShell.
+
+First import the Application Insights module:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Find out which apps are being monitored:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 

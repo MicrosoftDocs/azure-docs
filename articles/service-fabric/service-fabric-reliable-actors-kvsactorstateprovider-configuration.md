@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/30/2016"
    ms.author="sumukhs"/>
 
 # Configuring Reliable Actors--KVSActorStateProvider

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/16/2016" 
 	ms.author="spelluru"/>
 
 # Move data from DB2 using Azure Data Factory
@@ -24,6 +24,8 @@ Data factory supports connecting to on-premises DB2 sources using the Data Manag
 **Note:** You need to leverage the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud you can also install the gateway instance in the IaaS VM.
 
 Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2. 
+
+> [AZURE.NOTE] This DB2 connector currently support DB2 for LUW (Linux, UNIX, Windows). To copy data from DB2 for z/OS or DB2 for AS/400, consider to use generic ODBC connector and install the corresponding ODBC driver on the gateway machine. For example, to ingest data from DB2 for AS/400, you can use iSeries Access ODBC Driver and refer to [ODBC data sources on-premises/Azure IaaS](data-factory-odbc-connector.md) to set up the copy activity.
 
 ## Installation 
 

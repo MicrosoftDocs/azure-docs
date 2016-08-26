@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Authorize access to web applications using OpenID Connect and Azure Active Directory
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use **access tokens** to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process, providing information about the end user in the form of an `id_token` that verifies the identity of the user as well as provides basic profile information about the user.
 
@@ -86,7 +84,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | id_token | The `id_token` that the  app requested. You can use the `id_token` to verify the user's identity and begin a session with the user.  |
-| state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
+| state | A value included in the request that will also be returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
 ### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
@@ -104,9 +102,21 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
+#### Error codes for authorization endpoint errors
+
+The following table describes the various error codes that can be returned in the `error` parameter of the error response.
+
+| Error Code | Description | Client Action |
+|------------|-------------|---------------|
+| invalid_request | Protocol error, such as a missing required parameter. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+| unauthorized_client | The client application is not permitted to request an authorization code. | This usually occurs when the client application is not registered in Azure AD or is not added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| access_denied | Resource owner denied consent | The client application can notify the user that it cannot proceed unless the user consents. |
+| unsupported_response_type | The authorization server does not support the response type in the request. | Fix and resubmit the request. This is a development error is typically caught during initial testing.|
+|server_error | The server encountered an unexpected error. | Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed due a temporary error. |
+| temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
+| invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured.| This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
 ## Validate the id_token
-
 
 Just receiving an `id_token` is not sufficient to authenticate the user; you must validate the signature and verify the claims in the `id_token` per your app's requirements. The Azure AD endpoint uses JSON Web Tokens (JWTs) and public key cryptography to sign tokens and verify that they are valid.
 
@@ -194,5 +204,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+
+For a description of the possible error codes and their recommended client action, please see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
 Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token).

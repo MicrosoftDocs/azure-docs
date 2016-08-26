@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations and restrictions
@@ -24,7 +24,7 @@ There are several features and functionalities of Azure Active Directory (Azure 
 
 ## Issues during the creation of Azure AD B2C tenants
 
-If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
+If you encounter issues during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started.md), see [Create an Azure AD tenant or an Azure AD B2C tenant--issues and resolutions](active-directory-b2c-support-create-directory.md) for guidance.
 
 ## Branding issues on verification email
 
@@ -70,6 +70,10 @@ Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all fea
 
 Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. You should expect things here to change quite a bit during the preview. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
 
+## Restriction on nested groups
+
+Nested group memberships aren't supported in Azure AD B2C tenants. There are no plans to add this capability.
+
 ## Issues with user management on the Azure classic portal
 
 B2C features are accessible on the Azure portal. However, you can use the Azure classic portal to access other tenant features, including user management. Currently there are a couple of known issues with user management (the **Users** tab) on the Azure classic portal:
@@ -82,11 +86,11 @@ B2C features are accessible on the Azure portal. However, you can use the Azure 
 
 ## Issues with admin-initiated password reset on the Azure classic portal
 
-If you reset the password for a local account-based consumer on the Azure classic portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign in and will be locked out of your applications. We are working on fixing this issue. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password.
+If you reset the password for a local account-based consumer on the Azure classic portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign in, if you use a Sign up or Sign in policy, and will be locked out of your applications. We are working on fixing this issue. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password (without password expiration) or use a Sign in policy instead of a Sign up or Sign in policy.
 
-## Restriction on the deletion of Azure AD B2C tenants
+## Issues with creating a custom attribute
 
-You won't be able to delete an Azure AD B2C tenant in the Azure classic portal.
+A [custom attribute added on the Azure portal](active-directory-b2c-reference-custom-attr.md) is not immediately created in your B2C tenant. You'll have to use the custom attribute in at least one of your policies before it is created in your B2C tenant and becomes available via Graph API.
 
 ## Issues with verifying a domain on the Azure classic portal
 

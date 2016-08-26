@@ -3,7 +3,7 @@
 	description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="TomArcher"
+	authors="mlearned"
 	manager="douge"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/08/2016"
-	ms.author="tarcher"/>
+	ms.date="07/06/2016"
+	ms.author="mlearned"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
 

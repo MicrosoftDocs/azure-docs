@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -506,5 +506,6 @@ For an overview of the related user experience, see:
  - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+ - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
 

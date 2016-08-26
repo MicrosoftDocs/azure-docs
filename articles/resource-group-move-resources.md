@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -137,11 +137,11 @@ When moving resources to a **new subscription**, the following restrictions appl
 
 ## Using portal to move resources
 
-You can move some resources through the portal; however, not all resource providers that support the move operation provide that functionality through the portal. 
-
 To move a resource, select the resource and then select the **Move** button.
 
 ![move resource](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] Not all resources currently support being moved through the portal. If you do not see the **Move** button for the resource you want to move, use PowerShell, CLI, or REST API to move the resource. 
 
 You specify the destination subscription and resource group when moving the resource. If other resources must be moved with the resource, they are listed.
 

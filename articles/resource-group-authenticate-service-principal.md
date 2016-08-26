@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create AD application with PowerShell | Microsoft Azure"
-   description="Describes how to use Azure PowerShell to create an Active Directory application and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
+   pageTitle="Create Azure service principal with PowerShell | Microsoft Azure"
+   description="Describes how to use Azure PowerShell to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,7 +16,7 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Use Azure PowerShell to create an Active Directory application to access resources
+# Use Azure PowerShell to create a service principal to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)

@@ -24,9 +24,9 @@ Here's a summary of features that you might not have tried in [Visual Studio App
 ||
 |---|---
 |[**Availability tests**](app-insights-monitor-web-app-availability.md)<br/>Send your web app HTTP requests at regular intervals from around the world. We'll alert you if the response is slow or unreliable.| 
-|[**Dependency and AJAX calls**](app-insights-asp-net-dependencies.md)<br/>Monitor SQL queries, and calls to REST or other resources.|
+|[**Dependency calls**](app-insights-asp-net-dependencies.md)<br/>Monitor SQL queries, and calls to REST or other resources.|
 |[**Exceptions**](app-insights-asp-net-exceptions.md)<br/>Count handled and unhandled exceptions, get stack traces, and click through to the code.|
-|[**Web pages**](app-insights-javascript.md)<br/>Monitor page usage and performance by instrumenting your web pages.
+|[**Web pages**](app-insights-javascript.md)<br/>Monitor page usage, performance and AJAX calls by instrumenting your web pages.
 |**Host performance: [Azure diagnostics](app-insights-azure-diagnostics.md), [Windows performance counters](app-insights-web-monitor-performance.md)**<br/>See the CPU usage and other context metrics.  |![](./media/app-insights-asp-net-more/04.png)
 |[**SDK API - custom telemetry**](app-insights-api-custom-events-metrics.md)<br/>Send your own events and metrics for a more detailed view of your app's performance and usage, both in the server and client code.|
 |[**Log integration**](app-insights-asp-net-trace-logs.md)<br/>If you use a logging framework such as Log4Net, NLog, or System.Diagnostics.Trace, there's an adapter that sends the traces to Application Insights along with other telemetry.|

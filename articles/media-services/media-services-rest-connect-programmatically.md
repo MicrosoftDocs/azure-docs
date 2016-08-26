@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,6 +43,11 @@ The following steps describe the most common workflow when using the Media Servi
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
 	You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.
+
+##Access control address
+
+Media Services access control address is https://wamsprodglobal001acs.accesscontrol.windows.net, 
+except for North China region, where it is https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
 
 ##Getting an access token
 

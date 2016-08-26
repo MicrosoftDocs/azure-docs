@@ -85,7 +85,7 @@ For more information, see [App Service Authentication/Authorization](https://azu
 ## Scale your app automatically based on demand
 
 Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at 
-[Scale pricing tier in Azure App Service](app-service-scale) and 
+[Scale up your app in Azure](web-sites-scale.md) and 
 [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md)). 
 
 Briefly, you scale your web app in two ways:
@@ -129,7 +129,7 @@ You may have noticed in the **Scale Settings** blade that you can do a lot more,
 - Autoscale on a schedule
 - Set autoscaling behavior for a future event
 
-For more information on scaling up your app, see [Scale pricing tier in Azure App Service](../app-service/app-service-scale.md). For more information on
+For more information on scaling up your app, see [Scale up your app in Azure](../app-service-web/web-sites-scale.md). For more information on
 scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md).
 
 ## Receive alerts for your app

@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Set up a Linux RDMA cluster to run MPI applications
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Learn how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-linux-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up a cluster of size A8 and A9 VMs to run a supported Linux HPC distribution and a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.

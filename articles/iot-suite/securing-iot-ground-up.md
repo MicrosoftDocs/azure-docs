@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/05/2016"
+ ms.date="06/22/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]

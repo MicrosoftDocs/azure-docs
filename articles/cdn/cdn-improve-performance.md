@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # Improve performance by compressing files
@@ -114,13 +114,14 @@ These tables describe Azure CDN compression behavior for every scenario.
 |----------------|-----------|------------|-----|
 |Compressed|Compressed|Compressed|CDN transcodes between supported formats|
 |Compressed|Uncompressed|Compressed|CDN performs compression|
-|Compressed|Not cached|Compressed|CDN performs compression if origin returns uncompressed|
+|Compressed|Not cached|Compressed|CDN performs compression if origin returns uncompressed.  **Azure CDN from Verizon** will pass the uncompressed file on the first request and then compress and cache the file for subsequent requests.  Files with `Cache-Control: no-cache` header will never be compressed. 
 |Uncompressed|Compressed|Uncompressed|CDN performs decompression|
 |Uncompressed|Uncompressed|Uncompressed|     |	
-|Uncompressed|Not cached|Uncompressed|     |	
+|Uncompressed|Not cached|Uncompressed|     |
 
-## Notes
-1. For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
+## Media Services CDN Compression
+
+For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
 
 ## See also
 - [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    

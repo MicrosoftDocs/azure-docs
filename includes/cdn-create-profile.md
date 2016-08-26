@@ -4,7 +4,7 @@
 
     The new CDN profile blade appears.
 
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile.png)
+    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Enter a name for your CDN profile.
 
@@ -14,7 +14,7 @@
 
 5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
     
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Select the **Subscription** for this CDN profile.
 

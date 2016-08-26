@@ -41,6 +41,11 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### More samples
+
+For additional examples using Blob storage, see [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub. 
+
+
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -387,6 +392,10 @@ Azure Storage supports encrypting blob data both at the client and on the server
 
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
+
+### Blob storage samples
+
+- [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Blob storage reference
 

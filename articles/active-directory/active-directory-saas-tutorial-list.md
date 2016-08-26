@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="06/15/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -40,6 +40,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.jpg)| [Aha!](https://go.microsoft.com/fwLink/?LinkID=530230&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.jpg)| [AirWatch](https://go.microsoft.com/fwLink/?LinkID=522560&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.jpg)| [Alcumus Info Exchange](https://go.microsoft.com/fwLink/?LinkID=530244&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Allocadia.jpg)| [Allocadia](https://go.microsoft.com/fwLink/?LinkID=807994&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.jpg)| [Amazon Web Services (AWS)](https://go.microsoft.com/fwLink/?LinkID=512725&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.jpg)| [AnswerHub](https://go.microsoft.com/fwLink/?LinkID=403241&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppBlade.jpg)| [AppBlade](https://go.microsoft.com/fwLink/?LinkID=708658&clcid=0x409)|
@@ -47,7 +48,8 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ArcGIS.jpg)| [ArcGIS](https://go.microsoft.com/fwLink/?LinkID=510247&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ariba.jpg)| [Ariba](https://go.microsoft.com/fwLink/?LinkID=708679&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AssetBank.jpg)| [Asset Bank](http://go.microsoft.com/fwlink/?LinkId=733450&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BambooHR.png)| [Bamboo HR](https://go.microsoft.com/fwLink/?LinkID=403260&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BambooHR.jpg)| [Bamboo HR](https://go.microsoft.com/fwLink/?LinkID=403260&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_BeeLine.jpg)| [BeeLine](https://go.microsoft.com/fwLink/?LinkID=807995&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Benefitssolver.jpg)| [Benefitsolver](https://go.microsoft.com/fwLink/?LinkID=530235&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Bime.jpg)| [Bime](https://go.microsoft.com/fwLink/?LinkID=510240&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Birst.jpg)| [Birst Agile Business Analytics](https://go.microsoft.com/fwLink/?LinkID=708672&clcid=0x409)|
@@ -63,7 +65,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ceridian.jpg)| [Ceridian Dayforce HCM](https://go.microsoft.com/fwLink/?LinkID=733445&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Certify.jpg)| [Certify](http://go.microsoft.com/fwlink/?LinkID=708681&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cherwell.jpg)| [Cherwell](https://go.microsoft.com/fwLink/?LinkID=530225&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.png)| [Chromeriver](https://go.microsoft.com/fwLink/?LinkID=530233&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Chromeriver.jpg)| [Chromeriver](https://go.microsoft.com/fwLink/?LinkID=530233&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Cimpl.jpg)| [Cimpl](https://go.microsoft.com/fwLink/?LinkID=708685&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CiscoWebEx.jpg)| [Cisco Webex](https://go.microsoft.com/fwLink/?LinkID=403253&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_CritixGoToMeeting.jpg)| [Citrix GoToMeeting](https://go.microsoft.com/fwLink/?LinkID=309579&clcid=0x409)|
@@ -126,6 +128,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kiteworks.jpg)| [Kiteworks](https://go.microsoft.com/fwLink/?LinkID=403222&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Knowbe4.jpg)| [KnowBe4](http://go.microsoft.com/fwlink/?LinkId=708691&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kontiki.jpg)| [Kontiki](https://go.microsoft.com/fwLink/?LinkID=512729&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kronos.jpg)| [Kronos](https://go.microsoft.com/fwLink/?LinkID=785276&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Kudos.jpg)| [Kudos](https://go.microsoft.com/fwLink/?LinkID=510256&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Learningpool.jpg)| [Learningpool](https://go.microsoft.com/fwLink/?LinkID=530220&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_LearnUpon.jpg)| [LearnUpon](https://go.microsoft.com/fwLink/?LinkID=708690&clcid=0x409)|
@@ -150,6 +153,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.jpg)| [OfficeSpace Software](https://go.microsoft.com/fwLink/?LinkID=512726&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.jpg)| [Onit](https://go.microsoft.com/fwLink/?LinkID=522566&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OpsGenie.jpg)| [OpsGenie](https://go.microsoft.com/fwLink/?LinkID=708670&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Optimizely.jpg)| [Optimizely](https://go.microsoft.com/fwLink/?LinkID=808000&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Origami.jpg)| [Origami Risk](http://go.microsoft.com/fwlink/?LinkID=785284&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.jpg)| [Overdrive Books](https://go.microsoft.com/fwLink/?LinkID=512730&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.jpg)| [Pagerduty](https://go.microsoft.com/fwLink/?LinkID=510244&clcid=0x409)|
@@ -161,6 +165,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Plurasight.jpg)| [Pluralsight](http://go.microsoft.com/fwlink/?LinkID=733453&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PolicyStat.jpg)| [PolicyStat](https://go.microsoft.com/fwLink/?LinkID=530234&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.jpg)| [Predictix Price Reporting](http://go.microsoft.com/fwlink/?LinkId=708693&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.jpg)| [Printix](https://go.microsoft.com/fwLink/?LinkID=785283&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.jpg)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProMapp.jpg)| [Promapp](http://go.microsoft.com/fwlink/?LinkId=530229)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.jpg)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
@@ -169,10 +174,13 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RallySoftware.jpg)| [Rally Software](https://go.microsoft.com/fwLink/?LinkID=403247&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.jpg)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.jpg)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RightScale.jpg)| [RightScale](https://go.microsoft.com/fwLink/?LinkID=807999&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_RunMyProcess.jpg)| [RunMyProcess](https://go.microsoft.com/fwLink/?LinkID=403246&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Samanage.jpg)| [Samanage](https://go.microsoft.com/fwLink/?LinkID=510241&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPBusinessByDesign.jpg)| [SAP Business ByDesign](https://go.microsoft.com/fwLink/?LinkID=807997&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SAPCloudforCustomer.jpg)| [SAP Cloud for Customer](https://go.microsoft.com/fwLink/?LinkID=785288&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.jpg)| [SAP HANA Cloud Platform](https://go.microsoft.com/fwLink/?LinkID=530219&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.jpg)| [SCC LifeCycle](https://go.microsoft.com/fwLink/?LinkID=530218&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.jpg)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
@@ -203,7 +211,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Tangoe.jpg)| [Tangoe Command Premium Mobile](https://go.microsoft.com/fwLink/?LinkID=733462&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TargetProcess.jpg)| [TargetProcess](https://go.microsoft.com/fwLink/?LinkID=691862&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_TeamSeer.jpg)| [TeamSeer](https://go.microsoft.com/fwLink/?LinkID=510248&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Thirdlight.png)| [Thirdlight](https://go.microsoft.com/fwLink/?LinkID=512741&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Thirdlight.jpg)| [Thirdlight](https://go.microsoft.com/fwLink/?LinkID=512741&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ThoughtworksMingle.jpg)| [Thoughtworks Mingle](https://go.microsoft.com/fwLink/?LinkID=403235&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ThousandEyes.jpg)| [ThousandEyes](https://go.microsoft.com/fwLink/?LinkID=510257&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Tidemark.jpg)| [Tidemark](https://go.microsoft.com/fwLink/?LinkID=708673&clcid=0x409)|
@@ -233,6 +241,9 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
+
+
+
 
 
 ##Related Articles

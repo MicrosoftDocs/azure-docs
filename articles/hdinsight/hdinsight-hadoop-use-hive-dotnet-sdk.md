@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+   ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Run Hive queries using HDInsight .NET SDK

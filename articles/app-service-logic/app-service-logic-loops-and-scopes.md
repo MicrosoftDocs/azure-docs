@@ -28,10 +28,16 @@ If using code-view, you can specify a for each loop like below.  This is an exam
 
 ```
 {
+    "email_filter": {
+        "type": "query",
+        "inputs": {
+            "from": "@triggerBody()['emails']",
+            "where": "@contains(item()['email'], 'microsoft.com')
+        }
+    },
     "forEach_email": {
         "type": "foreach",
-        "foreach": "@triggerBody()['emails']",
-        "expression": "@contains(item(), 'microsoft.com')",
+        "foreach": "@body('email_filter')",
         "actions": {
             "send_email": {
                 "type": "ApiConnection",
@@ -48,6 +54,9 @@ If using code-view, you can specify a for each loop like below.  This is an exam
                 }
                 }
             }
+        },
+        "runAfter":{
+            "email_filter": [ "Succeeded" ]
         }
     }
 }

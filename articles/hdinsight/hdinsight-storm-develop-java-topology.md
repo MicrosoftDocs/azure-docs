@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/11/2016"
+   ms.date="06/17/2016"
    ms.author="larryfr"/>
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight

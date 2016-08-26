@@ -140,15 +140,15 @@ The procedure steps will set the *DefaultSiteHQ* as the default site connection 
 
 	The cmdlet example below adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" nexthop.
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Associate the routing table to the subnets. 
 
 	After a routing table is created and a route added, use the cmdlet below to add or associate the route table to a VNet subnet. The samples below add the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Assign a default site for forced tunneling. 
 
@@ -161,7 +161,7 @@ The procedure steps will set the *DefaultSiteHQ* as the default site connection 
 
 ### To delete a route table
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### To list a route table
 
@@ -173,15 +173,15 @@ The procedure steps will set the *DefaultSiteHQ* as the default site connection 
 
 ### To remove a route from a subnet
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### To list the route table associated with a subnet
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### To remove a default site from a VNet VPN gateway
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
 
 

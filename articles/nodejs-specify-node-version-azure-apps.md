@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Specifying a Node.js version in an Azure application
@@ -22,7 +22,7 @@ When hosting a Node.js application, you may want to ensure that your application
 
 ##Default versions
 
-The Node.js versions provided by Azure are constantly updated. Unless otherwise specified, the latest available version will be used.
+The Node.js versions provided by Azure are constantly updated. Unless otherwise specified, the default version that is specified in the `WEBSITE_NODE_DEFAULT_VERSION` environment variable will be used. To override this default value, follow the steps in following sections of this article
 
 > [AZURE.NOTE] If you are hosting your application in an Azure Cloud Service (web or worker role,) and it is the first time you have deployed the application, Azure will attempt to use the same version of Node.js as you have installed on your development environment if it matches one of the default versions available on Azure.
 

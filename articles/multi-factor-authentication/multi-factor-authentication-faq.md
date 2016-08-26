@@ -83,7 +83,7 @@ Billing Model  | Price
 Per-user consumption (Azure monetary commitment)| $1.40 per month (unlimited authentications)
 Per-authentication consumption (Azure monetary commitment)|$1.40 per 10 authentications
 Per-user annual license (Direct)|$1.40 per month (unlimited authentications)
-Per-user annual license (Volume Licensing)|Contact your [Enterprise Agreement representative.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
+Per-user annual license (Volume Licensing)|Contact your [Enterprise Agreement representative.](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
 **Q: Does the ‘per user’ billing model charge based on the number of users enabled for Multi-Factor Authentication or the number of users who perform the verifications?**
 

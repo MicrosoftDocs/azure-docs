@@ -6,7 +6,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-Replace the namespace and Event Hub names with the values used when you created the Event Hub. The `sasKeyName` and `sasKey` correspond to the name and key of the Send rule you created earlier. With that information, you create a connection string.
+Replace the namespace and Event Hub names with the values used when you created the Event Hub.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";

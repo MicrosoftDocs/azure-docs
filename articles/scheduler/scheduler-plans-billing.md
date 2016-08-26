@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Plans and Billing in Azure Scheduler
@@ -25,7 +25,8 @@ Job collections are the billable entity in Azure Scheduler. Job collections cont
 |:---|:---|:---|:---|:---|
 |**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 |**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
-|**Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**P10 Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P10 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 500 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
 
 ## Upgrades and Downgrades of Job Collection Plans
 

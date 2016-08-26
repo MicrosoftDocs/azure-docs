@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Guide to converting Web and Worker Roles to Service Fabric stateless services
@@ -160,7 +160,7 @@ Configuration settings are accesses within each service instance through the ser
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -204,7 +204,7 @@ These events are available to consume changes in service packages without restar
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)

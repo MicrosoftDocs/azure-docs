@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ This tutorial includes the following tasks:
 The steps in this section show how to create a new AMS account.
 
 1. Log in at the [Azure Portal](https://portal.azure.com/).
-2. Click **+New** > **Media Service + CDN** > **Media Services**.
+2. Click **+New** > **Media + CDN** > **Media Services**.
 
 	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
 

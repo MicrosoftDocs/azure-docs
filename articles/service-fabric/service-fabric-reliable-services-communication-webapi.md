@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Get started: Service Fabric Web API services with OWIN self-hosting
@@ -39,7 +39,9 @@ Start by creating a new Service Fabric application with a single stateless servi
 
 ![Create a new Service Fabric application](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
-A Visual Studio template for a stateless service using Web API is available to you. In this tutorial, we'll build a project that results in what you'd get if you selected this template. At this point, you can start with the stateless service Web API and follow along, or start with an empty stateless service and build from scratch. 
+A Visual Studio template for a stateless service using Web API is available to you. In this tutorial, we'll build a Web API project from scratch that results in what you'd get if you selected this template.
+
+Select a blank Stateless Service project to learn how to build a Web API project from scratch, or you can start with the stateless service Web API template and simply follow along.  
 
 ![Create a single stateless service](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
@@ -161,11 +163,11 @@ If that looks suspiciously like the entry point to a console application, that's
 
 Further details about the service host process and service registration are beyond the scope of this article. But it's important to know for now that *your service code is running in its own process*.
 
-## Self-host the Web API with an OWIN host
+## Self-host Web API with an OWIN host
 
 Given that your Web API application code is hosted in its own process, how do you hook it up to a web server? Enter [OWIN](http://owin.org/). OWIN is simply a contract between .NET web applications and web servers. Traditionally when ASP.NET (up to MVC 5) is used, the web application is tightly coupled to IIS through System.Web. However, the Web API implements OWIN, so you can write a web application that is decoupled from the web server that hosts it. Because of this, you can use a *self-hosted* OWIN web server that you can start in your own process. This fits perfectly with the Service Fabric hosting model we just described.
 
-In this article, we'll use Katana as the OWIN host for the Web API application. Katana is an open-source OWIN host implementation.
+In this article, we'll use Katana as the OWIN host for the Web API application. Katana is an open-source OWIN host implementation built on [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) and the Windows [HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx).
 
 > [AZURE.NOTE] To learn more about Katana, go to the [Katana site](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). For a quick overview of how to use Katana to self-host the Web API, see [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 

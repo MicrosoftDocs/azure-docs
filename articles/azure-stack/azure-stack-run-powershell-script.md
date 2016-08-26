@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/26/2016"
+	ms.date="06/29/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -21,7 +21,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Prepare the deployment machine
 
-1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
+1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
 2.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 

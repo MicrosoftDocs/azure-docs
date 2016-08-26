@@ -351,7 +351,7 @@ The following example shows the structure of an output definition:
     "outputs": {
        "<outputName>" : {
          "type" : "<type-of-output-value>",
-         "value": "<output-value-expression>",
+         "value": "<output-value-expression>"
        }
     }
 
@@ -370,6 +370,8 @@ The following example shows a value that is returned in the Outputs section.
          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
        }
     }
+
+For more information about working with output, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 
 ## Next Steps
 - To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).

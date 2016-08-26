@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 # Certificates overview for Azure Cloud Services
@@ -61,10 +61,16 @@ This utility has been deprecated and is no longer documented here. Please see [t
 
 ### PowerShell
 
-```
+```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+
+If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+
+```powershell
+Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)

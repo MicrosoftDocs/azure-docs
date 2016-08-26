@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	writer="markvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markvi"/>
 
 # Administer your Azure AD directory

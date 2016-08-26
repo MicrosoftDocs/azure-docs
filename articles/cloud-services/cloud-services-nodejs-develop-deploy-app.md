@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="05/03/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Build and deploy a Node.js application to an Azure Cloud Service

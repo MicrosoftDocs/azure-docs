@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create Active Directory application in portal | Microsoft Azure"
+   pageTitle="Create service principal in portal | Microsoft Azure"
    description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,13 @@
    ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Use portal to create Active Directory application that can access resources
+# Use portal to create Active Directory application and service principal that can access resources
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
+
 
 When you have an automated process or application that needs to access or modify resources, you must set up an Active Directory application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. Currently, you must use the classic portal to create a new Active Directory application, and then switch to the Azure portal to assign a role to the application. 
 
@@ -165,7 +171,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
      ![show](./media/resource-group-create-service-principal-portal/show-app.png)
 
-For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Get access token in code
 

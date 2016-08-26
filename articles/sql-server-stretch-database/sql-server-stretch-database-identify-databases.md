@@ -31,27 +31,23 @@ Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/
 
 3.  On the **Run Stretch Database Advisor** blade, click **SELECT DATABASES TO ANALYZE**.
 
-4.  On the **Select databases** blade, click **SQL INSTANCE**.
+4.  On the **Select databases** blade, enter or select the server name and the authentication info. Click **Connect**.
 
-5.  On the **Connect to SQL Instance** blade, enter the name of the SQL Server instance. Then click **Connect**.
+5.  A list of databases on the selected server appears. Select the databases that you want to analyze. Click **Select**.
 
-6.  On the **Select databases** blade, select the databases to analyze. Then click **Select**.
-
-7.  On the **Run Stretch Database Advisor** blade, click **Run**.  The analysis runs.
+6.  On the **Run Stretch Database Advisor** blade, click **Run**.  The analysis runs.
 
 ## Review the results
 
-1.  When the analysis is finished, on the **Stretch Database Advisor** blade, select one of the databases that you analyzed to display the **Analysis results** blade.
+1.  When the analysis is finished, on the **Analyzed databases** blade, select one of the databases that you analyzed to display the **Analysis results** blade.
 
-    The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria. Optionally, adjust the  minimum size and row count to expand or shrink the list of recommended tables.
+    The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria.
 
-2.  In the list of recommended tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
+2.  In the list of tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
 
-    The **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
+    If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
-3.  In the list of blocking issues on the **Table results** blade, select one of the issues to display the **Rule result** blade.
-
-    The **Rule result** blade describes the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
+3.  In the list of blocking issues on the **Table results** blade, select one of the issues to display more info about the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
 
 ## Next step
 Enable Stretch Database.

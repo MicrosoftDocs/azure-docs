@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="06/17/2016"
    ms.author="bwren" />
 
 # Managing alerts with Microsoft monitoring 
@@ -69,4 +69,4 @@ If you use SCOM as a data source for Log Analytics, you could create a Log Analy
 
 ## Next steps
 
-- Learn the details of [alerts in System Center Operations Manager SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
+- Learn the details of [alerts in System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand"/>
 
 
@@ -96,7 +96,7 @@ These steps update settings at directory level, which apply to all Office groups
 
 2. Get the value you want to update:
 
-	`$value = Setting.GetSettingsValue()`
+	`$value = $Setting.GetSettingsValue()`
 
 3. Update the value:
 

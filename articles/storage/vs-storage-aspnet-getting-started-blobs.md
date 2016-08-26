@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/28/2016"
 	ms.author="tarcher"/>
 
 # Get started with blob storage and Visual Studio connected services (ASP.NET)
@@ -40,7 +40,7 @@ To programmatically access blobs in ASP.NET projects, you need to add the follow
 
 1. Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Azure;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;

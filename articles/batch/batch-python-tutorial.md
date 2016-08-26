@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/08/2016"
+	ms.date="06/17/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -60,10 +60,6 @@ Issue following **pip** command to install the Batch and Storage packages:
 Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_storage] Python packages manually.
 
 > [AZURE.TIP] You may need to prefix your commands with `sudo`, e.g. `sudo pip install -r requirements.txt`, if you are using an unprivileged account (recommended). For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
-
-### Azure Batch Explorer (optional)
-
-The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## Batch Python tutorial code sample
 
@@ -436,7 +432,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command shell and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet).
+> [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must invoke the shell explicitly, such as with `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. This requirement is unnecessary if your tasks execute an application in the node's `PATH` and do not reference any environment variables.
 
 Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed with five command-line arguments that are passed to *python_tutorial_task.py*:
 
@@ -575,7 +571,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Run the sample script
 
-When you run the *python_tutorial_client.py* script, the console output will be similar to the following. You will see a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] or the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the *python_tutorial_client.py* script, the console output will be similar to the following. You will see a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
 Typical execution time is **approximately 5-7 minutes** when you run the application in its default configuration.
 
@@ -609,7 +605,7 @@ Press ENTER to exit...
 
 ## Next steps
 
-Feel free to make changes to *python_tutorial_client.py* and *python_tutorial_task.py* to experiment with different compute scenarios. For example, try adding an execution delay to *python_tutorial_task.py* to simulate long-running tasks and monitor them with the Batch Explorer's *Heat Map* feature. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time.
+Feel free to make changes to *python_tutorial_client.py* and *python_tutorial_task.py* to experiment with different compute scenarios. For example, try adding an execution delay to *python_tutorial_task.py* to simulate long-running tasks and monitor them in the portal. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time.
 
 Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
@@ -620,10 +616,8 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

@@ -85,7 +85,7 @@ Multiparagraph:
 
 ## Includes
 
-Reusable text fragments in our GitHub repository are called "includes". When you have text that needs to be used in multiple articles, you include a reference to the text fragments in the markdown files. The text fragment (the include) itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic.
+Reusable text in our GitHub repository resides in files that we call "includes". When you have text that needs to be used in multiple articles, you include a reference to that file of reusable information. The include itself is a simple markdown (.md) file. It can contain any valid markdown, including text, links, and images. All include markdown files must be in [the /includes directory](https://github.com/Azure/azure-content/tree/master/includes) in the root of the repository. When the article is published, the include text is seamlessly integrated into the published topic.
 
 - We use a specific syntax to reference an include.
 
@@ -94,10 +94,17 @@ Reusable text fragments in our GitHub repository are called "includes". When you
 ###Usage
 
 - Use includes wherever you need the same text to appear in multiple articles.
-- Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; they are not for product names or incomplete sentences.
-- Don't embed includes within other includes. Bad things happen in the publishing system!
+
+- Includes are meant to be used for significant amounts of content - a paragraph or two, a shared procedure, or a shared section. Do not use them for anything smaller than a sentence; **they are not for product names**.
+
+- Ensure all the text in an include is written in complete sentences or phrases that do not depend on preceding text or following text in the article that references the include. Ignoring this guidance creates an untranslatable string in the article that breaks the localized experience. 
+
+- Don't embed includes within other includes. They are not supported by the DPS publishing system.
+
 - Don't share media between files. Use a separate file with a unique name for each include and article. Store the media file in the media folder associated with the include.
-- Don't use an includes as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.
+
+- Don't use an include as the only content of an article.  Includes are meant to be supplemental to the content in the rest of the article.
+
 - Because all includes must be in the /includes directory, the path to an include from an article is always
 
     ../includes

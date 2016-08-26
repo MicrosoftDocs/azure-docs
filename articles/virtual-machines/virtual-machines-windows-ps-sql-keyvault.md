@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Configure Azure Key Vault Integration for SQL Server on Azure VMs (Resource Manager)
@@ -39,7 +39,6 @@ If you are provisioning a new SQL Server virtual machine with Resource Manager, 
 
 For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-If you need to enable AKV integration on an existing VM, you can use a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup).
-
+If you need to enable AKV integration on an existing VM, you can use a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 
 [AZURE.INCLUDE [AKV Integration Next Steps](../../includes/virtual-machines-sql-server-akv-next-steps.md)]

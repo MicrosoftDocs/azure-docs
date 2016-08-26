@@ -22,7 +22,7 @@
 This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more details about disks and VHDs in Microsoft Azure, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md).
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. You can also [capture](virtual-machines-windows-capture-image.md) and [upload](virtual-machines-windows-upload-image.md) a virtual machine using the Resource Manager model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. You can also [capture](virtual-machines-windows-capture-image.md) and [upload](virtual-machines-windows-upload-image.md) a virtual machine using the Resource Manager model. 
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
  - Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name of the URL you use to access blob, queue, or table resources for the subscription.
  - Choose the **location or affinity group** for the storage account. An affinity group lets you place your cloud services and storage in the same datacenter.
- - Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, if you turn on geo-replication later, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. For more details, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
+ - Decide whether to use **geo-replication** for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically, and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, if you turn on geo-replication later, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. For more details, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md#replication-options).
 
       ![Enter storage account details](./media/virtual-machines-windows-classic-createupload-vhd/Storage-create-account.png)
 

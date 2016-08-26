@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Enabling Remote Desktop in Azure

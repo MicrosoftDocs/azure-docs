@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/06/2016"
+	ms.date="06/28/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -344,16 +344,16 @@ Note that you must add a using statement for `System.Security.Principal` to make
 
 ### <a name="authorize"></a>How to: Restrict data access for authorized users
 
-In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering a user's query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the ID of the current user matches the value in the UserId column on the TodoItem table: 
+In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering a user's query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the ID of the current user matches the value in the UserId column on the TodoItem table:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
-    
+
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
-Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
+Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
 
 ## How to: Add push notifications to a server project
 

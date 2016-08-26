@@ -13,72 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/05/2016"
    ms.author="hascipio" />
 
-# How to publish an offer to the Azure Marketplace
-This article is provided to help a developer create and deploy a solution to the Azure Marketplace for other Azure customers and partners to purchase and utilize.
+# How to publish and manage an offer in the Azure Marketplace
+This article is provided to help a developer create,  deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
 The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports multiple solutions, and each of them requires a slightly different set of work from you in order to successfully publish into the Marketplace.
 
-Types of solutions:
-
-- Virtual machine image
-- Developer service
-- Data service
-- Solution template
+## Types of Offers
+|Offer Type| Definition |
+|---|---|
+|Virtual Machine Image | Pre-configured virtual machine (VM) image with a fully installed operating system and one or more applications. Virtual Machine Image offerings may include a single VM image or multiple VM images tied together by a Solution Template. A virtual machine image ("Image") provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service. An Image comprises of an operating system virtual hard drive and zero or more data disk virtual hard drives. Customers can deploy an number of virtual machines from a single image.|
+|Developer Service| Fully managed service for information workers, business analysts, developers or IT professionals to use in customer application developer or system management. Developer Services provide functionality to enable customers to quickly develop cloud scale applications on Azure. Customers must have an Azure subscription to purchase Developer Services. Publishers are responsible for metering customers' usage of Developers Services and for reporting usage information to Microsoft, as detailed in the Microsoft Azure Marketplace Publisher Agreement.|
+|Solution Template|An "Azure Resource Manager (ARM) Solution Template" is a data structure that can reference one or more distinct offerings, including offerings published by other publishers, to enable Azure customers to deploy one or more offerings in a single, coordinated fashion.|
 
 Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
 
+## 1. Pre-requisites
+
 > [AZURE.NOTE] Before you begin any work on the Azure Marketplace, you must be pre-approved. This is not applicable for data service publishers.
 
-||Virtual machine image |Developer service | Data service | Solution template |
-|----|----|----|----|----|
-| **Get pre-approval** | [Microsoft Azure Certified][link-certification] | Private Preview | n/a | [Microsoft Azure Certified][link-certification] |
-| **Step 1: Register your developer account** | [Microsoft Developer account: creation and registration][link-accts] | Private Preview | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] |
-|**Step 2: Create your offer**| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| Private Preview | [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
-|| [VM technical prerequisites][link-single-vm-prereq] | Private Preview | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md) | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[VM image publishing guide][link-single-vm] | Private Preview | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace marketing content guide][link-pushstaging] | Private Preview | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
-| **Step 3: Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Private Preview | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Step 4: Deploy your offer to the Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | Private Preview | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
+1. [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
+2. [Create and register a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)
+3. [Fulfill non-technical pre-requisites](marketplace-publishing-pre-requisites.md)
 
-## Support
-- [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
-- [Understanding seller insights reporting][suppt-rpt-insights]
-- [Understanding payout reporting][suppt-rpt-payouts]
-- [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-- [Troubleshooting common publishing problems in the Marketplace][suppt-common]
-- [Get support as a publisher][suppt-general]
+## 2. Publishing your offer
+### 2.1 Complete offer specific technical pre-requisites
+- [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## Additional resources
-- To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).
+### 2.2 Create your offer
+1. Create your offer using the offer specific guides below.
+    - [Create your VM offer](marketplace-publishing-vm-image-creation.md)
+    - [Create your Solution Template offer](marketplace-publishing-solution-template-creation.md)
+2. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
 
-**Virtual machines**
+### 2.3 Test your offer in staging
+- [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
+- [Test your Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
 
-- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
+### 2.4 Deploy your offer to the Marketplace
+- [Deploy your offer to the Azure Marketplace](marketplace-publishing-push-to-production.md)
+
+### Virtual Machine Image specific ###
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-**Data Services**
 
-- [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
-- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+- [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
+- To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).
 
-[suppt-general]:marketplace-publishing-get-publisher-support.md
-[suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md
-[suppt-rpt-payouts]:marketplace-publishing-report-payout.md
-[suppt-common]:marketplace-publishing-support-common-issues.md
-[link-certification]:marketplace-publishing-azure-certification.md
-[link-accts]:marketplace-publishing-accounts-creation-registration.md
-[link-single-vm]:marketplace-publishing-vm-image-creation.md
-[link-single-vm-prereq]:marketplace-publishing-vm-image-creation-prerequisites.md
-[link-multi-vm]:marketplace-publishing-solution-template-creation.md
-[link-multi-vm-prereq]:marketplace-publishing-solution-template-creation-prerequisites.md
-[link-datasvc]:marketplace-publishing-data-service-creation.md
-[link-datasvc-prereq]:marketplace-publishing-data-service-creation-prerequisites.md
-[link-devsvc]:marketplace-publishing-dev-service-creation.md
-[link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
-[link-pushstaging]:marketplace-publishing-push-to-staging.md
-[link-pushprod]:marketplace-publishing-push-to-production.md
+
+## 3. Post-Publishing management of your offer
+- [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
+- [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
+- [How to delete an offer or SKU from the Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
+- [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
+- [Understanding your seller insights reporting](marketplace-publishing-report-seller-insights.md)
+- [Understanding your payout reporting](marketplace-publishing-report-payout.md)
+- [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
+
+## Additional Resources
+- [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)

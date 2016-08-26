@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/12/2016"
 	ms.author="guybo"/>
 
 # Virtual Machine Scale Sets Overview
@@ -43,13 +43,13 @@ In the detail pages for these templates you'll see a button that links to the po
 
 To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
+If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
 
 To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## Monitoring your VM scale set
 
-It is currently recommended you use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
 
 	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
@@ -57,9 +57,9 @@ It is currently recommended you use the [Azure Resource Explorer](https://resour
 
 This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+ - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
 
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set:
+ - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
  
 	Source | Source Port | Destination | Destination Port
 	--- | --- | --- | ---
@@ -75,7 +75,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Round robin load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can also define probes to verify your application is running by pinging ports with a specified protocol, interval and request path.
+ - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
 
 	[Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
 
@@ -98,7 +98,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** How many VMs can you have in a VM scale set?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are limited to a single storage account during preview.
+**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
 
 **Q** What other resource limits exist for VM scale sets?
 
@@ -149,7 +149,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
 
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
+**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **Q.** Do VM scale sets work with Azure availability sets?
 

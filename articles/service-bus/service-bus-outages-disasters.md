@@ -98,7 +98,7 @@ A durable client-side queue preserves message order and shields the client appli
 To learn more about disaster recovery, see these articles:
 
 - [Azure SQL Database Business Continuity][]
-- [Azure Business Continuity Technical Guidance][]
+- [Azure resiliency technical guidance][]
 
   [Service Bus Authentication]: service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: service-bus-partitioning.md
@@ -109,4 +109,4 @@ To learn more about disaster recovery, see these articles:
   [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Durable Message Sender]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
-  [Azure Business Continuity Technical Guidance]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

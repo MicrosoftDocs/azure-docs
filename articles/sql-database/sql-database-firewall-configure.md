@@ -15,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/10/2016"
+   ms.date="06/22/2016"
    ms.author="rickbyh"/>
 
-# How to configure an Azure SQL server firewall \- overview
+# Configure Azure SQL Database firewall rules \- overview
 
 
 > [AZURE.SELECTOR]
@@ -68,7 +68,7 @@ When an application from Azure attempts to connect to your database server, the 
 
 You can enable connections from Azure in two ways:
 
-- In the [Microsoft Azure Portal](https://portal.azure.com/), select the checkbox **Allow azure services to access server** when creating a new server.
+- In the [Microsoft Azure Portal](https://portal.azure.com/), select the checkbox **Allow azure services to access server** when creating a new server. **Important:** This option configures the firewall to will allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
 - In the [Classic Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793), from the **Configure** tab on a server, under the **Allowed Services** section, click **Yes** for **Microsoft Azure Services**.
 
@@ -135,11 +135,25 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
  - Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
-## See also
+## Next steps
 
-[How to: Configure an Azure SQL server firewall using the Azure Portal](sql-database-configure-firewall-settings.md)
+For how to articles on creating server-level and database-level firewall rules, see:
 
-[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+- [Configure Azure SQL Database server-level firewall rules using the Azure Portal](sql-database-configure-firewall-settings.md)
+- [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md)
+- [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
+
+For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
+For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+To understand how to navigate to databases see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
+
+
+## Additional resources
+
+- [Securing your database](sql-database-security.md)
+- [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png

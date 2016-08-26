@@ -27,7 +27,6 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 
 - Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
-- Because the service is in public preview, make sure that your test environment for migration is isolated from your production environment. Do not mix storage accounts, virtual networks, or other resources between the test and production environments.
 
 ## Step 2: Install the latest version of Azure PowerShell
 
@@ -35,7 +34,7 @@ There are two main options for installation, [PowerShell Gallery](https://www.po
 
 For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
-## Step 3: Set your subscription and sign up for migration public preview
+## Step 3: Set your subscription and sign up for migration
 
 First, start a PowerShell prompt. For migration scenarios, you need to set up your environment for both classic and Resource Manager.
 
@@ -52,8 +51,12 @@ Set your Azure subscription for the current session. Replace everything within t
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
-Sign up for public preview by using the following command.
+>[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
 
+>	*BadRequest : Subscription is not registered for migration.* 
+
+Register with the migration resource provider by using the following command.
+	
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command. Make sure that RegistrationState is `Registered` before you proceed.
@@ -132,6 +135,23 @@ Check the configuration for the prepared virtual machines by using either PowerS
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
 
 	Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+
+### Migrate a storage account
+
+Once you're done migrating the virtual machines, we recommend you migrate the storage account.
+
+Prepare the storage account for migration by using the following command
+
+	$storageAccountName = "storagename"
+	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
+
+Check the configuration for the prepared storage account by using either PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
+
+	Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
+
+If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
+
+	Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 
 ## Next steps
 

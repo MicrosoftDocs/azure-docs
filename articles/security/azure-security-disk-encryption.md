@@ -610,7 +610,7 @@ To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.
 
 ### Connect to your subscription
 
-Make sure to review the perquisites section in this document before proceed. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
+Make sure to review the *Prerequisites* section in this document before proceeding. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
 
 1.Start an Azure PowerShell session and sign in to your Azure account with the following command:
 

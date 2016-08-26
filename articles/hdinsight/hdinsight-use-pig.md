@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight

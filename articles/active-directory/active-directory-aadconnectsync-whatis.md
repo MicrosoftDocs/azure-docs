@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -51,6 +51,8 @@ Topic | What it covers and when to read
 **Operations and UI** |
 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Describes the Synchronization Service Manager UI, including [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md), [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md), and [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) tabs.
 [Operational tasks and considerations](active-directory-aadconnectsync-operations.md) | Describes operational concerns, such as disaster recovery.
+**How To...** |
+[Reset the Azure AD account](active-directory-aadconnectsync-howto-azureadaccount.md) | How to reset the credentials of the service account used to connect from Azure AD Connect sync to Azure AD.
 **More information and references** |
 [Ports](active-directory-aadconnect-ports.md) | Lists which ports you need to open between the sync engine and your on-premises directories and Azure AD.
 [Attributes synchronized to Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Lists all attributes being synchronized between on-premises AD and Azure AD.

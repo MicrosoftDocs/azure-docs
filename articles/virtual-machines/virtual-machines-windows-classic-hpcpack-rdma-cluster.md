@@ -18,14 +18,11 @@ ms.service="virtual-machines-windows"
 
 # Set up a Windows RDMA cluster with HPC Pack and A8 and A9 instances to run MPI applications
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
-
 Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## HPC Pack cluster deployment options
 Microsoft HPC Pack is a tool provided at no additional cost to create Windows Server–based HPC clusters in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MS-MPI). When used with A8 and A9 instances, HPC Pack provides an efficient way to run Windows-based MPI applications that access the RDMA network in Azure. 

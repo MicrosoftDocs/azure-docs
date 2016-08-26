@@ -3,7 +3,7 @@
 	description="Configure performance, availability and usage analytics for your ASP.NET website, hosted on-premises or in Azure." 
 	services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
+	authors="NumberByColors" 
 	manager="douge"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/08/2016" 
-	ms.author="awills"/>
+	ms.date="06/21/2016" 
+	ms.author="daviste"/>
 
 
 # Set up Application Insights for ASP.NET
@@ -107,6 +107,13 @@ So the command did three things:
 3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
 
 If you want, you can do these steps manually for [ASP.NET 4](app-insights-asp-net-manual.md) or [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+
+## To upgrade to future SDK versions
+
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+
+If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
+
 
 
 ## What's next?

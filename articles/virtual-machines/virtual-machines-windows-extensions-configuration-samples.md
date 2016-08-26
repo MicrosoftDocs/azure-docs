@@ -91,7 +91,7 @@ Before deploying the extension please check the latest extension version and rep
               "fileUris": [
                   "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
               ],
-              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+              "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1"
           },
           "protectedSettings": {
             "storageAccountName": "yourStorageAccountName",
@@ -118,10 +118,10 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
                 "fileUris": [
                     "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
                 ],
-                "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1"
+                "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1"
             },
             "protectedSettings": {
-              "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted -start.ps1",
+              "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
               "storageAccountName": "yourStorageAccountName",
               "storageAccountKey": "yourStorageAccountKey"
             }
