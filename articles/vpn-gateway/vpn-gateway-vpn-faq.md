@@ -237,7 +237,7 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
+Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended. However, if you are using the Resource Manager deployment model, the story is different. See the [BGP](#BGP) section for more information.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
