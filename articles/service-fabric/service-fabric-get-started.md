@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
 
 # Prepare your development environment
