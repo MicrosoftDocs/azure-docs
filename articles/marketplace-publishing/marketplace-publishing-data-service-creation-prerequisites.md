@@ -18,7 +18,7 @@
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
 
->[AZURE.IMPORTANT] **Thank you for your interest or participation in the Azure DataMarket. However, we will be retiring the Azure DataMarket and its data services on March 31, 2017.**
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
 Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.
 
