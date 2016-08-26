@@ -174,6 +174,7 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
 [ADF samples]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
