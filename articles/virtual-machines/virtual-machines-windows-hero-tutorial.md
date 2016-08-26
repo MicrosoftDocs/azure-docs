@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/07/2016"
+	ms.date="08/26/2016"
 	ms.author="cynthn"/>
 
 # Create your first Windows virtual machine in the Azure portal
@@ -138,10 +138,31 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Under **Virtual machines** select the VM that you created.
 
-	![Screenshot showing the virtual machine settings item for network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
+	![Screenshot showing the virtual machine setting for the network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
 3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
+	![Screenshot showing the Essentials section for the network interface.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
+
+4. In **Essentials** for the network interface, click on the **Network security group**.
+
+	![Screenshot showing the Essentials section for the NSG.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
+
+5. In Essentials for the NSG, you should have one existing default inbound rule for **default-allow-rdp** whick allows you to log in to the VM. You need to add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
+
+	![Screenshot showing the button to add a security rule.](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
+
+6. In **Inbound security rules**, click **Add**.
+
+	![Screenshot showing the button to add a security rule.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
+
+7. In **Inbound security rules**, click **Add**. Type **80** in the port range and make sure **Allow** is selected. When you are done, click **OK**.
+ 
+## Connect to the deafult IIS website
+
+1. 
+
+2. Open a browser and type
 
 ## Stop the VM
 
