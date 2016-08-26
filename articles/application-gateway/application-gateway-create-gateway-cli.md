@@ -92,7 +92,7 @@ Once the resource group is created, a virtual network is created for the applica
     data:      10.0.0.0/16
     info:    network vnet create command OK
 
-### Create a subnet
+## Create a subnet
 
 After the virtual network is created, a subnet is added for the application gateway.  When defining the subnet be sure to leave enough space for another subnet if you plan to use application gateway with a web app hosted in the same virtual network as the application gateway.
 
@@ -108,7 +108,7 @@ After the virtual network is created, a subnet is added for the application gate
     data:    Address prefix                  : 10.0.0.0/28
     info:    network vnet subnet create command OK
 
-### Create the application gateway
+## Create the application gateway
 
 Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
 The IP addresses used for the backend are the IP addresses for your backend server. These can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
