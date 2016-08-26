@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs formulas to create VMs
@@ -147,6 +147,8 @@ To delete a formula, follow these steps:
 1. Select **Yes** to the deletion confirmation dialog.
 
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
 
