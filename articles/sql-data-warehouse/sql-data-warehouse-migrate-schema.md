@@ -22,7 +22,7 @@ The following summaries help you understand the differences between SQL Server a
 
 ## Table Migration
 
-When migrating your Table DDL to SQL Data Warehouse Table, you'll want to become familiar with the table features of SQL Data Warehouse tables.  The [table overview][] is a great place to start.  This article introduces you to the most important considerations when creating a table such as table statistics, distribution, partitioning, and indexing.  It also covers some [unsupported table features][] and workarounds.
+When migrating your tables, you'll want to become familiar with the table features of SQL Data Warehouse tables.  The [table overview][] is a great place to start.  This article introduces you to the most important considerations when creating a table such as table statistics, distribution, partitioning, and indexing.  It also covers some [unsupported table features][] and workarounds.
 
 SQL Data Warehouse supports the common business data types.  See the [data types][] article for a list of supported and [unsupported data types][].  The [data types][] article also contains a query to identify [unsupported data types][].  When converting your data types, be sure to look at the [data type best practices][].
 
