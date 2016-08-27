@@ -160,7 +160,7 @@ An Http status code of 202, means that the request has been accepted for process
 The following table lists the complete set of status codes that may be returned by the service.
 
 | Code | Status | Error Code | Description |
-|:--|:--|:--|
+|:--|:--|:--|:--|
 | 202 | Accepted |  | The request was successfully accepted. |
 | 400 | Bad request | InactiveCustomer | The workspace has been closed. |
 | 400 | Bad request | InvalidApiVersion | The API version specified was not recognized by the service. |
