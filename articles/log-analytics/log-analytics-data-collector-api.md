@@ -266,7 +266,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### C# sample
+### C sample
 
 ```
 using System;
