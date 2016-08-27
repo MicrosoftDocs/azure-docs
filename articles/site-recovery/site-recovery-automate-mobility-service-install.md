@@ -44,10 +44,13 @@ In this article we will provide you with an example on how you can leverage OMS 
 ## Prerequisites
 
 - A repository to store the required setup
-- A repository to store the required passphrase to register with the management server. 
->[AZURE.NOTE] A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you would have to ensure that the correct passphrase is stored in passphrase.txt file
+- A repository to store the required passphrase to register with the management server.
+
+> [AZURE.NOTE] A unique passphrase is generated for each management server. If you are going to deploy multiple management servers, you would have to ensure that the correct passphrase is stored in passphrase.txt file
+
 - Windows Management Framework 5.0 installed on the machines you want to enable for protection (requirement for OMS Automation DSC).
->[AZURE.NOTE] If you want to use DSC towards your Windows machines using WMF 4.0, see the section for [Using DSC in disconnected environments](#Using DSC in disconnected environments)
+
+> [AZURE.NOTE] If you want to use DSC towards your Windows machines using WMF 4.0, see the section for [Using DSC in disconnected environments](#Using DSC in disconnected environments)
 
 The Mobility Service can be installed through command line and accepts several arguments.
 
