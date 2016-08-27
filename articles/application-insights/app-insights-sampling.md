@@ -59,6 +59,8 @@ Data points that are discarded by sampling are not available in any Application 
 
 Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. If the sampling rate at the SDK  is less than 100%, then the ingestion sampling rate that you set is ignored.
 
+> [AZURE.WARNING] The value shown on the tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if SDK sampling is in operation.
+
 
 ## Adaptive sampling at your web server
 
@@ -290,6 +292,17 @@ The main advantages of sampling are:
 **Use adaptive sampling:**
 
 Otherwise, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It doesn't reduce traffic until a certain minimum rate, so it won't affect a low-use site.
+
+
+## How do I know whether sampling is in operation?
+
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
 
 
 ## How does sampling work?
