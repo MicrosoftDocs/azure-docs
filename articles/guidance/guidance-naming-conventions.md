@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/01/2016"
-   ms.author="masimms"/>
+   ms.author="christb"/>
    
 # Recommended naming conventions for Azure resources
 
