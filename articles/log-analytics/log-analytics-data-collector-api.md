@@ -184,11 +184,10 @@ You can optionally change the variables for the Log Type and JSON data.
 
 ### PowerShell sample
 
-
-
+	```
 	# Replace with your Workspace ID
 	$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
-
+	
 	# Replace with your Primary Key
 	$SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 	
@@ -267,8 +266,11 @@ You can optionally change the variables for the Log Type and JSON data.
 	# Submit the data to the API endpoint
 	Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 
+	```
+
 ### C# sample
 
+	```
 	using System;
 	using System.Net;
 	using System.Security.Cryptography;
@@ -348,10 +350,11 @@ You can optionally change the variables for the Log Type and JSON data.
             client.UploadString(new Uri(url), "POST", json);
         }
     }
-
+	```
 
 # Python sample
 
+	```
 	import json
 	import requests
 	import datetime
