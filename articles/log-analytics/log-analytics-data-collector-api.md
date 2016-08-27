@@ -196,11 +196,20 @@ You can optionally change the variables for the Log Type and JSON data.
 ### PowerShell sample
 
 ```
+# Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+	
+# Replace with your Primary Key
 $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+#Specify the name of the record type that we'll be creating.
 $LogType = "MyRecordType"
+
+#Specify a time in the format YYYY-MM-DDThh:mm:ssZ to specify a created time for the records.
 $TimeStampField = ""
 
+
+#Create two records with same set of properties to create.
 $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
@@ -216,6 +225,7 @@ $json = @"
 }]
 "@
 
+# Function to create the authorization signature.
 Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
 {
     $xHeaders = "x-ms-date:" + $date
@@ -233,6 +243,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 }
 
 
+# Function to create and post the request
 Function Post-OMSData($customerId, $sharedKey, $body, $logType) 
 {
     $method = "POST"
@@ -263,10 +274,11 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 
 } 
 
+# Submit the data to the API endpoint
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### C sample
+### C# sample
 
 ```
 using System;
@@ -280,7 +292,7 @@ namespace OIAPIExample
 //Example JSON object with key value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
-//Update customerId to your Operational Insights workspace ID
+//#Update customerId to your Operational Insights workspace ID
         static string customerId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
 
 //For shared key use either primary or seconday Connected Sources client authentication key   
@@ -349,7 +361,7 @@ public void PostData(string signature, string date, string json){
 }
 ```
 
-# Python sample
+## Python sample
 
 ```
 import json
@@ -359,10 +371,16 @@ import hashlib
 import hmac
 import base64
 
+#Update customer Id to your Operational Insights workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+#For shared key use either the primary or secondary Connected Sources client authentication key   
 shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+#Log type is name of the event that is being submitted 
 log_type = 'WebMonitorTest'
 
+#Example JSON web monitor object
 json_data = [{
    "slot_ID": 12345,
     "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
@@ -387,7 +405,11 @@ json_data = [{
 }]
 body = json.dumps(json_data)
 
+#####################
+######Functions######  
+#####################
 
+# Build API signature
 def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
     x_headers = 'x-ms-date:' + date
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
@@ -397,6 +419,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
+# Build & send request to POST API
 def post_data(customer_id, shared_key, body, log_type):
     method = 'POST'
     content_type = 'application/json'
