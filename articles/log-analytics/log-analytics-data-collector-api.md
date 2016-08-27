@@ -55,25 +55,33 @@ Any request to the OMS HTTP Data Collector API must include an Authorization hea
 
 The format for the Authorization header is as follows:
 
-	Authorization: SharedKey <WorkspaceID>:<Signature>
+```
+Authorization: SharedKey <WorkspaceID>:<Signature>
+```
 
 *WorkspaceID* is the unique identifer for the OMS workspace.  *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) constructed from the request and computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx), and then encoded using Base64 encoding.
 
 Use the following format to encode the Shared Key signature string: 
 
-	StringToSign = VERB + "\n" +
-        	       Content-Length + "\n" +
-	               Content-Type + "\n" +
-    	           x-ms-date + "\n" +
-    	           "/api/logs";
+```
+StringToSign = VERB + "\n" +
+       	       Content-Length + "\n" +
+               Content-Type + "\n" +
+   	           x-ms-date + "\n" +
+   	           "/api/logs";
+```
 
 Following is an example signature string:
 
-	POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
+```
+POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
+```
 
 Once you have the signature string, encode it using the HMAC-SHA256 algorithm on the UTF-8-encoded string and then encode the result as Base64.  Use the following format: 
 
-	Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
+```
+Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
+```
 
 Sample code for creating an authorization header is provided in the samples below.
 
@@ -81,28 +89,31 @@ Sample code for creating an authorization header is provided in the samples belo
 
 The body of the message must be in JSON and include one or more records with property name and value pairs in the following format:
 
-	{
-	"property1": "value1",
-	" property 2": "value2"
-	" property 3": "value3",
-	" property 4": "value4"
-	}
+```
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+}
+```
 
 You can batch together multiple records in a single request using the following format. All the records must be the same record type.
 
-	{
-	"property1": "value1",
-	" property 2": "value2"
-	" property 3": "value3",
-	" property 4": "value4"
-	},
-	{
-	"property1": "value1",
-	" property 2": "value2"
-	" property 3": "value3",
-	" property 4": "value4"
-	}
-
+```
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+},
+{
+"property1": "value1",
+" property 2": "value2"
+" property 3": "value3",
+" property 4": "value4"
+}
+```
 
 ## Record Type and properties
 
@@ -184,257 +195,255 @@ You can optionally change the variables for the Log Type and JSON data.
 
 ### PowerShell sample
 
-	```
-	# Replace with your Workspace ID
-	$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+```
+# Replace with your Workspace ID
+$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 	
-	# Replace with your Primary Key
-	$SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-	
-	#Specify the name of the record type that we'll be creating.
-	$LogType = "MyRecordType"
-	
-	#Specify a time in the format YYYY-MM-DDThh:mm:ssZ to specify a created time for the records.
-	$TimeStampField = ""
-	
-	
-	#Create two records with same set of properties to create.
-	$json = @"
-	[{  "StringValue": "MyString1",
-	    "NumberValue": 42,
-	    "BooleanValue": true,
-	    "DateValue": "2016-05-12T20:00:00.625Z",
-	    "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
-	},
-	{   "StringValue": "MyString2",
-	    "NumberValue": 43,
-	    "BooleanValue": false,
-	    "DateValue": "2016-05-12T20:00:00.625Z",
-	    "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
-	}]
-	"@
+# Replace with your Primary Key
+$SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-	# Function to create the authorization signature.
-	Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
-	{
-	    $xHeaders = "x-ms-date:" + $date
-	    $stringToHash = $method + "`n" + $contentLength + "`n" + $contentType + "`n" + $xHeaders + "`n" + $resource
-	
-	    $bytesToHash = [Text.Encoding]::UTF8.GetBytes($stringToHash)
-	    $keyBytes = [Convert]::FromBase64String($sharedKey)
-	
-	    $sha256 = New-Object System.Security.Cryptography.HMACSHA256
-	    $sha256.Key = $keyBytes
-	    $calculatedHash = $sha256.ComputeHash($bytesToHash)
-	    $encodedHash = [Convert]::ToBase64String($calculatedHash)
-	    $authorization = 'SharedKey {0}:{1}' -f $customerId,$encodedHash
-	    return $authorization
-	}
+#Specify the name of the record type that we'll be creating.
+$LogType = "MyRecordType"
+
+#Specify a time in the format YYYY-MM-DDThh:mm:ssZ to specify a created time for the records.
+$TimeStampField = ""
 
 
-	# Function to create and post the request
-	Function Post-OMSData($customerId, $sharedKey, $body, $logType) 
-	{
-	    $method = "POST"
-	    $contentType = "application/json"
-	    $resource = "/api/logs"
-	    $rfc1123date = [DateTime]::UtcNow.ToString("r")
-	    $contentLength = $body.Length
-	    $signature = Build-Signature `
-	        -customerId $customerId `
-	        -sharedKey $sharedKey `
-	        -date $rfc1123date `
-	        -contentLength $contentLength `
-	        -fileName $fileName `
-	        -method $method `
-	        -contentType $contentType `
-	        -resource $resource
-	    $uri = "https://" + $customerId + ".ods.opinsights.azure.com" + $resource + "?api-version=2016-04-01"
-	
-	    $headers = @{
-	        "Authorization" = $signature;
-	        "Log-Type" = $logType;
-	        "x-ms-date" = $rfc1123date;
-	        "time-generated-field" = $TimeStampField;
-	    }
-	    
-	    $response = Invoke-WebRequest -Uri $uri -Method $method -ContentType $contentType -Headers $headers -Body $body -UseBasicParsing
-	    return $response.StatusCode
-	
-	} 
+#Create two records with same set of properties to create.
+$json = @"
+[{  "StringValue": "MyString1",
+    "NumberValue": 42,
+    "BooleanValue": true,
+    "DateValue": "2016-05-12T20:00:00.625Z",
+    "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
+},
+{   "StringValue": "MyString2",
+    "NumberValue": 43,
+    "BooleanValue": false,
+    "DateValue": "2016-05-12T20:00:00.625Z",
+    "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
+}]
+"@
 
-	# Submit the data to the API endpoint
-	Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+# Function to create the authorization signature.
+Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
+{
+    $xHeaders = "x-ms-date:" + $date
+    $stringToHash = $method + "`n" + $contentLength + "`n" + $contentType + "`n" + $xHeaders + "`n" + $resource
 
-	```
+    $bytesToHash = [Text.Encoding]::UTF8.GetBytes($stringToHash)
+    $keyBytes = [Convert]::FromBase64String($sharedKey)
+
+    $sha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $sha256.Key = $keyBytes
+    $calculatedHash = $sha256.ComputeHash($bytesToHash)
+    $encodedHash = [Convert]::ToBase64String($calculatedHash)
+    $authorization = 'SharedKey {0}:{1}' -f $customerId,$encodedHash
+    return $authorization
+}
+
+
+# Function to create and post the request
+Function Post-OMSData($customerId, $sharedKey, $body, $logType) 
+{
+    $method = "POST"
+    $contentType = "application/json"
+    $resource = "/api/logs"
+    $rfc1123date = [DateTime]::UtcNow.ToString("r")
+    $contentLength = $body.Length
+    $signature = Build-Signature `
+        -customerId $customerId `
+        -sharedKey $sharedKey `
+        -date $rfc1123date `
+        -contentLength $contentLength `
+        -fileName $fileName `
+        -method $method `
+        -contentType $contentType `
+        -resource $resource
+    $uri = "https://" + $customerId + ".ods.opinsights.azure.com" + $resource + "?api-version=2016-04-01"
+
+    $headers = @{
+        "Authorization" = $signature;
+        "Log-Type" = $logType;
+        "x-ms-date" = $rfc1123date;
+        "time-generated-field" = $TimeStampField;
+    }
+    
+    $response = Invoke-WebRequest -Uri $uri -Method $method -ContentType $contentType -Headers $headers -Body $body -UseBasicParsing
+    return $response.StatusCode
+
+} 
+
+# Submit the data to the API endpoint
+Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+```
 
 ### C# sample
 
-	```
-	using System;
-	using System.Net;
-	using System.Security.Cryptography;
-	
-	namespace OIAPIExample
-	{
-	    class ApiExample
-	    {
-	//Example JSON object with key value pairs
-	        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
-	
-	//#Update customerId to your Operational Insights workspace ID
-	        static string customerId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-	
-	//For shared key use either primary or seconday Connected Sources client authentication key   
-	        static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-	        
-	//LogName is name of the event type that is being submitted to Operational Insights
-	        static string LogName = "DemoExample";
-	
-	//Optional field used to specify time stamp fromt he data. If time field not specified, assumes message ingestion time
-	        static string TimeStampField = "";
-	
-	        static void Main()
-	        {
-	//Creating hash for API signature 
-	            var datestring = DateTime.UtcNow.ToString("r");
-	            string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
-	            string hashedString = BuildSignature(stringToHash, sharedKey);
-	            string signature = "SharedKey " + customerId + ":" + hashedString;
-	
-	            PostData(signature, datestring, json);
-	        }
-	
-	//Build API signature
-	        public static string BuildSignature(string message, string secret)
-	        {
-	            var encoding = new System.Text.ASCIIEncoding();
-	            byte[] keyByte = Convert.FromBase64String(secret);
-	            byte[] messageBytes = encoding.GetBytes(message);
-	            using (var hmacsha256 = new HMACSHA256(keyByte))
-	            {
-	                byte[] hash = hmacsha256.ComputeHash(messageBytes);
-	                return Convert.ToBase64String(hash);
-	            }
-	        }
-	
-	//Send request to POST API endpoint 
-	        public static void PostData(string signature, string date, string json)
-	        {
-	            string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-	            using (var client = new WebClient())
-	            {
-	                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-	                client.Headers.Add("Log-Type", LogName);
-	                client.Headers.Add("Authorization", signature);
-	                client.Headers.Add("x-ms-date", date);
-	                client.Headers.Add("time-generated-field", TimeStampField);
-	                client.UploadString(new Uri(url), "POST", json);
-	            }
-	        }
-	    }
-	}
+```
+using System;
+using System.Net;
+using System.Security.Cryptography;
 
+namespace OIAPIExample
+{
+    class ApiExample
+    {
+//Example JSON object with key value pairs
+        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
+//#Update customerId to your Operational Insights workspace ID
+        static string customerId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
 
-    public void PostData(string signature, string date, string json){
+//For shared key use either primary or seconday Connected Sources client authentication key   
+        static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        
+//LogName is name of the event type that is being submitted to Operational Insights
+        static string LogName = "DemoExample";
 
-        string url = "https://<workspaceid>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+//Optional field used to specify time stamp fromt he data. If time field not specified, assumes message ingestion time
+        static string TimeStampField = "";
 
-        using (var client = new WebClient())
+        static void Main()
         {
-            client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-            client.Headers.Add("Log-Type", "TestLFALogs");
-            client.Headers.Add("Authorization", signature);
-            client.Headers.Add("x-ms-date", date);
-            client.UploadString(new Uri(url), "POST", json);
+//Creating hash for API signature 
+            var datestring = DateTime.UtcNow.ToString("r");
+            string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
+            string hashedString = BuildSignature(stringToHash, sharedKey);
+            string signature = "SharedKey " + customerId + ":" + hashedString;
+
+            PostData(signature, datestring, json);
+        }
+
+//Build API signature
+        public static string BuildSignature(string message, string secret)
+        {
+            var encoding = new System.Text.ASCIIEncoding();
+            byte[] keyByte = Convert.FromBase64String(secret);
+            byte[] messageBytes = encoding.GetBytes(message);
+            using (var hmacsha256 = new HMACSHA256(keyByte))
+            {
+                byte[] hash = hmacsha256.ComputeHash(messageBytes);
+                return Convert.ToBase64String(hash);
+            }
+        }
+
+//Send request to POST API endpoint 
+        public static void PostData(string signature, string date, string json)
+        {
+            string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+            using (var client = new WebClient())
+            {
+                client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+                client.Headers.Add("Log-Type", LogName);
+                client.Headers.Add("Authorization", signature);
+                client.Headers.Add("x-ms-date", date);
+                client.Headers.Add("time-generated-field", TimeStampField);
+                client.UploadString(new Uri(url), "POST", json);
+            }
         }
     }
-	```
+}
+
+
+public void PostData(string signature, string date, string json){
+
+    string url = "https://<workspaceid>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+
+    using (var client = new WebClient())
+    {
+        client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
+        client.Headers.Add("Log-Type", "TestLFALogs");
+        client.Headers.Add("Authorization", signature);
+        client.Headers.Add("x-ms-date", date);
+        client.UploadString(new Uri(url), "POST", json);
+    }
+}
+```
 
 # Python sample
 
-	```
-	import json
-	import requests
-	import datetime
-	import hashlib
-	import hmac
-	import base64
-	
-	#Update customer Id to your Operational Insights workspace ID
-	customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-	
-	#For shared key use either the primary or secondary Connected Sources client authentication key   
-	shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-	
-	#Log type is name of the event that is being submitted 
-	log_type = 'WebMonitorTest'
-	
-	#Example JSON web monitor object
-	json_data = [{
-	   "slot_ID": 12345,
-	    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
-	    "availability_Value": 100,
-	    "performance_Value": 6.954,
-	    "measurement_Name": "last_one_hour",
-	    "duration": 3600,
-	    "warning_Threshold": 0,
-	    "critical_Threshold": 0,
-	    "IsActive": "true"
-	},
-	{   
-	    "slot_ID": 67890,
-	    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
-	    "availability_Value": 100,
-	    "performance_Value": 3.379,
-	    "measurement_Name": "last_one_hour",
-	    "duration": 3600,
-	    "warning_Threshold": 0,
-	    "critical_Threshold": 0,
-	    "IsActive": "false"
-	}]
-	body = json.dumps(json_data)
-	
-	#####################
-	######Functions######  
-	#####################
-	
-	# Build API signature
-	def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
-	    x_headers = 'x-ms-date:' + date
-	    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
-	    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
-	    decoded_key = base64.b64decode(shared_key)
-	    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
-	    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
-	    return authorization
-	
-	# Build & send request to POST API
-	def post_data(customer_id, shared_key, body, log_type):
-	    method = 'POST'
-	    content_type = 'application/json'
-	    resource = '/api/logs'
-	    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
-	    content_length = len(body)
-	    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
-	    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
-	
-	    headers = {
-	        'content-type': content_type,
-	        'Authorization': signature,
-	        'Log-Type': log_type,
-	        'x-ms-date': rfc1123date
-	    }
-	    
-	    response = requests.post(uri,data=body, headers=headers)
-	    if (response.status_code == 202):
-	        print 'Accepted'
-	    else:
-	        print "Response code: {}".format(response.status_code)
-	
-	post_data(customer_id, shared_key, body, log_type)
+```
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
 
+#Update customer Id to your Operational Insights workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+#For shared key use either the primary or secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+#Log type is name of the event that is being submitted 
+log_type = 'WebMonitorTest'
+
+#Example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build & send request to POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+    
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code == 202):
+        print 'Accepted'
+    else:
+        print "Response code: {}".format(response.status_code)
+
+post_data(customer_id, shared_key, body, log_type)
+```
 
 ## Next steps
 
