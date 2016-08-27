@@ -159,22 +159,22 @@ An Http status code of 202, means that the request has been accepted for process
 
 The following table lists the complete set of status codes that may be returned by the service.
 
-| Status Code | Error Code | Description |
+| Code | Status | Error Code | Description |
 |:--|:--|:--|
-| 202 - Accepted |  | The request was successfully accepted. |
-| 400 - Bad request | InactiveCustomer | The workspace has been closed. |
-| 400 - Bad request | InvalidApiVersion | The API version specified was not recognized by the service. |
-| 400 - Bad request | InvalidCustomerId | The workspace ID specified is invalid. |
-| 400 - Bad request | InvalidDataFormat | Invalid JSON submitted. The response body may contain more information on how to resolve the error. |
-| 400 - Bad request | InvalidLogType | The log type specified contained special characters or numerics. |
-| 400 - Bad request | MissingApiVersion | The API version wasn’t specified. |
-| 400 - Bad request | MissingContentType | The content type wasn’t specified. |
-| 400 - Bad request | MissingLogType | The required value log type wasn’t specified. |
-| 400 - Bad request | UnsupportedContentEncoding | Message wasn’t encoded. |
-| 400 - Bad request | UnsupportedContentType | Content type was not set to application/json. |
-| 403 - Forbidden | InvalidAuthorization | The service failed to authenticate the request. Verify that the workspace ID and connection key used are valid. | 
-| 500 - Internal Server Error | UnspecifiedError | The service encountered an internal error. Please retry the request. |
-| 503 - Service Unavailable | ServiceUnavailable | The service is currently unavailable to receive requests. Please retry your request. |
+| 202 | Accepted |  | The request was successfully accepted. |
+| 400 | Bad request | InactiveCustomer | The workspace has been closed. |
+| 400 | Bad request | InvalidApiVersion | The API version specified was not recognized by the service. |
+| 400 | Bad request | InvalidCustomerId | The workspace ID specified is invalid. |
+| 400 | Bad request | InvalidDataFormat | Invalid JSON submitted. The response body may contain more information on how to resolve the error. |
+| 400 | Bad request | InvalidLogType | The log type specified contained special characters or numerics. |
+| 400 | Bad request | MissingApiVersion | The API version wasn’t specified. |
+| 400 | Bad request | MissingContentType | The content type wasn’t specified. |
+| 400 | Bad request | MissingLogType | The required value log type wasn’t specified. |
+| 400 | Bad request | UnsupportedContentEncoding | Message wasn’t encoded. |
+| 400 | Bad request | UnsupportedContentType | Content type was not set to application/json. |
+| 403 | Forbidden | InvalidAuthorization | The service failed to authenticate the request. Verify that the workspace ID and connection key used are valid. | 
+| 500 | Internal Server Error | UnspecifiedError | The service encountered an internal error. Please retry the request. |
+| 503 | Service Unavailable | ServiceUnavailable | The service is currently unavailable to receive requests. Please retry your request. |
 
 ## Querying data
 
@@ -361,7 +361,7 @@ public void PostData(string signature, string date, string json){
 }
 ```
 
-## Python sample
+### Python sample
 
 ```
 import json
