@@ -57,7 +57,7 @@ The format for the Authorization header is as follows:
 
 	Authorization: SharedKey <WorkspaceID>:<Signature>
 
-*WorkspaceID* is the unique identifer for the OMS workspace.  *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/en-us/library/system.security.cryptography.hmacsha256.aspx) constructed from the request and computed by using the [SHA256 algorithm](https://msdn.microsoft.com/en-us/library/system.security.cryptography.sha256.aspx), and then encoded using Base64 encoding.
+*WorkspaceID* is the unique identifer for the OMS workspace.  *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) constructed from the request and computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx), and then encoded using Base64 encoding.
 
 Use the following format to encode the Shared Key signature string: 
 
