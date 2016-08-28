@@ -262,7 +262,7 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the data factory has been successfully created,you  see the JSON for the data factory in the **results**; otherwise, you see an error message.  
 
-		$results
+		Write-Host $results
 
 Note the following:
  
@@ -299,7 +299,7 @@ In this step, you link your Azure Storage account to your data factory. With thi
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
   
-		$results
+		Write-Host $results
 
 ### Create Azure HDInsight linked service
 In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.  
@@ -312,7 +312,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.  
 
-		$results
+		Write-Host $results
 
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
@@ -328,7 +328,7 @@ In this step, you create the input dataset to represent input data stored in the
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
   
-		$results
+		Write-Host $results
 ### Create output dataset
 In this step, you create the output dataset to represent output data stored in the Azure Blob storage.
 
@@ -340,7 +340,7 @@ In this step, you create the output dataset to represent output data stored in t
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
   
-		$results 
+		Write-Host $results 
 
 ## Create pipeline
 In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.  
@@ -355,7 +355,7 @@ Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** f
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
 
-		$results
+		Write-Host $results
 5. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
 
 ## Monitor pipeline
