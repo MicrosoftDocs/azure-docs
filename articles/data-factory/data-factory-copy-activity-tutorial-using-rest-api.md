@@ -259,7 +259,7 @@ If you do not specify value for the **end** property, it is calculated as "**sta
 
 In the example, there are 24 data slices as each data slice is produced hourly.
 	
-> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the example above.
+> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the preceding example.
 
 ## Set global variables
 
