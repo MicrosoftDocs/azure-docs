@@ -270,7 +270,7 @@ Output Dataset2
 
 CopyActivity2: 
 Inputs: Dataset2
-Output: Dataset4
+Output: Dataset3
 
 CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
 
@@ -296,12 +296,12 @@ Here is the sample pipeline JSON:
 	                },
 	                "inputs": [
 	                    {
-	                        "name": "BlobInput"
+	                        "name": "Dataset1"
 	                    }
 	                ],
 	                "outputs": [
 	                    {
-	                        "name": "BlobOutput"
+	                        "name": "Dataset2"
 	                    }
 	                ],
 	                "policy": {
@@ -311,7 +311,7 @@ Here is the sample pipeline JSON:
 	                    "frequency": "Hour",
 	                    "interval": 1
 	                },
-	                "name": "CopyFromBlobToBlob",
+	                "name": "CopyFromBlob1ToBlob2",
 	                "description": "Copy data from a blob to another"
 	            },
 	            {
@@ -328,12 +328,12 @@ Here is the sample pipeline JSON:
 	                },
 	                "inputs": [
 	                    {
-	                        "name": "BlobInput2"
+	                        "name": "Dataset2"
 	                    }
 	                ],
 	                "outputs": [
 	                    {
-	                        "name": "BlobOutput2"
+	                        "name": "Dataset3"
 	                    }
 	                ],
 	                "policy": {
@@ -343,17 +343,17 @@ Here is the sample pipeline JSON:
 	                    "frequency": "Hour",
 	                    "interval": 1
 	                },
-	                "name": "CopyFromBlobToBlob2",
+	                "name": "CopyFromBlob2ToBlob3",
 	                "description": "Copy data from a blob to another"
 	            }
 	        ],
 	        "start": "2016-08-25T01:00:00Z",
-	        "end": "2017-08-25T01:00:00Z",
+	        "end": "2016-08-25T01:00:00Z",
 	        "isPaused": false
 	    }
 	}
 
-Notice that in the example, the output dataset of the first copy activity (BlobInput) is specified as input for the second activity. Therefore, the second activity runs only when output dataset from the first activity is ready.  
+Notice that in the example, the output dataset of the first copy activity (Dataset2) is specified as input for the second activity. Therefore, the second activity runs only when output dataset from the first activity is ready.  
 
 In the example, CopyActivity2 can have a different input, say Dataset3, but you specify Dataset2 also as an input to CopyActivity2 so the activity does not run until CopyActivity1 completes. For example: 
 
@@ -385,12 +385,12 @@ Output: Dataset4
 	                },
 	                "inputs": [
 	                    {
-	                        "name": "BlobInput"
+	                        "name": "Dataset1"
 	                    }
 	                ],
 	                "outputs": [
 	                    {
-	                        "name": "BlobOutput"
+	                        "name": "Dataset2"
 	                    }
 	                ],
 	                "policy": {
@@ -417,15 +417,15 @@ Output: Dataset4
 	                },
 	                "inputs": [
 	                    {
-	                        "name": "BlobInput2"
+	                        "name": "Dataset3"
 	                    },
 	                    {
-	                        "name": "BlobOutput"
+	                        "name": "Dataset2"
 	                    }
 	                ],
 	                "outputs": [
 	                    {
-	                        "name": "BlobOutput2"
+	                        "name": "Dataset4"
 	                    }
 	                ],
 	                "policy": {
@@ -435,7 +435,7 @@ Output: Dataset4
 	                    "frequency": "Hour",
 	                    "interval": 1
 	                },
-	                "name": "CopyFromBlobToBlob2",
+	                "name": "CopyFromBlob3ToBlob4",
 	                "description": "Copy data from a blob to another"
 	            }
 	        ],
@@ -446,7 +446,7 @@ Output: Dataset4
 	}
 
 
-Notice that in the example, two input datasets are specified for the second copy activity. When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
+Notice that in the example, two input datasets are specified for the second copy activity. **When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies.** CopyActivity2 would only start executing when the following conditions are met: 
 
 - CopyActivity1 has successfully completed and Dataset2 is available. This dataset is not used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
 - Dataset3 is available. This dataset represents the data that is copied to the destination.  
