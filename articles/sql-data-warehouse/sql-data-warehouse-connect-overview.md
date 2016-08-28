@@ -27,7 +27,7 @@ Overview of connecting to Azure SQL Data Warehouse.
 
 ## Discover connection string from portal
 
-Your SQL Data Warehouse is associated with an Azure SQL server. To connect, you need the fully qualified name of the server (e.g. **servername**.database.windows.net).
+Your SQL Data Warehouse is associated with an Azure SQL server. To connect, you need the fully qualified name of the server.  For example, **myserver**.database.windows.net.
 
 To find the fully qualified server name:
 
@@ -50,7 +50,7 @@ SQL Data Warehouse standardizes a few settings during connection and object crea
 
 ## Monitoring connections and queries
 
-Once a connection has been made and a session has been established you are ready to write and submit queries to SQL Data Warehouse.  To learn how to monitor sessions and queries, see [Monitor your workload using DMVs][].
+Once a connection has been made and a session has been established, you are ready to write and submit queries to SQL Data Warehouse.  To learn how to monitor sessions and queries, see [Monitor your workload using DMVs][].
 
 ## Next steps
 
