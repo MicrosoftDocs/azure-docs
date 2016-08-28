@@ -63,7 +63,7 @@ From the preceding query results, **note the Request ID** of the query that you 
 
 Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See [Concurrency and workload management][] for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][] further down in this article.
 
-To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use [LABEL][] to assign a comment to your query which can be looked up in the sys.dm_pdw_exec_requests view.
+To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use [LABEL][] to assign a comment to your query that can be looked up in the sys.dm_pdw_exec_requests view.
 
 ```sql
 -- Query with Label
@@ -141,7 +141,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## Monitor waiting queries
 
-If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows all the resources a query is waiting for.
+If you discover that your query is not making progress because it is waiting for a resource, here is a query that shows all the resources a query is waiting for.
 
 ```sql
 -- Find queries 
