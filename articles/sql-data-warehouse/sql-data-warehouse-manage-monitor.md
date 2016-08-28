@@ -53,6 +53,7 @@ FROM sys.dm_pdw_exec_requests
 ORDER BY total_elapsed_time DESC;
 
 -- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
 SELECT  *
 FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
@@ -62,14 +63,15 @@ From the preceding query results, **note the Request ID** of the query that you 
 
 Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See [Concurrency and workload management][] for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][] further down in this article.
 
-> [AZURE.NOTE] To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use the [OPTION (LABEL = '')][] feature.
-   ```sql
-   -- Query with Label
-   SELECT *
-   FROM sys.tables
-   OPTION (LABEL = 'My Query')
-   ;
-   ```
+To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use [LABEL][] to assign a comment to your query which can be looked up in the sys.dm_pdw_exec_requests view.
+
+```sql
+-- Query with Label
+SELECT *
+FROM sys.tables
+OPTION (LABEL = 'My Query')
+;
+```
 
 ### STEP 2: Investigate the query plan
 
@@ -186,4 +188,4 @@ For best practices, see [SQL Data Warehouse best practices][].
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-[OPTION (LABEL = '')]: https://msdn.microsoft.com/library/ms190322.aspx
+[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
