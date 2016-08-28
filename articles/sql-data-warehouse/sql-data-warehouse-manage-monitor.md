@@ -60,7 +60,7 @@ WHERE   [label] = 'My Query';
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See  [Concurrency and workload management][] for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][] further down in this article.
+Queries in the **Suspended** state are being queued due to concurrency limits. These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType. See [Concurrency and workload management][] for more details on concurrency limits. Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][] further down in this article.
 
 > [AZURE.NOTE] To simplify the lookup of a query in the sys.dm_pdw_exec_requests table, use the [OPTION (LABEL = '')][] feature.
    ```sql
@@ -84,7 +84,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a very long time.  If the plan is many steps with a lot of move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution][] article explains why data must be moved to solve a query and explains some distribution strategies to minimize data movement.
+When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution][] article explains why data must be moved to solve a query and explains some distribution strategies to minimize data movement.
 
 To investigate further details about a single step, the *operation_type* column of the long-running query step and note the **Step Index**:
 
@@ -93,7 +93,7 @@ To investigate further details about a single step, the *operation_type* column 
 
 ### STEP 3a: Investigate SQL on the distributed databases
 
-Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests][], which contains information on the execution of the query on each of the distributed instances of SQL Server.
+Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests][], which contains execution information of the query step on all of the distributed databases.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -103,7 +103,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step on a particular distribution.
+When the query step is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the step running on a particular distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
