@@ -50,7 +50,7 @@ With Azure Data Factory, you can process time series data in batched fashion wit
       "interval": 1
     },
 
-Each unit of data consumed and produced by an activity run is called a data **slice**. The following diagram shows an example of an activity with an input dataset and an output dataset each with availability set to hourly frequency.
+Each unit of data consumed and produced by an activity run is called a data **slice**. The following diagram shows an example of an activity with one input dataset and one output dataset. These datasets have availability set to hourly frequency.
 
 ![Availability scheduler](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -239,11 +239,9 @@ The diagram shows that out of three recent slices there was a failure producing 
 
 Data factory monitoring & management tools allow you to drill into the diagnostic logs for the failed slice easily find the root cause for the issue and fix it. Once you have fixed the issue, you can also easily kick off the activity run to produce the failed slice. For more details on how to rerun, understand state transitions for data slices, see **Monitoring and managing pipelines using** [Azure portal blades](data-factory-monitor-manage-pipelines.md) (or) [Monitor and Manage app](data-factory-monitor-manage-app.md) for details. 
 
-Once you rerun the 9-10 AM slice for dataset2 and it is ready, Data Factory starts the run for the 9-10 AM dependent slice on final dataset as shown in the following diagram.
+Once you rerun the 9-10 AM slice for dataset2 and it is ready, Data Factory starts the run for the 9-10 AM dependent slice on final dataset.
 
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
-
-For a deeper dive on specifying and tracking dependencies for a chain of activities, refer to following sections.
 
 ## Running activities in a sequence
 You can chain two activities (run one activity after another) by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
@@ -461,7 +459,7 @@ In the samples, the frequencies for input and output datasets and activity sched
 
 ### Sample 1: Producing daily output report for input data that is available every hour
 
-Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob. You want to produce a daily aggregate report with statistics such as mean, max, min etc., for the day with Data Factory [Hive activity](data-factory-hive-activity.md).
+Consider a scenario where we have input measurement data from sensors available every hour in Azure Blob. You want to produce a daily aggregate report with statistics such as mean, max, and min for the day with Data Factory [Hive activity](data-factory-hive-activity.md).
 
 Here is how you can model this scenario with Data Factory:
 
