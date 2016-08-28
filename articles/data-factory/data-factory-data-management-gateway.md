@@ -413,7 +413,7 @@ This section describes how to create and register a gateway by using Azure Power
 
 		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-You can remove a gateway by using the Remove-AzureRmDataFactoryGateway cmdlet and update a gateway description by using the Set-AzureRmDataFactoryGateway cmdlets. For syntax and other details about these cmdlets, see [Data Factory Cmdlet Reference](https://msdn.microsoft.com/en-us/library/dn820234.aspx).  
+You can remove a gateway by using the Remove-AzureRmDataFactoryGateway cmdlet and update a gateway description by using the Set-AzureRmDataFactoryGateway cmdlets. For syntax and other details about these cmdlets, see [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx).  
 
 ### List gateways by using PowerShell
 
