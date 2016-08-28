@@ -245,26 +245,26 @@ Once you rerun the 9-10 AM slice for dataset2 and it is ready, Data Factory star
 
 For a deeper dive on specifying and tracking dependencies for a chain of activities, refer to following sections.
 
-## Chaining activities
-You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+## Running activities in a sequence
+You can chain two activities (run one activity after another) by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
 
 For example, consider the following case:
  
 1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
-2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset **D3**.
  
-In this scenario, the activity A1 runs when the external data is available, and the scheduled availability frequency is reached.  The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
+In this scenario, activities A1 and A2 are in different pipelines. The activity A1 runs when the external data is available, and the scheduled availability frequency is reached.  The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
 
 The Diagram View would look like the following diagram:
 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-The Diagram View with both activities in the same pipeline would look like the following diagram: 
+As mentioned earlier, the activities can be in the same pipeline. The Diagram View with both activities in the same pipeline would look as shown in the following diagram: 
 
 ![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
-### Ordered copy
-It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity with the following input data output datasets.   
+### Sequential copy
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity2 with the following input data output datasets.   
 
 CopyActivity1: 
 Input: Dataset1
@@ -276,6 +276,87 @@ Output: Dataset4
 
 CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
 
+Here is the sample pipeline JSON: 
+
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "BlobInput"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "BlobOutput"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "BlobInput2"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "BlobOutput2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob2",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2016-08-25T01:00:00Z",
+	        "end": "2017-08-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+Notice that in the example, the output dataset of the first copy activity (BlobInput) is specified as input for the second activity. Therefore, the second activity runs only when output dataset from the first activity is ready.  
+
 In the example, CopyActivity2 can have a different input, say Dataset3, but you specify Dataset2 also as an input to CopyActivity2 so the activity does not run until CopyActivity1 completes. For example: 
 
 CopyActivity1: 
@@ -286,7 +367,88 @@ CopyActivity2:
 Inputs: Dataset3, Dataset2
 Output: Dataset4
 
-When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
+	{
+		"name": "ChainActivities",
+	    "properties": {
+			"description": "Run activities in sequence",
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "copyBehavior": "PreserveHierarchy",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "BlobInput"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "BlobOutput"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob",
+	                "description": "Copy data from a blob to another"
+	            },
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource"
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "BlobInput2"
+	                    },
+	                    {
+	                        "name": "BlobOutput"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "BlobOutput2"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00"
+	                },
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "CopyFromBlobToBlob2",
+	                "description": "Copy data from a blob to another"
+	            }
+	        ],
+	        "start": "2017-04-25T01:00:00Z",
+	        "end": "2017-04-25T01:00:00Z",
+	        "isPaused": false
+	    }
+	}
+
+
+Notice that in the example, two input datasets are specified for the second copy activity. When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
 
 - CopyActivity1 has successfully completed and Dataset2 is available. This dataset is not used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
 - Dataset3 is available. This dataset represents the data that is copied to the destination.  
