@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -22,17 +22,18 @@ This article describes how to use Dynamic Management Views (DMVs) to monitor you
 
 ## Monitor connections
 
-The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your Azure SQL Data Warehouse database.  This view contains active sessions as well as a history of recently disconnected sessions.  The session_id is the primary key for this view and is assigned sequentially for each new logon.
+Each connection to SQL Data Warehouse is represented by a session id in the DMV [sys.dm_pdw_exec_sessions][].  This DMV contains both active sessions and a history of recently disconnected sessions.  The session_id is the primary key and is assigned sequentially for each new logon.
 
 ```sql
-SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
+-- Other Active Connections
+SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <> session_id();
 ```
 
 ## Monitor query execution
 
-To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Querying this table for a given session_id will show all queries for a given logon.
+To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This DMV contains queries which are in progress or have have recently completed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query.  Querying this DMV for a given session_id shows all queries for a given logon.
 
->[AZURE.NOTE] Stored procedures use multiple request_ids.  The request ids will be assigned in sequencial order. 
+>[AZURE.NOTE] Stored procedures use multiple request_ids.  Request ids are assigned in sequential order. 
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
@@ -52,9 +53,9 @@ FROM sys.dm_pdw_exec_requests
 ORDER BY total_elapsed_time DESC;
 ```
 
-From the above query results, **note the Request ID** of the query which you would like to investigate.
+From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the Suspended state are being queued due to concurrency limits which is explained in detail in [Concurrency and workload management][].  These queries will also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType.  Queries can also wait for other reasons such as for locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][].
+Queries in the Suspended state are being queued due to concurrency limits, which is explained in detail in [Concurrency and workload management][].  These queries also appear in the sys.dm_pdw_waits waits query with a type of UserConcurrencyResourceType.  Queries can also wait for other reasons such as for locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources][].
 
 ### STEP 2: Find the longest running step of the query plan
 
@@ -76,7 +77,7 @@ Check the *operation_type* column of the long-running query step and note the **
 
 ### STEP 3a: Find the execution progress of a SQL step
 
-Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests][] which contains information on the execution of the query on each distributed instances of SQL Server.
+Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests][], which contains information on the execution of the query on each of the distributed instances of SQL Server.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -86,7 +87,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step within a particular distribution.
+If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step on a particular distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -122,7 +123,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 ## Monitor waiting queries
 
-If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows you all reasources a query is waiting for.
+If you discover that your query is not making progress because it is waiting for a resource, here is a query which shows all the resources a query is waiting for.
 
 ```sql
 -- Find queries 
