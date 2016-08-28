@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -22,15 +22,16 @@ This article describes how to use Dynamic Management Views (DMVs) to monitor you
 
 ## Monitor connections
 
-The [sys.dm_pdw_exec_sessions][] view allows you to monitor connections to your Azure SQL Data Warehouse database.  This view contains active sessions as well as a history of recently disconnected sessions.  The session_id is the primary key for this view and is assigned sequentially for each new logon.
+Each connection to SQL Data Warehouse is represented by a session id in the DMV [sys.dm_pdw_exec_sessions][].  This DMV contains both active sessions and a history of recently disconnected sessions.  The session_id is the primary key and is assigned sequentially for each new logon.
 
 ```sql
-SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
+-- Other Active Connections
+SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <> session_id();
 ```
 
 ## Monitor query execution
 
-To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This view contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this view.  The request_id is assigned sequentially for each new query.  Querying this table for a given session_id will show all queries for a given logon.
+To monitor query execution, start with [sys.dm_pdw_exec_requests][].  This DMV contains queries in progress as well as a history of queries which have recently completed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query.  Querying this DMV for a given session_id will show all queries for a given logon.
 
 >[AZURE.NOTE] Stored procedures use multiple request_ids.  The request ids will be assigned in sequencial order. 
 
