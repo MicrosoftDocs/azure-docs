@@ -502,7 +502,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application. For iOS, it is recommended (but not required) that the redirect URI is of the form `<app-scheme>://<bundle-id>`. Please see the [ADAL iOS quickstart](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) for more details.
 
@@ -591,7 +591,7 @@ and the Pod:
 
 ## <a name="facebook-sdk"></a>How to: Authenticate users with the Facebook SDK for iOS
 
-You can use the Facebook SDK for iOS to sign users into your application using Facebook. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Facebook SDK for iOS to sign users into your application using Facebook. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for Facebook sign-in by following the [How to configure App Service for Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md) tutorial.
 
@@ -669,7 +669,7 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 
 ## <a name="twitter-fabric"></a>How to: Authenticate users with Twitter Fabric for iOS
 
-You can use Fabric for iOS to sign users into your application using Twitter. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use Fabric for iOS to sign users into your application using Twitter. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
 
@@ -743,7 +743,7 @@ You can use Fabric for iOS to sign users into your application using Twitter. Th
 
 ## <a name="google-sdk"></a>How to: Authenticate users with the Google Sign-In SDK for iOS
 
-You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 
