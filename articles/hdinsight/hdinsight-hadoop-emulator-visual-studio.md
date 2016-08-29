@@ -9,7 +9,7 @@ editor="cgronlun"/>
 
 <tags
 ms.service="hdinsight"
-ms.devlang=""
+ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
@@ -28,9 +28,9 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 * Visual Studio 2013 or 2015, any edition.
 
-* The [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/) 2.7.1 or higher
+* The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or higher
 
-* [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
+* [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 
 ## Configure passwords for the sandbox
 
