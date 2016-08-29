@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/15/2016"
+	ms.date="08/29/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -36,9 +36,9 @@ Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting t
 
 ## QuickStart
 
-1. Download the sample project from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/archive/master.zip).
+1. Download the sample project from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
 2. Use the Azure portal to [create a DocumentDB account](documentdb-create-account.md).
-3. In the App.config file, replace the EndpointUri and PrimaryKey value with the values retrieved from the [Azure portal](https://portal.azure.com/), by navigating to DocumentDB Accounts blade, Account name, Keys.
+3. In the App.config file, replace the EndpointUri and PrimaryKey values with the values retrieved from the [Azure portal](https://portal.azure.com/), by navigating to **DocumentDB (NoSQL)** blade, then clicking the **Account name**,  and then clicking **Keys** on the resource menu.
     ![Screen shot of the EndpointUri and PrimaryKey value to replace in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Build the project. The console window shows the new resources being created, queried, and then cleaned up.
     
@@ -54,7 +54,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Step 2: Setup your Visual Studio solution
+## <a id="SetupVS"></a>Step 2: Setup your Visual Studio solution
 
 1. Open **Visual Studio 2015** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
@@ -70,7 +70,7 @@ The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB]
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Step 3: Connect to a DocumentDB account
+## <a id="Connect"></a>Step 3: Connect to a DocumentDB account
 
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
@@ -95,13 +95,11 @@ Now, add these two constants and your *client* variable underneath your public c
 		private const string PrimaryKey = "<your key>";
 		private DocumentClient client;
 
-Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI and primary key. The DocumentDB URI and primary key are necessary for your application to understand where to connect to and for DocumentDB to trust your application's connection.
+Next, head to the [Azure Portal](https://portal.azure.com) to retrieve your URI and primary key. The DocumentDB URI and primary key are necessary for your application to understand where to connect to, and for DocumentDB to trust your application's connection.
 
-In the Azure Portal, navigate to your DocumentDB account from Step 1.
+In the Azure Portal, navigate to your DocumentDB account, and then click **Keys**.
 
-Click on the **keys** icon in the **Essentials** bar.
-Copy the URI and replace *<your endpoint URI>* with the copied URI in your program.
-Copy the primary key and replace *<your key>* with the copied key in your program.
+Copy the URI from the portal and paste it into `<your endpoint URI>` in the program.cs file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`.
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
@@ -197,13 +195,13 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
 Press **F5** to run your application.
 
 Congratulations! You have successfully created a DocumentDB database.  
 
-##<a id="CreateColl"></a>Step 5: Create a collection  
+## <a id="CreateColl"></a>Step 5: Create a collection  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -245,20 +243,20 @@ Copy and paste the **CreateDocumentCollectionIfNotExists** method underneath you
 		}
 	}
 
-Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This will create a document collection named *FamilyCollection*.
+Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This will create a document collection named *FamilyCollection_va*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+		await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 Press **F5** to run your application.
 
 Congratulations! You have successfully created a DocumentDB document collection.  
 
-##<a id="CreateDoc"></a>Step 6: Create JSON documents
+## <a id="CreateDoc"></a>Step 6: Create JSON documents
 A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
 
 First, we need to create a **Family** class that will represent objects stored within DocumentDB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal sub-classes after the **GetStartedDemo** method.
@@ -343,9 +341,9 @@ And insert two documents, one each for the Andersen Family and the Wakefield Fam
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the document collection creation.
 
-	await this.CreateDatabaseIfNotExists("FamilyDB");
+	await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
-	await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+	await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	Family andersenFamily = new Family
@@ -374,7 +372,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 			IsRegistered = true
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", andersenFamily);
 
 	Family wakefieldFamily = new Family
 	{
@@ -411,7 +409,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 			IsRegistered = false
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 Press **F5** to run your application.
 
@@ -446,7 +444,7 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -461,10 +459,10 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second document creation.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Press **F5** to run your application.
 
@@ -498,17 +496,17 @@ Copy and paste the **ReplaceFamilyDocument** method underneath your **ExecuteSim
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the query execution. After replacing the document, this will run the same query again to view the changed document.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	// Update the Grade of the Andersen Family child
 	andersenFamily.Children[0].Grade = 6;
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Press **F5** to run your application.
 
@@ -536,12 +534,12 @@ Copy and paste the **DeleteFamilyDocument** method underneath your **ReplaceFami
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second query execution.
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO CODE
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 Press **F5** to run your application.
 
@@ -553,13 +551,13 @@ Deleting the created database will remove the database and all children resource
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the document delete to delete the entire database and all children resources.
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 	// ADD THIS PART TO CODE
 	// Clean up/delete the database
-	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_va"));
 
 Press **F5** to run your application.
 
@@ -571,9 +569,9 @@ Hit F5 in Visual Studio to build the application in debug mode.
 
 You should see the output of your get started app. The output will show the results of the queries we added and should match the example text below.
 
-	Created FamilyDB
+	Created FamilyDB_va
 	Press any key to continue ...
-	Created FamilyCollection
+	Created FamilyCollection_va
 	Press any key to continue ...
 	Created Family Andersen.1
 	Press any key to continue ...
@@ -594,14 +592,14 @@ You should see the output of your get started app. The output will show the resu
 
 Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
-## <a id="GetSolution"></a> Get the complete NoSQL tutorial solution
+##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 - An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 -   A [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
-To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and PrimaryKey values as described in [Connect to a DocumentDB account](#Connect).
+To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
 
 ## Next steps
 
@@ -611,8 +609,7 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[quickstartbutton]: media/documentdb-get-started-quickstart/get-quickstart-project.png
-[createaccountbutton]: media/documentdb-get-started-quickstart/nosql-tutorial-create-account.png
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+
