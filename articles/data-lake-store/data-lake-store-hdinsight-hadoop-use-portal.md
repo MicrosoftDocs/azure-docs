@@ -101,7 +101,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
  
 	![Provide access to Data Lake Store](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi-adl-permission-1.png "Provide access to Data Lake Store")
 
-	After that, determine the permissions to be provided for the the selected files and folders. For folders, also specify whether the permissions apply to the folder only or to the folder and all the child items in the folder. You can make this selection by selecting the appropriate value from the Apply To drop-down.
+	After that, determine the permissions to be provided for the the selected files and folders. For folders, also specify whether the permissions apply to the folder only or to the folder and all the child items in the folder. You can make this selection by selecting the appropriate value from the **Apply To** drop-down. To remove a permission, click the **Delete** icon
 
 	![Provide access to Data Lake Store](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi-adl-permission-2.png "Provide access to Data Lake Store")
 
