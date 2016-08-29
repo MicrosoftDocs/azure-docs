@@ -133,7 +133,7 @@ For additional technical resources and specific syntax requirements when using R
 
 ## Next steps
 
-+See [About VPN Gateway](vpn-gateway-about-vpngateways.md) for more information about available connection configurations. 
+See [About VPN Gateway](vpn-gateway-about-vpngateways.md) for more information about available connection configurations. 
 
 
 
