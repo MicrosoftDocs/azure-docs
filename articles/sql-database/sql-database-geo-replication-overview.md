@@ -81,7 +81,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 ## Programmatically managing Active Geo-Replication
 
-As discussed above, in addiition to the Azure portal, Active Geo-Replication can be managed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
+As discussed above, in addition to the Azure portal, Active Geo-Replication can be managed programmatically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
 
 - **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager (ARM) APIs]( https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [ARM-based PowerShell cmdlets](sql-database-geo-replication-powershell.md). These APIs require the use of resource groups and support role based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
@@ -118,7 +118,7 @@ As discussed above, in addiition to the Azure portal, Active Geo-Replication can
 |---|-----------|
 |[Create or Update Database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Creates, updates, or restores a primary or a secondary database.|
 |[Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Returns the status during a create operation.|
-|[Set Secondary Database as Primary (Planned Failover)r](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promote a secondary database in a Geo-Replication partnership to become the new primary database.|
+|[Set Secondary Database as Primary (Planned Failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promote a secondary database in a Geo-Replication partnership to become the new primary database.|
 |[Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|To force a failover to the secondary database and set the secondary as the primary.|
 |[Get Replication Links](https://msdn.microsoft.com/library/azure/mt600929.aspx)|Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view.|
 |[Get Replication Link](https://msdn.microsoft.com/library/azure/mt600778.aspx)|Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view.|

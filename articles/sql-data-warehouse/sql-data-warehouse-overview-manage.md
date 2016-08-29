@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="08/16/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -46,7 +46,7 @@ To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure po
 
 SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure Classic Portal.  
 
-To get started with SSDT in Visual Studio, see [Connect to Azure SQL Data Warehouse with Visual Studio][].
+To get started with SSDT in Visual Studio, see [Query Azure SQL Data Warehouse with Visual Studio][].
 
 ### Command-line tools
 Command line tools are ideal for automating your workloads.  PowerShell and sqlcmd are two great ways to automate your processes.  We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
@@ -100,7 +100,7 @@ Using good database design principles will make it easier to manage your databas
 [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
-[Connect to Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-get-started-connect.md
+[Query Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md

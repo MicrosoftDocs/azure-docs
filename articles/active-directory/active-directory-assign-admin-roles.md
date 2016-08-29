@@ -38,9 +38,9 @@ The following administrator roles are available:
 
 - **User administrator**: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests. Some limitations apply to the permissions of a user management administrator. For example, they cannot delete a global administrator or create other administrators. Also, they cannot reset passwords for billing, global, and service administrators.
 
-- **Security reader**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center.
+- **Security reader**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Security & Compliance Center.
 
-- **Security administrator**: All of the read-only permissions of the **Security reader** role, plus a number of additional administrative permissions for the same services: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Protection Center.
+- **Security administrator**: All of the read-only permissions of the **Security reader** role, plus a number of additional administrative permissions for the same services: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Security & Compliance Center.
 
 ## Administrator permissions
 
@@ -80,7 +80,7 @@ In | Can do
 ------------- | -------------
 Identity Protection Center | Read all security reports and settings information for security features<ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules
 Privileged Identity Management | <p>Has read-only access to all information surfaced in Azure AD PIM: Policies and reports for Azure AD role assignments, security reviews and in the future read access to policy data and reports for scenarios besides Azure AD role assignment.<p>**Cannot** sign up for Azure AD PIM or make any changes to it. In PIM's portal or via PowerShell, someone in this role can activate additional roles (for example, Global Admin or Privileged Role Administrator), if the user is a candidate for them.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Protection Center</p> | <ul><li>Read and manage alerts<li>Read security policies<li>Read threat intelligence, Cloud App Discovery, and Quarantine in Search and Investigate<li>Read all reports
+<p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center</p> | <ul><li>Read and manage alerts<li>Read security policies<li>Read threat intelligence, Cloud App Discovery, and Quarantine in Search and Investigate<li>Read all reports
 
 ### Security Administrator
 
@@ -88,7 +88,7 @@ In | Can do
 ------------- | -------------
 Identity Protection Center | <ul><li>All permissions of the Security Reader role.<li>Additionally, the ability to perform all IPC operations except for resetting passwords.
 Privileged Identity Management | <ul><li>All permissions of the Security Reader role.<li>**Cannot** manage Azure AD role memberships or settings.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Protection | <ul><li>All permissions of the Security Reader role.<li>Can configure all settings in the Advanced Threat Protection feature (malware & virus protection, malicious URL config, URL tracing, etc.).
+<p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center | <ul><li>All permissions of the Security Reader role.<li>Can configure all settings in the Advanced Threat Protection feature (malware & virus protection, malicious URL config, URL tracing, etc.).
 
 ## Details about the global administrator role
 

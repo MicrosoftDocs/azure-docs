@@ -1,5 +1,5 @@
  <properties
-	pageTitle="Create Spark Scala applications using HDInsight plugin for Eclipse | Microsoft Azure"
+	pageTitle="Create Spark Scala applications using HDInsight Tools in Azure Toolkit for Eclipse | Microsoft Azure"
 	description="Learn how to create a standalone Spark application to run on HDInsight Spark clusters."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Use HDInsight Tools Plugin for Eclipse to create Spark applications for HDInsight Spark Linux cluster
+# Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications for HDInsight Spark Linux cluster
 
-This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight plugin for Eclipse. You can use the plugin in a few different ways:
+This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight Tools in Azure Toolkit for Eclipse. You can use the tools in a few different ways:
 
 * To develop and submit a Scala Spark application on an HDInsight Spark cluster
 * To access your Azure HDInsight Spark cluster resources
@@ -52,21 +52,9 @@ This article provides step-by-step guidance on developing Spark applications wri
 * Install e(fx)clipse from [https://www.eclipse.org/efxclipse/install.html](https://www.eclipse.org/efxclipse/install.html).
 
 
-## Install HDInsight Tools plugin for Eclipse
+## Install HDInsight Tools in Azure Toolkit for Eclipse
 
-1. Launch Eclipse IDE. Navigate to the location where you downloaded and extracted the .zip package, navigate to the **/eclipse** folder under that, and then click **eclipse.exe**. From the welcome screen, , click **Help** and then click **Install New Software**.
-
-	![Install HDInsight plugin](./media/hdinsight-apache-spark-eclipse-tool-plugin/install-hdinsight-plugin-1.png)
-
-2. In the next screen, in the **Work with** text box type **http://dl.microsoft.com/eclipse** and press **ENTER**. Select **Azure Toolkit for Java**, clear the check box for **Contact all update sites during install to find required software**, and then click **Next**.
-
-	![Install HDInsight plugin](./media/hdinsight-apache-spark-eclipse-tool-plugin/install-hdinsight-plugin-2.png)
-
-3. In the **Install Details** dialog box review the components that will be installed and then click **Next**.
-
-4. In the **Review Licenses** dialog box, accept the terms of the license, and then click **Finish**.
-
-5. Once the installation is completed, you will be prompted to restart Eclipse. Click **Yes** from the dialog box to restart Eclipse.
+HDInsight tools for Eclipse is available as part of the Azure Toolkit for Eclipse. For instructions on how to install the Azure Toolkit, see [Installing the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
 
 ## Log into your Azure subscription
 
@@ -197,12 +185,12 @@ This article provides step-by-step guidance on developing Spark applications wri
 
         ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
-    In the next section, you learn how to access the job output using the HDInsight plugin for Eclipse.
+    In the next section, you learn how to access the job output using the HDInsight Tools in Azure Toolkit for Eclipse.
 
 
-## Access and manage HDInsight Spark clusters using the HDInsight plugin for Eclipse
+## Access and manage HDInsight Spark clusters using the HDInsight Tools in Azure Toolkit for Eclipse
 
-You can perform a variety of operations using the HDInsight plugin.
+You can perform a variety of operations using the HDInsight tools.
 
 ### Access the storage container for the cluster
 
@@ -226,12 +214,12 @@ From the **Azure Explorer**, right-click your Spark cluster name and then select
 
 ### Manage Azure subscriptions
 
-By default, the HDInsight plugin lists the Spark clusters from all your Azure subscriptions. If required, you can specify the subscriptions for which you want to access the cluster. From the **Azure Explorer**, right-click the **Azure** root node, and then click **Manage Subscriptions**. From the dialog box, clear the check boxes against the subscription that you do not want to access and then click **Close**. You can also click **Sign Out** if you want to log off from your Azure subscription.
+By default, the HDInsight Tools in Azure Toolkit for Eclipse lists the Spark clusters from all your Azure subscriptions. If required, you can specify the subscriptions for which you want to access the cluster. From the **Azure Explorer**, right-click the **Azure** root node, and then click **Manage Subscriptions**. From the dialog box, clear the check boxes against the subscription that you do not want to access and then click **Close**. You can also click **Sign Out** if you want to log off from your Azure subscription.
 
 
 ## Run a Spark Scala application locally
 
-You can use the HDInsight Tools plugin for Eclipse to run Spark Scala applications locally on your workstation. Typically, such applications do not need access to cluster resources such as storage container and can be run and tested locally.
+You can use the HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala applications locally on your workstation. Typically, such applications do not need access to cluster resources such as storage container and can be run and tested locally.
 
 ### Prerequisite
 
@@ -288,9 +276,9 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 
 ### Tools and extensions
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools in Azure Toolkit for IntelliJ to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
