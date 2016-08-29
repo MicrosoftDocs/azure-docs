@@ -19,9 +19,9 @@
 # About VPN Gateway
 
 
-VPN Gateway is a collection of settings that are used to send network traffic between virtual networks and on-premises locations. VPN Gateway is used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
+VPN Gateway is a collection of resources that are used to send network traffic between virtual networks and on-premises locations. VPN Gateway is used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
 
-Each virtual network can have only one virtual network gateway. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of settings is called "VPN Gateway" regardless of whether a VPN is required for your connection. 
+Each virtual network can have only one virtual network gateway. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of resources is called "VPN Gateway" regardless of whether a VPN is required for your connection. 
 
 For information regarding gateway requirements, see [Gateway Requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements). For estimated aggregate throughput, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). For pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For subscriptions and service limits, see [Networking Limits](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -38,7 +38,7 @@ Use the diagrams and descriptions to help select the configuration topology to m
 
 ### Configuring VPN Gateway settings
 
-Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. Currently, you can't configure every VPN gateway setting in the Azure portal. The instructions in the articles for each configuration specify if a specific tool is needed. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+Because VPN Gateway is a collection of resources, you can configure some of the resources using one tool, and then switch to another to configure different resource settings. Currently, you can't configure every VPN gateway resource setting in the Azure portal. The instructions in the articles for each configuration specify if a specific tool is needed. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 
 
