@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Authentication with Azure Resource Manager API | Microsoft Azure"
-   description="A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with Azure."
+   pageTitle="Active Directory authentication and Resource Manager | Microsoft Azure"
+   description="A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with other Azure subscriptions."
    services="azure-resource-manager,active-directory"
    documentationCenter="na"
    authors="dushyantgill"
@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/26/2016"
+   ms.date="08/29/2016"
    ms.author="dugill;tomfitz" />
 
-
-# Connect your app to customer's Azure subscription
+# How to use Azure Active Directory and Resource Manager to manage a customer’s resources
 
 ## Introduction
 
@@ -106,6 +105,8 @@ The request fails because the user has not logged in yet, but you can retrieve t
 
 Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
+This topic shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](./active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](./active-directory/active-directory-developers-guide.md).
+
 ### Auth request (OAuth 2.0)
 
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
@@ -116,7 +117,7 @@ The query string parameters that are available for this request are described in
 
 The following example shows how to request OAuth2.0 authorization:
 
-    https://login.windows.net/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
+    https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
 Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
@@ -142,7 +143,7 @@ The OAuth2.0 Authorize request query string parameters are:
 
 An example Open ID Connect request is:
 
-     https://login.windows.net/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
+     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
 
 Azure AD authenticates the user, and, if necessary, asks the user to grant permission to the app. It returns the authorization code to the Reply URL of your application. Depending on the requested response_mode, Azure AD either sends back the data in query string or as post data.
 
@@ -150,22 +151,9 @@ An example Open ID Connect response is:
 
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
-### Validate id_token
-
-Before your application signs-in the user it must validate the id_token. Token validation is an involved topic. I recommend that you use a standard JSON Web Token handler library for your development platform (see the [.NET Azure AD JWT Handler source code](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/System.IdentityModel.Tokens.Jwt/JwtSecurityTokenHandler.cs)). That said, security of your application is your responsibility, so make sure that the library that you use to handle the id_token properly validates the following aspects of the token:
-
-- **Timing of the token**: check the nbf and exp claims to ensure that the token isn't too fresh or too stale. It is customary to keep some slack (five minutes) to accommodate time skews.
-- **Issuer**: check the iss claim to ensure the issuer of the token is Azure Active Directory: https://sts.windows.net/{tenant_id_of_the_directory}
-- **Audience**: check the aud claim to ensure that the token has been minted for your application. The value must be the Client ID of your application.
-- **Nonce**: check the nonce claim against the nonce data that you sent in the authorization request. Ensure that the response has been solicited by your application and that the token isn't being replayed.
-- **Signature**: your app must verify that the token has been signed by Azure Active Directory. Azure AD signing keys roll frequently, so your app must either poll for refreshed keys daily or fault-in the refreshed keys if signature validation fails. For more information, see [Important Information About Signing Key Rollover in Azure AD](active-directory/active-directory-signing-key-rollover.md).
-
-Once the **id_token** has been validated, use the oid claim value as the immutable and non-reusable identifier of the user. Use either **unique_name** claim or the upn/email claim as the human readable display name of the user. You may also use the optional given_name/family_name claims for display purpose.
-
 ### Token request (OAuth2.0 Code Grant Flow)
 
-Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request 
-to the Azure AD Token endpoint: 
+Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request to the Azure AD Token endpoint: 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -173,21 +161,20 @@ The query string parameters that are available for this request are described in
 
 The following example shows a request for code grant token with password credential:
 
-    POST https://login.windows.net/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
+    POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 1012
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in 
-[JWT token claims](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
 See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on Client Authentication. 
 
 The following example shows a request for code grant token with certificate credential:
 
-	POST https://login.windows.net/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
+	POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 	
 	Content-Type: application/x-www-form-urlencoded
 	Content-Length: 1012
@@ -210,7 +197,7 @@ The parameters to use with the refresh request are described in [refreshing the 
 
 The following example shows how to use the refresh token:
 
-    POST https://login.windows.net/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
+    POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 1012
@@ -276,7 +263,7 @@ The client credential grant token request data:
 
 An example request for client credential grant token: 
 
-    POST https://login.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/oauth2/token HTTP/1.1
+    POST https://login.microsoftonline.com/62e173e9-301e-423e-bcd4-29121ec1aa24/oauth2/token HTTP/1.1
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 187</pre>
     <pre>grant_type=client_credentials&client_id=a0448380-c346-4f9f-b897-c18733de9394&resource=https%3A%2F%2Fgraph.windows.net%2F &client_secret=olna8C*****Og%3D
