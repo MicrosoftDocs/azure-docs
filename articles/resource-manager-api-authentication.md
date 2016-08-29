@@ -170,7 +170,7 @@ The following example shows a request for code grant token with password credent
 
 When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](./active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
-See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on Client Authentication. 
+See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication. 
 
 The following example shows a request for code grant token with certificate credential:
 
@@ -216,7 +216,7 @@ The [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwa
 
 The following example shows how to request a user's permissions on a subscription. 83cfe939-2402-4581-b761-4f59b0a041e4 is the id of the subscription.
 
-    GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2014-07-01-preview HTTP/1.1
+    GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2015-07-01 HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLC***lwO1mM7Cw6JWtfY2lGc5A
 
@@ -226,11 +226,11 @@ An example of the response to get user's permissions on subscription is:
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-The Permissions API returns multiple permissions. Each permission consists of allowed actions (actions) and disallowed actions (notactions). If an action is present in the allowed actions list of any permission and not present in the notactions list of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the actions and notactions of each permission.
+The permissions API returns multiple permissions. Each permission consists of allowed actions (actions) and disallowed actions (notactions). If an action is present in the allowed actions list of any permission and not present in the notactions list of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the actions and notactions of each permission.
 
 ## Get app-only access token
 
-Now, you know if the user can assign access to the Azure subscription. The next step are:
+Now, you know if the user can assign access to the Azure subscription. The next steps are:
 
 1. Assign the appropriate RBAC role to your application's identity on the subscription.
 2. Validate the access assignment by querying for the Application's permission on the subscription or by accessing Resource Manager using app-only token.
@@ -311,7 +311,7 @@ The [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSens
 
 The following request example shows how to get Azure RBAC role identifier. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is the id of the subscription.
 
-    GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2014-07-01-preview HTTP/1.1
+    GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV*****fY2lGc5
 
@@ -348,7 +348,7 @@ The [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/
 
 An example request to assign RBAC role to application: 
 
-    PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2014-10-01-preview HTTP/1.1
+    PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2015-07-01 HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiL*****FlwO1mM7Cw6JWtfY2lGc5
     Content-Type: application/json
@@ -362,7 +362,7 @@ In the request, the following values are used:
 | ------ | --------- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb | the id of the subscription
 | c3097b31-7309-4c59-b4e3-770f8406bad2 | the object id of the service principal of the application
-| acdd72a7-3385-48ef-bd42-f606fba81ae7 | the well-known guid of the Reader RBAC role
+| acdd72a7-3385-48ef-bd42-f606fba81ae7 | the id of the reader role
 | 4f87261d-2816-465d-8311-70a27558df4c | a new guid created for the new role assignment
 
 The response is in the following format: 
