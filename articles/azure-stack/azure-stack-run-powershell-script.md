@@ -21,58 +21,45 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Prepare the deployment machine
 
-1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
+1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9.
 
-2.  [Download](http://aka.ms/ReqOSforAzureStack) and install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
-3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) or copy the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
 4.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
-	-   DeployAzureStack.ps1: Azure Stack POC installation PowerShell script
+	-   MicrosoftAzureStackP.vhdx: Azure Stack data package
 
-	-   MicrosoftAzureStackPOC.vhdx: Azure Stack data package
+5. Double-click the c:\AzureStack\MicrosoftAzureStack.vhdx file. This will mount the VHDX as two new drive letters. One has the **windows** folder in it. Take note of that drive letter.
 
-	-   SQLServer2014.vhdx: SQL Server VHD
+6. Open a PowerShell window as an administrator and run the bcdboot command below. This command clears any previously leftover TP2 environment and sets the default boot option to the VHD image you just mounted.
 
-	-   WindowsServer2012R2DatacenterEval.vhd
+    if (bcdedit | Select-String -Pattern "AzureStack TP2")
+    {
+        bcdedit /delete '{default}' 
+    } 
+    bcdboot <mounted drive letter>:\windows
+    bcdedit /set {default} description "AzureStack TP2"
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Datacenter VHD (includes KB 3124262)
+7. Reboot the machine. It will automatically run Windows Setup as the system is prepared. After this point, you will need an alternate connection to the HOST other than RDP.
 
-	> [AZURE.IMPORTANT] You must have at least 128GB of free space on the physical boot volume.
+8. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
-5. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
+9. Log in using a local account with administrator permissions.
 
-6. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
-
-7. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
-
-    	bcdboot <mounted drive letter>:\windows
-
-8. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
-
-9. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
-
-10. Log in using a local account with administrator permissions.
-
-11. Verify that **exactly** four drives for Azure Stack POC data:
+10. Verify that **at least** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
-  - Show as Online, Unallocated
+  - Show as Online, RAW
 
-12. Verify that the host is not joined to a domain.
+11. Verify that the host is not joined to a domain.
 
-13. Using Internet Explorer, verify network connectivity to Azure.com.
+12. Using Internet Explorer, verify network connectivity to Azure.com.
 
-> [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
->
-> - **For storage**, use device manager or WMI to disable all other drives (taking the disks offline through disk manager is not enough).
->
-> - **For network**, if you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
->
-> If you used the VHD boot steps defined above, you’ll need to make these updates after booting into the VHD and before starting the deployment script.
+> [AZURE.IMPORTANT] The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
 
 ## Run the PowerShell deployment script
 
