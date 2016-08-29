@@ -324,7 +324,7 @@ To run the script that deploys the solution:
 
 <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
 
