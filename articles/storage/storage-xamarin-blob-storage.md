@@ -34,112 +34,56 @@ This tutorial shows you how to use Azure Blob storage with a Xamarin application
 
 ## Create a new Xamarin Application
 
-For this tutorial, we'll be creating our Xamarin application in Visual Studio. Follow these steps to create the application:
+For this getting started, we'll be creating our Xamarin application in Visual Studio. Follow these steps to create the application:
 
 1. Download and install [Xamarin for Visual Studio](https://www.xamarin.com/download).
 3. Open Visual Studio, and select **File > New > Project > Cross-Platform > Blank App(Native Shared)**.
 4. Right-click your solution in the Solution Explorer pane and select **Manage NuGet Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
 
-You should now have an application that allows you to click a button and increment a counter.
+You should now have an application that allows you to click a button which increments a counter.
 
-## Use the shared access signature to perform container operations
+## Create container and upload blob
 
-Next, add code to perform a series of container operations using the SAS URI that you generated.
+Next, you'll add some code to the shared class `MyClass.cs` that creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
 
-First add the following **using** statements:
-
-	using System.IO;
-	using System.Text;
-	using System.Threading.Tasks;
+	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
+	using System;
 
-
-Next, add a line for your SAS token. Replace the `"SAS_URI"` string with the SAS URI that you generated in Azure PowerShell. Then add a line for a call to the `UseContainerSAS` method that we’ll create below. Note that the **async** keyword has been added before the delegate.
-
-
-	public class MainActivity : Activity
+	namespace XamarinApp
 	{
-    	int count = 1;
-    	string sas = "SAS_URI";
-    	protected override void OnCreate(Bundle bundle)
-    	{
-        	base.OnCreate(bundle);
+		public class MyClass
+		{
+			public MyClass ()
+			{
+			}
 
-        	// Set our view from the "main" layout resource
-        	SetContentView(Resource.Layout.Main);
+		    public static void createContainerAndUpload()
+		    {
+		        // Retrieve storage account from connection string.
+		        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
 
-        	// Get our button from the layout resource, and attach an event to it
-        	Button button = FindViewById<Button>(Resource.Id.MyButton);
+		        // Create the blob client.
+		        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-        	button.Click += async delegate	{
-             	button.Text = string.Format("{0} clicks!", count++);
-             	await UseContainerSAS(sas);
-         	};
-     }
+		        // Retrieve reference to a previously created container.
+		        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-Add a new method, `UseContainerSAS`, under the `OnCreate` method.
+		        // Retrieve reference to a blob named "myblob".
+		        CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-	static async Task UseContainerSAS(string sas)
-	{
-    	//Try performing container operations with the SAS provided.
-
-    	//Return a reference to the container using the SAS URI.
-    	CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
-    	string date = DateTime.Now.ToString();
-    	try
-    	{
-        	//Write operation: write a new blob to the container.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_" + date + ".txt");
-
-        	string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-        	MemoryStream msWrite = new
-        	MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        	msWrite.Position = 0;
-        	using (msWrite)
-         	{
-             	await blob.UploadFromStreamAsync(msWrite);
-         	}
-         	Console.WriteLine("Write operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Write operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
-     	try
-     	{
-        	//Read operation: Get a reference to one of the blobs in the container and read it.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-        	string data = await blob.DownloadTextAsync();
-
-        	Console.WriteLine("Read operation succeeded for SAS " + sas);
-        	Console.WriteLine("Blob contents: " + data);
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Additional error information: " + e.Message);
-       		Console.WriteLine("Read operation failed for SAS " + sas);
-        	Console.WriteLine();
-     	}
-     	Console.WriteLine();
-     	try
-     	{
-        	//Delete operation: Delete a blob in the container.
-         	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-         	await blob.DeleteAsync();
-
-         	Console.WriteLine("Delete operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Delete operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
+		        // Create the "myblob" blob with the text "Hello, world!"
+		        blockBlob.UploadTextAsync("Hello, world!");
+		    }
+		}
 	}
+
+You can then use this shared class in your iOS, Android, and Windows Phone application.
+
+XamarinApp.Droid > MainActivity.cs
+
+
+
 
 ## Run the application
 
