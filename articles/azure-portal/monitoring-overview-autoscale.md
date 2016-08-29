@@ -39,7 +39,7 @@ Autoscaling allows you to have the right amount of resources running to handle t
 
 **Figure 1: Autoscaling concept explained**
 
-Autoscaling only scales "out" and "in", that is, it refers to an increase or decrease in the number of VM instances.  This is more flexible in a cloud situation, giving you access to potentially hundreds of VMs. The other type of scaling goes "up and down". That refers to keeping the same number of VMs, but making the VM more or less powerful (more or less memory, CPU speed, disk space, etc).  This is typically limited by the hardware the VM is running on. 
+Autoscaling only scales "out" and "in", that is, it refers to an increase or decrease in the number of VM instances.  Scale "in/out" is more flexible in a cloud situation, giving you access to potentially hundreds of VMs. The other type of scaling goes "up and down". That refers to keeping the same number of VMs, but making the VM more or less powerful (more or less memory, CPU speed, disk space, etc).  Scale up/down has several limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. It also usually requires a VM stop and start.   
 
 Autoscaling requires you to create rules about when to scale resources out or in. Criteria you can set to control scale actions include 
 
@@ -64,7 +64,7 @@ VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetr
 
  
 ## Time
-Schedule-based rules are based on UTC. You have to set your time zone properly when setting up your rules.  
+Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
 
 ## Autoscale Rules
 The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
