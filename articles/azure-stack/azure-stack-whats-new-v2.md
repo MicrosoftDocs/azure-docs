@@ -30,13 +30,13 @@ Build your apps on the latest application platform with an updated App Service R
    - Web App updates enable new features such as WebJobs and PHP 7 support.
 
 ### IaaS
-Get connected with new network features, enabling connection to other resources and locations.   
+Get connected with new network features, allowing you to connect to other resources more easily:   
    - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure required.
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources, including Azure and other physical locations.
    - User Defined Routes allow you to route network traffic through firewall, security, or other appliances and services.
    - Now you can create network resources from the marketplace.   
 
-Storage is a key capability of IaaS resources, and storage on Azure Stack continues to evolve. 
+New storage capabilities allow you to write apps on your storage and control access: 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging. 
    - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) captures storage performance data and metrics. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
    - Storage service validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK 
@@ -47,9 +47,7 @@ You can now deallocate and capture virtual machines, redeploy virtual machine ex
 
 ## Cloud Administrator
 
-Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.   
-
-You can now capture plan and offer details in Resource Manager templates for redeployment.
+Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.  Additionally, you can capture plan and offers Resource Manager templates.
  
 Introducing Azure Stack Regions - regions are the logical scaling and management element of Azure Stack. In this release, you can view resource consumption of network, storage, and compute by region.
 
