@@ -31,7 +31,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
-	-   MicrosoftAzureStackP.vhdx: Azure Stack data package
+	-   MicrosoftAzureStackP.vhdx: Azure Stack deployment virtual machine image
 
 5. Double-click the c:\AzureStack\MicrosoftAzureStack.vhdx file. This will mount the VHDX as two new drive letters. One has the **windows** folder in it. Take note of that drive letter.
 
@@ -53,7 +53,7 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 10. Verify that **at least** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
-  - Show as Online, RAW
+  - Have no partitions
 
 11. Verify that the host is not joined to a domain.
 
@@ -63,39 +63,50 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 
 ## Run the PowerShell deployment script
 
-1.  Open PowerShell as an administrator.
+1. Open PowerShell as an administrator.
 
-2.  In PowerShell, go to the Azure Stack folder location (\\Microsoft Azure Stack POC\\ if you used the default).
+2. In PowerShell, go to the Azure Stack folder location (\\Microsoft Azure Stack POC\\ if you used the default).
 
-3.  Run the deploy command:
+3. Run the deploy command:
 
-    	.\DeployAzureStack.ps1 –Verbose
+    	.\InstallAzureStack.ps1 –Verbose
 
-    In China, use the following command instead:
+4. At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record it.
 
-    	.\DeployAzureStack.ps1 –Verbose -UseAADChina $true
+5. At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
 
-    Deployment starts and the Azure Stack POC domain name is hardcoded as azurestack.local.
+6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 
-4.  At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record this Service Admin password.
-
-5.  At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
-
-6.  Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant
-
-7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure Stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
-
-8.  At the **Microsoft Azure Stack POC is ready to deploy. Continue?** prompt, enter *y*.
-
-9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
-
-10. On the Azure Stack POC machine, sign in as an AzureStack\administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
-
-If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
+7. The deployment process will take a few hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as the domain administrator (for the azurestack\AzureStackAdmin).
 
 If the script fails, restart the script. If it continues to fail, wipe and restart.
 
-You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestack`.
+You can collect all the deployment related logs on the POC environment by invoking this PowerShell script: TBD.
+
+### Deployment script examples
+
+If your AAD Identity is only associated with ONE AAD Directory:
+
+    cd C:\CloudDeployment\Configuration
+    $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
+    $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
+    $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT>", $aadpass)
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred 
+
+If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
+
+    cd C:\CloudDeployment\Configuration
+    $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
+    $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
+    $aadcred = New-Object System.Management.Automation.PSCredential "<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred -AADDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+
+If your environment DOES NOT have DHCP enabled, you will need to include the following ADDITIONAL parameters to one of the options above (example usage provided):
+
+    -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
+
+> [AZURE.NOTE] Append this to one of the .\InstallAzureStackPOC.ps1 calls above (depending on your situation).
+
 
 ### DeployAzureStack.ps1 optional parameters
 
