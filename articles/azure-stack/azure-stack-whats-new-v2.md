@@ -37,8 +37,8 @@ Get connected with new network features:
    - Now you can create network resources from the marketplace.   
 
 New storage capabilities storage and control access: 
-   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging. 
-   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) captures storage performance data and metrics. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
+   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging
+   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) capture storage performance data. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
    - Storage service validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK 
    - [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
    - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead
