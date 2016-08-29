@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Clone a classic Virtual Machine to Azure Resource Manager using PowerShell Scripts"
-	description="This article shows you how to clone a single classic Virtual Machine to Azure Resource Manager using PowerShell scripts"
+	pageTitle="Community tools for Azure Service Management to Azure Resource Manager migration"
+	description="This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
@@ -22,6 +22,8 @@
 This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
 
 >[AZURE.NOTE]These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the Github issues feature.
+
+<br>
 
 >[AZURE.IMPORTANT] Migrating with these scripts will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
 - [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-classic-resource-manager.md)
