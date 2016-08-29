@@ -73,9 +73,9 @@ In order to add an OMS connection, your Configuration Manager environment must h
 1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add OMS Connection Wizard**. Select **Next**.
 
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
-  1. In the Azure Management Portal, registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/active-directory-integrating-applications.md).
-  2. In the Azure Management Portal, created an app secret key for the registered app in Azure Active Directory.  
-  3. In the Azure Management Portal, provided the registered web app with permission to access OMS.  
+  1. In the Azure Management Portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/active-directory-integrating-applications.md).
+  2. In the Azure Management Portal, you've created an app secret key for the registered app in Azure Active Directory.  
+  3. In the Azure Management Portal, you've provided the registered web app with permission to access OMS.  
   ![Connection to OMS Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)
 
 3. On the **Azure Active Directory** screen, configure your connection settings to OMS by providing your **Tenant** , **Client ID** , and **Client Secret Key** , then select **Next**.  
