@@ -31,11 +31,11 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 
 When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
 
-    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 Then fill out the properties for the Data Lake Store output as seen below:
 
-    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 The table below lists the property names and their description needed for creating a Data Lake Store output.
 
@@ -88,7 +88,7 @@ The table below lists the property names and their description needed for creati
 
 You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
 
-    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 
 ## SQL Database
