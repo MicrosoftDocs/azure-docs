@@ -44,7 +44,7 @@ Following is a representation of high-level data flow and summary of steps for c
 3. Data Management Gateway encrypts the credentials with the certificate associated with the gateway (supplied by the data developer) before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling and management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be initiated, Data Factory queues the request along with credential information. Data Management Gateway starts the job after polling the queue.
 5.	The gateway decrypts the credentials with the same certificate. It then connects to the on-premises data store with the proper authentication type and credentials.
-6.	The gateway copies data from the on-premises store to cloud storage, or from cloud storage to an on-premises data store, depending on how Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage service (for example, Azure Blob storage or Azure SQL) over a secure (HTTPS) channel.
+6.	The gateway copies data from the on-premises store to cloud storage, or from cloud storage to an on-premises data store, depending on how Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage service (for example, Azure Blob storage or Azure SQL Database) over a secure (HTTPS) channel.
 
 ### Considerations for using Data Management Gateway
 - A single instance of Data Management Gateway can be used for multiple on-premises data sources, but a single gateway instance is tied to only one Azure data factory and cannot be shared with another data factory.
@@ -52,7 +52,7 @@ Following is a representation of high-level data flow and summary of steps for c
 - The gateway does not need to be on the same machine as the data source, but staying closer to the data source reduces the time the gateway needs to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts the on-premises data source so that the gateway does not compete for resources with the data source.
 - You can have multiple gateways on different machines connecting to the same on-premises data source. For example, you may have two gateways serving two data factories, but the same on-premises data source is registered with both the data factories.
 - If you already have a gateway installed on your computer serving a Microsoft Power BI scenario, install a separate gateway for Azure Data Factory on another machine.
-- You must use the gateway even when you use Microsoft Azure ExpressRoute.
+- You must use the gateway even when you use Azure ExpressRoute.
 - You should treat your data source as an on-premises data source (behind a firewall) even when you use ExpressRoute and use the gateway to establish connectivity between the service and the data source.
 - You must use the gateway even if the data store is in the cloud on an Azure IaaS virtual machine.
 
@@ -101,7 +101,7 @@ If you have already created the logical gateway in the Azure portal, the followi
 
 2. On the **Linked services** blade, select the logical **gateway** you created in the Azure portal.
 
-	![logical gateway](media/data-factory-data-management-gateway/data-factory-select-gateway.png)  
+	![Logical gateway](media/data-factory-data-management-gateway/data-factory-select-gateway.png)  
 2. On the **Data Gateway** blade, click **Download and install data gateway**.
 
 	![Download link in the portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)   
@@ -122,7 +122,7 @@ If you move the cursor over the notification area icon or notification message, 
 ### Ports and firewalls
 There are two firewalls: a *corporate firewall* running on the central router of the organization, and the *Windows firewall* configured as a daemon on the local machine where the gateway is installed.  
 
-![firewalls](./media/data-factory-data-management-gateway/firewalls.png)
+![Firewalls](./media/data-factory-data-management-gateway/firewalls.png)
 
 At the corporate firewall level, you need to configure the following domains and outbound ports:
 
@@ -196,7 +196,7 @@ The **Home** tab of Data Management Gateway Configuration Manager displays the u
 
 You can install the update right away or wait for the gateway to be automatically updated at the scheduled time. The following screenshot shows you the notification message shown in Data Management Gateway Configuration Manager, along with the **Update** button that you click to install it immediately.
 
-![Update in DMG Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+![Update in Data Management Gateway configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
 
 The notification message in the notification area looks like the following:
 
@@ -325,7 +325,7 @@ This section provides steps for moving a gateway client between machines.
 9. Click **Register** to register the gateway with the cloud service.
 10. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the password, and click **Finish**.
 
-	![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+	![Specify certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
 	You can export a certificate from the old gateway by doing the following: open Data Management Gateway Configuration Manager on the old machine, select the **Certificate** tab, click **Export**, and follow the instructions.
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the home page of Data Management Gateway Configuration Manager.
