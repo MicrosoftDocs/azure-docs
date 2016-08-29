@@ -67,7 +67,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
-7. Click **Summary** to review your choices. When you're done, click **OK**.
+7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
 
 	![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
