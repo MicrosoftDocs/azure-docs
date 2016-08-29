@@ -43,9 +43,9 @@ Autoscaling only scales "out" and "in", that is, it refers to an increase or dec
 
 Autoscaling requires you to create rules about when to scale resources out or in. Criteria you can set to control scale actions include 
 
-* **minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs.
-* The **rule or condition** for autoscaling. It can be a metric or schedule based scaling. 
-* **cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against something called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing, so it's worse than just leaving the VM running.    
+* **Minimum** and **maximum** number of instances to run. A minimum to make sure your application is always running and a maximum to control your costs.
+* **Rule or condition** for autoscaling. It can be a metric or schedule based scaling. 
+* **Cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against a state called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing, so it's worse than just leaving the VM running.    
 
    
 The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx)
@@ -88,7 +88,7 @@ Autoscaling rules have the following structure in an Azure Resource Manager temp
 
 ![Azure Resource Manager Autoscale Rule Structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure2.png)
 
-You can list multiple profiles.  Each profile can have multiple rules. After all your profiles Afterwards the various methods of notification are listed
+You can list multiple profiles.  Each profile can have multiple rules. Notification methods and locations (for example, a webhook and the URI or emails and the email addresses) are included after your profiles.  
 
 For code examples, see
 
