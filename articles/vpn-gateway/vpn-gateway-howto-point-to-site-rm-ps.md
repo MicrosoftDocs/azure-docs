@@ -215,7 +215,9 @@ You can install a client certificate directly on a computer by double-clicking t
 
 ## To add or remove a trusted root certificate
 
-Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents. You can do this in either PowerShell, or in the Azure portal. The steps below walk you through these tasks using PowerShell. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**.
+Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps walk you through adding and removing root certificates. When you add a Base64-encoded X.509 (.cer) file to Azure, you are telling Azure to trust the root certificate that the file represents. 
+
+You can add or remove trusted root certificates by using PowerShell, or in the Azure portal. If you want to do this using the Azure portal, go to your **virtual network gateway > settings > Point-to-site configuration > Root certificates**. The steps below walk you through these tasks using PowerShell. 
 
 ### Add a trusted root certificate
 
