@@ -24,7 +24,7 @@ This article answers some of the most common questions about DevTest Labs.
 If your question isn't listed here, let us know and we'll help you find an answer.
 
 - Post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
-- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs), and engage with the Azure DevTest Labs team and other members of the community.
+- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs), and engage with the Azure DevTest Labs team and other members of the community.
 - To make a feature request, submit your requests and ideas to the [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ## Get started
