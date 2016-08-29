@@ -63,7 +63,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-6. On the **Settings** blade, you can change the storage and networking options. For a first virtual machine, you can generally accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
+6. On the **Settings** blade, you can change the storage and networking options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
 
 	![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
@@ -184,3 +184,5 @@ Just click the **Start** button to restart the VM when you are ready to use it a
 * You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
 
 * You can also [create a Windows VM using Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
+
+* To begin automating deployments, take a look at (Creating a Windows virtual machine using a Resource Manager template)[virtual-machines-windows-ps-template.md]
