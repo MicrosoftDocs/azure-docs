@@ -34,17 +34,31 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 
 2. After installation, you can find the makecert.exe utility under this path: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
 		
-	Example: C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
+	Example: C:\Program Files (x86)\Windows Kits\10\bin\x64
 
-3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator. Replace  *ARMP2SRootCert* and *ARMP2SRootCert.cer* with the name that you want to use for the certificate.<br><br>If you run the following example with no changes, the result is a certificate and the corresponding file *ARMP2SRootCert.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
+3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator. Replace  *ARMP2SRootCert* and *ARMP2SRootCert.cer* with the name that you want to use for the certificate.<br><br>The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
     	makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
-4. The self-signed certificate is used to create client certificates. When you upload the .cer file for the self-signed certificate as part of the P2S configuration, you are telling Azure to trust the certificates that client computers are using.
 
+### To obtain the public key
+
+1. To obtain a .cer file from the certificate, open **certmgr.msc**. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
+
+2. In the Wizard, click **Next**, select **No, do not export the private key**, and then click **Next**.
+
+3. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).** Then, click **Next**. 
+
+4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
+
+5. Click **Finish** to export the certificate.
+
+ 
 ### Export the self-signed certificate (optional)
 
 You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
+
+To export the self-signed certificate as a .pfx, use the preceeding steps, selecting "Yes, export the private key".
 
 ## Create and install client certificates
 
