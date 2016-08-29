@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -72,10 +72,9 @@ The following operators can be used:
 - **Logical**: && (and), || (or)
 - **Evaluation order**: ( )
 
-Operators are evaluated left to right and have the same evaluation priority. That is, the \* (multiplier) is not evaluated before - (subtraction). 2\*(5+3) is not the same as 2\*5+3. The brackets ( ) are used to change the evaluation order when a left to right evaluation order isn't appropriate.
+Operators are evaluated left to right and have the same evaluation priority. That is, the \* (multiplier) is not evaluated before - (subtraction). 2\*(5+3) is not the same as 2\*5+3. The brackets ( ) are used to change the evaluation order when left to right evaluation order isn't appropriate.
 
 ## Multi-valued attributes
-
 The functions can operate on both single-valued and multi-valued attributes. For multi-valued attributes, the function operates over every value and applies the same function to every value.
 
 For example:  

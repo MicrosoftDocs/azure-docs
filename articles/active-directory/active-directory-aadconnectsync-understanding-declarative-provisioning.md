@@ -25,13 +25,13 @@ Declarative provisioning is processing objects coming in from a source connected
 
 ![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
 
-The pipeline has several different modules, each one is responsible for one concept in object synchronization.
+The pipeline has several different modules. Each one is responsible for one concept in object synchronization.
 
 ![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
 - Source, The source object
 - [Scope](#scope), Finds all sync rules that are in scope
-- [Join](#join), Determines relationship between connector space and meteverse
+- [Join](#join), Determines relationship between connector space and metaverse
 - [Transform](#transform), Calculates how attributes should be transformed and flow
 - [Precedence](#precedence), Resolves conflicting attribute contributions
 - Target, The target object
@@ -139,7 +139,7 @@ This ordering can be used to define more precise attribute flows for a small sub
 Precedence can be defined between Connectors. That allows Connectors with better data to contribute values first.
 
 ### Multiple objects from the same connector space
-If you have several objects in the same connector space joined to the same metaverse object, precedence must be adjusted. If several objects are in scope of the same sync rule, then the sync engine is not able to determine precedence. It is ambiguous which source object should contribute the value to the metaverse. This is reported as ambiguous even if the attributes in the source have the same value.  
+If you have several objects in the same connector space joined to the same metaverse object, precedence must be adjusted. If several objects are in scope of the same sync rule, then the sync engine is not able to determine precedence. It is ambiguous which source object should contribute the value to the metaverse. This configuration is reported as ambiguous even if the attributes in the source have the same value.  
 ![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple1.png)  
 
 For this scenario, you need to change the scope of the sync rules so the source objects have different sync rules in scope. That allows you to define different precedence.  
