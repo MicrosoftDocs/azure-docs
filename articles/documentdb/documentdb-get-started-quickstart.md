@@ -592,15 +592,6 @@ You should see the output of your get started app. The output will show the resu
 
 Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
 
-##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
-To build the GetStarted solution that contains all the samples in this article, you will need the following:
-
-- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
--   A [DocumentDB account][documentdb-create-account].
--   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
-
-To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).
-
 ## Next steps
 
 - Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
@@ -611,5 +602,5 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
