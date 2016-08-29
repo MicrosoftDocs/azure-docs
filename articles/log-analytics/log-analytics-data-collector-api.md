@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/29/2016"
 	ms.author="bwren"/>
 
 
@@ -293,10 +293,10 @@ namespace OIAPIExample
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
 //#Update customerId to your Operational Insights workspace ID
-        static string customerId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+        static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-//For shared key use either primary or seconday Connected Sources client authentication key   
-        static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+//For shared key use either primary or secondary Connected Sources client authentication key   
+        static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         
 //LogName is name of the event type that is being submitted to Operational Insights
         static string LogName = "DemoExample";
@@ -342,21 +342,6 @@ namespace OIAPIExample
                 client.UploadString(new Uri(url), "POST", json);
             }
         }
-    }
-}
-
-
-public void PostData(string signature, string date, string json){
-
-    string url = "https://<workspaceid>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
-
-    using (var client = new WebClient())
-    {
-        client.Headers.Add(HttpRequestHeader.ContentType, "application/json");
-        client.Headers.Add("Log-Type", "TestLFALogs");
-        client.Headers.Add("Authorization", signature);
-        client.Headers.Add("x-ms-date", date);
-        client.UploadString(new Uri(url), "POST", json);
     }
 }
 ```
