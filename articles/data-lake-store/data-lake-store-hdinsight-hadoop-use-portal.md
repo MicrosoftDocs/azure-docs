@@ -113,7 +113,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 	The status column displays the progress. Once all the permissions are successfully assigned, click **Done**. 
 
-6. Click **Select** on the **Cluster AAD Identity** and **Data Source** blades and then continue with cluster creations as described at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal).
+6. Click **Select** on the **Cluster AAD Identity** and **Data Source** blades and then continue with cluster creations as described at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 7. Once the cluster is provisioned, you can verify that the Service Principal is associated with the HDInsight cluster. To do so, from the cluster blade, click **Settings**, click **Cluster AAD Identity**, and you should see the associated Service Principal.
 
