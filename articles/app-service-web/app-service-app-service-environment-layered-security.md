@@ -91,7 +91,7 @@ With the NSG applied to the subnet, only the three upstream App Service Environm
 ## Additional Links and Information ##
 All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Information about [network security groups](../virtual-network/virtual-networks-nsg.md/). 
+Information about [network security groups](../virtual-network/virtual-networks-nsg.md). 
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.
 
