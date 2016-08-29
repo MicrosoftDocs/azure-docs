@@ -185,4 +185,4 @@ Just click the **Start** button to restart the VM when you are ready to use it a
 
 * You can also [create a Windows VM using Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
 
-* To begin automating deployments, take a look at (Creating a Windows virtual machine using a Resource Manager template)[virtual-machines-windows-ps-template.md]
+* If you are interested in automating deployments, take a look at [Creating a Windows virtual machine using a Resource Manager template](virtual-machines-windows-ps-template.md).
