@@ -19,11 +19,11 @@
     
 #High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager
 
-[AD FS deployment in Azure](.\active-directory-aadconnect-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
+[AD FS deployment in Azure](.\active-directory-aadconnect-azure-adfs.md) provides step-by-step guideline as to how you can deploy a simple AD FS infrastructure for your organization in Azure. This article provides the next steps to create a cross-geographic deployment of AD FS in Azure using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager helps create a geographically spread high availability and high-performance AD FS infrastructure for your organization by making use of range of routing methods available to suit different needs from the infrastructure.
 
 A highly available cross-geographic AD FS infrastructure enables:
 
-* **Elimination of single point of failure:** With failover capabilities of Azure Traffic Manager, you can achieve a highly available AD FS infrastructure even when one of the data center in a part of the globe goes down
+* **Elimination of single point of failure:** With failover capabilities of Azure Traffic Manager, you can achieve a highly available AD FS infrastructure even when one of the data centers in a part of the globe goes down
 * **Improved performance:** You can use the suggested deployment in this article to provide a high-performance AD FS infrastructure that can help users authenticate faster. 
 
 ##Design principles
@@ -60,7 +60,7 @@ Follow the steps below to create a traffic manager profile. For more information
     * Priority 
     * Performance
     * Weighted
-   Choose the routing method best suited for your deployment needs . The AD FS functionality is not impacted by the routing option selected. See reference [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
+   Choose the routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See reference [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
    
 3.	**Configure endpoints: **In the traffic manager page, click on endpoints and select Add. This will open an Add endpoint page similar to the screenshot below
  
@@ -86,9 +86,9 @@ Follow the steps below to create a traffic manager profile. For more information
 
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-##Test the routing and AD FS sign in   
+##Test the routing and AD FS sign-in   
 ###Routing test
-A very basic test for the routing would be to try ping the federation service DNS name from a machine in in each geographic region. Depending on the routing method chosen, the endpoint it actually will ping will be reflected in the ping display. For example, if you selected the performance routing, then the endpoint nearest to the region of the client will be reached. Below is the snapshot of two pings from two different region client machines, one in EastAsia region and one in West US. 
+A very basic test for the routing would be to try ping the federation service DNS name from a machine in each geographic region. Depending on the routing method chosen, the endpoint it actually pings will be reflected in the ping display. For example, if you selected the performance routing, then the endpoint nearest to the region of the client will be reached. Below is the snapshot of two pings from two different region client machines, one in EastAsia region and one in West US. 
 
 ![Routing test](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
