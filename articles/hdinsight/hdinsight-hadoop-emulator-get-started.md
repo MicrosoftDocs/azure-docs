@@ -32,11 +32,17 @@ Once you are familiar with Hadoop, you can start using Hadoop on Azure by creati
 
 1. From [http://hortonworks.com/downloads/#sandbox](http://hortonworks.com/downloads/#sandbox), select the __DOWNLOAD FOR VIRTUALBOX__ item for HDP 2.4 on Hortonworks Sandbox. You will be prompted to register with Hortonworks before the download begins.
 
+    ![Link image for download Hortonworks Sandbox for VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
+
 2. From the same web page, select the __VirtualBox Install Guide__ for HDP 2.4 on Hortonworks Sandbox. This will download a PDF containing installation instructions for the virtual machine.
+
+    ![View the install guide](./media/hdinsight-hadoop-emulator-get-started/view-install-guide.png)
 
 ## Start the virtual machine
 
 1. Start VirtualBox, select the Hortonworks Sandbox, select __Start__, and then __Normal Start__.
+
+    ![Normal start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 
 2. Once the virtual machine has finished the boot process, it will display login instructions. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
@@ -44,7 +50,7 @@ Once you are familiar with Hadoop, you can start using Hadoop on Azure by creati
 
 1. From the __get started__ step of the Hortonworks Sandbox page, select __View Advanced Options__. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
 
-    If you do not have an SSH client installed, you can use the web-based SSH provided at http://localhost:4200.
+    > [AZURE.NOTE] If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at __http://localhost:4200/__.
 
     The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
 
