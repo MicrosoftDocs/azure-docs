@@ -13,16 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/29/2016"
 	ms.author="andkjell"/>
 
 
 # Azure AD Connect sync: Understanding Declarative Provisioning
-This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things in this topic are advanced and not required for most customer scenarios.
-
+This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
 
 ## Overview
 Declarative provisioning is processing objects coming in from a source connected directory and determines how the object and attributes should be transformed from a source to a target. An object is processed in a sync pipeline and the pipeline is the same for inbound and outbound rules. An inbound rule is from a connector space to the metaverse and an outbound rule is from the metaverse to a connector space.
+
+![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
+
+The pipeline has several different modules, each one is responsible for one concept in object synchronization.
 
 ![Sync pipeline](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
@@ -66,7 +69,7 @@ Joins are used mostly on inbound rules to join connector space objects together 
 
 The joins are defined as one or more groups. Inside a group, you have clauses. A logical AND is used between all clauses in a group. A logical OR is used between groups. The groups are processed in order from top to bottom. When one group has found exactly one match with an object in the target, then no other join rules are evaluated. If zero or more than one object is found, processing continues to the next group of rules. For this reason, the rules should be created in the order of most explicit first and more fuzzy at the end.  
 ![Join definition](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join2.png)  
-The joins in this picture are processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, processing continues with a more fuzzy match by using the name of user. If that is not a match either, the third and final rule sees if the account name can be used to join the objects together.
+The joins in this picture are processed from top to bottom. First the sync pipeline sees if there is a match on employeeID. If not, the second rule sees if the account name can be used to join the objects together. If that is not a match either, the third and final rule is a more fuzzy match by using the name of user.
 
 If all join rules have been evaluated and there is not exactly one match, the **Link Type** on the **Description** page is used. If this option is set to **Provision**, then a new object in the target is created.  
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join3.png)  
@@ -83,7 +86,7 @@ A metaverse object remains as long as there is one sync rule in scope with **Lin
 When a metaverse object is deleted, all objects associated with an outbound sync rule marked for **provision** are marked for a delete.
 
 ## Transformations
-The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, and Expression. A direct flow, flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
+The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, or Expression. A direct flow, flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
 
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
 
@@ -135,10 +138,17 @@ This ordering can be used to define more precise attribute flows for a small sub
 
 Precedence can be defined between Connectors. That allows Connectors with better data to contribute values first.
 
+### Multiple objects from the same connector space
+If you have several objects in the same connector space joined to the same metaverse object, precedence must be adjusted. If several objects are in scope of the same sync rule, then the sync engine is not able to determine precedence. It is ambiguous which source object should contribute the value to the metaverse. This is reported as ambiguous even if the attributes in the source have the same value.  
+![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple1.png)  
+
+For this scenario, you need to change the scope of the sync rules so the source objects have different sync rules in scope. That allows you to define different precedence.  
+![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
+
 ## Additional Resources
 
-[Azure AD Connect sync: How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md)
-[Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-[Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+- [Azure AD Connect sync: How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md)
+- [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
