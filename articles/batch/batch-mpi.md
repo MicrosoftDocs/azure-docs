@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/26/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
@@ -140,9 +140,9 @@ For MS-MPI applications, use the application command to execute your MPI-enabled
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
->[AZURE.NOTE]: Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)) the example application command line above excludes it.
+>[AZURE.NOTE] Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)) the example application command line above excludes it.
 
-### Environment variables
+## Environment variables
 
 These environment variables are available on the compute node to applications and scripts executed by the primary task's application command:
 
